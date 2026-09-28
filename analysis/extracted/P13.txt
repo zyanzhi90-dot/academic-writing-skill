@@ -1,0 +1,526 @@
+=== PDF PAGE 1 ===
+          2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)
+          September 27 - October 1, 2021. Prague, Czech Republic
+
+
+         Learning compliant grasping and manipulation by teleoperation
+                           with adaptive force control
+
+                              Chao Zeng1†, Shuang Li1†, Yiming Jiang2, Qiang Li3,
+                            Zhaopeng Chen1∗, Chenguang Yang4, and Jianwei Zhang1
+
+
+                                                                                               Image                   Force
+            Abstract— In this work, we focus on improving the robot’s                                                                           Human    input  Learning-control command   Robot           dexterous capability by exploiting visual sensing and adaptive                                                                                     hand pose           approach             hand pose
+            force control. TeachNet, a vision-based teleoperation learning
+          framework, is exploited to map human hand postures to a multi-
+          ﬁngered robot hand. We augment TeachNet, which is originally
+                                                                                                         Depth Image10.1109/IROS51168.2021.9636832        based on an imprecise kinematic mapping and position-only
+                                                                                                                                         Joint           Force          Joint force            servoing, with a biomimetic learning-based compliance control             TeachNet                                                                                                                     angles          predictor         controllerDOI:|        algorithm for dexterous manipulation tasks. This compliance
+            controller takes the mapped robotic joint angles from TeachNet
+IEEE         as the desired goal, computes the desired joint torques. It is
+           derived from a computational model of the biomimetic control                                                          Joint position     Previous
+                                                                                                                                                                   controller      work            strategy in human motor learning, which allows adapting the©2021           control variables (impedance and feedforward force) online
+          during the execution of the reference joint angle trajectories.
+                                                                             Fig. 1: The pipeline of the proposed learning-control approach.
+         The simultaneous adaptation of the impedance and feedforward
+                                                                 The human demonstrator guides the robot hand to complete a task
+           proﬁles enables the robot to interact with the environment
+                                                                            through the vision-based teleoperation. A camera is used to track
+            in a compliant manner. Our approach has been veriﬁed in
+                                                                                   the hand pose during the demonstration. The TeachNet model is
+           multiple tasks in physics simulation,  i.e., grasping, opening-
+                                                                          used to map the human hand pose to the robot hand joint angles.
+            a-door, turning-a-cap, and touching-a-mouse, and has shown
+                                                                           Unlike our previous work which sends position commands to the
+         more reliable performances than the existing position control
+                                                                                robot hand directly, this work develops a force predictor to generate
+         and the ﬁxed-gain-based force control approaches.
+                                                                                   the desired force commands to control the robot hand in an online978-1-6654-1714-3/21/$31.00                                                                        manner.
+
+|                                         I. INTRODUCTION
+
+                  It  is a major goal in robotic manipulation research to(IROS)
+         augment robots with human-like dexterous and compliant   endow a robot with human-like skills, one promising solution
+          behaviour for many tasks in everyday life. In recent years    is therefore to develop adaptive control strategies that allowSystems       numerous attempts have been published towards this goal,    the robot to compliantly deal with physical and dynamical
+and        but some issues are still not fully addressed yet, especially    interactions with the environment.
+Robots         for[1], grasping[2], [3].andMostmanipulationof the state-of-the-artwith a multi-ﬁngerworks robotin robotichand   robotTeleoperationto imitate manipulationis consideredbehavioursas an efﬁcientfrom humans.way for Re-the
+          grasping mainly focused on object recognition or grasping    cently, markerless vision-based teleoperation offers several
+          motion planning (see,  e.g., [4], [5], [6]), and the robotic   advantages for multi-ﬁnger robots such as a low cost andIntelligent       hand was controlled in a binary way–closing ﬁngers to grasp   no obstructions due to measurement devices. In a typical
+on        the object. The task dynamics during the grasping process    teleoperation system, the human demonstrator’s behaviours
+         were often neglected. This kind of control strategy is not    are captured through a motion tracking device and then
+            suitable for a complex task in which a ﬁne-tuned grasp   mapped into the robot’s motion policies in the CartesianConference        posture and compliance ﬁngers motions are needed. Yet, we   space or joint space. In this case, the robot  is often re-
+         humans can spontaneously adapt our hand pose and force   quired to be controlled under the position control mode.
+            to interact with environments in a compliant manner during   As a matter of  fact,  several  studies have revealed  that
+           daily manipulation tasks. Consequently, if we would like to    force control strategies could obtain good performances forInternational
+                                                                        robot compliant manipulation (see, e.g., [7], [8]). Thus,  it
+               This work was supported jointly by the German Research Foundation    is reasonable to integrate an adaptive force control strategy
+           (DFG) and the National Science Foundation of China (NSFC) in project
+        DEXMAN under grant No.410916101, and the project in Cross Modal    into a vision-based teleoperation system such that we canIEEE/RSJ
+            Learning TRR-169.                                              bring their advantages together for the manipulation of the
+          1TAMS group (Technical Aspects of Multimodal Systems), Departmen-2021                                                                   multi-ﬁngered robotic hand.
+                    t of Informatics, Universitat Hamburg, Germany. 2National Engineering
+             Laboratory for Robot Visual Perception and Control, Hunan University,      In  this work, we propose a learning-control approach
+             China. 3Center for Cognitive Interaction Technology, Bielefeld University,   combining a vision-based teleoperation system with adaptive
+            Germany. 4Bristol Robotics Laboratory, University of the West of England,                                                                          force control, allowing us to take an image as the input and
+          UK.
+                † The ﬁrst two authors contributed equally to this work.                output the desired force commands for the robot hand. The
+              ∗Corresponding author,  Email: zhaopeng.chen@uni-hamburg.de         pipeline of the proposed approach is shown in Fig. 1. For
+
+
+           978-1-6654-1714-3/21/$31.00 ©2021 IEEE                     717
+
+  Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+         the learning part, we employ the end-to-end model TeachNet    interaction tasks (see,  e.g., [17]). However, so far  it has
+        developed in the previous work [9] to learn the mapping   not been fully investigated yet to control multiﬁngered robot
+          relation between the human hand pose and the joint angles   hands for grasping and manipulation tasks. Recent studies
+         of the Shadow robot hand. At runtime, a camera is used to    illustrate that force control strategies increase the grasping
+          collect a depth image of the hand, and the TeachNet estimates    stability and robustness [18], [19], and achieve a good grasp
+         the desired robot joint angles based on the image. To deal    stability [20] and in-hand manipulation [21] with haptic
+        with task dynamics during hand grasping and manipulation,    exploration of multi-ﬁnger robotic hand.
+      we develop an adaptive force control strategy which can      In [22], an object-level impedance controller has been de-
+         predict the next-step desired control force command based   veloped and shown the effectiveness and robustness for robot
+       on the desired  joint angles and the robot current  states.    grasping. Li et al. improved the controller by decomposing
+       Our force controller is derived from the computation model    the impedance into two parts: one for stable grasping and an-
+         inspired by the human motor learning principles. The control    other for manipulation. Furthermore, the desired impedance
+         variables in the controller, i.e., impedance and feedforward    is estimated using supervised learning based on the data
+        terms are simultaneously adapted online and combined to    collected from the human demonstration in advance [23].
+         generate the force/torque commands which are subsequently   Pfanne et al. proposed an object-level impedance controller
+         sent  to the robot hand  in the  joint space. We need  to   based on in-hand localization, which improved the ability to
+        mention that the proposed controller does not exploit tactile   avoid contact slippage through adjusting the desired grasp
+         feedback, but is a biomimetic-inspired open-loop compliance   conﬁgurations [24]. Garate et al. proposed to regulate the
+        method. Even so, the physics simulation experiments show    control of the grasping impedance (stiffness) by regulating
+          that the grasp stability with proposed approach is better than   both the robot hand pose and the ﬁnger joint stiffness. By
+         the existing position control and the ﬁxed-gain-based force   adaptating the magnitude and the geometry of the grasp
+         control approaches.                                                   stiffness, the desired stiffness proﬁle could be achieved to
+                                                                     adapt the hand conﬁguration for stable grasping [25].                                   II. RELATED WORK
+                                                                 However, these force controllers may not be suitable for         A. Markerless vision-based teleoperation
+                                                                   our use in a vision-based teleoperation system, where the
+           Vision-based teleoperation systems have been widely used                                                                            controller needs to dynamically and quickly respond to the
+          for robots learning skills from human demonstrations [1],                                                                 changes of the human hand pose to predict the desired force
+          [10], [11]. Typically, a human demonstrator and a robot                                                          commands. Consequently, the contribution of this work is to
+         together constitute a human-in-the-loop leader-follower sys-                                                                      explore the regulation of the impedance (stiffness) and the
+         tem, in which a motion-tracking device (such as LeapMotion                                                                   feedforward term online during the process of robot grasping
+        and Kinect) is usually utilized to capture the human demon-                                                                       or manipulation, which cannot be learned in advance or
+          strator’s movements. Then, the demonstrated motion is fur-                                                                   through exploration.
+          ther mapped to the robot’s workspace to enable the imitation
+         of the human behaviours. Compared with wearable device-
+        based teleoperation techniques (such as a data glove or a
+        marker-based tracking system) [12], [13], [14], markerless   C. Biomimetic compliant control for robot manipulation
+         vision-based approaches allow for natural and unrestricted
+         demonstrations due to non-invasiveness.                          Recently, the biomimetic control strategy inspired by the
+       A core issue in this teleoperation system is how to map the   ﬁndings of human motor learning in the muscle space has
+       human hand pose to the robot hand pose. Since deep learning   been developed and proved  to be an  effective way  for
+       (DL) techniques  offer the advantages of learning highly   robot compliant manipulation [26]. It has been discovered
+         non-linear relations, several DL-based hand pose estimation    in neuroscience that humans can simultaneously adapt the
+        methods have been proposed recently. In [15], [16], the   arm impedance and feedforward force to minimize motion
+         authors proposed to track keypoints of the human hand, then    error and interaction force with external environments, under
+        use retargeting methods (e.g., inverse kinematics) to control   a certain set of constraints [27]. Based on this principle, a
+         the robot. Nevertheless, they usually suffer the time cost of   biomimetic force controller was ﬁrst proposed in [28] which
+         the retargeting post-processing. Thus, our previous work [9]   allowed the robots to deal with both stable and unstable
+        proposed a neural network model that permits end-to-end    interactions through the adaptation of the impedance and
+         efﬁcient mapping from the 2D depth image representing the   feedforward term in the force controller. Li et al. further
+       human hand pose to the robot hand joint angles. This work   improved this controller and implemented  it to deal with
+        aims to extend [9] to further enable the mapping from the    several physical interaction tasks such as cutting and drilling
+        image to the desired force commands, which achieve better   by a redundant robot manipulator [7]. However, until this
+        performances, as observed in the experiments in Section IV.   work the biomimetic control strategy has not been utilized
+                                                                             for a dexterous robot hand with multiple DOFs. Another
+         B. Grasping and manipulation based on force/torque control                                                                         contribution of this work is to extend the biomimetic force
+        An impedance-model based force controller has been used    controller to enable compliant grasping and manipulation
+          in robotic manipulator control for a number of physical   from human hand teleoperation.
+
+
+                                                               718
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+                                 III. METHODOLOGY                    Algorithm 1: Online force control command generation
+                                                                  based on the image input via teleoperation
+           In  this section, we will ﬁrst brieﬂy introduce how to
+                                                                     Input:
+         estimate the robot hand posture  (i.e., joints) by teleopera-
+                                                           The learned optimal TeachNet model fm;          tion. Then, we will elaborate how to generate the desired
+                                                           The constant coefﬁcients: Qk, Qd, Qv, and π;         force/torque control variables based on the estimated hand
+                                                           The Gaussian basis vector g.
+         pose.
+                                                                  begin
+                                                                                           Initialize the parameters θk, θd, and θv;
+         A. Estimation of robot joint angles from vision-based tele-                                                                       while task not done do
+         operation                                                        Sense an image of the human hand pose Ih;
+                                                                                 Calculate the desired robot hand pose through         The goal of this part is to ﬁnd a proper mapping function
+      fm from the human hand posture to the joint angles (qr)            Eq. (1);
+                                                                      Get the robot current states;         of the Shadow robot hand. Here, the human posture at each
+                                                                                 Calculate the sliding error ε;        time step is represented by a 2D image (Ih) collected by a
+                                                                      Update θk, θd and θv using Eq. (14);        camera. Therefore, we have
+                                                                           Generate the desired force control command τc;
+                 fm : Ih ∈R2 →qr ∈RNr,              (1)           Send the force command to the robot.
+                                                              end
+        where Nr denotes the number of DOFs. In order to determine     end
+         the function fm, we utilize the neural network architecture
+       named TeachNet  to  learn the highly nonlinear mapping
+         correlation between Ih and qr.                                                                     B. Prediction of the desired force commands based on the
+           Here, we brieﬂy summarize the basic utilization procedure                                                                   biomimetic control strategy
+         of the end-to-end TeachNet architecture, please refer to [9]
+          for more details. Firstly, we proposed a novel criterion for    We consider that the robot hand is controlled under the
+         generating human-robot pairings based on the human hand    force (i.e., torque) control mode in the joint space. According
+         dataset Hand2.2M [29], controlling the robot, and collecting    to the biomimetic control strategy in [28], the control input
+          joint angles and images of the robot in simulation. In order to    τc is split into two parts including a feedforward force v and
+         imitate the human hand pose from Hand2.2M, we matched   an impedance term u. Therefore, we have
+         the Cartesian position and the link direction of the Shadow
+        hand with the human hand pose and the proper handling of                            τc = −u −v.                     (2)
+          self-collisions based on an optimized mapping method. In
+         the end, we collected a pairwise human-robot hand dataset,     The impedance term is given by
+        which includes 400K pairs of depth images, as well as
+        corresponding joint angles of the robot hand.                            u = Kse + Kd ˙e,                    (3)
+          Unlike common data-driven vision-based methods which
+                                                                   with
+         get the 3D human hand pose ﬁrst and then map the locations
+                                                                                      e = q −qd
+          to the robot, TeachNet directly predicts robot joint angles                                                            ,                    (4)
+                                                                                                                                                                            ˙e = ˙q −˙qd
+        from depth images of a human hand. This end-to-end fashion
+         gets rid of the time cost of post-processing but brings the                                                             where Ks ∈RNr×Nr and Kd ∈RNr×Nr  respectively
+         regression challenge due to the different domains of the                                                                         represent the stiffness and damping matrix. e ∈RNr×1 and
+       human hand and  the robot hand. TeachNet  tackles  this                                                                                                                                ˙e ∈RNr×1 are joint angle and velocity errors. qd ∈RNr×1
+         challenge by using a two-branch (robot branch and human                                                              and ˙qd ∈RNr×1 represent the desired joint angle and desired
+         branch) structure and by introducing a consistency loss. The    velocity1, respectively. q ∈RNr×1 and  ˙q ∈RNr×1 are the
+         robot branch in TeachNet plays the role of teacher and the                                                                    corresponding current states.
+       human branch that of student because the mapping from                                                                          In this work, we propose to represent all the compliant pro-
+         the robot image to the joint angles  is more natural as  it                                                                       ﬁles including the feedforward, stiffness and damping terms
+           is exactly a well-deﬁned hand pose estimation problem. At                                                                            in the parametric space. Each of them can be individually
+          training time, we feed the pairwise human-robot images                                                              coded as the inner product of a set of basis functions and
+          to the corresponding branch and the consistency loss en-                                                                    corresponding parameters. Namely, we have
+        courages the hand feature in the human branch to be as
+         consistent as the hand feature in the robot branch. Once the     Ks = diag{θTk g}, Kd = diag{θTd g},  v = θTv g,    (5)
+        TeachNet is learned, the mapping function fm  is thereby
+         determined. At inference time, only the human branch is   where θk ∈RNr×N, θd ∈RNr×N, θv ∈RNr×N are the
+        needed, accordingly, TeachNet takes an image of a human   parameters corresponding to each of the compliant proﬁles
+        hand as input and then outputs the estimated joint angles qr
+         of the robot hand.                                                         1In this work, the desired velocity value of each DOF, ˙qd,i is set to zero.
+
+
+                                                               719
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+                                                                           Fig. 3: The ﬁnal grasping conﬁgurations for the (a) cube wood, (b)
+                                                                                 cylinder wood, (c) ball, and (d) can, under the adaptive fore mode.
+                                                                       Three ﬁngers (TH, FF and LF) are used in the grasping task.
+         Fig. 2: The schematic illustration of the real-sim experimental
+           setup.
+
+
+        mentioned above. And g ∈RN×1 is a Gaussian basis vector
+        and each of its element is calculated by
+
+                                 ωn(s)
+                              [g]n =                     ,                 (6)
+                 PNn=1 ωn(s)
+        with
+                   ωn(s) = exp(−0.5hn(s −cn)2),           (7)
+
+        where s is a phase variable determined by  ˙s = −s. cn and
+       hn are the centers and widths of the basis, and N  is the
+          total number of the Gaussian models which is manually set
+                                                                           Fig. 4: The screenshots of the grasping ball task with (upper row)
+          in advance.                                                                     and without (lower row) adaptive force control. Left to Right: initial
+         To predict the desired control force at each time step, we    conﬁguration, the TH contacts the ball, and ﬁnal conﬁguration.
+        need to adapt the parameters θk, θd and θv in an online
+        manner, based on the robot current states. To this end, we
+         derive the updating laws according to the following cost   where Qk ∈RNr×Nr, Qd ∈RNr×Nr and Qv ∈RNr×Nr
+         functions.                                                      are symmetric positive-deﬁnite matrices,
+              Firstly, the widely used cost function in robotic control is     The updating goal is therefore to minimize the overall cost,
+        used to minimize the motion tracking error as follows             i.e., min ∥Jc +Je∥. Finally, a standard derivation procedure2
+                              1                                           is employed to obtain the following updating laws for the
+                                                                    ∈[0, · · · , Nr]) DOF,                           Je = 2εT M(q)ε,                   (8)   nr-th (nr
+        where the sliding error is calculated by ε =  ˙e + πe with a                            ˙θTk,nr = Qk,nrεnrenrg
+          positive constant coefﬁcient π, and M(q) ∈RNr×Nr is the
+                                                                                                                    ˙θTd,nr = Qd,nrεnr ˙enrg               (14)          inertia matrix.
+          Based on the principles in human motor learning control                            ˙θTv,nr = Qv,nrεnrg.
+          [28], [7], [30], the following cost is then considered to enable                                                           The procedure of the generation of force control com-
+         the convergence to the desired parameters, i.e., θ∗k(t), θ∗d(t),   mands with the proposed approach is summarized in Algo-
+        and θ∗v(t) that model the interaction dynamics,                rithm 1.
+                              1
+                           Jc =   ˜ΦT Q−1 ˜Φ,                   (9)                IV. SIMULATION EXPERIMENTS
+                              2
+                                                                     A. Real-Sim simulation setup
+        where
+                                           A real-sim setup is established for the simulation experi-
+                           ˜Φ = Φ −Φ∗= [˜θTk , ˜θTd , ˜θTv ]T ,           (10)   ments (see Fig. 2). During each task, the human demonstrator
+                                                                           adjusts the hand pose to guide the simulated robot hand to
+        with
+                                                                 complete the task under the visual feedback. A camera (Intel
+                 Φ = [¯θTk , ¯θTd , ¯θTv ]T ,                (11)                                                                RealSense F300) is used to capture the depth images of the
+        and                                             human hand, based on which the desired robot hand pose can
+                                                               be estimated via the TeachNet model3. The virtual Shadow
+                       Φ∗(t) =[¯θ∗Tk  , ¯θ∗Td  , ¯θ∗Tv  ]T ,             (12)   Motor Hand in the Gazebo simulator with the ODE engine
+
+        where (¯.) denotes the row average vectors of the correspond-      2Let the derivative of the cost equal to zero to obtain the updating laws
+         ing parameters. The matrix Q is deﬁned by                               ˙θk, ˙θd, and ˙θv. For simplicity, we omit the detail in this paper.
+                                                                3https://github.com/TAMS-Group/TeachNet_
+           Q = diag(Qk ⊗I, Qd ⊗I, Qv ⊗I),        (13)   Teleoperation
+
+
+                                                               720
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+                                                                           Fig. 7: The screenshots of the turning-a-cap task. (a), (b) and (c)
+                                                                          denote the initial, middle and ﬁnal conﬁgurations.
+
+
+
+
+
+         Fig. 5: The initial and ﬁnal conﬁgurations during the opening-door
+          task from the (a) side and (b) top view, respectively.
+
+
+
+
+
+                                                                           Fig. 8: The online learned compliant proﬁles including stiffness
+                                                                                                          (stiff.) and feedforward (FF) force along the execution of the joint
+         Fig. 6: (a) The upper row shows the normalized angle changes of    angles in the turning-a-cap task. All the proﬁles are reduced to the
+          the door with respect to the word frame, the lower row represents   2D space using PCA, the ﬁrst and second components shown in (a)
+          the general trend of the changes of the demonstrated joint angles   and (b), respectively. The reference and real curves mean the joint
+         from TeachNet. For the sake of better visualization, the door angles    angles estimated from the TeachNet and collected from the robot
+          are normalized to [0, 1], and joint angles of the robot are reduced    hand, respectively.
+           to one dimension using PCA. (b) shows the positions of the contact
+          points under the position (upper row) and force (lower row) control
+         modes.
+                                                                    hand. Notely, while virtual environments are dominated by
+                                                                      physics (e.g. object weights and surface frictions) the absence
+                                                                       of the force feedback makes the tasks rather challenging [31],           is utilized for our experiments, based on the ROS package4
+                                                                       as even slight inaccuracies on joint angles from TeachNet        provided by the Shadow Robot Company. This robot hand
+                                                    may result in failure interactions.           is equipped with ﬁve ﬁngers, i.e, the thumb (TH), the ﬁrst
+                                                                 Grasping task: In this task, the robot hand is controlled        ﬁnger (FF), the middle ﬁnger (MF), the ring ﬁnger (RF), and
+         the little ﬁnger (LF). TH and LF have ﬁve DOFs each, and    to grasp four objects through teleoperation by a human
+         the other three ﬁngers have four DOFs each. Moreover, the   demonstrator,  i.e., a cube wood, a cylinder wood, a can,
+         wrist joint has another two DOFs. In our usage, the Shadow   and a ball. Three ﬁngers  (i.e., TH, FF and LF) are used
+         robot hand is torque-controlled under the TEACH mode. The   during the grasping process. The grasping strategy  is as
+         simulation environment is run on the Ubuntu 18.04 system    follows: ﬁrst, the demonstrator guides the thumb to contact
+        with a CPU Intel Core i5-8500 and a NVIDIA 1050 Ti GPU.    the target object; Then, the thumb slightly adjusts the pose
+       The average updating time at each time step is 0.036s.        of the object in the hand space; ﬁnally, the other two ﬁngers
+                                                                        contact the object and thus grasp the object stably. The ﬁnal
+         B. Experimental results                                      grasping conﬁgurations for grasping these four objects with
+                                                                         the adaptive force control are shown in Fig. 3. Conversely,         To validate whether the proposed adaptive force control
+                                                                         the position control mode easily causes unstable behaviours        could yield better performances, we compare the proposed
+                                                                                 after the initial contact, hence resulting in grasping failures.         force control with position control on four tasks i.e., grasp-
+                                                         The unstable behaviours are mostly oscillations between the          ing, opening-a-door, turning-a-cap, and touching-a-mouse.
+       The experimental video  is available  at https://www.   hand and the object in the simulation due to the contact
+      youtube.com/watch?v=xL9BvPGIKxE.                  force’s rigidity, see Fig. 4 as an example.
+         Under the position control mode, the position commands     Opening-a-door: The second  task  is  that  the human
+        from TeachNet model are directly used to control the robot   demonstrator guides the robot hand to open a door by pulling
+                                                                         the handle in the x direction. All these ﬁve ﬁngers are used
+         4https://github.com/shadow-robot/sr_core                in this task. Since the base and the wrist of the Shadow
+
+
+                                                               721
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+                                                                           Fig. 10: The screenshots of the touching-a-mouse task. (a), (b) and
+                                                                                         (c) denote the initial, middle and ﬁnal conﬁgurations.
+         Fig. 9: The positions of the contact points in the x−z plane during
+          the turning process, under the (a) position control and (b) adaptive
+          force control modes, respectively.
+                                                                                         is more caplike (see Fig. 9).
+                                                                    Touching-a-mouse: To further explore the compliance with
+                                                                         the adaptive force control, we investigate the performances
+        hand are ﬁxed, we can only rely on the ﬁngers’ interaction   when the robot hand contacts with a curved surface by
+        with the handle to open the door. We ﬁnd that the robot   touching a mouse, as shown in Fig. 10. We mainly focus
+        can open the door smoothly, with the proposed adaptive   on achieving  stable  contacts between  the hand and  the
+         force control strategy, as depicted in Figs. 5 and 6. On the   mouse surface with small contact forces. Namely, we expect
+         other hand, under the position mode, the teleoperator only    that the robot hand  is able to touch the surface of the
+        can occasionally open the door and fails to make the door    target object in a more human-like manner. To evaluate the
+        open as wide as under the force control mode. Fig. 6(b)   impact of the adaptive control strategy, the task is conducted
+        shows the positions of the contacts between the robot hand   under three different control strategies: (a) with the proposed
+        and the door handle in the x −y plane. Under the adaptive   adaptive control; (b) with force control but with a ﬁxed-gain-
+         force control mode, we can see the contact points are almost   based impedance controller which has been often applied
+         evenly distributed along the x axis, which suggests the stable    in robotics; and (c) the position control mode. Under each
+          interaction between the robot hand and the handle during    condition, the task is repeated ten times. During each test,
+         the execution of the task. This maybe because our control    the contact points and forces are recorded for evaluation of
+         strategy can well deal with the interaction dynamics of the    the performances.
+       Gazebo simulator.                                                  Fig. 11 manifests that under the control condition (a) the
+           Turning-a-cap: In this task, the robot hand is teleoperated    contact points of each local region are distributed in a more
+       by the human demonstrator to turn a cap using ﬁve ﬁngers.    clustered way than that under the other two control condition-
+       The frame of the cap  is ﬁxed in the Gazebo world, and     s, with comparatively low contact forces. Under condition
+         the cap can be rotated in the x −z plane. In a real-world    (c), there are obvious slippery points with larger contact
+         task like turning a cap, humans need to adapt the motion    forces, due to the rigid interaction with the mouse of the
+         of both arm and hand coordinately to complete this task.   robot hand. Condition (b) obtains a moderate performance
+       More importantly, the rotation of the wrist joint plays a   with several slippery contact points, although the contact
+        key role during the turning process. In our teleoperation    forces are smaller than the case under the direct position
+         system, however, the ﬁxed base and wrist of the Shadow    control mode. We collect the contact forces from these tests
+        hand make this task more challenging than usual. The robot   under each control condition, and calculate the maximum
+        hand is guided to make contact with the cap using a proper   and average forces. The results (Fig. 12) demonstrate signif-
+        conﬁguration and then to adapt the movements of all the    icantly lower average as well as maximum forces with our
+        ﬁngers to turn the cap. We observe that the ﬁngers can   proposed control strategy.
+       move coordinately and cooperate well with each other to
+                                                                            V. CONCLUSION AND FUTURE WORK        complete the task using the proposed force control strategy
+         (see Fig. 7 as an example). Then we analyse the compliant      This work proposes a novel approach for robotic compliant
+         proﬁles including the stiffness and feedforward force learned   grasping and manipulation based on an adaptive force control
+         online with the execution of the task. For better illustration,    strategy through teleoperation. Our approach takes a depth
+      we reduce the stiffness and the feedforward force of  all   image of the human hand as the input and predicts the desired
+          joints to the 2D space using the PCA algorithm. The results    force control commands, instead of outputting the motion
+         visualized in Fig. 8 indicate that the robot hand (the reference    control policies directly. To enable grasping and manipula-
+         curves) can track the human hand (the real curves) with    tion in a dexterous manner, the robot hand is controlled under
+         the online adaptation of the stiffness and feedforward force    the force/torque control mode. The proposed strategy adapts
+         proﬁles based on the pose difference between the human    the compliant proﬁles (impedance and feedforward) in the
+        and the robot hands. Under the direct position control mode,    force controller online, based on the pose difference between
+        however, the robot hand fails to turn the cap due to the lack    the human hand and the robot hand step-by-step. Four types
+         of coordination and dexterity. Furthermore, the distribution   of tasks in the simulation environment Gazebo (i.e., gasping,
+         of the contact points obtained under the adaptive force mode   opening-a-door, turning-a-cap, and touching-a-mouse) have
+
+
+                                                               722
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+                                         (a)                                                   (b)                                                    (c)
+
+         Fig. 11: The distribution of the contact points and the contact force during the touching process under the (a) adaptive force control, (b)
+         ﬁxed-gain based force control, and (c) position control conditions, respectively. The upper row show the results in the 3D space, and the
+         lower row shows the corresponding results which are projected to the x −z and y −z planes.
+
+
+
+                                                                      REFERENCES
+
+                                                                                                 [1]  F. Ficuciello, A. Migliozzi, G. Laudante, P. Falco, and B. Siciliano,
+                                                                                           “Vision-based grasp learning of an anthropomorphic hand-arm sys-
+                                                                               tem in a synergy-based control framework,” Sci. Robot., vol. 4, p.
+                                                                                       eaao4900, 2019.
+                                                                                                 [2] K. Z. Zhuang, N. Sommer, V. Mendez, S. Aryan, E. Formento,
+                                                                                            E. DAnna, F. Artoni, F. Petrini, G. Granata, G. Cannaviello et al.,
+                                                                                      “Shared human–robot proportional control of a dexterous myoelectric
+                                                                                                      prosthesis,” Nature Machine Intelligence, vol. 1, no. 9, pp. 400–411,
+                                                                                        2019.
+                                                                                                 [3]  P. Ruppel and J. Zhang, “Learning object manipulation with dexterous
+                                                                                  hand-arm systems from human demonstration,” in 2020 IEEE/RSJ
+         Fig. 12: The max and average contact forces during the touching          International Conference on Intelligent Robots and Systems (IROS).
+         phase under the three control conditions.                                 IEEE, 2020, pp. 5417–5424.
+                                                                                                 [4] H. Liang, X. Ma, S. Li, M. G¨orner, S. Tang, B. Fang, F. Sun, and
+                                                                                                                            J. Zhang, “Pointnetgpd: Detecting grasp conﬁgurations from point
+                                                                                                               sets,” in 2019 International Conference on Robotics and Automation
+        been conducted to verify the effectiveness of our approach.         (ICRA), 2019, pp. 3629–3635.
+       The results show that  it achieves better performances than      [5]  J. Mahler, M. Matl, V. Satish, M. Danielczuk, B. DeRose, S. McKinley,
+                                                                                  and K. Goldberg, “Learning ambidextrous robot grasping policies,”
+         the position control and the ﬁxed-gain-based force control                                                                                          Science Robotics, vol. 4, no. 26, 2019.
+        modes.                                                                            [6] Q. Lu, M. Van der Merwe, B. Sundaralingam, and T. Hermans,
+           In future work, we will implement our approach on a real         “Multiﬁngered grasp planning via inference in deep neural networks:
+                                                                                      Outperforming sampling by learning differentiable models,” IEEE
+       Shadow motor hand that has been equipped with the interface                                                                                          Robotics & Automation Magazine, vol. 27, no. 2, pp. 55–65, 2020.
+          for force/torque control in the joint space. Since the joints of      [7] Y. Li, G. Ganesh, N. Jarrass´e, S. Haddadin, A. Albu-Schaeffer, and
+         the real Shadow hand are driven by tendons, the predicted          E. Burdet, “Force, impedance, and trajectory learning for contact
+                                                                                                 tooling and haptic identiﬁcation,” IEEE Transactions on Robotics,         torques from the controller need to be mapped properly to
+                                                                                                         vol. 34, no. 5, pp. 1170–1182, 2018.
+         the strain values of the tendons. This might be achieved by      [8] K. Van Wyk, M. Culleton, J. Falco, and K. Kelly, “Comparative peg-
+         learning a regression model to ﬁnd the mapping between          in-hole testing of a force-based manipulation controlled robotic hand,”
+        them. It is also worth noting that our model-free approach        IEEE Transactions on Robotics, vol. 34, no. 2, pp. 542–549, 2018.
+                                                                                                 [9]  S. Li, X. Ma, H. Liang, M. G¨orner, P. Ruppel, B. Fang, F. Sun, and
+        can be applied to other torque-controlled robot hands. One             J. Zhang, “Vision-based teleoperation of shadow dexterous hand using
+          limitation of our approach is the lack of tactile feedback. The         end-to-end deep neural network,” in 2019 International Conference on
+          interaction force between the robot hand and its environment         Robotics and Automation (ICRA).  IEEE, 2019, pp. 416–422.
+                                                                                         [10] A. Handa, K. Van Wyk, W. Yang, J. Liang, Y.-W. Chao, Q. Wan,
+        can be estimated from  tactile signals collected from the          S. Birchﬁeld, N. Ratliff, and D. Fox, “Dexpilot: Vision-based tele-
+           tactile sensors mounted on the tips of the Shadow motor          operation of dexterous  robotic hand-arm system,”  in 2020 IEEE
+        hand. The estimated force information can then be included          International Conference on Robotics and Automation (ICRA).  IEEE,
+                                                                                        2020, pp. 9164–9170.
+          in the control loop as a feedback variable to improve the    [11]  S. Li, J. Jiang, P. Ruppel, H. Liang, X. Ma, N. Hendrich, F. Sun, and
+          interaction dexterity.                                                                            J. Zhang, “A mobile robot hand-arm teleoperation system by vision
+
+
+                                                               723
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+              and imu,” in 2020 IEEE/RSJ International Conference on Intelligent
+               Robots and Systems (IROS).  IEEE, 2020, pp. 10 900–10 906.
+           [12]  I. Cerulo, F. Ficuciello, V. Lippiello, and B. Siciliano, “Teleoperation
+                 of the schunk s5fh under-actuated anthropomorphic hand using human
+              hand motion tracking,” Robotics and Autonomous Systems, vol. 89, pp.
+               75–84, 2017.
+           [13] B. Fang, F. Sun, H. Liu, and C. Liu, “3D human gesture capturing
+              and recognition by the IMMU-based data glove,” Neurocomputing,
+                  vol. 277, pp. 198–207, 2018.
+           [14]  S. Han, B. Liu, R. Wang, Y. Ye, C. D. Twigg, and K. Kin, “Online op-
+                    tical marker-based hand tracking with deep labels,” ACM Transactions
+              on Graphics (TOG), vol. 37, 2018.
+           [15]  F. Gomez-Donoso, S. Orts-Escolano, and M. Cazorla, “Accurate and
+                 efﬁcient 3D hand pose regression for robot hand teleoperation using a
+               monocular RGB camera,” Expert Systems with Applications, vol. 136,
+                 pp. 327–337, 2019.
+           [16] D. Antotsiou, G. Garcia-Hernando, and T.-K. Kim, “Task-oriented
+              hand motion retargeting for dexterous manipulation imitation,” in
+              European Conference on Computer Vision (ECCV), 2018.
+           [17]  F. Ficuciello, L. Villani, and B. Siciliano, “Variable impedance control
+                 of redundant manipulators for intuitive human–robot physical interac-
+                   tion,” IEEE Transactions on Robotics, vol. 31, no. 4, pp. 850–863,
+               2015.
+           [18]  S. Fan, H. Gu, Y. Zhang, M. Jin, and H. Liu, “Research on adaptive
+                grasping with object pose uncertainty by multi-ﬁngered robot hand,”
+                 International Journal of Advanced Robotic Systems, vol. 15, no. 2, pp.
+               1–16, 2018.
+           [19] Z. Deng, Y. Jonetzko, L. Zhang, and J. Zhang, “Grasping force control
+                 of multi-ﬁngered robotic hands through  tactile sensing for object
+                   stabilization,” Sensors, vol. 20, no. 4, p. 1050, 2020.
+           [20] N. Sommer and A. Billard, “Multi-contact haptic exploration and
+                grasping with  tactile sensors,” Robotics and Autonomous Systems,
+                  vol. 85, pp. 48–61, 2016.
+           [21] Q. Li, R. Haschke, B. Bolder, and H. Ritter, “Grasp point optimization
+              by online exploration of unknown object  surface,”  in 2012 12th
+             IEEE-RAS International Conference on Humanoid Robots (Humanoids
+                2012).  IEEE, 2012, pp. 417–422.
+           [22]  T. Wimbock, C. Ott, and G. Hirzinger, “Analysis and experimental
+                 evaluation of the intrinsically passive controller (ipc) for multiﬁngered
+                hands,”  in 2008 IEEE International Conference on Robotics and
+               Automation (ICRA).  IEEE, 2008, pp. 278–284.
+           [23] M. Li, H. Yin, K. Tahara, and A. Billard, “Learning object-level
+              impedance control for robust grasping and dexterous manipulation,”
+                  in 2014 IEEE International Conference on Robotics and Automation
+               (ICRA).  IEEE, 2014, pp. 6784–6791.
+           [24] M. Pfanne, M. Chalon, F. Stulp, H. Ritter, and A. Albu-Sch¨affer,
+                 “Object-level impedance control for dexterous in-hand manipulation,”
+             IEEE Robotics and Automation Letters, vol. 5, no. 2, pp. 2987–2994,
+               2020.
+           [25] V. R. Garate, M. Pozzi, D. Prattichizzo, N. Tsagarakis, and A. A-
+                 joudani, “Grasp stiffness control in robotic hands through coordinated
+                optimization of pose and joint stiffness,” IEEE Robotics and Automa-
+                  tion Letters, vol. 3, no. 4, pp. 3952–3959, 2018.
+           [26] C. Zeng, X. Chen, N. Wang, and C. Yang, “Learning compliant robotic
+              movements based on biomimetic motor adaptation,” Robotics and
+              Autonomous Systems, vol. 135, p. 103668, 2021.
+           [27] E. Burdet, R. Osu, D. W. Franklin, T. E. Milner, and M. Kawato,
+              “The central nervous system stabilizes unstable dynamics by learning
+                optimal impedance,” Nature, vol. 414, no. 6862, p. 446, 2001.
+           [28] C. Yang, G. Ganesh, S. Haddadin, S. Parusel, A. Albu-Schaeffer, and
+                E. Burdet, “Human-like adaptation of force and impedance in stable
+              and unstable interactions,” IEEE transactions on Robotics, vol. 27,
+                 no. 5, pp. 918–930, 2011.
+           [29]  S. Yuan, Q. Ye, B. Stenger, S. Jain, and T.-K. Kim, “Bighand2. 2m
+               benchmark: Hand pose dataset and state of the art analysis,” in IEEE
+               Conference on Computer Vision and Pattern Recognition (CVPR),
+               2017.
+           [30] C. Zeng, H. Su, Y. Li, J. Guo, and C. Yang, “An approach for robotic
+                 leaning inspired by biomimetic adaptive control,” IEEE Transactions
+              on Industrial Informatics, 2021.
+           [31] G. Garcia-Hernando, E. Johns, and T.-K. Kim, “Physics-based dexter-
+               ous manipulations with estimated hand poses and residual reinforce-
+              ment learning,” arXiv preprint arXiv:2008.03285, 2020.
+
+
+
+
+
+                                                               724
+
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:48 UTC from IEEE Xplore. Restrictions apply.

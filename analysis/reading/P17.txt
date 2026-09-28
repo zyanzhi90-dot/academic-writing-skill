@@ -1,0 +1,1234 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019 777
+Robot Learning System Based on Adaptive Neural
+Control and Dynamic Movement Primitives
+Chenguang Yang , Senior Member, IEEE, Chuize Chen, Wei He , Senior Member, IEEE,
+Rongxin Cui, Member, IEEE, and Zhijun Li , Senior Member, IEEE
+Abstract—This paper proposes an enhanced robot skill
+learning system considering both motion generation and trajec-
+tory tracking. During robot learning demonstrations, dynamic
+movement primitives (DMPs) are used to model robotic motion.
+Each DMP consists of a set of dynamic systems that enhances
+the stability of the generated motion toward the goal. A Gaussian
+mixture model and Gaussian mixture regression are integrated
+to improve the learning performance of the DMP, such that
+more features of the skill can be extracted from multiple
+demonstrations. The motion generated from the learned model
+can be scaled in space and time. Besides, a neural-network-based
+controller is designed for the robot to track the trajectories
+generated from the motion model. In this controller, a radial
+basis function neural network is used to compensate for the effect
+caused by the dynamic environments. The experiments have been
+performed using a Baxter robot and the results have confirmed
+the validity of the proposed methods.
+Index Terms—Dynamic movement primitives (DMPs),
+Gaussian mixture model (GMM), neural network (NN), robot
+learning.
+I. INTRODUCTION
+RECENTLY, robots have been widely applied in various
+fields, especially in manufacturing. Adaptable robots
+are required due to the increasingly fast updates of the
+manufactured products. Hence, it is necessary to develop
+methods for enhancing robot learning. Robot learning from
+demonstration (LfD) is a valuable technique to simplify the
+strategy of robot learning [1], [2]. The human tutor shows the
+Manuscript received August 17, 2017; revised December 17, 2017 and
+March 19, 2018; accepted June 22, 2018. Date of publication July 26, 2018;
+date of current version February 19, 2019. This work was supported in
+part by the National Nature Science Foundation under Grant 61473120 and
+Grant 61472325, in part by the Science and Technology Planning Project of
+Guangzhou under Grant 201607010006, in part by the State Key Laboratory of
+Robotics and System under Grant SKLRS-2017-KF-13, and in part by Funda-
+mental Research Funds for the Central Universities under Grant 2017ZD057.
+(Corresponding author: Chenguang Yang.)
+C. Yang and C. Chen are with the Key Laboratory of Autonomous Systems
+and Networked Control, College of Automation Science and Engineering,
+South China University of Technology, Guangzhou 510640, China (e-mail:
+cyang@ieee.org; aucchen@outlook.com).
+W. He is with the School of Automation and Electrical Engineering,
+University of Science and Technology Beijing, Beijing 100083, China
+(e-mail: weihe@ieee.org).
+R. Cui is with the School of Marine Science and Technology,
+Northwestern Polytechnical University, Xi’an 710072, China (e-mail:
+rongxin.cui@gmail.com).
+Z. Li is with the Department of Automation, University of Science and
+Technology of China, Hefei 230026, China (e-mail: zjli@ieee.org).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TNNLS.2018.2852711
+way to complete a task and then the robot learns, via motion
+modeling, to reproduce the skill. Therefore, it is essential to
+consider how to model motions effectively.
+The dynamic system (DS) is a powerful tool for motion
+modeling [3]. Compared to the conventional methods,
+e.g., interpolation techniques, DS offers a flexible solu-
+tion to model stable and extensible trajectories. In addition,
+the motion encoded with the DS is robust to perturba-
+tions. An approach based on DS was used to learn human
+motions [4], where the unknown mapping of the DS was
+approximated using a neural network (NN) called extreme
+learning machine [5]. The learned model showed adequate
+stability and generalization. However, this DS-based method
+required considerable demonstration data for training. In con-
+trast, the dynamic movement primitive (DMP), which is based
+on a nonlinear DS [6], only requires one demonstration to
+model motion; here, the DMP models the movement trajectory
+as a spring-damper system integrated with an unknown func-
+tion to be learned. The inherent property of the spring-damper
+system enhances the stability and robustness (to perturbations)
+of the generated motion.
+DMPs have been often employed to solve robot learning
+problems because of their flexibility. In [7], DMPs were
+modified to model fast movement inherent in hitting motion.
+Another study used reinforcement learning to combine DMP
+sequences so that the robot could perform more complex
+tasks [8]. While both these studies employed multiple DMPs
+to compose a complete action, another study [9] used multiple
+DMPs to model style-adaptive trajectory, where the style of the
+generated motion could be changed by modulating the weight
+parameters that were coupled with the goals. As mentioned
+in [10], optimal demonstration is difficult to obtain and multi-
+ple demonstrations can encode the ideal trajectory implicitly.
+Therefore, we consider integrating multiple demonstrations
+into one DMP model in this paper.
+Probabilistic approaches have shown good performance in
+motion encoding [11]–[13]. The inherent variability of the
+demonstrations can be extracted, and thus, more features
+of the demonstrations can be preserved. In [14], an LfD
+framework using a Gaussian mixture model (GMM) and a
+Bernoulli mixture model was used to extract the features
+from multiple demonstrations. A new motion was generated
+through Gaussian mixture regression (GMR). In contrast with
+the above-mentioned methods, GMM combined with GMR
+can provide additional motion information for robots when
+This work is licensed under a Creative Commons Attribution 3.0 License. For more information, see http://creativecommons.org/licenses/by/3.0/
+
+=== PDF PAGE 2 ===
+778 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+Fig. 1. Block diagram of the proposed system.
+learning from multiple demonstrations. In [3], a learn-
+ing approach named stable estimator of dynamical sys-
+tems (SEDS) was proposed for motion modeling, where an
+unknown function was modeled using GMR. DS-GMR is
+another method that combines the DS with the statistical
+learning approach [15]. Both methods exploit the robustness
+and generalization capability of the DS as well as the excellent
+learning performance of the probabilistic methods.
+To take advantage of the performance of the DS and
+the probabilistic approach, we integrate DMP and GMM
+into our proposed system, where the nonlinear function of
+DMP is modeled with GMM and its estimate is retrieved
+through GMR. This modification enables the robot to extract
+more features of the motions from multiple demonstrations
+and to generate motions that synthesize these features. The
+original DMP was learned using the locally weighted regres-
+sion (LWR) [16], and the locally weighted projection regres-
+sion [17] was employed to optimize the bandwidth of each
+kernel of LWR. Despite the added complexity of the learning
+procedure, these methods enable the DMP to learn from
+only one demonstration. Reservoir computing [18] is another
+method used to approximate the nonlinear function, but its
+computing efficiency is less than that of GMR.
+The imitation performance of robots also depends on the
+accuracy of the trajectory tracking controller that involves the
+robot dynamics. Generally, a model-based control performs
+better if the model is accurate enough [19]. However, an accu-
+rate dynamic model of a manipulator cannot be obtained in
+advance due to some uncertainties, e.g., unknown payload. The
+approximation-based controllers have been designed to over-
+come such uncertainties. They utilize function approximation
+tools to learn the nonlinear characteristics of the robot dynam-
+ics. NNs have been widely used in controller design because
+of their approximation ability [20]–[22]. In [23], the backprop-
+agation NN (BPNN) was utilized to approximate the unknown
+nonlinear function in the model of the vibration suppression
+device, while in [24], the radial basis function NN (RBFNN)
+was utilized to approximate the unknown nonlinearity of the
+telerobot system. Compared to BPNN, the learning procedure
+of RBFNN is based on local approximation; thus, RBFNN
+can avoid getting stuck in the local optimum and has a faster
+convergence rate. Besides, the number of hidden layer units of
+RBFNN can be adaptively adjusted during the training phase,
+making NN more flexible and adaptive. Therefore, RBFNN is
+more appropriate for the design of real-time control.
+In this paper, an NN-based controller is designed to guaran-
+tee the tracking performance of the manipulator in joint space,
+where RBFNN is employed to approximate the nonlinear
+functions of the robot dynamics. The stability of the controller
+is guaranteed by the Lyapunov stability theory. As shown
+in Fig. 1, the robot learning system consists of the motion
+generation component and the trajectory tracking component.
+The former utilizes the motion model based on DMP to learn
+and generalize motion skills; these, in turn, are represented
+as a set of trajectories in joint space. The latter employs the
+adaptive controller to track the trajectories generated from the
+former, and RBFNN is incorporated to compensate for the
+uncertain dynamics.
+Here, we present a novel and complete robot learning
+framework that considers the performance of both motion gen-
+eration and trajectory tracking. The SEDS presented in [3] is
+similar to our DMP-based model. However, the constraints that
+guarantee the stability of SEDS are derived by the Lyapunov
+theory that increases the complexity of the learning. In contrast
+to [3] and [25] which considered only motion modeling, our
+system is enhanced by an NN-based controller and the effect
+caused by the dynamic environments can be compensated by
+neural learning. This design enables the robot to perform the
+learned motions steadily and more robustly in the real world.
+The remainder of this paper is organized as follows.
+Section II introduces the DMP and its relevant characteristics.
+The learning process of the motion model is introduced in
+Section III. In Section IV, the concept of RBFNN is intro-
+duced, and the controller using RBFNN is designed with the
+proof of stability. The experiments are presented in Section V.
+Section VI concludes this paper.
+II. BASIC MODEL OF DISCRETE MOVEMENT
+Motion skills can be classified into point-to-point and
+periodic movements in accordance with brain activation [1].
+While using DS to model motions, these two types corre-
+spond to point attractor and limit cycle attractor, respectively.
+
+=== PDF PAGE 3 ===
+YANG et al.: ROBOT LEARNING SYSTEM BASED ON ADAPTIVE NEURAL CONTROL AND DMP 779
+Fig. 2. (a) Accelerations of the original spring-damper part in (1) and the
+modified one in (4). (b) Evolutions of the systems (1) and (4) without an
+external forcing term ( f = 0).
+In this paper, we focus on point-to-point movements and
+use the discrete DMP as the basic motion model, which is
+composed of a spring-damper system and a nonlinear function.
+DMP can be employed to model motions in joint
+space or Cartesian space. The motions in both spaces are
+regarded as a set of 1-D trajectories, and each trajectory is
+represented as one DMP model. For concision, we only discuss
+the modeling problem of the motions in joint space.
+The DMP model is defined as follows [26]:
+τs ˙
+ξ1 = ξ2
+τs ˙
+ξ2 = l1(θg − ξ1) − l2ξ2 + (θg − θ0)ξ3 f (ξ3) (1)
+τs ˙
+ξ3 = −α1ξ3 (2)
+where ξ1 ∈ R represents the joint position and ξ2/τs ∈ R and
+˙
+ξ2/τs ∈ R denote the joint velocity and the joint acceleration,
+respectively. ξ3 > 0 is regarded as a phase variable that
+is exponentially decaying. l1, l2, and α1 are the positive
+constants. θ0 is the start position, θg is the goal, and (θg − θ0)
+serves as the spatial scaling term. τs > 0 is the time constant.
+The nonlinear term f : R → R is assumed to be a continuous
+bounded function in terms of ξ3.
+The system (1) is a spring-damper system perturbed by a
+nonlinear term. Generally, we choose l1 = l2
+2/4 to make the
+former critically damped. The initial state of system (2) can
+be chosen as ξ0 = 1. The stability of the whole model is clear;
+the nonlinear term will converge to zero since the state ξ3 will
+converge to zero and the nonlinear function f (ξ3) is bounded.
+Then, the system (1) becomes a stable spring-damper system,
+whose state converges to the goal θg.
+The large initial acceleration of the original spring-damper
+part [Fig. 2(a)] is not desirable for robots in practice. More-
+over, the large variation in the acceleration will lead to a
+complex external forcing term, which is adverse to the learning
+of the model. Therefore, we replace the goal θg in the spring-
+damper part with the state of another exponential decay
+system [27]
+τs ˙
+ξ4 = −α2(ξ4 − θg) (3)
+where α2 is a positive constant and the initial value of ξ4 is set
+as θ0. Consequently, the system (1) is rewritten as follows [27]:
+τs ˙
+ξ1 = ξ2
+τs ˙
+ξ2 = l1(ξ4 − ξ1) − l2ξ2 + (θg − θ0)ξ3 f (ξ3). (4)
+Fig. 3. (a) Actual acceleration of the spring-damper part and the expected
+acceleration to reproduce the demonstration (a sine curve). (b) Difference
+between two accelerations in (a), which is compensated by the nonlinear
+function f (ξ3).
+As shown in Fig. 2(a), the acceleration of the modified system
+becomes moderate. The evolution of the system (4) with f = 0
+is shown in Fig. 2(b). Since the state ξ4 will converge to θg,
+the modified model is still stable toward the goal.
+The DMP model is chosen as the basic motion model
+because of its concise formulation and excellent generaliz-
+ability. Since the DMP model is always stable toward θg,
+the motion modeled can be scaled spatially by modulating θg
+and θ0 without destabilizing the model. The spatial scaling
+term (θg − θ0) ensures that the profile of the motion is
+maintained and its duration can be changed by modulating τs.
+III. LEARNING OF THE MOTION MODEL
+A. Problem Description
+DMP assumes that the motion is generated from the
+nonlinear DS (4), whose uncertain part is the nonlinear
+function f (ξ3). Therefore, the learning problem of DMP is
+how to approximate this function, which compensates for
+the difference between the actual acceleration of the spring-
+damper part and the expected acceleration to reproduce the
+demonstrated movement (Fig. 3). Assuming that a 1-D demon-
+stration trajectory is captured and encoded as a time series
+{(θt, θ̇t , θ̈t) | t = 1, 2, . . . , T }, where θt, θ̇t, and θ̈t describe
+the position, velocity, and acceleration of the trajectory at time
+step t, respectively, and T is the duration of the demonstration,
+the expected value of f at time step t is computed using the
+following equation [26]:
+ft =
+τ2
+s θ̈t − [l1(ξ4,t − θt) − l2τsθ̇t]
+(θT − θ1)ξ3,t
+(5)
+where ξ3,t and ξ4,t are the values of ξ3 and ξ4 at time
+step t, respectively. Equation (5) is an inverse process of the
+reproduction. Since f (ξ3) is a function of ξ3, we can exploit
+the data set {(ξ3,t, ft ) | t = 1, 2, . . . , T } to approximate the
+function.
+In the original DMP model, the function f (ξ3) is defined
+as [26]
+f (ξ3) =
+Ns
+
+i=1
+γiφi(ξ3) (6)
+
+=== PDF PAGE 4 ===
+780 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+Fig. 4. (a) Demonstrations. (b) Data set {ξi , fo} calculated from (a). (c) Data
+set is encoded with the GMM. (d) Estimate of the function f (ξ3) is retrieved
+using the GMR.
+where γi ∈ R is the weight of φi(s) and φi(s) is the
+normalized Gaussian basis function, defined as
+φi(ξ3) =
+exp (−hi(ξ3 − ci)2)
+Ns
+j=1 exp (−h j (ξ3 − cj )2)
+(7)
+where hi > 0 is the width and ci > 0 is the center of the
+ith Gaussian functions; Ns is the number of the Gaussian
+functions. With this formulation, the LWR can be employed to
+learn the model. Nevertheless, the solution is only applicable
+to a single demonstration, and multiple demonstrations will
+be encoded as multiple independent DMP models. Thus,
+the features of the demonstrations of multiple specific tasks
+cannot be integrated into one DMP model. To solve this
+problem, GMM is introduced to model the intermediate data,
+and then GMR is employed to estimate the nonlinear function.
+B. Learning From Multiple Demonstrations
+Given Nd demonstrations {(θt,n, θ̇t,n, θ̈t,n) | t =
+1, 2, . . . , T ; n = 1, 2, . . . , Nd } of a specific task,
+we can obtain the data set {(ξ3,t, ft,n) | t = 1, 2, . . . , T ;
+n = 1, 2, . . . , Nd } using (5). Then, we need to take advantage
+of the whole data set to estimate the function f (ξ3) of one
+DMP model. The learning procedures can be broken down
+into two steps, as shown in Fig. 4. For concision, we use
+{ξi, fo} to denote the data set.
+Step 1: Use GMM to encode the data set {ξi , fo}. This
+model assumes that the data set is generated from multiple
+Gaussian distributions. The joint probability density of GMM
+is defined as follows [28]:
+p(ξi, fo) =
+K
+
+k=1
+αkN(ξi , fo; μk, k) (8)
+where
+K
+
+k=1
+αk = 1 (9)
+and
+μk =
+
+μξi ,k
+μ fo,k
+
+, k =
+
+ξi ,k ξi fo,k
+ foξi ,k  fo,k
+
+(10)
+and N is the Gaussian probability distribution defined as
+follows:
+N(ξi , fo; μk, k)
+=
+exp[−0.5([ξi, fo]T −μk)T −1
+k ([ξi , fo]T − μk)]
+2π
+√
+|k|
+. (11)
+Here, K is the number of Gaussian distributions, αk ≥ 0 is
+the weight, and μk ∈ R2×1 and k ∈ R2×2 denote the mean
+and the covariance matrix of the kth Gaussian component.
+αk, μk, and k are the parameters to be learned. We can
+estimate their values and learn GMM from the given data set
+using the following procedures.
+1) Parameter Initialization: The expectation–maximization
+(EM) algorithm used for parameter estimation is sensitive to
+the initial values. Hence, the k-means algorithm [29] is utilized
+to initialize the unknown parameters αk, μk, and k. This
+algorithm divides the data set into multiple sets and aims to
+find a partition D = {D1, D2, . . . , DK } to minimize the sum
+of the squared deviation of each set [29]
+D̂ = arg min
+D
+K
+
+k=1
+
+x∈Dk
+x − mk2
+(12)
+where x = [x1, x2]T ∈ R2×1 is the data vector corresponding
+to [ξ3,t, ft,n]T , mk ∈ R2×1 is the mean of the data distributed
+in Dk, and
+K
+k=1 Dk = {ξi , fo}. The algorithm repeats the
+assignment and update steps until that partition no longer
+changes. Then, the initial values of the unknown parameters
+are assigned as [14]
+αk =
+|Dk|
+K
+i=1 |Di |
+(13)
+μk = mk, k =
+
+x1 x1x2
+x2x1 x2
+
+x∈Dk
+. (14)
+2) Parameter Estimation: The EM algorithm is an appro-
+priate method for estimating the parameters of GMM. This
+algorithm aims to find parameters πk = (αk, μk, k) so as to
+maximize the log-likelihood function [30]
+π̂k = arg max
+πk
+log(p(ξi , fo|πk)). (15)
+3) Model Selection: The number of the Gaussian compo-
+nents will affect the fitting performance of GMM. GMM can
+represent the data set better if more components are selected,
+but it may lead to overfitting and too many parameters.
+A compromise is reached using the Bayesian information
+criterion (BIC) to determine the number of components. The
+BIC score is defined as follows [14]:
+SBIC (K) = −2 log(p(ξi, fo|πk)) + (6K − 1) log(Nd) (16)
+where Nd is the size of the data set and K represents the
+number of components. The number of components is finally
+selected as Kms = arg min SBIC (K), and the upper bound of
+Kms is determined by the designer.
+
+=== PDF PAGE 5 ===
+YANG et al.: ROBOT LEARNING SYSTEM BASED ON ADAPTIVE NEURAL CONTROL AND DMP 781
+Step 2: Use GMR to estimate the function f (ξ3). According
+to [28], the probability density (8) can be rewritten as
+p(ξi , fo) =
+K
+
+k=1
+αkN
+
+fo; η̂k, σ̂2
+k
+
+N(ξi ; μξi,k, ξi ,k) (17)
+where
+η̂k(ξi) = μ fo,k +  foξi ,k(ξi ,k)−1
+(ξi − μξi ,k) (18)
+and
+σ̂2
+k =  fo,k −  foξi ,k(ξi ,k)−1
+ξi fo,k. (19)
+The marginal density of ξi is calculated as follows [28]:
+p(ξi ) = p(ξi, fo)d fo
+=
+K
+
+k=1
+αkN(ξi ; μξi ,k, ξi ,k). (20)
+According to (17) and (20), the conditional probability density
+of fo given ξi is
+p( fo|ξi) =
+K
+
+k=1
+βk(ξi )N( fo; η̂k, σ̂2
+k ) (21)
+where
+βk(ξi ) =
+αkN(ξi ; μξi ,k, ξi ,k)
+K
+k=1 αkN(ξi ; μξi,k, ξi ,k)
+. (22)
+Then, we can obtain the GMR function as follows [28]:
+R(ξi ) = E( fo|ξi ) =
+K
+
+k=1
+βk(ξi)η̂k(ξi ). (23)
+In addition, the estimate of function f (ξ3) is
+ˆ
+f (ξ3) =
+K
+
+k=1
+βk(ξ3)η̂k(ξ3). (24)
+In comparison to (6), this estimate is multiplied by an
+additional term η̂k(ξ3) in form; thus, this method enables
+the motion model to extract more features from multiple
+demonstrations.
+IV. ADAPTIVE NEURAL CONTROL
+OF THE ROBOT MANIPULATOR
+In practice, robot manipulators have to interact with various
+payloads. To account for the influence of the unknown pay-
+load on the manipulator dynamics, an NN-based controller is
+designed to track the reference trajectory generated from the
+motion model in joint space.
+A. Dynamics Description
+The dynamics of a robot manipulator with n-link is
+described as follows:
+M(θ)θ̈ + C(θ, θ̇)θ̇ + G0(θ) + τp = τ (25)
+where θ ∈ Rn, θ̇ ∈ Rn, and θ̈ ∈ Rn are the joint position,
+joint velocity, and joint acceleration, respectively. τ is the
+control torque and τp is the torque caused by the payload.
+M(θ) ∈ Rn×n denotes the inertia matrix, which is symmetric
+positive definite. C(θ, θ̇) ∈ Rn×n represents the Coriolis and
+centripetal torque matrix and G0(θ) ∈ Rn is the gravity vector.
+According to [31], the matrices M(θ) and C(θ, θ̇) satisfy
+sT
+(Ṁ − 2C)s = 0, ∀s ∈ Rn
+. (26)
+B. RBFNN
+RBFNN is an effective tool to approximate any continuous
+function g : Rm → R as follows [32]:
+g(ϑ) = WT
+S(ϑ) + ε(ϑ), ∀ϑ ∈ ϑ (27)
+where ϑ ∈ ϑ ⊂ Rm denotes the input vector,
+W = [ω1, ω2, . . . , ωN ]T ∈ RN is the ideal NN weight
+vector, and N is the number of NN nodes. The approximation
+error ε(ϑ) is bounded. S(ϑ) = [s1(ϑ), s2(ϑ), . . . , sN (ϑ)]T
+is a nonlinear vector function, where si (ϑ) is defined as the
+Gaussian function
+si(ϑ) = exp −
+(ϑ − κi )T (ϑ − κi)
+χ2
+i
+, i = 1, 2, . . . , N (28)
+where κi = [κi1, κi2, . . . , κim]T ∈ Rm represents the center of
+the Gaussian function and χ2
+i is the variance. The ideal weight
+vector W is defined as follows:
+W = arg min
+Ŵ∈RN
+{ sup
+ϑ∈ϑ
+|g(ϑ) − ŴT
+S(ϑ)|} (29)
+which minimizes the approximation error for all ϑ ∈ ϑ.
+C. Controller Design
+The controller design includes the design of the joint
+position controller and the joint velocity controller, as shown
+in Fig. 1. RBFNN is used in the latter to approximate the
+uncertain dynamics.
+1) Joint Position Controller: The joint position tracking
+error is defined as ep = [ep1, ep2, . . . , epn]T = θ − θd, where
+θd = [θd1, θd2, . . . , θdn]T ∈ Rn is the reference trajectory,
+which is smooth and bounded. The error transformation func-
+tion [33] is introduced as follows:
+epi(t) = δ(t)Hi Li
+epi(t)
+δ(t)
+, i = 1, 2, . . . , n (30)
+where δ(t) = (δ0 − δ∞)e−at + δ∞ represents the tracking
+performance requirement, and Hi(z) is defined as
+Hi(z) =
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+ez − σ
+1 + ez
+, epi(0) ≥ 0
+σez − 1
+1 + ez
+, epi(0) < 0
+(31)
+
+=== PDF PAGE 6 ===
+782 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+and Li (z) is the inverse function of Hi(z)
+Li(z) =
+⎧
+⎪
+⎨
+⎪
+⎩
+ln
+z + σ
+1 − z
+, epi(0) ≥ 0
+ln
+z + 1
+σ − z
+, epi(0) < 0.
+(32)
+The parameters δ0, δ∞ < δ0, a, and σ are the positive
+constants, which are used to adjust the control performance.
+The joint position controller is used to generate the desired
+joint velocity, which is designed as [24]
+vdi = −k1δ(t)φi (t) + θ̇di(t) +
+δ̇(t)
+δ(t)
+epi(t) (33)
+where
+φi(t) = Li
+epi(t)
+δ(t)
+. (34)
+According to [24], if φi(t) is bounded, then the following is
+obtained:
+
+−σδ(t) < epi(t) < δ(t), epi(0) > 0
+−δ(t) < epi(t) < σδ(t), epi(0) < 0.
+(35)
+Therefore, the function δ(t) determines the bound of error
+epi(t) and the transient performance of the controller.
+2) Joint Velocity Controller: The joint velocity controller
+aims to generate the control torque so as to track the desired
+joint velocity vd = [vd1, vd2, . . . , vdn]T . Let us define the joint
+velocity error as ev = θ̇ − vd and G(θ) = G0(θ) + τp. Then,
+the control torque is designed as follows [24]:
+τ = −k2ev −
+Q̇(φ(t))φ(t)
+δ(t)
++ M̂v̇d + Ĉvd + Ĝ + r̂ (36)
+where
+Q̇(φ(t)) = diag(L̇1(H1(φ1(t))), . . . , L̇n(Hn(φn(t))))
+φ(t) = [φ1(t), φ2(t), . . . , φn(t)]T
+. (37)
+The matrices M̂(θ), Ĉ(θ, θ̇), Ĝ(θ), and r̂(θ, θ̇, vd, v̇d) are
+the estimates of M(θ), C(θ, θ̇), G(θ), and r(θ, θ̇, vd, v̇d),
+respectively, where r(θ, θ̇, vd, v̇d) is defined later in (40).
+Substituting (36) into (25), we can obtain the closed-loop
+dynamics equation
+Mėv + Cev + k2ev +
+Q̇(φ(t))φ(t)
+δ(t)
+− r̂
+= −(M − M̂)v̇d − (C − Ĉ)vd − (G − Ĝ). (38)
+Then, RBFNN is utilized to approximate M(θ), C(θ, θ̇),
+G(θ), and r(θ, θ̇, vd, v̇d )
+M(θ) = WT
+M SM (θ) + εM
+C(θ, θ̇) = WT
+C SC (θ, θ̇) + εC
+G(θ) = WT
+G SG(θ) + εG
+r(θ, θ̇, vd, v̇d) = WT
+r Sr (θ, θ̇, vd, v̇d) + εr (39)
+where WM ∈ RnN×n, WC ∈ R2nN×n , WG ∈ RnN×n, and Wr ∈
+R4nN×n are the ideal NN weight matrices. SM (θ) ∈ RnN×n,
+SC (θ, θ̇) ∈ R2nN×n , SG(θ) ∈ RnN×n , and Sr (θ, θ̇, vd, v̇d) ∈
+R4nN×n are the RBF matrices. εM, εC, εG, and εr are the
+approximation errors. The function r(θ, θ̇, vd, v̇d) is defined
+as
+r(θ, θ̇, vd, v̇d) = εMv̇d + εCvd + εG. (40)
+The estimates of M, C, G, and r are written as follows:
+M̂(θ) = ŴT
+M SM (θ)
+Ĉ(θ, θ̇) = ŴT
+C SC (θ, θ̇)
+Ĝ(θ) = ŴT
+G SG(θ)
+r̂(θ, θ̇, vd, v̇d) = ŴT
+r Sr (θ, θ̇, vd, v̇d). (41)
+Substituting (41) into (38) and defining W̃(·) = W(·) − Ŵ(·),
+we have
+Mėv + Cev + k2ev +
+Q̇(φ(t))φ(t)
+δ(t)
+= −W̃T
+M SM v̇d − W̃T
+C SC vd − W̃T
+G SG − W̃T
+r Sr − εr . (42)
+D. Stability Analysis
+We follow the stability analysis in [24] to prove the stability
+of the designed controller. Consider a Lyapunov function as
+follows:
+V = V1 + V2 (43)
+with
+V1 =
+1
+2
+φT
+(t)φ(t) (44)
+and
+V2 =
+1
+2
+eT
+v Mev +
+1
+2
+tr
+
+W̃T
+M −1
+M W̃M + W̃T
+C −1
+C W̃C
+
++
+1
+2
+tr
+
+W̃T
+G −1
+G W̃G + W̃T
+r −1
+r W̃r
+
+(45)
+where −1
+M , −1
+C , −1
+G , and −1
+r are the positive definite
+matrices.
+Taking the derivatives of V1 and V2, we have
+V̇1 =
+φT (t)Q̇(φ(t))ev (t)
+δ(t)
+− k1φT
+(t)Q̇(φ(t))φ(t) (46)
+and
+V̇2 = −eT
+v k2ev − eT
+v εr −
+φT (t)Q̇(φ(t))ev (t)
+δ(t)
+− tr
+
+W̃T
+M
+
+SMv̇deT
+v + −1
+M
+˙
+ŴM
+
+− tr
+
+W̃T
+C
+
+SC vdeT
+v + −1
+C
+˙
+ŴC
+
+− tr
+
+W̃T
+G
+
+SGeT
+v + −1
+G
+˙
+ŴG
+
+− tr
+
+W̃T
+r
+
+Sr eT
+v + −1
+r
+˙
+Ŵr
+
+. (47)
+Let us design the update law of the NN weights as follows:
+˙
+ŴM = −M
+
+SM v̇deT
+v + ρM ŴM
+
+˙
+ŴC = −C
+
+SC vdeT
+v + ρC ŴC
+
+˙
+ŴG = −G
+
+SGeT
+v + ρG ŴG
+
+˙
+Ŵr = −r
+
+Sr eT
+v + ρr Ŵr
+
+(48)
+
+=== PDF PAGE 7 ===
+YANG et al.: ROBOT LEARNING SYSTEM BASED ON ADAPTIVE NEURAL CONTROL AND DMP 783
+where ρM , ρC , ρG, and ρr are the positive constants. Then,
+the derivative of V is written as follows:
+V̇ = −eT
+v k2ev − eT
+v εr − k1φT
+(t)Q̇(φ(t))φ(t)
++ tr
+
+ρM W̃T
+M ŴM
+
++ tr
+
+ρC W̃T
+C ŴC
+
++ tr
+
+ρG W̃T
+G ŴG
+
++ tr
+
+ρr W̃T
+r Ŵr
+
+. (49)
+We can obtain the following inequality according to the
+definition of Q̇(φ(t)):
+φT
+(t)Q̇(φ(t))φ(t) ≥
+2
+(1 + σ)
+φ(t)2
+. (50)
+Using Young’s inequality, we have
+V̇ ≤ −
+2k1
+(1 + σ)
+φ(t)2
+− k2 −
+1
+2
+ev2
++ 
+−
+ρM
+2
+W̃M 2
+F −
+ρC
+2
+W̃C 2
+F
+−
+ρG
+2
+W̃G2
+F −
+ρr
+2
+W̃r 2
+F (51)
+with
+ =
+ρM
+2
+WM 2
+F +
+ρC
+2
+WC 2
+F +
+ρG
+2
+WG2
+F
++
+ρr
+2
+Wr 2
+F +
+1
+2
+κ2
+r (52)
+where κr is the upper bound of εr  over .
+We have V̇ ≤ 0 if W̃M , W̃C , W̃G, W̃r , φ(t), and ev satisfy
+the inequality as follows:
+ =
+2k1
+(1 + σ)
+φ(t)2
++ k2 −
+1
+2
+ev 2
++
+ρM
+2
+W̃M 2
+F
++
+ρC
+2
+W̃C 2
+F +
+ρG
+2
+W̃G2
+F +
+ρr
+2
+W̃r 2
+F ≥ . (53)
+According to the LaSalles theorem, all closed-loop sig-
+nals of the DS composed of (25), (36), and (48) are semi-
+global uniformly bounded if the input signals θd and θ̇d are
+bounded. Besides, φ(t) and ev will converge to an invariant set
+i ⊆  [24]
+i = {(φ(t), ev , WM , WC ,
+WG, Wr )|/ ≤ 1}. (54)
+Since the signal φ(t) is bounded, the transient performance
+and the stability of the controller are guaranteed.
+V. EXPERIMENTS
+The proposed system is tested by two groups of experi-
+ments: the test of the NN-based controller and the test of the
+DMP-based motion model.
+A. Test of the NN-Based Controller
+In this group of experiments, the performance of NN
+learning is tested, which compensates for the uncertain manip-
+ulator dynamics caused by the payload. The experiments are
+performed on the Baxter robot that has two seven degrees-of-
+freedom arms. The joints from the shoulder to end-effector
+are named as s0, s1, e0, e1, w0, w1, and w2 in this
+paper. The experiment setup is shown in Fig. 5. The pay-
+load is attached using the left gripper of the robot, which
+Fig. 5. Experimental setup for testing the NN-based controller.
+Fig. 6. Reference joint angles (dashed lines) and actual joint angles
+(solid lines) when NN learning is (a) disabled and (b) enabled. The lines
+of different colors represent different joints.
+weighs 0.94 kg. The robot is required to track a circular
+trajectory defined as [X, Y, Z] = [0.65 + 0.1 sin(2πt/4),
+0.2 + 0.1 cos(2πt/4), 0.2](m) with the orientation fixed. The
+corresponding trajectories in joint space are obtained through
+the inverse kinematics, which are taken as the inputs of the
+proposed controller.
+We select three nodes for each input dimension of NN, and
+the centers of the nodes are distributed evenly within the limits
+of the joint position and joint velocity. There are N = 2187
+NN nodes selected for M̂(θ) and Ĝ(θ), 2N nodes for Ĉ(θ, θ̇),
+and 4N nodes for r̂(θ, θ̇, vd, v̇d). In addition, the NN weight
+matrices are initialized as ŴM = 0 ∈ RnN×n , ŴC = 0 ∈
+R2nN×n, ŴG = 0 ∈ RnN×n, and Ŵr = 0 ∈ R4nN×n with
+n = 7. The parameters of the error transformation function
+are set as δ0 = 0.2, δ∞ = 0.04, a = 1, and σ = 1.
+The manipulator is controlled by the controller without NN
+learning in the first experiment, and the actual joint angles
+are recorded. Then, the controller with the proposed NN
+learning is employed to control the manipulator in the second
+experiment. The reference and actual joint angles in both
+experiments are shown in Fig. 6, and the corresponding
+
+=== PDF PAGE 8 ===
+784 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+Fig. 7. Tracking errors when NN learning is (a) disabled and (b) enabled.
+Fig. 8. (a) Compensation torque. (b) Norm of each column of the weight
+matrix ŴG.
+tracking errors are shown in Fig. 7. The tracking errors are
+relatively high when NN learning is disabled, which is caused
+by the payload that the gripper holds, while in the second
+experiment, each joint of the manipulator tracks the refer-
+ence trajectory very well and all tracking errors reduce into
+the interval [−0.04, 0.04](rad) with the compensation torque
+increasing, which is shown in Fig. 8(a). The gravity term of the
+manipulator dynamics is the main part that the payload affects,
+and hence, we particularly show the norm of each column of
+ŴG in Fig. 8(b). We can see that the norm of each column
+vector of the weight matrix ŴG rises incrementally because
+the torque generated by NN still cannot compensate for the
+Fig. 9. Demonstration process of a pouring task.
+Fig. 10. Learning results using the DMP-based motion model in a pouring
+task of (a) joint s0, (b) joint e1, (c) joint w0, and (d) joint w1.
+effect of the unknown dynamics. However, the rising speeds of
+all norms decrease with the increment in torque compensation.
+B. Test of the DMP-Based Motion Model
+The second group of experiments aims to validate the
+DMP-based motion model. The ability of generalization
+
+=== PDF PAGE 9 ===
+YANG et al.: ROBOT LEARNING SYSTEM BASED ON ADAPTIVE NEURAL CONTROL AND DMP 785
+Fig. 11. Generalization results using the DMP-based motion model in a
+pouring task of (a) joint s0, (b) joint e1, (c) joint w0, and (d) joint w1.
+and the learning performance are tested. In these experi-
+ments, the demonstrations are performed by guiding the robot
+manipulator.
+1) Ability of Generalization: In this experiment, the tutor
+demonstrates how to pour water into a cup placed on the table,
+as shown in Fig. 9. The demonstration process is repeated
+five times. The joints w0, w1, s0, and e1 are moved while
+the others are fixed. The joint angles are recorded and used
+for learning the modified DMP. The parameters of the DMP
+model are set as τs = 1, l1 = 25, l2 = 10, and α1 = α2 = 8.
+The learning results are shown in Fig. 10. The motions
+of the four joints are reproduced from the demonstrations,
+which synthesize the features of these demonstrations and
+enable the robot to complete the pouring task successfully.
+Subsequently, the target of the motion is modulated to the other
+Fig. 12. (a) Robot performs the pouring task with the regenerated motion.
+(b) Robot pours water into the other cup with the generalized motion.
+Fig. 13. (a) Experiment setup for the drawing task. (b) Demonstration
+trajectories of the drawing task.
+Fig. 14. Robot performs the drawing task with the learned motion.
+cup. As shown in Fig. 11, the movement trajectory of each
+joint angle converges to the new goal and the profile of each
+reproduction is retained. We test the reproduced motion and
+the generalized motion on the robot. As shown in Fig. 12(a),
+the robot completes the pouring task successfully, and as
+shown in Fig. 12(b), the robot can pour water into the other
+cup.
+
+=== PDF PAGE 10 ===
+786 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+Fig. 15. (a) Learning result using the DMP-based motion model in a drawing
+task. The motions are modeled in the task space. (b) Result of drawing.
+The blue curve is drawn by the robot after learning.
+2) Learning Performance: To further validate the learning
+performance of the DMP-based motion model, we design a
+drawing task for the robot; the experimental setup is shown
+in Fig. 13(a). Here, the robot is required to draw an image of
+a sinusoid on paper after the tutor demonstrates the task five
+times. As shown in Fig. 13(b), the demonstrations are defective
+and the curves are irregular. One of the reasons is that the
+demonstrator is drawing on this paper indirectly by holding
+the robot’s wrist, which affects the exertion of the drawing
+skill. The demonstrations are modeled in the task space, and
+the robot performs the drawing task after learning (Fig. 14).
+As shown in Fig. 15(a), a smooth curve is reproduced by the
+motion model given multiple demonstrations. We can also see
+that the recorded trajectories are distorted due to measurement
+errors of the sensors. As shown in Fig. 15(b), the curve that
+the robot draws is smoother than those of the demonstrations,
+thus validating the learning performance of the DMP-based
+motion model.
+VI. CONCLUSION
+In this paper, a novel robot learning system comprised
+of motion generation and trajectory tracking is developed.
+A DMP model is chosen as the basis of the motion model
+because of its generalization ability. To improve the learning
+performance, GMM and GMR are employed for estimating the
+nonlinear function of the motion model. With this modifica-
+tion, the model can extract more motion features from multiple
+demonstrations of a specific task and generate motions that
+synthesize these additional features. Besides, an NN-based
+controller is designed to overcome the impact of the unknown
+payload so that the manipulator is able to track the gener-
+ated motions more accurately. Several experiments have been
+performed on the Baxter robot to test the performance of
+our proposed methods, which can be used to facilitate robot
+learning at a higher level. In the future work, we will further
+integrate the reinforcement learning into our system to improve
+the learning capacity of the robot.
+REFERENCES
+[1] S. Schaal, “Is imitation learning the route to humanoid robots?” Trends
+Cognit. Sci., vol. 3, no. 6, pp. 233–242, 1999.
+[2] A. Billard, S. Calinon, R. Dillmann, and S. Schaal, “Robot programming
+by demonstration,” in Springer Handbook of Robotics. Berlin, Germany:
+Springer, 2008, pp. 1371–1394.
+[3] S. M. Khansari-Zadeh and A. Billard, “Learning stable nonlinear
+dynamical systems with Gaussian mixture models,” IEEE Trans. Robot.,
+vol. 27, no. 5, pp. 943–957, Oct. 2011.
+[4] J. Duan, Y. Ou, J. Hu, Z. Wang, S. Jin, and C. Xu, “Fast and stable
+learning of dynamical systems based on extreme learning machine,”
+IEEE Trans. Syst., Man, Cybern. A, Syst., to be published. [Online].
+Available: https://ieeexplore.ieee.org/abstract/document/8002637/,
+doi: 10.1109/TSMC.2017.2705279.
+[5] C. Yang, K. Huang, H. Cheng, Y. Li, and C.-Y. Su, “Haptic identification
+by ELM-controlled uncertain manipulator,” IEEE Trans. Syst., Man,
+Cybern. A, Syst., vol. 47, no. 8, pp. 2398–2409, Aug. 2017.
+[6] A. J. Ijspeert, J. Nakanishi, H. Hoffmann, P. Pastor, and S. Schaal,
+“Dynamical movement primitives: Learning attractor models for motor
+behaviors,” Neural Comput., vol. 25, no. 2, pp. 328–373, 2013.
+[7] K. Mülling, J. Kober, O. Kroemer, and J. Peters, “Learning to select
+and generalize striking movements in robot table tennis,” Int. J. Robot.
+Res., vol. 32, no. 3, pp. 263–279, 2013.
+[8] F. Stulp, E. A. Theodorou, and S. Schaal, “Reinforcement learning with
+sequences of motion primitives for robust manipulation,” IEEE Trans.
+Robot., vol. 28, no. 6, pp. 1360–1370, Dec. 2012.
+[9] Y. Zhao, R. Xiong, L. Fang, and X. Dai, “Generating a style-adaptive
+trajectory from multiple demonstrations,” Int. J. Adv. Robot. Syst.,
+vol. 11, no. 7, pp. 103–111, 2014.
+[10] A. Coates, P. Abbeel, and A. Y. Ng, “Learning for control from
+multiple demonstrations,” in Proc. IEEE Int. Conf. Mach. Learn., 2008,
+pp. 144–151.
+[11] S. Calinon and A. Billard, “Statistical learning by imitation of competing
+constraints in joint space and task space,” Adv. Robot., vol. 23, no. 15,
+pp. 2059–2076, 2009.
+[12] S. Calinon, “Robot learning with task-parameterized generative models,”
+in Robotics Research. Cham, Switzerland: Springer, 2018, pp. 111–126.
+[13] L. Rozo, P. Jiménez, and C. Torras, “A robot learning from demon-
+stration framework to perform force-based manipulation tasks,” Intell.
+Service Robot., vol. 6, no. 1, pp. 33–51, 2013.
+[14] S. Calinon, F. Guenter, and A. Billard, “On learning, representing, and
+generalizing a task in a humanoid robot,” IEEE Trans. Syst., Man,
+Cybern. B, Cybern., vol. 37, no. 2, pp. 286–298, Apr. 2007.
+[15] S. Calinon, Z. Li, T. Alizadeh, N. G. Tsagarakis, and D. G. Caldwell,
+“Statistical dynamical systems for skills acquisition in humanoids,”
+in Proc. IEEE-RAS Int. Conf. Humanoid Robots, Nov./Dec. 2012,
+pp. 323–329.
+[16] C. G. Atkeson, A. W. Moore, and S. Schaal, “Locally weighted learning
+for control,” in Lazy Learning. Dordrecht, The Netherlands: Springer,
+1997, pp. 75–113.
+[17] S. Vijayakumar, A. D’Souza, and S. Schaal, “Incremental online learning
+in high dimensions,” Neural Comput., vol. 17, no. 12, pp. 2602–2634,
+2005.
+[18] M. Lukoševičius and H. Jaeger, “Reservoir computing approaches to
+recurrent neural network training,” Comput. Sci. Rev., vol. 3, no. 3,
+pp. 127–149, 2009.
+[19] C. Yang, G. Ganesh, S. Haddadin, S. Parusel, A. Albu-Schäffer, and
+E. Burdet, “Human-like adaptation of force and impedance in stable and
+unstable interactions,” IEEE Trans. Robot., vol. 27, no. 5, pp. 918–930,
+Oct. 2011.
+[20] C. Yang, Y. Jiang, Z. Li, W. He, and C.-Y. Su, “Neural control of
+bimanual robots with guaranteed global stability and motion precision,”
+IEEE Trans. Ind. Informat., vol. 13, no. 3, pp. 1162–1171, Jun. 2017.
+[21] L. Cheng, Y. Lin, Z.-G. Hou, M. Tan, J. Huang, and W. J. Zhang,
+“Integrated design of machine body and control algorithm for improving
+the robustness of a closed-chain five-bar machine,” IEEE/ASME Trans.
+Mechatronics, vol. 17, no. 3, pp. 587–591, Jun. 2012.
+[22] Y. J. Liu, S. C. Tong, D. Wang, T. S. Li, and C. L. P. Chen, “Adaptive
+neural output feedback controller design with reduced-order observer
+for a class of uncertain nonlinear SISO systems,” IEEE Trans. Neural
+Netw., vol. 22, no. 8, pp. 1328–1334, Aug. 2011.
+
+=== PDF PAGE 11 ===
+YANG et al.: ROBOT LEARNING SYSTEM BASED ON ADAPTIVE NEURAL CONTROL AND DMP 787
+[23] Z. Mao and F. Zhao, “Structure optimization of a vibration suppression
+device for underwater moored platforms using CFD and neural network,”
+Complexity, vol. 2017, Dec. 2017, Art. no. 5392539. [Online]. Available:
+https://www.hindawi.com/journals/complexity/2017/5392539/abs/
+[24] C. Yang, X. Wang, L. Cheng, and H. Ma, “Neural-learning-based
+telerobot control with guaranteed performance,” IEEE Trans. Cybern.,
+vol. 47, no. 10, pp. 3148–3159, Oct. 2017.
+[25] X. Yin and Q. Chen, “Learning nonlinear dynamical system for
+movement primitives,” in Proc. IEEE Int. Conf. Syst., Man, Cybern.,
+Oct. 2014, pp. 3761–3766.
+[26] P. Pastor, H. Hoffmann, T. Asfour, and S. Schaal, “Learning and
+generalization of motor skills by learning from demonstration,” in Proc.
+IEEE Int. Conf. Robot. Autom., May 2009, pp. 763–768.
+[27] T. Kulvicius, K. Ning, M. Tamosiunaite, and F. Worgötter, “Join-
+ing movement sequences: Modified dynamic movement primitives for
+robotics applications exemplified on handwriting,” IEEE Trans. Robot.,
+vol. 28, no. 1, pp. 145–157, Feb. 2012.
+[28] H. G. Sung, “Gaussian mixture regression and classification,”
+Ph.D. dissertation, Rice Univ., Houston, TX, USA, 2004.
+[29] J. MacQueen et al., “Some methods for classification and analysis of
+multivariate observations,” in Proc. 5th Berkeley Symp. Math. Statist.
+Probability, 1967, pp. 281–297.
+[30] A. P. Dempster, N. M. Laird, and D. B. Rubin, “Maximum likeli-
+hood from incomplete data via the EM algorithm,” J. Roy. Statist.
+Soc., B (Methodological), vol. 39, no. 1, pp. 1–38, 1977.
+[31] J.-J. E. Slotine and L. Weiping, “Adaptive manipulator control: A case
+study,” IEEE Trans. Autom. Control, vol. AC-33, no. 11, pp. 995–1003,
+Nov. 1988.
+[32] C. Yang, X. Wang, Z. Li, Y. Li, and C.-Y. Su, “Teleoperation control
+based on combination of wave variable and neural networks,” IEEE
+Trans. Syst., Man, Cybern., Syst., vol. 47, no. 8, pp. 2125–2136,
+Aug. 2017.
+[33] L. Cheng, Z.-G. Hou, M. Tan, and W.-J. Zhang, “Tracking control of a
+closed-chain five-bar robot with two degrees of freedom by integration of
+an approximation-based approach and mechanical design,” IEEE Trans.
+Syst., Man, Cybern. B, Cybern., vol. 42, no. 5, pp. 1470–1479, Oct. 2012.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in control
+engineering from the National University of
+Singapore, Singapore, in 2010.
+He received postdoctoral training with Imperial
+College London, London, U.K. His current research
+interests include robotics and automation.
+Dr. Yang was a recipient of the Best Paper Award
+in the IEEE TRANSACTIONS ON ROBOTICS and a
+number of international conferences.
+Chuize Chen received the B.Eng. degree in automa-
+tion from the South China University of Technology,
+Guangzhou, China, in 2017, where he is currently
+pursuing the M.S. degree..
+His current research interests include human–robot
+interaction, machine learning, and robotics.
+Wei He (S’09–M’12–SM’16) received the B.Eng.
+and M.Eng. degrees from the College of Automation
+Science and Engineering, South China University of
+Technology, Guangzhou, China, in 2006 and 2008,
+respectively, and the Ph.D. degree from the
+Department of Electrical and Computer Engineer-
+ing, National University of Singapore, Singapore,
+in 2011.
+He is currently a Full Professor with the School of
+Automation and Electrical Engineering, University
+of Science and Technology Beijing, Beijing, China.
+He has co-authored two books published in Springer and authored or
+co-authored over 100 international journal and conference papers. His cur-
+rent research interests include robotics, distributed parameter systems, and
+intelligent control systems.
+Dr. He is a member of the IFAC TC on Distributed Parameter Systems,
+the IFAC TC on Computational Intelligence in Control, and the IEEE CSS
+TC on Distributed Parameter Systems. He was a recipient of the Newton
+Advanced Fellowship from the Royal Society Award, U.K., and the IEEE
+SMC Society Andrew P. Sage Best Transactions Paper Award in 2017.
+He serves as an Associate Editor for the IEEE TRANSACTIONS ON NEURAL
+NETWORKS AND LEARNING SYSTEMS, the IEEE TRANSACTIONS ON CON-
+TROL SYSTEMS TECHNOLOGY, and an Editor for the IEEE/CAA JOURNAL
+OF AUTOMATICA SINICA, Neurocomputing, and the Journal of Intelligent and
+Robotic Systems.
+Rongxin Cui (M’09) received the B.Eng. and Ph.D.
+degrees from Northwestern Polytechnical University,
+Xi’an, China, in 2003 and 2008, respectively.
+From 2008 to 2010, he was a Research Fellow with
+the Centre for Offshore Research and Engineering,
+National University of Singapore, Singapore. He is
+currently a Professor with the School of Marine
+Science and Technology, Northwestern Polytechni-
+cal University, Xi’an, China. His current research
+interests include control of nonlinear systems, coop-
+erative path planning and control for multiple robots,
+control and navigation for underwater vehicles, and system development.
+Dr. Cui serves as an Editor for the Journal of Intelligent and Robotic
+Systems.
+Zhijun Li (M’07–SM’09) received the Ph.D. degree
+in mechatronics from Shanghai Jiao Tong University,
+Shanghai, China, in 2002.
+From 2003 to 2005, he was a Post-Doctoral
+Fellow with the Department of Mechanical Engi-
+neering and Intelligent Systems, University of
+Electro-Communications, Tokyo, Japan. From 2005
+to 2006, he was a Research Fellow with the
+Department of Electrical and Computer Engineering,
+National University of Singapore, Singapore, and
+Nanyang Technological University, Singapore. From
+2012 to 2017, he was a Professor with the College of Automation Science
+and Engineering, South China University of Technology, Guangzhou, China.
+Since 2017, he has been a Professor with the Department of Automation,
+University of Science and Technology of China, Hefei, China. His current
+research interests include service robotics, teleoperation systems, nonlinear
+control, and neural network optimization.
