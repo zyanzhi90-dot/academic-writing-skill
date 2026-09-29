@@ -1,3 +1,0 @@
-{"type":"thread.started","thread_id":"01a0eb0e-5a7d-79b1-bbf1-9e29426ff2b8"}
-{"type":"turn.started"}
-{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll read the task and the specified skill’s router and manifest, then follow only the local files they direct me to use. I’ll return the manuscript prose in the response and leave the files untouched."}}
