@@ -1,0 +1,40 @@
+{
+  "task": "F1",
+  "version": "candidate",
+  "role": "nature-writing",
+  "skill_manifest": [
+    "name: nature-writing",
+    "version: 1.5.1-rc.1",
+    "description: >",
+    "  Declarative manifest for the static/dynamic split. SKILL.md uses this to",
+    "  decide which fragments to load for a drafting, restructuring, or"
+  ],
+  "skill_sha256": "09a93b39eff5df79c4e71d2584998b7c1b0101b58d5a864b1527f33c90f7b660",
+  "shared_sha256": "043469437892d5281fd2c552e9ba28342d0ffe032c662275f95ee9f39db11464",
+  "task_sha256": "17f8775dad61ba8e9fbd7e1313e12d7754caad9a7cdded85a2902f000c017079",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "cli_arguments": [
+    "exec",
+    "--json",
+    "--ephemeral",
+    "--ignore-user-config",
+    "--skip-git-repo-check",
+    "-s",
+    "read-only",
+    "-m",
+    "gpt-6-sol",
+    "-c",
+    "model_reasoning_effort=\"medium\"",
+    "-C",
+    "<isolated-run-dir>",
+    "-o",
+    "<first-output.md>",
+    "<prompt>"
+  ],
+  "isolated_workdir": "D:\\pip_env\\temp\\robot-F1-candidate-f546n91m",
+  "prompt": "Carry out the manuscript task in <isolated-run-dir>\\task.md using only the specified skill at <isolated-run-dir>\\nature-writing\\SKILL.md and its declared local dependencies. Read the skill router, manifest, and files it directs you to load for this task. Do not use any installed skill, other writing instructions, repository materials, or previous task outputs. This is an isolated first-pass writing run. Do not change files. Return the requested prose and any notes required by the task.",
+  "exit_code": 0,
+  "duration_seconds": 35.4,
+  "first_output_exists": true
+}

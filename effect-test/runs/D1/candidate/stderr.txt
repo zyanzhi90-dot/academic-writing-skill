@@ -1,0 +1,7 @@
+Reading additional input from stdin...
+2026-09-29T02:55:35.481278Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-09-29T02:55:40.453245Z  WARN codex_core_plugins::manager: failed to load recommended plugins error=failed to send remote plugin catalog request to https://chatgpt.com/backend-api/ps/plugins/suggested/codex?scope=GLOBAL: error sending request for url (https://chatgpt.com/backend-api/ps/plugins/suggested/codex?scope=GLOBAL)
+2026-09-29T02:55:40.453289Z ERROR codex_models_manager::manager: failed to refresh available models: request timed out
+2026-09-29T02:56:05.595454Z  WARN codex_core_plugins::manager: failed to refresh cached remote plugin catalog error=failed to parse remote plugin catalog response from https://chatgpt.com/backend-api/ps/plugins/list?scope=GLOBAL&limit=200: EOF while parsing a value at line 1 column 0 scope=Global
+2026-09-29T02:56:33.527461Z  WARN codex_analytics::client: failed to send events request: error sending request for url (https://chatgpt.com/backend-api/codex/analytics-events/events)
+2026-09-29T02:57:21.245040Z  WARN codex_analytics::client: failed to send events request: error sending request for url (https://chatgpt.com/backend-api/codex/analytics-events/events)

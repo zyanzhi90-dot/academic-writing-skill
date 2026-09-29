@@ -1,0 +1,23 @@
+{
+  "task": "P3",
+  "version": "baseline",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "task_sha256": "e804bd4f729edd010cff32a8b67f074a69023804a27a5aa977383bb631c37f90",
+  "loaded_files": [
+    "skill-baseline/nature-polishing/SKILL.md",
+    "skill-baseline/nature-polishing/manifest.yaml",
+    "skill-baseline/nature-shared/core/reader-workflow.md",
+    "skill-baseline/nature-shared/core/paper-type-taxonomy.md",
+    "skill-baseline/nature-shared/core/ethics.md",
+    "skill-baseline/nature-shared/core/terminology-ledger.md",
+    "skill-baseline/nature-polishing/static/core/stance.md",
+    "skill-baseline/nature-polishing/static/core/failure-modes.md",
+    "skill-baseline/nature-polishing/static/core/output-format.md",
+    "skill-baseline/nature-polishing/static/fragments/paper_type/algorithmic.md",
+    "skill-baseline/nature-polishing/static/fragments/language/en.md",
+    "skill-baseline/nature-polishing/static/fragments/journal/generic.md"
+  ],
+  "loaded_robotics_module": false,
+  "nonempty_first_output": true
+}

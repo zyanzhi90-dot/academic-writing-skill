@@ -1,0 +1,3 @@
+I couldn’t read `task.md` or the specified skill files: the environment rejected the read commands. I haven’t changed any files or drafted manuscript text without the task instructions.
+
+Please paste `task.md`, `nature-writing/SKILL.md`, and the router, manifest, and task-specific files it directs me to read, or restore read access to that workspace. I can then return the requested prose and notes.

@@ -1,0 +1,30 @@
+## Draft
+
+### Introduction
+
+In human-guided robotic tasks, an operator directs a tool while the tool contacts an environment whose properties are unknown. This occurs in activities such as carving and in repetitive grinding or polishing. Environmental contact can disturb the intended tool path. The robot must therefore remain easy for the person to guide (*maneuverability*) while maintaining stable contact and tracking the path under disturbance (*contact stability*). Here, *maneuverability* refers to the effort of guiding the robot, not to kinematic dexterity measured from its Jacobian.
+
+These objectives are coupled through robot impedance. Increasing impedance can help resist environmental disturbances, but may require greater force from the operator. Reducing the force needed for guidance may, in turn, compromise contact performance. A controller designed for human guidance and one designed for environmental contact therefore cannot simply be assumed to satisfy both objectives when applied together. The question is how impedance should respond to both interactions while the person guides the tool through contact.
+
+Research on human–robot interaction has developed ways to adapt guidance from physiological signals, measured human motion and force, or inferred intent. Research on robot–environment interaction has developed ways to respond to contact forces and disturbances or select impedance for contact tasks. These lines address relevant parts of the problem, but the supplied account does not establish how they handle a guiding person and an unknown environment in the same interaction model.
+
+We address this setting by using information from human guidance to maintain *maneuverability* while adapting robot impedance to environmental disturbance to support *contact stability*. For nonrepetitive tasks, we develop adaptive impedance learning under the condition that the environment coefficients and its *rest position* are constant. For repetitive tasks with spatially periodic disturbances, we develop an iterative version. In the stated interaction model, the controller is intended to operate without prior knowledge of the disturbance or the human reference position. The study includes a stability analysis and investigations on an H-MAN robot using virtual disturbances, real carving, and repetitive grinding or polishing. The scope and outcomes of those investigations should be stated from the full results.
+
+### Related Work
+
+**Adaptation to human guidance.** One line of human–robot interaction work adjusts robot impedance using surface electromyography. This provides information associated with the operator’s activity, although signal variability and neural constraints can limit its use. Other approaches measure human force and position directly and infer human impedance from those measurements. These routes differ in what they observe and infer; neither should be treated as equivalent to directly measuring the impedance the operator intends.
+
+Human guidance has also been addressed without the same impedance inference step. Some methods tune parameters using velocity heuristics, while others infer intent from motion probability distributions or time series. A further route changes the robot’s reference trajectory rather than its impedance. Together, these methods offer distinct ways to respond to the person guiding the robot. The supplied material does not establish whether they also account for simultaneous contact with an unknown environment, so that question remains separate from their demonstrated uses in human guidance.
+
+**Control of environmental contact.** Work centred on robot–environment interaction includes feedback, neural, and iterative learning approaches for contact forces or disturbances. Other methods use feedforward force, impedance, and trajectory design to generate a desired contact force. Reinforcement learning has been used to choose impedance parameters from rewards that include contact-force information, while fuzzy impedance adjustment has been used to smooth the transition from free motion into contact. These approaches address different contact-control objectives and operating conditions. In the account provided here, they primarily model the environment side of the interaction rather than a person who is simultaneously guiding the robot.
+
+The distinction relevant to this study is thus the *interaction partner represented in the control problem*, alongside the condition under which contact occurs. Human-guidance approaches provide information about the operator; environmental-contact approaches provide ways to regulate the robot’s response to contact. When guidance and unknown contact occur together, impedance affects both the operator’s required effort and the tool’s response to disturbance. This coupled requirement motivates the present adaptive and iterative impedance-learning designs. It does not imply that either prior line is ineffective in the setting for which it was developed.
+
+## Notes / 写作说明
+
+- **Section outline:** The Introduction moves from the joint task to the impedance trade-off, then the unresolved combined setting and study design. Related Work compares human-guidance and environmental-contact approaches by what each represents in the control problem.
+- **Terminology:** *Maneuverability* means ease of human guidance; *contact stability* covers stable interaction and trajectory tracking under contact. *Rest position* is the environment’s rest position. These meanings are kept consistent across both sections.
+- **Evidence boundary:** The notes name a stability analysis and H-MAN investigations but give no proof conditions, measured outcomes, comparisons, or complete references. The draft therefore describes the study and its intended control behaviour without claiming demonstrated superiority or a “first” result.
+- **Before submission:** Add verified citations to the prior-work groups and check the final contribution and evaluation sentences against the analysis and experimental results.
+
+中文结构说明：引言采用“任务与技术矛盾 → 两类研究的覆盖范围 → 本研究方案”的顺序；独立的 Related Work 按“人体引导”和“环境接触”组织，避免把未给出的前人研究结论写成已核实事实。

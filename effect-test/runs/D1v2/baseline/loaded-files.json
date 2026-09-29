@@ -1,0 +1,28 @@
+{
+  "task": "D1v2",
+  "version": "baseline",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "task_sha256": "47f2b6afd9022d6d7988ef7023afda692f9326ac866d5046758cb897fa77a356",
+  "loaded_files": [
+    "skill-baseline/nature-writing/SKILL.md",
+    "skill-baseline/nature-writing/manifest.yaml",
+    "skill-baseline/nature-shared/core/ethics.md",
+    "skill-baseline/nature-shared/core/reader-workflow.md",
+    "skill-baseline/nature-writing/static/core/workflow.md",
+    "skill-baseline/nature-writing/static/core/stance.md",
+    "skill-baseline/nature-shared/core/paper-type-taxonomy.md",
+    "skill-baseline/nature-writing/static/core/output-format.md",
+    "skill-baseline/nature-shared/core/terminology-ledger.md",
+    "skill-baseline/nature-writing/static/fragments/section/related-work.md",
+    "skill-baseline/nature-writing/static/fragments/paper_type/algorithmic.md",
+    "skill-baseline/nature-writing/static/fragments/task/manuscript.md",
+    "skill-baseline/nature-writing/static/fragments/section/intro.md",
+    "skill-baseline/nature-writing/static/fragments/journal/generic.md",
+    "skill-baseline/nature-writing/references/introduction.md",
+    "skill-baseline/nature-writing/static/fragments/language/zh-to-en.md",
+    "skill-baseline/nature-writing/references/related-work.md"
+  ],
+  "loaded_robotics_module": false,
+  "nonempty_first_output": true
+}
