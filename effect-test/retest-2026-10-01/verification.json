@@ -1,0 +1,91 @@
+{
+  "original_run_records_unchanged": true,
+  "inputs_unchanged": true,
+  "revised_skills_unchanged_during_runs": true,
+  "appended_reports_preserve_original_text": {
+    "effect-test/匿名逐项评价.md": true,
+    "effect-test/结果总报告.md": true
+  },
+  "runs": {
+    "F1": {
+      "task": "F1",
+      "version": "candidate",
+      "run_label": "candidate-repair-2",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "task_sha256": "17f8775dad61ba8e9fbd7e1313e12d7754caad9a7cdded85a2902f000c017079",
+      "loaded_files": [
+        "skill-candidate/nature-writing/SKILL.md",
+        "skill-candidate/nature-writing/manifest.yaml",
+        "skill-candidate/nature-writing/static/core/workflow.md",
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+        "skill-candidate/nature-shared/core/ethics.md",
+        "skill-candidate/nature-shared/core/terminology-ledger.md",
+        "skill-candidate/nature-writing/static/core/stance.md",
+        "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+        "skill-candidate/nature-writing/static/core/output-format.md",
+        "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+        "skill-candidate/nature-writing/static/fragments/section/intro.md",
+        "skill-candidate/nature-shared/core/discussion-argument-language.md",
+        "skill-candidate/nature-writing/static/fragments/section/experiments.md",
+        "skill-candidate/nature-writing/static/fragments/section/method.md",
+        "skill-candidate/nature-writing/static/fragments/paper_type/research.md",
+        "skill-candidate/nature-shared/core/main-text-discipline.md",
+        "skill-candidate/nature-writing/static/fragments/section/conclusion.md",
+        "skill-candidate/nature-shared/core/reader-workflow.md",
+        "skill-candidate/nature-writing/static/fragments/language/en.md",
+        "skill-candidate/nature-shared/core/robotics-main-text.md",
+        "skill-candidate/nature-writing/static/fragments/section/discussion.md",
+        "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md",
+        "skill-candidate/nature-writing/references/method.md"
+      ],
+      "input_reads": [
+        "effect-test/inputs/F1.md"
+      ],
+      "loaded_robotics_module": true,
+      "nonempty_first_output": true,
+      "read_commands_checked": 37,
+      "only_allowed_explicit_reads": true,
+      "first_output_sha256": "366fc45bb6e2535ed16805cd3428990dc44362ef2c398949e62e0f0ac72b9c12",
+      "robotics_module_sha256": "4c19bd05dd6cb1c8e1d97d5ef1dce05c6c815a99207ca09e954dd8437918379d"
+    },
+    "D1v2": {
+      "task": "D1v2",
+      "version": "candidate",
+      "run_label": "candidate-repair-2",
+      "model": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "task_sha256": "47f2b6afd9022d6d7988ef7023afda692f9326ac866d5046758cb897fa77a356",
+      "loaded_files": [
+        "skill-candidate/nature-writing/SKILL.md",
+        "skill-candidate/nature-writing/manifest.yaml",
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+        "skill-candidate/nature-shared/core/ethics.md",
+        "skill-candidate/nature-shared/core/terminology-ledger.md",
+        "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+        "skill-candidate/nature-shared/core/reader-workflow.md",
+        "skill-candidate/nature-writing/static/core/workflow.md",
+        "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+        "skill-candidate/nature-writing/static/core/stance.md",
+        "skill-candidate/nature-writing/static/fragments/section/intro.md",
+        "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+        "skill-candidate/nature-writing/static/core/output-format.md",
+        "skill-candidate/nature-writing/static/fragments/language/en.md",
+        "skill-candidate/nature-writing/static/fragments/section/related-work.md",
+        "skill-candidate/nature-writing/static/fragments/paper_type/research.md",
+        "skill-candidate/nature-shared/core/robotics-main-text.md",
+        "skill-candidate/nature-writing/references/related-work.md",
+        "skill-candidate/nature-writing/references/introduction.md"
+      ],
+      "input_reads": [
+        "effect-test/inputs/D1v2.md"
+      ],
+      "loaded_robotics_module": true,
+      "nonempty_first_output": true,
+      "read_commands_checked": 23,
+      "only_allowed_explicit_reads": true,
+      "first_output_sha256": "8f34ec5d02b07a4c88f8b5ff6ec5842e0b8cbc69d279c04299e76a1cd57e9ecb",
+      "robotics_module_sha256": "4c19bd05dd6cb1c8e1d97d5ef1dce05c6c815a99207ca09e954dd8437918379d"
+    }
+  }
+}

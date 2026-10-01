@@ -15,6 +15,19 @@ under particular technical conditions; none is a required sentence pattern.
 For the full context, see the [19-paper evidence report](../../../机器人论文正文写作证据分析.md).
 PDF page numbers count from the first PDF page, not the printed journal page.
 
+## Evidence and manuscript prose
+
+- Distinguish an author-supported study limitation from missing information in
+  the task input. An omitted test, result, or proof detail does not establish
+  that the study did not perform it. State a scientific limitation only when
+  author evidence supports it; otherwise bound the claim to the evidence given
+  and request the missing information in author notes outside the manuscript.
+- Keep descriptions of supplied materials, drafting uncertainty, requests for
+  author confirmation, and submission-readiness advice outside manuscript
+  prose, in the requesting skill's missing-input or revision notes. The prose
+  should state the scientific problem, design, evidence, and supported scope.
+  Retain necessary technical conditions and local evidence/citation placeholders.
+
 ## Whole manuscript and adjacent sections
 
 - Map the task and operating assumptions to the claimed capability or
@@ -36,6 +49,12 @@ PDF page numbers count from the first PDF page, not the printed journal page.
   example. Close by returning to the opening promise and distinguishing proof,
   observed performance, and extrapolation; P19 pp.11–12 §§VIII–IX explicitly
   bounds generalization from the tested robot and task.
+- Apply the existing claim-repetition audit also to operating boundaries across
+  sections, including Introduction and independent Related Work. Retain a
+  repeated condition when it bounds a new guarantee, comparison, or inference;
+  compress or delete a restatement that adds no reasoning. Keep each necessary
+  qualifier attached to its claim rather than appending the same limitation
+  inventory to every section. See `main-text-discipline.md` §9.
 
 ## Introduction and Related Work
 

@@ -24,12 +24,16 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("task", choices=["F1", "D1", "D1v2", "D2", "P1", "P2", "P3"])
     parser.add_argument("version", choices=["baseline", "candidate"])
+    parser.add_argument("--run-label", default=None, help="Separate record directory for a retest; never replaces an existing run")
     args = parser.parse_args()
 
     role = "nature-writing" if args.task in {"F1", "D1", "D1v2", "D2"} else "nature-polishing"
     source = ROOT / f"skill-{args.version}"
     task_path = TEST / "inputs" / f"{args.task}.md"
-    dest = TEST / "runs" / args.task / args.version
+    run_label = args.run_label or args.version
+    if Path(run_label).name != run_label or run_label in {".", ".."}:
+        parser.error("run label must be a single directory name")
+    dest = TEST / "runs" / args.task / run_label
     if dest.exists():
         raise SystemExit(f"Refusing to replace first-pass output: {dest}")
     dest.mkdir(parents=True)
@@ -61,6 +65,7 @@ def main() -> None:
     meta = {
         "task": args.task,
         "version": args.version,
+        "run_label": run_label,
         "role": role,
         "skill_manifest": (source / role / "manifest.yaml").read_text(encoding="utf-8").split("\n", 5)[:5],
         "skill_sha256": sha256(source / role / "SKILL.md"),
