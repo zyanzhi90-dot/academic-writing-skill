@@ -15,6 +15,7 @@ import subprocess
 import tempfile
 
 import yaml
+import pymupdf
 
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE = ROOT / "skill-candidate"
@@ -98,7 +99,8 @@ def read_case(base, name, case, manifest):
         assert EXAMPLES in refs
         paths.append(EXAMPLES)
         if "abstract" in sections:
-            selected.append("A02")
+            selected.append("A06")
+            selected.extend(case.get("abstract_references", []))
         if has_body:
             assert BODY in refs
             paths.append(BODY)
@@ -140,6 +142,7 @@ def read_case(base, name, case, manifest):
             fragments = {"common_and_task_index": sha(common_and_index.encode("utf-8"))}
             fragments.update({card: sha(units[card].encode("utf-8")) for card in selected})
             assert "## Internal expression and context check before delivery" in common_and_index
+            assert "## Abstract reference selection and scope checks" in common_and_index
             record["selected_fragment_sha256"] = fragments
         reads.append(record)
     assert (EXAMPLES in paths) == eligible
@@ -213,20 +216,56 @@ def check(candidate_commit):
     destination = (CANDIDATE / "nature-shared/core/robotics-writing-examples.md").read_text(encoding="utf-8")
     old_cards, new_cards = cards(source), cards(destination)
     assert len(old_cards) == len(new_cards) == 19
-    assert old_cards == new_cards, "Accepted card text changed"
+    for card in old_cards:
+        if card in {"A02", "A04", "A05", "A06", "B13"}:
+            continue
+        assert old_cards[card] == new_cards[card], (card, "Unrelated card changed")
+    old_cross_reference = "它与 A02 共享构造对象，但一个是章节导读，一个是摘要，不应逐句重复。"
+    new_cross_reference = "同一论文的章节导读和摘要承担不同功能，不应逐句重复。"
+    assert new_cards["B13"] == old_cards["B13"].replace(old_cross_reference, new_cross_reference)
     old_quotes = [s for s in source.splitlines() if s.startswith("> ")]
     new_quotes = [s for s in destination.splitlines() if s.startswith("> ")]
-    assert old_quotes == new_quotes and len(old_quotes) == 26
-    old_links = re.findall(r"^\[P\d+\]: <\.\./(.*?)>$", source, re.M)
-    new_links = re.findall(r"^\[P\d+\]: <\.\./\.\./\.\./(.*?)>$", destination, re.M)
-    assert old_links == new_links
-    for link in new_links:
+    assert len(old_quotes) == len(new_quotes) == 26
+    assert sum(quote in new_quotes for quote in old_quotes) == 23
+    for card in ("A01", "A03", "A06"):
+        assert re.findall(r"^> .*", old_cards[card], re.M) == re.findall(r"^> .*", new_cards[card], re.M)
+    old_links = dict(re.findall(r"^\[([^\]]+)\]: <\.\./(.*?)>$", source, re.M))
+    new_links = dict(re.findall(r"^\[([^\]]+)\]: <\.\./\.\./\.\./(.*?)>$", destination, re.M))
+    expected_links = dict(old_links)
+    for label in ("P04", "P06", "P19"):
+        expected_links[label] = "effect-test/E01-abstract-first-drafting-2026-10-02/materials/" + old_links[label]
+    expected_links.update({
+        "Fuzzy2023": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+        "ESO2017": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+    })
+    assert new_links == expected_links
+    for link in new_links.values():
         assert (ROOT / link).is_file()
+    abstract_sources = []
+    for card, label in (("A06", "P17"), ("A02", "Fuzzy2023"), ("A04", "ESO2017"), ("A05", "P09")):
+        pdf = ROOT / new_links[label]
+        with pymupdf.open(pdf) as document:
+            page = document[0]
+            text = page.get_text(clip=pymupdf.Rect(0, 0, page.rect.width / 2, page.rect.height))
+        abstract = text[text.index("Abstract") + len("Abstract"):text.index("Index")].lstrip(" \r\n—-")
+        abstract = abstract.replace("ﬁ", "fi").replace("ﬂ", "fl")
+        abstract = abstract.replace("user-\ndefined", "user-defined")
+        abstract = re.sub(r"-\n(?=[a-z])", "", abstract).replace("\n", " ")
+        abstract = re.sub(r"\s+", " ", abstract).strip()
+        quote = re.search(r"^> (.*)$", new_cards[card], re.M)[1]
+        assert quote == abstract, (card, "Quote differs from current source PDF")
+        abstract_sources.append({"card": card, "source_label": label, "path": new_links[label],
+                                 "pdf_sha256": sha(pdf.read_bytes()), "pdf_page": 1,
+                                 "quote_sha256": sha(quote.encode("utf-8")),
+                                 "approximate_words_whitespace_split": len(quote.split()), "quote_matches_pdf": True})
     scenarios = [
         {"id": "generic-abstract", "sections": ["abstract"]},
         {"id": "abstract-zh-to-en", "sections": ["abstract"], "language": "zh-to-en"},
         {"id": "nature-abstract", "sections": ["abstract"], "journal": "nature"},
         {"id": "explicit-algorithmic-abstract", "sections": ["abstract"], "paper_type": "algorithmic"},
+        {"id": "abstract-fixed-time-reference", "sections": ["abstract"], "abstract_references": ["A02"]},
+        {"id": "abstract-observer-reference", "sections": ["abstract"], "abstract_references": ["A04"]},
+        {"id": "abstract-interaction-reference", "sections": ["abstract"], "abstract_references": ["A05"]},
         {"id": "specified-intro", "sections": ["intro"]},
         {"id": "method", "sections": ["method"]},
         {"id": "explicit-algorithmic-method", "sections": ["method"], "paper_type": "algorithmic"},
@@ -268,7 +307,12 @@ def check(candidate_commit):
             "candidate_verification": verify_committed_files(records, candidate_commit),
             "method": "Manually resolved routing cases; manifest lookup and real file/selected-fragment reads. Not model invocation, automatic semantic routing, or writing-effect evidence.",
             "versions_and_declared_paths": {name: {"version": value[0]["version"], "path_entries": len(value[1])} for name, value in manifests.items()},
-            "source_preservation": {"cards_unchanged": 19, "quote_blocks_unchanged": 26, "source_links_resolved": len(new_links)},
+            "source_preservation": {"total_cards": 19, "body_cards_unchanged": 12,
+                                    "B13_only_abstract_cross_reference_updated": True,
+                                    "other_abstract_cards_unchanged": ["A01", "A03"],
+                                    "default_anchor_quote_unchanged": "A06",
+                                    "original_quote_blocks_retained": 23, "total_quote_blocks": 26,
+                                    "source_links_resolved": len(new_links), "abstract_sources": abstract_sources},
             "powershell_utf8_read": check_powershell_utf8(CANDIDATE / "nature-shared/core/robotics-writing-examples.md"),
             "detached_candidate_only_reads": "passed; no plan, evidence report, extraction text, or PDF present",
             "scenarios": records}

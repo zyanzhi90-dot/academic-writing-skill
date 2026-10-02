@@ -2,12 +2,12 @@
   "basis_commit": "105a6ea",
   "basis_commit_scope": "Accepted example-card source, not the candidate version",
   "candidate_verification": {
-    "candidate_commit": "20c78392931c07c0d5c3784fad26c833ae4d1ccf",
+    "candidate_commit": "11e900cc53ccee25f5f9d6b93971551b87f2e87a",
     "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
     "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
     "committed_file_sha256": {
       "nature-writing/SKILL.md": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9",
-      "nature-writing/manifest.yaml": "c7c0a2ae6ceab87eaccf661c7f4c3f39a2ccc575a0729261170913ad50c9a9bf",
+      "nature-writing/manifest.yaml": "14fbff51148ad4068834909c099cab99f51772e4d2b9353cba53779af8019472",
       "nature-shared/core/reader-workflow.md": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
       "nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
       "nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
@@ -19,8 +19,8 @@
       "nature-writing/static/fragments/language/en.md": "114fc068564a03a5cccee048d0fb4f9f48cf6469c7aef3e9024d24ed818a4bf3",
       "nature-writing/static/fragments/journal/generic.md": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
       "nature-writing/static/fragments/task/manuscript.md": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
-      "nature-writing/static/fragments/section/abstract.md": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3",
-      "nature-shared/core/robotics-writing-examples.md": "8446c5493de3a4ee25f52854b89b292953920917087be718b322a63d2b7e9ec2",
+      "nature-writing/static/fragments/section/abstract.md": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6",
+      "nature-shared/core/robotics-writing-examples.md": "7e9b216fe8956ddc1bb3057333c787fe9951b8645027b04a5ed97f2c119f82b5",
       "nature-writing/references/abstract.md": "7180d2c01d828e5b23612571c6e19ef5c882f200a804da950af8a67a62b0a7c5",
       "nature-writing/static/fragments/language/zh-to-en.md": "baee8cd5c7d69ae38a78ccbbbde7418a3010fef3374bc520f937c838ec583c41",
       "nature-writing/static/fragments/journal/nature.md": "4333c75dad3094bcd785060887986859152e53c1bed98d1b6d08e70ecf27de7f",
@@ -39,14 +39,14 @@
       "nature-writing/static/fragments/section/title.md": "667fafc45b0a38c439998d6d8ed18fb98ffea1b196fc9343bc3a4629fcdc110a",
       "nature-writing/static/fragments/task/submission-package.md": "69410d283d738e82a35f2d8da1bcfb48385e924b68c1deef84cb2a5be8dceb9d",
       "nature-polishing/SKILL.md": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa",
-      "nature-polishing/manifest.yaml": "93d58416cdc7e2ff5065817d2ced4c55b1a52aabf35eca3213e644d6f6f7edf9",
+      "nature-polishing/manifest.yaml": "bb25ccb254ad09822aa7b16f57242162e57b464914c70a3da6288de38d66be6b",
       "nature-polishing/static/core/stance.md": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b",
       "nature-polishing/static/core/failure-modes.md": "ef24997fb1d54ce416ba80735429c0504acc930458ffefb5357c66e43d72a444",
       "nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
       "nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
       "nature-polishing/static/fragments/language/en.md": "16a53037d81661ac6b172e792a4aafc00332fb16c03a5fc43aaab7beb50fa897",
       "nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
-      "nature-polishing/static/fragments/section/abstract.md": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae",
+      "nature-polishing/static/fragments/section/abstract.md": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc",
       "nature-polishing/static/fragments/language/zh-to-en.md": "64fbb948a5ff6db86a067557275ad0ff00835ce65a9d1e12d2dbc21efee90163",
       "nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
       "nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
@@ -61,35 +61,38 @@
       "nature-polishing/references/latex-layout.md": "9cdb4a2f69e1314a5a401bd1e90d880287940211a48b07e4eb0c62c3c9dd28a9"
     },
     "committed_example_fragment_sha256": {
-      "common_and_task_index": "7f6b998e9b6e24a6034501ee60064fb69a19fd374b8815144b35c22388164a4a",
-      "A02": "d20febd1c3dd55634c030cb19556ed44451da5899f988351caed660477b21adf",
+      "common_and_task_index": "925b4d940e8fae09cc9eb28b080237f53b81bcd3a30d1d74d43736b6b9e774d2",
+      "A02": "b0caf18529260191ce065a7aba318ff8763b23f576fe4c6aee8101f3c9de5f36",
+      "A04": "933a0ebdb2c44df6654195d41ce491fbe1cd671e9b6927bbf37601315a22f9ab",
+      "A05": "523ef29c1ea9da422d59b1a5e2cad50a4d73b605669b4791500a79989de9102b",
+      "A06": "90e4ef867ee7f84b5b5603c97439e69544bc3230cec2041ca03986ca410f0ea7",
       "B01": "1d04bf4455baf9f7d7d4aa93f554ee6e289daf73b9dccda8b9af60a20fbd0eb8",
       "B02": "a2a995885fcecaf8e4d5daa5f755ce52a19c212fbec0e4923edda71bc4242777",
       "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88",
       "B11": "d1dde231b96f5fbc7d68feaf761f59234cd9c80715ee162bdac626ee7093f23e",
-      "B13": "0380a47016b0a06f57e7bec19ae35a477e311a756631aab1526b3572db9946b3"
+      "B13": "dcf4fc9858a8f1e4a9fdbc0b27038c1b4d15786f7957850ae46615913851264d"
     },
     "line_ending_differences": [
       {
         "path": "nature-writing/manifest.yaml",
-        "read_sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4",
-        "committed_sha256": "c7c0a2ae6ceab87eaccf661c7f4c3f39a2ccc575a0729261170913ad50c9a9bf",
+        "read_sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7",
+        "committed_sha256": "14fbff51148ad4068834909c099cab99f51772e4d2b9353cba53779af8019472",
         "working_crlf_count": 135,
         "committed_crlf_count": 0,
         "content_equal_after_lf_normalization": true
       },
       {
         "path": "nature-shared/core/robotics-writing-examples.md",
-        "read_sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
-        "committed_sha256": "8446c5493de3a4ee25f52854b89b292953920917087be718b322a63d2b7e9ec2",
-        "working_crlf_count": 425,
+        "read_sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+        "committed_sha256": "7e9b216fe8956ddc1bb3057333c787fe9951b8645027b04a5ed97f2c119f82b5",
+        "working_crlf_count": 471,
         "committed_crlf_count": 0,
         "content_equal_after_lf_normalization": true
       },
       {
         "path": "nature-polishing/manifest.yaml",
-        "read_sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b",
-        "committed_sha256": "93d58416cdc7e2ff5065817d2ced4c55b1a52aabf35eca3213e644d6f6f7edf9",
+        "read_sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151",
+        "committed_sha256": "bb25ccb254ad09822aa7b16f57242162e57b464914c70a3da6288de38d66be6b",
         "working_crlf_count": 99,
         "committed_crlf_count": 0,
         "content_equal_after_lf_normalization": true
@@ -100,22 +103,72 @@
   "method": "Manually resolved routing cases; manifest lookup and real file/selected-fragment reads. Not model invocation, automatic semantic routing, or writing-effect evidence.",
   "versions_and_declared_paths": {
     "nature-writing": {
-      "version": "1.5.1-rc.4",
+      "version": "1.5.1-rc.5",
       "path_entries": 53
     },
     "nature-polishing": {
-      "version": "6.6.1-rc.4",
+      "version": "6.6.1-rc.5",
       "path_entries": 42
     },
     "nature-shared": {
-      "version": "1.6.1-rc.3",
+      "version": "1.6.1-rc.4",
       "path_entries": 17
     }
   },
   "source_preservation": {
-    "cards_unchanged": 19,
-    "quote_blocks_unchanged": 26,
-    "source_links_resolved": 11
+    "total_cards": 19,
+    "body_cards_unchanged": 12,
+    "B13_only_abstract_cross_reference_updated": true,
+    "other_abstract_cards_unchanged": [
+      "A01",
+      "A03"
+    ],
+    "default_anchor_quote_unchanged": "A06",
+    "original_quote_blocks_retained": 23,
+    "total_quote_blocks": 26,
+    "source_links_resolved": 13,
+    "abstract_sources": [
+      {
+        "card": "A06",
+        "source_label": "P17",
+        "path": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+        "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+        "pdf_page": 1,
+        "quote_sha256": "fadf9c5d4b8b2d528667ebe4e1edb7b2087d747ace34b3b2c787f91aa7355724",
+        "approximate_words_whitespace_split": 154,
+        "quote_matches_pdf": true
+      },
+      {
+        "card": "A02",
+        "source_label": "Fuzzy2023",
+        "path": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+        "pdf_sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+        "pdf_page": 1,
+        "quote_sha256": "ef5713adff5a945052f7e1de244dce7438eee901eb551556e27f5ac686c20c6e",
+        "approximate_words_whitespace_split": 102,
+        "quote_matches_pdf": true
+      },
+      {
+        "card": "A04",
+        "source_label": "ESO2017",
+        "path": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+        "pdf_sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+        "pdf_page": 1,
+        "quote_sha256": "5ffd5657670cc0f338e3f355f18d92bb824c7b2028acba47b29156a86f0feff6",
+        "approximate_words_whitespace_split": 148,
+        "quote_matches_pdf": true
+      },
+      {
+        "card": "A05",
+        "source_label": "P09",
+        "path": "文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+        "pdf_sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1",
+        "pdf_page": 1,
+        "quote_sha256": "2bacbdebc9e02bcb98c5ee1a5589ebc77ce5cc956c08aae2d195dbcc8562a769",
+        "approximate_words_whitespace_split": 111,
+        "quote_matches_pdf": true
+      }
+    ]
   },
   "powershell_utf8_read": {
     "path": "nature-shared/core/robotics-writing-examples.md",
@@ -137,7 +190,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -146,7 +199,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -194,14 +247,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         },
         {
@@ -224,7 +277,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -233,7 +286,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -281,7 +334,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-writing/static/fragments/language/en.md",
@@ -289,10 +342,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         },
         {
@@ -315,7 +368,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -324,7 +377,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -372,14 +425,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         },
         {
@@ -406,7 +459,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -415,7 +468,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -463,14 +516,287 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "7180d2c01d828e5b23612571c6e19ef5c882f200a804da950af8a67a62b0a7c5"
+        }
+      ]
+    },
+    {
+      "skill": "nature-writing",
+      "case": "abstract-fixed-time-reference",
+      "resolved_request": {
+        "id": "abstract-fixed-time-reference",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A02"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A02"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "137eb0c04f8ba555ee48139d97c294fedc9de2e05e5b1e27d37a7a241c0f8707"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "114fc068564a03a5cccee048d0fb4f9f48cf6469c7aef3e9024d24ed818a4bf3"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
+            "A02": "278e32dc7965e0d16844f74ec4a059c6b084eb619001c734d076ed2a027b21b8"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "7180d2c01d828e5b23612571c6e19ef5c882f200a804da950af8a67a62b0a7c5"
+        }
+      ]
+    },
+    {
+      "skill": "nature-writing",
+      "case": "abstract-observer-reference",
+      "resolved_request": {
+        "id": "abstract-observer-reference",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A04"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "137eb0c04f8ba555ee48139d97c294fedc9de2e05e5b1e27d37a7a241c0f8707"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "114fc068564a03a5cccee048d0fb4f9f48cf6469c7aef3e9024d24ed818a4bf3"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
+            "A04": "5d3916b4403b531c8b8fa37f023fc5dd86e63e444ba5d8cb692724cae9e75138"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "7180d2c01d828e5b23612571c6e19ef5c882f200a804da950af8a67a62b0a7c5"
+        }
+      ]
+    },
+    {
+      "skill": "nature-writing",
+      "case": "abstract-interaction-reference",
+      "resolved_request": {
+        "id": "abstract-interaction-reference",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A05"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A05"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "137eb0c04f8ba555ee48139d97c294fedc9de2e05e5b1e27d37a7a241c0f8707"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "114fc068564a03a5cccee048d0fb4f9f48cf6469c7aef3e9024d24ed818a4bf3"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
+            "A05": "4dd510975a5637d3b71686b51e03d421c4a76cb845ce13b74ccd37f88e075543"
           }
         },
         {
@@ -501,7 +827,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -553,9 +879,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
           }
         },
@@ -587,7 +913,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -639,9 +965,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -674,7 +1000,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -726,9 +1052,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -761,7 +1087,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -817,9 +1143,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
           }
         },
@@ -849,7 +1175,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -897,9 +1223,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -931,7 +1257,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -979,11 +1305,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "13c7a2af62cfb0c8dd33702a2e1f59347a407258f3b9a39baf72960ad6249637"
+            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
           }
         },
         {
@@ -1025,7 +1351,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1097,11 +1423,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "13c7a2af62cfb0c8dd33702a2e1f59347a407258f3b9a39baf72960ad6249637"
+            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
           }
         },
         {
@@ -1141,7 +1467,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1193,9 +1519,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -1219,7 +1545,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -1228,7 +1554,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1276,14 +1602,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         },
         {
@@ -1306,7 +1632,7 @@
       "examples": true,
       "body_module": true,
       "selected_cards": [
-        "A02",
+        "A06",
         "B04"
       ],
       "files_read": [
@@ -1316,7 +1642,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1364,7 +1690,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-writing/static/fragments/section/method.md",
@@ -1372,10 +1698,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -1412,7 +1738,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1464,9 +1790,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B11": "57c88d55f4d4ae758371e0144ed7032190a93df4e14575fddfcb5f62b5f43ecf"
           }
         },
@@ -1505,7 +1831,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1578,7 +1904,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1650,7 +1976,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1721,7 +2047,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1790,7 +2116,7 @@
         },
         {
           "path": "nature-writing/manifest.yaml",
-          "sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4"
+          "sha256": "51fe870cebece82ca54fc79fc9055b35b6bfbd67a6105c629ad4be5600d89dc7"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1838,7 +2164,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "0de30f8b4d70c124234719ce11f42ab4b3a297942f06918b89ed4afb1b0c4fe3"
+          "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6"
         },
         {
           "path": "nature-writing/references/abstract.md",
@@ -1859,7 +2185,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -1868,7 +2194,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1912,14 +2238,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         }
       ]
@@ -1938,7 +2264,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -1947,7 +2273,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -1991,7 +2317,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
@@ -1999,10 +2325,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         }
       ]
@@ -2021,7 +2347,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -2030,7 +2356,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2074,14 +2400,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         },
         {
@@ -2104,7 +2430,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -2113,7 +2439,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2157,14 +2483,263 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
+          }
+        }
+      ]
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-fixed-time-reference",
+      "resolved_request": {
+        "id": "abstract-fixed-time-reference",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A02"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A02"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "ef24997fb1d54ce416ba80735429c0504acc930458ffefb5357c66e43d72a444"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "16a53037d81661ac6b172e792a4aafc00332fb16c03a5fc43aaab7beb50fa897"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
+            "A02": "278e32dc7965e0d16844f74ec4a059c6b084eb619001c734d076ed2a027b21b8"
+          }
+        }
+      ]
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-observer-reference",
+      "resolved_request": {
+        "id": "abstract-observer-reference",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A04"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "ef24997fb1d54ce416ba80735429c0504acc930458ffefb5357c66e43d72a444"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "16a53037d81661ac6b172e792a4aafc00332fb16c03a5fc43aaab7beb50fa897"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
+            "A04": "5d3916b4403b531c8b8fa37f023fc5dd86e63e444ba5d8cb692724cae9e75138"
+          }
+        }
+      ]
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-interaction-reference",
+      "resolved_request": {
+        "id": "abstract-interaction-reference",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A05"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A05"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "ef24997fb1d54ce416ba80735429c0504acc930458ffefb5357c66e43d72a444"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "16a53037d81661ac6b172e792a4aafc00332fb16c03a5fc43aaab7beb50fa897"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
+            "A05": "4dd510975a5637d3b71686b51e03d421c4a76cb845ce13b74ccd37f88e075543"
           }
         }
       ]
@@ -2191,7 +2766,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2239,9 +2814,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
           }
         },
@@ -2273,7 +2848,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2321,9 +2896,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -2356,7 +2931,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2404,9 +2979,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -2439,7 +3014,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2491,9 +3066,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
           }
         },
@@ -2523,7 +3098,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2567,9 +3142,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -2601,7 +3176,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2645,11 +3220,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "13c7a2af62cfb0c8dd33702a2e1f59347a407258f3b9a39baf72960ad6249637"
+            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
           }
         },
         {
@@ -2695,7 +3270,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2763,11 +3338,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "13c7a2af62cfb0c8dd33702a2e1f59347a407258f3b9a39baf72960ad6249637"
+            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
           }
         },
         {
@@ -2811,7 +3386,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2859,9 +3434,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -2885,7 +3460,7 @@
       "examples": true,
       "body_module": false,
       "selected_cards": [
-        "A02"
+        "A06"
       ],
       "files_read": [
         {
@@ -2894,7 +3469,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -2938,14 +3513,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b"
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a"
           }
         }
       ]
@@ -2964,7 +3539,7 @@
       "examples": true,
       "body_module": true,
       "selected_cards": [
-        "A02",
+        "A06",
         "B04"
       ],
       "files_read": [
@@ -2974,7 +3549,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3018,7 +3593,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         },
         {
           "path": "nature-polishing/static/fragments/section/methods.md",
@@ -3026,10 +3601,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
-            "A02": "3f20adb41033020a24f6f10d6fbe6b53d3db51dadc5c4144cae57824874ebb3b",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
+            "A06": "f40718b67489fcc1c0893b1300939b6faf3dfb6df064d16fc219c4054bc0f09a",
             "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
           }
         },
@@ -3062,7 +3637,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3110,9 +3685,9 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+          "sha256": "a666e08969da8aad691990abcf7a08b1921a6db5736ba62e0d522e2c170e8dc7",
           "selected_fragment_sha256": {
-            "common_and_task_index": "e6a70200b509e96e5158840cb173ca78584a18856e316b233e78f497ac9e4fa1",
+            "common_and_task_index": "84e9896fb5387dcc6663aebf86398e07f7a108a2d58851ad6938dc6b500fd9b8",
             "B11": "57c88d55f4d4ae758371e0144ed7032190a93df4e14575fddfcb5f62b5f43ecf"
           }
         },
@@ -3151,7 +3726,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3220,7 +3795,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3288,7 +3863,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3355,7 +3930,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3418,7 +3993,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3475,7 +4050,7 @@
         },
         {
           "path": "nature-polishing/manifest.yaml",
-          "sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b"
+          "sha256": "d4c872645f5ed416ef1a435b2daf9ee2edcffe9401b0b5d250167be74c974151"
         },
         {
           "path": "nature-shared/core/reader-workflow.md",
@@ -3519,7 +4094,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "821da4cdbf695b4dd7b6de7da3d82903084efd89cf2e0140144cabb6e05666ae"
+          "sha256": "a520a76afa9542a40a41e8b5369396454cc7bc21fecea599f9ecd0117a019ffc"
         }
       ]
     }
