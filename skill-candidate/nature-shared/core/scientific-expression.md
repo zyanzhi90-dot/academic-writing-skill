@@ -19,11 +19,13 @@ replace reading and adapting the concrete English.
 - Prefer ordinary clauses with an explicit scientific subject and finite verb.
   Active and passive constructions are both useful. Name what the method,
   controller, analysis, data, or result does to which object.
-- Name the scientific object again when that makes the next action or guarantee
-  clearer. Repeated technical names are useful object handoffs, not redundant
-  claims. Use a pronoun or broader label only when its referent and technical
-  role are unmistakable and the wording is clearer. Modifiers such as learned
-  or estimated do not identify the type of model or quantity by themselves.
+- Prefer directly naming scientific objects, repeating technical names when
+  needed to keep actions, relations, and guarantees clear. Repeated names are
+  useful object handoffs, not redundant claims. An available antecedent alone
+  does not justify a pronoun or broad label: the wording must identify the
+  object's technical category and role without requiring the reader to infer
+  them. Use a shorter reference only when it preserves that clarity. Modifiers
+  such as learned or estimated do not identify a model or quantity by themselves.
 - Avoid multiple independent claims, purposes, or nested modifiers in one
   sentence. Split overloaded clauses while keeping each condition with the
   guarantee it limits. Length diagnoses information load; there is no fixed
@@ -33,9 +35,11 @@ replace reading and adapting the concrete English.
   Do not chain several claims with colons or semicolons. Use punctuation for
   necessary definitions or clear structure, not to conceal overloaded prose.
 - Choose field-standard technical names, action–object combinations, and
-  ordinary collocations from applicable references. State an operation directly;
-  add a contrast only when its author-supported comparison or distinction
-  matters. Keep substantive mechanisms and conditions when simplifying wording.
+  ordinary collocations from applicable references. Default to direct statements
+  and avoid `rather than` constructions. Express necessary author-supported
+  comparisons and distinctions clearly, preserving the comparator, excluded
+  alternative, and conditions that carry scientific meaning. Keep substantive
+  mechanisms and conditions when simplifying wording.
 - Track what each sentence takes from the preceding text and what it adds,
   tests, or qualifies. A connector cannot invent causality, sequence, or contrast.
   Source order and an input fact list do not prescribe manuscript order.
@@ -55,9 +59,10 @@ sentence meaning alone does not establish completion. Check:
   estimated, learned, commanded, applied, or theoretically guaranteed.
 - Subject–action–object relations, including passive agents, omitted subjects,
   coordinated clauses, infinitives, and participles.
-- Explicit object identity; antecedents, modifier attachment, and the scope of
-  negation, degree, only, and quantifiers. Expand an underspecified collective
-  label when several conditions, models, or analyses are in play.
+- Explicit object identity and technical role, including when an antecedent
+  exists. Replace underspecified references or collective labels with the
+  appropriate scientific names. Check modifier attachment and the scope of
+  negation, degree, only, and quantifiers.
 - The exact object, type, strength, and assumptions of each guarantee; distinguish
   model capability, theoretical proof, test purpose, and observed results.
 - Comparators, metrics, direction, units, conditions, and statistical versus
@@ -65,7 +70,8 @@ sentence meaning alone does not establish completion. Check:
   intensifier.
 - Articles, number, agreement, tense, prepositions, parallelism, punctuation,
   and natural action–object collocations; technical actions are not synonyms.
-- Sentence load, ordinary syntax, and useful object handoffs; the paragraph's
+- Sentence load, ordinary syntax, direct statements that preserve necessary
+  distinctions, and useful object handoffs; the paragraph's
   opening promise, evidence placement, and contribution to the requested part.
   Remove restated claims or boundaries only when they add no argument function.
 
