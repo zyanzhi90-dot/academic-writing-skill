@@ -1,0 +1,116 @@
+{
+  "file": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+  "line_numbers": "1-based inclusive",
+  "common_instructions_and_task_index": {
+    "start_line": 1,
+    "end_line": 143
+  },
+  "cards": [
+    {
+      "id": "A01",
+      "heading": "### A01｜双交互目标：先界定新设置，再分条件说明方法",
+      "start_line": 146,
+      "end_line": 157
+    },
+    {
+      "id": "A02",
+      "heading": "### A02｜构造贡献：新对象逐句成为后续步骤的输入",
+      "start_line": 158,
+      "end_line": 171
+    },
+    {
+      "id": "A03",
+      "heading": "### A03｜判据贡献：把判别操作写到具体可计算量",
+      "start_line": 172,
+      "end_line": 183
+    },
+    {
+      "id": "A04",
+      "heading": "### A04｜比较研究：结果承载贡献，条件从句限制结果",
+      "start_line": 184,
+      "end_line": 195
+    },
+    {
+      "id": "A05",
+      "heading": "### A05｜生成模型接物理控制：对象接力与数字的适用域",
+      "start_line": 196,
+      "end_line": 207
+    },
+    {
+      "id": "B13",
+      "heading": "### B13｜章节入口：指出前节产物如何支撑当前构造",
+      "start_line": 210,
+      "end_line": 221
+    },
+    {
+      "id": "B02",
+      "heading": "### B02｜文献段：通过观测输入和控制动作比较路线",
+      "start_line": 224,
+      "end_line": 239
+    },
+    {
+      "id": "B03",
+      "heading": "### B03｜贡献段：由耦合矛盾许可设计动作",
+      "start_line": 240,
+      "end_line": 251
+    },
+    {
+      "id": "B04",
+      "heading": "### B04｜方法段：四种主语，连续的估计—应用对象链",
+      "start_line": 252,
+      "end_line": 270
+    },
+    {
+      "id": "B05",
+      "heading": "### B05｜方法选择段：承认解析路线，再说明实验测定理由",
+      "start_line": 271,
+      "end_line": 282
+    },
+    {
+      "id": "B06",
+      "heading": "### B06｜扩展段：新任务条件改变系数，再修改已有控制律",
+      "start_line": 283,
+      "end_line": 294
+    },
+    {
+      "id": "B07",
+      "heading": "### B07｜公式前后：将建模假设、目标和权衡留在同一段",
+      "start_line": 295,
+      "end_line": 310
+    },
+    {
+      "id": "B08",
+      "heading": "### B08｜定理句：约束、方法和保证相邻而不混同",
+      "start_line": 313,
+      "end_line": 324
+    },
+    {
+      "id": "B09",
+      "heading": "### B09｜上下界的物理后果与跨节判据修正",
+      "start_line": 325,
+      "end_line": 344
+    },
+    {
+      "id": "B10",
+      "heading": "### B10｜结果段：先区分指标，再限定趋势和解释",
+      "start_line": 345,
+      "end_line": 358
+    },
+    {
+      "id": "B12",
+      "heading": "### B12｜组件比较：固定输入后才能解释消融差异",
+      "start_line": 359,
+      "end_line": 374
+    },
+    {
+      "id": "B11",
+      "heading": "### B11｜结尾：作者支持的限制与有边界的回收",
+      "start_line": 375,
+      "end_line": 396
+    }
+  ],
+  "source_link_definitions": {
+    "start_line": 401,
+    "end_line": 410
+  }
+}

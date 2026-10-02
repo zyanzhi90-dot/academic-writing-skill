@@ -1,0 +1,109 @@
+--- e126a659d77195f79416815db6ddb5827e60588e/skill-candidate/nature-shared/core/robotics-main-text.md
++++ isolated/skill-candidate/nature-shared/core/robotics-main-text.md
+@@ -43,8 +43,7 @@
+   tests; P09 pp.4–8 places simulation before proof.
+ - For a multi-component system, state the function and failure risk of each
+   component, then identify the evidence that separates its contribution when
+-  such evidence exists. Do not demand one experiment per module. P17 p.7 §V
+-  explicitly separates tests of its controller and motion model; P06 p.12
++  such evidence exists. Do not demand one experiment per module. P06 p.12
+   §IV uses an ablation while holding the nominal trajectory fixed.
+ - A following subsection may arise from a named limitation of its predecessor.
+   P18 p.8 §IV Remark 5 to §V moves from a conservative vertical-thrust test
+@@ -153,6 +152,5 @@
+ [P11](../../../文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf),
+ [P12](../../../文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf),
+ [P15](../../../文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf),
+-[P17](../../../文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf),
+ [P18](../../../文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf),
+ [P19](../../../文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf).
+--- e126a659d77195f79416815db6ddb5827e60588e/skill-candidate/nature-shared/core/robotics-writing-examples.md
++++ isolated/skill-candidate/nature-shared/core/robotics-writing-examples.md
+@@ -13,7 +13,7 @@
+ selection notes. Do not load every card or PDF by default. Abstract-only tasks
+ select A cards without loading `robotics-main-text.md`; body tasks retain that
+ module and select B cards. Mixed abstract/body work uses both as needed. For
+-whole-manuscript reasoning start with B01/B13; for a free paragraph select by
++whole-manuscript reasoning start with B13; for a free paragraph select by
+ its stated scientific purpose without forcing a section assignment.
+ 
+ The cards below are the single authoritative example text. They contain enough
+@@ -124,14 +124,14 @@
+ 
+ ## Source conventions
+ 
+-Examples come from the 19 author-approved local papers. PDF pages count from the first file page; cards give sections, paragraph opening words, and ranges. Extracted texts are optional under `../../../analysis/reading/Pxx.txt`. Quotations only join layout line breaks and repair end-of-line hyphenation and ligatures. An ellipsis marks an omission; text on either side is not evidence of consecutive-sentence progression. Source grammar and evidence-strength issues remain in selection notes. Abstracts, body, captions, equations, and cross-section links are distinguished.
++Examples come from the 18 author-approved local papers. PDF pages count from the first file page; cards give sections, paragraph opening words, and ranges. Extracted texts are optional under `../../../analysis/reading/Pxx.txt`. Quotations only join layout line breaks and repair end-of-line hyphenation and ligatures. An ellipsis marks an omission; text on either side is not evidence of consecutive-sentence progression. Source grammar and evidence-strength issues remain in selection notes. Abstracts, body, captions, equations, and cross-section links are distinguished.
+ 
+ ## 任务索引与六层覆盖
+ 
+ | 当前任务 | 优先卡片 | 主要层级与选择条件 |
+ |---|---|---|
+-| 整体思路与证据分工 | B01、B13 | 全文／Section：双组件与构造依赖；与作者已有思路核对，不强制相同章序 |
+-| 摘要 | A01–A06 | Paragraph 至 Phrase／Word，并核对全文承诺；按双目标、构造、判据、比较或系统贡献选实现 |
++| 整体思路与证据分工 | B13 | 全文／Section：构造依赖；与作者已有思路核对，不强制相同章序 |
++| 摘要 | A01–A05 | Paragraph 至 Phrase／Word，并核对全文承诺；按双目标、构造、判据、比较选实现 |
+ | 引言／文献段落组 | B02、B03 | Section／Paragraph／连续句：按观测信息、控制动作及耦合问题组织 |
+ | 方法段／公式前后 | B04、B06、B07 | Paragraph／连续句／Sentence：目的到输入输出、新条件到修正、目标到公式解释 |
+ | 科学决策的理由 | B05 | Paragraph 至 Phrase／Word：已有可行路线、实际限制、方法选择 |
+@@ -205,44 +205,7 @@
+ 
+ **取舍与变体。** `excel`、`bridges these paradigms`、`only`、unseen tasks 以及 100% 的概括范围不自动接受；须回查样本与测试条件。本卡没有独立确认其跨分布推广。SLERP 细节只有在核心贡献依赖旋转一致性时才占摘要篇幅；公开代码末句是作者／期刊选择，不能挤掉更重要的发现。
+ 
+-### A06｜系统贡献：运动生成与跟踪分工，也暴露摘要不足
+-
+-**功能／定位。** [P17] PDF p.1，Abstract 全段，首词 “This paper proposes”。全文实际两组实验对应不同组件，见 B01。
+-
+-> This paper proposes an enhanced robot skill learning system considering both motion generation and trajectory tracking. During robot learning demonstrations, dynamic movement primitives (DMPs) are used to model robotic motion. Each DMP consists of a set of dynamic systems that enhances the stability of the generated motion toward the goal. A Gaussian mixture model and Gaussian mixture regression are integrated to improve the learning performance of the DMP, such that more features of the skill can be extracted from multiple demonstrations. The motion generated from the learned model can be scaled in space and time. Besides, a neural-network-based controller is designed for the robot to track the trajectories generated from the motion model. In this controller, a radial basis function neural network is used to compensate for the effect caused by the dynamic environments. The experiments have been performed using a Baxter robot and the results have confirmed the validity of the proposed methods.
+-
+-**组织与句法。** 首句预告两个任务；DMP—多示教—生成运动—跟踪控制器构成对象链，第六句的 trajectories 回指模型输出。`During`是任务阶段，`In this controller`是组件内定位；主语转换仍能追踪同一系统。
+-
+-**可迁移实现。** 适用于作者确有两个独立问题的系统摘要，可借鉴功能分工和 reference 的交接。Polishing 核查生成性质、控制保证及执行观察是否混为一谈；不能将 motion can be scaled 写成任意实际任务均成功。
+-
+-**取舍与变体。** enhanced、more features、confirmed the validity 缺具体比较或发现，不能作为顶刊表达目标。本文更多篇幅介绍组件、结尾只给有效性验证；若作者已有决定性结果，应使摘要明确显示它，而不是完整复刻本段。A02 或 A04 可帮助选择构造／比较重心；不要求统一增加统计数值。
+-
+ ## 正文：全文与章节组织
+-
+-### B01｜双组件系统：正文结构、验证分组和摘要承诺互相对应
+-
+-**功能／定位。** [P17] PDF p.1 Abstract／§I，p.2 §II，pp.3–4 §III，pp.5–7 §IV，pp.7–10 §V，p.10 §VI。这是全文与章节证据，不能当作同段连续句。
+-
+-| 原文位置 | 信息与后续用途 |
+-|---|---|
+-| 摘要／引言 | 区分 motion generation 与 trajectory tracking；A06 的轨迹输出交给控制器 |
+-| §II Basic Model of Discrete Movement | 先交代 DMP 的动态结构，供 §III 的多示教估计使用 |
+-| §III Learning of the Motion Model | Problem Description → Learning From Multiple Demonstrations，得到可生成运动的模型 |
+-| §IV Adaptive Neural Control | Dynamics Description → RBFNN → Controller Design，支持闭环分析 |
+-| §V Experiments | 分别测试 NN controller 和 DMP motion model，随后 pouring／drawing 检验模型用途 |
+-| §VI Conclusion | 回收运动学习与跟踪，不新增实验 |
+-
+-**原文短上下文。** p.7 §V 首段：
+-
+-> The proposed system is tested by two groups of experiments: the test of the NN-based controller and the test of the DMP-based motion model.
+-
+-p.7 §V.A 首两句：
+-
+-> In this group of experiments, the performance of NN learning is tested, which compensates for the uncertain manipulator dynamics caused by the payload. The experiments are performed on the Baxter robot that has two seven degrees-of-freedom arms.
+-
+-**具体实现。** 章节不是按“先讲方法、再堆实验”分隔：DMP 的输出成为控制器 reference；验证节首句先声明证据分工，再进入硬件与工况。该开头承担 section roadmap，不是性能主张。Drafting 可用作者的“任务／对象／支持证据”安排章节和小节；Polishing 检查实验标题与本节测试对象是否一致。
+-
+-**取舍与变体。** 不学 `performance … is tested, which compensates`的含混回指，应明确是 NN learning／controller 补偿动力学，而非 performance。系统不必须每模块一个实验。另一合理顺序是 P09 p.4 §III 先仿真、p.7 §IV 后证明、p.8 §V 实机；实读这些标题确认顺序，保证与证据对应才是可迁移关系。
+ 
+ ### B13｜章节入口：指出前节产物如何支撑当前构造
+ 
+@@ -433,7 +396,7 @@
+ 
+ ## 选择范例时的边界
+ 
+-本组 19 卡片涵盖六种摘要实现和多类正文任务；不是 19 篇各给一个优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或语法问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
++本组 17 卡片涵盖五种摘要实现和多类正文任务；不是 18 篇各给一个优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或语法问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
+ 
+ [P01]: <../../../文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf>
+ [P04]: <../../../文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf>
+@@ -443,6 +406,5 @@
+ [P11]: <../../../文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf>
+ [P12]: <../../../文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf>
+ [P16]: <../../../文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf>
+-[P17]: <../../../文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf>
+ [P18]: <../../../文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf>
+ [P19]: <../../../文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf>

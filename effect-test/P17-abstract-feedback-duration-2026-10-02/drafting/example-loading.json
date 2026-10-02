@@ -1,0 +1,111 @@
+{
+  "common_instructions_and_index_returned_before_selected_cards": true,
+  "selected_card_ids_in_loading_order": [
+    "A04",
+    "A05",
+    "A02"
+  ],
+  "all_cards_preloaded": false,
+  "range_reads": [
+    {
+      "command_id": "item_15",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\p17-abstract-feedback-clux9qle\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$i=0; Get-Content -LiteralPath $p | ForEach-Object { $i++; if ($i -ge 1 -and $i -le 143) { '\"'{0,4}: {1}' -f \"'$i, $_ } };'",
+      "exit_code": 0,
+      "requested_inclusive_range": [
+        1,
+        143
+      ],
+      "returned_inclusive_range": [
+        1,
+        143
+      ],
+      "returned_numbered_lines": 143,
+      "card_headings_returned": [],
+      "encoding_utf8_explicit": false,
+      "returned_lines_differing_from_utf8_source": [
+        1,
+        64,
+        95,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143
+      ],
+      "raw_output_characters": 10344
+    },
+    {
+      "command_id": "item_55",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\p17-abstract-feedback-clux9qle\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$i=0; Get-Content -Encoding UTF8 -LiteralPath $p | ForEach-Object { $i++; if ($i -ge 184 -and $i -le 195) { '\"'{0,4}: {1}' -f \"'$i, $_ } };'",
+      "exit_code": 0,
+      "requested_inclusive_range": [
+        184,
+        195
+      ],
+      "returned_inclusive_range": [
+        184,
+        195
+      ],
+      "returned_numbered_lines": 12,
+      "card_headings_returned": [
+        "A04"
+      ],
+      "encoding_utf8_explicit": true,
+      "returned_lines_differing_from_utf8_source": [],
+      "raw_output_characters": 2072
+    },
+    {
+      "command_id": "item_57",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\p17-abstract-feedback-clux9qle\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$i=0; Get-Content -Encoding UTF8 -LiteralPath $p | ForEach-Object { $i++; if ($i -ge 196 -and $i -le 207) { '\"'{0,4}: {1}' -f \"'$i, $_ } };'",
+      "exit_code": 0,
+      "requested_inclusive_range": [
+        196,
+        207
+      ],
+      "returned_inclusive_range": [
+        196,
+        207
+      ],
+      "returned_numbered_lines": 12,
+      "card_headings_returned": [
+        "A05"
+      ],
+      "encoding_utf8_explicit": true,
+      "returned_lines_differing_from_utf8_source": [],
+      "raw_output_characters": 2215
+    },
+    {
+      "command_id": "item_56",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\p17-abstract-feedback-clux9qle\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$i=0; Get-Content -Encoding UTF8 -LiteralPath $p | ForEach-Object { $i++; if ($i -ge 158 -and $i -le 171) { '\"'{0,4}: {1}' -f \"'$i, $_ } };'",
+      "exit_code": 0,
+      "requested_inclusive_range": [
+        158,
+        171
+      ],
+      "returned_inclusive_range": [
+        158,
+        171
+      ],
+      "returned_numbered_lines": 14,
+      "card_headings_returned": [
+        "A02"
+      ],
+      "encoding_utf8_explicit": true,
+      "returned_lines_differing_from_utf8_source": [],
+      "raw_output_characters": 2294
+    }
+  ],
+  "returned_text_encoding_difference_seen": true,
+  "evidence_limit": "Returned line numbers and commands, not a claim about physical disk reads or complete comprehension. Raw events retain actual text and encoding evidence.",
+  "evaluation": "No manuscript quality assessment"
+}
