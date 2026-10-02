@@ -1,0 +1,10 @@
+{
+  "task": "F1-polishing",
+  "role": "nature-polishing",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "input": "D:\\桌面\\正文writing skill\\effect-test\\acceptance-2026-10-02\\inputs\\polishing.md",
+  "input_sha256": "13981ca5250da2b4a3078f0dfcd8fe3cb67f817ddd8579391f4c64d333370398",
+  "prompt_sha256": "cf0cf94063c8b9eb778bee18ad6e3562c5a4b08cfb0376388228166e93374cdd",
+  "allow_source_papers": true
+}

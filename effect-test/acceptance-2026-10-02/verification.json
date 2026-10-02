@@ -1,0 +1,31 @@
+{
+  "candidate_commit": "e126a659d77195f79416815db6ddb5827e60588e",
+  "candidate_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "inputs_and_prompts_unchanged": true,
+  "polishing_body_verbatim": true,
+  "tasks": [
+    {
+      "task": "drafting",
+      "exit_code": 0,
+      "candidate_files_read_or_searched": 30,
+      "source_lookup_files": 1,
+      "unresolved_read_commands": 0,
+      "first_output_bytes": 15537,
+      "matches_terminal_event_except_final_newline": true,
+      "first_output_sha256": "ab7a9be64b2d0359bf1cedb6f4e0d19b6a9c6a331c744a23594623d064e5755f"
+    },
+    {
+      "task": "polishing",
+      "exit_code": 0,
+      "candidate_files_read_or_searched": 23,
+      "source_lookup_files": 1,
+      "unresolved_read_commands": 0,
+      "first_output_bytes": 9527,
+      "matches_terminal_event_except_final_newline": true,
+      "first_output_sha256": "19751b6318704639654b12467e03e55277455d6ac9849a62b43d54fb732b291c"
+    }
+  ],
+  "evaluation": "Not performed; no pass/fail quality verdict"
+}

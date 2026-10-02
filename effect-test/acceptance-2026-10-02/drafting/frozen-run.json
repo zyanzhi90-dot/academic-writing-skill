@@ -1,0 +1,10 @@
+{
+  "task": "F1",
+  "role": "nature-writing",
+  "model": "gpt-6-sol",
+  "reasoning_effort": "medium",
+  "input": "D:\\桌面\\正文writing skill\\effect-test\\acceptance-2026-10-02\\inputs\\drafting.md",
+  "input_sha256": "16d73f12adaba5bff1f7209ebbfe45c667dc0b03cf101fe162c85b5c8d4fe3cb",
+  "prompt_sha256": "18b4fd20baeae896625af2edc7586a7c8b0a6fa98bc074baebddeae4c2c8e8fb",
+  "allow_source_papers": true
+}

@@ -1,0 +1,18 @@
+[
+  "C:/Users/user2/AppData/Roaming/npm/node_modules/@openai/codex/node_modules/@openai/codex-win32-x64/vendor/x86_64-pc-windows-msvc/bin/codex.exe",
+  "exec",
+  "--json",
+  "--ephemeral",
+  "--ignore-user-config",
+  "-s",
+  "danger-full-access",
+  "-m",
+  "gpt-6-sol",
+  "-c",
+  "model_reasoning_effort=\"medium\"",
+  "-C",
+  "D:\\桌面\\正文writing skill",
+  "-o",
+  "D:\\桌面\\正文writing skill\\effect-test\\acceptance-2026-10-02\\polishing\\first-output.md",
+  "Carry out the manuscript task in D:\\桌面\\正文writing skill\\effect-test\\acceptance-2026-10-02\\inputs\\polishing.md using only the specified local skill at D:\\桌面\\正文writing skill\\skill-candidate\\nature-polishing\\SKILL.md and its declared local dependencies. Read the skill router, manifest, and files it directs you to load for this task. You may consult the local source papers and extraction texts under D:\\桌面\\正文writing skill\\文献资料, D:\\桌面\\正文writing skill\\analysis\\reading, and D:\\桌面\\正文writing skill\\analysis\\extracted on demand as directed by the skill's declared references. Source scientific content does not add author facts. Do not read installed skills, other writing instructions, evaluator notes, diagnostics, or previous task outputs outside the supplied frozen input. This is an independent first-pass writing run. Do not change files. Return the requested prose and any notes required by the task."
+]
