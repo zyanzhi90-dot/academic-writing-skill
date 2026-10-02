@@ -22,6 +22,7 @@ CANDIDATE = ROOT / "skill-candidate"
 BASE_COMMIT = "105a6ea"
 EXAMPLES = "../nature-shared/core/robotics-writing-examples.md"
 BODY = "../nature-shared/core/robotics-main-text.md"
+EXPRESSION = "../nature-shared/core/scientific-expression.md"
 SAFE_GIT = ["git", "-c", f"safe.directory={ROOT.as_posix()}"]
 
 
@@ -73,6 +74,7 @@ def cards(text):
 def read_case(base, name, case, manifest):
     package = base / name
     paths = ["SKILL.md", "manifest.yaml", *manifest["always_load"]]
+    assert EXPRESSION in manifest["always_load"]
     refs = {entry["path"] for entry in manifest["references"]["on_demand"]}
     sections = case.get("sections", [])
     admin = case.get("admin", False)
@@ -142,7 +144,7 @@ def read_case(base, name, case, manifest):
             fragments = {"common_and_task_index": sha(common_and_index.encode("utf-8"))}
             fragments.update({card: sha(units[card].encode("utf-8")) for card in selected})
             assert "## Internal expression and context check before delivery" in common_and_index
-            assert "## Abstract reference selection and scope checks" in common_and_index
+            assert "## Abstract reference selection" in common_and_index
             record["selected_fragment_sha256"] = fragments
         reads.append(record)
     assert (EXAMPLES in paths) == eligible
@@ -215,7 +217,7 @@ def check(candidate_commit):
     source = subprocess.check_output(SAFE_GIT + ["show", BASE_COMMIT + ":analysis/robotics-writing-examples.md"], cwd=ROOT).decode("utf-8")
     destination = (CANDIDATE / "nature-shared/core/robotics-writing-examples.md").read_text(encoding="utf-8")
     old_cards, new_cards = cards(source), cards(destination)
-    assert len(old_cards) == len(new_cards) == 19
+    assert len(old_cards) == 19 and len(new_cards) == 20 and "A07" in new_cards
     for card in old_cards:
         if card in {"A02", "A04", "A05", "A06", "B13"}:
             continue
@@ -225,7 +227,7 @@ def check(candidate_commit):
     assert new_cards["B13"] == old_cards["B13"].replace(old_cross_reference, new_cross_reference)
     old_quotes = [s for s in source.splitlines() if s.startswith("> ")]
     new_quotes = [s for s in destination.splitlines() if s.startswith("> ")]
-    assert len(old_quotes) == len(new_quotes) == 26
+    assert len(old_quotes) == 26 and len(new_quotes) == 27
     assert sum(quote in new_quotes for quote in old_quotes) == 23
     for card in ("A01", "A03", "A06"):
         assert re.findall(r"^> .*", old_cards[card], re.M) == re.findall(r"^> .*", new_cards[card], re.M)
@@ -237,12 +239,13 @@ def check(candidate_commit):
     expected_links.update({
         "Fuzzy2023": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
         "ESO2017": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+        "P05": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
     })
     assert new_links == expected_links
     for link in new_links.values():
         assert (ROOT / link).is_file()
     abstract_sources = []
-    for card, label in (("A06", "P17"), ("A02", "Fuzzy2023"), ("A04", "ESO2017"), ("A05", "P09")):
+    for card, label in (("A06", "P17"), ("A02", "Fuzzy2023"), ("A04", "ESO2017"), ("A05", "P09"), ("A07", "P05")):
         pdf = ROOT / new_links[label]
         with pymupdf.open(pdf) as document:
             page = document[0]
@@ -266,6 +269,7 @@ def check(candidate_commit):
         {"id": "abstract-fixed-time-reference", "sections": ["abstract"], "abstract_references": ["A02"]},
         {"id": "abstract-observer-reference", "sections": ["abstract"], "abstract_references": ["A04"]},
         {"id": "abstract-interaction-reference", "sections": ["abstract"], "abstract_references": ["A05"]},
+        {"id": "abstract-composite-learning-reference", "sections": ["abstract"], "abstract_references": ["A07"]},
         {"id": "specified-intro", "sections": ["intro"]},
         {"id": "method", "sections": ["method"]},
         {"id": "explicit-algorithmic-method", "sections": ["method"], "paper_type": "algorithmic"},
@@ -307,11 +311,11 @@ def check(candidate_commit):
             "candidate_verification": verify_committed_files(records, candidate_commit),
             "method": "Manually resolved routing cases; manifest lookup and real file/selected-fragment reads. Not model invocation, automatic semantic routing, or writing-effect evidence.",
             "versions_and_declared_paths": {name: {"version": value[0]["version"], "path_entries": len(value[1])} for name, value in manifests.items()},
-            "source_preservation": {"total_cards": 19, "body_cards_unchanged": 12,
+            "source_preservation": {"total_cards": 20, "body_cards_unchanged": 12,
                                     "B13_only_abstract_cross_reference_updated": True,
                                     "other_abstract_cards_unchanged": ["A01", "A03"],
                                     "default_anchor_quote_unchanged": "A06",
-                                    "original_quote_blocks_retained": 23, "total_quote_blocks": 26,
+                                    "original_quote_blocks_retained": 23, "total_quote_blocks": 27,
                                     "source_links_resolved": len(new_links), "abstract_sources": abstract_sources},
             "powershell_utf8_read": check_powershell_utf8(CANDIDATE / "nature-shared/core/robotics-writing-examples.md"),
             "detached_candidate_only_reads": "passed; no plan, evidence report, extraction text, or PDF present",
