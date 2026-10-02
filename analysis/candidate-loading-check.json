@@ -2,7 +2,7 @@
   "basis_commit": "105a6ea",
   "basis_commit_scope": "Accepted example-card source, not the candidate version",
   "candidate_verification": {
-    "candidate_commit": "f55ba12ff74098ef94f2b5e22cde592c2e079709",
+    "candidate_commit": "d78be2dc583d32a590453c329dd504d3886b6ede",
     "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
     "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
     "committed_file_sha256": {
@@ -12,7 +12,7 @@
       "nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
       "nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
       "nature-shared/core/terminology-ledger.md": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
-      "nature-shared/core/scientific-expression.md": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a",
+      "nature-shared/core/scientific-expression.md": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1",
       "nature-writing/static/core/stance.md": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
       "nature-writing/static/core/workflow.md": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7",
       "nature-writing/static/core/output-format.md": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
@@ -28,7 +28,7 @@
       "nature-shared/core/nature-abstract.md": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
       "nature-writing/static/fragments/paper_type/algorithmic.md": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7",
       "nature-writing/static/fragments/section/intro.md": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0",
-      "nature-shared/core/robotics-main-text.md": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36",
+      "nature-shared/core/robotics-main-text.md": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b",
       "nature-writing/static/fragments/section/method.md": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04",
       "nature-writing/static/fragments/section/related-work.md": "6cd44a0a9b57146baac08cecdaf4a91c7849a8ae37c9c8dbb2d802564ae799b7",
       "nature-shared/core/main-text-discipline.md": "d43190c4d617096c1088bb5452cec5b0ae13f5d4947c2b21c28315181f051b8e",
@@ -180,6 +180,90 @@
         "approximate_words_whitespace_split": 172,
         "quote_matches_pdf": true
       }
+    ],
+    "body_source_entries": [
+      {
+        "label": "robotics-writing-examples.md",
+        "path": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+        "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640"
+      },
+      {
+        "label": "19-paper evidence report",
+        "path": "机器人论文正文写作证据分析.md",
+        "sha256": "5086842a54002f3cf3c3cd7ca0652eab6af28e15d0be59efdaeaab4966bf0351"
+      },
+      {
+        "label": "P01",
+        "path": "文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf",
+        "sha256": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029"
+      },
+      {
+        "label": "P02",
+        "path": "文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf",
+        "sha256": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc"
+      },
+      {
+        "label": "P04",
+        "path": "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf",
+        "sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+        "original_commit": "20c7839",
+        "original_path": "文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf",
+        "original_sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+        "archive_byte_identical": true
+      },
+      {
+        "label": "P06",
+        "path": "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf",
+        "sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+        "original_commit": "20c7839",
+        "original_path": "文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf",
+        "original_sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+        "archive_byte_identical": true
+      },
+      {
+        "label": "P08",
+        "path": "文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf",
+        "sha256": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba"
+      },
+      {
+        "label": "P09",
+        "path": "文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+        "sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1"
+      },
+      {
+        "label": "P11",
+        "path": "文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf",
+        "sha256": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2"
+      },
+      {
+        "label": "P12",
+        "path": "文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf",
+        "sha256": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d"
+      },
+      {
+        "label": "P15",
+        "path": "文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf",
+        "sha256": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86"
+      },
+      {
+        "label": "P17",
+        "path": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+        "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef"
+      },
+      {
+        "label": "P18",
+        "path": "文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf",
+        "sha256": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1"
+      },
+      {
+        "label": "P19",
+        "path": "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf",
+        "sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+        "original_commit": "20c7839",
+        "original_path": "文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf",
+        "original_sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+        "archive_byte_identical": true
+      }
     ]
   },
   "powershell_utf8_read": {
@@ -231,7 +315,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -322,7 +406,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -417,7 +501,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -512,7 +596,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -606,7 +690,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -701,7 +785,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -796,7 +880,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -891,7 +975,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -982,7 +1066,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1026,7 +1110,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -1072,7 +1156,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1116,7 +1200,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -1163,7 +1247,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1207,7 +1291,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -1254,7 +1338,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1302,7 +1386,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -1346,7 +1430,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1386,7 +1470,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -1432,7 +1516,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1473,7 +1557,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-shared/core/main-text-discipline.md",
@@ -1530,7 +1614,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1595,7 +1679,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-shared/core/discussion-argument-language.md",
@@ -1650,7 +1734,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1694,7 +1778,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -1741,7 +1825,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1833,7 +1917,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1882,7 +1966,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-writing/references/abstract.md",
@@ -1933,7 +2017,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1977,7 +2061,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-shared/core/nature-results-discussion.md",
@@ -2030,7 +2114,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2107,7 +2191,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2183,7 +2267,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2258,7 +2342,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2331,7 +2415,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2413,7 +2497,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2496,7 +2580,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2583,7 +2667,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2670,7 +2754,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2756,7 +2840,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2843,7 +2927,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2930,7 +3014,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3017,7 +3101,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3100,7 +3184,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3140,7 +3224,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -3186,7 +3270,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3226,7 +3310,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -3273,7 +3357,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3313,7 +3397,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -3360,7 +3444,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3404,7 +3488,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -3448,7 +3532,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3484,7 +3568,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -3530,7 +3614,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3567,7 +3651,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-shared/core/main-text-discipline.md",
@@ -3628,7 +3712,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3689,7 +3773,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-shared/core/discussion-argument-language.md",
@@ -3748,7 +3832,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3788,7 +3872,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -3835,7 +3919,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3919,7 +4003,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3964,7 +4048,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         }
       ]
     },
@@ -4011,7 +4095,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4051,7 +4135,7 @@
         },
         {
           "path": "nature-shared/core/robotics-main-text.md",
-          "sha256": "c25acd4af7f7362621a2bae3ba779da5bfc104705938cd25e03e5c548cbf7e36"
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
         },
         {
           "path": "nature-shared/core/nature-results-discussion.md",
@@ -4104,7 +4188,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4177,7 +4261,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4249,7 +4333,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4320,7 +4404,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4387,7 +4471,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4448,7 +4532,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3cd8b27b7689c18945b6e918a25a7485ff9caa37ae7c6b0ed606ea9f7b555d6a"
+          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
         },
         {
           "path": "nature-polishing/static/core/stance.md",

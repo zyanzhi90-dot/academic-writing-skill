@@ -244,6 +244,25 @@ def check(candidate_commit):
     assert new_links == expected_links
     for link in new_links.values():
         assert (ROOT / link).is_file()
+    body_file = CANDIDATE / "nature-shared/core/robotics-main-text.md"
+    body_entries = []
+    archive_basis = "20c7839"
+    for label, bracketed, plain in re.findall(r"\[([^\]]+)\]\((?:<([^>]+)>|([^)]*))\)", body_file.read_text(encoding="utf-8")):
+        path = (body_file.parent / (bracketed or plain)).resolve()
+        assert path.is_relative_to(ROOT) and path.is_file(), (label, path)
+        entry = {"label": label, "path": path.relative_to(ROOT).as_posix(),
+                 "sha256": sha(path.read_bytes())}
+        if label in new_links:
+            assert path == (ROOT / new_links[label]).resolve(), (label, "Body/example source mismatch")
+        if label in ("P04", "P06", "P19"):
+            original = subprocess.check_output(SAFE_GIT + ["show", archive_basis + ":" + old_links[label]], cwd=ROOT)
+            assert path.read_bytes() == original, (label, "Archive differs from original PDF")
+            entry.update({"original_commit": archive_basis, "original_path": old_links[label],
+                          "original_sha256": sha(original), "archive_byte_identical": True})
+        body_entries.append(entry)
+    assert len(body_entries) == 14
+    assert sum(entry["path"].endswith(".pdf") for entry in body_entries) == 12
+    assert sum(entry.get("archive_byte_identical", False) for entry in body_entries) == 3
     abstract_sources = []
     for card, label in (("A06", "P17"), ("A02", "Fuzzy2023"), ("A04", "ESO2017"), ("A05", "P09"), ("A07", "P05")):
         pdf = ROOT / new_links[label]
@@ -316,7 +335,8 @@ def check(candidate_commit):
                                     "other_abstract_cards_unchanged": ["A01", "A03"],
                                     "default_anchor_quote_unchanged": "A06",
                                     "original_quote_blocks_retained": 23, "total_quote_blocks": 27,
-                                    "source_links_resolved": len(new_links), "abstract_sources": abstract_sources},
+                                    "source_links_resolved": len(new_links), "abstract_sources": abstract_sources,
+                                    "body_source_entries": body_entries},
             "powershell_utf8_read": check_powershell_utf8(CANDIDATE / "nature-shared/core/robotics-writing-examples.md"),
             "detached_candidate_only_reads": "passed; no plan, evidence report, extraction text, or PDF present",
             "scenarios": records}
