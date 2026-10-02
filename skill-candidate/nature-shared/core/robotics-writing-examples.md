@@ -10,7 +10,9 @@ This is a shared reference, not a separate workflow or an approval stage.
 
 Read these common instructions and the task index, then the relevant cards,
 including their English context, syntax analysis, transfer conditions, and
-selection notes. Do not load every card or PDF by default. Abstract-only tasks
+selection notes. Read text inputs, instructions, cards, and source extractions
+explicitly as UTF-8: use `Get-Content -Encoding UTF8` in PowerShell or
+`read_text(encoding="utf-8")` in Python. Do not load every card or PDF by default. Abstract-only tasks
 select A cards without loading `robotics-main-text.md`; body tasks retain that
 module and select B cards. Mixed abstract/body work uses both as needed. For
 whole-manuscript reasoning start with B01/B13; for a free paragraph select by
@@ -35,9 +37,12 @@ ambiguities. An omitted experiment in the input does not establish that the
 research never performed it. Example facts, guarantees, and evidence strength
 must not enter the author's manuscript as their own findings.
 
-Use a few main reference papers to sustain the manuscript's organization and
-English style, drawing on author preferences, the existing draft, and fit to
-the scientific content. Supplement them with better local realizations from
+Select a few high-quality, style-matched main reference papers by examining
+their actual passages for clear, concise, plain expression and fit to the
+author's scientific content, preferences, and existing draft. Use them to
+sustain the manuscript's organization and English style. Treat general and
+Nature-style organization patterns as options where they fit this content;
+current venue requirements remain binding. Supplement with better local realizations from
 other papers. Choose relevant excerpts directly; no reference approval gate
 or prescribed set is required. Carry the choices and useful tendencies in the
 current manuscript context across parts: opening functions, focus of subjects,
@@ -57,19 +62,23 @@ points, not mandatory sequential confirmations. The six levels (manuscript,
 section, paragraph, consecutive sentences, sentence, phrase/word) are views of
 the current scope, not six approval stages.
 
-For Drafting, map the intended scientific relation to a suitable example's
-actual English realization, then compose the author's own expression. Learn
-paragraph expansion and first-sentence function; follow how later sentences
-use, transform, test, compare, or qualify an earlier object. Directly borrow
-ordinary subject–predicate constructions, clause patterns, information order,
-and academic collocations where appropriate. Select, combine, and adapt them
-to the author's objects, operations, and conditions. Do not reduce this to
+For Drafting, start from the selected main references' actual English passages:
+their paragraph development, first-sentence function, consecutive-sentence
+progression, subject–predicate constructions, clause patterns, information
+order, and ordinary collocations. Map the author's intended scientific relations
+onto suitable realizations, retaining mature natural constructions where they
+fit. Replace all source-specific scientific content with the author's own
+objects, operations, facts, conditions, comparisons, and conclusions. Select,
+combine, and adjust these realizations; use supplemental references where they
+offer a better local expression consistent with the manuscript's style.
+Do not reduce this to
 function labels, fixed fill-in templates, or post-draft synonym replacement.
 Expression need not be novel; the resulting facts and logical relations must
 be the author's own. Respect shared ethics for distinctive borrowed material.
 
 For Polishing, first locate the actual failure at the relevant levels, then
-use a matching realization to repair it. Preserve correct natural expressions
+start the repair from a matching reference's actual English realization and
+adapt it to the author's meaning and established style. Preserve correct natural expressions
 and reasonable alternatives. A useful example can improve a local clause
 without importing its entire paragraph structure or all its wording. Before
 retaining a combination from multiple examples, recheck agents, objects,
@@ -112,8 +121,12 @@ in the ledger is insufficient. Check and fix determinate errors internally:
   serve a new claim and compressed when they add no argument. Check the current
   part's contribution to the manuscript, including abstract/body alignment.
 
-Use the main and supplemental examples to compare actual realizations, not as
-word blacklists, required connectives, sentence-length targets, paragraph quotas,
+Compare adapted expression units with the relevant main or supplemental English:
+check that changed objects and relations remain explicit, necessary conditions
+have identifiable scope, comparisons keep like objects, and combinations add
+no cumbersome phrasing or repetition without an argument function. Recheck the
+affected sentences and paragraph after fixing a unit. Examples are not word
+blacklists, required connectives, sentence-length targets, paragraph quotas,
 or active/passive ratios. Distinguish a scientific/linguistic error, an awkward
 expression that impairs understanding, and an equally reasonable variant.
 Deliver checked prose in the requesting skill's format; the internal audit

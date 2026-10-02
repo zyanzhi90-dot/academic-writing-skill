@@ -16,17 +16,22 @@
 Write a strong abstract by doing three things repeatedly:
 
 1. Think through the abstract logic first.
-2. Follow one template (Version 1/2/3 below).
+2. Select and combine suitable realizations from references that fit the author's content and style.
 3. Revise the abstract many times.
 
 ## Pre-Writing Questions (Important)
 
 Answer these before writing:
 
-1. What technical problem do we solve, and why is there no well-established solution? (important)
+1. What technical problem do we address, and what author-supported limitation motivates the work? (important)
 2. What is our technical contribution?
 3. Why can our method work in essence?
 4. What technical advantage and new insight do we provide? (important)
+
+The versions below illustrate possible moves and English realizations. Select,
+combine, or omit moves to fit the author's scientific argument; their sentence
+counts and order are examples. Use the loaded shared robotics reference for
+main/supplemental reference coordination and expression checks in robotics work.
 
 ## Version 1: Challenge -> Contribution
 
@@ -107,7 +112,7 @@ Version 3 local cite:
 
 ## Abstract Quality Checklist
 
-1. Can a reader identify task, challenge, insight/contribution, and results in one pass?
-2. Are all major claims supported by experiments?
+1. Can a reader identify the scientific problem, central contribution, and supporting evidence in one pass?
+2. Does each major claim match author-provided method, model, theoretical, or experimental evidence, with its necessary conditions and supported strength?
 3. Are technical names self-contained and readable?
 4. Is there any sentence that mixes too many messages?

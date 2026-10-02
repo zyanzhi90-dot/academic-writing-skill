@@ -17,7 +17,7 @@ an ablation is useful where it isolates a component, not obligatory per module.
 
 ## Polishing priorities
 
-- Separate "what the system is" from "why it works" from "how well it works"; do not braid them.
-- Performance claims must specify the dataset, metric, baseline, and conditions, not stand as bare numbers.
+- Keep "what the system is," "why it works," and "how well it works" distinguishable. Preserve reasonable body-section organization and integrated abstracts or local paragraphs when their scientific relations are clear.
+- Tie performance claims to author-supported evidence and the comparison objects, metrics, and conditions needed to interpret them. Include a dataset or baseline when relevant and provided; preserve necessary boundaries.
 - Avoid marketing verbs (`leverages`, `enables`, `empowers`) unless they carry information.
 - The Discussion should name the failure modes the experiments revealed, not only the wins.

@@ -14,8 +14,8 @@ shared robotics body reference.
 
 ## Drafting rules
 
-- Separate "what the system is" from "why it works" from "how well it works." Do not braid them. A common failure is mixing design rationale with evaluation results in the same paragraph.
-- Every performance claim must specify dataset, metric, baseline, and conditions. Bare numbers do not survive review.
+- Make "what the system is," "why it works," and "how well it works" distinguishable. Organize body sections by their evidence roles; abstracts and local paragraphs may combine these functions when their scientific relations remain clear.
+- Tie each performance claim to the author-supported evidence and the comparison objects, metrics, and conditions needed to interpret it. Include a dataset or baseline when relevant and provided; keep necessary boundaries attached to the claim.
 - Avoid marketing verbs (`leverages`, `enables`, `empowers`) unless they carry concrete information.
 - The Discussion must name the failure modes the experiments revealed, not only the wins. Reviewers trust papers that report their own limits.
 

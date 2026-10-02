@@ -110,6 +110,9 @@ def read_case(base, name, case, manifest):
             else:
                 selected.append("B04")
     if not admin and not layout:
+        if name == "nature-writing" and "abstract" in sections:
+            assert "references/abstract.md" in refs
+            paths.append("references/abstract.md")
         if case.get("journal") == "nature":
             for section, ref in (("abstract", "nature-abstract"), ("intro", "nature-introduction"),
                                  ("discussion", "nature-results-discussion")):
@@ -151,6 +154,19 @@ def read_case(base, name, case, manifest):
             "files_read": reads}
 
 
+def check_powershell_utf8(path):
+    literal = str(path).replace("'", "''")
+    command = (
+        "[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false); "
+        "[Console]::Write((Get-Content -LiteralPath '" + literal + "' -Raw -Encoding UTF8))"
+    )
+    returned = subprocess.check_output(["powershell.exe", "-NoProfile", "-Command", command]).decode("utf-8")
+    assert returned.splitlines() == path.read_text(encoding="utf-8").splitlines(), "UTF-8 read changed source text"
+    return {"path": path.relative_to(CANDIDATE).as_posix(),
+            "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+            "returned_lines_equal_utf8_source": True}
+
+
 def check():
     manifests = manifests_at(CANDIDATE)
     for name in ("nature-writing", "nature-polishing"):
@@ -172,6 +188,7 @@ def check():
         {"id": "generic-abstract", "sections": ["abstract"]},
         {"id": "abstract-zh-to-en", "sections": ["abstract"], "language": "zh-to-en"},
         {"id": "nature-abstract", "sections": ["abstract"], "journal": "nature"},
+        {"id": "explicit-algorithmic-abstract", "sections": ["abstract"], "paper_type": "algorithmic"},
         {"id": "specified-intro", "sections": ["intro"]},
         {"id": "method", "sections": ["method"]},
         {"id": "explicit-algorithmic-method", "sections": ["method"], "paper_type": "algorithmic"},
@@ -212,6 +229,7 @@ def check():
             "method": "Manually resolved routing cases; manifest lookup and real file/selected-fragment reads. Not model invocation, automatic semantic routing, or writing-effect evidence.",
             "versions_and_declared_paths": {name: {"version": value[0]["version"], "path_entries": len(value[1])} for name, value in manifests.items()},
             "source_preservation": {"cards_unchanged": 19, "quote_blocks_unchanged": 26, "source_links_resolved": len(new_links)},
+            "powershell_utf8_read": check_powershell_utf8(CANDIDATE / "nature-shared/core/robotics-writing-examples.md"),
             "detached_candidate_only_reads": "passed; no plan, evidence report, extraction text, or PDF present",
             "scenarios": records}
 

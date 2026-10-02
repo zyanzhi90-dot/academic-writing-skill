@@ -61,7 +61,11 @@ def main() -> None:
         f"Carry out the manuscript task in {task_path} using only the "
         f"specified local skill at {source / role / 'SKILL.md'} and its declared "
         "local dependencies. Read the skill router, manifest, and files it directs "
-        "you to load for this task. " + resource_rules +
+        "you to load for this task. Read all text inputs, instructions, indexes, "
+        "cards, and source extractions explicitly as UTF-8: in PowerShell use "
+        "Get-Content -Encoding UTF8; in Python use read_text(encoding='utf-8'). "
+        "For shared robotics examples, read common instructions and the task index "
+        "first, then only selected cards and any needed source context. " + resource_rules +
         "This is an independent first-pass writing run. Do not change files. "
         "Return the requested prose and any notes required by the task."
     )

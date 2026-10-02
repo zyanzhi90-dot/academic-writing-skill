@@ -5,6 +5,10 @@ Introduction:
 
 `precise problem/gap -> answer-enabling design -> main discovery -> decisive support/boundary -> implication`
 
+Use this discovery-centred pattern when it fits the author's argument. Select
+and combine moves from suitable reference realizations for other contributions,
+preserving accurate natural choices in the current draft.
+
 It should answer:
 
 1. What question was addressed?
@@ -17,10 +21,11 @@ Some journals require a strict abstract format. Follow the journal if it conflic
 ## Polishing priorities
 
 - Cut sentences that summarize background that the title already implies.
-- Make the gap and the contribution one short, locatable sentence each.
-- Organize the abstract around one main claim and at most one or two decisive
-  supporting claims or boundaries; do not inventory every Results subsection.
+- Make the author-supported problem and contribution easy to locate.
+- Keep the central contribution identifiable; retain supporting claims when
+  they establish it or define a necessary boundary, rather than inventorying Results.
 - Keep method detail only when it explains why the question is answerable.
 - Keep a number only when it defines, supports, or materially bounds the main
   discovery; numeric reporting is not mandatory by itself.
-- The last sentence should state significance, not repeat the result.
+- Retain a closing finding or bounded implication when it advances the abstract;
+  remove a closing restatement with no new argument function.
