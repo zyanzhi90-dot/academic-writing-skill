@@ -15,7 +15,10 @@ Use this folder for concrete writing patterns and locally organized cite targets
 
 ## Usage
 
-1. Pick one template from a section guide.
-2. Open the matching examples file.
-3. Reuse the sentence logic, not exact wording.
+1. Select relevant examples from the section guide or loaded robotics task index.
+2. Read their English context, organization, and selection notes; main and
+   supplemental references may contribute different local realizations.
+3. Adapt sentence logic, syntax, information order, and ordinary collocations
+   to author content; do not mechanically fill a template or import source facts
+   and distinctive passages. Keep accurate natural wording when it already fits.
 4. Keep citation links in your notes for traceability.

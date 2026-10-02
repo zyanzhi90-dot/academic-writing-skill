@@ -15,8 +15,10 @@
 Use this file when polishing should improve scientific argument, not just English.
 The patterns below are distilled from curated Nature and Nature Communications
 research articles across materials, energy systems, construction decarbonization
-and machine learning. Do not copy their wording. Use the patterns to diagnose
-and reshape the user's manuscript.
+and machine learning. Learn concrete syntax, information order, and ordinary
+academic collocations where they fit the author's content. Do not import source
+facts, distinctive assertions, or passages as the author's own work; retain
+necessary attribution. Use the patterns to diagnose and reshape the manuscript.
 
 ## Abstract pattern
 
@@ -29,8 +31,10 @@ Strong abstracts usually move in six steps:
 5. explain why the result changes what is possible
 6. close with scope, application or boundary
 
-Polishing rule: if an abstract starts with the method, add the problem and gap
-first. If it ends with enthusiasm, replace it with a bounded implication.
+Polishing rule: add context only when needed to understand the scientific task
+and supported by author material. A method-, criterion-, or comparison-led
+opening can be appropriate; do not invent a gap to fit the funnel. If an abstract
+ends with unsupported enthusiasm, replace it with a bounded implication.
 
 ## Introduction pattern
 

@@ -14,7 +14,9 @@
 Use this reference when writing or rebuilding manuscript sections. The patterns
 come from curated Nature and Nature Communications examples across materials,
 energy, construction decarbonization and machine learning. They are structural
-patterns, not wording templates.
+patterns, not fixed fill-in templates. Concrete clause constructions and
+ordinary academic wording can be learned and adapted to author content; keep
+source facts and distinctive contributions properly attributed.
 
 ## Full-paper argument
 
@@ -23,8 +25,9 @@ A strong paper can usually be reduced to:
 `field-scale need -> unresolved bottleneck -> proposed move -> decisive evidence
 -> broader implication -> boundary`
 
-Before drafting, force the user's material into this chain. If one link is
-missing, mark it as missing rather than writing around it.
+Use this chain as a diagnostic when it fits the scientific task, not a required
+architecture. For a specified part, reuse its clear purpose and author evidence;
+flag consequential gaps without inventing missing content.
 
 ## Abstract
 

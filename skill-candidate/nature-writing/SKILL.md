@@ -58,7 +58,9 @@ Apply the loaded fragments in this priority order:
 5. Journal-specific framing and constraints.
 6. Language-specific sentence and paragraph rules (apply last).
 
-For `task=manuscript`, run the workflow in `core/workflow.md` end-to-end. Do not skip planning just because the user asked for prose immediately.
+For `task=manuscript`, apply `core/workflow.md` to the requested scope. Reuse
+clear author content and existing plans; support overall reasoning, immediate
+specified-part drafting, and feedback without mandatory outline approval.
 
 When drafting or restructuring Results, or compressing a full manuscript's main
 text, also load `../nature-shared/core/main-text-discipline.md` before building
@@ -90,13 +92,24 @@ positioning from citation decoration, calibrate modal strength to evidence,
 and turn limitations and future work into claim-specific reasoning. This is
 general writing guidance rather than an official journal rule.
 
+For `task=manuscript`, when robotics is the central scientific subject, read
+`../nature-shared/core/robotics-writing-examples.md`: common instructions and
+task index, then relevant English cards with their analysis and selection notes.
+Use A cards for abstracts and B cards for body work, whole-manuscript reasoning,
+standalone paragraphs, and feedback. Apply its main/supplemental reference
+coordination during generation and internal phrase-to-context check before
+delivery, including Chinese-to-English work. Do not load it for incidental
+robotics, title-only, submission administration, or layout. Do not preload all
+cards or PDFs. Abstract-only tasks use it without the body module below.
+
 For `task=manuscript`, when the central subject is a robot control, learning,
 manipulation, locomotion, or physical-interaction system, load
-`../nature-shared/core/robotics-main-text.md` for any body section, independent
-Related Work, or whole-manuscript task, including Chinese-to-English drafting.
+`../nature-shared/core/robotics-main-text.md` for any body section or paragraph
+group, independent Related Work, or whole-manuscript reasoning task, including
+Chinese-to-English drafting.
 Read it once after the relevant paper-type and section fragments and before
 sentence drafting. Do not load it for an incidental robotics example,
-title/abstract-only request, or submission package. Use its domain tests to
+title/abstract-only request, submission package, or layout task. Use its domain tests to
 specialize default structure and wording, while preserving author evidence,
 shared integrity and terminology rules, and current venue requirements. If a
 generic or Nature-style suggestion conflicts with a necessary technical

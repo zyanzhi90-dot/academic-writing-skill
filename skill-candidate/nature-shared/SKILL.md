@@ -34,4 +34,11 @@ Use this package only as a dependency of another installed Nature skill.
   nature-polishing requests it for a robotics-centred manuscript body. It
   refines domain decisions without overriding source facts, shared integrity
   safeguards, or target-journal requirements.
+- Load `core/robotics-writing-examples.md` for robotics-centred abstracts or
+  body work, including overall reasoning, standalone paragraphs, translation,
+  and feedback. Read common use/check instructions, task index, and selected
+  cards (A for abstracts, B for body); do not preload the full corpus. Exclude
+  incidental robotics, title-only, submission administration, and layout.
+  Abstract-only tasks do not load the body module. This file is the sole example
+  authority; project PDFs and reports are optional source lookups.
 - Return to the requesting skill for task logic, output format, and final QA.

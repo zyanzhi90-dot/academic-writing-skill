@@ -1,7 +1,13 @@
 # Section: Abstract (writing)
 
 The abstract is the manuscript's shortest evidence chain, not a compressed
-Introduction. Draft it last, when Results and Discussion are stable.
+Introduction. A working abstract may be drafted early from supported author
+content; align the final abstract with actual results, guarantees, and boundaries.
+
+For robotics-centred abstracts, use the conditionally loaded shared
+`robotics-writing-examples.md` common instructions and matching A cards during
+generation and expression checks. Method, construction, criterion, comparison,
+and system contributions need not adopt a discovery-first funnel.
 
 ## Default Nature pattern
 

@@ -21,7 +21,8 @@ checks; do not add a motive sentence around every routine equation.
 
 ## Pre-writing checklist
 
-Before drafting Method, confirm with the user:
+Before drafting Method, establish the following from author material; ask only
+about unresolved information necessary for the requested part:
 
 - Task formulation: inputs, outputs, scope.
 - Overview figure / pipeline diagram: does one exist? It anchors the section.

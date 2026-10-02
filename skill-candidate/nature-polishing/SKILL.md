@@ -86,13 +86,24 @@ implications, calibrate modal and reporting verbs to evidence strength, and make
 limitations and future work resolve named claim boundaries. Treat it as general
 writing guidance, not journal policy.
 
+When robotics is the central scientific subject of manuscript polishing, read
+`../nature-shared/core/robotics-writing-examples.md`: common instructions and
+task index, then relevant English cards with their analysis and selection notes.
+Use A cards for abstracts and B cards for body work, whole-manuscript reasoning,
+standalone paragraphs, and feedback. Diagnose before selecting a realization;
+apply its main/supplemental reference coordination and internal phrase-to-context
+check before delivery, including Chinese-to-English work. Exclude incidental
+robotics, title-only, submission administration, and layout. Do not preload all
+cards or PDFs. Abstract-only tasks use it without the body module below.
+
 When the central subject of manuscript-body polishing is a robot control,
 learning, manipulation, locomotion, or physical-interaction system, load
-`../nature-shared/core/robotics-main-text.md` for a body section, independent
-Related Work, or whole manuscript, including Chinese-to-English prose. Read it
+`../nature-shared/core/robotics-main-text.md` for a body section or paragraph
+group, independent Related Work, or whole-manuscript reasoning, including
+Chinese-to-English prose. Read it
 once after paper-type and section fragments, before sentence polishing. Do not
-load it for an incidental robotics example, title/abstract-only request, or
-layout task. Its domain checks specialize defaults without overriding author
+load it for an incidental robotics example, title/abstract-only request,
+submission administration, or layout task. Its domain checks specialize defaults without overriding author
 facts, shared integrity and terminology rules, or current venue requirements.
 When a generic or Nature-style preference would erase a technical condition,
 preserve the condition and report the resulting style choice.

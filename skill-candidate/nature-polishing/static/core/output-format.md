@@ -2,6 +2,11 @@
 
 Default output:
 
+For robotics abstracts/body work, return prose after the shared internal
+expression check. Put unresolved scientific/input questions and any reference
+choice notes under `Revision notes:`, outside manuscript prose; do not print
+the internal checklist by default.
+
 1. The polished text as plain prose, not in a code block.
 2. `Revision notes:` with `3-5` short bullets on the major structural and stylistic changes.
 3. If the rewrite changed section logic, say so explicitly.

@@ -28,4 +28,11 @@ Identify before writing:
 - **target journal or word limit** if provided
 - **terminology**: on first contact with the material, extract the recurring methods, models, datasets, metrics, abbreviations, and notation into a Terminology Ledger and reuse the canonical forms across every section (see `../../../nature-shared/core/terminology-ledger.md`)
 
-If any of `core claim`, `evidence`, or `boundary` is absent, or the framing is ambiguous, run the **confirmation gate** in `workflow.md` (step 3b) before drafting the full section: echo back your one-sentence argument and key assumptions, ask at most 2–3 targeted questions, and wait for the user. A wrong assumed premise surfaced only in the final notes wastes the entire draft. If the user prefers to proceed without answering, you may still produce a scaffold with explicit placeholders.
+Assess these inputs for the requested part, reusing what the author already
+made clear. Use `workflow.md` step 3b only for necessary scientific ambiguity
+that prevents faithful drafting; do not require a whole-paper outline or
+sequential confirmation for a clear specified-part request. Preserve supported
+scope and put missing-input issues outside prose. If the author asks to proceed
+despite essential missing information, use explicit placeholders, not invented
+claims. Style calibration may use selected papers, the current draft, or author
+preferences; it must not change scientific evidence strength.

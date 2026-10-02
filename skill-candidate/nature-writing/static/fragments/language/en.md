@@ -21,9 +21,10 @@ When the source notes are already in English, default to standard scientific-Eng
 - Use sentences to develop the object through purpose, operation, evidence,
   comparison, or qualification as needed. Start a new paragraph when the
   governing question changes or support becomes hard to locate.
-- For a robotics manuscript, use the shared robotics body reference to choose
-  subjects, verbs, conditions, and technical names; do not use it as a phrase
-  template.
+- For robotics abstracts and body work, use the loaded shared
+  `robotics-writing-examples.md` to adapt concrete English syntax and ordinary
+  collocations to author content. Before delivery, run its meaningful-phrase,
+  sentence, and context checks; do not turn examples into fixed fill-in templates.
 
 ## Diction
 

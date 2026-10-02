@@ -19,7 +19,10 @@ Open-access, broader than a subfield journal, more specialist-tolerant than *Nat
 
 ## Pre-drafting word budget (Articles)
 
-The ~5,000-word cap **includes Methods**. Before drafting any section, propose a budget and confirm with the user:
+The indicative ~5,000-word budget **includes Methods**. For whole-manuscript
+planning, use the following as optional allocations and respect author priorities.
+A clear specified-part request does not require budget approval; check current
+journal limits when submission compliance is requested:
 
 | Section | Suggested budget |
 |---|---|

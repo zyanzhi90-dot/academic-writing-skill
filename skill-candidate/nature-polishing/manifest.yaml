@@ -1,5 +1,5 @@
 name: nature-polishing
-version: 6.6.1-rc.1
+version: 6.6.1-rc.2
 description: >
   Declarative manifest for the static/dynamic split. SKILL.md uses this to
   decide which fragments to load for a given polishing request.
@@ -72,7 +72,9 @@ axes:
 
 references:
   on_demand:
-    - condition: the central subject of manuscript-body polishing or restructuring is a robot control, learning, manipulation, locomotion, or physical-interaction system, including independent Related Work and Chinese-to-English prose; exclude title/abstract-only and layout requests
+    - condition: robotics is the central scientific subject of manuscript polishing or restructuring; abstract or body, overall reasoning, standalone paragraphs, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
+      path: ../nature-shared/core/robotics-writing-examples.md
+    - condition: the central subject of manuscript-body polishing or restructuring is a robot control, learning, manipulation, locomotion, or physical-interaction system, including paragraph groups, whole-manuscript reasoning, independent Related Work, and Chinese-to-English prose; exclude incidental examples, title/abstract-only, submission administration, and layout requests
       path: ../nature-shared/core/robotics-main-text.md
     - condition: polishing, restructuring, or shortening Results or full main text; deciding what belongs in main text versus captions or SI; preventing revision accretion; reducing statistical or claim repetition; or applying a paragraph necessity test
       path: ../nature-shared/core/main-text-discipline.md
@@ -86,7 +88,7 @@ references:
       path: ../nature-shared/core/nature-abstract.md
     - condition: needs Nature/Nature Communications article-level patterns for abstracts, intros, Results openings, Discussion, conclusions, titles
       path: references/published-article-patterns.md
-    - condition: empirical 2025 Nat Commun diction calibration — connector frequencies, the significantly red line, hedge/booster/tense word choices
+    - condition: empirical 2025 Nat Commun diction calibration — observed connector frequencies and evidence-faithful hedge/booster/tense choices, not compulsory vocabulary
       path: references/nat-comms-2025-diction.md
     - condition: needs section-specific move orders or phrase patterns
       path: references/section-moves.md

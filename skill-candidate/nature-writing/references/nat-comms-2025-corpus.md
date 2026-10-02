@@ -5,9 +5,11 @@ Use this file when drafting or restructuring a manuscript and you want
 section fragments. The patterns below are distilled from a 2025 reading set of
 20 open-access *Nature Communications* articles in computer science / AI
 (research articles plus Perspective, Comment, Review, and benchmark/framework
-papers). **Do not copy their wording.** Use the patterns to decide structure,
-move order, and signal words; the short quoted fragments are pattern markers,
-not text to reuse.
+papers). Learn suitable syntax, information order, and ordinary collocations
+from concrete English, adapting them to author content. Do not import source
+facts, distinctive assertions, or passages as the author's own work; retain
+necessary attribution. These are observations and options, not required move
+orders, sentence counts, signal words, or title forms.
 
 > Companion of `references/article-architecture.md` (generic move orders) and
 > `nature-polishing/references/published-article-patterns.md`. This file adds
@@ -39,7 +41,9 @@ research article unless noted.
 
 ## 2. Abstract — the funnel
 
-Five moves, one paragraph, 4–11 sentences (research longer, benchmark/active-learning tighter):
+A recurring five-move realization in this corpus is one paragraph with 4–11
+sentences (research longer, benchmark/active-learning tighter); these counts and
+moves describe observations, not quotas for the current abstract:
 
 1. Field value / why-it-matters (present tense, often subject-less assertion)
 2. Gap, almost always opened by **However** + a nominalised pain point
@@ -68,14 +72,19 @@ Pattern markers: gap *"However, DE can be inefficient when mutations exhibit …
 
 `However` 51 ≫ `Furthermore` 22 · `Therefore` 19 · `Overall`/`Notably` 16 · `In addition` 13 · `In contrast` 6 · `Moreover` 4.
 - **However** is the workhorse for turning, gap-opening, and surprise.
-- Prefer **Furthermore** over **Moreover** for addition (22 vs 4).
+- **Furthermore** and **Moreover** are both options for addition; choose by the
+  actual relation and manuscript style, not their relative frequency (22 vs 4).
 - `Notably / Importantly / Interestingly / Surprisingly` flag the key finding; `Overall / In summary` close a block.
 
 ## 6. Syntax & register
 
 - Tense: background/properties = present; what-we-did = past; current meaning/figure description = present.
-- Voice: active **we** for narrative and claims; passive for apparatus/method (*"The optical convolutional layer is implemented by integrating…"*).
-- Hedge (`may / suggest / likely / potential`) only in meaning sentences; boosters are rationed to the key finding.
+- Voice: the corpus often uses active **we** for narrative and claims and passive
+  for apparatus/method. Choose by attributable action and technical focus; either
+  can be appropriate outside those positions.
+- Hedges cluster in meaning sentences in this corpus, but uncertainty belongs
+  wherever the author's evidence requires it, including results or assumptions.
+  Calibrate any intensifier to the supported magnitude or statistical status.
 
 ## 7. Genre-difference cheatsheet
 
@@ -88,8 +97,6 @@ Pattern markers: gap *"However, DE can be inefficient when mutations exhibit …
 
 ## 8. 中文迁移要点
 
-- 保留信息链:`现象（现在时）→ 然而/目前仍/尚不清楚 → 本文提出 X → 带一个硬核数字的结果 → 意义升华`。
-- 标题按体裁切模板:方法文用名词短语、卖点文用陈述句、工具用"系统名:功能"、论辩文可用疑问句;**标题不放数字与结论**。
-- gap 必带信号词(然而/不幸的是/仍是挑战/鲜有研究/缺乏);高级写法用数字量化稀缺。
+- 以上信息链、标题形式和信号词是语料选项；按作者内容与稿件要求选择，不强制摘要数字、标题形式或 gap 连接词。
 - 贡献句显式给出选题理由("之所以选该体系,是因为…"),呼应"科学问题要科学"。
-- 对冲词(可能/提示/很可能)只用于意义句;少用"显著"——对应英文 `significantly` 在本语料 0 次,改用"明显/大幅/相当"(notably/substantially/considerably)。
+- 不确定性放在真实需要限定的位置，不限于意义句。`significantly` 是否适合取决于作者统计与当前句意；缺检验不自动改成其他强化词，可改述具体指标与支持范围。

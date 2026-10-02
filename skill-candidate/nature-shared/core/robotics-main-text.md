@@ -12,7 +12,10 @@ workflow or a journal policy. Author-provided facts and evidence, current venue
 requirements, the shared non-invention and terminology rules, and the relevant
 paper-type and section jobs remain in force. The examples below show decisions
 under particular technical conditions; none is a required sentence pattern.
-For the full context, see the [19-paper evidence report](../../../机器人论文正文写作证据分析.md).
+For concrete English realization and the common expression check, use
+[robotics-writing-examples.md](robotics-writing-examples.md) as routed by the
+requesting skill. The [19-paper evidence report](../../../机器人论文正文写作证据分析.md)
+is an optional project lookup, not a runtime dependency.
 PDF page numbers count from the first PDF page, not the printed journal page.
 
 ## Evidence and manuscript prose

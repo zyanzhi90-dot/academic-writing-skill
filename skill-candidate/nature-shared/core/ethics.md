@@ -23,12 +23,19 @@ Make it obvious:
 - someone else's ideas
 - data
 - methods
-- wording
-- structure
+- distinctive borrowed wording or verbatim passages
+- substantive borrowed argument structure
 - images
 - distinctive interpretation
 
 Do not assume internet material is public domain just because it is online.
+
+Ordinary syntax, generic academic collocations, and ways of organizing the
+author's own content may be learned and directly reused without treating them
+as another paper's scientific contribution. Adapt example constructions to the
+author's facts and conditions. Source facts, distinctive claims/expressions,
+and substantive intellectual contributions retain their attribution duties;
+swapping technical nouns in a borrowed passage does not make it original.
 
 ## Proofreading checks
 

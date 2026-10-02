@@ -1,0 +1,68 @@
+[
+  {
+    "path": "skill-baseline",
+    "files": 131,
+    "unchanged": true,
+    "sha256": "8cc143fcfaed1e123af6f44dae9f41a26bf4925126bb91b5ae60136d6435bbab"
+  },
+  {
+    "path": "effect-test",
+    "files": 124,
+    "unchanged": true,
+    "sha256": "d6174282f18cc004c7e4e5aa141f988a73518998f42ba296ad1b26d7271712ae"
+  },
+  {
+    "path": "文献资料",
+    "files": 19,
+    "unchanged": true,
+    "sha256": "2b7325f95c93cf40bc686ffc57f57dad38c68b3a6ea6d8f1f068bd680ed911c5"
+  },
+  {
+    "path": "analysis/reading",
+    "files": 19,
+    "unchanged": true,
+    "sha256": "fe17fcf39bb84bfc916ae68b76226fe6e25ea593e88880e128493549057c703d"
+  },
+  {
+    "path": "analysis/extracted",
+    "files": 19,
+    "unchanged": true,
+    "sha256": "4baee8d0c9dc9f23a376dfdc17b2bf6abaffb8f1cf76bd1a09693c4b92452d2c"
+  },
+  {
+    "path": "C:/Users/user/.agents/skills/nature-writing",
+    "files": 76,
+    "unchanged": true,
+    "sha256": "0126432815574cb64d5a823a7af56d8156286bebd7b582c269ac692670a1ed18"
+  },
+  {
+    "path": "C:/Users/user/.agents/skills/nature-polishing",
+    "files": 33,
+    "unchanged": true,
+    "sha256": "2542799ce48aea6d65a68ef079c288c38eaafedf39879c48cb9ec235ab080af9"
+  },
+  {
+    "path": "C:/Users/user/.agents/skills/nature-shared",
+    "files": 21,
+    "unchanged": true,
+    "sha256": "b634306cdae3f432b8906d4d25e7ff0cba4b7512a9ec93417a85068fac896a0b"
+  },
+  {
+    "path": "C:/Users/user2/.agents/skills/nature-writing",
+    "files": 76,
+    "unchanged": true,
+    "sha256": "0126432815574cb64d5a823a7af56d8156286bebd7b582c269ac692670a1ed18"
+  },
+  {
+    "path": "C:/Users/user2/.agents/skills/nature-polishing",
+    "files": 33,
+    "unchanged": true,
+    "sha256": "2542799ce48aea6d65a68ef079c288c38eaafedf39879c48cb9ec235ab080af9"
+  },
+  {
+    "path": "C:/Users/user2/.agents/skills/nature-shared",
+    "files": 21,
+    "unchanged": true,
+    "sha256": "b634306cdae3f432b8906d4d25e7ff0cba4b7512a9ec93417a85068fac896a0b"
+  }
+]

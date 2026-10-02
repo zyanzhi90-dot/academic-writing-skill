@@ -1,12 +1,18 @@
 # Writing workflow
 
-Run these steps for any drafting or restructuring task. Steps 1-3 are planning, step 3b is an alignment gate, 4-6 are drafting, 7-8 are checking, step 9 is the revision loop.
+Apply these steps within the requested scope. Reuse clear author content and
+existing plans; support overall reasoning, specified-part drafting, and
+feedback without mandatory sequential approval. Steps 1-3 organize the current
+part, 3b resolves necessary ambiguity, 4-6 draft, 7-8 check, and 9 revises.
 
 ## 1. Build a one-sentence argument
 
 > In [system/problem], we show [advance] using [approach], supported by [evidence], with [boundary].
 
-Force every section to serve this sentence. If the sentence cannot be written, the paper does not yet have an argument — surface that to the user.
+Use this as an argument diagnostic, not a fill-in template. For a specified
+part, establish its scientific purpose from the available author material;
+do not require reconstruction or approval of the whole paper first. Surface
+missing premises only when they prevent faithful work in the requested scope.
 
 ## 1b. Build the Terminology Ledger
 
@@ -36,28 +42,34 @@ provenance detail, alternative inference, or edge case. Build the shortest
 sufficient main-text evidence chain and record the destination of everything
 else. Do not bury conclusion-changing evidence in SI.
 
-## 3b. Confirmation gate — align before drafting
+## 3b. Align the current task; clarify necessary ambiguities
 
-Drafting a full section on a wrong assumed premise wastes the whole draft and is the main reason output "does not match what I meant". Before writing full prose, show the user a short alignment block and **stop for confirmation**:
+For a request to discuss overall reasoning, provide the argument and dependency
+or paragraph map for human discussion. For immediate specified-part drafting,
+proceed when its scientific content is clear; an outline is available when
+requested, not an approval requirement. Do not require reference-paper approval.
 
-- **One-sentence argument** (from step 1) — the single most important thing to get right. Echo it back in plain language.
-- **Plan**: detected paper type, section(s), journal / word limit, and the paragraph map from step 3 as a short bullet list.
-- **Key terminology**: the canonical forms locked in the Terminology Ledger (step 1b) for the main methods, models, datasets, and metrics. Surface them here so the user can fix a wrong canonical term before it propagates through every section.
-- **Primary reader**: who the draft is optimized for, and which of the five reader questions it leads with (relevance / novelty / trust / reuse / meaning — see `../../../nature-shared/core/reader-workflow.md`). Getting the lead question wrong is a common silent cause of "this is not what I meant".
-- **Key assumptions**: anything else you inferred rather than were told — especially what the core contribution is and which result to lead with. Mark each clearly as an assumption.
-- **At most 2–3 targeted questions**, only on genuinely ambiguous, high-leverage points (how to frame the core contribution, target audience / journal, which result leads). Do not ask about things the user already made clear, and do not pad the list to reach three.
+If an unresolved premise would change scientific meaning and prevents faithful
+drafting, summarize the intended claim, evidence, scope, relevant terminology,
+and uncertain point; ask only the necessary targeted questions and wait for
+that information. Otherwise retain the supported scope and place material
+missing-input notes outside prose. Do not repeat questions already answered.
 
-Then wait for the user to confirm or correct before drafting the full section.
-
-Shortcuts:
-
-- **Skip the gate** when the core claim, evidence, and boundary are all clearly given and there is no real ambiguity in framing. In that case just state the one-sentence argument in a single line (per the router) and proceed.
-- **Depth dial**: for a full section or a major rewrite, offer to deliver the outline first (the paragraph map from step 3) and expand to full prose only after the user approves it. Reacting to an outline is far cheaper than reacting to full prose. Skip this for short or single-paragraph requests.
-- **Style, not substance**: if the user says the voice or style "is not mine", do not keep guessing — ask for one short sample of their own writing, then calibrate to it. From the sample, match: typical sentence length and rhythm, hedging level (`demonstrate` vs `may` / `could`), preferred connectives and transitions, person (first-person `we` vs passive), and terminology / abbreviation choices. Match the voice, not the content — never reuse the sample's claims or facts.
+For style feedback, calibrate from author-selected reference papers, the current
+draft, or stated preferences; ask for a sample only if needed. In robotics work,
+follow the loaded `robotics-writing-examples.md` instructions to coordinate main
+and supplemental references. Learn organization, subject focus, syntax,
+information order, and ordinary collocations; preserve author facts, terminology,
+and evidence strength rather than matching hedging, length, or voice ratios.
 
 ## 4. Draft from evidence outward
 
 Keep claims near the data that support them. Do not stack claims at the top of a section then leave evidence at the bottom.
+
+For robotics abstracts and body work, apply the loaded shared example reference
+during generation: read suitable cards' actual English and analysis, then adapt
+their realization to the author's content. Preserve relevant reference choices
+across parts; do not leave example use until a synonym pass after drafting.
 
 ## 5. Calibrate verbs to evidence strength
 
@@ -80,17 +92,27 @@ For full reverse-outlining, open `references/paragraph-flow.md`.
 
 ## 8. Return prose plus notes
 
-Output the draft together with explicit notes on assumptions, missing inputs, and where evidence is needed. See `output-format.md`.
+Before delivery of robotics abstracts or body prose, perform the common internal
+phrase-to-sentence-to-context check in the loaded `robotics-writing-examples.md`.
+Fix determinate errors, recheck affected relations, and retain reasonable variants.
+Output checked prose plus material assumptions, missing inputs, and evidence
+questions outside the manuscript. The audit itself need not be printed. See
+`output-format.md`.
 
 ## 9. Revise by targeted edit, not full rewrite
 
 When the user reacts to a draft, "this is not what I meant" is usually local — a wrong claim, a mis-framed paragraph, the wrong result leading. Do not silently re-draft the whole section: a full rewrite breaks the paragraphs that were already right and forces the user to re-check everything.
 
 - Change **only** the paragraphs or claims the user flagged; keep the rest verbatim.
-- If a requested fix genuinely forces a structural change (reordering sections, moving a claim across paragraphs), say so and confirm the new structure before applying it, rather than restructuring silently.
+- If a requested fix requires a structural change, explain its necessary scope
+  and apply it within the authorized task; ask only when scientific intent is
+  unresolved or the extension needs the author's decision.
 - Keep the Terminology Ledger (step 1b) stable across revisions unless the user changes a term; never let a revision reintroduce a variant of a locked term.
-- After revising, re-run only the checks relevant to what changed (steps 5-7), not the whole workflow.
-- If the user's redirection reveals the original premise was wrong, return to the confirmation gate (step 3b) instead of patching prose on a broken premise.
+- After revising, re-run relevant checks (steps 5-8), including the shared
+  expression check on affected phrases, sentences, and contextual links in
+  robotics abstracts/body work; retain reference choices unless redirected.
+- If redirection changes the premise, use the corrected author meaning; resolve
+  only remaining necessary ambiguity through step 3b.
 - Every proposed addition triggers the main-text deletion check: identify the
   new sentence's function, find existing text with the same function, and prefer
   replacement or compression before appending. Re-run the paragraph necessity

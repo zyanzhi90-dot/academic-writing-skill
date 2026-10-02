@@ -34,3 +34,12 @@ revision accretion, explanatory recursion, and claim repetition before editing
 sentence rhythm.
 
 Terminology consistency is a cross-cutting check that runs at every level: build the Terminology Ledger on first contact (see `../../../nature-shared/core/terminology-ledger.md`) and enforce its canonical forms throughout the polish.
+
+For robotics abstracts and body work, follow the conditionally loaded
+`robotics-writing-examples.md`: diagnose the failure before selecting relevant
+English cards, coordinate main and supplemental references with the current
+manuscript style, and adapt only the affected scope. Before delivery run its
+internal meaningful-phrase-to-sentence-to-context check, including ordinary
+words, grammar, and natural combinations. Distinguish errors, awkwardness that
+impairs understanding, and sound variants; do not rewrite the last category
+merely to resemble a source. Apply the same check after targeted feedback.

@@ -2,6 +2,11 @@
 
 Default output:
 
+For robotics abstracts/body work, return prose after the shared internal
+expression check. Put unresolved scientific/input questions and any reference
+choice notes outside manuscript prose; do not print the internal checklist by
+default.
+
 1. `Draft:` — the requested prose.
 2. `Section outline:` — `3-7` compact bullets when the task involves a full section.
 3. `Assumptions or missing inputs:` — only material issues; do not pad with style nits.

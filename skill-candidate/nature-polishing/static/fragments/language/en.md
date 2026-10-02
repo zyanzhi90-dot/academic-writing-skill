@@ -21,3 +21,8 @@
 - Supporting material may include data, comparison, explanation, consequence, literature, or limitation.
 - Split when the governing question changes or support becomes hard to locate.
 - Use thematic linking, not repetitive `This suggests ...` openings.
+
+For robotics abstracts and body work, use the loaded shared
+`robotics-writing-examples.md` to select concrete English realizations after
+diagnosis. Before delivery, run its meaningful-phrase, sentence, and context
+checks; preserve accurate natural expressions and equally reasonable variants.
