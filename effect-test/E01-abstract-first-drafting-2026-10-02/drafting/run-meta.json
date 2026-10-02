@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "duration_seconds": 140.36,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "candidate_commit": "20c78392931c07c0d5c3784fad26c833ae4d1ccf",
+  "attempt": 1,
+  "first_output_exists": true,
+  "evaluation": "Not performed; no prose editing"
+}
