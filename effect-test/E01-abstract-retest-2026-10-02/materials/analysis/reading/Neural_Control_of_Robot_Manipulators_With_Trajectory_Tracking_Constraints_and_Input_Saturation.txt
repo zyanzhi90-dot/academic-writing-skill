@@ -1,0 +1,1476 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021 4231
+Neural Control of Robot Manipulators With
+Trajectory Tracking Constraints
+and Input Saturation
+Chenguang Yang , Senior Member, IEEE, Dianye Huang , Graduate Student Member, IEEE,
+Wei He , Senior Member, IEEE, and Long Cheng , Senior Member, IEEE
+Abstract—This article presents a control scheme for the
+robot manipulator’s trajectory tracking task considering output
+error constraints and control input saturation. We provide an
+alternative way to remove the feasibility condition that most
+BLF-based controllers should meet and design a control scheme
+on the premise that constraint violation possibly happens due
+to the control input saturation. A bounded barrier Lyapunov
+function is proposed and adopted to handle the output error
+constraints. Besides, to suppress the input saturation effect,
+an auxiliary system is designed and emerged into the control
+scheme. Moreover, a simplified RBFNN structure is adopted to
+approximate the lumped uncertainties. Simulation and exper-
+imental results demonstrate the effectiveness of the proposed
+control scheme.
+Index Terms—Barrier Lyapunov function (BLF), constrained
+control, input saturation, robot manipulator.
+I. INTRODUCTION
+CONSTRAINTS on output error commonly exist in engi-
+neering applications and are often interpreted as the
+performance requirement and safety specification [1], [2].
+Constraint violation may degrade the control performance
+or even cause unexpected system damage. To tackle this
+problem, some constrained control methods have been inves-
+tigated extensively these years, to name a few, the command
+governor [3], unbounded coordinate transformation method
+[4], and the nonovershooting control [5]. These methods either
+Manuscript received January 17, 2020; revised June 17, 2020; accepted
+August 6, 2020. Date of publication August 28, 2020; date of current
+version September 1, 2021. This work was supported in part by the National
+Nature Science Foundation of China (NSFC) under Grant 61811530281,
+Grant 61861136009, Grant U1913209, and Grant 61873268, in part by the
+Guangdong Regional Joint Foundation under Grant 2019B1515120076, in part
+by the Fundamental Research for the Central Universities, and in part by
+the Beijing Municipal Natural Science Foundation under Grant JQ19020 and
+Grant L182060. (Corresponding author: Chenguang Yang.)
+Chenguang Yang and Dianye Huang are with the School of Automation
+Science and Engineering, South China University of Technology, Guangzhou
+510641, China (e-mail: cyang@ieee.org; huangdianye@qq.com).
+Wei He is with the School of Automation and Electrical Engineering,
+University of Science and Technology Beijing, Beijing 100083, China, and
+also with the Institute of Artificial Intelligence, University of Science and
+Technology Beijing, Beijing 100083, China (e-mail: weihe@ieee.org).
+Long Cheng is with the State Key Laboratory of Management and Control
+for Complex Systems, Institute of Automation, Chinese Academy of Sciences,
+Beijing 100190, China, and also with the School of Artificial Intelligence,
+University of Chinese Academy of Sciences, Beijing 100049, China (e-mail:
+long.cheng@ia.ac.cn).
+Color versions of one or more of the figures in this article are available
+online at https://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TNNLS.2020.3017202
+modify the reference/control signals or transfer the constrained
+variables into new ones to modulate the final control input
+indirectly. Recently, the barrier Lyapunov function (BLF) has
+attracted more and more attention and acts as an effective
+tool in the control design for constrained nonlinear uncertain
+systems. The control law is derived directly from the Lyapunov
+stability analysis. Successful applications can be found in
+the prescribed tracking performance control of serial robot
+manipulators [6], handling the tracking error constraints effect
+on the marine surface vessel [7] and the full state-constrained
+control for nonlinear systems [8].
+So far, many types of BLF have been proposed to handle the
+constraint effect, such as the log-type BLF [9], the integral-
+type BLF [8], and the tan-type BLF [10]. However, at the
+beginning of the control, a BLF-based controller usually needs
+prescribed time-varying transient performance constraints to
+achieve valid and stable control, as in [1] and [6]. Besides,
+to satisfy the constraints when the constrained variables lim-
+itlessly approach the predefined boundaries, the control input
+of a BLF-based controller tends to be infinite, which results in
+a paradox for the existence of the input saturation. Therefore,
+to handle the constraints, the BLF-based controller should
+meet the feasibility condition in [11], i.e., the constrained
+variable should always stay within the predefined boundaries.
+Parameters should also be appropriately designed, as it may
+be impractical if the constraints region is too small. Much
+research work has been made in [11] and [12] to remove the
+strict feasibility condition. In these works, the time derivative
+of the universal barrier function in [13] is regarded as an
+auxiliary system, which is subsequently incorporated into
+the control system. Then, the controller for the augmented
+system is designed under the dynamic surface control scheme.
+However, in authors’ opinion, this method only partially
+relaxes the feasibility condition because of two points: 1) the
+initial system states still need to satisfy the constraints and
+2) the control law will be discontinuous when the constrained
+variable equals to the constraints, and the case involving
+constraint violation has not been studied in the simulation.
+To further narrow the reality gap and to provide an alternative
+way to remove the feasibility condition radically, a new type
+of BLF should be designed and have the following properties:
+1) be positive outside the constrained space and 2) the partial
+derivative with relative to the constrained variables be bounded
+at the whole space. To the best of our knowledge, there is
+2162-237X © 2020 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+4232 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021
+no existing BLF being qualified for these conditions, which
+motivates part of the research in this article.
+For constrained control, the input saturation effect, repre-
+senting the capacity limitation of a plant, is a nontrivial source
+of the degradation of system performance or even system insta-
+bility if not being properly handled with [14]. In [15], the input
+saturation effect is formulated as a model predictive control
+problem, and then, the proposed algorithms are adopted for
+estimating the upper bound of the control horizon, while this
+method is only suitable for linear time-invariant system. Model
+predictive control is widely used in the chemical industry and
+is able to handle input saturation. The control barrier function
+is also one of the methods to verify and enforce the safety
+properties of a plant. It is applied to the safety-critical control
+and unified with the Lyapunov function through quadratic pro-
+gramming to track the reference signals [16]. However, these
+methods are of high computational burden when the controlled
+plant is complex, nonlinear, and with uncertainties. To handle
+the output constraints and the input saturation simultaneously,
+an adaptive control framework would be a better choice.
+Wu and Xie [17] employed time-varying asymmetric BLFs,
+an auxiliary subsystem, and the Nussbaum gain technique to
+design an adaptive controller for uncertain nonlinear systems
+with time-varying full state constraints, input saturation, and
+unknown control direction. Yan et al. [18] introduced a nonlin-
+ear smooth function to tackle the saturation input nonlinearity,
+with HODOs compensating the unknown time-varying distur-
+bances. In [19], the adaptive fuzzy output-feedback control is
+developed for a class of output-constrained uncertain nonlinear
+systems with input saturation and unmeasured states using
+a log-type BLF and an auxiliary system incorporating into
+the virtual control variable. This framework is refined and
+systematically illustrated in [14], where the input and output
+constraints are circumvented simultaneously. In the process
+of controller design, in order to obtain a smooth control
+law, the saturation function (τ) is replaced with a hyper-
+tangent function tanh(τ) in [14], and the auxiliary system is
+driven by the discrepancy between τ and tanh(τ). However,
+the nonlinearity of tanh(·), to some degree, may degrade the
+control performance since the states of the auxiliary system
+representing the influence of the input saturation will not
+converge to zero when the control input is not equal to zero.
+This article considers both the output error constraints
+and the input saturation of robot manipulators and presents
+a trajectory tracking controller to fulfill these requirements
+simultaneously. Comparing with the existing results, the con-
+tributions of this article are summarized as follows.
+1) A bounded BLF (BBLF) is proposed. Different from
+most of the existing BLF-based controllers, the proposed
+BBLF-based controller in this article is designed on the
+premise of taking the case when constraints violation
+occurs into consideration.
+2) Inspired by [14], a modified auxiliary system is intro-
+duced to handle the input saturation effect, where the
+system states will converge to zeros if no control input
+saturation occurs.
+3) A simplified RBFNN structure is adopted to greatly
+reduce the complexity of the network. Furthermore,
+a simple criterion is proposed to quantify the contribu-
+tion of the four items that constitute the proposed control
+law, so as to examine their respective effectiveness.
+Notations are defined throughout this article: λmin/max(A)
+denotes the maximum/minimum eigenvalue of A; a 
+b = [a1b1, a2b2, . . . , anbn]T
+denotes the elementwise product
+between a and b; and |x| and x denote the absolute
+and norm value of x, respectively. vec(xi ), i = 1, 2, . . . , n,
+denotes a column vector whose entries are xi in sequence;
+diag(xi ), i = 1, 2, . . . , n, denotes a diagonal matrix whose
+diagonal elements are xi with the rest entries being 0; and 0
+denotes a compatible zero vector or zero square matrix.
+II. PROBLEM FORMULATION AND PRELIMINARIES
+A. Problem Formulation
+Consider an n-link serial robot manipulator, its dynamics is
+governed by
+H(q)q̈ + C(q, q̇)q̇ + G(q) = (τ) (1)
+where H(q), C(q, q̇), and G(q) represent the inertia matrix,
+the Coriolis/centrifugal matrix, and the gravitation torque,
+respectively. q is the joint position with q̇ being its corre-
+sponding velocity. In the following, H(q), C(q, q̇), and G(q)
+are abbreviated for H, C, and G for saving space, and C and
+G are unknown.
+1) Input Saturation: (τ) embodies the input saturation
+effect with (τ) = ϕ(τ, μ) + τ, where
+i (τi ) =
+⎧
+⎨
+⎨
+⎨
+⎩
+τmax
+i , τi > τmax
+i
+τi , τmin
+i ≤ τi ≤ τmax
+i
+τmin
+i , τi < τmin
+i
+ϕi (τi , μi ) =
+⎧
+⎨
+⎨
+⎨
+⎩
+μi τmax
+i + τ̄max
+i , τi > μi τmax
+i
+τi , μi τmin
+i ≤ τi ≤ μi τmax
+i
+μi τmin
+i + τmin
+i , τi < μi τmin
+i
+(2)
+where τi , μi , i (·), and ϕi (·, ·) are the ith elements of τ, μ,
+(·), and ϕ(·, ·), respectively, τmax
+i > 0 and τmin
+i < 0 are the
+upper and lower limits of the ith actuator, μi ∈ (0, 1) is a
+user-defined parameter, and
+τ̄max
+i = (1 − μi )τmax
+i tanh
+
+τi − μi τmax
+i
+(1 − μi )τmax
+i
+
+τmin
+i = (1 − μi )τmin
+i tanh
+
+τi − μi τmin
+i
+(1 − μi )τmin
+i
+
+.
+We notice that the piecewise function ϕ(τ, μ), μ ∈ (0, 1),
+is twice differentiable relative to τ, and τ is bounded, which
+helps to get a smoother control input around the limits by
+designing a control law τ and then substituting it into ϕ(τ, μ)
+rather than into (τ). Note that, by using ϕ(τ, μ) instead of
+v̄ × tanh(τ/v̄) employed in [14] with v̄ being the limit of the
+actuator, the discrepancy τ between ϕ(τ, μ) and (τ) totally
+vanishes in [μ  τmin
+, μ  τmax
+], and its maximum value can
+be tuned by μ.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+YANG et al.: NEURAL CONTROL OF ROBOT MANIPULATORS WITH TRAJECTORY TRACKING CONSTRAINTS AND INPUT SATURATION 4233
+2) Output Error Constraints: The output error constraints
+are defined as
+ :=
+
+q ∈ Rn
+− kci < qi − qdi < kci , i = 1, 2, . . . , n (3)
+where n is the degree of freedom of the robot manipulator, and
+kci are user-defined constraints. For simplicity, only symmetric
+constant constraints are considered in this article, while it is
+easy to deduce the time-varying and asymmetric constraints
+controller analogous to the proposed control framework.
+The control problem to be resolved is stated as follows:
+design a trajectory tracking controller with a control law
+ϕ(τ, μ) for an n-link robot manipulator in (1) under the output
+error constraints in (3) and the input saturation (τ), such that
+the ultimately uniformly bounded (UUB) stability of the whole
+system is guaranteed and the tracking errors converge to a
+small bounded neighborhood around the origin.
+B. Definition, Lemmas, and Assumptions
+Assumption 1: The inertia matrix H(q) of the robotic
+dynamics is exactly known, and the desired joint trajectory
+qd(t) is twice differentiable.
+There are multiple techniques to guarantee system stability
+when analyzing the Lyapunov function, such as the logic-based
+switchings applied in [20] and the nonlinear measures in
+[21]. For the ease of control design, the following lemma is
+introduced.
+Lemma 1 (See [22, Corollary 1.1 and Lemma 1.2]): Let
+the Lyapunov function candidate V(χ) be positive and con-
+tinuously differentiable with a bounded initial value V (χ(0))
+and ρcχ2
+≤ V(χ), where χ is a column vector consists
+of system states and weights of the neural networks, ρc is a
+positive scalar. If the following inequality holds:
+V̇ (χ) ≤ −γ V (χ) + ρ (4)
+where γ > 0 and ρ > 0, then V(χ) is bounded, and the
+solution of χ will converge exponentially to a compact set
+= {χ|χ ≤
+√
+ρ/(ρcγ )}.
+Definition 1 (See [9, Definition 2]): A BLF is a scalar
+function VBLF(x) defined with respect to the system ẋ =
+f (x) on an open region D containing the origin. BLF is
+continuous, positive definite, and has continuous first-order
+partial derivatives at every point of D. It has the property that
+V (x) → ∞ as x approaches the boundary of D and satisfies
+V (x(t)) ≤ b ∀t ≥ 0 along the solution of ẋ = f (x) for
+x(0) ∈ D and some b > 0.
+III. BOUNDED LYAPUNOV FUNCTION
+Let us begin with an example. Consider a second order
+integrator system given as follows:
+ẋ1 = x2
+ẋ2 = f2(x1, x2) + u (5)
+where constraint is imposed on x1, requiring that |x1| < kc, and
+the Lyapunov function candidate is chosen as V = VBLF(x1)+
+0.5x2
+2, where VBLF(x1) is a BLF relative to x1. To guarantee
+system stability, the control law is designed as
+u = − f2(x1, x2) − k2x2 − τb (6)
+Fig. 1. Curves of ∂VBLF/∂x1 derived from different types of BLFs.
+where τb := ∂VBLF/∂x1 refers to the corresponding control
+term derived from a BLF.
+Remark 1: Considering input saturation, the output error
+constraints are regarded as soft constraints, which implies that
+constraint violation should be taken into account during the
+control design. Fig. 1 shows the curves of τb derived from
+different types of BLFs in (7) from [9] and [10]
+V
+Log
+BLF =
+1
+2
+log
+
+k2
+c
+k2
+c − x2
+1
+
+, τ
+Log
+b =
+x1
+k2
+c − x2
+1
+VTan
+BLF =
+k2
+c
+π
+tan
+
+πx2
+1
+2k2
+c
+
+, τTan
+b =
+x1
+cos2 πx2
+1
+2k2
+c
+VTan2
+BLF =
+kc
+π
+tan2
+
+πx1
+2kc
+
+, τTan2
+b =
+sin
+πx2
+1
+2k2
+c
+cos3 πx2
+1
+2k2
+c
+. (7)
+Note that when |x1| > kc, V
+Log
+BLF(x1) is undefined, and VTan
+BLF(x1)
+is less than 0. Although VTan2
+BLF (x1) > 0 for |x1| > kc,
+τTan2
+b behaves an opposite control direction, which may lead
+to system instability. Besides, all these τbs suffer from the
+singularity problem at |x1| = kc if they are applied directly
+to handle the soft constraints. Therefore, BLFs in (7) cannot
+guarantee the system stability outside the constrained space.
+Furthermore, the infinite increase of the control torque around
+the constraints may also boost the saturation effect. Hence,
+we turn our attention to the magnitude and control direction
+of τb along x1 ∈ R and circumventing the singularity problem
+of τb at |x1| = kc. Next, a new form of BLF will be
+designed whose curves of τb will have similar shape as other
+BLFs.
+To handle the constraints’ effect under the consideration of
+input saturation, we propose the BBLF whose definition is
+given as follows.
+Definition 2: A BBLF is a scalar function VBBLF(x), x ∈ R
+defined with respect to the system ẋ = f (x) along the
+real axis. BBLF is continuous, positive definite, and has
+first-order partial derivative. Let D be a close region and
+∂ D be the boundary of D. BBLF has the property that:
+1) ∂VBBLF(x)/∂x → τmax
+b , as x → ∂ D and 2) ∂ D =
+arg maxx |τb(x)|.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+4234 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021
+The following shows the specific mathematical form of
+BBLF:
+V̄ (z1) =
+1
+2
+n
+i=0
+VBBLF(z1i ) +
+1
+2
+zT
+1 K1z1
+VBBLF(z1i ) = kdes
+i
+k2
+ζiζ2
+i
+1 − k2
+ζi ζ2
+i
+, ζi = tanh
+
+κi
+z1i
+kci
+
+(8)
+where K1 is a positive diagonal matrix, z1i is an element of the
+constrained variable z1 ∈ Rn
+, kci is the user-defined constraint,
+kζi ∈ (0, 1) is a user-defined scaling factor for ζi such that
+VBBLF is bounded for ∀z1i ∈ R, and kdes
+i is the control gain
+determined by (11). (1/2)zT
+1 K1z1 is an augmented component
+for the BBLF such that the magnitude of the feedback term
+will not vanished when kci → ∞. Note that if kζi = 1 and κi
+is chosen wisely, then the proposed BBLF will behave as the
+traditional BLFs, i.e., as z1i → kci and V̄ → ∞. Next, taking
+the first time derivative of (8) yields
+˙
+V̄ (z1) =
+
+τT
+b + zT
+1 K1
+
+ż1 (9)
+where
+τb = Kdes
+vec
+
+h(ζi )
+ζi
+1 − k2
+ζi ζ2
+i
+
+h(ζi ) =
+κi k2
+ζi
+kci
+1 − ζ2
+i
+1 − k2
+ζiζ2
+i
+To meet the properties 1) and 2) of Definition 2, κi is selected
+according to kζi , such that τbi will reach its maximum when
+z1i reaches constraint boundaries
+κi = ln
+
+1 + ξi
+1 − ξi
+
+ξi =
+
+
+
+3kζi −
+
+4 − 3k2
+ζi
+2kζi
+(10)
+and Kdes
+= diag(kdes
+i )
+kdes
+i = τdes
+i
+
+h(ξi )ξi
+1 − k2
+ζiξ2
+i
+−1
+(11)
+where τdes
+i is the user-defined parameter that decides the
+maximum control input generated from BBLF.
+Remark 2: Fig. 2 presents the curves of τBBLF
+b under differ-
+ent choices of kζ . For the convenience of expression, we define
+the region of z1, where |τb(z1)| > 0.1τdes
+as the activate zone.
+We can see that τb mainly activates around the constraints
+at z1 = ±kc. Besides, as kζ → 1, the active zone becomes
+narrower such that when z1 converge to zero, and τb vanishes
+more quickly. The proposed BBLF can be applied on iterative
+learning control to guarantee the control accuracy of the final
+iteration, such as the motion control of a soft robot in [23],
+tracking control for strict-feedback systems in [24], and the
+policy iteration for human-robot coordination in [25], while the
+traditional BLFs are hard to realize that, at the first iteration of
+the iterative learning control, the control performance usually
+does not achieve the prescribed control performance. From
+Fig. 1, we can see that when the constrained variables are
+Fig. 2. Example of plots of τBBLF
+b = ∂VBBLF(z1)/∂z1 in (9) under different
+choices of kζ , where τdes
+= 5 N, and κ and kdes
+are selected according
+to (10) and (11). Red dashed lines denote τb = ±0.1τdes, and green dashed
+lines denote z1 = ±kc.
+in violation of the constraints, system stability cannot be
+guaranteed because of the reverse control direction or the
+singularity problem at the constraint boundaries. Note that the
+curve of τBBLF
+b is analogous to those in Fig. 1, except that
+τBBLF
+b is bounded along the real axis and without singularity
+problem at the constraint boundary. Accordingly, the value
+of VBBLF(z1) on the outside of constrained space is still
+positive. Therefore, the use of BBLF does not suffer from the
+feasibility condition. BBLF also features in offering flexibility
+of changing the boundedness of the τb via τdes
+b and the slope
+via kζ .
+IV. CONTROLLER DESIGN
+Unlike backstepping control in [26] where the controller is
+designed step by step, we introduce some auxiliary variables
+and give out the Lyapunov function candidate directly. Define
+the auxiliary variables qr and r as follows:
+qr = q̇d + e
+r = ė + e
+where qd denotes the desired joint trajectory; e := qd −q is the
+tracking error; and  represents a positive-definite diagonal
+matrix. Subsequently, we have q̇ = qr − r and q̈ = q̇r − ṙ.
+In the field of adaptive control, there are many approximation
+tools to tackle unknown dynamics; in this article, the RBFNN
+that is time-efficient is employed, substituting which into (1)
+yields the following equality:
+Hṙ = WT
+S + ε + Hq̇r − Cz2 − (τ) (12)
+where WT
+S + ε = C(qr − ã) + G, WT
+S stands for the
+approximation of the lumped uncertainty, ε ∈ L∞ is the
+approximation error, and S is short for S(qr , q, q̇, ã); z2 :=
+r −ã, where ã is another auxiliary variable regarding the input
+saturation, and it will be specified later.
+Let us take a further look at the approximation component
+WT
+S; expanding the lumped uncertainty yields
+C(q, q̇)qr + G(q) − C(q, q̇)ã
+= C(qd −e, q̇d −ė)(q̇d +e) + G(qd −e)
+  
+≈ŴT
+1 S1
+−C(q, q̇)ã
+  
+≈ŴT
+2 S2
+. (13)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+YANG et al.: NEURAL CONTROL OF ROBOT MANIPULATORS WITH TRAJECTORY TRACKING CONSTRAINTS AND INPUT SATURATION 4235
+Fig. 3. Illustration of the simplified structure of the RBFNN
+ŴT
+1 S1(qd, q̇d , e, ė), where the yellow solid circles denote the output neurons
+and the blue solid circles stand for the hidden neurons mapping the input
+column vector into a scalar by using a Gaussian function in (14).
+We divide the abovementioned lumped uncertainty into two
+parts and use two RBFNNs to approximate them separately:
+ŴT
+1 S1(qd, q̇d , e, ė) ≈ C(qd − e, q̇d − ė)(q̇d + e) + G(qd − e)
+and ŴT
+2 S2(q, q̇, ã) ≈ −C(q, q̇)ã. Hence, S = [ST
+1 , ST
+2 ]T
+, and
+ŴT
+= [ŴT
+1 , ŴT
+2 ].
+Remark 3: To reduce the number of the hidden neurons,
+a simplified structure of the RBFNN for ŴT
+1 S1 is adopted,
+as shown in Fig. 3, where ŴT
+2 S2(q, q̇, ã) shares a similar
+structure, S1 = [qd
+(qd)T
+, q̇d
+(q̇d)T
+, e(e)T
+, ė(ė)T
+]T
+,
+S2 = [q(q)T
+, q̇(q̇)T
+, ã(ã)T
+]T
+, and the Gaussian function
+is
+φ(x) = exp − (x − c)T
+
+2
+−1
+(x − c) (14)
+where c is the center, x is the input signal, and  is the
+standard deviation matrix. Although the simplified network
+may results in larger ε, it can greatly reduce the complexity
+of the network. Simulation results show that the degradation
+of the control performance is acceptable. Besides, we select
+the input signals of the first RBFNN as qd, q̇d, e, ė rather
+than the commonly used q, q̇, qr out of the consideration that
+at the transient phase, magnitudes of q and q̇ are unpredictable,
+the centers will need some gut feeling to be set, and these para-
+meters may varies with different desired trajectories. However,
+with the known qd and q̇d, the centers can be set to make
+part of the network sufficiently excited under limited neurons.
+The second RBFNN uses q (not qd and e), q̇ (not q̇d and ė),
+and ã as input signals in order to inject more information into
+the network for better approximation.
+Let z1 = e and define an error dynamic system governed
+by the auxiliary variables mentioned earlier and the robot
+dynamics in (1) as follows:
+ż1 = z2 + ã − z1
+ż2 = ṙ − ˙
+ã. (15)
+The Lyapunov function candidate is then chosen to be
+V = V̄ +
+1
+2
+zT
+2 Hz2 +
+1
+2
+tr
+
+
+WT
+−1 
+W
+
+(16)
+Fig. 4. Block diagram of the proposed control scheme.
+where 
+W = W − Ŵ. Taking its first time derivative along (9),
+(12), and (15) and the skew-symmetric property of Ḣ − 2C,
+one can obtain
+V̇ =
+
+τT
+b + zT
+1 K1
+
+(z2 + ã − z1) − tr 
+WT
+−1 ˙
+Ŵ
++ zT
+2 WT
+S + ε + Hq̇r − (τ) − H ˙
+ã . (17)
+Design the following auxiliary system:
+˙
+ã = −H−1
+(Kãã + τ̃) (18)
+where τ̃ = τ −ϕ(τ, μ) so that the input saturation effect can be
+properly handled in the stability analysis. Finally, the control
+scheme is proposed as follows:
+τ = ŴT
+S + Hq̇r
+  
+A
++ K2r + K1z1
+  
+B
++ τb
+
+C
++ (Kã − K2)ã
+  
+D
+v = ϕ(τ, μ) (19)
+with the updated law
+˙
+Ŵ = 
+
+SzT
+2 − γ Ŵ
+
+(20)
+where the proposed controller consists of four components,
+as shown in Fig. 4: 1) A serves for nonlinear compensa-
+tion; 2) B is to suppress the compensation error and to
+improve the system’s robustness; 3) C is responsible for
+handling the constraint problem; and 4) D systematically
+incorporates the input saturation effects into the controller;
+v is the final designed control input.
+Remark 4: It worth mentioning the benefit of the bounded-
+ness of τb. Combined with τ in (19), the proposed auxiliary
+system in (18) is bounded-input bounded-output (BIBO) since:
+1) the user-defined Kã and the inverse of inertia matrix H are
+positive definite throughout the control, which implies that the
+auxiliary system is Hurwitz and 2) τb generated from BBLF
+is bounded regardless of the value of z1, and thus, the input
+for the auxiliary system is also bounded. Therefore, ã ∈ L∞
+during the control.
+Theorem 1: For an n-link serial robot manipulator with
+dynamics in (1) under Assumption 1, unknown C and G,
+the control input saturation in (2), and the output error
+constraints in (3), if it is controlled by (19) with an auxiliary
+system given by (18) and the updated law in (20), then the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+4236 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021
+TABLE I
+PARAMETERS OF THE RBFNNS FOR SIMULATIONS
+whole system will be UUB stable, and the tracking errors of
+the robot manipulator will converge to a small region around
+the origin.
+Proof: The proof can be found in the Appendix.
+V. SIMULATION STUDIES
+A. Simulation Settings
+A two-link robot manipulator in [27] is adopted to verify
+the proposed control scheme, whose dynamics equation is
+H =
+
+p1 + 2p2 cos(q2) p3 + p2 cos(q2)
+p3 + p2 cos(q2) p3
+
+C =
+
+−p2 sin(q2)q̇2 −p2 sin(q2)(q̇1 + q̇2)
+p2q̇1 0
+
+G =
+
+(m1 + m2)l1 cos(q2) + m2l2 cos(q1 + q2)
+m2l2 cos(q1 + q2)
+
+g (21)
+where p1 = (m1 + m2)l2
+1 + m2l2
+2, p2 = m2l1l2, p3 = m2l2
+2,
+g = 9.8 m/s2
+, l1 = 1.0 m, l2 = 0.8 m, and m1 = m2 = 0.5 kg.
+Parameters of the proposed controller are given: for the
+input saturation effect in (2), τmax
+/τmin
+= ±[30, 15]T
+N · m
+and μ = [0.92, 0.92]T
+; for the constraints effect in (8)
+and (3), kc = [0.02, 0.02]T
+, kζ = [0.995, 0.995]T
+, τdes
+b =
+[20, 10]T
+, and K1 = diag(40, 30), wherein κi and kdes
+i are
+obtained according to (10) and (11), respectively;  =
+diag(9, 12) in (15); for the auxiliary system (18), Kã =
+diag(10, 12); and in (19), K2 = diag(30, 8). Parameters of
+the two RBFNNs and the updated law in (20) are selected
+as S1 = [φT
+qd
+(qd), φT
+q̇d
+(q̇d), φT
+e (e), φT
+ė (ė)]T
+∈ R36
+and S2 =
+[φT
+q (q), φT
+q̇ (q̇), φT
+ã (ã)]T
+∈ R27
+whose centers and standard
+deviations are given in Table I; γ = 0.001, and  =
+diag(1.2I2, 1.2I2, 1.0I2, 1.0I2, 0.2I2, 0.2I2, 0.8I2) ∈ R14×14
+where I2 denotes a 2 × 2 identity matrix; and ŴT
+1 (0) = 0 ∈
+R2×36
+and ŴT
+2 (0) = 0 ∈ R2×27
+.
+Remark 5: There are only three parameters of BBLF to
+be chosen for practical application. kc is predefined by the
+task. kζ determines the slope of τb, and τdes
+decides the
+boundedness of τb. The closer kζ approaches to 1, the smaller
+the magnitude of τb, when the constrained variable stays away
+from the constraints. The recommended choice of kζ ranges
+from 0.99 to 1 × 10−4
+, τdes
+being half of the limits of the
+actuator. Trial and error is still needed to find a suitable set of
+control parameters.
+Fig. 5. Tracking performance under different reference trajectories (τmax =
+[30, 15]T N). (a) and (b) ω = 1.0 rad/s. (c) and (d) ω = 4.0 rad/s.
+Fig. 6. Tracking performance under reference trajectories (ω = 4.0 rad/s
+and τmax = [19, 8]T N). (a) and (b) Tracking errors of joint 1 and joint 2.
+(c) and (d) Weights for the RBFNN and the auxiliary system’s output signals
+in the proposed controller.
+The control performance of the proposed control scheme is
+compared with the controller in [14] (refers to “Comparison
+controller”) and the PD+ controller given as follows:
+vpd = 
+
+Kpe + Kdė + G
+
+(22)
+where Kp = diag(320, 150), Kd = diag(50, 15), τmax
+/τmin
+=
+±[30, 15]T
+, and the gravitation torque is fully compensated
+by G.
+The robot manipulator is commanded to track two reference
+trajectories with different frequencies using the same set of
+control parameters. The desired trajectory is
+qd = [0.2 sin(wt) + 0.1, 0.2 cos(wt) + 0.1]T
+(23)
+where w denotes the frequency of the desired trajectory. The
+effectiveness of the proposed controller will be examined by
+three cases.
+1) Case One: The tracking performance will be exam-
+ined under w = 1.0 and 4.0 rad/s separately, and
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+YANG et al.: NEURAL CONTROL OF ROBOT MANIPULATORS WITH TRAJECTORY TRACKING CONSTRAINTS AND INPUT SATURATION 4237
+Fig. 7. Case Two: results of tracking the reference trajectory with w = 4.0 rad/s under three different combinations of the four components of the proposed
+controller. Left: tracking results for joint 1. Right: tracking results for joint 2.
+the convergence of Ŵ1 and Ŵ2 will be checked.
+Note that the parameters of the proposed controller
+will remain unchanged under different choices of w,
+only except the choices of centers of q̇d and q̇ in
+Table I.
+2) Case Two: We will take a further research at the
+control performance at w = 4.0 rad/s, where the
+contributions of the four components A, B, C, and D
+in (19) are discussed and quantified by the following
+equations:
+PA
+i = |Ai |/Ti , PB
+i = |Bi |/Ti
+PC
+i = |Ci |/Ti , PD
+i = |Di |/Ti
+Ti = |Ai | + |Bi| + |Ci | + |Di |. (24)
+This evaluation index only shows the tendency of the
+control torque, as D does not exactly reflect the control
+torque relating to the input saturation.
+3) Case Three: The tracking performance when constraint
+violation happens will be analyzed, by means of deliber-
+ately decreasing the absolute value of τmax
+/τmin
+, i.e., the
+saturation of the actuator.
+B. Simulation Results
+1) Case One: Fig. 5 shows the tracking performance of
+the controllers. It is obvious that the proposed controller
+guarantees the tracking errors within the constraints and
+has much smaller tracking errors than the PD+ controller
+and the comparison controller, which demonstrates its supe-
+riority. Besides, the bounded errors are also in line with
+the results of stability analysis in the Appendix. Fig. 6(c)
+shows the convergence of the weights, which, to some extent,
+proves the approximation capability of the simplified RBFNN
+structure.
+2) Case Two: The effectiveness of handling the constraints
+and input saturation effect is demonstrated in Fig. 7 by
+comparing the tracking errors when masking C&D (i.e., let
+C + D = 0) and D (i.e., let D = 0) of τ in (19),
+respectively. From Fig. 7, we can notice that when C&D
+is masked, the output error constraint violation of a joint 2
+happens. Furthermore, when we compare the tracking errors
+of case τ = A + B + C and case τ = A + B + C + D,
+we can clearly find that the addition of D improves the
+controller’s tracking performance. These results motivate us
+to analyze the contribution of each component at the transient
+phase of the control, which is quantified by (24) and showed
+in Fig. 8. From this figure, we can see that at the beginning
+of the control (t = 0∼0.5 s), B dominates the control input,
+while, as the tracking errors decrease, PB
+becomes smaller in
+contrast to an increase of PA
+. During this transient period,
+PD
+climbs to its maximum to suppress the undesired satura-
+tion effect. Similarly, the contribution of C mainly focuses
+on the time interval when the tracking error approximates
+the predefined constraints. As the system becomes stable,
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+4238 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021
+Fig. 8. Case Two: time series of the proportion for the contribution of each components in (19) when tracking with the reference trajectory of w = 4.0 rad/s
+under τ = A + B + C + D. Left: stack graphs of the proportion for the contribution of A, B, C, and D, where the upper subfigure shows the case of joint 1
+and the lower one shows the case of joint 2. Right: charts of specific proportion for each component in its left subfigure at t = 0∼2 s.
+Fig. 9. Case Three: Detailed control performance of the proposed controller when constraint violation happens.
+the output of the neural networks A takes the dominant
+place of the control input. Furthermore, as the saturation
+effect vanishes, PD
+finally equals to zeros. These observations
+are in line with the theoretical control design, since each
+component has functioned well in tackling its corresponding
+effect.
+3) Case Three: To further verify the distinct property of
+the proposed BBLF function, i.e., constraint violation does
+not affect the system’s stability and the smoothness of the
+control input, we deliberately change the saturation of the
+actuators into τmax
+/τmin
+= [19, 8]T
+N·m such that constraints
+violation is bound to happen periodically, which can be seen
+in the tracking errors of the PD+ controller (see the dotted
+blue line in Fig. 9). From the tracking errors in Fig. 6,
+we can see that the comparison controller fails to stabilize
+the system when the constraint violation happens. In Fig. 9,
+although constraint violation incurs the saturation problem
+and the periodic activation of C, with the proposed controller,
+the system is still stable and has smaller tracking errors than
+those of the PD+ controller. These observations support the
+theoretical stability analysis of the proposed control scheme.
+VI. EXPERIMENTAL STUDIES
+To further verify the validity of the proposed control
+scheme, some experiments are carried out on the Baxter
+robotic platform. Its left arm is of 7-DOF named “left s0,”
+“left s1,” “left e0,” “left e1,” “left w0,” “left w1,” and “left
+w2” from the base to the end-effector. The left arm of the
+Baxter is commanded to track predefined trajectories with
+varying payloads, as shown in Fig. 10. The scenarios that
+the left robot manipulator performing trajectory tracking task
+grasping nothing, half bottle of water, and a full bottle of
+water are referred as Case 1, Case 2, and Case 3, respectively.
+The initial joint positions of the left arm in these cases are
+−π/9, −π/4, 0, π/2+0.1, 0, π/4−0.1, and 0 rad in sequence.
+For the sake of simplicity and without generality, “left e1”
+(joint 1) and “left w1” (joint 2) are selected to carry out the
+tasks, whose reference trajectories are given in (25), while
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+YANG et al.: NEURAL CONTROL OF ROBOT MANIPULATORS WITH TRAJECTORY TRACKING CONSTRAINTS AND INPUT SATURATION 4239
+Fig. 10. Illustration of the experimental setup.
+TABLE II
+PARAMETERS OF THE RBFNNS FOR EXPERIMENTS
+positions of other joints remain unchanged. The initial error
+of the robot manipulator is e(0) = [−0.1, 0.1]T
+rad
+qd = [π/2 + 0.2 cos(4t) − 0.2, π/4 + 0.2 sin(4t)]T
+. (25)
+Parameters of the controller in the experiments are as
+follows: μ = [0.92, 0.92]T
+, kc = [0.07, 0.07]T
+, kζ =
+[0.99, 0.995]T
+, τdes
+b = [3, 1]T
+, K1 = diag(10, 4),  =
+diag(9, 5), Kã = diag(10, 3), and K2 = diag(4, 1.2). Para-
+meters of the two RBFNNs and the updated law in (20) are
+selected as follows: S1 ∈ R68
+and S2 ∈ R43
+whose centers
+and standard deviations are given in Table II; γ = 0.001,
+ = diag(0.25I2, 0.25I2, 0.25I2, 0.25I2, 0.1I2, 0.1I2, 0.1I2) ∈
+R14×14
+, ŴT
+1 (0) = 0 ∈ R2×68
+, and ŴT
+2 (0) = 0 ∈ R2×43
+. Para-
+meters of the PD+ controller are chosen as Kp = diag(60, 10)
+and Kd = diag(4, 1.2). Experiments are performed using the
+two controllers with the control rate at 100 Hz and joint
+positions’ sample rate at 100 Hz, and the weights of the
+RBFNN are updated at 50 Hz.
+Figs. 11 and 12 show the tracking errors of the PD+ and
+the proposed controller with or without input saturation. It is
+Fig. 11. Tracking performance of the PD+ controller. (a) and (b) Without
+input saturation. (c) and (d) With input saturation.
+Fig. 12. Tracking performance of the proposed controller. (a) and (b) Without
+input saturation. (c) and (d) With input saturation.
+obvious that the proposed controller outperforms the PD+
+controller regardless of the input saturation and different cases
+with varying payloads. The proposed controller has smaller
+tracking errors and satisfies the output error constraints if the
+robot manipulator is without the input saturation effect [see
+Figs. 11(a) and (b) and 12(a) and (b)]. To investigate the
+tracking performance considering the input saturation effect,
+we manually set the maximum/minimum control torque as
+τmax
+/τmin
+= ±[5, 2]T
+N · m. It is the value being cho-
+sen deliberately such that the input saturation would not be
+negligible and the constraint violation would happen under
+Case 2 and Case 3 [see Figs. 11(c) and (d) and 12(c) and (d)].
+As shown in Fig. 12(c) and (d), both joints are in violation of
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+4240 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021
+Fig. 13. Detailed tracking results of the proposed controller under Case 3.
+tracking error constraints when the robot manipulator grasps a
+full bottle of water and tracks the predefined joint trajectories.
+The detailed tracking results of the proposed controller
+under Case 3 are given in Fig. 13, indicating the variation
+of the control signals constituting the proposed controller.
+Compared with the proportion of C of τ2, PC
+of τ1 is smaller
+during the control. It is in line with the plots of τb in Fig. 2;
+as the constrained variable is away from the constraints,
+the magnitude of τb will become smaller. Plots of ã and τb
+show their boundedness during the control. More importantly,
+when the predefined constraints are not physically realizable,
+the proposed controller can remain stable and has smaller
+tracking errors compared with the PD+ controller.
+VII. CONCLUSION
+A trajectory tracking controller for robot manipulators is
+developed considering both the output error constraints and the
+control input saturation effects. Using the BBLF to handle the
+constraints’ effect, we guarantee that the system could remain
+stable when the output errors go beyond the constrained
+boundaries. A modified auxiliary system and a simplified
+RBFNN structure are also incorporated to improve control
+performance. Simulation and experimental results demonstrate
+the validation and the superiority of the proposed method.
+APPENDIX/PROOF OF THEOREM 1
+Proof: Define
+s̃(τ, μ) = ϕ(τ, μ) − (τ). (26)
+s̃(τ, μ) is bounded, and as μ → 1, max(s̃(τ, μ)) → 0.
+Substituting (15), (18), (19), (20), and (26) into (17) yields
+V̇ =
+
+τT
+b + zT
+1 K1
+
+(z2 + ã − z1) − tr 
+WT
+−1 ˙
+Ŵ
++ zT
+2
+
+WT
+S + ε + Hq̇r + Kãã − s̃(τ, μ) − τ
+
+= −
+
+τT
+b + zT
+1 K1
+
+z1 − zT
+2 K2z2 + γ tr
+
+
+WT
+W
+
++
+
+τT
+b + zT
+1 K1
+
+ã + zT
+2 (ε − s̃(τ, μ)). (27)
+Note that, using Young’s inequality, there is
+tr
+
+
+WT
+Ŵ
+
+=
+m
+i=1
+n
+j=1
+w̃i j
+
+wi j − w̃i j
+
+≤
+1
+2
+m
+i=1
+n
+j=1
+
+w2
+i j − w̃2
+i j
+
+≤ −
+1
+2
+tr
+
+
+WT 
+W
+
++
+1
+2
+tr
+
+WT
+W
+
+and from (8) and (9), we can see that sign(ζi ) = sign(z1i ),
+ζi /z1i > 0, h(ζi )/(1 − k2
+ζiζ2
+i ) > 0, and Kdes
+> 0. Thus, it is
+easy to find that sign(τb) = sign(z1) and
+τT
+b z1 =
+1
+2
+vecT
+⎛
+⎝
+2κi
+
+1 − ζ2
+i
+
+λi z1i
+kci 1 − k2
+ζi ζ2
+i ζi
+⎞
+⎠vec
+
+kdes
+i kζi ζ2
+i
+1 − k2
+ζi ζ2
+i
+
+.
+Then, (27) can be rewritten as
+V̇ ≤ −
+
+τT
+b + zT
+1 K1
+
+z1 − zT
+2 K2z2 −
+γ
+2
+tr
+
+
+WT 
+W
+
++
+
+τT
+b + zT
+1 K1
+
+ã + zT
+2 (ε − s̃(τ, μ)) +
+γ
+2
+tr
+
+WT
+W
+
+≤ −V + ϕ
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+YANG et al.: NEURAL CONTROL OF ROBOT MANIPULATORS WITH TRAJECTORY TRACKING CONSTRAINTS AND INPUT SATURATION 4241
+where
+ = min
+⎛
+⎝
+2κi
+
+1 − ζ2
+i
+
+λi z1i
+kci 1 − k2
+ζi ζ2
+i ζi
+, 2λmin(),
+2λmin(K2)
+λmax(H)
+,
+γ
+λmax
+
+−1
+
+⎞
+⎠, i = 1, 2, . . . , n
+ϕ = zT
+2 (ε − s̃(τ, μ)) +
+γ
+2
+tr
+
+WT
+W
+
++
+
+τT
+b + zT
+1 K1
+
+ã.
+Note that z1, z2, ε, s̃, W, and |τb| ≤ τdes
+are bounded. ã is also
+bounded as the auxiliary system is BIBO. Therefore, ϕ ∈ L∞
+V ≥
+1
+2
+
+λmin
+
+Kζ
+
+ζ2
++ λmin(K1)z12
++λmin(H)z22
++ λmin
+
+−1
+
+ 
+W2
+
+where Kζ = diag((kdes
+i k2
+ζi ζ2
+i )/(1 − k2
+ζi ζ2
+i )). According to
+Lemma 1, the system is UUB stable, t → ∞, V ≤ ϕ/ρ,
+and the signals constructing V will converge around the small
+regions as follows:
+ζ ≤
+
+2ϕ
+ρλmin
+
+Kζ
+, z1 ≤
+
+2ϕ
+ρλmin(K1)
+z2 ≤
+
+2ϕ
+ρλmin(K2)
+, W̃ ≤
+
+2ϕ
+ρλmin
+
+−1
+.
+REFERENCES
+[1] C. Yang, Y. Jiang, Z. Li, W. He, and C.-Y. Su, “Neural control of
+bimanual robots with guaranteed global stability and motion precision,”
+IEEE Trans. Ind. Informat., vol. 13, no. 3, pp. 1162–1171, Jun. 2017.
+[2] T. Teng, C. Yang, S.-L. Dai, and M. Wang, “Tracking performance
+and global stability guaranteed neural control of uncertain hypersonic
+flight vehicle,” Int. J. Adv. Robotic Syst., vol. 14, no. 1, Jan. 2017,
+Art. no. 172988141667814.
+[3] E. G. Gilbert and C. Ong, “An extended command governor for
+constrained linear systems with disturbances,” in Proc. 48th IEEE Conf.
+Decis. Control (CDC) Held Jointly 28th Chin. Control Conf., Dec. 2009,
+pp. 6929–6934.
+[4] K. D. Do, “Control of nonlinear systems with output tracking error
+constraints and its application to magnetic bearings,” Int. J. Control,
+vol. 83, no. 6, pp. 1199–1216, Jun. 2010.
+[5] M. Krstic and M. Bement, “Nonovershooting control of strict-feedback
+nonlinear systems,” IEEE Trans. Autom. Control, vol. 51, no. 12,
+pp. 1938–1943, Dec. 2006.
+[6] C. Yang, C. Chen, W. He, R. Cui, and Z. Li, “Robot learning system
+based on adaptive neural control and dynamic movement primitives,”
+IEEE Trans. Neural Netw. Learn. Syst., vol. 30, no. 3, pp. 777–787,
+Mar. 2019.
+[7] W. He, Z. Yin, and C. Sun, “Adaptive neural network control of a marine
+vessel with constraints using the asymmetric barrier Lyapunov function,”
+IEEE Trans. Cybern., vol. 47, no. 7, pp. 1641–1651, Jul. 2017.
+[8] K. P. Tee and S. S. Ge, “Control of state-constrained nonlinear systems
+using integral barrier Lyapunov functionals,” in Proc. IEEE 51st IEEE
+Conf. Decis. Control (CDC), Dec. 2012, pp. 3239–3244.
+[9] K. P. Tee, S. S. Ge, and E. H. Tay, “Barrier Lyapunov functions for the
+control of output-constrained nonlinear systems,” Automatica, vol. 45,
+no. 4, pp. 918–927, Apr. 2009.
+[10] X. Jin and J.-X. Xu, “Iterative learning control for output-constrained
+systems with both parametric and nonparametric uncertainties,” Auto-
+matica, vol. 49, no. 8, pp. 2508–2516, Aug. 2013.
+[11] Y. Cao, Y. Song, and C. Wen, “Practical tracking control of perturbed
+uncertain nonaffine systems with full state constraints,” Automatica,
+vol. 110, Dec. 2019, Art. no. 108608.
+[12] K. Zhao and Y. Song, “Neuroadaptive robotic control under time-varying
+asymmetric motion constraints: A feasibility-condition-free approach,”
+IEEE Trans. Cybern., vol. 50, no. 1, pp. 15–24, Jan. 2020.
+[13] X. Jin, “Adaptive fixed-time control for MIMO nonlinear systems with
+asymmetric output constraints using universal barrier functions,” IEEE
+Trans. Autom. Control, vol. 64, no. 7, pp. 3046–3053, Jul. 2019.
+[14] Q. Zhou, L. Wang, C. Wu, H. Li, and H. Du, “Adaptive fuzzy control
+for nonstrict-feedback systems with input saturation and output con-
+straint,” IEEE Trans. Syst., Man, Cybern. Syst., vol. 47, no. 1, pp. 1–12,
+Jan. 2017.
+[15] Y. Sun, M. Zhang, and Z. Zhang, “Control horizon estimation of input
+constrained MPC based on control saturation,” in Proc. 30th Chin.
+Control Conf., Jul. 2011, pp. 3377–3382.
+[16] A. D. Ames, S. Coogan, M. Egerstedt, G. Notomista, K. Sreenath, and
+P. Tabuada, “Control barrier functions: Theory and applications,” in
+Proc. 18th Eur. Control Conf. (ECC), Jun. 2019, pp. 3420–3431.
+[17] Y. Wu and X.-J. Xie, “Robust adaptive control for state-constrained
+nonlinear systems with input saturation and unknown control direction,”
+IEEE Trans. Syst., Man, Cybern. Syst., early access, Feb. 18, 2019,
+doi: 10.1109/TSMC.2019.2895048.
+[18] X. Yan, M. Chen, G. Feng, Q. Wu, and S. Shao, “Fuzzy robust con-
+strained control for nonlinear systems with input saturation and external
+disturbances,” IEEE Trans. Fuzzy Syst., early access, Nov. 11, 2019,
+doi: 10.1109/TFUZZ.2019.2952794.
+[19] Y. Li, S. Tong, and T. Li, “Adaptive fuzzy output-feedback control for
+output constrained nonlinear systems in the presence of input saturation,”
+Fuzzy Sets Syst., vol. 248, pp. 138–155, Aug. 2014.
+[20] J. Fu, R. Ma, and T. Chai, “Adaptive finite-time stabilization of a class
+of uncertain nonlinear systems via logic-based switchings,” IEEE Trans.
+Autom. Control, vol. 62, no. 11, pp. 5998–6003, Nov. 2017.
+[21] H. Qiao, J. Peng, and Z.-B. Xu, “Nonlinear measures: A new approach to
+exponential stability analysis for hopfield-type neural networks,” IEEE
+Trans. Neural Netw., vol. 12, no. 2, pp. 360–370, Mar. 2001.
+[22] S. S. Ge and C. Wang, “Adaptive neural control of uncertain MIMO non-
+linear systems,” IEEE Trans. Neural Netw., vol. 15, no. 3, pp. 674–692,
+May 2004.
+[23] H. Chi, X. Li, W. Liang, Y. Wu, and Q. Ren, “Motion control of a soft
+circular crawling robot via iterative learning control*,” in Proc. IEEE
+58th Conf. Decis. Control (CDC), Dec. 2019, pp. 6524–6529.
+[24] Q. Chen, H. Shi, and M. Sun, “Echo state network-based backstepping
+adaptive iterative learning control for strict-feedback systems: An error-
+tracking approach,” IEEE Trans. Cybern., vol. 50, no. 7, pp. 3009–3022,
+Jul. 2020.
+[25] Y. Li, K. P. Tee, R. Yan, W. L. Chan, and Y. Wu, “A framework of
+human–robot coordination based on game theory and policy iteration,”
+IEEE Trans. Robot., vol. 32, no. 6, pp. 1408–1418, Dec. 2016.
+[26] J. Fu, T. Chai, C.-Y. Su, and Y. Jin, “Motion/force tracking control of
+nonholonomic mechanical systems via combining cascaded design and
+backstepping,” Automatica, vol. 49, no. 12, pp. 3682–3686, Dec. 2013.
+[27] C.-Y. Su and T.-P. Leung, “A sliding mode controller with bound
+estimation for robot manipulators,” IEEE Trans. Robot. Autom., vol. 9,
+no. 2, pp. 208–214, Apr. 1993.
+Chenguang Yang (Senior Member, IEEE) received
+the B.Eng. degree in measurement and control
+from Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in control engi-
+neering from the National University of Singapore,
+Singapore, in 2010.
+He was a Post-Doctoral Fellow with the Imperial
+College London, London, U.K. His research interests
+include robotics and automation.
+Dr. Yang was a recipient of the Best Paper Award
+by the IEEE TRANSACTIONS ON ROBOTICS and
+in a number of conferences.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+4242 IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 32, NO. 9, SEPTEMBER 2021
+Dianye Huang (Graduate Student Member, IEEE)
+received the B.Eng. degree in automation and the
+M.Eng. degree in control science and engineer-
+ing from the School of Automation Science and
+Engineering, South China University of Technology,
+Guangzhou, China, in 2017 and 2020, respectively.
+His current research interests include robotics,
+intelligent control, and human–robot interaction.
+Wei He (Senior Member, IEEE) received the B.Eng.
+and M.Eng. degrees from the College of Automa-
+tion Science and Engineering, South China Uni-
+versity of Technology (SCUT), Guangzhou, China,
+in 2006 and 2008, respectively, and the Ph.D.
+degree from the Department of Electrical and Com-
+puter Engineering, National University of Singapore
+(NUS), Singapore, in 2011.
+He is currently a Full Professor with School of
+Automation and Electrical Engineering and the Insti-
+tute of Artificial Intelligence, University of Science
+and Technology Beijing, Beijing, China. He has coauthored three books
+published in Springer and published over 100 international journal articles and
+conference papers. His current research interests include robotics, distributed
+parameter systems, and intelligent control systems.
+Long Cheng (Senior Member, IEEE) received the
+B.S. degree (Hons.) in control engineering from
+Nankai University, Tianjin, China, in 2004, and
+the Ph.D. degree (Hons.) in control theory and
+control engineering from the Institute of Automa-
+tion, Chinese Academy of Sciences, Beijing, China,
+in 2009.
+In 2010, he was a Post-Doctoral Research Fellow
+with the Department of Mechanical Engineering,
+University of Saskatchewan, Saskatoon, SK, Canada,
+for eight months. He was with the Mechanical and
+Industrial Engineering Department, Northeastern University, Boston, MA,
+USA, from 2010 to 2011. From 2013 to 2014, he was a Visiting Scholar with
+the Electrical and Computer Engineering Department, University of California
+at Riverside, Riverside, CA, USA. He is currently a Professor with the
+Laboratory of Complex Systems and Intelligent Science, Institute of Automa-
+tion, Chinese Academy of Sciences, and a Professor with the University of
+Chinese Academy of Sciences, Beijing. He has published over 100 technical
+articles in peer-refereed journals and prestigious conference proceedings. His
+research interests include intelligent control of smart materials, coordination
+of multiagent systems, neural networks, and their applications to robotics.
+Dr. Cheng is an Editorial Board Member of Neurocomputing and the
+International Journal of Systems Science. He is also an Associate Editor of
+the IEEE TRANSACTIONS ON CYBERNETICS.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:43 UTC from IEEE Xplore. Restrictions apply.
