@@ -25,7 +25,9 @@ lookups: use the card locator to consult the full paper and surrounding
 paragraphs when fine distinctions
 need checking or a card does not cover the required realization. If sources
 are unavailable, use the card's supported scope or mature general guidance;
-do not invent a quotation or scientific premise. The task index is a retrieval
+do not invent a quotation or scientific premise. For abstracts, read A06 first
+as the default language-style anchor, then select matching main or supplemental
+passages from the abstract index. The task index is a retrieval
 aid, not a substitute for reading the actual English.
 
 ## Author meaning and reference coordination
@@ -135,22 +137,32 @@ input-status explanations, and reference-choice notes in author notes outside
 the manuscript. Do not write descriptions of the supplied notes into prose.
 
 
+## Abstract reference selection and scope checks
+
+以 A06（*Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives*）作为默认摘要语言风格锚点：借鉴明确的主语—动作—对象、普通学术搭配和连续句的对象交接，不要求当前研究也有两个组件。A02（*Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance*）、A04（*Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities*）和 A05（*Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions*）是作者认可的其他主要参考，分别可提供设计与保证、估计与控制分工、机制与优势的紧凑实现。根据当前科学内容选择、组合，并与 A06 的主要语言习惯协调；不需要每次读完四篇或复刻其中一个全段。A01、A03 只补充合适的局部关系和英文，不作为默认整体语言模型。
+
+起草或修改方法部分时，先确定本文哪些设计构成贡献、各自带来什么受支持的优势，再从相关英文中选择表达。留下足以理解关键设计及其优势的关系，不把算法步骤、全部模块或完整证明压入摘要。一个需要解释的中心贡献可以占较多方法篇幅；多个贡献则按各自作用压缩，避免某一模块的细节淹没其余贡献和主要结果。展开程度由本文贡献和摘要目的决定，不对应统一句数、顺序或每项相同配额。
+
+本作者的摘要优先采用明确主语和有限动词构成的朴素句子，贡献陈述直接命名方法或作者动作；省去 `Here` 式提示，不以冒号、分号串接多项主张。优先将不必要的分词／动名词开头改为清楚的主语—谓语；保留有科学作用且指向明确的条件或方式从句。代词只在指称清楚且确实更简洁时使用，不能用 `it` 隐去模型、控制器、误差或保证的对象。较长句中的多个设计、用途、条件和结果逐项检查：必要时拆分，拆后保持条件作用域和句间接力。主动和被动均可使用，具体术语、物理量和动作关系须符合本研究及领域写法。
+
+将这些选择接入上面的内部表达与上下文核查：逐句回读主语、技术名词和有意义的词组，再检查句间关系及摘要功能；每句应有新增作用，方法优势不能靠宽泛自评代替。遵守当前任务或期刊的真实长度要求；未指定时，参照所选主要摘要的篇幅量级，核查是否多写背景、实现细节或重复保证，不能把一种刊物或一个范例的长度变成统一限额。删减时保留会改变结论的必要条件。原文中的评价词、长句和特殊句式也需按卡片取舍，原文事实、术语误写及证据强度不随语言迁入作者稿件。
+
 ## Source conventions
 
-Examples come from the 19 author-approved local papers. PDF pages count from the first file page; cards give sections, paragraph opening words, and ranges. Extracted texts are optional under `../../../analysis/reading/Pxx.txt`. Quotations only join layout line breaks and repair end-of-line hyphenation and ligatures. An ellipsis marks an omission; text on either side is not evidence of consecutive-sentence progression. Source grammar and evidence-strength issues remain in selection notes. Abstracts, body, captions, equations, and cross-section links are distinguished.
+A cards use the author's current abstract selections and retained local illustrations. B cards retain the earlier body evidence and source IDs; this is not a new review of all body sources. PDF pages count from the first file page; cards give sections, paragraph opening words, and ranges. Source links identify current PDFs or an unchanged archived PDF where a retained source has left the active corpus; an archive link does not make that paper a current main abstract reference. Existing extracted texts are optional under `../../../analysis/reading/Pxx.txt`; named additions are located by their PDF links. Quotations only join layout line breaks and repair end-of-line hyphenation and ligatures. An ellipsis marks an omission; text on either side is not evidence of consecutive-sentence progression. Source grammar and evidence-strength issues remain in selection notes. Abstracts, body, captions, equations, and cross-section links are distinguished.
 
 ## 任务索引与六层覆盖
 
 | 当前任务 | 优先卡片 | 主要层级与选择条件 |
 |---|---|---|
 | 整体思路与证据分工 | B01、B13 | 全文／Section：双组件与构造依赖；与作者已有思路核对，不强制相同章序 |
-| 摘要 | A01–A06 | Paragraph 至 Phrase／Word，并核对全文承诺；按双目标、构造、判据、比较或系统贡献选实现 |
+| 摘要 | A06 默认语言锚点；A02、A04、A05 主要参考；A01、A03 按需补充 | Paragraph 至 Phrase／Word，并核对全文承诺；按本文贡献选择具体英文及信息取舍，不强制同一结构 |
 | 引言／文献段落组 | B02、B03 | Section／Paragraph／连续句：按观测信息、控制动作及耦合问题组织 |
 | 方法段／公式前后 | B04、B06、B07 | Paragraph／连续句／Sentence：目的到输入输出、新条件到修正、目标到公式解释 |
 | 科学决策的理由 | B05 | Paragraph 至 Phrase／Word：已有可行路线、实际限制、方法选择 |
 | 条件保证／判据 | B08、B09 | Section／连续句／Sentence：前提与结论、上下界及修正判据的范围 |
 | 比较结果 | B10、B12 | Paragraph 至 Phrase／Word：指标、对照、统计地位、消融控制与解释范围 |
-| Discussion／Conclusion | B11；A04 作压缩对照 | 全文／Section／Paragraph／Sentence：综合、已知研究限制与结论回收 |
+| Discussion／Conclusion | B11 | 全文／Section／Paragraph／Sentence：综合、已知研究限制与结论回收 |
 
 Use the common instructions above during generation and before delivery; select relevant cards rather than reading all examples.
 
@@ -168,19 +180,17 @@ Use the common instructions above during generation and before delivery; select 
 
 **取舍与变体。** `novel`、`superior`不作为必学词；末句并列项目的语法不完全平行（can identify／ensure／is superior），不迁移。保证需有作者证明条件，不能因摘要如此写就无条件使用 guaranteeing。也可将任务分支压成一个条件复句；无需仿照末句的三项长列举。
 
-### A02｜构造贡献：新对象逐句成为后续步骤的输入
+### A02｜固定时间模糊控制：关键设计直接接其保证
 
-**功能／定位。** [P12] PDF p.1，Abstract 全段，首词 “Learning a stable”。正文 §III 学习 NEUM，§IV 才组合为 GAS ADS，见 B13。适用于贡献是表示、约束和稳定系统构造的论文。
+**功能／定位。** [Fuzzy2023] *Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance*，PDF p.1／印刷页1041，Abstract 全段，首词 “In this article”；下接 Index Terms。TFS 31(3)，2023，DOI `10.1109/TFUZZ.2022.3194373`。完整摘要按空白分词约102词，供信息量比较，不是篇幅或句数规格。
 
-> Learning a stable autonomous dynamic system (ADS) encoding human motion rules has been shown as an effective way for demonstration learning. However, the stability guarantee may sacrifice the demonstration learning accuracy. This article solves the issue by learning a stability certificate, represented by a neural energy function, on the demonstration set. We propose a polarlike space analysis approach to derive parameter constraints to guarantee the unique-minimum property of the neural energy function, which is essential for it to be a cogent stability certificate. Then, the neural energy function is learned to capture the demonstration preferences via constrained optimization algorithms. With the learned neural energy function, a globally asymptotically stable ADS with predefined position constraint is further formulated. We also quantitatively analyze the generalization ability of the learned ADS by utilizing the substantial flexibility of the neural energy function. The effectiveness of the proposed approach is validated on the LASA dataset and two representative robotic experiments.
+> In this article, an adaptive fixed-time fuzzy control scheme is proposed for an uncertain robot manipulator with user-defined performance. A novel symmetrical barrier Lyapunov function is designed based on the error conversion mechanism and the performance function such that the tracking errors will not violate the prescribed output constraints. A novel adaptive law is constructed and incorporated into the fixed-time controller design such that all the closed-loop signals can be bounded and achieve practical fixed-time convergence regardless of the initial conditions. Finally, the feasibility and superiority of the proposed scheme are demonstrated based on simulation and experimental studies using a Baxter robot.
 
-**组织与句法。** 第 1–2 句把已知能力与准确性代价相邻放置，`may sacrifice`没有把权衡说成必然。第 3 句给构造突破口，第 4 句说明为何参数约束使能量函数能承担证书角色；关系从句解释必要性，不是附加宣传。第 5–6 句从同一 neural energy function 变到 learned function，再到 GAS ADS，`Then`和`With`分别表示步骤与输入。第 7 句分析的是已经构造的 ADS，第 8 句给验证对象。
+**组织与句法。** 首句把控制方案、对象和性能要求放在一起，没有长背景铺垫。接着以 `A … barrier Lyapunov function` 和 `A … adaptive law` 为具体主语，`is designed based on … such that …`、`is constructed and incorporated into … such that …`分别连接设计依据、设计动作与作用。最后从方法转到模拟和实机验证，不展开实验设置清单。两项设计各自承担不同保证，不是同一句性能宣传反复出现。
 
-**可迁移实现。** 摘要中的方法细节只留下许可核心保证的构造关系。Drafting 将“对象—关键性质—下游用途”对应到作者材料；Polishing 核对 learned／stable／constrained 等修饰是否指向正确的对象。无需把每个子节都压成一句。
+**可迁移实现。** 当作者确有误差约束、控制律或自适应律贡献时，可直接借鉴“设计对象＋构造动作＋必要依据／用途”的句法，把优势落实为对应误差或信号的性质。`based on …`交代依据，`incorporated into …`说明加入哪个设计，`such that …`连接受支持的结果；不要求同时使用这三个短语。设计较多时仅保留使优势可辨的关系，不按正文小节逐个展开。
 
-**同一关系的英语选择（学习性改述，非固定模板）。** 若作者事实确与此处构造一致，可以以作者动作作焦点：`We combine the original ADS with the learned neural energy function to construct a globally asymptotically stable ADS.` 也可追踪系统对象：`The original ADS is combined with the learned neural energy function to construct a globally asymptotically stable ADS.` 二者并未增加新保证；不能把这条句子用于只有经验稳定观察的稿件。约束及能量函数必要性质仍须由当前上下文支持。
-
-**取舍与变体。** `solves the issue`、`substantial flexibility`须按本稿证据收敛；polarlike 和 cogent 是该文选择，不是标准术语库。若主要贡献是比较结果，可改用 A04 的结果中心；若仅有经验表现，不能借此生成 GAS 或 unique-minimum 保证。摘要不必须有数值，但验证不能只以 effectiveness 代替本稿已有的决定性发现。
+**取舍与变体。** 保留 `practical fixed-time convergence` 与 `prescribed output constraints` 的技术区别，不把实用收敛改成精确零误差。正文定理1（PDF p.4）要求初始误差在性能边界内，并分别给跟踪误差收敛和闭环信号有界；源文摘要将二者压在一个 `such that` 中，本稿须使各保证的对象和必要条件清楚。原文 `novel`、`superiority` 不提供本稿比较证据；结尾按实际结果表达，不照搬自评。主动设计句或自然被动句均可；不能为模仿本段的短篇幅删除必要条件。
 
 ### A03｜判据贡献：把判别操作写到具体可计算量
 
@@ -194,41 +204,41 @@ Use the common instructions above during generation and before delivery; select 
 
 **取舍与变体。** 原文宽泛 `critical`、`most existing … cannot`及末句 insights 不提供独立证据。第七句变量清单较长，另一稿可只保留决定可理解性的量。该摘要未给实验结果：这是实际变体，不能推出“所有判据摘要可省验证”。也不能从摘要中缺少定理条件推断保证无条件；B09 的正文条件更具体。
 
-### A04｜比较研究：结果承载贡献，条件从句限制结果
+### A04｜观测器与滑模控制：区分估计、控制与验证的对象
 
-**功能／定位。** [P19] PDF p.1，Abstract 全段，首词 “This paper presents”。正文 §VII 比较冗余与阻抗策略，§VIII 保留推广限制，见 B10／B11。
+**功能／定位。** [ESO2017] *Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities*，PDF p.1／印刷页6785，Abstract 全段，首词 “This paper develops”；下接 Index Terms。TIE 64(8)，2017，DOI `10.1109/TIE.2017.2694410`。完整摘要约148词。
 
-> This paper presents an experimental study on human–robot comanipulation in the presence of kinematic redundancy. The objective of the work is to enhance the performance during human–robot physical interaction by combining Cartesian impedance modulation and redundancy resolution. Cartesian impedance control is employed to achieve a compliant behavior of the robot’s end effector in response to forces exerted by the human operator. Different impedance modulation strategies, which take into account the human’s behavior during the interaction, are selected with the support of a simulation study and then experimentally tested on a 7-degree-of-freedom KUKA LWR4. A comparative study to establish the most effective redundancy resolution strategy has been made by evaluating different solutions compatible with the considered task. The experiments have shown that the redundancy, when used to ensure a decoupled apparent inertia at the end effector, allows enlarging the stability region in the impedance parameters space and improving the performance. On the other hand, the variable impedance with a suitable modulation strategy for parameters’ tuning outperforms the constant impedance, in the sense that it enhances the comfort perceived by humans during manual guidance and allows reaching a favorable compromise between accuracy and execution time.
+> This paper develops a novel integral sliding mode controller (ISMC) for a general type of underwater robots based on multiple-input and multiple-output extended-state-observer (MIMO-ESO). The difficulties associated with the unmeasured velocities, unknown disturbances, and uncertain hydrodynamics of the robot have been successfully solved in the control design. An adaptive MIMO-ESO is designed not only to estimate the unmeasurable linear and angular velocities, but also to estimate the unknown external disturbances. An ISMC is then designed using Lyapunov synthesis, and an adaptive gain update algorithm is introduced to estimate the upper bound of the uncertainties. Rigorous theoretical analysis is performed to show that the proposed control method is able to achieve asymptotical tracking performance for the underwater robot. Experimental studies are also carried out to validate the effectiveness of the proposed control, and to show that the proposed approach performs better than a conventional potential difference (PD) control approach.
 
-**组织与句法。** 首句直接命名研究类型和设置，不写宏大背景。中间说明两条比较线、模拟选择与实机测试。第六句的 `when used to …`限制 redundancy 的作用方式；最后 `outperforms … in the sense that …`给出比较维度，而不是只报全面优越。
+**组织与句法。** 首句命名控制器、机器人对象及其依赖的观测器，第二句概括被处理的问题。第三句将观测器作主语，用 `is designed … to estimate …`列出两类估计对象；第四句换到控制器及自适应增益算法，`using …`说明设计方法，`to estimate the upper bound of …`明确算法用途。最后分别由理论分析和实验研究承载结论，使设计、保证和实际比较可区分。对象转换有功能依据，不靠频繁代词维持表面连贯。
 
-**可迁移实现。** 当贡献本身是策略比较，可把结果放在摘要重心；用条件从句、比较对象及指标解释具体收益。Drafting 分清实验研究与理论保证；Polishing 让 performance 对应作者真正测得的量，若只是多个指标的权衡，保留 compromise，不升级成所有指标都改善。
+**可迁移实现。** 对作者自己的多组件方法，借鉴具体主语和设计／用途搭配，说明哪个对象提供估计、哪个对象控制、哪个量的边界被调整。只保留与关键优势有关的分工，摘要不需解释观测器或控制器的全部内部步骤。理论结果与实验比较分别匹配作者支持的保证、对照及指标；可以压缩来源第二句宽泛的“问题已解决”，把所处理问题直接接到方法优势。
 
-**取舍与变体。** 具体期刊可允许研究类型首句，也可选择问题首句。原文中 `most effective`、`improving the performance`仍偏宽，不作为最佳表述；comfort、accuracy、execution time 需要各自材料。B10 的不显著时间趋势不能被末句泛化覆盖。摘要结束于实际比较，不必追加无新增信息的 field-level impact。
+**取舍与变体。** 引文保留原貌，但其 `potential difference (PD)` 不能作为术语范例：正文 §V.B（PDF p.8／6792）的对照采用位置误差及其导数、Kp／Kd 增益，对应通常的 proportional–derivative（PD）控制，而非电势差。本稿先核实实际控制器再命名。理论跟踪通常用 `asymptotic tracking` 表达，并保留当前作者的证明条件；`unmeasured` 与 `unmeasurable` 也应按传感和材料区分。`novel`、`successfully solved`、`rigorous` 和无指标的 `performs better` 不代替本稿证据。自然并列或分句均可，但不照搬整句的多项长串。
 
-### A05｜生成模型接物理控制：对象接力与数字的适用域
+### A05｜力与阻抗学习：用机制和比较突出方法优势
 
-**功能／定位。** [P06] PDF p.1，Abstract 全段，首词 “Learning-based methods”。所给文件是预印本；§IV.C 的组件消融见 B12。选它的部分对象关系，不对整篇质量作标签。
+**功能／定位。** [P09] *Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions*，PDF p.1／印刷页918，Abstract 全段，首词 “This paper presents”；下接 Index Terms。TRO 27(5)，2011，DOI `10.1109/TRO.2011.2158251`。完整摘要约111词。
 
-> Learning-based methods excel at robot motion generation but remain limited in contact-rich physical interaction. Impedance control provides stable and safe contact behavior but requires task-specific tuning of stiffness and damping parameters. We present Diffusion-Based Impedance Learning, a framework that bridges these paradigms by combining generative modeling with energy-consistent impedance control. A Transformer-based Diffusion Model, conditioned via cross-attention on measured external wrenches, reconstructs simulated Zero-Force Trajectories (sZFTs) that represent contact-consistent equilibrium behavior. A SLERP-based quaternion noise scheduler preserves geometric consistency for rotations on the unit sphere. The reconstructed sZFT is used by an energy-based estimator to adapt impedance online through directional stiffness and damping modulation. Trained on parkour and robot-assisted therapy demonstrations collected via Apple Vision Pro teleoperation, the model achieves sub-millimeter positional and sub-degree rotational accuracy using only tens of thousands of samples. Deployed in real-time torque control on a KUKA LBR iiwa, the approach enables smooth obstacle traversal and generalizes to unseen tasks, achieving 100% success in multi-geometry peg-in-hole insertion. The code for all experiments is publicly available on GitHub and videos of the experiments are available on the project website.
+> This paper presents a novel human-like learning controller to interact with unknown environments. Strictly derived from the minimization of instability, motion error, and effort, the controller compensates for the disturbance in the environment in interaction tasks by adapting feedforward force and impedance. In contrast with conventional learning controllers, the new controller can deal with unstable situations that are typical of tool use and gradually acquire a desired stability margin. Simulations show that this controller is a good model of human motor adaptation. Robotic implementations further demonstrate its capabilities to optimally adapt interaction with dynamic environments and humans in joint torque controlled robots and variable impedance actuators, without requiring interaction force sensing.
 
-**组织与句法。** 两个开头分别给生成与控制的能力／代价，第三句提出连接。第四句以 model 为主语，`conditioned … on measured external wrenches`交代输入，reconstructs 指向 sZFT；第六句把该输出作为 estimator 输入，`through … modulation`指出如何作用于阻抗。第七句以训练条件引出重建精度，第八句以部署条件引出任务结果，两组指标并非一项总体精度。
+**组织与句法。** 首句直接给控制器和交互任务。第二句的主体仍是 controller，`compensates for … by adapting …`把控制动作及其实现方式接起来；开头交代设计依据，没有展开学习更新步骤。第三句以已有控制器为比较对象，在同一句给新的可处理设置及稳定裕度。最后 `Simulations show …` 与 `Robotic implementations … demonstrate …`区分人类适应模型的检验和机器人实现，`without requiring …`限制实现对传感的依赖。方法优势由可处理情况、稳定裕度和传感需求承载，而非只称性能更好。
 
-**可迁移实现。** 多阶段方法保留数据对象在组件间的用途；数字与它所属的重建或实机任务绑定。Drafting 先确认数据来源、输出和控制量；Polishing 核查是否把重建误差写成轨迹执行误差。`conditioned on measured …`、`used … to adapt …`是有技术关系的句法，具体对象必须来自作者。
+**可迁移实现。** 直接参照控制器作主语、具体动词接作用对象和方式的英文；本文关键设计可用其机制解释优势，再接与已有方法的真实比较。`compensates for … by adapting …`、`can deal with …`、`without requiring …`只有在相应动作、能力和前提确实属于作者工作时才能适配。模拟和实机的结论按各自对象紧凑交代，不要求所有作者都安排这两类证据。
 
-**取舍与变体。** `excel`、`bridges these paradigms`、`only`、unseen tasks 以及 100% 的概括范围不自动接受；须回查样本与测试条件。本卡没有独立确认其跨分布推广。SLERP 细节只有在核心贡献依赖旋转一致性时才占摘要篇幅；公开代码末句是作者／期刊选择，不能挤掉更重要的发现。
+**取舍与变体。** 该摘要的信息选择紧凑，但第二句的分词开头不是固定样式；本稿可以把设计依据放在清楚的有限动词句中，保留其作用关系。末句同时列环境、平台和传感条件，本稿只保留与贡献相关且会影响理解的部分。`strictly`、`a good model`、`optimally` 需要本稿自己的定义和支持，不作为成熟语言的必用词。比较范围和稳定裕度不可无条件迁移，必要条件不能为压缩篇幅而丢失。
 
-### A06｜系统贡献：运动生成与跟踪分工，也暴露摘要不足
+### A06｜默认摘要语言锚点：明确对象、普通句法与句间交接
 
-**功能／定位。** [P17] PDF p.1，Abstract 全段，首词 “This paper proposes”。全文实际两组实验对应不同组件，见 B01。
+**功能／定位。** [P17] *Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives*，PDF p.1／印刷页777，Abstract 全段，首词 “This paper proposes”；下接 Index Terms。TNNLS 30(3)，2019，DOI `10.1109/TNNLS.2018.2852711`。完整摘要约154词。它是作者指定的默认语言风格起点，不要求其他研究具有同样组件或全文结构。
 
 > This paper proposes an enhanced robot skill learning system considering both motion generation and trajectory tracking. During robot learning demonstrations, dynamic movement primitives (DMPs) are used to model robotic motion. Each DMP consists of a set of dynamic systems that enhances the stability of the generated motion toward the goal. A Gaussian mixture model and Gaussian mixture regression are integrated to improve the learning performance of the DMP, such that more features of the skill can be extracted from multiple demonstrations. The motion generated from the learned model can be scaled in space and time. Besides, a neural-network-based controller is designed for the robot to track the trajectories generated from the motion model. In this controller, a radial basis function neural network is used to compensate for the effect caused by the dynamic environments. The experiments have been performed using a Baxter robot and the results have confirmed the validity of the proposed methods.
 
-**组织与句法。** 首句预告两个任务；DMP—多示教—生成运动—跟踪控制器构成对象链，第六句的 trajectories 回指模型输出。`During`是任务阶段，`In this controller`是组件内定位；主语转换仍能追踪同一系统。
+**组织与句法。** 首句预告两个任务；后续句以 `dynamic movement primitives`、`Each DMP`、`A Gaussian mixture model and Gaussian mixture regression`、`The motion generated from the learned model`、`a … controller`和`a radial basis function neural network`明确指出当前对象。`are used to model …`、`are integrated to improve …`、`can be scaled …`、`is designed … to track …`、`is used to compensate for …`是普通而有明确用途的表达。DMP—多示教—生成运动—跟踪控制器构成对象链，第六句的 trajectories 回指模型输出。`During`定位任务阶段，`In this controller`定位组件内部；不用模糊代词替代不同方法对象。
 
-**可迁移实现。** 适用于作者确有两个独立问题的系统摘要，可借鉴功能分工和 reference 的交接。Polishing 核查生成性质、控制保证及执行观察是否混为一谈；不能将 motion can be scaled 写成任意实际任务均成功。
+**可迁移实现。** 从这些具体英文和对象交接开始，把用途、输入输出及可实现的能力完整替换成作者事实；单方法摘要同样可借鉴其普通主语—谓语和搭配，不必引入第二个问题或组件。若本文确有运动生成与跟踪，才借鉴系统功能分工。Polishing 核查生成性质、控制保证及执行观察是否混为一谈；不能将 motion can be scaled 写成任意实际任务均成功。选定合适句式后检查有意义的词组及前后关系，不按源文逐句填空。
 
-**取舍与变体。** enhanced、more features、confirmed the validity 缺具体比较或发现，不能作为顶刊表达目标。本文更多篇幅介绍组件、结尾只给有效性验证；若作者已有决定性结果，应使摘要明确显示它，而不是完整复刻本段。A02 或 A04 可帮助选择构造／比较重心；不要求统一增加统计数值。
+**取舍与变体。** 学其主要语言习惯，不把每个源词都视为最优：`enhanced`、`more features` 和 `confirmed the validity` 未在摘要中给出具体比较或发现，本文有关键设计优势或结果时应直接表达它。源文每个组件的细节也不是配额；可从 A02 借鉴设计接保证、A04 借鉴估计与控制分工、A05 借鉴机制与比较的压缩。DMP、GMM／GMR、RBFNN、Baxter 和生成能力均属于来源事实，不自动迁入本稿。被动与主动、条件位置及必要句长均可按作者科学含义调整。
 
 ## 正文：全文与章节组织
 
@@ -267,7 +277,7 @@ p.7 §V.A 首两句：
 
 **可迁移实现。** 对复杂方法章节可先给短路线图：当前新对象、已有对象、组合后性质、分析范围。Drafting 只预告本节实际内容；Polishing 删纯粹“本节提出一种方法”的空引导，必要时写出先后依赖，而非增加连接词。
 
-**取舍与变体。** `Except for considering`表达附加关系不够自然，不作为搭配学习；may be valuable 是潜在用途，不能改为已证价值。若当前小节对象已由标题和前段充分定义，可以直接从条件或定义开始，无需每节都再写 roadmap。它与 A02 共享构造对象，但一个是章节导读，一个是摘要，不应逐句重复。
+**取舍与变体。** `Except for considering`表达附加关系不够自然，不作为搭配学习；may be valuable 是潜在用途，不能改为已证价值。若当前小节对象已由标题和前段充分定义，可以直接从条件或定义开始，无需每节都再写 roadmap。同一论文的章节导读和摘要承担不同功能，不应逐句重复。
 
 ## 正文：段落展开与连续句
 
@@ -446,11 +456,11 @@ p.7 §V.A 首两句：
 
 ## 选择范例时的边界
 
-本组 19 卡片涵盖六种摘要实现和多类正文任务；不是 19 篇各给一个优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或语法问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
+本组19张任务卡保留多类正文实现，摘要以作者认可的四篇为主要参考并按需补充局部写法；不对整篇论文作统一优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或术语问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
 
 [P01]: <../../../文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf>
-[P04]: <../../../文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf>
-[P06]: <../../../文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf>
+[P04]: <../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf>
+[P06]: <../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf>
 [P08]: <../../../文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf>
 [P09]: <../../../文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf>
 [P11]: <../../../文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf>
@@ -458,4 +468,6 @@ p.7 §V.A 首两句：
 [P16]: <../../../文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf>
 [P17]: <../../../文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf>
 [P18]: <../../../文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf>
-[P19]: <../../../文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf>
+[P19]: <../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf>
+[Fuzzy2023]: <../../../文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf>
+[ESO2017]: <../../../文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf>

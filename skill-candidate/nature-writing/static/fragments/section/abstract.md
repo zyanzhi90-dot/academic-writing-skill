@@ -5,8 +5,10 @@ Introduction. A working abstract may be drafted early from supported author
 content; align the final abstract with actual results, guarantees, and boundaries.
 
 For robotics-centred abstracts, use the conditionally loaded shared
-`robotics-writing-examples.md` common instructions and matching A cards during
-generation and expression checks. Method, construction, criterion, comparison,
+`robotics-writing-examples.md` common instructions and abstract selection/use
+guidance during generation and expression checks: start with A06 as the default
+language anchor, then choose matching main passages from A02/A04/A05 and local
+supplements as needed. Method, construction, criterion, comparison,
 and system contributions need not adopt a discovery-first funnel.
 
 ## Discovery-centred option
@@ -47,6 +49,9 @@ Open `references/abstract.md` for templates and examples.
 ## Drafting discipline
 
 - Keep it compact. Cut sentences that re-summarize background the title already implies.
+- Make the key method design and its supported advantage clear and concise;
+  scale explanation to the contributions and abstract purpose rather than
+  inventorying modules or copying every reference detail.
 - Include a quantitative result only when it defines, supports, or materially
   bounds the central claim. Do not invent numbers or fill the abstract with an
   experiment inventory.
