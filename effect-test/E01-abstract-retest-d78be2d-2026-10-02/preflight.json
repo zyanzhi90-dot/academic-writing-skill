@@ -1,0 +1,16 @@
+{
+  "candidate_commit": "d78be2dc583d32a590453c329dd504d3886b6ede",
+  "candidate_blob_identical_files": 100,
+  "candidate_copy_modifications": [],
+  "allowed_material_file_count": 151,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "corresponding_fresh_texts": 24,
+  "example_cards_available": 20,
+  "source_link_resolution": "All 14 example PDF source links and 12 body PDF source links resolve within isolated materials",
+  "archive_only_pdf_files": true,
+  "facts_and_experience_original_bytes": true,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "invocations_before_start": 0
+}

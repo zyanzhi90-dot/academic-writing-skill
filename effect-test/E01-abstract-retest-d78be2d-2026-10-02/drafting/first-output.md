@@ -1,0 +1,9 @@
+**English abstract**
+
+We propose a stable estimator of dynamical systems (SEDS) for learning robot point-to-point motions from demonstrations. SEDS optimizes model parameters to reproduce the demonstrations while ensuring global asymptotic stability of a nonlinear autonomous motion model at the target. A Gaussian mixture model represents the joint distribution of states and their rates of change, and Gaussian mixture regression yields a state-dependent weighted combination of local linear dynamical systems. The sufficient stability conditions require all local systems to share the target and the symmetric part of each local system matrix to be negative definite. Under these conditions, trajectories of the learned motion model converge to the target from any initial state, with the state rate of change tending to zero. The autonomous motion model allows motion to adjust to spatial perturbations and resume after delays or pauses without relearning model parameters. Simulations of 20 human handwriting motions and experiments with the iCub and Katana-T robot arms show that the motion model reproduces position and velocity characteristics of the demonstrations and generates target-directed motion from different initial positions. In the Katana-T experiments, generated trajectories adjust to target movements during execution and continue towards the new target.
+
+**中文翻译**
+
+我们提出稳定动力系统估计器（SEDS），用于从示范中学习机器人的点到点运动。SEDS 通过优化模型参数再现示范，同时保证非线性自治运动模型在目标处全局渐近稳定。高斯混合模型描述状态及其变化率的联合分布，高斯混合回归则得到局部线性动力系统的加权组合，其权重随当前状态变化。保证稳定性的充分条件要求所有局部系统具有共同目标，且每个局部系统矩阵的对称部分均为负定。在这些条件下，所学运动模型的轨迹从任意初始状态渐近收敛到目标，状态变化率也趋于零。自治运动模型使运动能够响应空间扰动，并在延迟或暂停后继续执行，而无须重新学习模型参数。对20种人类手写运动的模拟以及使用 iCub 和 Katana-T 机械臂开展的实验表明，运动模型能够再现示范的位置和速度特点，并从不同初始位置生成朝向目标的运动。在 Katana-T 实验中，生成的轨迹随执行过程中目标位置的改变而调整，并继续朝新目标运动。
+
+说明：主要写法参照所选 A06、A07 卡片，局部借鉴 A02 的设计与保证衔接及 A04 的理论与实验分工。摘要中的全局渐近稳定保证针对所学运动模型；延迟或暂停后的恢复表述为模型能力，未写成独立时间扰动试验的结果。
