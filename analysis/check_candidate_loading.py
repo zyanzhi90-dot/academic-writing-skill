@@ -75,10 +75,11 @@ def read_case(base, name, case, manifest):
     sections = case.get("sections", [])
     admin = case.get("admin", False)
     layout = case.get("layout", False)
+    paper_type = None if layout else case.get("paper_type", manifest["axes"]["paper_type"]["default"])
     if layout:
         paths.append("references/latex-layout.md")
     else:
-        axes = {"paper_type": "algorithmic", "language": case.get("language", "en"),
+        axes = {"paper_type": paper_type, "language": case.get("language", "en"),
                 "journal": case.get("journal", "generic")}
         if name == "nature-writing":
             axes["task"] = "submission-package" if admin else "manuscript"
@@ -145,12 +146,15 @@ def read_case(base, name, case, manifest):
         assert "static/fragments/language/zh-to-en.md" in paths
         assert "static/fragments/language/en.md" in paths
     return {"skill": name, "case": case["id"], "resolved_request": case,
+            "resolved_paper_type": paper_type,
             "examples": eligible, "body_module": has_body, "selected_cards": selected,
             "files_read": reads}
 
 
 def check():
     manifests = manifests_at(CANDIDATE)
+    for name in ("nature-writing", "nature-polishing"):
+        assert manifests[name][0]["axes"]["paper_type"]["default"] == "research"
     source = subprocess.check_output(SAFE_GIT + ["show", BASE_COMMIT + ":analysis/robotics-writing-examples.md"], cwd=ROOT).decode("utf-8")
     destination = (CANDIDATE / "nature-shared/core/robotics-writing-examples.md").read_text(encoding="utf-8")
     old_cards, new_cards = cards(source), cards(destination)
@@ -168,7 +172,9 @@ def check():
         {"id": "generic-abstract", "sections": ["abstract"]},
         {"id": "abstract-zh-to-en", "sections": ["abstract"], "language": "zh-to-en"},
         {"id": "nature-abstract", "sections": ["abstract"], "journal": "nature"},
+        {"id": "specified-intro", "sections": ["intro"]},
         {"id": "method", "sections": ["method"]},
+        {"id": "explicit-algorithmic-method", "sections": ["method"], "paper_type": "algorithmic"},
         {"id": "related-work-zh-to-en", "sections": ["related-work"], "language": "zh-to-en"},
         {"id": "free-paragraph", "sections": []},
         {"id": "overall-reasoning", "sections": [], "whole": True},

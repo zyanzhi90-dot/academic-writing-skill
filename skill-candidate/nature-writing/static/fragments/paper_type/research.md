@@ -2,31 +2,40 @@
 
 A research paper answers: why this phenomenon matters, what was done, what was found, what it implies.
 
+Use the guidance below according to the author's scientific content, current
+request, and necessary evidence. Preserve author facts, technical conditions,
+terminology, and supported claim strength.
+
 ## Full-paper argument chain
 
 `field-scale need -> unresolved bottleneck -> proposed move -> decisive evidence -> broader implication -> boundary`
 
-Before drafting, force the user's material into this chain. If one link is missing, mark it as missing rather than writing around it.
+Use this chain as a whole-paper diagnostic when it fits the scientific task.
+Other structures can be sound. For a specified part, establish its purpose and
+necessary evidence from the author material; reuse an already clear argument.
+Flag a missing premise only when needed for faithful writing in that scope,
+and put unresolved scientific/input questions outside manuscript prose.
 
 ## Drafting order
 
-For a research paper, draft in evidence-first order:
-
-1. Results — write what was observed before anything else
-2. Introduction and Conclusion — frame around the actual results
-3. Title — derived from the strongest result + scope
-4. Discussion — interpret in dialogue with prior work
-5. Methods — written for reproducibility, not narrative
-6. Authors — order and contributions
-7. Abstract — last, distilled from the rest
-
-Do not draft Introduction before Results. The Introduction's job is to set up the gap that Results actually fills.
+- For whole-paper drafting, starting from established results can help ground
+  the Introduction, Discussion, and Conclusion in evidence. Choose the order
+  according to available author material and the current request.
+- When scientific content is clear, draft the specified section or paragraph
+  group directly, including an Introduction before Results prose is written.
+  Its framing must remain aligned with the supported work.
+- A working abstract may be written early from supported author content; align
+  the final abstract with actual results, guarantees, and boundaries. Do not
+  invent findings to complete an early abstract.
 
 ## Hourglass structure
 
-Strong research papers mirror an hourglass:
+An hourglass is one useful structure when it fits the scientific task:
 
 - Introduction: broad → narrow to specific gap, question, hypothesis, methods
 - Discussion/Conclusion: narrow → broad, connecting findings back to the field
 
-If a draft violates this, rebuild architecture before drafting paragraphs.
+Keep a reasonable alternative structure when it communicates the author's
+argument and evidence clearly. Change architecture only to resolve a concrete
+problem in the requested scope, preserving necessary evidence and qualifiers;
+follow the loaded core workflow for discussion and targeted feedback.
