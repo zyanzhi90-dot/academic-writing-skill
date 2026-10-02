@@ -1,0 +1,1210 @@
+=== PDF PAGE 1 / PRINTED PAGE 943 ===
+IEEE TRANSACTIONS ON ROBOTICS, VOL. 27, NO. 5, OCTOBER 2011
+
+   Learning Stable Nonline
+         With Gaussian M
+
+                                  S. Mohammad Khansari-
+
+
+
+  Abstract—This paper presents a method to learn discrete robot
+motions from a set of demonstrations. We model a motion as a non-
+linear autonomous (i.e., time-invariant) dynamical system (DS) and
+deﬁne sufﬁcient conditions to ensure global asymptotic stability at
+the target. We propose a learning method, which is called Stable
+Estimator of Dynamical Systems (SEDS), to learn the parameters
+of the DS to ensure that all motions closely follow the demonstra-
+tions while ultimately reaching and stopping at the target. Time-
+invariance and global asymptotic stability at the target ensures that
+the system can respond immediately and appropriately to pertur-
+bations that are encountered during the motion. The method is
+evaluated through a set of robot experiments and on a library of
+human handwriting motions.
+
+  Index Terms—Dynamical  systems  (DS), Gaussian mixture
+model,  imitation  learning,  point-to-point  motions,  stability
+analysis.
+
+
+                               I. INTRODUCTION
+
+     E consider modeling of point-to-point motions,  i.e.,
+      movements in space stopping at a given target [1].W
+Modeling point-to-point motions provides basic components
+for robot control, whereby more complex tasks can be decom-
+posed into sets of point-to-point motions [1], [2]. As an example,
+consider the standard “pick-and-place” task: First, reach for the
+item, then after grasping, move to the target location, and ﬁnally,
+return home after release.
+  Programming by demonstration (PbD) is a powerful means
+to bootstrap robot learning by providing a few examples of
+the task at hand [1], [3]. We consider PbD of point-to-point
+motions where motions are performed by a human demonstrator.
+To avoid addressing the correspondence problem [4], motions
+are demonstrated from the robot’s point of view by the user
+that guides the robot’s arm passively through the task. In our
+experiments, this is done either by back driving the robot or by
+teleoperating it using motion sensors (see Fig. 1). We, hence,
+focus on the “what to imitate” problem [4] and derive a means
+to extract the generic characteristics of the dynamics of the
+
+
+
+
+  Manuscript received June 24, 2010; revised December 16, 2010 and April
+27, 2011; accepted June 3, 2011. Date of publication July 14, 2011; date of
+current version October 6, 2011. This paper was recommended for publication
+by Associate Editor S. Hutchinson and Editor K. Lynch upon evaluation of the
+reviewers’ comments. This work was supported by the European Commission
+through the European Union Project Adaptive Modular Architectures for Rich
+Motor Skills under Contract FP7-ICT-248311.
+  The  authors  are  with  the  School  of  Engineering,  Ecole  Poly-
+technique  Federale  de  Lausanne,  Lausanne  1015,  Switzerland  (e-mail:
+mohammad.khansari@epﬂ.ch; aude.billard@epﬂ.ch).
+  Color versions of one or more of the ﬁgures in this paper are available online
+at http://ieeexplore.ieee.org.
+   Digital Object Identiﬁer 10.1109/TRO.2011.2159412
+
+
+                                                        1552-3098/$26.0
+                                                                        943
+
+ear Dynamical Systems
+Mixture Models
+
+ Zadeh and Aude Billard
+
+
+
+
+
+   Fig. 1.  Demonstrating motions by teleoperating a robot (left) using motion
+   sensors or (right) by back driving it.
+
+
+  motion. In this paper, we assume that the relevant features of
+  the movement, i.e., those to imitate, are the features that appear
+  most frequently, i.e., the invariants across the demonstration.
+  As a result, demonstrations should be such that they contain
+  the main features of the desired task, while exploring some of
+  the variations allowed within a neighborhood around the space
+  covered by the demonstrations.
+
+  A. Formalism
+
+   We formulate the encoding of point-to-point motions as con-
+   trol law that is driven by autonomous dynamical systems (DS):
+  Consider a state variable ξ ∈Rd that can be used to unambigu-
+  ously deﬁne a discrete motion of a robotic system (e.g., ξ could
+  be a robot’s joint angles, the position of an arm’s end-effector in
+  the Cartesian space, etc.). Let the set of N given demonstrations
+   {ξt,n, ˙ξt,n}Tt=0,n=1n ,N   be instances of a global motion model that
+   is governed by a ﬁrst-order autonomous ordinary differential
+  equation (ODE)
+                                             ˙ξ = f(ξ) + ϵ                       (1)
+
+  where f : Rd →Rd  is a nonlinear continuous and continu-
+  ously differentiable function with a single equilibrium point
+  ˙ξ∗= f(ξ∗) = 0, θ is the set of parameters of f, and ϵ represents
+  a zero mean additive Gaussian noise. The noise term ϵ encapsu-
+   lates both inaccuracies in sensor measurements and errors that
+   result from imperfect demonstrations. The function ˆf(ξ) can be
+  described by a set of parameters θ, in which the optimal values
+  of θ can be obtained based on the set of demonstrations us-
+  ing different statistical approaches.1 We will further denote the
+  obtained noise-free estimate of f from the statistical modeling
+  with ˆf throughout this paper. Our noise-free estimate will, thus,
+  be
+                                               ˙ξ = ˆf(ξ).                        (2)
+
+
+     1Assuming a zero mean distribution for the noise makes it possible to estimate
+   the noise free model through regression.
+
+
+ 00 © 2011 IEEE
+
+=== PDF PAGE 2 / PRINTED PAGE 944 ===
+944
+
+
+
+
+
+Fig. 2.   Typical system’s architecture that illustrates the control ﬂow in a
+robotic system as considered in this paper. The system is composed of two loops:
+the inner loop that represents the robot’s dynamics and a low-level controller
+and an outer loop that deﬁnes the desired motion at each time step. The learning
+block is used to infer the parameters of motion θ from demonstrations.
+
+
+  Given an arbitrary starting point ξ0 ∈Rd, the evolution of
+motion can be computed by integrating from (2).
+  Two observations follow from formalizing our problem using
+(1) and (2): 1) The control law that is given by (2) will generate
+trajectories that do not intersect, even if the original demonstra-
+tions did intersect; and 2) the motion of the system is uniquely
+determined by its state ξ. The choice of state variable ξ is, hence,
+crucial. For instance, if one wishes to represent trajectories that
+intersect in the state space, one should encode both velocity and
+acceleration in ξ, i.e., ξ = [x; ˙x].
+  The use of DS is advantageous in that it enables a robot to
+adapt its trajectory instantly in the face of perturbations [5].
+A controller that is driven by a DS is robust to perturbations
+because it embeds all possible solutions to reach a target into
+one single function ˆf. Such a function represents a global map
+that speciﬁes on the ﬂy the correct direction for reaching the
+target, considering the current position of the robot and the
+target. In this paper, we consider two types of perturbations:
+1) spatial perturbations that result from a sudden displacement
+in space of either the robot’s arm or of the target; and 2) temporal
+perturbations which result from delays in the execution of the
+task.2
+  Throughout this paper, we choose to represent a motion in
+a kinematic coordinates system (i.e., the Cartesian or robot’s
+joint space) and assume that there exists a low-level controller
+that converts kinematic variables into motor commands (e.g.,
+force or torque). Fig. 2 shows a schematic of the control ﬂow.
+The whole system’s architecture can be decomposed into two
+loops. The inner loop consists of a controller that generates the
+required commands to follow the desired motion and a system
+block to model the dynamics of the robot. Here, q, ˙q, and ¨q are
+the robot’s joint angle and its ﬁrst and second time derivatives.
+
+
+  2Note that we distinguish between spatial and temporal perturbations as
+these result in different distortion of the estimated dynamics and, hence, require
+different means to tackle these. Typically, spatial perturbations would result
+from an imprecise localization of the target or from interacting with a dynamic
+environment where either the target or the robot’s arm may be moved by an
+external perturbation; temporal perturbations typically arise when the robot is
+stopped momentarily due to the presence of an object or due to safety issues
+(e.g., waiting until the operator has cleared the workspace).
+         IEEE TRANSACTIONS ON ROBOTICS, VOL. 27, NO. 5, OCTOBER 2011
+
+
+Motor commands are denoted by u. The outer loop speciﬁes the
+next desired position and velocity of the motion with respect
+to the current status of the robot. An inverse kinematics block
+may also be considered in the outer loop to transfer the desired
+trajectory from the Cartesian to the joint space (this block is not
+necessary if the motion is already speciﬁed in the joint space).
+  In this control architecture, both the inner and outer loops
+should be stable. The stability of the inner loop requires the
+system to be input-to-state stable (ISS) [6], i.e., the output of the
+inner loop should remain bounded for a bounded input. The sta-
+bility of the outer loop is ensured when learning the system. The
+learning block refers to the procedure that determines a stable
+estimate of the DS to be used as the outer-loop control. In this
+paper, we assume that there exists a low-level controller which is
+not necessarily accurate,3 that makes the inner-loop ISS. Hence,
+we focus our efforts on designing a learning block that ensures
+stability of the outer-loop controller. Learning is data driven and
+uses a set of demonstrated trajectories to determine the param-
+eters θ of the DS that is given in (2). Learning proceeds as a
+constraint optimization problem, satisfying asymptotic stability
+of the DS at the target. A formal deﬁnition of stability is given
+next.
+  Deﬁnition 1: The function ˆf is globally asymptotically stable
+at the target ξ∗if f(ξ∗) = 0 and ∀ξ0 ∈Rd; the generated motion
+converges asymptotically to ξ∗, i.e.,
+              t→∞ξtlim  = ξ∗    ∀ξ0 ∈Rd.               (3)
+   ˆf is locally asymptotically stable if it converges to ξ∗only
+when ξ0 is contained within a subspace D ⊂Rd.
+  Nonlinear DS are prone to instabilities. Ensuring that the
+estimate ˆf results in asymptotically stable trajectories, i.e., tra-
+jectories that converge asymptotically to the attractor as per
+Deﬁnition 1, is thus a key requirement for ˆf to provide a use-
+ful control policy. In this paper, we formulate the problem to
+estimate f and its parameters θ as a constrained optimization
+problem, whereby we maximize accuracy of the reconstruction
+while ensuring its global asymptotic stability at the target.
+  The remainder  of  this  paper  is  structured  as  follows.
+Section II reviews related works on learning discrete motions
+and the shortcomings of the existing methods. Section III for-
+malizes the control law as a stochastic system composed of a
+mixture of Gaussian functions. In Section IV, we develop con-
+ditions to ensure global asymptotic stability of nonlinear DS. In
+Section V, we propose a learning method to build an ODE
+model that satisﬁes these conditions. In Section VI, we quan-
+tify the performance of our method to estimate the dynamics
+of motions 1) against a library of human handwriting motions;
+and 2) in two different robot platforms (i.e., the humanoid robot
+iCub and the industrial robot Katana-T). We further demonstrate
+how the resulting model from the proposed learning methods
+can adapt instantly to temporal and spatial perturbations. We
+devote Section VII to discussion, and ﬁnally, we summarize the
+obtained results in Section VIII.
+
+
+  3When controlled by a DS, the outer-loop controller can handle the inner-
+loop controller’s inaccuracy by treating these as perturbations, comparing the
+expected versus the actual state of the system.
+
+=== PDF PAGE 5 / PRINTED PAGE 947 ===
+KHANSARI-ZADEH AND BILLARD: LEARNING STABLE NONLINEAR DYNAMICA
+
+
+information gain to determine the optimal subset of data points
+[30]. These heuristics resemble that offered by the BIC, DIC, or
+AIC criteria.
+  Estimating f via a ﬁnite mixture of Gaussian functions, the
+unknown parameters of ˆf become the prior πk, the mean μk
+and the covariance matrices Σk of the k = 1 . . . K Gaussian
+functions (i.e., θk = {πk, μk, Σk} and θ = {θ1 . . . θK }). The
+mean and the covariance matrices of a Gaussian k are deﬁned
+by
+                μkξ            Σkξ  Σkξ ˙ξ
+         μk =            ,  Σk =                       .         (4)
+                μk                                               ˙ξ           Σk˙ξξ  Σk˙ξ
+  Given a set of N demonstrations {ξt,n, ˙ξt,n}Tt=0,n=1,n ,N    each
+recorded point in the trajectories [ξt,n, ˙ξt,n] is associated with a
+probability density function P(ξt,n, ˙ξt,n):
+
+              K                   ∀n ∈1 . . . N
+P(ξt,n, ˙ξt,n; θ) =    P(k)P(ξt,n, ˙ξt,n|k)
+                                                      t ∈0 . . . T n                k=1
+                                                              (5)
+where P(k) = πk is the prior, and P(ξt,n, ˙ξt,n|k) is the condi-
+tional probability density function that is given by
+
+ P(ξt,n, ˙ξt,n|k) = N(ξt,n, ˙ξt,n; μk, Σk)
+
+         1
+ =                 e−12 ([ξ t , n , ˙ξ t , n ]−μk )T (Σk )−1 ([ξ t , n , ˙ξ t , n ]−μk ). (6)
+       (2π)2d|Σk|
+
+  Taking the posterior mean estimate of P(˙ξ|ξ) yields (as de-
+scribed in [31])
+
+     K
+           P(k)P(ξ|k)                 −1
+   ˙ξ =     K             μk˙ξ + Σk˙ξξ Σkξ     ξ −μkξ    .  (7)
+     k=1   i=1 P(i)P(ξ|i)
+
+  The notation of (7) can be simpliﬁed through a change of
+variable. Let us deﬁne
+        ⎧
+              Ak = Σk˙ξξ(Σkξ )−1        ⎪⎪⎪⎨
+                    bk = μk                                                            ˙ξ                  −Akμkξ                        (8)
+
+                                  P(k)P(ξ|k)        ⎪⎪⎪⎩ hk(ξ) =                              K                .
+                                         P(i)P(ξ|i)
+                                                                          i = 1
+
+  The substitution of (8) into (7) yields
+
+                   K
+                       ˙ξ = ˆf(ξ) =    hk(ξ)(Akξ + bk).            (9)
+
+                       k=1
+
+   First observe that ˆf is now expressed as a nonlinear sum of
+linear DS. Fig. 4 illustrates the parameters of (8) and their effects
+on (9) for a 1-D model constructed with three Gaussians. Here,
+each linear dynamics Akξ + bk corresponds to a line that passes
+through the centers μk with slope Ak. The nonlinear weighting
+terms hk(ξ) in (9), where 0 < hk(ξ) ≤1, give a measure of the
+relative inﬂuence of each Gaussian locally. Observe that due
+to the nonlinear weighting terms hk(ξ), the resulting function
+ˆf(ξ) is nonlinear and ﬂexible enough to model a wide variety
+of motions. If one estimates this mixture using classical meth-
+ods such as EM, one cannot guarantee that the system will be
+AL SYSTEMS WITH GAUSSIAN MIXTURE MODELS                         947
+
+
+
+
+
+   Fig. 4.   Parameters that are deﬁned in (8) and their effects on ˆf(ξ) for a 1-D
+  model constructed with three Gaussians. See the text for further information.
+
+
+  asymptotically stable. The resulting nonlinear model ˆf(ξ) usu-
+  ally contains several spurious attractors or limit cycles even for
+  a simple 2-D model (see Fig. 3). Next, we determine sufﬁcient
+  conditions on the learning parameters θ to ensure asymptotic
+  stability of ˆf(ξ).
+
+
+                     IV. STABILITY ANALYSIS
+
+    The stability analysis of DS is a broad subject in the ﬁeld
+  of dynamics and control, which can generally be divided into
+  linear and nonlinear systems. Stability of linear dynamics has
+  been studied extensively [19], where a linear DS can be written
+  as
+
+                                             ˙ξ = Aξ + b.                    (10)
+
+    Asymptotic stability of a linear DS that is deﬁned by (10) can
+  be ensured by solely requiring that the eigenvalues of the matrix
+ A be negative. In contrast, the stability analysis of nonlinear
+ DS is still an open question, and theoretical solutions exist only
+  for particular cases. Beware that the intuition that the nonlinear
+  function ˆf(ξ) should be stable if all eigenvalues of matrices Ak,
+  k = 1 . . . K, have strictly negative real parts is not true. Here is
+  a simple example in 2-D that illustrates why this is not the case,
+  as well as why estimating stability of nonlinear DS, even in 2-D
+   is nontrivial.
+    Example: Consider the parameters of a model with two Gaus-
+  sian functions to be
+   ⎧
+                   3  0
+               ξ = Σ2ξ =                   0  3   ⎪⎪⎪⎪⎪⎨ Σ1
+           −3  −30          −3   3        (11)       =                                            ,   Σ2                    =                   ˙ξξ                                                               ˙ξξ               3   −3                              −30  −3   ⎪⎪⎪⎪⎪⎩ Σ1
+        μ1ξ = μ2ξ = μ1˙ξ = μ2˙ξ = 0.
+
+    Using (8), we have
+     ⎧
+     ⎨     −1  −10        −1   1          A1 =                     , A2 =
+                  1   −1         −10  −1       (12)
+     ⎩
+               b1 = b2 = 0.
+
+    The eigenvalues of the two matrices A1 and A2 are complex
+  with values −1 ± 3.16i. Hence, each matrix determines a stable
+
+=== PDF PAGE 6 / PRINTED PAGE 948 ===
+948
+
+
+
+
+
+Fig. 5.  While each of the subsystems (left) ˙ξ = A1ξ and (center) ˙ξ = A2ξ is
+asymptotically stable at the origin, a nonlinear weighted sum of these systems
+(right) ˙ξ = h1(ξ)A1ξ + h2(ξ)A2ξ may become unstable . Here, the system
+remains stable only for points on the line ξ2 = ξ1 (drawn in black).
+
+
+system. However, the nonlinear combination of the two matri-
+ces, as per (9), is stable only when ξ2 = ξ1 and is unstable in
+Rd \ {(ξ2, ξ1)|ξ2 = ξ1} (see Fig. 5).
+  Next, we determine sufﬁcient conditions to ensure global
+asymptotic stability of a series of nonlinear DS given by (7).
+  Theorem 1: Assume that the state trajectory evolves according
+to (9). Then, the function that is described by (9) is globally
+asymptotically stable at the target ξ∗in Rd if
+
+          (a) bk = −Akξ∗
+                              ∀k = 1 . . . K      (13)
+          (b) Ak + (Ak)T ≺0
+
+where (Ak)T  is the transpose of Ak, and . ≺0 refers to the
+negative deﬁniteness of a matrix.5
+  Proof: We start the proof by recalling the Lyapunov con-
+ditions for asymptotic stability of an arbitrary dynamical sys-
+tem [19].
+  Lyapunov Stability Theorem: A dynamical system that is de-
+termined by the function  ˙ξ = ˆf(ξ) is globally asymptotically
+stable at the point ξ∗if there exists a continuous and continu-
+ously differentiable Lyapunov function V (ξ)  : Rd →R such
+that
+  ⎧
+  ⎪⎨ (a) V (ξ) > 0        ∀ξ ∈Rd,          ξ̸ = ξ∗
+      (b) ˙V (ξ) < 0        ∀ξ ∈Rd,          ξ̸ = ξ∗      (14)
+  ⎪⎩
+       (c) V (ξ∗) = 0,               ˙V (ξ∗) = 0.
+
+  Note that ˙V  is a function of both ξ and ˙ξ. However, since ˙ξ
+can be directly expressed in terms of ξ using (9), one can ﬁnally
+infer that ˙V only depends on ξ.
+  Consider a Lyapunov function V (ξ) of the form
+
+               1
+       V (ξ) = 2(ξ −ξ∗)T (ξ −ξ∗)    ∀ξ ∈Rd.      (15)
+
+  Observe ﬁrst that V (ξ) is a quadratic function and, hence,
+satisﬁes condition (14a). Condition that is given by (14b) follows
+from taking the ﬁrst derivative of V (ξ) with respect to time; we
+
+
+
+  5A d × d real symmetric matrix A is positive deﬁnite if ξT Aξ > 0 for all
+nonzero vectors ξ ∈Rd , where ξT  denotes the transpose of ξ. Conversely,
+A is negative deﬁnite if ξT Aξ < 0. For a nonsymmetric matrix, A is positive
+(negative) deﬁnite if and only if its symmetric part ˜A = (A + AT )/2 is positive
+(negative) deﬁnite.
+         IEEE TRANSACTIONS ON ROBOTICS, VOL. 27, NO. 5, OCTOBER 2011
+
+
+have
+         dV   dV dξ
+    ˙V (ξ) =   =
+           dt    dξ dt
+
+         1 d
+     =       (ξ −ξ∗)T (ξ −ξ∗)   ˙ξ
+         2 dξ
+     = (ξ −ξ∗)T ˙ξ = (ξ −ξ∗)T ˆf(ξ)
+
+               K
+     = (ξ −ξ∗)T    hk(ξ)(Akξ + bk)
+
+                   k=1
+
+                    = ˙ξ (see(9))
+
+               K
+     = (ξ −ξ∗)T    hk(ξ)(Ak(ξ −ξ∗) + Akξ∗+ bk )
+
+                   k=1
+                                       =0 (see(13a))
+
+               K
+     = (ξ −ξ∗)T    hk(ξ)Ak(ξ −ξ∗)
+
+                   k=1
+
+        K
+     =    hk(ξ) (ξ −ξ∗)T Ak(ξ −ξ∗)
+
+          k=1
+                  hk >0     <0 (see(13b))
+
+     < 0  ∀ξ ∈Rd,     ξ̸ = ξ∗.                       (16)
+
+Conditions that are given by (14c) are satisﬁed when substituting
+ξ = ξ∗into (15) and (16)
+
+             1
+    V (ξ∗) = 2(ξ −ξ∗)T (ξ −ξ∗) ξ=ξ ∗= 0             (17)
+
+           K
+        ˙V (ξ∗) =    hk(ξ)(ξ −ξ∗)T Ak(ξ −ξ∗)   = 0. (18)
+
+             k=1                          ξ=ξ ∗
+
+  Therefore, an arbitrary ODE function ˙ξ = ˆf(ξ) that is given
+by (9) is globally asymptotically stable if conditions of (13) are
+satisﬁed.                                  ■
+  Conditions (13a) and (13b) are sufﬁcient to ensure that an ar-
+bitrary nonlinear function that is given by (9) is globally asymp-
+totically stable at the target ξ∗. Such a model is advantageous
+in that it ensures that starting from any point in the space, the
+trajectory (e.g., a robot arm’s end effector) always converges to
+the target.
+
+ V. LEARNING GLOBALLY ASYMPTOTICALLY STABLE MODELS
+
+  Section IV provided us with sufﬁcient conditions whereby
+the estimate ˆf(ξ) is globally asymptotically stable at the target.
+It remains now to determine a procedure to compute unknown
+parameters of (9), i.e., θ = {π1 . . . πK ; μ1 . . . μK ; Σ1 . . . ΣK }
+such that the resulting model is globally asymptotically stable.
+In this section, we propose a learning algorithm, which is called
+SEDS, that computes optimal values of θ by solving an opti-
+mization problem under the constraint of ensuring the model’s
+global asymptotic stability. We consider two different candi-
+dates for the optimization objective function: 1) log-likelihood
+and 2) MSE. The results from both approaches will be evaluated
+and compared in Section VI-A.
+
+=== PDF PAGE 7 / PRINTED PAGE 949 ===
+KHANSARI-ZADEH AND BILLARD: LEARNING STABLE NONLINEAR DYNAMICA
+
+
+  SEDS-Likelihood: Using log-likelihood as a means to con-
+struct a model
+
+                    N  T n
+       min J(θ) = −1         log P(ξt,n, ˙ξt,n|θ)     (19)
+          θ         T
+                      n=1 t=0
+
+  subject to
+
+    ⎧
+                −Akξ∗                 bk =
+
+           (b) Ak          +                   (Ak)T ≺0    ⎪⎪⎪⎪⎪⎪⎪⎨ (a)
+           (c) Σk ≻0            ∀k ∈1 . . . K      (20)
+                  πk ≤1          (d) 0 <    ⎪⎪⎪⎪⎪⎪⎪⎩             K
+          (e)   k=1 πk = 1
+where P(ξt,n, ˙ξt,n|θ) is given by (5), and T =  Nn=1 T n is the
+total number of training data points. The ﬁrst two constraints
+in (20) are stability conditions from Section IV. The last three
+constraints are imposed by the nature of the Gaussian mixture
+model to ensure that Σk are positive-deﬁnite matrices, priors
+πk are positive scalars smaller than or equal to one, and sum of
+all priors is equal to one (because the probability value of (5)
+should not exceed 1).
+  SEDS-MSE: Using MSE as a means to quantify the accuracy
+of estimations that are based on demonstrations6
+
+                     N  T n
+        min J(θ) =                     1              ∥ˆ˙ξt,n −˙ξt,n∥2       (21)
+            θ        2T
+                        n=1 t=0
+subject to the same constraints as given by (20). In (21), ˆ˙ξt,n =
+ˆf(ξt,n) are computed directly from (9).
+  Both SEDS-Likelihood and SEDS-MSE can be formulated
+as a Nonlinear Programming (NLP) problem [32] and can be
+solved using standard constrained optimization techniques. We
+use a Successive Quadratic Programming (SQP) approach that
+relies on a quasi-Newton method7 to solve the constrained opti-
+mization problem [32]. SQP minimizes a quadratic approxima-
+tion of the Lagrangian function over a linear approximation of
+the constraints.8
+  Our implementation of SQP has several advantages over gen-
+eral purpose solvers. First, we have an analytic expression of
+
+
+  6In our previous work [5], we used a different MSE cost function, which
+balanced the effect of following the trajectory and the speed. See Appendix A
+for a comparison of results using both cost functions and further discussion.
+  7Quasi-Newton methods differ from classical Newton methods in that they
+compute an estimate of the Hessian function H(ξ) and, thus, do not require a
+user to provide it explicitly. The estimate of the Hessian function progressively
+approaches to its real value as optimization proceeds. Among quasi-Newton
+methods, we use Broyden–Fletcher–Goldfard–Shanno [32].
+  8Given the derivative of the constraints and an estimate of the Hessian and
+the derivatives of the cost function with respect to the optimization parameters,
+the SQP method ﬁnds a proper descent direction (if it exists) that minimizes the
+cost function while not violating the constraints. To satisfy equality constraints,
+SQP ﬁnds a descent direction that minimizes the cost function by varying
+the parameters on the hypersurface that satisﬁes the equality constraints. For
+inequality constraints, SQP follows the gradient direction of the cost function
+whenever the inequality holds (inactive constraints). Only at the hypersurface
+where the inequality constraint becomes active does SQP look for a descent
+direction that minimizes the cost function by varying the parameters on the
+hypersurface or toward the inactive constraint domain.
+AL SYSTEMS WITH GAUSSIAN MIXTURE MODELS                         949
+
+
+
+
+
+  the derivatives, improving signiﬁcantly the performances. Sec-
+  ond, our code is tailored to solve the speciﬁc problem at hand.
+  For example, a reformulation guarantees that the optimization
+  constraints (20a), (20c), (20d), and (20e) are satisﬁed. There
+   is, thus, no longer the need to explicitly enforce them during
+  the optimization. The analytical formulation of derivatives and
+  the mathematical reformulation to satisfy the optimization con-
+  straints are explained in detail in [33].
+    Note that a feasible solution to these NLP problems always
+  exists. Algorithm 1 provides a simple and efﬁcient way to com-
+  pute a feasible initial guess for the optimization parameters.
+  Starting from an initial value, the solver tries to optimize the
+  value of θ such that the cost function J is minimized. How-
+  ever, since the proposed NLP problem is nonconvex, one cannot
+  ensure to ﬁnd the globally optimal solution. Solvers are usu-
+  ally very sensitive to initialization of the parameters and will
+  often converge to some local minima of the objective function.
+  Based on our experiments, running the optimization with the
+   initial guess that is obtained from Algorithm 1 usually results in
+  a good local minimum. In all experiments that are reported in
+  Section VI, we ran the initialization three to four times, and use
+  the result from the best run for the performance analysis.
+   We use the BIC to choose the optimal set K of Gaussians.
+  The BIC determines a tradeoff between optimizing the model’s
+  likelihood and the number of parameters that are needed to
+  encode the data
+                               np
+              BIC = T J(θ) +    log(T )             (22)
+                              2
+  where J(θ) is the normalized log-likelihood of the model that
+   is computed using (19), and np  is the total number of free
+  parameters. The SEDS-Likelihood approach requires the esti-
+  mation of K(1 + 3d + 2d2) parameters (the priors πk, mean
+  μk, and covariance Σk  are of size 1, 2d, and d(2d + 1),
+
+=== PDF PAGE 8 / PRINTED PAGE 950 ===
+950
+
+
+
+
+
+Fig. 6.  Performance comparison of SEDS-Likelihood and SEDS-MSE through
+
+
+
+respectively). However, the number of parameters can be re-
+duced since the constraints given by (20a) provide an explicit
+formulation to compute μk                       from other parameters (i.e., μkξ , Σkξ ,                                                         ˙ξ
+and Σk˙ξξ). Thus, the total number of parameters to construct a
+GMM with K Gaussians is K(1 + 2d(d + 1)). As for SEDS-
+MSE, the number of parameters is even more reduced since
+when constructing ˆf, the term Σk is not used and, thus, can be                                                                        ˙ξ
+omitted during the optimization. Taking this into account, the
+total number of learning parameters for the SEDS-MSE reduces
+to K(1 + 32 d(d + 1)). For both approaches, learning grows lin-
+early with the number of Gaussians and quadratically with the
+dimension. In comparison, the number of parameters in the pro-
+posed method is fewer than GMM and LWPR.9 The retrieval
+time of the proposed method is low and in the same order of
+GMR and LWPR.
+  The  source  code  of SEDS  can  be downloaded from
+http://lasa.epﬂ.ch/sourcecode/.
+
+             VI. EXPERIMENTAL EVALUATIONS
+
+  Performance of the proposed method is ﬁrst evaluated against
+a library of 20 human handwriting motions. These were chosen
+as they provide realistic human motions while ensuring that
+imprecision in both recording and generating motion is minimal.
+Precisely, in Section VI-A, we compare the performance of
+the SEDS method when using either the likelihood or MSE.
+In Section VI-B, we validate SEDS to estimate the dynamics
+of motion of two robot platforms: 1) the 7-DOF right arm of
+
+
+  9The number of learning parameter in GMR and LWPR is K(1 + 3d + 2d2)
+and 72 K(d + d2), respectively.
+           IEEE TRANSACTIONS ON ROBOTICS, VOL. 27, NO. 5, OCTOBER 2011
+
+
+
+
+
+h a library of 20 human handwriting motions.
+
+
+
+  the humanoid robot iCub and 2) the six DOF industrial robot
+  Katana-T arm. In Sections VI-C and VI-D, we show that the
+  method can learn second- and higher order dynamics that allows
+  us to embed different local dynamics in the same model. Finally,
+  in Section VI-E, we compare our method with those of four
+  alternative methods GMR, LWPR, GPR, and BM.
+
+
+  A. Stable Estimator of Dynamical Systems: Likelihood Versus
+  Mean Square Error
+
+     In Section V, we proposed two objective functions: likelihood
+  and MSE for training the SEDS model. We compare the results
+  that are obtained with each method for modeling 20 handwriting
+  motions. The demonstrations are collected from pen input using
+  a Tablet-PC. Fig. 6 shows a qualitative comparison of the esti-
+  mate of handwriting motions. All reproductions were generated
+  in simulation to exclude the error due to the robot controller
+  from the modeling error. The accuracy of the estimate is mea-
+  sured according to (23), with which the method accuracy in
+  estimating the overall dynamics of the underlying model ˆf is
+  quantiﬁed by measuring the discrepancy between the direction
+  and magnitude of the estimated and observed velocity vectors
+  for all training data points10
+
+
+
+
+
+     10Equation (23) measures the error in our estimation of both the direction
+  and magnitude of the velocity. It is, hence, a better estimate of how well our
+  model encapsulates the dynamics of the motion, in contrast with an MSE on the
+   velocity magnitude alone.
+
+=== PDF PAGE 9 / PRINTED PAGE 951 ===
+KHANSARI-ZADEH AND BILLARD: LEARNING STABLE NONLINEAR DYNAMICA
+
+
+
+                      TABLE I
+  PERFORMANCE COMPARISON OF SEDS-LIKELIHOOD AND SEDS-MSE IN
+            LEARNING 20 HUMAN HANDWRITING MOTIONS
+
+
+
+
+
+          N  T n
+        1                                  (˙ξt,n)T ˆ˙ξt,n      2
+        ¯e =            r  1 −
+        T           n=1 t=0           ∥˙ξt,n∥∥ˆ˙ξt,n∥+ ϵ
+
+                                                                                          1
+                           (˙ξt,n −ˆ˙ξt,n)T (˙ξt,n −ˆ˙ξt,n)    2
+           + q                               (23)
+                               ∥˙ξt,n∥∥˙ξt,n∥+ ϵ
+
+where r and q are positive scalars that weigh the relative inﬂu-
+ence of each factor,11 and ϵ is a very small positive scalar.
+  The quantitative comparison between the two methods is
+represented in Table I. SEDS-Likelihood slightly outperforms
+SEDS-MSE in accuracy of the estimate, as seen in Fig. 6 and
+Table I. Optimization with MSE results in a higher value of the
+error. This could be due to the fact that (21) only considers the
+norm of ˙ξ during the optimization, while when computing  ¯e,
+the direction of ˙ξ is also taken into account [see (23)]. Although
+one could improve the performance of SEDS-MSE by consider-
+ing the direction of ˙ξ in (21), this would make the optimization
+problem more difﬁcult to solve by changing a convex objective
+function into a nonconvex one.
+  SEDS-MSE is advantageous over SEDS-Likelihood in that it
+requires fewer parameters (this number is reduced by a factor
+of 12 Kd(d + 1)). On the other hand, SEDS-MSE has a more
+complex cost function that requires computing GMR at each
+iteration over all training data points. As a result, the use of
+MSE makes the algorithm computationally more expensive, and
+it has a slightly longer training time (see Table I).
+  Following the previous observations that SEDS-Likelihood
+outperforms SEDS-MSE in terms of accuracy of the recon-
+struction and the training time, in the rest of the experiments,
+we will use only SEDS-Likelihood to train the globally stable
+model.12
+
+
+B. Learning Point-to-Point Motions in the Operational Space
+
+  We report on ﬁve robot experiments to teach the Katana-T
+and the iCub robots to perform nonlinear point-to-point motions.
+In all our experiments, the origin of the reference coordinates
+system is attached to the target. The motion is, hence, controlled
+with respect to this frame of reference. Such representation
+makes the parameters of a DS invariant to changes in the target
+position.
+
+
+
+
+  11Suitable values for r and q must be set to satisfy the user’s design criteria
+that may be task dependent. In this paper, we consider r = 0.6 and q = 0.4.
+  12Note that in our experiments, the difference between the two algorithms in
+terms of the number of parameters is small and, thus, is not a decisive factor.
+AL SYSTEMS WITH GAUSSIAN MIXTURE MODELS                         951
+
+
+    In the ﬁrst experiment, we teach a 6-DOF industrial Katana-
+ T arm how to put small blocks into a container13 (see Fig. 7).
+ We use the Cartesian coordinates system to represent the mo-
+  tions. In order to have human-like motions, the learned model
+  should be able to generate trajectories with both similar position
+  and velocity proﬁles to the demonstrations. In this experiment,
+  the task was shown to the robot six times and was learned us-
+  ing K = 6 Gaussian functions. Fig. 7(a) illustrates the obtained
+  results for generated trajectories starting from different points
+  in the task space. The direction of motion is indicated by ar-
+  rows. All reproduced trajectories are able to follow the same
+  dynamics (i.e., having similar position and velocity proﬁle) as
+  the demonstrations.
+    Immediate adaptation: Fig. 7(b) shows the robustness of the
+  model to the change in the environment. In this graph, the orig-
+  inal trajectory is plotted in thin blue line. The thick black line
+  represents the generated trajectory for the case where the target
+   is displaced at t = 1.5 s. Having deﬁned the motion as au-
+  tonomous DS, the adaptation to the new target’s position can be
+  done instantly.
+    Increasing accuracy of generalization: While convergence to
+  the target is always ensured from conditions that are given by
+  (13), due to the lack of information for points far from demon-
+  strations, the model may reproduce some trajectories that are not
+  consistent with the usual way of doing the task. For example,
+  consider Fig. 8(a), i.e., when the robot starts the motion from
+  the left side of the target, it ﬁrst turns around the container and
+  then approaches the target from its right side. This behavior may
+  not be optimal as one expects the robot to follow the shortest
+  path to the target and reach it from the same side as the one it
+  started from. However, such a result is inevitable since the infor-
+  mation that is given by the teacher is incomplete, and thus, the
+  inference for points that are far from the demonstrations are not
+  reliable. In order to improve the task execution, it is necessary
+  to provide the robot with more demonstrations (information)
+  over regions that are not covered before. By showing the robot
+  more demonstrations and retraining the model with the new
+  data, the robot is able to successfully accomplish the task [see
+  Fig. 8(b)].
+    The second and third experiments consisted of having Katana-
+ T robot place a saucer at the center of the tray and putting a cup
+  on the top of the saucer. Both tasks were shown four times and
+  were learned using K = 4 Gaussians. The experiments and the
+  generalization of the tasks starting from different points in the
+  space are shown in Figs. 9 and 10. Fig. 11 shows the adaptation
+  of both models in the face of perturbations. Note that in this
+  experiment, the cup task is executed after ﬁnishing the saucer
+  task; however, for convenience, we superimpose both tasks in
+  the same graph. In both tasks, the target (i.e., the saucer for the
+  cup task and the tray for the saucer task) is displaced during the
+  execution of the task at the time t = 2 s. In both experiments,
+  the adaptation to the perturbation is handled successfully.
+
+
+
+    13The robot is only taught how to move blocks. The problem of grasping the
+  blocks is out of the scope of this paper. Throughout the experiments, we pose
+   the blocks such that they can be easily grasped by the robot.
+
+=== PDF PAGE 10 / PRINTED PAGE 952 ===
+952
+
+
+
+
+
+Fig. 7.  Katana-T arm that performs the experiment of putting small blocks
+into a container. See the text for further information. (a) Ability of the model
+to reproduce similar trajectories starting from different points in the space.
+(b) Ability of the model to adapt its trajectory on the ﬂy to a change in the
+target’s position.
+
+
+
+  The fourth and ﬁfth experiments consisted of having the
+7-DOF right arm of the humanoid robot iCub perform com-
+plex motions, containing several nonlinearities (i.e., successive
+curvatures) in both position and velocity proﬁles. Similar to
+earlier, we use the Cartesian coordinates system to represent
+these motions. The tasks are shown to the robot by teleoper-
+ating it using motion sensors (see Fig. 1). Fig. 12 illustrates
+the result for the ﬁrst task where the iCub starts the motion in
+front of its face. Then, it does a semispiral motion toward its
+right side, and ﬁnally at the bottom of the spiral, it stretches
+forward its hand completely. In the second task, the iCub starts
+the motion close to its left forehand. Then, it does a semicircular
+motion upward and ﬁnally brings its arm completely down (see
+Fig. 13). The two experiments were learned using ﬁve and four
+Gaussian functions, respectively. In both experiments, the robot
+is able to successfully follow the demonstrations and to gener-
+         IEEE TRANSACTIONS ON ROBOTICS, VOL. 27, NO. 5, OCTOBER 2011
+
+
+
+
+
+Fig. 8.  Improving the task execution by adding more data for regions that are
+far from the demonstrations. (a) Generalization based on the original model. (b)
+Generalization after retraining the model with the new data.
+
+
+
+
+
+Fig. 9.  Katana-T arm that performs the experiment of putting a saucer on a
+tray.
+
+
+
+
+
+Fig. 10.  Katana-T arm that performs the experiment of putting a cup on a
+saucer.
+
+=== PDF PAGE 11 / PRINTED PAGE 953 ===
+KHANSARI-ZADEH AND BILLARD: LEARNING STABLE NONLINEAR DYNAMICA
+
+
+
+
+
+Fig. 11.   Ability of the model to on-the-ﬂy adapt its trajectory to a change in
+the target’s position. (a) Trajectory of reproductions. (b) Velocity proﬁle for the
+saucer task. (c) Velocity proﬁle for the cup task.
+
+
+
+
+
+Fig. 12.   First experiment with the iCub. The robot does a semispiral motion
+toward its right side, and at the bottom of the spiral, it stretches forward its hand
+completely.
+
+
+alize the motion for several trajectories with different starting
+points. Similar to what was observed in the three experiments
+with the Katana-T robot, the models that are obtained for the
+iCub’s experiments are robust to perturbations.
+
+C. Learning Second-Order Dynamics
+
+  So far, we have shown how DS can be used to model/learn
+a demonstrated motion when modeled as a ﬁrst-order time-
+invariant ODE. Although this class of ODE functions are generic
+enough to represent a wide variety of robot motions, they fail
+to accurately deﬁne motions that rely on second-order dynam-
+ics such as a self-intersecting trajectory or motions for which
+the starting and ﬁnal points coincide with each other (e.g., a
+triangular motion). Critical to these kinds of motion is the am-
+biguity in the correct direction of velocity at the intersection
+point if the model’s variable ξ considered to be only the carte-
+sian position (i.e., ξ = x ⇒˙ξ = ˙x). This ambiguity usually re-
+sults in skipping the loop part of the motion. However, in this
+AL SYSTEMS WITH GAUSSIAN MIXTURE MODELS                         953
+
+
+
+
+
+   Fig. 13.  Second experiment with the iCub. The robot does a semicircle motion
+  upward and brings its arm completely down.
+
+
+  example, this problem can be solved if one deﬁnes the motion in
+  terms of position, velocity, and acceleration, i.e., second-order
+  dynamics:
+
+                                       ¨x = g(x, ˙x)                     (24)
+
+  where g is an arbitrary function. Observe that any second-order
+  dynamics in the form of (24) can be easily transformed into a
+  ﬁrst-order ODE through a change of variable, i.e.,
+
+                          ˙x = v
+                ⇒[˙x; ˙v] = f(x, v)          (25)
+                               ˙v = g(x, v)
+
+    Having deﬁned ξ = [x; v] and, thus, ˙ξ = [˙x; ˙v], (25) reduces
+  to ˙ξ = f(ξ) and, therefore, can be learned with the methods that
+  are presented in this paper. We verify the performance of our
+  method in learning a second-order motion via a robot task. In
+  this experiment, the iCub performs a loop motion with its right
+  hand, where the motion lies in a vertical plane and, thus, contains
+  a self-intersection point (see Fig. 14). Here, the task is shown to
+  the robot ﬁve times. The motion is learned with seven Gaussian
+  functions with SEDS-Likelihood. The results demonstrate the
+  ability of SEDS to learn second-order dynamics.
+   By extension, since any nth-order autonomous ODE can be
+  transformed into a ﬁrst-order autonomous ODE, the proposed
+  methods can also be used to learn higher order dynamics, how-
+  ever, at the cost of increasing the dimensionality of the system. If
+  the dimensionality of an nth-order DS is d, the dimensionality of
+  the transformed dynamics into a ﬁrst-order DS is n × d. Hence,
+  increasing the order of the DS is equivalent to increasing the di-
+  mension of the data. As the dimension increases, the number of
+  optimization parameters also increases. If one optimizes the val-
+  ues of these parameters that are based on using a quasi-Newton
+  method, the learning problem indeed becomes intractable as
+  the number of dimensions increases. As an alternative solution,
+  one can deﬁne the loop motion in terms of both the Cartesian
+  position x and a phase variable. The phase-dependent DS has
+  lower dimension (i.e., dimensionality of d + 1) compared with
+  the second-order DS and is more tractable to learn. However, as
+   it is already discussed in Section II, the use of the phase variable
+
+=== PDF PAGE 13 / PRINTED PAGE 955 ===
+KHANSARI-ZADEH AND BILLARD: LEARNING STABLE NONLINEAR DYNAMICA
+
+
+
+                                                TABL
+      PERFORMANCE COMPARISON OF THE PROPOSED METHODS WITH ALTERN
+
+
+
+
+
+                                                TABL
+       PERFORMANCE COMPARISON OF THE PROPOSED METHODS WITH ALTER
+                                                                IN SECTIONS V
+
+
+
+
+
+The models result from optimizing both objective functions
+beneﬁt from the inherent characteristics of autonomous DS,
+i.e., online adaptation to both temporal and spatial perturbation.
+However, each objective function has its own advantages and
+disadvantages. Using log-likelihood is advantageous in that it is
+more accurate and smoother than MSE. Furthermore, the MSE
+cost function is slightly more time consuming since it requires
+computing GMR at each iteration for all training data points.
+However, the MSE objective function requires fewer parameters
+than the likelihood one which may make the algorithm faster
+in higher dimensions or when higher number of components is
+used.
+  None of the two methods are globally optimal as they deal
+with a nonconvex objective function. However, in practice, in
+the 20 handwriting examples and the six robot tasks, which we
+reported here, we found that SEDS approximation was quite
+accurate. An assumption made throughout this paper is that
+represented motions can be modeled with a ﬁrst-order time-
+invariant ODE. While the nonlinear function that is given by (9)
+is able to model a wide variety of motions, the method cannot be
+used for some special cases that violate this assumption. Most
+of the time, this limitation can be tackled through a change of
+variable (as presented in our experiments; see Fig. 14).
+  The stability conditions at the basis of SEDS are sufﬁcient
+conditions to ensure global asymptotic stability of nonlinear
+motions when modeled with a mixture of Gaussian functions.
+Although our experiments showed that a large library of robot
+motions can be modeled while satisfying these conditions, these
+global stability conditions might be too stringent to accurately
+model some complex motions. For these cases, the user could
+choose local approaches such as BM to accurately model desired
+motions.
+AL SYSTEMS WITH GAUSSIAN MIXTURE MODELS                         955
+
+
+
+LE II
+ NATIVE APPROACHES IN LEARNING 20 HUMAN HANDWRITING MOTIONS
+
+
+
+
+
+LE III
+ RNATIVE APPROACHES IN LEARNING ROBOT EXPERIMENTS PRESENTED
+ VI-B AND C
+
+
+
+
+
+    While, in Section VI-C, we showed how higher order dy-
+  namics can be used to model more complicated movements,
+  determining the model order is deﬁnitely not a trivial task. It
+  relies on having a good idea of what matters for the task at
+  hand. For instance, higher order derivatives are useful to control
+  for smoothness, jerkiness, and energy consumption and, hence,
+  may be used if the task requires optimizing for such criteria.
+    Incremental learning is often crucial to allow the user to reﬁne
+  the model in an interactive manner. At this point in time, the
+ SEDS training algorithm does not allow for incremental retrain-
+  ing of the model. If one was to add new demonstrations after
+  training the model, one would have to either retrain entirely the
+  model that is based on the combined set of old and new demon-
+  strations or build a new model from the new demonstrations
+  and merge it with the previous model.15 For a ﬁxed number of
+  Gaussians, the former usually results in having a more accurate
+  model, while the latter is faster to train (because it only uses the
+  new set of demonstrations in the training).
+    Ongoing work is directed at designing an online learning ver-
+  sion of SEDS whereby the algorithm optimizes the parameters
+  of the model incrementally as the robot explores the space of
+  motion. This algorithm would also allow for the user to provide
+  corrections and, hence, to reﬁne the model locally, along the
+  lines that we followed in [34].
+    Furthermore, we are currently endowing the method with
+  the on-the-ﬂy ability to avoid possible obstacle(s) during the
+
+
+    15Two GMM with K 1 and K 2 number of Gaussian functions can be merged
+   into a single model with K = K 1 + K 2 Gaussian functions by concatenating
+   their parameters, i.e., θ = {θ1 . . . θK 1 . . . θK }, where θk = {πk , μk , Σk }.
+  The resulting model is no longer (locally) optimal; however, it could be an
+   accurate estimation of both models, especially when there is no overlapping
+  between the two models.
+
+=== PDF PAGE 14 / PRINTED PAGE 956 ===
+956
+
+
+execution of a task. We will also focus on integrating physical
+constraints of the system (e.g., robot’s joints limit, the task’s
+constraint, etc.) into the model to solve for this during our global
+optimization. Finally, while we have shown that the system
+could embed more than one motion and, hence, account for
+different ways to approach the same target, depending on where
+the motion starts in the workspace, we have still yet to determine
+how many different dynamics can be embedded in the same
+system.
+
+
+                       VIII. SUMMARY
+
+  DS offer a framework that allows for fast learning of robot
+motions from a small set of demonstrations. They are also ad-
+vantageous in that they can be easily modulated to produce
+trajectories with similar dynamics in areas of the workspace
+that is not covered during training. However, their application
+to robot control has been given little attention so far, mainly
+because of the difﬁculty of ensuring stability. In this paper, we
+presented an optimization approach for statistically encoding a
+dynamical motion as a ﬁrst-order autonomous nonlinear ODE
+with Gaussian Mixtures. We addressed the stability problem of
+autonomous nonlinear DS and formulated sufﬁcient conditions
+to ensure global asymptotic stability of such a system. Then,
+we proposed two optimization problems to construct a globally
+stable estimate of a motion from demonstrations.
+  We compared performance of the proposed method with cur-
+rent widely used regression techniques via a library of 20 hand-
+writing motions. Furthermore, we validated the methods in dif-
+ferent point-to-point robot tasks that are performed with two
+different robots. In all experiments, the proposed method was
+able to successfully accomplish the experiments in terms of high
+accuracy during reproduction, the ability to generalize motions
+to unseen contexts, and the ability to adapt on the ﬂy to spatial
+and temporal perturbations.
+
+
+                    APPENDIX A
+
+ COMPARISON WITH THE COST FUNCTION DESCRIBED IN [5]
+
+  In our previous work [5], we had used a different MSE cost
+function from that proposed in this paper that balanced the error
+in both position and velocity
+
+                   N  T n
+                  1
+       min J(θ) =             ωξ∥ˆξn(t) −ξt,n∥2
+          θ     N
+                     n=1 t=0
+           + ω ˙ξ∥ˆ˙ξn(t) −˙ξt,n∥2   .             (26)
+
+ˆ˙ξn(t) = ˆf(ˆξn(t)) are computed directly from  (9).  ˆξn(t) =
+    t   i=0 ˆ˙ξn(i)dt generate an estimate of the corresponding demon-
+strated trajectory ξn by starting from the same initial points as
+that demonstrated, i.e., ˆξn(0) = ξ0,n ∀n ∈1 . . . N. ωξ and ω ˙ξ
+are positive scalars weighing the inﬂuence of the position and
+velocity terms in the cost function.
+  In contrast with the cost function that is proposed in this pa-
+per that assumes independence across data points [see (21)], the
+aforementioned cost function propagates the effect of the esti-
+         IEEE TRANSACTIONS ON ROBOTICS, VOL. 27, NO. 5, OCTOBER 2011
+
+
+
+                      TABLE IV
+   EVALUATION OF THE EFFECT OF WEIGHTING TERMS ON THE MSE COST
+                   FUNCTION PRESENTED IN [5]
+
+
+
+
+
+mation error at each time step along each trajectory. Considering
+only the error in speed removes these effects (i.e., less complex
+optimization) while yielding nearly similar performance. For
+example, when learning the 20 human handwriting motions that
+are described in Section VI-A, using the cost function given in
+(26) has yielded an average error of 0.23 (against an error of
+0.25 when using only speed in the cost function; see Table I).
+  Another difﬁculty that we avoid when considering solely one
+term in our cost function is related to determining adequate
+values for the weighting terms (in [5], their value were pre-
+set to 1). To illustrate this issue, we ran the optimization on
+four different handwriting motions by varying the weighting
+terms given to the velocity and position, respectively. We report
+on the accuracy as deﬁned in (23) for each of these runs in
+Table IV. The weighting terms in the fourth column of Table IV
+are obtained by normalizing the effect of the position and ve-
+locity terms. One sees that the advantage of using either of the
+velocity or position term is not clear cut. For instance, when
+modeling motion 1, using only the velocity term provides the
+best result. For motions 2 and 4, the model that is obtained from
+the normalized weighting terms is more accurate, and the mo-
+tion 3 is more accurate when the both weights are set equal. In
+general, it is difﬁcult to say, a priori, which weights will result
+in a more accurate model. This effect is due to the fact that when
+the weights are changed, the shape of the cost function changes
+as well in a nonlinear manner.
+
+
+               ACKNOWLEDGMENT
+
+  The authors would like to thank J. Peters, for his insightful
+comments during the development of this paper, and E. Sauser,
+for preparing the experimental setup with the iCub robot.
+
+
+                   REFERENCES
+
+ [1]  S. Schaal, “Is imitation learning the route to humanoid robots?” Trends
+     Cognitive Sci., vol. 3, no. 6, pp. 233–242, 1999.
+ [2] D. Kulic, W. Takano, and Y. Nakamura, “Incremental learning, clustering
+     and hierarchy formation of whole body motion patterns using adaptive
+     hidden Markov chains,”  Int. J. Robot. Res., vol. 27, no. 7, pp. 761–784,
+     2008.
+ [3] A. Billard, S. Calinon, R. Dillmann, and S. Schaal, “Robot programming
+     by demonstration,” in Handbook of Robotics, Cambridge, MA: MIT Press,
+     2008.
+ [4] K. Dautenhahn and C. L. Nehaniv, The Agent-Based Perspective on Imi-
+      tation. Cambridge, MA: MIT Press, 2002, pp. 1–40.
+ [5] S.-M. Khansari-Zadeh and A.  Billard, “Imitation learning of glob-
+      ally  stable  non-linear  point-to-point robot motions using  nonlinear

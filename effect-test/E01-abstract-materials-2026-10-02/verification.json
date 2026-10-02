@@ -1,0 +1,312 @@
+{
+  "prepared_on": "2026-10-02",
+  "scope": "Abstract scientific facts and loading-record verification only; no writing/model invocation",
+  "target_id": "E01",
+  "candidate_commit": "20c78392931c07c0d5c3784fad26c833ae4d1ccf",
+  "candidate_versions": {
+    "nature-writing": "1.5.1-rc.4",
+    "nature-polishing": "6.6.1-rc.4",
+    "nature-shared": "1.6.1-rc.3"
+  },
+  "loading_record": {
+    "path": "analysis/candidate-loading-check.json",
+    "scenarios": 41,
+    "distinct_read_files": 53,
+    "previously_recorded_fields_preserved": true,
+    "all_read_files_match_candidate_after_line_ending_normalization": true,
+    "byte_differences": [
+      {
+        "path": "nature-writing/manifest.yaml",
+        "read_sha256": "86ca89bd765c4509a0e8ad4e114e76f7566f7f9f3cfc5d5ea34d54e0bf9572c4",
+        "committed_sha256": "c7c0a2ae6ceab87eaccf661c7f4c3f39a2ccc575a0729261170913ad50c9a9bf",
+        "working_crlf_count": 135,
+        "committed_crlf_count": 0,
+        "content_equal_after_lf_normalization": true
+      },
+      {
+        "path": "nature-shared/core/robotics-writing-examples.md",
+        "read_sha256": "d20b2825f7ad0ede46ddd2080130db8cd0bc80278de2b6d059e39dce1222575c",
+        "committed_sha256": "8446c5493de3a4ee25f52854b89b292953920917087be718b322a63d2b7e9ec2",
+        "working_crlf_count": 425,
+        "committed_crlf_count": 0,
+        "content_equal_after_lf_normalization": true
+      },
+      {
+        "path": "nature-polishing/manifest.yaml",
+        "read_sha256": "5a613fff2928075c4362f065d4c2e8c7bacb88dd6d026a718c2a31bd63f1ee5b",
+        "committed_sha256": "93d58416cdc7e2ff5065817d2ced4c55b1a52aabf35eca3213e644d6f6f7edf9",
+        "working_crlf_count": 99,
+        "committed_crlf_count": 0,
+        "content_equal_after_lf_normalization": true
+      }
+    ],
+    "git_core_autocrlf": "true"
+  },
+  "target": {
+    "title": "Learning Stable Nonlinear Dynamical Systems With Gaussian Mixture Models",
+    "doi": "10.1109/tro.2011.2159412",
+    "authors": [
+      {
+        "given": "S. Mohammad",
+        "family": "Khansari-Zadeh"
+      },
+      {
+        "given": "Aude",
+        "family": "Billard"
+      }
+    ],
+    "journal": "IEEE Transactions on Robotics",
+    "volume": "27",
+    "issue": "5",
+    "pages": "943-957",
+    "published": [
+      [
+        2011,
+        10
+      ]
+    ],
+    "pdf_pages": 15,
+    "pdf_sha256": "8ed98e7f94cd8178e80ca6c3eacd0e06fc13cdcae3b40b7dcf94ed346a763360",
+    "source": "https://infoscience.epfl.ch/server/api/core/bitstreams/07e82869-a32e-4e3b-971c-00c69c539f73/content"
+  },
+  "outside_learning_corpus": {
+    "inventory": "analysis/inventory.json",
+    "inventory_sha256": "3229ede4c81c00739eb6600c4c5e47f0ae64657927c52311eba1e92385193f46",
+    "papers_checked": 19,
+    "method": "Compare filename, own PDF title/subject metadata, first-page identity and original PDF bytes; citations do not determine corpus membership",
+    "all_target_identity_checks_excluded": true,
+    "corpus": [
+      {
+        "id": "P01",
+        "file": "文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf",
+        "own_title_metadata": "A DMPs-Based Framework for Robot Learning and Generalization of Humanlike Variable Impedance Skills",
+        "own_subject_metadata": "IEEE/ASME Transactions on Mechatronics;2018;23;3;10.1109/TMECH.2018.2817589",
+        "first_page_checked": true,
+        "sha256": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029",
+        "matches_target": false
+      },
+      {
+        "id": "P02",
+        "file": "文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf",
+        "own_title_metadata": "Adaptive Parameter Estimation and Control Design for Robot Manipulators With Finite-Time Convergence",
+        "own_subject_metadata": "IEEE Transactions on Industrial Electronics;2018;65;10;10.1109/TIE.2018.2803773",
+        "first_page_checked": true,
+        "sha256": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc",
+        "matches_target": false
+      },
+      {
+        "id": "P03",
+        "file": "文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf",
+        "own_title_metadata": "Asymmetric Bimanual Control of Dual-Arm Exoskeletons for Human-Cooperative Manipulations",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2018;34;1;10.1109/TRO.2017.2765334",
+        "first_page_checked": true,
+        "sha256": "580f84729b9798dea73df545842e26a11c016e8951e4c80bfaa2d7a90b03f9d1",
+        "matches_target": false
+      },
+      {
+        "id": "P04",
+        "file": "文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf",
+        "own_title_metadata": "",
+        "own_subject_metadata": "",
+        "first_page_checked": true,
+        "sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+        "matches_target": false
+      },
+      {
+        "id": "P05",
+        "file": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+        "own_title_metadata": "Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion",
+        "own_subject_metadata": "IEEE Transactions on Neural Networks and Learning Systems;2022;33;3;10.1109/TNNLS.2020.3037795",
+        "first_page_checked": true,
+        "sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+        "matches_target": false
+      },
+      {
+        "id": "P06",
+        "file": "文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf",
+        "own_title_metadata": "Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks",
+        "own_subject_metadata": "",
+        "first_page_checked": true,
+        "sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+        "matches_target": false
+      },
+      {
+        "id": "P07",
+        "file": "文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf",
+        "own_title_metadata": "Finite-Time Convergence Adaptive Fuzzy Control for Dual-Arm Robot With Unknown Kinematics and Dynamics",
+        "own_subject_metadata": "IEEE Transactions on Fuzzy Systems;2019;27;3;10.1109/TFUZZ.2018.2864940",
+        "first_page_checked": true,
+        "sha256": "8563538806c3fbd7f0473bfca7a6b7f9b6b32cad6121cc264364a2359c405a08",
+        "matches_target": false
+      },
+      {
+        "id": "P08",
+        "file": "文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf",
+        "own_title_metadata": "Fixed-Time Neural Control of Robot Manipulator With Global Stability and Guaranteed Transient Performance",
+        "own_subject_metadata": "IEEE Transactions on Industrial Electronics;2023;70;1;10.1109/TIE.2022.3156037",
+        "first_page_checked": true,
+        "sha256": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba",
+        "matches_target": false
+      },
+      {
+        "id": "P09",
+        "file": "文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+        "own_title_metadata": "Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2011;27;5;10.1109/TRO.2011.2158251",
+        "first_page_checked": true,
+        "sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1",
+        "matches_target": false
+      },
+      {
+        "id": "P10",
+        "file": "文献资料/Impedance_Learning-Based_Adaptive_Force_Tracking_for_Robot_on_Unknown_Terrains.pdf",
+        "own_title_metadata": "Impedance Learning-Based Adaptive Force Tracking for Robot on Unknown Terrains",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2025;41; ;10.1109/TRO.2025.3530345",
+        "first_page_checked": true,
+        "sha256": "94323bf41e835bdabd98056933b06d7a5b264b869b77c4a4eac23368430515fa",
+        "matches_target": false
+      },
+      {
+        "id": "P11",
+        "file": "文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf",
+        "own_title_metadata": "Impedance Learning for Human-Guided Robots in Contact With Unknown Environments",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2023;39;5;10.1109/TRO.2023.3281483",
+        "first_page_checked": true,
+        "sha256": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2",
+        "matches_target": false
+      },
+      {
+        "id": "P12",
+        "file": "文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf",
+        "own_title_metadata": "Learning a Flexible Neural Energy Function With a Unique Minimum for Globally Stable and Accurate Demonstration Learning",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2023;39;6;10.1109/TRO.2023.3303011",
+        "first_page_checked": true,
+        "sha256": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d",
+        "matches_target": false
+      },
+      {
+        "id": "P13",
+        "file": "文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf",
+        "own_title_metadata": "Learning compliant grasping and manipulation by teleoperation with adaptive force control",
+        "own_subject_metadata": "2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS);2021; ; ;10.1109/IROS51168.2021.9636832",
+        "first_page_checked": true,
+        "sha256": "1cfc9c55441a561894cd0805f9c96f1955ed4584e84d322c626bb2d545763a5c",
+        "matches_target": false
+      },
+      {
+        "id": "P14",
+        "file": "文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf",
+        "own_title_metadata": "Multi-hierarchy interaction control of a redundant robot using impedance learning",
+        "own_subject_metadata": "Mechatronics, 67 (2020) 102348. doi:10.1016/j.mechatronics.2020.102348",
+        "first_page_checked": true,
+        "sha256": "ed87e10164c937acc3169eaa39e07706b9d9308c5647891a2b6ecf08c6795660",
+        "matches_target": false
+      },
+      {
+        "id": "P15",
+        "file": "文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf",
+        "own_title_metadata": "Neural Control of Bimanual Robots With Guaranteed Global Stability and Motion Precision",
+        "own_subject_metadata": "IEEE Transactions on Industrial Informatics;2017;13;3;10.1109/TII.2016.2612646",
+        "first_page_checked": true,
+        "sha256": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86",
+        "matches_target": false
+      },
+      {
+        "id": "P16",
+        "file": "文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf",
+        "own_title_metadata": "Physical Human&#x2013;Robot Interaction of a Robotic Exoskeleton By Admittance Control",
+        "own_subject_metadata": "IEEE Transactions on Industrial Electronics;2018;65;12;10.1109/TIE.2018.2821649",
+        "first_page_checked": true,
+        "sha256": "feaf9611e71898f066f4a889a09d08659a6296bf104a9a59ef8a86db658334ce",
+        "matches_target": false
+      },
+      {
+        "id": "P17",
+        "file": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+        "own_title_metadata": "Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives",
+        "own_subject_metadata": "IEEE Transactions on Neural Networks and Learning Systems;2019;30;3;10.1109/TNNLS.2018.2852711",
+        "first_page_checked": true,
+        "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+        "matches_target": false
+      },
+      {
+        "id": "P18",
+        "file": "文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf",
+        "own_title_metadata": "Stability Criterion and Stability Enhancement for a Thruster-Assisted Underwater Hexapod Robot",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2025;41; ;10.1109/TRO.2024.3492374",
+        "first_page_checked": true,
+        "sha256": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1",
+        "matches_target": false
+      },
+      {
+        "id": "P19",
+        "file": "文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf",
+        "own_title_metadata": "Variable Impedance Control of Redundant Manipulators for Intuitive Human&#x2013;Robot Physical Interaction",
+        "own_subject_metadata": "IEEE Transactions on Robotics;2015;31;4;10.1109/TRO.2015.2430053",
+        "first_page_checked": true,
+        "sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+        "matches_target": false
+      }
+    ]
+  },
+  "facts_language": {
+    "allowed_latin_tokens": [
+      "DS",
+      "E",
+      "GMM",
+      "GMR",
+      "Katana",
+      "SEDS",
+      "T",
+      "iCub"
+    ],
+    "no_original_english_prose_or_locator_links": true
+  },
+  "writer_boundary": {
+    "allowed_from_this_directory": [
+      "科学事实包.md"
+    ],
+    "all_19_reference_papers_available": true,
+    "other_materials_in_this_directory": "Extraction/owner verification only; must not be exposed to the independent writer",
+    "target_not_added_to_reference_library": true
+  },
+  "protected_project_paths_unchanged": [
+    "skill-candidate/",
+    "skill-baseline/"
+  ],
+  "artifact_hashes": {
+    ".gitattributes": {
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "bytes": 8
+    },
+    "source/abstract-verification-extract.txt": {
+      "sha256": "dded3981544b74c1b2816e56db22b624ac3da35553cd760b75d85b7fe6a42704",
+      "bytes": 56450
+    },
+    "source/crossref.json": {
+      "sha256": "91e7148b9406fd21768c9b28852d5ccf61314846159810b65e7b354697520949",
+      "bytes": 6287
+    },
+    "source/manifest.json": {
+      "sha256": "d0fa1098c2e982e3875a9a1d21bf089ba8e306627aec2e81740fdc873e18c968",
+      "bytes": 1383
+    },
+    "source/PDFs/Learning_Stable_Nonlinear_Dynamical_Systems_With_Gaussian_Mixture_Models.pdf": {
+      "sha256": "8ed98e7f94cd8178e80ca6c3eacd0e06fc13cdcae3b40b7dcf94ed346a763360",
+      "bytes": 2468047
+    },
+    "准备记录.md": {
+      "sha256": "dc80ddda3ac1d9b186852d66e7fb8dd66c4768559026151d17610122df5fd736",
+      "bytes": 5094
+    },
+    "来源定位.md": {
+      "sha256": "9ac42ea62c3d5870f34b2bc21be484521545d4194fb72ab74906354c4fa1b344",
+      "bytes": 6390
+    },
+    "科学事实包.md": {
+      "sha256": "944b2b059f3998ebd4c862a003caca7918dc821b8e384bff755bb3fdfaa38a87",
+      "bytes": 4456
+    }
+  },
+  "limitations": "Preparation and file/identity verification do not demonstrate writing quality; independent writing remains unrun."
+}

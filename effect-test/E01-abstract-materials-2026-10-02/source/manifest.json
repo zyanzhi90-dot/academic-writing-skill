@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "generated_at": "2026-10-02T09:48:25.060Z",
+  "request": {
+    "topic": "",
+    "title": "Learning Stable Nonlinear Dynamical Systems With Gaussian Mixture Models",
+    "dois": [],
+    "pdf_url": "https://infoscience.epfl.ch/server/api/core/bitstreams/07e82869-a32e-4e3b-971c-00c69c539f73/content",
+    "si_requested": false,
+    "language_override": "",
+    "route_override": "open_access",
+    "source_url": "",
+    "api_fallback_web": null,
+    "api_fallback_web_for": [],
+    "no_api_fallback_web_for": []
+  },
+  "summary": {
+    "total": 1,
+    "downloaded": 1,
+    "seconds": 6.5
+  },
+  "results": [
+    {
+      "title": "Learning Stable Nonlinear Dynamical Systems With Gaussian Mixture Models",
+      "status": "open_access_downloaded",
+      "provider": "direct_url",
+      "accessMode": "open_access",
+      "ok": true,
+      "file": "D:\\桌面\\正文writing skill\\effect-test\\E01-abstract-materials-2026-10-02\\source\\PDFs\\Learning_Stable_Nonlinear_Dynamical_Systems_With_Gaussian_Mixture_Models.pdf",
+      "bytes": 2468047,
+      "sha256": "8ed98e7f94cd8178e80ca6c3eacd0e06fc13cdcae3b40b7dcf94ed346a763360",
+      "contentType": "application/pdf;charset=UTF-8",
+      "format": "pdf",
+      "source": "https://infoscience.epfl.ch/server/api/core/bitstreams/07e82869-a32e-4e3b-971c-00c69c539f73/content",
+      "si_requested": false
+    }
+  ]
+}

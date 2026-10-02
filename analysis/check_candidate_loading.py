@@ -5,6 +5,7 @@ routers. This script checks manifest lookup, real file reads, selective card
 extraction, and relocation, not a natural-language routing interpreter.
 Run from any directory: python -X utf8 analysis/check_candidate_loading.py
 """
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -167,7 +168,44 @@ def check_powershell_utf8(path):
             "returned_lines_equal_utf8_source": True}
 
 
-def check():
+def verify_committed_files(records, candidate_commit):
+    commit = subprocess.check_output(SAFE_GIT + ["rev-parse", candidate_commit + "^{commit}"], cwd=ROOT).decode().strip()
+    committed_hashes = {}
+    differences = []
+    committed_fragments = {}
+    for record in records:
+        for item in record["files_read"]:
+            relative = item["path"]
+            if relative in committed_hashes:
+                continue
+            path = CANDIDATE / relative
+            working = path.read_bytes()
+            committed = subprocess.check_output(SAFE_GIT + ["show", commit + ":skill-candidate/" + relative], cwd=ROOT)
+            assert sha(working) == item["sha256"], "Read file changed during verification"
+            assert working.replace(b"\r\n", b"\n") == committed.replace(b"\r\n", b"\n"), (relative, "Candidate content differs from commit")
+            committed_hashes[relative] = sha(committed)
+            if working != committed:
+                differences.append({"path": relative, "read_sha256": sha(working),
+                                    "committed_sha256": sha(committed),
+                                    "working_crlf_count": working.count(b"\r\n"),
+                                    "committed_crlf_count": committed.count(b"\r\n"),
+                                    "content_equal_after_lf_normalization": True})
+            if relative == "nature-shared/core/robotics-writing-examples.md":
+                text = committed.decode("utf-8")
+                units = cards(text)
+                selected = {card for case in records for card in case["selected_cards"]}
+                committed_fragments = {"common_and_task_index": sha(text[:text.index("## \u6458\u8981")].encode("utf-8"))}
+                committed_fragments.update({card: sha(units[card].encode("utf-8")) for card in sorted(selected)})
+    return {"candidate_commit": commit,
+            "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
+            "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
+            "committed_file_sha256": committed_hashes,
+            "committed_example_fragment_sha256": committed_fragments,
+            "line_ending_differences": differences,
+            "all_read_files_match_committed_content": True}
+
+
+def check(candidate_commit):
     manifests = manifests_at(CANDIDATE)
     for name in ("nature-writing", "nature-polishing"):
         assert manifests[name][0]["axes"]["paper_type"]["default"] == "research"
@@ -226,6 +264,8 @@ def check():
         assert not (detached.parent / "analysis").exists()
         assert not (detached.parent / "\u6587\u732e\u8d44\u6599").exists()
     return {"basis_commit": BASE_COMMIT,
+            "basis_commit_scope": "Accepted example-card source, not the candidate version",
+            "candidate_verification": verify_committed_files(records, candidate_commit),
             "method": "Manually resolved routing cases; manifest lookup and real file/selected-fragment reads. Not model invocation, automatic semantic routing, or writing-effect evidence.",
             "versions_and_declared_paths": {name: {"version": value[0]["version"], "path_entries": len(value[1])} for name, value in manifests.items()},
             "source_preservation": {"cards_unchanged": 19, "quote_blocks_unchanged": 26, "source_links_resolved": len(new_links)},
@@ -235,7 +275,9 @@ def check():
 
 
 if __name__ == "__main__":
-    result = check()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate-commit", default="HEAD", help="Frozen candidate commit to verify; content differences fail the check")
+    result = check(parser.parse_args().candidate_commit)
     output = ROOT / "analysis/candidate-loading-check.json"
     output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"result": "passed", "scenarios": len(result["scenarios"]),
