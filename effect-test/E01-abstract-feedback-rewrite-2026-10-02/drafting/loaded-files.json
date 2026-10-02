@@ -1,0 +1,215 @@
+{
+  "loaded_or_searched_files": [
+    {
+      "path": "inputs/task.md",
+      "sha256": "2363fc37befe9b08e3dc8d4825df177e107c78f36f7ca40365266bb1a8f53bc3",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/scientific-facts.md",
+      "sha256": "944b2b059f3998ebd4c862a003caca7918dc821b8e384bff755bb3fdfaa38a87",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/personal-experience.txt",
+      "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/current-draft.md",
+      "sha256": "67883ac7702ea71efbaf782a85a68cb046e0533de73359d1e300044b6db38c99",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/feedback.md",
+      "sha256": "5a64166578c8a26baea233ab7f566e973bd8cfd44b5ac91ede30dcc5339f4654",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/SKILL.md",
+      "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/manifest.yaml",
+      "sha256": "14fbff51148ad4068834909c099cab99f51772e4d2b9353cba53779af8019472",
+      "command_ids": [
+        "item_2"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+      "sha256": "7e9b216fe8956ddc1bb3057333c787fe9951b8645027b04a5ed97f2c119f82b5",
+      "command_ids": [
+        "item_2",
+        "item_4",
+        "item_8",
+        "item_9"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+      "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md",
+      "sha256": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+      "sha256": "88779819bd4f35eda0e7387380e255dec1805bfe8db8d3468d4b618a712c7ca6",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+      "sha256": "baee8cd5c7d69ae38a78ccbbbde7418a3010fef3374bc520f937c838ec583c41",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/language/en.md",
+      "sha256": "114fc068564a03a5cccee048d0fb4f9f48cf6469c7aef3e9024d24ed818a4bf3",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+      "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/reader-workflow.md",
+      "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+      "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/ethics.md",
+      "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/terminology-ledger.md",
+      "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/stance.md",
+      "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/workflow.md",
+      "sha256": "137eb0c04f8ba555ee48139d97c294fedc9de2e05e5b1e27d37a7a241c0f8707",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/output-format.md",
+      "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/references/abstract.md",
+      "sha256": "7180d2c01d828e5b23612571c6e19ef5c882f200a804da950af8a67a62b0a7c5",
+      "command_ids": [
+        "item_7"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "item_1",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\inputs\\\\task.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\inputs\\\\scientific-facts.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\inputs\\\\personal-experience.txt','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\inputs\\\\current-draft.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\inputs\\\\feedback.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\SKILL.md'); foreach (\"'$p in $paths) { Write-Output ('\"'FILE: ' + \"'$p); $content = @(Get-Content -LiteralPath $p -Encoding UTF8); Write-Output ('\"'LINES: ' + \"'$content.Count); for ($i=0; $i -lt [Math]::Min($content.Count,240); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$content[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 18053
+    },
+    {
+      "id": "item_2",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\manifest.yaml'; \"'$c = @(Get-Content -LiteralPath $p -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$p); for ($i=0; $i -lt [Math]::Min($c.Count,260); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$c[$i]) }; $p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$c = @(Get-Content -LiteralPath $p -Encoding UTF8 | Select-Object -First 168); Write-Output ('\"'FILE: ' + \"'$p); for ($i=0; $i -lt $c.Count; $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$c[$i]) }'",
+      "exit_code": 0,
+      "output_characters": 23627
+    },
+    {
+      "id": "item_4",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n '\"'^#{1,4} .*A0[1-6]|''^#{1,4} .*B01'\"' 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'\"",
+      "exit_code": 0,
+      "output_characters": 237
+    },
+    {
+      "id": "item_5",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\task\\\\manuscript.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\paper_type\\\\algorithmic.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\section\\\\abstract.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\zh-to-en.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\en.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\journal\\\\generic.md'); foreach (\"'$p in $paths) { Write-Output ('\"'FILE: ' + \"'$p); $c = @(Get-Content -LiteralPath $p -Encoding UTF8 | Select-Object -First 300); for ($i=0; $i -lt $c.Count; $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$c[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 11662
+    },
+    {
+      "id": "item_6",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\reader-workflow.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\paper-type-taxonomy.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\ethics.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\terminology-ledger.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\stance.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\workflow.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\output-format.md'); foreach (\"'$p in $paths) { Write-Output ('\"'FILE: ' + \"'$p); $c = @(Get-Content -LiteralPath $p -Encoding UTF8 | Select-Object -First 300); for ($i=0; $i -lt $c.Count; $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$c[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 25060
+    },
+    {
+      "id": "item_8",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$c = @(Get-Content -LiteralPath $p -Encoding UTF8 | Select-Object -Skip 230 -First 14); Write-Output ('\"'FILE: ' + \"'$p + '\"' | RANGE: 231-244'); for (\"'$i=0; $i -lt $c.Count; $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+231),$c[$i]) }'",
+      "exit_code": 0,
+      "output_characters": 2535
+    },
+    {
+      "id": "item_7",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-writing\\\\references\\\\abstract.md'; \"'$c = @(Get-Content -LiteralPath $p -Encoding UTF8 | Select-Object -First 260); Write-Output ('\"'FILE: ' + \"'$p + '\"' | RANGE: 1-260'); for (\"'$i=0; $i -lt $c.Count; $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$c[$i]) }'",
+      "exit_code": 0,
+      "output_characters": 5333
+    },
+    {
+      "id": "item_9",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e01-abstract-feedback-rewrite-pk_g5q7g\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; foreach (\"'$range in @(@(183,194),@(219,230))) { $start = $range[0]; $end = $range[1]; Write-Output ('\"'FILE: ' + \"'$p + '\"' | RANGE: ' + \"'$start + '\"'-' + \"'$end); $c = @(Get-Content -LiteralPath $p -Encoding UTF8 | Select-Object -Skip ($start-1) -First ($end-$start+1)); for ($i=0; $i -lt $c.Count; $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+$start),$c[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 3999
+    }
+  ],
+  "unresolved_read_commands": [],
+  "outside_materials_explicit_reads": [],
+  "evidence_limit": "Explicit file paths in completed commands; raw events preserve outputs and selected ranges. A search or range read is not asserted to be a complete-file read.",
+  "evaluation": "Not performed"
+}

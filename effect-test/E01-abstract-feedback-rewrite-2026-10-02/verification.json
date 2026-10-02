@@ -1,0 +1,15 @@
+{
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "first_output_sha256": "e12555616402e8b68f53b92a91826c02920ccb58394806bb9340cc3e8552695b",
+  "first_output_bytes": 2624,
+  "first_output_matches_terminal_message_except_final_newline": true,
+  "outside_materials_explicit_reads": [],
+  "unresolved_read_commands": [],
+  "attempts": 1,
+  "evaluation": "Not performed; no quality verdict",
+  "run_kind": "feedback-rewrite",
+  "independent_first_drafting_evidence": false
+}

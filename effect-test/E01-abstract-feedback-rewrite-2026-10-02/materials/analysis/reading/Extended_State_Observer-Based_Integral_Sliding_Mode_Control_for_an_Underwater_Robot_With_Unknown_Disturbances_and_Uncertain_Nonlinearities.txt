@@ -1,0 +1,1580 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017 6785
+Extended State Observer-Based Integral Sliding
+Mode Control for an Underwater Robot With
+Unknown Disturbances and
+Uncertain Nonlinearities
+Rongxin Cui, Member, IEEE, Lepeng Chen, Chenguang Yang, Senior Member, IEEE,
+and Mou Chen, Member, IEEE
+Abstract—This paper develops a novel integral slid-
+ing mode controller (ISMC) for a general type of under-
+water robots based on multiple-input and multiple-output
+extended-state-observer (MIMO-ESO). The difficulties as-
+sociated with the unmeasured velocities, unknown distur-
+bances, and uncertain hydrodynamics of the robot have
+been successfully solved in the control design. An adap-
+tive MIMO-ESO is designed not only to estimate the unmea-
+surable linear and angular velocities, but also to estimate
+the unknown external disturbances. An ISMC is then de-
+signed using Lyapunov synthesis, and an adaptive gain up-
+date algorithm is introduced to estimate the upper bound
+of the uncertainties. Rigorous theoretical analysis is per-
+formed to show that the proposed control method is able
+to achieve asymptotical tracking performance for the un-
+derwater robot. Experimental studies are also carried out
+to validate the effectiveness of the proposed control, and
+to show that the proposed approach performs better than a
+conventional potential difference (PD) control approach.
+Index Terms—Extended state observer (ESO), integral
+sliding mode controller (ISMC), underwater robot, under-
+water vehicle.
+I. INTRODUCTION
+UNDERWATER robots, including autonomous underwa-
+ter vehicles (AUVs), remote operated vehicles (ROVs),
+and underwater gliders, have been increasingly employed to ex-
+pand the abilities of human in marine resources exploration and
+Manuscript received October 29, 2016; revised January 26, 2017 and
+February 18, 2017; accepted March 23, 2017. Date of publication April
+17, 2017; date of current version July 10, 2017. This work was sup-
+ported by the National Natural Science Foundation of China under Grant
+61472325, Grant 61633002, and Grant 51209174. (Corresponding au-
+thor: Rongxin Cui.)
+R. Cui and L. Chen are with the School of Marine Science and Technol-
+ogy, Northwestern Polytechnical University, Xi’an 710072, China (e-mail:
+rongxin.cui@gmail.com; chenlepeng_nwpu@163.com).
+C. Yang is with the Zienkiewicz Centre for Computational Engineer-
+ing, Swansea University, Swansea, SA1 8EN, U.K. (e-mail: cyang@
+theiet.org).
+M. Chen is with the College of Automation Engineering, Nanjing Uni-
+versity of Aeronautics and Astronautics, Nanjing 210016, China (e-mail:
+chenmou@nuaa.edu.cn).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TIE.2017.2694410
+marine scientific research. To exploit the full potential benefits
+provided by underwater robots, high-precision controller for un-
+derwater robots is required, such that the quality of the collected
+data can be guaranteed, and high precision in trajectory tracking
+or station keeping of the robot can be secured [1]–[6].
+In practice, there are a number of technical challenges in
+the control of an underwater robot, such as the unknown exter-
+nal disturbances and model uncertainties. The unknown distur-
+bances in practical oceanic environments include waves, tides,
+currents, and upward or downward streams. For control design
+of ROVs, the external force caused by the cable that connects
+with the depot ship should also be considered. The model uncer-
+tainties of an underwater robot are usually caused by the inac-
+curate hydrodynamic coefficients, which are calculated through
+the computational fluid dynamics (CFD) methods or towing tank
+experimental data analysis. During the process of performing a
+task, different attitude of the robot will also cause the variation
+of the hydrodynamic coefficient.
+Several methods, such as adaptive control [1], [7], [8], robust
+control [9]–[11], and disturbance observer-based control [12],
+[13], have been introduced to address the technical challenges
+of model uncertainties and unknown external disturbances. In
+[1], a robust adaptive controller considering the velocity con-
+straints is proposed for an ROV. The model parameters are esti-
+mated online and a Barrier Lyapunov function is applied in the
+Lyapunov synthesis. Finally, the results are validated thought
+simulation. Since fuzzy logic systems (FLS) and neural net-
+works (NN) are capable to approximate nonlinearities, the NN
+and fuzzy approximation-based adaptive controllers have been
+widely applied to the plants with model uncertainties and un-
+known disturbances [7], [8], [14]. In [7], an adaptive controller
+combining NN approximation with dynamics surface control
+is presented for trajectory tracking of an AUV. The computa-
+tional load is reduced by introducing an NN learning method
+using minimal number of learning parameters. In [15], consid-
+ering the unknown parameters, an adaptive fuzzy sliding mode
+control (SMC) is presented to steer a low-speed underactuated
+underwater vehicle and an experiment has justified the method.
+In [16], the NN-based controller is extended to control the mul-
+tiple underwater robots and simulation results have been shown.
+0278-0046 © 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+6786 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017
+Although the NN and fuzzy-based adaptive controllers have the
+advantages on the approximation of the uncertainties and dis-
+turbances, it is still a challenging task to adjust its learning
+parameters in real applications.
+As an effective tool to suppress disturbances for complex
+systems, SMC has attracted obvious attentions for the control
+plant with disturbances [10], [17]–[21]. In [22], a novel ESO-
+based adaptive control has been proposed for power converters
+to reject the load connected to the dc-link capacitor and the
+uncertain parameters. The experiment based on a real power
+converter prototype validate the control performance. In [9],
+a sliding mode tracking controller, which uses two sliding sur-
+faces for surge tracking errors and lateral motion tracking errors,
+is applied to autonomous surface vessels. To address the con-
+trol technical challenges for the switched stochastic systems, a
+novel dissipativity-based SMC is proposed in [17]. In [10], inte-
+gral sliding mode controllers (ISMC) are proposed for trajectory
+tracking of ROVs. Because of the effect of the additional error-
+integral term, the ISMC has a more accurate trajectory tracking
+performance than the conventional SMC. To overcome the time-
+delay for the AUV control, an ISMC is introduced to overcome
+the problem that data acquisition rate could not be maintained
+sufficiently [23]. The major shortcoming of SMC is the chat-
+tering problem, which not only causes energy losses but also
+reduces the trajectory tracking smoothness. To reduce the chat-
+tering, several methods, such as the high-order sliding-mode
+controller [24], [25], disturbance compensation method [26],
+[27], and terminal sliding controller [28] have been proposed.
+In [26], a free chattering SMC is presented via an adaptive term,
+which continuously compensates for the unknown system dy-
+namics of an ROV. In practice, sometimes, the upper bound of
+the uncertainties may be large and the SMC without a compen-
+sator will cause serious chattering. Therefore, it is necessary
+to design a compensator for the external disturbance to reduce
+chattering.
+Another approach dealing with the unknown disturbance is
+to design an observer to estimate the unknown external distur-
+bance of a robot, followed by the control design to compensate
+for the estimated disturbance. Such disturbance observers in-
+clude sliding mode observer [12], [29], high-gain observer [30],
+[31], and extended state observer (ESO) [13], [32]. In [12], a
+sliding mode controller based on a sliding mode observer is
+proposed for a reusable launch vehicle. The observer is pre-
+sented to estimate the unknown external disturbances and to
+reduce the control gain. In [30], a high-gain observer-based out-
+put feedback motion control that considers the unmodeled dy-
+namics, measurement errors, model parameter variations, and
+unknown external environmental disturbances for observation
+class ROVs is presented. In [32], a backstepping control based
+on an ESO is proposed to handle mismatched disturbance of
+hydraulic systems. The designed observer estimates not only
+the model uncertainties but also the unmeasured states. In [13],
+by using an ESO, a backstepping control for a hydraulic system
+is presented to suppress large unknown external disturbances.
+The bandwidth of the observer is chosen in accordance with
+two conflicting aspects, the maximal load capability and the
+dynamic performance of system.
+In this paper, we design an adaptive sliding mode-based con-
+troller for a general type of underwater robots, and experiment
+is carried on a test bed for underwater object grasping. On-
+board sensors, including a depth sensor and an inertial mea-
+surement unit (IMU), are equipped to measure the depth and
+attitude of the robot. The position of the underwater robot
+is measured by an external vision positioning system (VPS),
+and some white lightings are equipped on the robot, which
+can be captured by the VPS to calculate the position of the
+robot. In such a case, there is no direct measurement of velocity
+of the robot. Then output feedback is required for our work as
+the direct differential of the position information may degrade
+the control performance. In such case, observes are always used
+to estimate the unmeasured states of the robot [5], [33]. A lo-
+cal recurrent NN-based adaptive terminal sliding mode state
+observer is presented to estimate the unmeasured velocity of
+an ROV in [5], which considers the uncertain dynamic model,
+the unmeasured states, and inaccurate thrust model. In [34], an
+NN-based adaptive observer is presented to address the prob-
+lem of estimating the unavailable measurements of underwater
+vehicles’ velocities. In [35], a terminal sliding mode observer
+of an AUV is introduced to estimate the velocity, and the esti-
+mation error is guaranteed to converge to zero in a finite time.
+In [36], an adaptive backstepping control is introduced for hu-
+man upper limbs in the presence of disturbances, unmodeled
+dynamics, and uncertainties. In [37], an output feedback track-
+ing controller is designed to address the problem of steering a
+quadrotor with unknown disturbances and model uncertainties.
+The unmeasurable linear and angular velocities are estimated
+by a series of nonmodel-based filters. In [38], an attitude and
+speed controller is designed based on an adaptive second-order
+SMC for an unmanned aerial vehicle (UAV), and an extended
+observer is applied to estimate the unmeasured states and un-
+known external disturbances. In [39], a high-gain observer is
+implemented to estimate the full states of the electro-hydraulic
+system. It is noted that in the literature mentioned above, con-
+trollers designed for underwater robots in [1], [3], [4], [7], [8],
+[16], [18], [26], and [28] are verified by simulations, and other
+controllers in [6], [10], [15], [23], and [24] are verified by
+experiments.
+In this paper, a disturbance compensation approach is utilized
+to eliminate the chattering based on multiple-input and multiple-
+output extend-state-observer (MIMO-ESO) with a simple struc-
+ture. Motivated by the ESO model [32] and the high-gain
+observer [39], a MIMO-ESO is proposed to estimate the un-
+known disturbances and the unmeasured states. The bounds of
+the uncertainties are also estimated using the adaptive control
+technique. The Lyapunov analysis is involved to design the fi-
+nal control law. The proposed controller in this paper includes
+two parts, namely the equivalent controller and the switch con-
+troller, which guarantees the trajectory tracking error converge
+to zero theoretically. The proposed controller is successfully
+implemented on an underwater robot propelled by six thrusters.
+The main contributions can be summarized as follows.
+1) A novel adaptive MIMO-ESO is developed to estimate
+the unmeasured velocity and the unknown external dis-
+turbances of the underwater robot.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+CUI et al.: EXTENDED STATE OBSERVER-BASED INTEGRAL SLIDING MODE CONTROL FOR AN UNDERWATER ROBOT 6787
+Fig. 1. Navigation and body frames of an underwater robot.
+2) Based on Lyapunov analysis, an adaptive MIMO-ESO-
+based ISMC is designed to ensure that the trajectory
+tracking error converge to zero.
+3) Comparative studies with the conventional potential dif-
+ference (PD) control are carried out experimentally on
+an underwater robot to demonstrate the superior perfor-
+mance of the proposed control.
+The remainder of this paper is organized as follows:
+Section II presents the robot model and formulates the prob-
+lem. In Section III, the adaptive MIMO-ESO is derived to esti-
+mate the unknown disturbances and the unmeasured velocities.
+In Section IV, the ISMC is proposed. Experimental results are
+shown in Section V, followed by the conclusion of this paper in
+Section VI.
+II. PROBLEM FORMULATION
+Following the underwater modeling methods in [40], two
+frames, i.e., the navigation frame and the body frame are defined,
+as shown in Fig. 1. The linear velocity ν1 = [u, v, w]
+and the
+angular velocity ν2 = [p, q, r]
+are defined in the body frame.
+The position η1 = [x, y, z]
+and orientations η2 = [φ, θ, ψ]
+are
+defined in the navigation frame. The nonlinear dynamics of the
+robot with respect to the body frame is described as
+Mν̇ + C(ν)ν + D(ν)ν + G(η) = F + d (1)
+where ν = [ν
+1 , ν
+2 ]
+, η = [η
+1 , η
+2 ]
+, d is the unknown external
+disturbance, and F is the force and moment acting on the robot.
+Detailed definition of other symbols can be found in [40].
+In practical applications, we may not be able to obtain the
+accurate hydrodynamics coefficients used in the model, thus we
+divide the matrices in (1) into two parts, namely the nominal
+value part and the bias part that describes the difference be-
+tween the real value and the nominal value, i.e., M = M∗
++
+ΔM, G(η) = G∗
+(η) + ΔG(η), C(ν) = C∗
+(ν) + ΔC(ν), and
+D(ν) = D∗
+(ν) + ΔD(ν), where (·)∗
+denotes the nominal value
+that can be obtained from the CFD computation or the tower
+tank experiment analysis. These nominal values are available
+for control design. Δ(·) denotes the difference between the real
+value and the nominal value. In this paper, we consider an un-
+derwater robot that equips six thrusters. The moment and force
+acting on the robot by the thrusters is defined as F = LU, where
+U is a vector describing the force generated by the thrusters, L
+is the force allocation matrix, which is related to the center of
+buoyancy and the center of gravity of the robot.
+Now, the model of the underwater robot studied in this paper
+can be rewritten as
+M∗
+ν̇ + C∗
+(ν)ν + D∗
+(ν)ν + G∗
+(η) = LU + dsum(η, ν) (2)
+where dsum(η, ν) is the lumped disturbance, which includes un-
+certain hydrodynamics and unknown external disturbance. It is
+defined as dsum(η, ν) = d + dun, where
+dun = −ΔMν̇ − ΔG(η) − ΔC(ν)ν − ΔD(ν)ν. (3)
+The kinematics of the robot is described as
+η̇ = J(η)ν (4)
+where J(η) is the transformation matrix that relates between
+speed in the body and navigation frames. We assume that during
+the motion of the underwater robot, θ = 90◦
+, i.e., J is invertible.
+Thus, the model of the robot in the navigation frame can be
+written as
+η̈ + Cη (η, ν)η̇ + Dη (η, ν)η̇ + Gη (η) = Mη LU + H (5)
+where Cη = JM∗−1
+C∗
+J−1
+− ˙
+JJ−1
+, Dη = JM∗−1
+D∗
+J−1
+,
+Gη = JM∗−1
+G∗
+, Mη = JM∗−1
+, H = Hd + Hun = Mη dsum
+Hd = Mη d, Hun = Mη dun.
+Assumption 1: The unknown external disturbance term d(t)
+and the first time derivative ˙
+d(t) are bounded. Moveover, Hd(t)
+and Ḣd(t) are bounded as well. The upper bound of Ḣd(t) is
+unknown for the control design.
+The uncertain items in the robot’s model, ΔM, ΔG, ΔC,
+and ΔD are related to the states of the robot. In practice, we can
+also have the following assumption.
+Assumption 2: ΔM, ΔG, ΔC, and ΔD are bounded. Then,
+we assume that dun and Hun(t) are also bounded, satisfying
+Hun(t) ≤ ρ1 ∈ R+
+, where ρ1 is the unknown upper bound
+and  ·  is the Euclidean norm.
+In this paper, the underwater robot is equipped with an IMU,
+which is used to measure the orientations of η2. Position of the
+robot η1 is measured by an external VPS. There is no sensor
+available to measure the velocity of the robot directly. Thus,
+in this paper, we design a proper control input U(t) using the
+IMU and VPS measurements, to control the trajectory of the
+underwater robot η(t) following the reference trajectory ηr (t),
+i.e., the trajectory tracking error of the robot limt→∞ e(t) =
+limt→∞ (η(t) − ηr (t)) = 0.
+III. ADAPTIVE ESO DESIGN
+In this section, motivated by the adaptive sliding mode ob-
+server [41] and the ESO [32], we design an adaptive MIMO-
+ESO. Beside the velocity estimation, the unknown external dis-
+turbance Hd is estimated simultaneously.
+A. ESO Design
+The extended state vector X can be defined as X = [x
+1 ,
+x
+2 , x
+3 ]
+= [η
+, η̇
+, H
+d ]
+. The unknown external disturbance
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+6788 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017
+Hd is defined as an extended state. According to (5), we have
+Ẋ = AX + f(X) + BU(t) + χ
+Y = CX (6)
+where
+A =
+⎡
+⎢
+⎣
+06×6 I6×6 06×6
+06×6 06×6 I6×6
+06×6 06×6 06×6
+⎤
+⎥
+⎦ , B =
+⎡
+⎢
+⎣
+06×6
+Mη L
+06×6
+⎤
+⎥
+⎦ (7)
+f(X) =
+⎡
+⎢
+⎣
+06×1
+ϕ(x1, x2)
+06×1
+⎤
+⎥
+⎦ , χ =
+⎡
+⎢
+⎣
+06×1
+Hun
+Ḣd
+⎤
+⎥
+⎦ , C = [I6×6, 06×12]
+(8)
+ϕ(x1, x2) = −Cη (η, ν)η̇ − Dη (η, ν)η̇ − Gη (η). (9)
+The adaptive MIMO-ESO is presented as
+˙
+X̂ = AX̂ + f(X̂) + BU(t) − κ(x̂1 − x1) − Q
+Ŷ = CX̂ (10)
+where X̂ is the estimation of X, the gain κ is designed as
+κ = [3w0I6×6, 3w2
+0 I6×6, w3
+0 I6×6]
+∈ R18×6
+(11)
+where w0 is the bandwidth of the ESO:
+Q =
+⎡
+⎢
+⎣
+I6×6 06×6 06×6
+06×6 w0I6×6 06×6
+06×6 06×6 w2
+0 I6×6
+⎤
+⎥
+⎦, f(X̂)=
+⎡
+⎢
+⎣
+06×1
+ϕ̂(x̂1, x̂2)
+06×1
+⎤
+⎥
+⎦
+(12)
+(Ỹ , ρ̂2) =
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+P −1
+C 
+Ỹ ρ̂2 −c1 P −1
+C 
+Ỹ ḣ1 (t)ρ̂2
+2 /Ỹ 
+Ỹ −c1 ḣ1 (t)ρ̂2
+,
+if Ỹ  = 0
+018×1, if Ỹ  = 0
+(13)
+where Ỹ = Ŷ − Y , c1 is a positive constant, ρ̂2 is positive
+and will be defined later, and ḣ1(t) is designed to satisfy
+supt∈R+ ḣ1(t) < 0. Those parameters ensure the positive def-
+initeness of Ỹ  − c1ḣ1(t)ρ̂2.
+The uncertain and first time derivative of external disturbance
+parts are assumed to satisfy a matching condition [42]
+−G3Ḣd/w2
+0 − G2Hun/w0 = P−1
+C
+ρt(t). (14)
+Remark 1: In this paper, both unmeasured velocity and the
+external disturbances are considered in the control design. The
+bounds of the disturbances are assumed to be unavailable for
+the control design, thus an ESO is introduced to estimate the
+unmeasured velocity and the disturbance. Similar to works in
+[42], the matching condition (14) is assumed to be existed that
+facilitates subsequent stability proof. For the systems that do not
+satisfy the matching condition, there have been several works
+that relax the matching condition, such as [43] in which an
+additional observer is introduced to observe the unknown inputs.
+This inspires us that one of the future research directions lies in
+relaxing of such matching condition.
+According to Assumptions (1) and (2), we know that Ḣd
+and Hun are bounded. From (14), ρt(t) is bounded and satisfies
+ρt(t) ≤ ρ2 ∈ R+
+, where the upper bound ρ2 is unknown. The
+update law of its estimation ρ̂2, is designed as
+˙
+ρ̂2 = γ2Ỹ  (15)
+where γ2 is a positive constants and we define ρ̂2(0) = 0.
+The estimation error is defined as X̃ = X̂ − X = [x̃
+1 ,
+x̃
+2 , x̃
+3 ]
+. The scaled estimation errors are defined as εi =
+x̃i/wi−1
+0 ∈ R6
+, i = 1, 2, 3. Then, subtracting (6) from (10), we
+can describe the observer scaled estimation error as
+ε̇ = − w0Aεε + Q−1 ˜
+f − G3Ḣd/w2
+0
+− G2Hun/w0 − (Ỹ , ρ̂2)
+= − w0Aεε + Q−1 ˜
+f + P−1
+C
+ρt(t) − (Ỹ , ρ̂2) (16)
+where ε=[ε
+1 , ε
+2 , ε
+3 ]
+with εi =[εi1, . . . , εi6]
+, G3 =[012×6,
+I6×6]
+, G2 = [06×6, I6×6, 06×6]
+,
+Aε =
+⎡
+⎢
+⎣
+3I6×6 −I6×6 06×6
+3I6×6 06×6 −I6×6
+I6×6 06×6 06×6
+⎤
+⎥
+⎦ , ˜
+f = f(X̂) − f(X). (17)
+It is assumed that all states and the function ϕ(x1, x2) are in
+a compact set. Then, the nonlinear term ϕ(x1, x2) is Lipschitz
+with respect to x1 and x2 in the compact set.
+Remark 2: Different from the observers that are used to esti-
+mate the lumped disturbance that contains the unknown external
+disturbance and the nonlinear uncertainties in [26] and [38], we
+only estimate the unknown external disturbance. The bound-
+edness of the first-time derivative of the lumped disturbance
+is required for the control design in [26] and [38]. In prac-
+tice, the uncertainty part is always involved with the velocities
+of the robot. Then, the time derivative of the uncertainty con-
+tains the accelerates that are strongly dependent on the control
+inputs. The switching control input in the SMC will lead to a
+large value of the derivative of the uncertainty, and consequently
+the boundedness assumption of the derivation of uncertainty can
+be violated. In this paper, we regard the unknown external dis-
+turbance as an augmented state, thus the assumption is relaxed.
+Lemma 1: ε̇ = −w0Aεε + Q−1 ˜
+f + P−1
+C
+ρt(t) − has
+a faster convergent rate or a slower divergent rate than ε̇ =
+−βAεε + P−1
+C
+ρt(t) − .
+Proof: Since −Aε is Hurwitz, there exists a symmetric pos-
+itive definite matrix P, which satisfies
+AT
+ε P + PAε = I18×18. (18)
+Substituting Aε into (18), we can calculate that
+P =
+⎡
+⎢
+⎣
+I6×6 −0.5I6×6 −I6×6
+−0.5I6×6 I6×6 −0.5I6×6
+−I6×6 −0.5I6×6 4I6×6
+⎤
+⎥
+⎦ . (19)
+We can obtain that Q−1 ˜
+f = ϕ̂−ϕ
+w0
+= ϕ̃
+w0
+from (8) and
+(12). According to the assumptions, there are some known con-
+stants ζ1 and ζ2 that satisfy the following Lipschitz conditions:
+ϕ̃ ≤ ζ1ε1 + ζ2ε2 ≤ (ζ1 + ζ2)ε. (20)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+CUI et al.: EXTENDED STATE OBSERVER-BASED INTEGRAL SLIDING MODE CONTROL FOR AN UNDERWATER ROBOT 6789
+Let us choose a Lyapunov function candidate as
+V1 = ε
+Pε. (21)
+The time derivative of V1 can be written as
+V̇1 = ε̇
+Pε + ε
+Pε̇
+= − w0ε
+A
+ε Pε + (Q−1 ˜
+f)
+Pε + (P−1
+C
+ρt)
+Pε
+− 
+Pε − w0ε
+PAεε + ε
+PQ−1 ˜
+f
++ ε
+PP−1
+C
+ρt − ε
+P . (22)
+Because P is a symmetric positive definite matrix, we have
+(Q−1 ˜
+f)
+Pε = ε
+PQ−1 ˜
+f, (P−1
+C
+ρt)
+Pε = ε
+PP−1
+C
+ρt
+and 
+Pε = ε
+P .
+V̇1 = − w0ε
+(A
+ε P + PAε)ε + 2ε
+PQ−1 ˜
+f
++ 2ε
+P ˜
+f/w0 + 2ε
+C
+ρt(t) − 2ε
+P . (23)
+Substituting (18) into (23), we have
+V̇1 = − w0ε
+ε + 2ε
+PQ−1 ˜
+f/w0
++ 2ε
+C
+ρt(t) − 2ε
+P
+≤ − w0ε2
++ 2εPQ−1 ˜
+f
++ 2ε
+C
+ρt(t) − 2ε
+P
+≤ [−w0 + c2(ζ1 + ζ2)/w0] ε2
++ 2ε
+C
+ρt(t) − 2ε
+P . (24)
+Then, (24) can be rewritten as
+V̇1 ≤ − βε2
++ 2ε
+C
+ρt(t) − 2ε
+P (25)
+where β = w0 − c2(ζ1 + ζ2)/w0 > 0, c2 is a positive constant
+that satisfies c2 ≥ 2P.
+According to (25), we can conclude that (16) has a faster
+convergent rate or a slower divergent rate than ε̇ = −βAεε +
+P−1
+C
+ρt(t) − . This completes the proof. 
+Remark 3: It is not easy to analyze the convergent perfor-
+mance directly through (16). Based on Lemma 1, we only
+need to analyze the convergent behavior of ε̇ = −βAεε +
+P−1
+C
+ρt(t) − instead of (16).
+IV. CONTROLLER DESIGN
+To guarantee a satisfied tracking performance for the under-
+water robot, an ESO-based ISMC is proposed in this section.
+Before designing the ISMC, let us rewrite the system model
+as follows:
+η̈ = − Cη η̇ − Dη η̇ − Gη + Mη LU + H
+= − Cη η̇ − Dη η̇ − Gη + Mη LU + Hun + Hd (26)
+where H = Mη dsum(η, ν, t) is the lumped uncertainty, which
+consists of three parts, including the external disturbances, the
+matched uncertainty resulting from the uncertain hydrodynamic
+coefficients ΔC(ν(t)) and ΔD(ν(t)), and the uncertainty of
+ΔGη . Our goal is to propose a controller to overcome the
+problem that the lumped uncertainty H(t) will degrade the con-
+trol performance.
+The integral sliding surface is defined as
+s(t) =Kp e(t) + Ki
+t
+0
+e(τ)dτ + Kd
+ˆ
+ė(t) − Kp e(0) − Kd
+ˆ
+ė(0)
+(27)
+where Kp , Ki, and Kd are designed positive definite diagonal
+matrices.
+Similar definitions of the sliding mode surface can be found
+in [10], [44], and [45]. The difference is that we replace the
+derivative of the tracking error ė(t) with its estimation value
+ˆ
+ė(t) in this paper, because there is no direct measurement of the
+velocity of the underwater robot, and ˆ
+ė(t) in (27) is defined as
+ˆ
+ė(t) = ˆ
+η̇(t) − η̇r (t). (28)
+Employing the derivative on both sides of (27), we have
+ṡ(t) = Kp
+ˆ
+ė(t) + Kie(t) + Kd
+ˆ
+ë(t). (29)
+The reaching law can be chosen as
+ṡ(t) = −Kss − Ksw sgn(s) (30)
+where Ks and Ksw are positive definite diagonal matrices,
+sgn(s) = [sgn(s1), . . . , sgn(s6)]
+.
+According to (26), (29), and (30), we can derive
+ṡ + Kss = Kp
+ˆ
+ė + Kie + Kss + Kd(−η̈r − Cη
+ˆ
+η̇
+− Dη
+ˆ
+η̇ − Gη + Mη LU + Ĥd)
+− Kd(Ĥd − Hd) + KdHun (31)
+where Ĥd(t) is the estimation of the unknown external distur-
+bance, ν̂ and ˆ
+η̇ are the estimations of ν and η̇, respectively.
+The first part of our control can be designed as
+Ueq = − (KdMη L)−1
+(Kp
+ˆ
+ė + Kie + Kss)
++ (Mη L)−1
+[η̈r + Cη (η, ν̂)ˆ
+η̇
++ Dη (η, ν̂)ˆ
+η̇ + Gη − Ĥd]. (32)
+Substituting Ueq into U in (31), we have
+ṡ = −Kss − Kd(Ĥd − Hd) + KdHun
+= −Kss − KdH̃d + KdHun (33)
+where H̃d = Ĥd − Hd.
+We design the switching control as
+Usw = − (KdMη L)−1
+Ksw
++ λmax(Kd)ρ̂1(KdMη L)−1
+
+sgn(s) (34)
+where ρ̂1 is the estimation of ρ1 and ρ̃1 = ρ̂1 − ρ1 is the esti-
+mation error.
+The gain update law of ρ̂1 is designed as follows:
+˙
+ρ̂1 = γ1λmax(Kd)s (35)
+where γ1 is designed positive constant.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+6790 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017
+Combining (32) and (34), the complete control law can be
+described as follows:
+U = Ueq + Usw
+= −(KdMη L)−1
+(Kp
+ˆ
+ė + Kie + Kss)
++ (Mη L)−1
+[η̈r + Cη (η, ν̂)ˆ
+η̇ + Dη (η, ν̂)ˆ
+η̇ + Gη
+− Ĥd] − (KdMη L)−1
+Ksw sgn(s)
+− λmax(Kd)ρ̂1 (KdMη L)−1
+sgn(s) (36)
+where λmax(·) and λmin(·) are the maximum and minimum
+eigenvalues of a matrix, respectively.
+Lemma 2 (see [46]): If a signal has a bounded derivative and
+is square integrable, the signal can converge to zero asymptoti-
+cally.
+Theorem 1: Consider the uncertain system (6) satisfying As-
+sumptions 1 and 2, with the designed ESO (10), the ISMC (36),
+and the gain adaption law (35). The system tracking error and
+external disturbance estimation error will converge to zero if
+the parameters β, w0, Kd, Ks, and Ksw satisfy the follow-
+ing conditions: β > w4
+0 λmax(Kd), λmin(Ks) > λm a x (Kd )
+2 , and
+λmin(Ksw ) > 0.
+Proof: Let us define a Lyapunov function candidate
+V =
+1
+2
+V1 +
+1
+2
+s
+s +
+1
+2γ1
+ρ̃2
+1 +
+1
+2γ2
+ρ̃2
+2 (37)
+where V1 is defined in (21).
+According to Lemma 1, we have
+V̇ ≤ −
+β
+2
+
+ε
+1 ε1 + ε
+2 ε2 + ε
+3 ε3
+
++ ε
+C
+ρt(t)
+− ε
+P + s
+ṡ +
+1
+γ1
+ρ̃1
+˙
+ρ̂1 +
+1
+γ2
+ρ̃2
+˙
+ρ̂2. (38)
+Substituting (13) and (15) into (27), we have
+V̇ ≤ − βε
+ε/2 + s
+ṡ + ρ̃1
+˙
+ρ̂1/γ1
++ Ỹ ρ2 − ε
+P + Ỹ ρ̃2
+≤ − βε
+ε/2 + s
+ṡ + ρ̃1
+˙
+ρ̂1/γ1 + Ỹ ρ̂2
+−
+Ỹ 2
+ρ̂2 − c1Ỹ 2
+ḣ1ρ̂2
+2/Ỹ 
+Ỹ  − c1ḣ1ρ̂2
+= − βε
+ε/2 + s
+ṡ + ρ̃1
+˙
+ρ̂1/γ1. (39)
+Substituting (36) into (31), we have
+ṡ = − Kss − λmax(Kd)ρ̂1sgn(s) − Ksw sgn(s)
+− KdH̃d + KdHun. (40)
+Substituting (35) and (40) into (39), we see that the derivative
+of V can be described as
+V̇ ≤ −
+β
+2
+ε
+ε − s
+Kss
+− s
+Ksw sgn(s) − λmax(Kd)ρ̂1s
+sgn(s)
+− s
+KdH̃d + s
+KdHun + λmax(Kd)ρ̃1s (41)
+where H̃d =w2
+0 ε3, −s
+KdH̃d ≤λmax(Kd)(s2
++ w4
+0 ε32
+)/
+2, −s
+Kss ≤ −λmin(Ks)s2
+/2, s
+KdHun ≤ λmax(Kd)
+Huns.
+Then, we have
+V̇ ≤ −
+β
+2
+ε
+ε − λmin(Ks)s2
++
+λmax(Kd)
+2
+(s2
++ w4
+0 ε32
+) + λmax(Kd)Huns + λmax(Kd)ρ̃1s
+− λmax(Kd)ρ̂1s − s
+Ksw sgn(s)
+≤ −
+β
+2
+ε12
+−
+β
+2
+ε22
+−
+
+β
+2
+−
+1
+2
+w4
+0 λmax(Kd)
+
+ε32
+−
+
+λmin(Ks) −
+1
+2
+λmax(Kd)
+
+s2
+− λmax(Kd)(ρ1 − Hun)s − λmin(Ksw )s
+≤ − ξ
+Λξ − [λmin(Ksw ) + λmax(Kd)(ρ1 − Hun)] s
+(42)
+where
+ξ = [ε
+, s
+]
+, Λ =
+⎡
+⎢
+⎣
+Λ1 012×6 012×6
+06×6 Λ2 06×6
+06×6 06×6 Λ3
+⎤
+⎥
+⎦
+Λ1 = β
+2 I12×12, Λ2 = [β
+2 − 1
+2 w4
+0 λmax(Kd)]I6×6, and Λ3 =
+[λmin(Ks) − 1
+2 λmax(Kd)]I6×6.
+Based on Assumption 2, we have ρ1 − Hun ≥ 0. Because
+the parameters β, w0, Ks, and Ksw satisfy related conditions
+mentioned in Theorem 1, we know that λmin(Ksw ) > 0 and
+λmin(Λ) > 0.
+Equation (42) implies that V̇ < 0 for ξ = 0, and the signals s,
+ε, ρ̃1, and ρ̃2 are bounded. Based on (42), we have V̇ ≤ −ξ
+Λξ.
+Then, we have lim
+t→∞
+ t
+0 (ξ
+Λξ)dτ ≤ V (0) − V (∞). Because
+V (0) and V (∞) are bounded, s and ε are square integrable.
+According to (40) and the boundedness of s, ρ̂1, Ḣd, and Hun,
+we can conclude that ṡ is bounded.
+From (12), we know that  ˜
+f = ϕ̃. Further, we have ˜
+f is
+bounded according to (14). The boundedness of Ḣd and Hun
+implies that ρt(t) is bounded from (14). Because ε, ρ̂2, and ḣ(t)
+are bounded, from (13), we can obtain is bounded. Then, ε̇ is
+bounded from (16). The boundedness of ṡ and ε̇ implies that ˙
+ξ
+is bounded. According to Lemma 2, we have lim
+t→∞
+ξ(t) = 0, i.e.,
+lim
+t→∞
+s(t) = 0 and lim
+t→∞
+ε(t) = 0.
+Substituting ˆ
+ė = ˆ
+η̇ − η̇ into (27), we have
+Kp e(t) + Ki
+t
+0
+e(τ)dτ + Kdė(t) + Kde(0) = z(t) (43)
+where z(t) = [z1(t), . . . , z6(t)]
+satisfies
+z(t) = s(t) − w0Kdε2(t) + Kp e(0) + Kd
+ˆ
+ė(0) + Kde(0).
+(44)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+CUI et al.: EXTENDED STATE OBSERVER-BASED INTEGRAL SLIDING MODE CONTROL FOR AN UNDERWATER ROBOT 6791
+Because Kp , Ki, and Kd are positive definite diagonal ma-
+trices, we have
+zi(t) = Kpiei(t) + Kii
+t
+0
+ei(τ)dτ + Kdiėi(t)
++ Kdie(0), i = 1, . . . , 6 (45)
+where zi(t) is the ith element of z(t).
+Then, take Laplace transform of (45), we have
+ei(p)
+zi(p)
+=
+p
+Kdip2 + Kpip + Kii
+(46)
+where p is the Laplace transform operator, ei(p) and zi(p) are
+the Laplace transforms of ei(t) and zi(t), respectively.
+Using the final value theorem of Laplace transform, we have
+e(∞) = lim
+p→0
+p2
+zi(p)
+Kdip2 + Kpip + Kii
+. (47)
+Let p = Re(p) + iIm(p) = pr + ipi. Since the initial error
+e(0) and ˆ
+ė(0) are bounded, and ε2 (t) is bounded, from (44), zi(t)
+is bounded. zi(t) can converge to Kp e(0) + Kd
+ˆ
+ė(0) + Kde(0)
+as time goes to infinity. Then, we have |zi(t)| ≤ zi max < ∞.
+The Laplace transform of zi(t) satisfies
+|zi(t)| =
+
+
+
+
+∞
+0
+e−pτ
+zi(τ)dτ
+
+
+
+ ≤
+∞
+0
+|e−pτ
+zi(τ)|dτ
+≤ zi max
+∞
+0
+|e−pτ
+|dt = zi max
+∞
+0
+|e−(pr +ipi )τ
+|dτ
+≤ zi max
+∞
+0
+|e−pr τ
+||e−ipi τ
+|dτ
+≤ zi max
+∞
+0
+|e−pr τ
+|| cos(−piτ) + i sin(−piτ)|dτ
+=
+zi max
+pr
+. (48)
+Then, we have
+lim
+p→0
+|p2
+zi(p)| ≤ lim
+pr →0,pi →0
+
+|pr + ipi|2
+
+
+
+
+zi max
+pr
+
+
+
+
+
+≤ lim
+pr →0
+
+p2
+r
+
+
+
+
+zi max
+pr
+
+
+
+
+
+= 0. (49)
+Hence, it can be induced from (49) that limp→0p2
+zi(p) = 0,
+and then we have
+ei(∞) = lim
+p→0
+p2
+zi(p)
+Kdip2 + Kpip + Kii
+= 0. (50)
+The system given by (45) and (46) is stable if the parameters
+Kdi, Kpi, and Kii are chosen as positive constants to satisfy
+Hurwitz stability criterion. According to (47) and (50), it can be
+concluded that limt→∞e(t) = 0. This completes the proof. 
+Remark 4: Given that many parameters need to be chosen
+for the control design, we provide a guidance on choosing the
+control parameters. The parameters can be divided into three
+parts as follows.
+1) Kp , Kd, and Ki in (27) relate to the dynamic convergent
+performance of trajectory tracking error, which should
+Fig. 2. (a) Underwater robot used in the experiment. (b) Underwater
+robot in the pool.
+be chosen as positive definite matrices to satisfy Hurwitz
+stability criterion.
+2) Ksw and Ks in (30) are associated with the control sta-
+bility and the rate of reaching the sliding mode surface.
+Ksw is a positive definite matrix satisfying λmin(Ks) >
+λm a x (Kd )
+2 in order to guarantee the positive definite prop-
+erty of matrix Λ in (42). Besides, since large Ksw may
+lead to chattering problem, it is expected to decrease
+min Ksw as small as possible. Ks can effect the rate of
+reaching the sliding mode surface.
+3) γ1, γ2, and c1 are the parameters for the ESO.
+Note that w0 is an important parameter for the observer. If
+w0 is selected very large, the estimation of the states can vibrate
+sharply in the beginning; it is harmful to the control perfor-
+mance. A small w0 leads to a slow converge rate of the estima-
+tion error. γ1 and γ2 have influences on the convergence rates
+of ρ̃1 and ρ̃2, respectively. These two parameters can be chosen
+empirically.
+V. EXPERIMENTAL STUDIES
+This section describes the experimental studies we have per-
+formed to verify the developed controller via an underwater
+robot propelled by six thrusters. The designed controller is com-
+pared with the conventional PD controller during experiment
+study.
+A. Experiment Setup
+As shown in Fig. 2(a), the underwater robot used in the exper-
+iment measures 574 × 574 × 454.5 mm and weights 60 kg. It is
+equipped with six separate thrusts U = [U1, . . . , U6]
+in which
+two thrusts (U1, U5) are used for surge motion, two thrusts
+(U2, U4) are used for sway motion, and two thrusts (U3, U6)
+are used for heave motion. The thrusters can provide the thrust
+Ui ∈ [−20, 20]N, i = 1, . . . , 6. An IMU is used to measure the
+orientations of the robot in the body frame and the measurement
+accuracy is 0.4◦
+. A VPS, which is equipped with two cameras
+next to the pool and four white light sources on the robot, is ap-
+plied to measure positions of the underwater robot whose white
+lights are all turned ON during the experiment for the position
+capturing by the VPS, as presented in Fig. 2(b).
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+6792 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017
+Fig. 3. Signal flow of the underwater robot control.
+TABLE I
+CONTROL GAINS OF THE MIMO-ESO ISMC
+Gain Value
+γ1 1
+γ2 1.5
+c1 0.8
+w0 1.5
+Kp diag[0.55, 1.2, 1.5, 0.5, 0.8, 0.06]
+Ki diag[3, 0.8, 0.8, 0.6, 0.4, 0.8]
+Kd diag[0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+Ks w diag[0.003, 0.0024, 0.002, 0.0025, 0.003, 0.0026]
+Ks diag[0.3, 0.3, 0.3, 0.3, 0.3, 0.3]
+The underwater robot includes an internal computer system
+which connects to external computer via fiber-optic communi-
+cation. The internal computer system is composed by PC104
+module. Both internal and external computer system use Win-
+dows XP operating systems. The internal computer system re-
+ceives the IMU data and transmits it to the external computer.
+The external computer receives this information and the posi-
+tion information from the VPS, and calculates the control input
+for each thruster. Then, the control signals are transmitted to the
+internal computer, which connects to six thrusters. The signal
+flow of the control system is illustrated in Fig. 3.
+B. Experiment Parameters
+In the experiment, the control sampling interval time is se-
+lected as 0.1 s. The gains of the MIMO-ESO ISMC are designed
+as Table I.
+In addition to the proposed controller, we have also designed
+a PD controller for comparing the control performance, in which
+the velocity of the robot are calculated by the direct derivations
+of the position information. The parameters of the PD control
+are designed as Kp̄ = diag[180, 50, 40, 0.2, 0.2, 3], and K¯
+d =
+diag[10, 10, 10, 2, 2, 2].
+The initial position and orientation of the underwater robot
+are set as η0 = [1.4 m, 1.8 m, 0.6 m, 0 rad, 0 rad, −π
+4 rad]
+. Note
+that in different experiments, there will be a slight variation
+of the initial states due to the deployment error. The nominal
+hydrodynamic parameters Gη , M∗
+, D∗
+, C∗
+, and L in the de-
+signed control are Gη = 06×6, M∗
+= diag[121.8, 127, 134.1,
+32.62, 33.87, 33.87], D∗
+= diag[13 + 50|u|, 14.3 + 50.2|v|,
+Fig. 4. (a) Trajectory in 3-D space. (b) Trajectory in the horizontal plane.
+21.2 + 64.7|w|, 18 + 73.8|p|, 24.3 + 101.7|q|, 19.2 + 84.1|r|],
+C∗
+=
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+0 0 0 0 134.1w −127v
+0 0 0 −134.1w 0 121.8u
+0 0 0 127v −121.8u 0
+0 134.1w −127v 0 33.87r −33.87q
+−134.1w 0 121.8u −33.87r 0 32.62p
+−127v −121.8u 0 33.87q −32.62p 0
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+L =
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+1 0 0 0 1 0
+0 1 0 1 0 0
+0 0 1 0 0 0
+0 0 0.287 0 0 −0.287
+0.277 0 0 0 −0.277 0
+0 0.287 0 −0.287 0 0
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+.
+The term h1(t) is selected as h1(t) = 1/(t + 1) and the
+desired trajectory is xr (t) = 0.6 sin(t/20) + 1.2, yr (t) =
+0.4 cos(t/20) + 1.2, and zr (t) = 0.0025t + 0.5.
+C. Experiment Results With Robust Test
+To justify the controller performance against external dis-
+turbances, robustness tests have been done for the PD and the
+proposed controller in the experiment. At t = 87 s, there is an
+instantaneous external force, which lasts for 0.2 s, acting on the
+robot during the experiment.
+The trajectory tracking results of the experiment in the
+3-D space and in the horizontal plane are presented in Fig. 4.
+Intuitively, both the PD controller and the proposed controller
+are able to steer the robot following the desired trajectory. To
+compare the two controllers, we define the rms value of the
+tracking error as erms =
+
+1
+N
+N
+i=1 e(i)2, where N is the
+total sampling numbers in the experiment. The rms values for
+both controllers are shown in Table II.
+Fig. 5 takes further analysis of the tracking result and it shows
+the trajectory tracking errors of the underwater robot in each
+channel. Note that, from Fig. 5(a)–(f) and Table II, the track-
+ing error with PD controller in each channel is greater than the
+proposed one. Moreover, after the disturbance at 87 s as men-
+tioned above, the proposed controller shows less overshooting
+and needs less time to recover, compared with the PD controller.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+CUI et al.: EXTENDED STATE OBSERVER-BASED INTEGRAL SLIDING MODE CONTROL FOR AN UNDERWATER ROBOT 6793
+TABLE II
+RMS ERROR OF PD CONTROLLER AND MIMO-ISMC
+erms PD MIMO-ESO ISMC
+X (m) 0.0438 0.0209
+Y (m) 0.0539 0.0294
+Z (m) 0.037 0.0143
+φ(◦
+) 5.92 1.59
+θ(◦
+) 8.04 2.52
+ψ(◦
+) 5.48 2.27
+Fig. 5. Trajectory tracking errors in the experiment. (a) Tracking error in
+surge. (b) Tracking error in sway. (c) Tracking error in heave. (d) Tracking
+error of roll. (e) Tracking error of pitch. (f) Tracking error of yaw.
+Fig. 6 presents the control inputs of the six thrusts, under the
+PD and proposed controller. Fig. 7 illustrates the output of the
+disturbance estimation in experiment.
+To validate the performance of the ESO clearly, we provide
+simulation results in Fig. 8. In the simulation, the controller and
+the parameters are chosen as the same as that used in the exper-
+iment. To imitate the measurement noise of VPS and IMU, we
+add the white noise with standard deviations 0.05 m and 0.05 rad
+for position and angular measurement, respectively. The hydro-
+dynamic parameters in the robot are selected as the nominal
+value with 10% uncertainties added. To verify the robust per-
+formance, at t = 87 s, there is an instantaneous external force,
+which lasts for 3 s, acting on the robot during the simulation.
+Fig. 8 shows that the ESO can estimate the external disturbance.
+Comparative experimental results indicate that no matter
+in the presence or absence of the disturbance, the proposed
+Fig. 6. Control inputs of the controllers.
+Fig. 7. Estimation of disturbances in the experiment.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+6794 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017
+Fig. 8. Estimation of disturbances in the simulation.
+controller tracks the desired trajectory more precisely with less
+tracking deviation than the conventional PD controller. Al-
+though the proposed controller has large control inputs and
+fluctuations during the course, as shown in Fig. 6. The robust-
+ness test shows that the proposed controller is better than PD
+controller in terms of peak overshoots and convergence rates.
+Note that there are some aspects that may have influences on
+the experimental results.
+1) The underwater robot used in the experiment has six
+low-cost thrusters with different characteristics, such as
+respond time, size of dead-zone, which degrades the con-
+trol performance of the robot especially in case that the
+calculated control input is small.
+2) The performance of the PD control could be improved
+if we carefully adjust the control parameters and add the
+integral items. However, this is empirical and will take
+more time to achieve a better performance.
+3) Chattering phenomenon still exists in the experiment be-
+cause the switching control is applied. To reduce chatter-
+ing, the saturation function can be employed to replace the
+sgn function. However, this may reduce the robustness of
+the controller against the uncertainties and disturbances.
+VI. CONCLUSION
+In this paper, a novel integral SMC enabled by an adaptive
+MIMO-ESO was developed for a general type of underwater
+robots. Asymptotic convergence of both tracking error and es-
+timation error was achieved even in the presence of unknown
+external disturbances and model uncertainties. Comparative ex-
+perimental studies verified the effectiveness and illustrated the
+superior performance of the proposed control method over the
+conventional approach.
+REFERENCES
+[1] Z. Li, C. Yang, N. Ding, S. Bogdan, and T. Ge, “Robust adaptive mo-
+tion control for underwater remotely operated vehicles with velocity con-
+straints,” Int. J. Control, Autom. Syst., vol. 10, no. 2, pp. 421–429, 2012.
+[2] W. He, Z. Yin, and C. Sun, “Adaptive neural network control of a marine
+vessel with constraints using the asymmetric barrier Lyapunov function,”
+IEEE Trans. Cybern., to be published, doi:10.1109/TCYB.2016.2554621.
+[3] Y. Shi, C. Shen, and B. Buckham, “Integrated path planning and tracking
+control of an AUV: A unified receding horizon optimization approach,”
+IEEE/ASME Trans. Mechatronics, to be published, doi:10.1109/TMECH.
+2016.2612689.
+[4] H. Li, P. Xie, and W. Yan, “Receding horizon formation tracking control of
+constrained underactuated autonomous underwater vehicles,” IEEE Trans.
+Ind. Electron., vol. 64, no. 6, pp. 5004–5013, Jun. 2017.
+[5] Z. Chu, D. Zhu, and S. X. Yang, “Observer-based adaptive neu-
+ral network trajectory tracking control for remotely operated ve-
+hicle,” IEEE Trans. Neural Netw. Learn. Syst., to be published,
+doi:10.1109/TNNLS.2016.2544786.
+[6] C. S. Chin and S. H. Lum, “Rapid modeling and control systems prototyp-
+ing of a marine robotic vehicle with model uncertainties using xPC target
+system,” Ocean Eng., vol. 38, no. 17–18, pp. 2128–2141, Dec. 2011.
+[7] B. Miao, T. Li, and W. Luo, “A DSC and MLP based robust adaptive NN
+tracking control for underwater vehicle,” Neurocomputing, vol. 111, no. 6,
+pp. 184–189, 2013.
+[8] A. Bagheri, T. Karimi, and N. Amanifard, “Tracking performance con-
+trol of a cable communicated underwater vehicle using adaptive neural
+network controllers,” Appl. Soft Comput., vol. 10, no. 3, pp. 908–918,
+2010.
+[9] H. Ashrafiuon, K. R. Muske, L. C. Mcninch, and R. A. Soltan, “Sliding-
+mode tracking control of surface vessels,” IEEE Trans. Ind. Electron.,
+vol. 55, no. 11, pp. 4004–4012, Nov. 2008.
+[10] H. Joe, “Integral sliding mode controller for precise maneuvering of au-
+tonomous underwater vehicle in the presence of unknown environmental
+disturbances,” Int. J. Control, vol. 88, no. 10, pp. 1–43, 2015.
+[11] S. Vazquez, J. I. Leon, L. G. Franquelo, and J. Rodriguez, “Model predic-
+tive control: A review of its applications in power electronics,” IEEE Ind.
+Electron. Mag., vol. 8, no. 1, pp. 16–31, Mar. 2014.
+[12] C. E. Hall and Y. B. Shtessel, “Sliding mode disturbance observer-based
+control for a reusable launch vehicle,” J. Guid. Control Dyn., vol. 29, no. 6,
+pp. 1315–1328, 2006.
+[13] Q. Guo, Y. Zhang, B. Celler, and S. Su, “Backstepping control of elec-
+trohydraulic systems based on extended-state-observer with plant dy-
+namics largely unknown,” IEEE Trans. Ind. Electron., vol. 63, no. 11,
+pp. 6909–6921, Nov. 2016.
+[14] C. Yang, X. Wang, L. Cheng, and H. Ma, “Neural-learning-based teler-
+obot control with guaranteed performance,” IEEE Trans. Cybern., to be
+published, doi:10.1109/TCYB.2016.2573837.
+[15] E. Sebasti and M. A. Sotelo, “Adaptive fuzzy sliding mode controller for
+the kinematic variables of an underwater vehicle,” J. Intell. Robot. Syst.,
+vol. 49, no. 2, pp. 189–215, 2007.
+[16] Z. Peng, D. Wang, Y. Shi, H. Wang, and W. Wang, “Containment control
+of networked autonomous underwater vehicles with model uncertainty
+and ocean disturbances guided by multiple leaders,” Inf. Sci., vol. 316,
+pp. 163–179, 2015.
+[17] L. Wu, W. X. Zheng, and H. Gao, “Dissipativity-based sliding mode
+control of switched stochastic systems,” IEEE Trans. Autom. Control,
+vol. 58, no. 3, pp. 785–791, Mar. 2013.
+[18] S. Li, X. Wang, and L. Zhang, “Finite-time output feedback tracking con-
+trol for autonomous underwater vehicles,” IEEE J. Ocean. Eng., vol. 40,
+no. 3, pp. 727–751, Jul. 2015.
+[19] H. Li, P. Shi, and D. Yao, “Adaptive sliding mode control of Markov
+jump nonlinear systems with actuator faults,” IEEE Trans. Autom. Control,
+vol. 62, no. 4, pp. 1933–1939, Apr. 2017, doi:10.1109/TAC.2016.2588885.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+CUI et al.: EXTENDED STATE OBSERVER-BASED INTEGRAL SLIDING MODE CONTROL FOR AN UNDERWATER ROBOT 6795
+[20] C. S. Chin and C. Wheeler, “Sliding-mode control of an electromagnetic
+actuated conveyance system using contactless sensing,” IEEE Trans. Ind.
+Electron., vol. 60, no. 11, pp. 5315–5324, Nov. 2013.
+[21] L. Wu, Z. Feng, and J. Lam, “Stability and synchronization of discrete-
+time neural networks with switching parameters and time-varying delays,”
+IEEE Trans. Neural Netw. Learn. Syst., vol. 24, no. 12, pp. 1957–1972,
+Dec. 2013.
+[22] J. Liu, S. Vazquez, L. Wu, A. Marquez, H. Gao, and L. G. Fran-
+quelo, “Extended state observer based sliding mode control for three-
+phase power converters,” IEEE Trans. Ind. Electron., vol. 64, no. 1,
+pp. 22–31, Jan. 2017.
+[23] J. Kim, H. Joe, S. C. Yu, and J. S. Lee, “Time delay controller de-
+sign for position control of autonomous underwater vehicle under dis-
+turbances,” IEEE Trans. Ind. Electron., vol. 63, no. 2, pp. 1052–1061,
+Feb. 2016.
+[24] H. Joe, M. Kim, and S. C. Yu, “Second-order sliding-mode controller for
+autonomous underwater vehicle in the presence of unknown disturbances,”
+Nonlinear Dyn., vol. 78, no. 1, pp. 183–196, 2014.
+[25] E. Zheng, J. Xiong, and J. Luo, “Second order sliding mode control for a
+quadrotor UAV,” ISA Trans., vol. 53, no. 4, pp. 1350–1356, 2014.
+[26] S. Soylu, B. J. Buckham, and R. P. Podhorodeski, “A chattering-
+free sliding-mode controller for underwater vehicles with fault-
+tolerant infinity-norm thrust allocation,” Ocean Eng., vol. 35, no. 16,
+pp. 1647–1659, 2008.
+[27] D. Ginoya, P. D. Shendge, and S. B. Phadke, “Sliding mode control
+for mismatched uncertain systems using an extended disturbance ob-
+server,” IEEE Trans. Ind. Electron., vol. 61, no. 4, pp. 1983–1992,
+Apr. 2014.
+[28] T. Elmokadem, M. Zribi, and K. Youcef-Toumi, “Terminal sliding mode
+control for the trajectory tracking of underactuated autonomous underwa-
+ter vehicles,” Ocean Eng., vol. 129, pp. 613–625, 2017.
+[29] J. Na, X. Ren, and D. Zheng, “Adaptive control for nonlinear pure-
+feedback systems with high-order sliding mode observer,” IEEE Trans.
+Neural Netw. Learn. Syst., vol. 24, no. 3, pp. 370–382, Mar. 2013.
+[30] D. Fernandes, A. J. Sorensen, K. Y. Pettersen, and D. C. Donha, “Output
+feedback motion control system for observation class ROVs based on a
+high-gain state observer: Theoretical and experimental results,” Control
+Eng. Pract., vol. 39, pp. 90–102, 2015.
+[31] H. An, J. Liu, C. Wang, and L. Wu, “Disturbance observer-based anti-
+windup control for air-breathing hypersonic vehicles,” IEEE Trans. Ind.
+Electron., vol. 63, no. 5, pp. 3038–3049, May 2016.
+[32] J. Yao, Z. Jiao, and D. Ma, “Extended-state-observer-based output feed-
+back nonlinear robust control of hydraulic systems with backstepping,”
+IEEE Trans. Ind. Electron., vol. 61, no. 61, pp. 6285–6293, Nov. 2014.
+[33] L. Wu, X. Su, and P. Shi, “Output feedback control of Markovian jump
+repeated scalar nonlinear systems,” IEEE Trans. Autom. Control, vol. 59,
+no. 1, pp. 199–204, Jan. 2014.
+[34] G. Xia, C. Pang, and J. Liu, “Neural-network-based adaptive observer
+design for autonomous underwater vehicle in shallow water,” in Proc. Int.
+Conf. Nat. Comput., 2013, pp. 216–221.
+[35] Z. Chu and M. Zhang, “Fault reconstruction of thruster for autonomous
+underwater vehicle based on terminal sliding mode observer,” Ocean Eng.,
+vol. 88, no. 5, pp. 426–434, 2014.
+[36] Z. Li, C. Y. Su, G. Li, and H. Su, “Fuzzy approximation-based adaptive
+backstepping control of an exoskeleton for human upper limbs,” IEEE
+Trans. Fuzzy Syst., vol. 23, no. 3, pp. 555–566, Jun. 2015.
+[37] B. Xian, D. Chen, B. Zhao, and Y. Zhang, “Nonlinear robust output feed-
+back tracking control of a quadrotor uav using quaternion representation,”
+Nonlinear Dyn., vol. 79, no. 4, pp. 2735–2752, 2015.
+[38] H. Castafñeda, S. O. Salas-Peña, and J. León-Morales, “Extended observer
+based on adaptive second order sliding mode control for a fixed wing
+UAV,” ISA Trans., vol. 66, pp. 226–232, 2016.
+[39] W. Kim, D. Won, D. Shin, and C. C. Chung, “Output feedback nonlin-
+ear control for electro-hydraulic systems,” Mechatronics, vol. 22, no. 6,
+pp. 766–777, 2012.
+[40] T. I. Fossen, Guidance and Control of Ocean Vehicles. New York, NY,
+USA: Wiley, 1994.
+[41] A. Azemi and E. E. Yaz, “Sliding-mode adaptive observer approach to
+chaotic synchronization,” J. Dyn. Syst., Meas. Control, vol. 122, no. 4,
+pp. 758–765, 2000.
+[42] B. Walcott and S. Zak, “State observation of nonlinear uncertain dynam-
+ical systems,” IEEE Trans. Autom. Control, vol. 32, no. 2, pp. 166–170,
+Feb. 1987.
+[43] K. Kalsi, J. Lian, and S. Hui, “Sliding-mode observers for systems with
+unknown inputs: A high-gain approach,” Automatica, vol. 46, no. 2,
+pp. 347–353, 2010.
+[44] Y. Li and Q. Xu, “Adaptive sliding mode control with perturbation es-
+timation and PID sliding surface for motion tracking of a piezo-driven
+micromanipulator,” IEEE Trans. Control Syst. Technol., vol. 18, no. 4,
+pp. 798–810, Jul. 2010.
+[45] I. Eker, “Sliding mode control with PID sliding surface and experimental
+application to an electromechanical plant,” ISA Trans., vol. 45, no. 1,
+pp. 109–118, 2006.
+[46] G. Tao, “A simple alternative to the Barbalat lemma,” IEEE Trans. Autom.
+Control, vol. 42, no. 5, p. 698, May 1997.
+Rongxin Cui (M’09) received the B.Eng. degree
+in automatic control and the Ph.D degree in con-
+trol science and engineering from Northwestern
+Polytechnical University, Xi’an, China, in 2003
+and 2008, respectively.
+From August 2008 to August 2010, he was
+a Research Fellow at the Centre for Offshore
+Research and Engineering, National University
+of Singapore, Singapore. Currently, he is a Pro-
+fessor with the School of Marine Science and
+Technology, Northwestern Polytechnical Univer-
+sity. His current research interests include control of nonlinear systems,
+cooperative path planning and control for multiple robots, control and
+navigation for underwater vehicles, and system development.
+Dr. Cui servers as an Editor for the Journal of Intelligent and Robotic
+Systems.
+Lepeng Chen received the B.Eng. degree in au-
+tomatic control in 2015 from Northwestern Poly-
+technical University, Xi’an, China, where he is
+currently working toward the Ph.D. degree in the
+School of Marine Science and Technology.
+His research interests include adaptive con-
+trol and its applications to marine vehicles.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in control
+engineering from the National University of Sin-
+gapore, Singapore, in 2010. He received post-
+doctoral training at Imperial College London,
+London, U.K.
+He is a Senior Lecturer with the
+Zienkiewicz Centre for Computational Engineer-
+ing, Swansea University, Swansea, U.K. His re-
+search interests include robotics, automation, and computational intelli-
+gence.
+Dr. Yang received the Best Paper Award of the IEEE TRANSACTIONS
+ON ROBOTICS in 2011, as well as a number of Best Conference Paper
+Awards.
+Mou Chen (M’10) received the B.S. degree in
+material science and engineering and the Ph.D.
+degree in control theory and control engineering
+from Nanjing University of Aeronautics and As-
+tronautics (NUAA), Nanjing, China, in 1998 and
+2004, respectively.
+He is currently a Full Professor in the Col-
+lege of Automation Engineering, NUAA. He was
+an Academic Visitor in the Department of Aero-
+nautical and Automotive Engineering, Lough-
+borough University, Loughborough, U.K., from
+November 2007 to February 2008. From June 2008 to September 2009,
+he was a Research Fellow in the Department of Electrical and Com-
+puter Engineering, National University of Singapore. He was a Senior
+Academic Visitor in the School of Electrical and Electronic Engineering,
+University of Adelaide, Adelaide, Australia, from May 2014 to November
+2014. His research interests include nonlinear system control, intelligent
+control, and flight control.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore. Restrictions apply.
