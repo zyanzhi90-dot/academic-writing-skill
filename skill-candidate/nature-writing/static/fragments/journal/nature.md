@@ -10,7 +10,7 @@ Broad, multi-disciplinary. A reader outside the immediate subfield must be able 
 ## Drafting priorities
 
 - The opening sentence of the abstract and the introduction must signal significance for a non-specialist audience without overclaiming.
-- For a `Nature` summary paragraph, use a staged funnel: `broad field -> sharper background -> exact problem -> here we show -> what the result changes -> broader context / outlook`.
+- For a `Nature` summary paragraph, a staged funnel is useful where it fits: `broad field -> sharper background -> exact problem -> present contribution -> what the result changes -> broader context / outlook`. Apply the common expression core and author-supported structure.
 - Avoid jargon that does not appear in a typical Nature News piece. Define or replace.
 - At initial submission, formatting is flexible within reason. Use the target
   length and display budget as a readiness check, not as grounds to reject an
@@ -24,7 +24,7 @@ Broad, multi-disciplinary. A reader outside the immediate subfield must be able 
 
 - Articles begin with a fully referenced, unstructured summary paragraph aimed
   at readers outside the discipline.
-- When the abstract is effectively a `Nature` summary paragraph, make sure the gap sentence and the `Here we show` sentence are both explicit and separated in function.
+- When the abstract is a `Nature` summary paragraph, keep any motivating gap and the present contribution distinguishable in function; do not require Here wording, a separate sentence for each function, or an invented gap.
 - Methods follows the figure legends, typically stays within about 3,000 words,
   and must support interpretation and replication.
 - References are typically capped at about 50 for the Article main text. Plan

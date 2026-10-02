@@ -24,12 +24,12 @@ mathematical guarantee before choosing English subjects and verbs.
 | Chinese-draft pattern | English repair |
 |---|---|
 | Broad importance before a clear object | Name the system or problem earlier |
-| Method list before research gap | Move the gap before the method |
+| Method list obscures the purpose | Clarify the author-supported purpose and key design in the order suited to the section and references; method-first abstracts are valid, and a missing gap must not be invented |
 | `显著提高 / 明显改善` without baseline | Add the comparator or soften the verb |
 | `首次 / 创新性` without scope | Replace with a bounded novelty claim |
 | Mechanism inferred from correlation | Use `suggests`, `is consistent with`, or ask for mechanistic evidence |
 | Results mixed with implications | Put observation in Results, meaning in Discussion |
-| Repeated topic noun where English would use a pronoun | Replace or elide |
+| Repeated topic noun | Keep the scientific name when it makes the object or relation clearer; replace or elide only with an unmistakable referent, using the common expression core |
 | Strings of short clauses joined by commas | Split or add explicit connectives |
 
 ## Output convention

@@ -16,4 +16,9 @@ When the source is Chinese or strongly Chinese-influenced English, do not transl
 - Strings of short clauses joined by commas — split or add connectives.
 - Vague generalizations (`many studies have shown`) — convert to specific citations or remove.
 - Hedging asymmetry: Chinese drafts often understate; English Nature-style asks for precise hedging matched to evidence strength, neither over- nor under-claiming.
-- Repetition of the topic noun where English would use a pronoun or omit it.
+- Repeated topic nouns require an identity check, not automatic pronoun
+  replacement. Keep names that make actions or guarantees clear; replace or
+  omit only when the referent and technical role remain unmistakable.
+- Determine gap and method order from the current section, scientific content,
+  and selected realizations; a method-first abstract need not acquire an
+  invented gap or be reordered into an Introduction funnel.

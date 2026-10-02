@@ -32,6 +32,10 @@ The versions below illustrate possible moves and English realizations. Select,
 combine, or omit moves to fit the author's scientific argument; their sentence
 counts and order are examples. Use the loaded shared robotics reference for
 main/supplemental reference coordination and expression checks in robotics work.
+Method-first realizations from approved abstracts are equally available when
+they express the supported contribution clearly; no gap sentence or move order
+is mandatory. The common expression core and current abstract fragment govern
+wording and verification choices, while the examples here remain options.
 
 ## Version 1: Challenge -> Contribution
 

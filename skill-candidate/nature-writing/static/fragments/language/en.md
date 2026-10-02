@@ -4,14 +4,10 @@ When the source notes are already in English, default to standard scientific-Eng
 
 ## Sentence rules
 
-- Use word count as a diagnostic, not a target range or pass/fail threshold.
-  A short definition and a longer conditional guarantee can both be sound.
-- Keep independently supportable propositions distinguishable. Split an
-  overloaded sentence when each claim needs its own evidence, but keep an
-  explicit link between a technical condition and the guarantee it limits.
-- Prefer a subject and verb that make the current technical object and action
-  checkable. Active or passive voice may be appropriate; avoid stacked
-  prepositional chains that obscure the relationship.
+Apply the loaded `scientific-expression.md` for ordinary subject–verb syntax,
+explicit object naming, sentence load, and internal expression checks. Preserve
+necessary conditions when splitting or shortening sentences.
+
 - Avoid em dashes as prose punctuation in drafts unless the user explicitly asks. Use commas, parentheses, or short sentences.
 
 ## Paragraph rules

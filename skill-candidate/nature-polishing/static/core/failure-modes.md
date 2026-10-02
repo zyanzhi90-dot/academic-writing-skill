@@ -35,6 +35,11 @@ sentence rhythm.
 
 Terminology consistency is a cross-cutting check that runs at every level: build the Terminology Ledger on first contact (see `../../../nature-shared/core/terminology-ledger.md`) and enforce its canonical forms throughout the polish.
 
+Apply the loaded `scientific-expression.md` when repairing expression and
+before delivery, including after feedback. Choose ordinary syntax and explicit
+scientific objects, then check meaningful phrases, sentences, and context;
+repeated object names are not a reason for automatic pronoun replacement.
+
 For robotics abstracts and body work, follow the conditionally loaded
 `robotics-writing-examples.md`: diagnose the failure before selecting relevant
 English cards, coordinate main and supplemental references with the current

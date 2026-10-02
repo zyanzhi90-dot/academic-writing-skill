@@ -94,34 +94,10 @@ rewrite or a new outline approval.
 
 ## Internal expression and context check before delivery
 
-After drafting or revising the current part, inspect meaningful noun phrases,
-verb phrases, modifiers, and relation expressions, including ordinary words.
-Identify units by their meaning rather than mechanically annotating every
-token or requiring a grammar tree. Verify their combinations, then the full sentence, adjacent sentences, and
-the paragraph/section function. Overall sentence meaning or a correct term
-in the ledger is insufficient. Check and fix determinate errors internally:
-
-- Technical names, abbreviations, symbols, units, and physical/mathematical roles:
-  distinguish what is measured, inferred, learned, commanded, or applied.
-- Subject–action–object relations: who does what to which quantity, including
-  passive agents, infinitives, participles, and omitted subjects in coordination.
-- Reference and modification: antecedents of pronouns and `which`, attachment
-  of modifiers, and scope of negation, degree, `only`, and quantified phrases.
-- Conditions and guarantees: which claim each assumption or operating condition
-  limits; preserve the precise guarantee type and supported strength.
-- Comparisons: comparator, metric, direction, units, experimental conditions,
-  and statistical versus descriptive status. An absent significance test does
-  not license a replacement intensifier or a stronger magnitude claim.
-- Connections: addition, contrast, concession, cause, purpose, sequence, and
-  inference must match author-supported relations; a connective cannot supply
-  a missing inference. Follow object handoffs between consecutive sentences.
-- Grammar and natural combinations: articles, number, prepositions, agreement,
-  tense, parallelism, clause/participle construction, punctuation, and idiomatic
-  collocations. Words with different technical actions are not style synonyms.
-- Paragraph and section: the opening's promise is fulfilled; necessary evidence
-  and conditions stay accessible; repeated boundaries are retained when they
-  serve a new claim and compressed when they add no argument. Check the current
-  part's contribution to the manuscript, including abstract/body alignment.
+Apply the loaded `scientific-expression.md` internal phrase-to-sentence-to-context
+check during generation and before delivery. It owns common syntax, explicit
+object naming, technical/action roles, conditions, comparison strength, grammar,
+and contextual checks; do not maintain a second general checklist here.
 
 Compare adapted expression units with the relevant main or supplemental English:
 check that changed objects and relations remain explicit, necessary conditions
@@ -137,15 +113,11 @@ input-status explanations, and reference-choice notes in author notes outside
 the manuscript. Do not write descriptions of the supplied notes into prose.
 
 
-## Abstract reference selection and scope checks
+## Abstract reference selection
 
-以 A06（*Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives*）作为默认摘要语言风格锚点：借鉴明确的主语—动作—对象、普通学术搭配和连续句的对象交接，不要求当前研究也有两个组件。A02（*Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance*）、A04（*Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities*）和 A05（*Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions*）是作者认可的其他主要参考，分别可提供设计与保证、估计与控制分工、机制与优势的紧凑实现。根据当前科学内容选择、组合，并与 A06 的主要语言习惯协调；不需要每次读完四篇或复刻其中一个全段。A01、A03 只补充合适的局部关系和英文，不作为默认整体语言模型。
+以 A06（*Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives*）作为默认摘要语言风格锚点：借鉴明确的主语—动作—对象、普通学术搭配和连续句的对象交接，不要求当前研究也有两个组件。A07（*Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion*）新增为核心模仿对象，提供反复命名科学对象、设计—作用推进、分析及验证的实际英文。A02（*Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance*）、A04（*Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities*）和 A05（*Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions*）仍是主要参考。根据当前科学内容选择、组合，并与 A06 的主要语言习惯协调；不需要每次读完五篇或复刻一个全段。A01、A03 按需补充合适的局部英文，不作为默认整体语言模型。
 
-起草或修改方法部分时，先确定本文哪些设计构成贡献、各自带来什么受支持的优势，再从相关英文中选择表达。留下足以理解关键设计及其优势的关系，不把算法步骤、全部模块或完整证明压入摘要。一个需要解释的中心贡献可以占较多方法篇幅；多个贡献则按各自作用压缩，避免某一模块的细节淹没其余贡献和主要结果。展开程度由本文贡献和摘要目的决定，不对应统一句数、顺序或每项相同配额。
-
-本作者的摘要优先采用明确主语和有限动词构成的朴素句子，贡献陈述直接命名方法或作者动作；省去 `Here` 式提示，不以冒号、分号串接多项主张。优先将不必要的分词／动名词开头改为清楚的主语—谓语；保留有科学作用且指向明确的条件或方式从句。代词只在指称清楚且确实更简洁时使用，不能用 `it` 隐去模型、控制器、误差或保证的对象。较长句中的多个设计、用途、条件和结果逐项检查：必要时拆分，拆后保持条件作用域和句间接力。主动和被动均可使用，具体术语、物理量和动作关系须符合本研究及领域写法。
-
-将这些选择接入上面的内部表达与上下文核查：逐句回读主语、技术名词和有意义的词组，再检查句间关系及摘要功能；每句应有新增作用，方法优势不能靠宽泛自评代替。遵守当前任务或期刊的真实长度要求；未指定时，参照所选主要摘要的篇幅量级，核查是否多写背景、实现细节或重复保证，不能把一种刊物或一个范例的长度变成统一限额。删减时保留会改变结论的必要条件。原文中的评价词、长句和特殊句式也需按卡片取舍，原文事实、术语误写及证据强度不随语言迁入作者稿件。
+摘要的信息取舍、方法优势、长度及验证表达由当前 `section/abstract.md` 承担，通用句法和对象清晰度由两端共同加载的 `scientific-expression.md` 承担。本文件提供实际英文和取舍，供两层规则按需适配，不另维护一套摘要或通用规范。
 
 ## Source conventions
 
@@ -156,7 +128,7 @@ A cards use the author's current abstract selections and retained local illustra
 | 当前任务 | 优先卡片 | 主要层级与选择条件 |
 |---|---|---|
 | 整体思路与证据分工 | B01、B13 | 全文／Section：双组件与构造依赖；与作者已有思路核对，不强制相同章序 |
-| 摘要 | A06 默认语言锚点；A02、A04、A05 主要参考；A01、A03 按需补充 | Paragraph 至 Phrase／Word，并核对全文承诺；按本文贡献选择具体英文及信息取舍，不强制同一结构 |
+| 摘要 | A06 默认语言锚点；A07 核心对象／验证实现；A02、A04、A05 主要参考；A01、A03 按需补充 | Paragraph 至 Phrase／Word，并核对全文承诺；按本文贡献选择具体英文及信息取舍，不强制同一结构 |
 | 引言／文献段落组 | B02、B03 | Section／Paragraph／连续句：按观测信息、控制动作及耦合问题组织 |
 | 方法段／公式前后 | B04、B06、B07 | Paragraph／连续句／Sentence：目的到输入输出、新条件到修正、目标到公式解释 |
 | 科学决策的理由 | B05 | Paragraph 至 Phrase／Word：已有可行路线、实际限制、方法选择 |
@@ -239,6 +211,18 @@ Use the common instructions above during generation and before delivery; select 
 **可迁移实现。** 从这些具体英文和对象交接开始，把用途、输入输出及可实现的能力完整替换成作者事实；单方法摘要同样可借鉴其普通主语—谓语和搭配，不必引入第二个问题或组件。若本文确有运动生成与跟踪，才借鉴系统功能分工。Polishing 核查生成性质、控制保证及执行观察是否混为一谈；不能将 motion can be scaled 写成任意实际任务均成功。选定合适句式后检查有意义的词组及前后关系，不按源文逐句填空。
 
 **取舍与变体。** 学其主要语言习惯，不把每个源词都视为最优：`enhanced`、`more features` 和 `confirmed the validity` 未在摘要中给出具体比较或发现，本文有关键设计优势或结果时应直接表达它。源文每个组件的细节也不是配额；可从 A02 借鉴设计接保证、A04 借鉴估计与控制分工、A05 借鉴机制与比较的压缩。DMP、GMM／GMR、RBFNN、Baxter 和生成能力均属于来源事实，不自动迁入本稿。被动与主动、条件位置及必要句长均可按作者科学含义调整。
+
+### A07｜核心模仿对象：明确命名对象，设计—作用—分析—验证推进
+
+**功能／定位。** [P05] *Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion*，PDF p.1／印刷页1010，Abstract 全段，首词 “This article presents”；下接 Index Terms。TNNLS 33(3)，2022，DOI `10.1109/TNNLS.2020.3037795`。作者认可其整段组织和具体英文；与 A06 默认语言锚点协同，不替换其他已认可主要参考。
+
+> This article presents an adaptive control method for dual-arm robot systems to perform bimanual tasks under modeling uncertainties. Different from the traditional symmetric bimanual robot control, we study the dual-arm robot control with relative motions between robotic arms and a grasped object. The robot system is first divided into two subsystems: a settled manipulator system and a tool-used manipulator system. Then, a command filtered control technique is developed for trajectory tracking and contact force control. In addition, to deal with the inevitable dynamic uncertainties, a radial basis function neural network (RBFNN) is employed for the robot, with a novel composite learning law to update the NN weights. The composite learning is mainly based on an integration of the historic data of NN regression such that information of the estimate error can be utilized to improve the convergence. Moreover, a partial persistent excitation condition is employed to ensure estimation convergence. The stability analysis is performed by using the Lyapunov theorem. Numerical simulation results demonstrate the validity of the proposed control and learning algorithm.
+
+**组织与句法。** 首句同时命名方法、机器人对象、任务和不确定性，不先铺陈宽泛背景。第二句限定与常规任务的真实区别，再用 `The robot system` 接到分解设计，`a command filtered control technique` 接到两类控制目标。神经网络和学习律接不确定性及参数更新，下一句再明确命名 `The composite learning`，说明数据来源、信息用途及其作用；激励条件限定估计收敛。最后 `The stability analysis is performed by using …` 与 `Numerical simulation results demonstrate …` 分开理论分析和数值证据。具体名词的重复维持对象身份，不是用含混代词制造表面连贯；设计动作、用途和证据之间有技术关系。
+
+**可迁移实现。** 可直接借鉴方法／对象开篇、`is divided into …`、`is developed for …`、`is employed … to …`、`is based on … such that …` 及分析／验证的普通句法，把科学内容全部替换为作者自己的。写下一句前确定当前动作属于哪个系统、方法、学习过程或分析，必要时重复其名称；不能只用 learned 等状态修饰代替对象类别。摘要验证默认优选本段的 `Numerical simulation results demonstrate …` 和 A04 的 `Experimental studies are also carried out to …`，分别适配实际观察结论与研究目的；前者的结果不能由后者的目的推出。按证据命名结果对象和支持的性质，不统一套成 validity 结尾。
+
+**取舍与变体。** 模仿其信息推进和普通英文，不把双臂分解、NN、历史数据、激励条件或 Lyapunov 分析迁入其他研究。原文的分系统冒号、长目的从句及多项并列不是必学形式；按通用核心拆解过载信息，保留条件的作用域。多个设计无需照抄本段的逐项篇幅，本文贡献及摘要目的决定取舍。`novel`、`inevitable`、`improve the convergence` 和 `validity` 需对应本稿自己的对象及支持；估计收敛、运动跟踪和闭环稳定不能互换。理论分析与数值模拟不自动成为实机实验，主动／被动及更具体的验证陈述均可保留。
 
 ## 正文：全文与章节组织
 
@@ -456,9 +440,10 @@ p.7 §V.A 首两句：
 
 ## 选择范例时的边界
 
-本组19张任务卡保留多类正文实现，摘要以作者认可的四篇为主要参考并按需补充局部写法；不对整篇论文作统一优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或术语问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
+本组20张任务卡保留多类正文实现，摘要以作者认可的五篇为主要参考并按需补充局部写法；不对整篇论文作统一优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或术语问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
 
 [P01]: <../../../文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf>
+[P05]: <../../../文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf>
 [P04]: <../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf>
 [P06]: <../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf>
 [P08]: <../../../文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf>

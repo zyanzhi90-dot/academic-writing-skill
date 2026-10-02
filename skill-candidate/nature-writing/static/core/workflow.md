@@ -66,6 +66,11 @@ and evidence strength rather than matching hedging, length, or voice ratios.
 
 Keep claims near the data that support them. Do not stack claims at the top of a section then leave evidence at the bottom.
 
+Apply the loaded `scientific-expression.md` during generation: ordinary
+subject–verb constructions, named scientific objects, and author-supported
+relations. Use the current section's priorities to choose information and the
+selected references' actual English to realize it.
+
 For robotics abstracts and body work, apply the loaded shared example reference
 during generation: read suitable cards' actual English and analysis, then adapt
 their realization to the author's content. Preserve relevant reference choices
@@ -92,8 +97,10 @@ For full reverse-outlining, open `references/paragraph-flow.md`.
 
 ## 8. Return prose plus notes
 
-Before delivery of robotics abstracts or body prose, perform the common internal
-phrase-to-sentence-to-context check in the loaded `robotics-writing-examples.md`.
+Before delivery, perform the loaded `scientific-expression.md` internal
+phrase-to-sentence-to-context check. In robotics abstracts or body prose, also
+compare adapted units with the selected English as directed by
+`robotics-writing-examples.md`.
 Fix determinate errors, recheck affected relations, and retain reasonable variants.
 Output checked prose plus material assumptions, missing inputs, and evidence
 questions outside the manuscript. The audit itself need not be printed. See

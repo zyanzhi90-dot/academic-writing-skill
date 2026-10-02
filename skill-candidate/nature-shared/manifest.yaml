@@ -1,5 +1,5 @@
 name: nature-shared
-version: 1.6.1-rc.4
+version: 1.6.1-rc.5
 description: >
   Declarative manifest for shared Nature reference modules. This package is not
   a standalone workflow; installed Nature skills use it to load exact shared
@@ -13,6 +13,8 @@ always_load: []
 
 core:
   on_demand:
+    - condition: nature-writing or nature-polishing loads common English scientific generation and internal phrase-to-sentence-to-context checks, including translation and feedback
+      path: core/scientific-expression.md
     - condition: nature-writing or nature-polishing handles a robotics-centred abstract or body, overall reasoning, standalone paragraph, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
       path: core/robotics-writing-examples.md
     - condition: nature-writing or nature-polishing requests shared robotics manuscript-body decisions for a robotics-centred body section or paragraph group, whole-manuscript reasoning, Related Work, or Chinese-to-English; not incidental examples, title/abstract-only, submission administration, or layout

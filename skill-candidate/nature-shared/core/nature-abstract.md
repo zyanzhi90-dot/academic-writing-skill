@@ -29,13 +29,14 @@ central discovery understandable, credible, and consequential:
 
 `precise problem or gap -> what the study does to resolve it -> main discovery -> decisive support or boundary -> what the discovery establishes -> why it matters`
 
-Draft the abstract after the Introduction question, Results evidence chain,
-and Discussion synthesis are stable. The abstract should reveal the paper's
+Align the final abstract with the Introduction question, Results evidence chain,
+and Discussion synthesis; a supported working abstract may be drafted earlier.
+The abstract should reveal the paper's
 argument, not the chronology of the research process.
 
 ## Use a discovery-centred architecture
 
-Use this default move order for a Nature Portfolio research article:
+Use this move order when a discovery-centred argument fits the author content:
 
 1. known phenomenon or important problem
 2. precise unresolved question
@@ -47,6 +48,11 @@ Use this default move order for a Nature Portfolio research article:
 Move rapidly into the present study. Spend only enough background to make the
 gap intelligible. The centre of gravity must be `we found X`, not `we evaluated
 many models and datasets` or `we propose a framework`.
+
+Method-first and other approved realizations remain available for technical
+contributions. Do not add an unsupported gap or reorder solely to fit a funnel.
+The loaded common expression core governs wording; a named direct contribution
+can perform the hinge function without Here-style signposting.
 
 This move order is rhetorical guidance, not a requirement for six sentences.
 Combine moves when needed to satisfy the current target-journal abstract limit.

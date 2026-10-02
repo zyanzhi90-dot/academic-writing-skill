@@ -9,6 +9,9 @@ Use this package only as a dependency of another installed Nature skill.
 
 - Load the exact referenced file; do not preload the whole package.
 - Treat `core/` and `journal-formats/` as shared definitions, not standalone workflows.
+- Use `core/scientific-expression.md` as nature-writing and nature-polishing's
+  common expression core during generation and before delivery; section
+  fragments supply purpose-specific guidance and examples remain on demand.
 - Use `journal-formats/nature.md` only for the flagship journal Nature and
   `core/research-compliance.md` only when its specialist applicability gate is
   triggered.

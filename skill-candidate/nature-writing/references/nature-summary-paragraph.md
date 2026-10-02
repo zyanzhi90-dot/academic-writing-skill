@@ -93,7 +93,7 @@ Goal:
 
 Rule:
 
-1. Use `Here we show`, `Here we demonstrate`, or a discipline-appropriate equivalent when the evidence is strong enough.
+1. State the main contribution directly when the evidence is strong enough, using a named scientific object or an attributable author action. The examples' `Here we show` marks this function; follow the common expression core and omit Here-style signposting.
 2. This sentence should express the main claim, not the whole method pipeline.
 
 ### 5. Direct implications of the result (2-3 sentences)
