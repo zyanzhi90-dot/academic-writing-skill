@@ -36,8 +36,12 @@ does and how the key design provides its supported role and advantage.
 Organize the abstract around this account; retain theory and validation only
 to substantiate or bound its claims.
 Use the selected main abstracts' whole-paragraph content choices and progression
-to judge what belongs. This is a contribution–support relationship, not a fixed
-sentence order.
+to judge what belongs, including phrases, modifiers, and qualifiers. Retain or
+adapt them to explain the contribution, clarify scientific relations, support
+a claim, or set necessary scope; otherwise omit them. Scientific truth alone
+does not justify inclusion. Preserve object identity, necessary conditions,
+and evidence attribution. This is a contribution–support relationship, not a
+fixed sentence order.
 
 If the user asks to discuss the abstract first, give a short Chinese main line
 with the intended emphasis and major inclusions and omissions. For a direct
@@ -79,6 +83,7 @@ Use a specific supported finding in place of a generic validity claim where
 available. Combine evidence subjects and conclusions only when support
 relationships remain clear; keep differing findings and scopes identifiable.
 Check the actual opening, object handoffs, method detail, and verification
-against the selected English and author style; grammatical validity alone
-does not establish completion. No single sentence pattern or experimental
-inventory is required.
+against the selected English and author style. Apply the same content-necessity
+test to phrases, modifiers, and qualifiers within retained sentences;
+grammatical validity alone does not establish completion. No single sentence
+pattern or experimental inventory is required.

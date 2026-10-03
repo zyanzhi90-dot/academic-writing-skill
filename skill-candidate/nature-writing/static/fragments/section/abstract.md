@@ -52,7 +52,8 @@ Open `references/abstract.md` for templates and examples.
   the sentence is grammatical. Work back from the abstract to its contribution,
   key design roles and advantages, and necessary theoretical and validation
   support. Apply the necessity criteria in Drafting discipline and Verification
-  expression to consecutive method sentences and validation branches as groups.
+  expression to consecutive method sentences and validation branches as groups,
+  and to phrases, modifiers, and qualifiers within retained sentences.
   Merge or omit execution steps or itemized observations whose omission would
   not affect contribution understanding, evidence support, or claim scope;
   factual accuracy or new information in each sentence does not replace this
@@ -71,8 +72,12 @@ does and how the key design provides its supported role and advantage.
 Organize the abstract around this account; retain theory and validation only
 to substantiate or bound its claims.
 Use the selected main abstracts' whole-paragraph content choices and progression
-to judge what belongs. This is a contribution–support relationship, not a fixed
-sentence order.
+to judge what belongs, including phrases, modifiers, and qualifiers. Retain or
+adapt them to explain the contribution, clarify scientific relations, support
+a claim, or set necessary scope; otherwise omit them. Scientific truth alone
+does not justify inclusion. Preserve object identity, necessary conditions,
+and evidence attribution. This is a contribution–support relationship, not a
+fixed sentence order.
 
 If the user asks to discuss the abstract first, give a short Chinese main line
 with the intended emphasis and major inclusions and omissions. For a direct
