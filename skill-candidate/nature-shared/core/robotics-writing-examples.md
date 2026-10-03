@@ -53,8 +53,8 @@ collocations. No extra style document is required. Reconcile a supplemental
 construction with the manuscript's terminology, person, tense, and local
 information order rather than importing an inconsistent voice. Do not imitate
 hedging strength, voice ratios, or sentence lengths irrespective of evidence.
-Several realizations can be equally sound; keep the author's accurate natural
-choices unless a concrete problem or requested style change warrants editing.
+Retain accurate choices within the author's established style. Grammatical
+validity alone does not justify a departure from the author's requirements.
 
 ## Use during drafting, polishing, and feedback
 
@@ -75,13 +75,14 @@ combine, and adjust these realizations; use supplemental references where they
 offer a better local expression consistent with the manuscript's style.
 Do not reduce this to
 function labels, fixed fill-in templates, or post-draft synonym replacement.
-Expression need not be novel; the resulting facts and logical relations must
-be the author's own. Respect shared ethics for distinctive borrowed material.
+Reuse suitable mature expression without inventing wording for novelty; the
+facts and logical relations must be the author's own. Respect shared ethics
+for distinctive borrowed material.
 
 For Polishing, first locate the actual failure at the relevant levels, then
 start the repair from a matching reference's actual English realization and
-adapt it to the author's meaning and established style. Preserve correct natural expressions
-and reasonable alternatives. A useful example can improve a local clause
+adapt it to the author's meaning and established style. Preserve accurate
+expressions and alternatives that satisfy that style. A useful example can improve a local clause
 without importing its entire paragraph structure or all its wording. Before
 retaining a combination from multiple examples, recheck agents, objects,
 temporal order, cause, conditions, and scope in the resulting text.
@@ -100,13 +101,16 @@ object naming, technical/action roles, conditions, comparison strength, grammar,
 and contextual checks; do not maintain a second general checklist here.
 
 Compare adapted expression units with the relevant main or supplemental English:
-check that changed objects and relations remain explicit, necessary conditions
+check that paragraph progression, sentence relationships, syntax, and ordinary
+wording actually use suitable source realizations within the author's style,
+not just their function labels. Check that changed objects and relations remain
+explicit, necessary conditions
 have identifiable scope, comparisons keep like objects, and combinations add
 no cumbersome phrasing or repetition without an argument function. Recheck the
 affected sentences and paragraph after fixing a unit. Examples are not word
 blacklists, required connectives, sentence-length targets, paragraph quotas,
-or active/passive ratios. Distinguish a scientific/linguistic error, an awkward
-expression that impairs understanding, and an equally reasonable variant.
+or active/passive ratios. Apply the common core's distinction between errors,
+awkward expression, author-style departures, and variants within that style.
 Deliver checked prose in the requesting skill's format; the internal audit
 does not need to appear as a checklist. Put unresolved scientific questions,
 input-status explanations, and reference-choice notes in author notes outside

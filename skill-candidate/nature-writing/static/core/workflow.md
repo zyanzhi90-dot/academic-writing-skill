@@ -71,10 +71,11 @@ subject–verb constructions, named scientific objects, and author-supported
 relations. Use the current section's priorities to choose information and the
 selected references' actual English to realize it.
 
-For robotics abstracts and body work, apply the loaded shared example reference
-during generation: read suitable cards' actual English and analysis, then adapt
-their realization to the author's content. Preserve relevant reference choices
-across parts; do not leave example use until a synonym pass after drafting.
+For robotics abstracts and body work, read suitable cards' actual English and
+analysis, then start expression from their paragraph logic, sentence relations,
+syntax, and wording. Select, combine, and adapt these to the author's content
+and established style. Preserve reference choices across parts; do not first
+compose independent wording and leave imitation to a final synonym pass.
 
 ## 5. Calibrate verbs to evidence strength
 
@@ -101,7 +102,8 @@ Before delivery, perform the loaded `scientific-expression.md` internal
 phrase-to-sentence-to-context check. In robotics abstracts or body prose, also
 compare adapted units with the selected English as directed by
 `robotics-writing-examples.md`.
-Fix determinate errors, recheck affected relations, and retain reasonable variants.
+Correct errors and departures from the author's expression requirements,
+recheck affected relations, and retain variants within the established style.
 Output checked prose plus material assumptions, missing inputs, and evidence
 questions outside the manuscript. The audit itself need not be printed. See
 `output-format.md`.

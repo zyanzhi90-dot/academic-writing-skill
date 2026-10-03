@@ -7,7 +7,7 @@ Introduction:
 
 Use this discovery-centred pattern when it fits the author's argument. Select
 and combine moves from suitable reference realizations for other contributions,
-preserving accurate natural choices in the current draft.
+preserving accurate choices within the author's established style.
 
 It should answer:
 
@@ -21,11 +21,13 @@ Some journals require a strict abstract format. Follow the journal if it conflic
 For robotics-centred abstracts, apply the loaded `robotics-writing-examples.md`
 abstract selection/use guidance: A06 is the default language anchor, with
 matching main passages from A07/A02/A04/A05 and local supplements as needed.
-Use their concrete English to repair the identified problem, preserving
-accurate natural choices and the author's scientific meaning.
-Method-first and problem-first openings are both valid when suited to author
-content; do not mechanically reorder a method-first abstract around a gap.
-Apply the common expression core.
+Use their concrete English to repair the identified problem within the
+author's scientific meaning and established style. Method-first and
+problem-first openings are both available; do not mechanically reorder a
+method-first abstract around a gap. For a method contribution opening, use
+the selected reference's actual paper/article form, such as `This paper proposes …` (A06) or `This article presents …` (A07), with the author's method,
+object, task, and conditions. Correct an independently chosen `We …` opening
+under this author style. Apply the common expression core to object handoffs.
 
 ## Polishing priorities
 
@@ -33,10 +35,12 @@ Apply the common expression core.
 - Make the author-supported problem and contribution easy to locate.
 - Keep the central contribution identifiable; retain supporting claims when
   they establish it or define a necessary boundary, rather than inventorying Results.
-- Keep the key method design and its supported advantage clear and concise;
-  one central contribution may need explanation, whereas several contributions
-  call for compressed detail so one module does not obscure the others or the
-  results. Preserve necessary scope, not an abbreviated body-method inventory.
+- Keep the key method design and its supported advantage clear and concise.
+  Expand steps, conditions, or definitions only to explain the contribution
+  or bound its claim; a criterion may itself be the contribution. One central
+  contribution may need explanation; with several, compress each design to
+  its essential role and advantage. Preserve guarantee objects, strength,
+  and necessary conditions.
 - Keep a number only when it defines, supports, or materially bounds the main
   discovery; numeric reporting is not mandatory by itself.
 - Retain a closing finding or bounded implication when it advances the abstract;
@@ -47,12 +51,17 @@ Apply the common expression core.
 
 ## Verification expression
 
-Prefer mature realizations such as `Numerical simulation results demonstrate …`
-(A07) and `Experimental studies are also carried out to …` (A04) when they fit
-the author evidence. Consult the actual English and selection notes in the
-loaded example reference. Identify the analysis or study and what it establishes
-or assesses; a purpose clause does not establish success. Preserve the distinct
+Use `Numerical simulation results demonstrate …` (A07) as the default
+realization for supported numerical findings and `Experimental studies are also carried out to …` (A04) for an actual experimental study purpose. Consult
+the actual English and selection notes. Adapt the evidence object, action
+strength, and complement; use another approved main-reference realization
+when it better fits the evidence and established style. Identify the analysis
+or study and what it establishes or assesses; a purpose clause does not establish success. Preserve the distinct
 objects and strength of simulations, experiments, and theoretical guarantees.
 Use a specific supported finding in place of a generic validity claim where
-available. Other natural A06/A05 choices remain valid; do not force every draft
-into one sentence pattern or add an experimental inventory.
+available. Combine evidence subjects and conclusions only when support
+relationships remain clear; keep differing findings and scopes identifiable.
+Check the actual opening, object handoffs, method detail, and verification
+against the selected English and author style; grammatical validity alone
+does not establish completion. No single sentence pattern or experimental
+inventory is required.

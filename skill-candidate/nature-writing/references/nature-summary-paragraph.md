@@ -227,7 +227,7 @@ When drafting a `Nature` summary paragraph:
 4. spend more space interpreting the result than naming method details,
 5. end with bounded significance, not slogan-like impact,
 6. if quantitative support exists, attach it to the strongest result sentence cluster,
-7. if the draft begins with `Here we show ...`, verify that enough field context appears before it.
+7. check that the direct contribution sentence has enough field context; apply the common expression core to its wording.
 
 ## Frequent failure modes
 
@@ -241,7 +241,7 @@ When drafting a `Nature` summary paragraph:
 1. Background slides directly into contribution.
 2. Readers cannot identify the exact unresolved problem.
 
-### Failure mode 3 — `Here we show` comes too early or too late
+### Failure mode 3 — contribution hinge comes too early or too late
 
 1. Too early: the reader lacks enough setup.
 2. Too late: the paragraph feels like an introduction review rather than a summary paragraph.

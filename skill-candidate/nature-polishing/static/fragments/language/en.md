@@ -9,7 +9,7 @@ not useful object handoffs. Preserve necessary conditions when splitting.
 
 - The last sentence of a paragraph often becomes the longest and weakest. Check it explicitly.
 - Make the main subject-verb proposition identifiable and evidence-bound.
-- Do not use em dashes as prose punctuation in the polished version unless the user explicitly requests them. Rewrite with commas, parentheses, or shorter sentences instead. Use colons only when they add clear structural value.
+- Do not use em dashes as prose punctuation in the polished version unless the user explicitly requests them. Rewrite with commas, parentheses, or shorter sentences instead.
 
 ## Paragraph rules
 
@@ -22,4 +22,5 @@ not useful object handoffs. Preserve necessary conditions when splitting.
 For robotics abstracts and body work, use the loaded shared
 `robotics-writing-examples.md` to select concrete English realizations after
 diagnosis. Before delivery, run its meaningful-phrase, sentence, and context
-checks; preserve accurate natural expressions and equally reasonable variants.
+checks; preserve accurate expressions and variants within the author's
+established style.
