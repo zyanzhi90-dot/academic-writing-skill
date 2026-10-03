@@ -1,0 +1,13 @@
+{
+  "kind": "Observed change scope only; no rule imposing sentence counts",
+  "source_draft_commit": "a7f50665fd18322f0a79bb34538b07e001639e37",
+  "original_english_sentences": 7,
+  "revised_english_sentences": 6,
+  "original_chinese_sentences": 7,
+  "revised_chinese_sentences": 6,
+  "first_four_english_sentences_verbatim": true,
+  "first_four_chinese_sentences_verbatim": true,
+  "simulation_purpose_sentence_verbatim_in_both_languages": true,
+  "observed_changes": "Real-robot finding expression revised with tested-task scope; standalone Katana-T moving-target observation omitted; revision rationale and executor read-only note retained in raw output",
+  "manual_output_edits": false
+}

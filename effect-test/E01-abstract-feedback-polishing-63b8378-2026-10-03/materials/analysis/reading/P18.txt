@@ -1,0 +1,2522 @@
+=== PDF PAGE 1 ===
+42 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+Stability Criterion and Stability Enhancement for a
+Thruster-Assisted Underwater Hexapod Robot
+Lepeng Chen , Rongxin Cui , Member, IEEE, Weisheng Yan , Chenguang Yang , Fellow, IEEE,
+Zhijun Li , Fellow, IEEE, Hui Xu , and Haitao Yu
+Abstract—The stability criterion is critical for the design of
+legged robots’ motion planning and control algorithms. If these
+algorithms cannot theoretically ensure legged robots’ stability,
+we need many trials to identify suitable parameters for stable
+locomotion. However, most existing stability criteria are tailored
+to robots driven solely by legs and cannot be applied to thruster-
+assisted legged robots. Here, we propose a stability criterion for a
+thruster-assisted underwater hexapod robot by finding maximum
+and minimum allowable thruster forces and comparing them with
+the current thrusts to check its stability. On this basis, we propose
+a method to increase the robot’s stability margin by adjusting
+the value of thrusts. This process is called stability enhancement.
+The criterion uses the optimization method to transform multiple
+variables such as attitude, velocity, acceleration of the robot body,
+and the angle and angular velocity of leg joints into one kind of
+variable (thrust) to judge the stability directly. In addition, the
+stability enhancement method is straightforward to implement
+because it only needs to adjust the thrusts. These provide insights
+into how multiclass forces such as inertia force, fluid force, thrust,
+gravity, and buoyancy affect the robot’s stability.
+Index Terms—Stability criterion, stability enhancement, thru-
+ster-assisted underwater hexapod robot.
+I. INTRODUCTION
+STABILITY is a critical issue for underwater legged robots
+because they may suffer from multiclass disturbances while
+walking, such as waves, currents, towing force of cable, and
+uncertain leg-terrain interaction force [1], [2]. The robot is stable
+if it can recover to the preset motion state by itself under the
+disturbances. Otherwise, it is unstable. In addition, if motion
+planning and control algorithms cannot theoretically ensure
+stability, they cannot be applied to other robots directly, and
+Received 20 September 2024; accepted 12 October 2024. Date of publi-
+cation 6 November 2024; date of current version 6 December 2024. This
+work was supported in part by the National Natural Science Foundation of
+China (NSFC) under Grant U22A2066, Grant U21B2047, Grant 61733014,
+and Grant 62103182, and in part by the Doctorate Foundation of Northwestern
+PolytechnicalUniversityunderGrantCX201904.Thisarticlewasrecommended
+for publication by Associate Editor Y. Liu and Editor S. Behnke upon evaluation
+of the reviewers’ comments. (Corresponding author: Rongxin Cui.)
+Lepeng Chen, Rongxin Cui, Weisheng Yan, Hui Xu, and Haitao Yu are with
+the School of Marine Science and Technology, Northwestern Polytechnical
+University, Xi’an 710072, China (e-mail: r.cui@nwpu.edu.cn).
+Chenguang Yang is with the Department of Computer Science, University of
+Liverpool, L69 3BX Liverpool, U.K..
+Zhijun Li is with the School of Mechanical Engineering, and Translational Re-
+search Center, Shanghai Yang Zhi Rehabilitation Hospital (Shanghai Sunshine
+Rehabilitation Center), Tongji University, Shanghai 200070, China.
+This article has supplementary downloadable material available at
+https://doi.org/10.1109/TRO.2024.3492374, provided by the authors.
+Digital Object Identifier 10.1109/TRO.2024.3492374
+Fig. 1. Underwater hexapod robot has six C-shaped legs and eight thrusters
+(four lateral and four vertical thrusters). The robot body and legs are connected
+by hip joints [4], [5]. Legs and thrusters simultaneously drive the robot, which
+can walk on the inclined and rough underwater terrains.
+many trials are needed to find the feasible parameters for stable
+locomotion [3]. Thus, a clear stability criterion is essential, one
+that not only evaluates the robot’s stability but also supports
+the development of stability constraints for designing robust
+planning and control algorithms.
+To perform some meticulous small-range operations on the
+underwater structure’s surface, the robot should be able to walk
+on it. Then, we develop a thruster-assisted underwater hexapod
+robot (see Fig. 1) [4], [5]. Unlike underwater robots driven
+by legs that only walk on the seabed, our robot can walk on
+structures with various inclinations and surface roughness.
+Most existing stability criteria are with robots only driven by
+legs, and they cannot be applied to our robot because it is driven
+by legs and thrusters simultaneously. Moreover, it is challenging
+to identify how the other multiclass forces, such as inertia force,
+fluid force, gravity, and buoyancy, affect the robot’s stability and
+enhance it by regulating thrusts.
+A. Related Works
+The dynamic model can be used to predict the legged robot’s
+motion by establishing the relationship between multiclass
+forces and the motion states. Knowing the future motions con-
+tributes to evaluating the robot’s stability. The model mainly
+consists of two types: inverted pendulum model [6], [7], [8], [9]
+and force balancing model [10], [11], [12], [13]. The former is
+established by simplifying the robot as an inverted pendulum,
+and the latter is an equilibrium equation to balance multiclass
+forces, e.g., leg-terrain interaction forces, inertia forces, and
+other forces.
+Inspired by the spring-loaded inverted pendulum (SLIP)
+model for ground legged robots, Calisti et al. [6] proposed a
+new dynamic model, called underwater spring-loaded inverted
+1941-0468 © 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 43
+pendulum(U-SLIP), for underwater leggedrobots. Onthis basis,
+Picardi et al. [7] presented a three-dimensional (3-D) U-SLIP
+model that includes an underwater legged robot’s lateral dy-
+namic motion. Lin et al. [8], [9] presented a rolling inverted
+pendulum model for a ground hexapod robot by using the
+Lagrange method and incorporating the rolling character caused
+by C-shaped legs. These elegant models can only describe the
+motion of walking on flat terrain and need an assumption that
+the leg-terrain friction should be large enough.
+Several attractive force balancing models are developed
+in [10], [11], and [12] for ground quadruped robots, that relax
+the above flat terrain and sufficient friction assumptions. Calisti
+et al. [13] presented a force balancing model for a novel octopus-
+inspired underwater robot by considering leg-terrain interaction
+forces and drags arising from the sculling motion of the legs.
+These models apply only to ground robots with point-contact
+legs. Thus, we need to establish a force balancing model for our
+robot by considering its unique driving manner and fluid forces.
+Several insightful stability criteria are presented for legged
+robots and can be divided into three categories: zero-tilting
+moment point (ZMP) criterion [14], [15], Poincare return map
+criterion [3], [16], [17], and force balancing criterion [18], [19],
+[20], [21].
+Vukobratovi et al. [14], [15] initially presented the ZMP crite-
+rion, which checks the stability by judging whether the ZMP lies
+within the support polygon. It has been widely used to evaluate
+legged robots’ stability because of its clear physical meaning and
+easy-use advantage. Note that this criterion assumes that contact
+terrain is flat and leg-terrain friction is adequate. In addition, the
+ZMP criterion is a constraint to prevent the robot from tipping
+over. It only uses the support legs’ rotating information, ignoring
+the swing legs’ information. That said, it overlooks the robots’
+alternating support character.
+The Poincare return map is a tool to transform the stability
+of a periodic orbit to a fixed point’s stability [22], which can
+be used to judge periodically walking robots’ stability. Grizzle
+et al. [16], [17] extended this criterion to a hybrid dynamics
+with impulse effects and applied it to judge the stability of a
+three degree-of-freedom (DoF) humanoid robot with leg-terrain
+impacts. Fu et al. [3] presented a section-map stability criterion
+to check the stability of nonperiodic walking robots.
+The force balancing criterion relies on the force-balance prin-
+ciple to check whether the robot can tip over or slip. Hirukawa
+et al. [18] presented a novel stability criterion for legged robots,
+which checks if the sum of the gravity and inertia wrench lies
+within the region constructed by noncoplanar contact points.
+Although more universal than the ZMP criterion, it is still
+based on the sufficient friction assumption. Caron et al. [19]
+considered friction and linearized pendulum constraints and
+presented a more necessary and sufficient criterion to check the
+multicontact stability. Using the static force balancing model
+and optimization algorithm, Audren et al. [21] constructed a
+robust 3-D region that consists of all feasible center of mass
+(CoM) positions by suppressing bounded CoM accelerations.
+If the CoM position remains within this region, the robot is
+stable. These interesting stability criteria are the only necessary
+conditions for stable locomotion. The robot may still be stable
+due to its alternating support character when these conditions are
+violated.
+In addition, the abovementioned criteria are limited to robots
+that are only driven by legs and cannot be applied to our robot.
+Previously, considering the alternating support character, we
+proposed a stability criterion for our robot in [23], extending the
+concept of the capture point to a capture domain and determining
+stability based on the relationship between the capture and
+support domains. However, this criterion is only applicable to
+flat terrain walking. Besides, it requires both motion states and
+thrust values for stability evaluation, complicating the design of
+stability enhancement methods.
+According to the difference in principle, the stability en-
+hancement methods can be divided into three categories: robotic
+functional mechanism designing [24], [25], [26], [27], supernu-
+merary tail adding [28], [29], [30], [31], [32], and inner motion
+planning and controlling [33], [34], [35], [36], [37], [38].
+The first category focuses on modifying robots’ geometri-
+cal and physical properties to buffer the leg-terrain impact or
+improve the self-stabilizing capability. Chellapurath et al. [24]
+disclosed how leg configuration, net weight, and the nature of
+the substrate affect the passive station-keeping performance of
+an underwater legged robot and found that the performance
+improves with an increase in net weight, a decrease in height, and
+an increase in width. In [25] and [26], two novel self-adaptive
+toe mechanisms are presented to possess cat claws’ buffer and
+hold performance.
+The second category involves using the drag or inertia force
+generated by the added tail to enhance stability. Zhang et al. [28]
+presented a new algorithm to alter the system center of gravity by
+adjusting the joint angles of a three DoF manipulator, enhancing
+the ability to prevent tip over. Inspired by basilisk lizards, Kim
+et al. [29] developed an interesting water-running robot that uses
+a two DoF tail to provide drag for enhancing the stability of
+yaw and pitch motion. In [30], an elegant optimal controller is
+proposed to steer the joints of the added tail to compensate for
+the neural delay dynamics for enhancing the human stance’s
+stability. Using a deep reinforcement learning method, Huang
+et al. [31] created a policy to automatically adjust the behaviors
+of the tail to maintain a quadruped robot’s stability.
+The third category relies on the stability criterion or bioinspi-
+ration to determine control inputs and plan the robot’s desired
+motion. In [33] and [34], the ZMP criterion is used to construct
+stability constraints integrated into the trajectory optimization
+framework to obtain optimal and stable motions for legged
+robots. Choi et al. [35] presented a new method to form the
+regions of attraction for underactuated legged robots, and it
+facilitates the design of the controller for stability enhancement.
+Using adaptive central pattern generators, Mehr et al. [36]
+presented a novel motion planner to adjust the upper body’s
+position for ensuring a lower limb exoskeleton’s postural sta-
+bility. Imitating animals’ natural gaits, Humphreys et al. [38]
+presented a gait transition method for locomotion proficiency
+enhancing.
+Despite the abovementioned methods achieving impressive
+results in stability enhancement, they are mainly applicable to
+robots that allow the addition of tails or robots only driven by
+legs. They are challenging to apply to legged robots simultane-
+ously driven by legs and thrusters.
+B. Proposed Approach and Contribution
+In this article, we establish a force balancing model and use
+the optimization method to find a feasible set of thrusts that
+allows for a certain degree of tip over and can also prevent our
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+44 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+Fig. 2. Framework of the stability criterion and stability enhancement method. (a) We establish a force balancing model for our robot. (b) We present a new
+method to define three types of walking motions by relying on the static and nonstatic force balancing model and fuse the alternating support character by relaxing
+the model. (c) We use the optimization method to find the allowable maximum and minimum vertical thrusts and propose a stability criterion by checking whether
+the robot’s vertical thrust belongs to the optimized stable region. Then, we present a stability enhancement method that changes the robot stability margin by
+adjusting the value of the vertical thrust. (d) We provide the expression of model relaxations using finite-time control theory to derive the maximum and minimum
+forces/moments. Then, we use stricter friction constraints to suppress the effects caused by the model uncertainties. Finally, we present a 6-D stability criterion
+and stability enhancement method. (a) Force balancing model. (b) Fuse alternating support character. (c) Vertical thrust based stability criterion and enhancement.
+(d) 6-D thrust stability criterion and enhancement.
+robot from slipping. Using the allowable vertical thrust and 6-D
+thrust vector, we present two solutions to check and enhance
+the robot’s stability. Fig. 2 shows the framework of the stability
+criterion and enhancement method. Table I shows the summary
+of related criteria and our criterion from the aspects of the used
+dynamic model, alternating support character, applied range
+for rough terrain, and whether to consider leg-terrain frictional
+constraint and joint torque limit. Apart from the Poincare return
+map criterion, the other related criteria do not fuse the alternating
+support character. In addition, except for the force balancing
+criterion, the other related criteria are unsuitable for judging
+the stability of rough terrain climbing and do not consider the
+leg-terrain frictional constraint. Finally, all related criteria do not
+consider the joint’s torque limit. In summary, our criterion can
+compensate for the deficiencies of the related criteria above. In
+addition, once the ZMP position is not in the support region of
+a legged robot, the ZMP criterion indicates that the robot will
+tip over, part of the legs will lift off the ground and then their
+contact forces will become zero. The force balancing criterion
+judges the robot’s stability by checking feasible contact forces’
+existence. Both criteria use the force-balance principle to check
+whether existing the feasible contact forces to judge the stability.
+Poincare return map and capture theory based criteria use the
+swing and support legs’ rotational states, which judge stability
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 45
+TABLE I
+COMPARISON OF RELATED CRITERIA AND OUR CRITERION
+by checking whether the robot’s motion states belong to the
+prescribed set.
+This article’s difficulty lies in how to propose the method of
+defining static, quasi-dynamic, and dynamic walking motions
+for thruster-assisted legged robots. Moreover, how to judge the
+robot’s stability by using the defined motions and considering
+the alternating support character is another difficulty.
+The main contributions can be specified as follows.
+1) We establish a force balancing model of our robot by
+considering the fluid forces, hip joint’s driving torque
+limit, friction limit, and for rough terrain climbing.
+2) We define three motions under the force balancing model,
+e.g., static, quasi-dynamic, and dynamic walking, and re-
+veal the connection associated with the alternating support
+character.
+3) We present a stability criterion by using an optimization
+algorithm to find a feasible set of thrusts, which has a
+good necessity due to considering the alternating support
+character.
+4) We propose a stability enhancement method with clear
+physical meanings because the desired stability margin
+can be achieved only by adjusting the thruster force ac-
+cording to the feasible set.
+The rest of this article is organized as follows. Section II
+establishes a force balancing model for our robot. Section III
+defines three motions under the established model and presents
+a model relaxation method to fuse the alternating support charac-
+ter. Section IV provides a vertical thrust-based stability criterion
+and stability enhancement method. Section V presents a 6-D
+thrust vector based stability criterion and stability enhancement
+method. Sections VI and VII present simulation and experi-
+mental results, respectively. Finally, Section VIII concludes this
+article.
+II. FORCE BALANCING MODEL
+A. Framework of the Force Balancing Model
+Assumption 1: The legs have zero mass, and the robot’s CoM
+is at the plane’s center point, consisting of six hip joints.
+Assumption 2: The shape of the leg is a semicircle, and its
+deformation is ignored.
+Assumption 3: Friction coefficients between legs and terrain
+are constant and identical.
+Assumption 4: The drive motors of the six legs are identical.
+Since the total mass of the six legs accounts for about 3%
+of the robot’s mass, its influence on the robot’s dynamics is
+negligible. In addition, the C-shaped legs are made of hard steel.
+Their shape deformations are extremely tiny while impacting
+terrains. Thus, we ignore the legs’ deformations. The unmodeled
+Fig. 3. Diagram of ith supporting leg that touches rough terrain.
+dynamics caused by ignoring the legs’ masses can make the
+established force balancing model unable to accurately reflect
+the robot’s motion. Therefore, it cannot yield the accurate maxi-
+mum and minimum thruster forces, and the accuracy of stability
+judgement can be reduced. However, the unmodeled dynamics
+caused by ignoring legs’ masses are relatively small, and their
+adverse effects can be ignored.
+According to whether touching the rough terrain, the six legs
+can be divided into two categories: supporting legs and swing
+legs. Fig. 3 shows the diagram of ith supporting leg that touches
+rough terrain. O0x0y0z0 and Oxyz are earth-fixed and body-
+fixed frames. Ai and Bi represent the front and end points of
+the robot body and ith supporting leg, Ci and Di represent the
+hip joint point and touchdown point, r is the radius of the leg,
+qi represents the rotation angle, where qi = ∠FiCiTi and the
+segment CiTi is perpendicular to CiBi. γi = 2∠BiCiDi is the
+support angle of the leg. θ is the robot’s pitch angle. fx
+i , fy
+i , and
+fz
+i are forward, vertical, and lateral touching forces.
+Using momentum and angular momentum conservation laws,
+we obtain the framework as
+
+Q̇ + w × Q = FB + FG + Ff
+b + Ff
+l + FT + Af f
+L̇ + w × L + v × Q = MBG + Mf
+b + Mf
+l + MT + Amf
+(1)
+Btfi ≤ u
+(μ)fi ≤ Γi, i = 1, . . . , Ns (2)
+where Q = m(v + w × rc) ∈ R3
+is the momentum of the robot;
+L = J0w + mrc × v ∈ R3
+is the angular momentum of the
+robot; v ∈ R3
+and w ∈ R3
+are velocity and angular velocity
+of the robot buoyant center; m ∈ R is the mass of the robot,
+J0 ∈ R3×3
+is the inertial matrix of the robot; rc ∈ R3
+is the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+46 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+Fig. 4. Placement of thrusters and legs [5].
+position vector from the buoyant center to CoM; FB ∈ R3
+and
+FG ∈ R3
+are the buoyancy and gravity vectors; MBG ∈ R3
+is
+the moment caused by buoyancy and gravity; Ff
+b ∈ R3
+and
+Mf
+b ∈ R3
+are the fluid force and fluid moment applied to robot
+body; Ff
+l ∈ R3
+and Mf
+l ∈ R3
+are the fluid force and fluid
+moment applied to C-shaped legs; FT ∈ R3
+and MT ∈ R3
+are the force and moment caused by eight thruster forces;
+f = [f
+1 , . . . , f
+i , . . . , f
+Ns
+]
+∈ R3Ns
+is the set of contact forces
+of Ns supporting legs; fi = [fx
+i , fy
+i , fz
+i ]
+∈ R3
+is the contact
+force of ith supporting leg; Af ∈ R3×3Ns
+and Am ∈ R3×3Ns
+are the contact matrices that sum all contact forces and con-
+tact moments; Bt = diag(1, 0, 1) ∈ R3×3
+is the friction cone
+matrix, diag(·) is a function to describe the diagonal matrix;
+u = [0, μ, 0]
+∈ R3
+is the matrix representing the contact nor-
+mals and the friction coefficient μ;  ·  is the Euclidian norm;
+Γi is a positive constant, which is related to the torque limit of
+ith supporting leg’s hip joint.
+Next, we need to further model, as follows:
+1) the forces, such as FT , MT , FB, FG, and MBG, caused
+by thrusters, buoyancy, and gravity;
+2) the fluid forces, such as Ff
+b , Mf
+b , Ff
+l , and Mf
+l , related to
+the robot motion states;
+3) the contact matrices Af and Am that are associated with
+robot’s touching state and terrain’s outline;
+4) the positive constant Γi related to ith hip joint’s torque
+limit.
+Remark 1: The established model in (1) shows that only one
+touching point is required for each support leg. To ensure this,
+the curvature radius of the terrain near the touching point should
+be larger than the leg’s radius. In addition, the terrain cannot
+be sticky because the established model is based on nonnegative
+vertical contact forces. Once it is sticky, the vertical contact force
+fy
+i can be less than zero, and the friction constraint in (2) cannot
+be satisfied.
+B. Thruster Forces, Gravity, and Buoyancy
+According to the thruster placement in Fig. 4, we obtain the
+force FT and moment MT caused by eight thrusters as
+
+F
+T , M
+T
+
+= Ct · T (3)
+where FT = [FT x, FT y, FT z]
+, MT = [MT x, MT y, MT z]
+,
+T = [T1, . . . , T8]
+∈ R8
+is the thruster force vector, Ct ∈ R6×8
+is the force allocation matrix [4] and it is defined as
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+0 0 0 0
+√
+2
+2
+√
+2
+2
+√
+2
+2
+√
+2
+2
+1 1 1 1 0 0 0 0
+0 0 0 0
+√
+2
+2 −
+√
+2
+2
+√
+2
+2 −
+√
+2
+2
+l1
+2 −l1
+2 −l1
+2
+l1
+2 0 0 0 0
+0 0 0 0 −
+√
+2l34
+4
+√
+2l34
+4
+√
+2l34
+4 −
+√
+2l34
+4
+l2
+2
+l2
+2 −l2
+2 −l2
+2 0 0 0 0
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+where l1, l2, and l3 are three geometrical distances between
+thrusters, which are shown in Fig. 4, and l34 = l3 + l4.
+The robot body’s gravity and buoyancy in the body-fixed
+frame can be expressed as
+FB =
+⎡
+⎣
+B sin θ
+B cos θ cos φ
+−B cos θ sin φ
+⎤
+⎦ , FG =
+⎡
+⎣
+−G sin θ
+−G cos θ cos φ
+G cos θ sin φ
+⎤
+⎦ (4)
+where φ is the robot’ roll angle.
+We can deduce the moment vector caused by buoyancy and
+gravity in the body-fixed frame as
+MBG = rc × FG (5)
+C. Fluid Forces Applied to Robot Body and Legs
+The fluid forces applied to the robot body are described as
+
+Ff
+b = −diag(λ1, λ2, λ3)v̇ − diag(cx, cy, cz)v
+Mf
+b = −diag(λ4, λ5, λ6)ẇ − diag(mx, my, mz)w
+(6)
+where λ1, λ2, and λ3 are added masses along the robot body’s
+longitudinal, vertical, and lateral directions, λ4, λ5, and λ6 are
+added moments of inertia along the three directions. cx, cy, cz
+and mx, my, mz are two groups of hydrodynamic parameters
+linearly related to water drags and moments of resistance.
+Remark 2: Because our robot’s cruising speed is lower than
+that of torpedo-like underwater robots, we believe that the
+first-order fluid force accounts for most of the hydrodynamics
+and then ignores the second or higher order fluid force. In
+addition, these hydrodynamic parameters such as λ1, . . . , λ6,
+cx, cy, cz, mx, my, and mz are identified from experimental
+data by multiple pool cruising tests. In addition, the value of the
+angular acceleration ẇ cannot be measured directly by sensors.
+Here,weusethevalueoftherobot’scurrentandpreviousangular
+velocities and the difference method to obtain the value of ẇ.
+Before deducing the fluid forces applied to the legs, we need
+to know the velocities of the legs. In addition, we need to lump all
+fluid forces into the buoyancy centre. Here, we split the deducing
+process into three steps: deduce the legs’ velocities, deduce the
+fluid forces, and lump the forces into the buoyancy centre.
+Step 1: Deduce the legs’ velocities. Based on the placement
+of the hip joints in Fig. 4 and the velocity v and angular velocity
+w in the buoyant centre, we can deduce the velocity of kth hip
+joint as
+vh
+k = v + w × rh
+k , k = 1, . . . , 6 (7)
+where rh
+1 = [d2, 0, −d1]
+, rh
+2 = [d2, 0, d1]
+, rh
+3 = [0, 0, −d1]
+,
+rh
+4 = [0, 0, d1]
+, rh
+5 = [−d2, 0, −d1]
+, and rh
+6 = [−d2, 0, d1]
+,
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 47
+Fig. 5. Velocity of one short arc that belongs to kth leg.
+d1 and d2 are two kinds of distances between hip joints and are
+shown in Fig. 4.
+As shown in Fig. 5, we provide the diagram of a short arc and
+its velocity vα
+i in kth leg. Based on the geometrical relationship,
+we obtain the velocity vα
+k as
+vα
+k = vh
+k + [0, 0, −q̇k]
+× rα
+k (8)
+where rα
+k = [2r cos αk · cos(θ + qk + αk − π
+2 ), −2r cos αk ·
+sin(θ + qk + αk − π
+2 ), 0]
+, αk = ∠BkCkEk.
+Step 2: Deduce fluid forces. The fluid force applied to the
+short acr can be described as
+dFα
+k = diag(−μl, −μl, 0)vα
+k · dαk (9)
+where μl is the hydrodynamic coefficient related to the water
+density and C-shaped leg’s width. Note that we ignore the fluid
+force along the leg’s lateral direction because the C-shaped leg’s
+width is much larger than its thickness.
+The moment on the kth hip joint caused by dFα
+k can be
+deduced as
+dMα
+k = rα
+k × dFα
+k . (10)
+Integrating both sides of (9) and (10), we can deduce the fluid
+force and moment applied to the ith hip joint as
+Fα
+k =
+π
+2
+0 diag(−μl, −μl, 0)vα
+k · dαk
+Mα
+k =
+π
+2
+0 rα
+k × diag(−μl, −μl, 0)vα
+k · dαk.
+(11)
+Step 3: Lump the forces into the buoyancy center. Lumping
+the forces on six hip joints, we can deduce the force and moment
+applied to the buoyancy center as
+Ff
+l =
+6
+i=1
+Fα
+k , Mf
+l =
+6
+i=1
+(Mα
+k + rh
+k × Fα
+k ). (12)
+D. Contact Matrices and Torque Limit
+Fig. 6 shows the contact force fi = [fx
+i , fy
+i , fz
+i ]
+of ith
+supporting leg, where i = 1, 2, . . . , Ns, fy
+i and fx
+i are parallel
+and perpendicular to the line segment DiEi, respectively, fz
+i
+is parallel to the axis Oz of the body-fixed frame, Ci and Di
+are points of ith hip joint and touching with the rough terrain,
+and Ei is the point that Di projects to the robot body along the
+direction of fy
+i .
+Fig. 6. Contact force of the kth supporting leg.
+Since ∠AiCiBi = θ + qi − π
+2 , we can derive the position
+vector from Ci to Di as rt
+i = [lcd
+i cos ∠AiCiDi, −lcd
+i sin ∠Ai
+CiDi, 0]
+, where lcd
+i = 2r cos(γi
+2 ), ∠AiCiDi = ∠AiCiBi +
+γi
+2 = θ + qi − π
+2 + γi
+2 .
+Then, we derive the contact matrices Af and Am as
+
+Af = diag(J1, J2, . . . , JNs
+)
+Am = diag(r̂t
+1J1, r̂t
+2J2, . . . , r̂t
+Ns
+JNs
+)
+(13)
+where the hat map (ˆ
+·) is used to turn a vector into a
+skew-symmetric matrix, Ji denotes a rotation matrix to
+project the fi into the body-fixed frame, which is expressed
+as Ji =
+⎡
+⎣
+cos(∠AiEiDi − π
+2 ) sin(∠AiEiDi − π
+2 ) 0
+− sin(∠AiEiDi − π
+2 ) cos(∠AiEiDi − π
+2 ) 0
+0 0 1
+⎤
+⎦,
+where ∠AiEiDi = ∠AiCiBi + γi = θ + qi − π
+2 + γi.
+According to the geometrical relationship in Fig. 6, we can
+derive the needed torque of the driving motor in ith hip joint as
+τi = lcd
+i fx
+i cos
+γi
+2
+
++ lcd
+i fy
+i sin
+γi
+2
+
+. (14)
+Equation (14) can be rewritten as
+τi = lcd
+i
+
+fx
+i
+2
++ fy
+i
+2
+sin
+γi
+2
++ αi
+
+(15)
+where αi = arctan(fx
+i /fy
+i ).
+Since sin(γi
+2 + αi) ≤ 1 and fx
+i ≤ μ|fy
+i |, we have
+τi ≤ lcd
+i
+
+1 + μ2 · u
+(μ)fi ≤ τmax (16)
+where τmax is the maximum torque that the driving motor in ith
+hip joint can be provided.
+Based on (16), we have u
+(μ)fi ≤ τmax
+lcd
+i
+√
+1+μ2
+. Thus, we can
+obtain ith supporting leg’s Γi as
+Γi =
+τmax
+lcd
+i
+
+1 + μ2
+. (17)
+III. WALKING MOTION DEFINITION
+We introduce the existing definition of the humanoid robot’s
+walking motions, which uses the relation between ZMP, CoM,
+and the support area to judge its stability. Inspired by this,
+we propose a new method to define the walking motions for
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+48 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+Fig. 7. Diagram of static, quasi-dynamic, and dynamic walking motions.
+thruster-assisted legged robots using the established force bal-
+ancing model to check whether there are feasible contact forces.
+Finally, we fuse the alternating support character by relaxing the
+established model as inequality constraints.
+According to the relationship between the CoM, ZMP and the
+support convex polygon, Chen et al. [39] define three types of
+humanoid robot walking motions. Concretely, when the CoM
+and ZMP are located in the support convex polygon area, the
+robot belongs to static walking motion. When the CoM is located
+in the region of the supporting convex polygon, and the ZMP
+is outside the polygon, the robot is in quasi-dynamic walking
+motion. The robot is in dynamic walking motion when the ZMP
+is located outside the support convex polygon.
+Before defining the motions, we remove the inertia and fluid
+forces from (1) and obtain the static force balancing model as
+
+FB + FG + Af f + FT = 0
+MBG + Amf + MT = 0.
+(18)
+According to whether there are feasible contact forces f to
+make (1), (2), and (18) satisfy, we can sort the motions into
+three categories: static, quasi-dynamic, and dynamic walking
+motions, which are shown in Fig. 7.
+Definition 1 (Static Walking): If ∃f, satisfying (1), (2), and
+also ∃f, satisfying (2), (18), the robot is in static walking motion.
+Definition 2 (Quasi-dynamic Walking): If ∃f, satisfying (1)
+and (2), but f satisfies (2) and (18), then the robot is in quasi-
+dynamic walking motion.
+Definition 3 (Dynamic Walking): If f, satisfying (1) and (2),
+then the robot is in dynamic walking motion.
+Remark 3: Compared to the definition of the three types of
+motions in [39], our definition has the advantage of being close
+to the actual situation and can be applied to more universal cases.
+The advantages lie in the following three aspects.
+1) Unlike the definition in [39], in addition to being relevant
+to the gravity and inertia force, our definition is also
+relevant to the fluid and thruster forces. Therefore, our
+definition is more universal and can be used to define the
+motion of thruster-assisted robots and underwater-legged
+robots.
+2) Different from the definition in [39], which assumes that
+leg-terrain friction and joints’ driving torques are large
+enough, our definition relaxes these assumptions. That
+said, the walking motions sorted by our definition are
+closer to the actual situation.
+3) Our definition sorts the walking motions by checking
+whether feasible leg-terrain contact forces exist. There-
+fore, it is convenient to sort the robot’s motion of climbing
+rough terrain. In contrast, the definition in [39] needs to
+assume that the terrain is flat. In addition, the use of a
+contact force-based force balancing model makes it easy
+to fuse other kinds of external forces and thrusts.
+We may be unable to find the feasible contact forces (solu-
+tions) by using optimization methods when the constraints in
+(1) and (2) are too strict. Many factors lead to the constraints’
+strictness,e.g.,thenumberofsupportlegs,theamountofinertial,
+fluid forces, and thrusts. Next, the existence of feasible solutions
+when the robot has 1, 2, and at least three support legs will be
+discussed, respectively.
+1) When the robot has only one support leg, the number of
+unknown variables in (1) is 3, and there are three contact
+forces at the touchdown point. The number of the equality
+constraints in (1) is 6. Thus, (1) is overconstrained. That
+said, there is no feasible contact force. In such a case, the
+robot belongs to dynamic walking.
+2) When the robot has two support legs, the number of
+unknown variables in (1) is 6, which is the number of
+contact forces at the two touchdown points. The number
+of inequality and equality constraints are 4 and 6, respec-
+tively. Thus, it is highly likely that a feasible solution for
+six variables cannot be found. In such a case, the robot is
+highly dynamic walking.
+3) When the robot has at least Ns(Ns ≥ 3) support legs, the
+number of unknown variables in (1) is 3Ns. The number of
+equality constraints in (1) is 6, and the number of inequal-
+ity constraints is 2Ns. Thus, when the inertial forces and
+the thrusts are within a reasonable range, feasible solutions
+in 3Ns variables can be found, and the robot may belong
+to static or dynamic walking.
+When it belongs to dynamic walking, and its swing leg does
+not switch to the support one, the legged robot must fall due to
+tip over. However, the legged robot relies on the legs’ alternate
+support character to realize the walking. It is still possible to
+make the swing leg switch to the support leg timely by gait
+planning, and the robot remains stable.
+If the robot’s stability is judged only by the existence of
+feasible solutions, the necessity of the stability criterion will
+be reduced. Therefore, the equality constraints in (1) should be
+appropriately relaxed to improve the necessity of the stability
+criterion as follows.
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+−ΩF ≤ −Q̇ − w × Q + (FB + FG + Ff
+b + Ff
+l
++Af qf + Af f + FT ) ≤ ΩF
+−ΩM ≤ −L̇ − w × L − v × Q + (MBG + Mf
+b
++Mf
+l + Amqf + Amf + MT ) ≤ ΩM
+(19)
+where ΩF =[Ω1
+F , Ω2
+F , Ω3
+F ]
+∈R3
+and ΩM =[Ω1
+M , Ω2
+M , Ω3
+M ]
+∈ R3
+are relaxations, Ω2
+F = Ω2
+M = 0, Ω1
+F , Ω3
+F , Ω1
+M , and Ω3
+M
+are positive. Note that the values of relaxations reflect the degree
+of losing the model equation in (1) into an inequality in (19), and
+the relaxations contribute to fusing the legged robot’s alternating
+support character.
+The magnitude of the relaxation is related to the leg’s alternate
+touching/swing smoothness and the robot’s mass. When the
+alternation is smoother, the relaxation should be smaller. In
+addition, if the vertical force of the robot body is relaxed, the
+supporting leg may leave the ground, and the walking property
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 49
+of the legged robot may be lost. Thus, the relaxation amount
+Ω2
+F is set to zero to maintain the vertical balance. Finally, the
+magnitude of Ω2
+M represents the degree of losing the yawing
+motion, which is unrelated to the alternating support character.
+Then, we set Ω2
+M = 0.
+IV. VERTICAL THRUST-BASED STABILITY CRITERION AND
+ENHANCEMENT
+We present a criterion to judge the robot’s stability by check-
+ing whether the vertical thrust belongs to the range of allowable
+vertical forces. On this basis, we propose a method to enhance
+the stability by changing the vertical thrust’s value.
+When the vertical thrust is too large, the robot may fall due
+to the support leg’s torque limit. When the vertical thrust is too
+small,theforwardandlateralcontactforcesmaynotbesufficient
+to suppress the robot’s inertial and fluid forces, resulting in the
+support leg slipping. Setting the appropriate vertical thrusts is
+necessary so the robot will not fall or slip. We need to find the
+maximum/minimum vertical thrusts that can be applied to the
+robot body without losing stability.
+Specifically, we transform the problem of exploring the max-
+imum/minimum vertical thrusts, e.g., Fmax
+T y and Fmin
+T y , into a
+second-order cone programming problem. Then, we use the
+sequential least squares programming algorithm to find the
+optimal solutions
+
+max FT y or − FT y
+s.t. (2) and (19).
+(20)
+Proposition 1: When the vertical thrust is greater than Fmin
+T y
+or less than Fmax
+T y , i.e., FT y ∈ [Fmin
+T y , Fmin
+T y ], the robot is sta-
+ble, and its stability margin is Ψ = min(FT y − Fmin
+T y , Fmax
+T y −
+FT y). Otherwise, it is unstable.
+When the robot climbs rough terrains, it will inevitably suffer
+from various disturbances caused by ocean currents and cables.
+The disturbances may make the robot lose its balance. Unlike
+the conventional ground legged robots, our robot is actuated
+by thrusters and legs simultaneously, where thruster forces can
+alter the robot’s dynamics and break or maintain the robot’s
+balance. Thus, we present a solution to find the set of feasible
+thruster forces to keep the robot’s dynamic equilibrium and
+prevent the legs’ slippage.
+The vertical thrust can be set as the average of the obtained
+maximum/minimum vertical thrust to make the robot in the most
+stable state
+FT y =
+Fmin
+T y + Fmax
+T y
+2
+. (21)
+Note that the stability margin of the robot with this verti-
+cal thrust is maximum, which can be expressed as Ψmax =
+F max
+T y −F min
+T y
+2 . In fact, we do not request the robot walk with max-
+imum stability margin because stability and flexibility conflict.
+Once the robot is in the most stable state, it may be unable to
+maneuver flexibly. Then, we need to balance the two conflicting
+requests by setting the stability margin.
+Specifically, once the robot is requested to walk with the
+desired stability margin Ψd ∈ [0, Ψmax], we can set the vertical
+thrust as
+FT y = Fmax
+T y − Ψd or Ψd − Fmin
+T y . (22)
+Fig. 8. Motion of rolling on the terrain.
+Remark 4: We use the optimization method to strip the fea-
+sible thrusts from multiple variables. Thus, the robot’s stability
+can be judged by checking whether the vertical thrust belongs
+to the region that consists of maximum and minimum thruster
+forces. Unlike the criteria that use multiclass states with different
+physical meanings, our criterion only relies on one physical
+quantity (vertical thrust). Thus, it has precise physical meanings
+and is also convenient for designing the stability enhancement
+method.
+Remark 5: Although it possesses the above advantages, the
+criterion in this section only uses vertical thrust. Once the robot
+cannot maintain the prescriptive balance by adjusting the vertical
+thrust, the criterion regards that the robot is unstable. However,
+the robot may still be stable when using the 6-D thrust. That said,
+the criterion is slightly conservative. Thus, we need to use the
+6-D thrust to improve its necessity and the accuracy of judging
+the robot’s stability. In addition, the relaxations in this section are
+constant and designed artificially. They should be time-varying.
+Thus, we need to derive the expressions of these relaxations.
+V. 6-D THRUST-BASED STABILITY CRITERION AND
+ENHANCEMENT
+This section presents two stability criteria and their corre-
+sponding stability enhancement method by using the robot’s
+eight thrusters, which can generate 6-D thruster forces and
+moments. First, we provide the method to derive the expressions
+of relaxations. Second, we present a method to produce allow-
+able thruster forces and moments. Then, we propose a stability
+criterion and a method to enhance stability. Finally, we propose
+a 6-D thrust based robust stability criterion.
+A. Derivation of Relaxations
+This section establishes a 3-D pendulum’s dynamic model
+to represent the robot’s longitudinal and lateral motions under
+external forces. In addition, we deduce the allowable forces and
+moments according to the robot’s allowable swing. Finally, we
+deduce the relaxations’ expressions.
+As shown in Fig. 8, the pendulum comprises one virtual
+supporting leg and one robot body, whose endpoint is fixed
+on the buoyant centre. The legs’ touch angle γ and rotation
+angle q are the average values of all supporting legs, such
+as γ =
+Ns
+i=1 γi and q =
+Ns
+i=1 qi. γ0 and q0 are initial touch
+and rotation angles. (x0
+, y0
+) and (x, y) are initial and current
+positions of the pendulum. We also assume that the segment of
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+50 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+D0D isastraightline,anditsslantangleisϕ.Inaddition,Fx,Fy,
+and Fz are forward, vertical, and lateral external forces exerted
+on the body. Mx and Mz are roll and pitch external moments,
+respectively. These forces are in the direction of the body-fixed
+frame.
+Actuated by these external forces, the 3-D pendulum’s dy-
+namic model can be established as follows:
+⎧
+⎨
+⎩
+mlyẍ + mlxÿ = [Fx cos θ + Fy cos(θ + 0.5π)]ly
++[Fx sin θ + Fy sin(θ + 0.5π)]lx − Mz
+ml2
+yζ̈ = Fzly + Mx
+(23)
+where ζ is the virtual supporting leg’s dip angle, lx = 2r
+cos(0.5γ) sin(π − q − 0.5γ), and ly = 2r cos(0.5γ) cos(π −
+q − 0.5γ).
+Remark 6: Because the allowable variation range of dip angle
+is slight and often less than 10◦
+, the coupling between the
+longitudinal and lateral motions is small. Thus, we split the 3-D
+locomotion into longitudinal and lateral motions. Moreover, the
+accelerations ẍ and ÿ are coupled, and they are related to the
+leg’s rotation angle q and the slant angle ϕ.
+Fig. 8(a) shows that the leg rolls from the initial touch point
+D0
+to the current point D on the slope. Then, we obtain the
+position of the point D as
+x = x0
+D + lD cos ϕ − lx, y = y0
+D + lD sin ϕ + ly (24)
+where lD is the length of the segment D0D.
+The local surface that the leg rolls during a complete cycle
+cannot change dramatically, and it is assumed as a slope. Since
+the segments O0
+D0
+and OD are parallel to the segment D0
+D,
+we have
+q0 − 0.5π + γ0 = q − 0.5π + γ. (25)
+Thus, we obtain that the length of the segment D0D as
+lD = r(γ0 − γ) = r(q − q0). (26)
+Taking the derivative of both sides of (24) and using the defini-
+tions of lx and ly, we have
+ẋ = r cos ϕq̇ − r cos qq̇, ẏ = r sin ϕq̇ + r sin qq̇. (27)
+Taking the derivative of (27), we have
+
+ẍ = r cos ϕq̈ − r cos qq̈ + r sin qq̇2
+ÿ = r sin ϕq̈ + r sin qq̈ + r cos qq̇2
+.
+(28)
+Substituting (28) into (23) and based on the fact of q + ϕ + γ =
+π, we can rewrite the 3-D pendulum model as
+2mr2
+(cos γ + 1)q̈ + mr2
+sin γq̇2
+= u1, ml2
+yζ̈ = u2 (29)
+where u1 = (Fx cos θ − Fy sin θ)ly + (Fx sin θ + Fy cos θ)lx
+− Mz and u2 = Fzly + Mx.
+Next, we will use the 3-D pendulum model, gait planning
+results, and the allowable lateral motion states to deduce the
+allowable forces and moments.
+The gait planner provides all legs’ rotation angles related to
+time. Then, we define that the virtual leg needs Tf seconds
+to make the q and q̇ converge to qd and q̇d, where Tf also
+means the time spent making the swing legs touching the terrain,
+and qd is the supporting leg’s rotation angle when it begins to
+leave the terrain and to turn into swing leg. In addition, the
+allowable lateral motion states are ζd and ζ̇d, which are maximal
+dip angle and angular velocity at the moment of t0 + Tf , where
+t0 is the current moment.
+In a word, we need to find the external forces Fx,
+Fy, Fz, and moments Mx, Mz to make the follow-
+ing conditions limt→t0+Tf
+q(t) = qd, limt→t0+Tf
+q̇(t) = q̇d,
+limt→t0+Tf
+ζ(t) = ζd, and limt→t0+Tf
+ζ̇(t) = ζ̇d hold, where
+qd is determined by the gait planner, q̇d is equal to Θmin or Θmax
+(Θmin < Θmax), ζ̇d is equal to Υmin or Υmax(Υmin < Υmax),
+Θmin, Θmax, Υmin, and Υmax are constants.
+Thanks to the finite-time control theory in [40], we can find
+the external moments to satisfy the following conditions:
+⎧
+⎨
+⎩
+u1 = −
+ac1V
+χ1
+1
+q̇−q̇d
++ bq̇2
+− a(q − qd − q̈d)
+u2 = −
+c2ml2
+yV
+χ2
+2
+ζ̇−ζ̇d
+− ml2
+y(ζ − ζd − ζ̈d)
+(30)
+where χ1 and χ2 are positive constants, 0 < χ1 ≤ 1
+2
+and 0 < χ2 ≤ 1
+2 , c1 =
+V
+1−χ1
+1 (t=t0)
+Tf (1−χ1) , V1 = (q−qd)2
++(q̇−q̇d)2
+2 ,
+a = 2mr2
+(cos γ + 1), b = mr2
+sin γ, c2 =
+V
+1−χ2
+2 (t=t0)
+Tf (1−χ2) , V2 =
+(ζ−ζd)2
++(ζ̇−ζ̇d)2
+2 , q̈d and ζ̈d are constants, u1 and u2 aim to make
+the equations such as V̇1 = −c1V χ1
+1 and V̇2 = −c2V χ2
+2 hold.
+Because V̇1 = (q̇ − q̇d)(q − qd + q̈ − q̈d) and V̇2 = (ζ̇ −
+ζ̇d)(ζ − ζd + ζ̈ − ζ̈d), q̇ − q̇d and ζ̇ − ζ̇d will not go to be zero
+until the V1 and V2 are going to zeros. Thus, q̇ − q̇d and ζ̇ − ζ̇d
+will not be zeros when t ∈ (t0, t0 + Tf ).
+Lemma 1: The functions of u1 and u2 in (30) are monotoni-
+cally decreasing in the variables of q̇d and ζ̇d, respectively. That
+said, ∂u1
+∂q̇d
+< 0 and ∂u2
+∂ζ̇d
+< 0.
+The Lemma’s proof process can be seen in Appendix A.
+Substituting the expressions of lx and ly into the expression
+of the u1 behind (29), we can rewrite u1 as
+u1 = 2r cos(0.5γ) cos(q + 0.5γ + θ − π)Fx
+− 2r cos(0.5γ) sin(q + 0.5γ + θ − π)Fy − Mz. (31)
+The angle q + 0.5γ + θ would be roughly around π because
+the robot body is substantially parallel to the segment of
+D0
+D. Thus, we ignore the rolling dynamics caused by Fy. In
+addition, the u1 is equally allocated to Fx and Mz, and the u2
+is equally assigned to Fz and Mx. In such cases, the external
+forces and moments are formulated as
+
+Fx = u1
+4r cos(0.5γ) cos(q+0.5γ+θ−π)
+Fy = 0, Fz = u2
+2ly
+, Mz = −u1
+2 , Mx = u2
+2 .
+(32)
+Since q̇d ∈ [Θmin, Θmax] and ζ̇d ∈ [Υmin, Υmax], and
+using the conclusion in Lemma 1, we can derive that the
+maximum and minimum of Fx, Fz, Mx, and Mz in (32)
+as Fmax
+x = max(Fx(q̇d = Θmin), Fx(q̇d = Θmin)), Fmin
+x =
+min(Fx(q̇d = Θmin), Fx(q̇d = Θmax)), Fmax
+z = Fz(q̇d =
+Θmin), Fmin
+z = Fz(q̇d = Θmax), Mmin
+x = Mx(q̇d = Θmax),
+Mmax
+x = Mx(q̇d = Θmin), Mmin
+z = Mz(q̇d = Θmin), Mmax
+z
+= Mz(q̇d = Θmax),wheremin(·, ·)andmax(·, ·)arefunctions
+to obtain the maximum and minimum values.
+Then, using the maximum and minimum of Fx, Fz, Mx, and
+Mz,wecanrelaxtherobotdynamicsequationsin(1)andconvert
+them to following inequations:
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+Flow ≤ −Q̇ − w × Q + FB + FG + Ff
+b + Ff
+l
++FT + Af f ≤ Fup
+Mlow ≤ −L̇ − w × L − v × Q + MBG + Mf
+b
++Mf
+l + MT + Amf ≤ Mup
+(33)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 51
+where Flow = [Fmin
+x , 0, Fmin
+z ]
+, Fup = [Fmax
+x , 0, Fmax
+z ]
+,
+Mlow = [Mmin
+x , 0, Mmin
+z ]
+, Mup = [Mmax
+x , 0, Mmax
+z ]
+.
+B. Stability Criterion and Enhancement
+We choose a set of linearly independent unit vectors to rep-
+resent the directions to find feasible maximum and minimum
+forces. Then, we regard the forces as vertices and construct a
+6-D convex set to approximate the real feasible set for reducing
+the computational burden. Next, by using the established force
+balancing model, we formulate the problem of finding forces
+along the designed directions as an optimization problem
+max ϑ
+j ξ
+s.t. (33), (2) (34)
+where ϑj ∈ R6
+(j = 1, 2, . . . , Nϑ) is the unit vector to denote
+the jth designed direction, ξ = [F
+T , M
+T ]
+∈ R6
+.
+After optimizing, we can obtain an extremal vertex called ξ∗
+j
+along the search direction ϑj. Then, the 6-D feasible region can
+be approximated as a convex set An, which is represented by
+the vertices representation method as
+An =
+⎧
+⎨
+⎩
+Nϑ
+j=1
+βjξ∗
+j | β1 ≥ 0, . . . , βNϑ
+≥ 0,
+Nϑ
+j=1
+βj = 1
+⎫
+⎬
+⎭
+(35)
+where βj is the jth coefficient.
+Proposition 2: The robot is stable if the vertex ξ, composed of
+therobot’sthrusterforceandmoment,belongstoAn.Otherwise,
+it is unstable.
+Generally, the hyperplane representation method has the ad-
+vantage of rapidly checking whether a vector is interior to
+a polytope by simply checking some given inequations and
+equations. However, it is difficult to represent a convex set if
+the number of vertices exceeds the vector’s dimension number.
+Thus, we propose a stability checking method based on vertices
+representation.
+Proposition 3: The vertex ξ belongs to An if there exist co-
+efficients such as β1, . . . , βNϑ
+satisfy the following conditions:
+1) ξ =
+Nϑ
+j=1 βjξ∗
+j ;
+2) β1 ≥ 0, . . . , βNϑ
+≥ 0;
+3)
+Nϑ
+j=1 βj = 1.
+Here, we use a linear programming algorithm to find the
+feasible coefficients as follows:
+ﬁnd β
+s.t. β = ξ, 
+β = 1, β 0 (36)
+where  = [1, 1, . . . , 1]
+∈ RNϑ
+, β = [β1, . . . , βNϑ
+]
+∈ RNϑ
+,
+ = [ξ∗
+1, . . . , ξ∗
+Nϑ
+] ∈ R6×Nϑ
+.
+Here, we propose two kinds of stability enhancement meth-
+ods. The first method aims to make the robot walk with the
+maximum stability margin. The second one finds the stable
+thruster forces that closest approach to the previous thrusts.
+The first method uses a quadratic programming algorithm to
+find the farthest thrust vector ξ away from these vertices in the
+convex set
+min
+Nϑ
+i=1
+ ξ − ξ∗
+i 2
+2
+s.t. ξ =
+Nϑ
+j=1
+βjξ∗
+j , 
+β = 1, β 0 (37)
+where ξ is the thrust vector to generate the maximum stability
+margin,theeightthrusters’forcescanbecalculatedasT = C†
+t ξ ,
+C†
+t is the pseudo-inverse matrix of Ct.
+In the second method, we also use a quadratic programming
+algorithm to find the vector ξ that not only inside the convex set
+but also is closest to previous thrust vector
+min
+Nϑ
+i=1
+ ξ − ξpre 2
+2
+s.t. ξ =
+Nϑ
+j=1
+βjξ∗
+j , 
+β = 1, β 0 (38)
+where ξpre is the thrust vector of the previous moment, which is
+called previous thrust vector, and the eight thrusters’ forces can
+be described as T = C†
+t ξ .
+Remark 7: When the robot is in the most stable situation, it
+may be unable to maneuver flexibly because stability and flexi-
+bility conflict. To balance the two conflicting factors, we present
+the second stability enhancement method, which decreases the
+variation of thrusts by obtaining the forces closest to the robot’s
+previous thrusts. Note that the second method can steer the robot
+in a critical state once it is unstable in the previous moment.
+C. Robust Stability Criterion and Enhancement
+The force balancing model in (1) is not accurate enough
+because it ignores some dynamics, such as legs’ inertia forces,
+high-order fluid forces, and external disturbances caused by
+ocean currents and the electrical cable.
+The difficulty of providing an accurate enough robot model
+lies in the following three aspects.
+1) The coupled dynamics between the legs and robot body
+increase the difficulty of modeling. They are challenging
+to decouple for stability analysis.
+2) Unlike the torpedo-like robots with regular shapes and
+high locomotion velocity, our robot has an irregular open-
+frame structure and slow locomotion velocity. It is diffi-
+cult to obtain accurate fluid forces for such a robot and
+scenario, especially the high-order fluid forces.
+3) Ocean current varies in size from place to place, which is
+challenging to obtain a priori or measure online.
+The unmodeled dynamics lead to an inaccurate convex set
+that may result in an inaccurate stability assessment. Thus, we
+formulate a stricter leg-terrain friction constraint to suppress
+uncertainties and present a robust stability criterion that will
+result in an accurate stability assessment.
+The force balancing model that includes the unmodeled dy-
+namics (uncertainties) F ∈ R3
+and M ∈ R3
+can be estab-
+lished as
+⎧
+⎨
+⎩
+Q̇ + w × Q = FB + FG + Ff
+b + Ff
+l + FT + Af fj
++ F
+L̇ + w × L + v × Q = MBG + Mf
+b + Mf
+l + MT + Amfj
++M,  Btfj
+i ≤ u
+fj
+i
+(39)
+where F and M are bounded and satisfy that  F < rf ,
+ M < rm, rf and rm are two known constants.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+52 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+Theorem 1: If there exists a group of contact forces f =
+[f
+1 , . . . , f
+Ns
+]
+∈ R3Ns
+to make (40) true, we will find a group
+of contact forces fj
+to make (39) true
+⎧
+⎪
+⎨
+⎪
+⎩
+Q̇ + w × Q = FB + FG + Ff
+b + Ff
+l + FT + Af f
+L̇ + w × L + v × Q = MBG + Mf
+b + Mf
+l + MT + Amf
+ Btfi ≤ u
+fi + li − si
+(40)
+where li and si are two bounds, si = (rf + rm)σ̄(Et
+i A†
+),
+σ̄(·) denotes the largest singular value of the matrix (·),
+li = −(rf + rm)  En
+i A†
+, i represents the sequence num-
+ber for ith supporting leg, A = [A
+f , A
+m]
+∈ R6×3Ns
+, †
+is
+the function to calculate the pseudoinverse matrix, En
+i =
+[01×3, . . . , u
+ith
+, . . . , 01×3] ∈ R1×3Ns
+, Et
+i = diag(03×3, . . . ,
+Bt
+ith
+, . . . , 03×3) ∈ R3×3Ns
+.
+That said, we can transfer the uncertainties on the robot
+body to the legs’ contacting points and then use stricter friction
+constraints to suppress the effects caused by the uncertainties.
+This theorem’s proof process is provided in Appendix B.
+Inequation (40) is based on the scaling operations in (47) and
+(48) that aim to find their extreme values. Referring to [21],
+we state that these operations need to satisfy the following
+conditions.
+1)  is perpendicular to the vectors of En
+1 A†
+, . . . , En
+Ns
+A†
+.
+2)  is collinear to the max singular vectors of
+Et
+1A†
+, . . . , Et
+Ns
+A†
+.
+We cannot get the extreme values for each leg if these con-
+ditions cannot be satisfied simultaneously. Then, we use larger
+values to replace the effect caused by the bounded uncertainties
+Fj and Mj. It can reduce the tightness and increase the
+conservativeness of the formulated constraint, leading to a more
+conservative stability region.
+Next, we will propose a method that finds an integrated
+realizable extreme value and then slacks the extreme value for
+each leg’s friction constraint.
+Hexapod robots often use a tripod or quadruped gait for loco-
+motion. That is, Ns = 3 or Ns = 4. When Ns = 3, the vector 
+needs to simultaneously satisfy the 2Ns = 6 conditions because
+the vectors Et
+1A†
+, . . . , Et
+3A†
+and the matrices En
+1 A†
+, . . . , En
+3 A†
+are different from each other. However, the vector  is 6-D, and
+the maximal number of different conditions that can be satisfied
+simultaneously is five rather than six or eight. Thus, the items
+are incompatible.
+Theorem 2: If there exists a group of contact forces f =
+[f
+1 , . . . , f
+Ns
+]
+∈ RNs
+to make (41) true, we will find a group
+of contact forces fj
+to make (39) true
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+Q̇ + w × Q = FB + FG + Ff
+b + Ff
+l + FT + Af f
+L̇ + w × L + v × Q = MBG + Mf
+b + Mf
+l + MT + Amf
+ Btfi ≤ u
+fi + (si−li)·VI
+Ns
+i=1(si−li)
+(41)
+where VI = lI −
+Ns
+i=1 si is an integrated realizable ex-
+treme value, lI = −(rf + rm)  En
+I A†
+, En
+I =
+Ns
+i=1 Ei ∈
+R1×3Ns
+.
+This theorem’s proof process is provided in Appendix C.
+TABLE II
+GEOMETRIC PARAMETERS OF THE ROBOT
+TABLE III
+HYDRODYNAMIC PARAMETERS OF THE ROBOT
+Compared with the leg-terrain fraction constraint in (40), we
+can obtain a looser friction constraint for ith leg as follows:
+ Btfi ≤ u
+fi +
+(si − li) · VI
+Ns
+i=1(si − li)
+. (42)
+Based on the established model in (33) and the formulated
+tight friction constraint in (42), we use a quadratic programming
+algorithm to find the feasible force vector ξ that is aligned with
+the predesigned direction ϑj as follows:
+max ϑ
+j ξ
+s.t. (33), (42), and u
+fi ≤ Γi. (43)
+Then, the 6-D feasible region can be approximated as a convex
+set An, which is represented as
+An =
+⎧
+⎨
+⎩
+Nϑ
+j=1
+βjξ∗
+j | β1 ≥ 0, . . . , βNϑ
+≥ 0,
+Nϑ
+j=1
+βj = 1
+⎫
+⎬
+⎭
+(44)
+where βj is the jth coefficient, ξ∗
+j is the extremal vertex along
+the jth search direction.
+The methods of checking and enhancing the robot’s stability
+are the same as the approaches in Section V-B.
+VI. SIMULATION
+We have developed a rough terrain with 6 m in length and
+2 m in width in the robot simulation environment(Gazebo). The
+height function of the terrain is set as y =
+8
+i=0 pixi
+, where
+p0 = −5, p1 = 0.386, p2 = −2.07, p3 = 3.554, p4 = −2.211,
+p5 = 0.624, p6 = 0.081, p7 = 0.00385, p8 = 1.646 × 10−5
+.
+We have also developed a virtual robot in Gazebo, which
+shares the same geometric and hydrodynamic parameters as the
+real robot. The parameters are provided in Tables II and III.
+The mass and buoyancy can be changed in Gazebo according
+to different simulation objectives. To verify the effectiveness of
+the proposed criterion and stability enhancement method, we let
+our robot walk on the surface of the rough terrain and carry out
+three groups of simulations.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 53
+Fig. 9. Stability probability of robot climbing rough terrain under different relaxations, torque limits, friction coefficients, and accelerations.
+A. Stability Analysis With Different Relaxations,
+Accelerations, Torque Limits, and Friction Coefficients
+This section aims to observe how different relaxations, accel-
+erations, torque limits, and friction coefficient affect the robot’s
+stability probability. The robot’s mass and buoyancy are set as
+15.63 kg and 151.2 N, and the vertical thrust is set as FT y = −40
+N, FT x = FT z = MT x = MT y = MT z = 0. The robot is com-
+manded to climb the terrain with a tripod gait. Then, we collect
+the corresponding motion data of one climbing process.
+To verify the effectiveness of the vertical thrust based
+stability criterion in Section IV, we set nine types of relaxations:
+ΩF 1 = [0, 0, 0]
+, ΩM1 = [0, 0, 0]
+, ΩF 2 = [5, 0, 5]
+, ΩM2 =
+[1, 0, 1]
+, ΩF 3 = [10, 0, 10]
+, ΩM3 = [2, 0, 2]
+, ΩF 4 =
+[20, 0, 20]
+, ΩM4 = [4, 0, 4]
+, ΩF 5 = [30, 0, 30]
+, ΩM5 =
+[6, 0, 6]
+, ΩF 6 = [40, 0, 40]
+, ΩM6 = [8, 0, 8]
+, ΩF 7 =
+[50, 0, 50]
+, ΩM7 = [10, 0, 10]
+, ΩF 8 = [70, 0, 70]
+, ΩM8 =
+[14, 0, 14]
+, ΩF 9 = [100, 0, 100]
+, ΩM9 = [20, 0, 20]
+. In
+addition, we decrease the accelerations of the collected data to
+its 0.5 and 0.25 to set three kinds of accelerations. That said,
+they are set as a = a0, a = 0.5a0, and a = 0.25a0, where a0
+is the original acceleration. We set four types of torque limits,
+e.g., τmax = 12 N · m, τmax = 8 N · m, τmax = 4 N · m, and
+τmax = 2 N · m. Finally, the friction coefficients are set as four
+types, e.g., μ = 0.8, μ = 0.4, μ = 0.2, and μ = 0.1.
+In addition, to verify the effectiveness of the 6-D thrust based
+stability criterion in Section V, we set seven groups of allow-
+able swing velocities Θmin, Θmax and Υmin, Υmax. Specifically,
+Θmax = −Θmin = Υmax = −Υmin = 9.6, 4.8, 2.4, 1.2, 0.6,
+0.3, or 0.01 rad/s. If the allowable swing velocity is set as
+9.6 rad/s, we regard this as the seventh group. We regard it as
+the first group if it is set as 0.01 rad/s. χ1 = 0.5, χ2 = 0.5. The
+set of accelerations, torque limits, and friction coefficients is the
+same as the section of verifying the vertical thrust-based stability
+criterion. We set 76 search directions, which are described as
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+1
+0
+0
+0
+0
+0
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+, · · · ,
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+0
+0
+0
+0
+0
+−1
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+  
+Along the axis ϑ
+1 ,...,ϑ
+12
+,
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+0.4082
+0.4082
+0.4082
+0.4082
+0.4082
+0.4082
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+, . . . ,
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+−0.4082
+−0.4082
+−0.4082
+−0.4082
+−0.4082
+−0.4082
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+  
+Between the axis ϑ
+13,...,ϑ
+76
+.
+Fig. 9(a)– (c) shows stability probabilities under the vertical
+thrust-based stability criterion, where the probability Ps equals
+the count of being stable divided by the total count of the
+climbing process. Fig. 9(a) shows that the greater relaxation
+results in the larger stability probability. When the acceleration
+reduces, the probability will be increased. Fig. 9(b) demonstrates
+that a smaller torque limit can result in a smaller stability
+probability because it will enhance the probability of legs col-
+lapsing. Fig. 9(c) shows that the stability probability gets smaller
+when the friction coefficient gets smaller. The probability dif-
+ferences caused by friction differences in the first few groups
+of relaxations are much larger than in the latter groups. The
+phenomenon arises because the friction coefficient is the domi-
+nant factor in determining the probability when relaxations are
+small. Fig. 9(d)– (f) provides the stability probabilities under the
+6-D thrust based stability criterion with different accelerations,
+torque limits, and friction coefficients, respectively. The change
+of the stability probabilities response to accelerations, torque
+limits, and friction coefficients are similar to Fig. 9(a)– (c).
+Compared with the relaxations in vertical thrust-based criterion,
+the deduce of the allowable swing velocity cannot make the
+probability drop drastically because it is not the only factor
+to determine the Flow, Fup, Mlow, and Mup. The magnitude
+of stability probabilities in Fig. 9 coincides with the actual
+experiences and verifies the two criteria’ effectiveness.
+Fig. 10 presents the curves of the maximum vertical thrust
+Fmin
+T y , minimum thrust Fmin
+T y , and robot’s thrust FT y under
+the seventh relaxation. The trends of these curves contribute
+to clarifying how the factors, such as acceleration, maximum
+torque, and friction coefficient, affect the probability. Fig. 10(a)–
+(c) presents the Fmin
+T y , Fmax
+T y , and FT y with three kinds of
+accelerations. We observe that smaller acceleration can result in
+a larger maximum vertical thrust and smaller minimum thrust,
+which contributes to forming a larger region of allowable thrusts
+because it does not need to suppress a force that is too large for
+inertia under the prescriptive constraints. Fig. 10(c)–(f) provides
+the thrust curves under the torque limits of 8 N · m, 12 N · m, 4
+N · m, and 2 N · m, respectively. We find that the smaller torque
+limit can enlarge the value of the minimum thrust and reduce
+the probability. Furthermore, Fig. 10(c) and (d) shows that the
+increase of the limit cannot change the value of Fmin
+T y and Fmin
+T y
+significantly because their limits are large enough. Fig. 10(c)
+and (g)–(i) provides the Fmin
+T y , Fmax
+T y , and FT y with four types
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 13 ===
+54 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+Fig. 10. Maximum, minimum, and robot’s vertical thrust of seventh relaxation with different accelerations, maximum torques, and friction coefficients. (a) a =
+0.25a0, τmax = 8 N · m, μ = 0.8. (b) a = 0.5a0, τmax = 8 N · m, μ = 0.8. (c) a = a0, τmax = 8 N · m, μ = 0.8. (d) a = a0, τmax = 12 N · m, μ = 0.8. (e)
+a = a0, τmax = 4 N · m, μ = 0.8. (f) a = a0, τmax = 2 N · m, μ = 0.8. (g) a = a0, τmax = 8 N · m, μ = 0.4. (h) a = a0, τmax = 8 N · m, μ = 0.2. (i) a =
+a0, τmax = 8 N · m, μ = 0.1.
+Fig. 11. Extremal thruster forces along the set 76 search directions with three different friction coefficients.
+of friction coefficients, e.g., μ = 0.8, μ = 0.4, μ = 0.2, and
+μ = 0.1.
+The relaxations and accelerations are related to the smooth-
+ness of gait planning because nonsmooth gaits can lead to large
+leg-terrain interaction forces and a poor leg alternating character.
+In addition, the friction coefficient is related to the leg-terrain
+mechanics. Finally, the torque limit is determined by the chosen
+driving motor in the hip joint.
+Figs. 11–13 present one motion state’s extremal vertex (ex-
+tremal and feasible 6-D thruster force) along the designed
+76 search directions with different friction coefficients, torque
+limits, and upper bounds of unmodeled dynamics. Figs. 11
+and 12 show that a smaller friction coefficient and torque limit
+result in a narrower convex set (stable region). That said, it
+raises the difficulty of finding a stable thrust vector. Fig. 13
+shows that larger upper bounds of unmodeled dynamics can
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 14 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 55
+Fig. 12. Extremal thruster force along the set 76 search directions with four different torque limits.
+Fig. 13. Extremal thruster force along the set 76 search directions with four groups of upper bounds of unmodeled dynamics.
+lead to a narrower stable region. Thus, the established force
+balancing model should be accurate enough to accurately judge
+and effectively enhance the robot’s stability.
+B. Stability Analysis With Different Robot Masses
+In this section, we conduct two groups of simulations under
+four kinds of masses and buoyancies, where the four masses are
+set as 67 kg, 37 kg, 15.63 kg, and 5 kg, and the corresponding
+buoyancy is 2 N larger than the gravity. The torque limit and
+friction coefficient are set as τmax = 2.5 N · m and μ = 0.8. We
+use the two groups of simulations to observe the stability proba-
+bility of the two criteria, and each group has four climbing tests.
+We collect the motion states of eight climbing tests and check the
+robot’s stability by using the proposed two criteria. In vertical
+thrust based criterion, the relaxation is set as {ΩF 5, ΩM5}. In
+the 6-D thrust-based criterion, the allowable swing velocities are
+selected as Θmax = −Θmin = Υmax = −Υmin = 4.8 rad/s.
+Fig. 14. Stability probability under four different masses and relaxations.
+Fig.14showsthestabilityprobabilityofthefourtestswithdif-
+ferent masses. When the mass is larger, the stability probability
+of the robot is smaller, and the robot can be more unstable. The
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 15 ===
+56 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+TABLE IV
+STABILITY PROBABILITIES OF 12 GROUPS
+largemassresultsinalargeinertiaforceandmayhindertherobot
+from suppressing it. The magnitude of stability probabilities in
+Fig. 14 coincides with the robot’s swing and sliding degree,
+which verifies the two criteria’ effectiveness. In addition, our
+stability criteria provide a necessary condition that combines
+the torque limit and the friction coefficient with the used thrust
+to design the robot mass for stable locomotion.
+C. Stability Enhancement
+To verify the effectiveness of the stability enhancement
+method, we conduct 12 groups of simulations, where the robot’s
+mass and buoyancy are set as 5 kg and 50 N, and each group
+consists of five climbing tests. The vertical thrusts of the groups
+1 and 7, 2 and 8, 3 and 9, 4 and 10 are set as −8, −20, −40, and
+−80N, respectively. The torque limit and friction coefficient are
+set as τmax = 2.5 N · m and μ = 0.8.
+We use the vertical thrust-based criterion and stability en-
+hancement method to execute the first six groups of simulations.
+Then, we use the 6-D thrust based criterion and method to
+perform the latter six groups. In vertical thrust based criterion,
+weusethefifthrelaxation,i.e.,{ΩF 5, ΩM5}.Theverticalthrusts
+of the latter two groups vary according to the calculated maxi-
+mum and minimum forces. In the 6-D thrust based criterion, the
+allowable swing velocities are selected as Θmax = −Θmin =
+Υmax = −Υmin = 4.8 rad/s. Specifically, in the fifth group, the
+vertical thrust FT y is designed as FT y = 0.5(Fmin
+T y + Fmax
+T y ),
+which aims to force the robot owning largest stability margin. In
+the sixth group, the vertical thrust FT y is also equal to the one
+at the previous moment if the robot is stable. Otherwise, FT y is
+designed to make the robot in a critical steady state. That said, it
+aims to make Ψ = 0 when the robot is unstable. Therefore, the
+vertical thrust is set as
+FT y =
+
+Fmin
+T y , if |Fmin
+T y − FT y| < |Fmax
+T y − FT y|
+Fmax
+T y , else
+where FT y is the vertical thrust of the previous moment. Sim-
+ilarly, the 11th and 12th groups use the stability enhancement
+methods in (37) and (38) to make the robot in a most steady state
+and critical steady state.
+Table IV provides the stability probabilities of 12 groups of
+simulations. The average probabilities of the first four groups
+are 50.63%, 57.18%, 64.76%, and 37.11%, respectively. The
+average probability of group 4 is much less than groups 1, 2,
+and 3. The average probabilities of groups 5 and 6 are 79.50%
+and 85.00%, respectively, which are larger than those of the
+first four groups, and the probability of group 5 is smaller than
+that of group 6. Fig. 15 provides the robot’s vertical thrust and
+the maximum/minimum vertical thrusts of the first test of each
+group. We find that the frequency of vertical thrust belonging to
+the region formed by maximum/minimum thrusts in the fifth and
+sixth groups is higher than in the first four groups. The mutual
+magnitude character of stability probabilities between the latter
+six groups is similar to the first six groups.
+Based on the abovementioned results, we obtain the following
+findings.
+1) The average probabilities in group 4 show that the robot
+is probably unstable if the vertical thrust is too large.
+Specifically, the robot may fall because the torque limit
+is small, and the hip joint cannot provide enough torque.
+2) Compared with the first four groups, the robot in the fifth
+and sixth groups has better stability, which verifies the
+effectiveness of the vertical thrust-based stability enhance-
+ment method. In addition, we observe that the stability
+worsens if the robot climbs with the maximum stability
+margin because it will lose part of its maneuverability,
+making it difficult to track the desired motion and reduce
+its stability flexibly.
+3) The stability probabilities of ten tests in groups 5 and 6 are
+less than 86%, which cannot be improved to 100% because
+the robot’s stability is enhanced by only relying on the
+vertical thrust. Concretely, the large leg-terrain interaction
+force can result in a large inertial force. Depending on
+the vertical thrust may not suppress the force, leading to
+the robot’s instability. Reasonable planning the gait is a
+solution to improve the stability probability, but it cannot
+be 100%.
+4) Theoretically, the 6-D thrust-based stability enhance-
+ment method can ensure the robot’s one hundred percent
+stabilitybytakingfull advantageof 6-Dthruster forces and
+torques. However, it depends on two preconditions: 1) the
+established model should be accurate enough; 2) the al-
+lowable swing velocities should match the robot’s motion
+planner enough. Once they are inaccurate or match, the
+6-D thrust based method will result in inaccurate extremal
+thruster forces. The established model in this article is
+based on four assumptions. Thus, the stability probability
+in group 12 cannot be 100%.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 16 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 57
+Fig. 15. Stability probability of six different tests. (a) Test 1 in group 1. (b) Test 1 in group 2. (c) Test 1 in group 3. (d) Test 1 in group 4. (e) Test 1 in group 5.
+(f) Test 1 in group 6.
+Fig. 16. Experimental scenario. (a) Curved ramp. (b) Stair.
+VII. EXPERIMENTS
+A. Experiment Setup
+In this section, we experiment to evaluate the proposed sta-
+bility criterion and its enhancement method. We present the
+experimental scenario in Fig. 16(a), where the robot is on
+the surface of a man-made rough terrain (curved ramp) and
+the terrain is on the bottom of a 10 m×10 m×8 m pool. The
+terrain consists of aluminum alloy skeletons and iron sheets;
+its length and width are 6 m and 2 m, respectively. The height
+function of the man-made terrain is similar to the one in the
+simulation, and it can be described as y =
+8
+i=0 pixi
+, where
+p0 = −7.47 and the parameters p1, . . . , p8 are the same ones in
+simulation. In addition, the robot’s geometric and hydrodynamic
+parameters are shown in Tables II and III. As shown in Fig. 16(b),
+we construct a stair using the aluminium alloy skeletons and
+iron sheets and then present it on the bottom of the pool. We
+experiment climbing a stair in an indoor pool, where the stair
+has 12 steps, each with a length 0.15 m, width 1.2 m, and height
+0.1 m.
+In the experiment of climbing the curved ramp, the robot’s
+mass and buoyancy are 37 kg and 364 N. The friction coefficient
+is μ = 0.6. The torque limit is τmax = 16 N · m, and the relax-
+ation is set as ΩF = [50, 0, 50]
+, ΩM = [10, 0, 10]
+. Similar
+to the settings in Section VI-C, we conduct 12 experimental
+groups to verify the effectiveness of the vertical thrust based and
+6-D thrust based criteria and stability enhancement methods,
+each consisting of five climbing tests. The vertical thrusts of
+the groups 1 and 7, 2 and 8, 3 and 9, 4 and 10 are set as −8,
+−20, −40, and −80 N, respectively. The method of calculating
+the fifth, sixth, 11th, and 12th groups’ thrusts is presented in
+Section VI-C. In the experiment of climbing the stairs, the robot
+mass, buoyancy, friction coefficient, torque limit, and relaxation
+are the same as climbing the curved ramp. We use the method
+in group 6 to check whether our stability enhancement method
+could make the robot climb more challenging rough terrain.
+B. Experiment Results
+Table V provides the stability probability of six groups of
+experiments. The average probabilities of the first four groups
+are 32.55%, 36.96%, 41.26%, and 28.22%, respectively. The
+average probabilities of groups 1 and 4 are less than those in
+groups 2 and 3. The average probabilities of groups 5 and 6 are
+50.73% and 52.03%, respectively, which are larger than those of
+thefirstfourgroups,andtheprobabilityofgroup5issmallerthan
+that of group 6. Fig. 17 presents six snapshots of each group’s
+Test 1. The climbing phenomenons of each test are consistent
+with the probabilities in Table IV. Specifically, the robot in group
+one easily slipped and could not complete the climbing task
+because using the small vertical thruster force. The large vertical
+force in group 4 can lead to the robot’s shaking, although the
+robotcanfinishclimbing.Therobotintheothergroupscanclimb
+the terrain smoothly using a relatively reasonable vertical force.
+Similar to Section VI-C, the experimental results in groups 7–12
+are performed by the 6-D thrust-based stability enhancement
+method. Fig. 18 shows that the vertical thrust-based stability
+enhancement method can make the robot climb the stair suc-
+cessfully, and its stability probability is 50.27%. We can obtain
+the appropriate constant vertical thrust to successfully make
+the robot climb the stairs. However, many trials are needed to
+find the constant thrust. The stability enhancement method can
+overcome this issue by automatically adjusting based on the
+judged stability.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 17 ===
+58 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+TABLE V
+STABILITY PROBABILITY OF 12 GROUPS OF EXPERIMENTS
+Fig. 17. Snapshot of climbing a rough terrain. (a) Test 1 in group 1, where the robot cannot walk due to legs’ skidding. (b) Test 1 in group 2. (c) Test 1 in group
+3. (d) Test 1 in group 4, where the robot cannot complete the climbing task. (e) Test 1 in group 5. (f) Test 1 in group 6. (g) Test 1 in group 11. (h) Test 1 in group 12.
+Fig. 18. Snapshot of climbing a stair.
+C. Discussion
+We find the results between simulations in Section VI-C and
+experiments are different, and they arise from the differences
+in the chosen parameters, such as the robot’s mass, friction
+coefficient, and torque limit. Then, we will introduce the two
+reasons accounting for the parameters’ difference.
+1) In the experiment, the rough terrain’s surface is made of an
+iron sheet, which is only three millimetres thick and can
+deform slightly under pressure. The buffer caused by the
+deformation can reduce the leg-terrain impact forces. The
+simulation’s terrain is hard and can result in larger leg-
+terrain impact forces. Then, in the simulation, we reduce
+the robot’s mass to 5 kg because the smaller mass can
+result in smaller impact forces, generating smaller inertia
+forces that can be suppressed easily.
+2) Since the mass in the simulation is small, we only need
+to use much smaller torque limits to steer the legs. Thus,
+the torque limit in simulation is set as 2.5 N · m, which is
+much smaller than the value of 16 N · m in the experiment.
+The application prospects of our methods are list as follows.
+1) The presented stability criterion and enhancement method
+can be expanded to other thruster-assisted legged robots
+withsomemodifications.Forexample,ourmethodscanbe
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 18 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 59
+appliedtojudgeandenhancethestabilityofaerialthruster-
+assistedleggedrobots,suchastherobotin[41].Weneedto
+remove the fluid forces applied to the robot’s body and legs
+and modify the contact matrices in Section II-D because its
+legs are not C-shaped. In addition, our criterion can also be
+usedtojudgethestabilityofwheeledrobotsbutnottracked
+robots because the wheeled robots touch the terrain with
+a discrete support manner. We only need to rederive the
+contact matrices according to the specific form-position
+relationship between the wheels’ touching points and the
+robot’s CoM in Section II-D.
+2) Our stability criteria can be used as a constraint while
+designing the gait planner and controller. In addition,
+we can use our stability enhancement method to obtain
+the desired stability margin by suppressing the external
+disturbances and model uncertainties.
+3) Our stability criteria relate to robot mass, torque limits of
+driving joints, leg-terrain friction coefficient, legs’ shape,
+and thruster forces. Then, our criterion can be applied to
+guide the design of the robot’s design parameters, such
+as robot mass and geometric parameters. It can also be
+used to guide the choice of joints’ motors and thrusters to
+obtain the rational torque limits and thrusts and achieve
+the desired locomotion.
+4) Our stability enhancement method provides a solution to
+maintain the robot’s stability by regulating the thruster
+forces and joint torques separately.
+VIII. CONCLUSION
+In this article, we have presented a new method to define
+the three types of walking motion under the established force
+balancing model. In addition, we have proposed two criteria to
+judge the stability of our thruster-assisted underwater hexapod
+robots by checking whether the current thrust belongs to the
+allowable region, where the region is calculated by the optimiza-
+tion method. We have verified our criterion’s effectiveness and
+clarified how factors, such as relaxations, maximum torques,
+and friction coefficients, affect the stability through multiple
+comparative simulations and experiments. On this basis, we
+have presented a method to enhance stability by changing the
+value of the vertical thrust. Simulation and experiment results
+have demonstrated that our method enhances the robot’s stability
+probability by 15%–20%.
+APPENDIX A
+PROOF OF LEMMA 1
+Takingthepartialderivativeofthefirstlineof(30)withrespect
+to q̇d, we have
+∂u1
+∂q̇d
+= −ac1
+
+1
+2
+χ1
+
+−2χ1((q − qd)2
++ (q̇ − q̇d)2
+)χ1−1
++
+((q − qd)2
++ (q̇ − q̇d)2
+)χ1
+(q̇ − q̇d)2
+
+= ac1
+
+1
+2
+χ1
+[(q − qd)2
++ (q̇ − q̇d)2
+]χ1
+·
+2χ1
+(q − qd)2 + (q̇ − q̇d)2
+−
+1
+(q̇ − q̇d)2
+!
+= M
+
+(2χ1 − 1)(q̇ − q̇d)2
+− (q − qd)2
+
+(45)
+where M = ac1(1
+2 )χ1
+· [(q−qd)2
++(q̇−q̇d)2
+]χ1−1
+(q̇−q̇d)2 > 0.
+Since χ1 ∈ (0, 0.5], we have 2χi − 1 ≤ 0. Then, we can
+derive that ∂u1
+∂q̇d
+< 0. That said, the function u1 in (30) is mono-
+tonically decreasing in the variable of q̇d. Similarly, we have
+∂u2
+∂ζ̇d
+< 0.
+APPENDIX B
+PROOF OF THEOREM 1
+Proof: Based on (1) and (39), we have
+Af = Afj
++  (46)
+where  = [F
+j , M
+j ]
+∈ R6
+.
+Then, we have fj
+= f − A†
+. u
+fi in (1) and u
+fj
+i in (39)
+can be rewritten as En
+i f and En
+i fj
+, respectively. Then, we have
+u
+fj
+i − u
+fi = En
+i (fj
+− f) = −En
+i A†
+
+≥ −  En
+i A†
+ ·   ≥ −(rf + rm)  En
+i A†
+≥ li. (47)
+Similarly, the Btfi in (1) and Btfj
+i in (39) can be rewritten as
+Et
+i f and Et
+i fj
+, respectively. Then, we have
+ Btfj
+i = Et
+i fj
+= Et
+i (f − A†
+) 
+≤ Et
+i f  +  Et
+i A†
+ ≤ Et
+i f  +σ̄(Et
+i A†
+)   
+≤ Et
+i f  +(rf + rm)σ̄(Et
+i A†
+) ≤ Btfi  +si (48)
+where σ̄(·) is the largest singular value of the matrix (·).
+Based on the inequations in (47) and (48), we can use
+ Btfi ≤ u
+fi + li − si to deduce that ∀Fj, Mj, 
+Fj < rf ,  Mj < rm,  Btfj
+i ≤ Btfi  +si ≤
+u
+fi + li ≤ u
+fj
+i .
+APPENDIX C
+PROOF OF THEOREM 2
+Proof: Summing up Ns inequations where ith inequation
+is shown in (48), we have
+Ns
+i=1( Btfj
+i  −  Btfi ) ≤
+Ns
+i=1 si. Referring to the deducing method in (48), we have
+Ns
+i=1
+u
+(fj
+i − fi) = En
+I (fj
+− f) = −En
+I A†
+
+≥ −(rf + rm)  En
+I A†
+ . (49)
+Thus, we can use
+Ns
+i=1  Btfi ≤
+Ns
+i=1 u
+fi + VI to deduce
+that ∀ Fj, Mj,  Fj  < rf ,  Mj  < rm,
+Ns
+i=1
+ Btfj
+i  ≤
+Ns
+i=1  Btfi  +
+Ns
+i=1 si ≤
+Ns
+i=1 u
+fi + lI ≤
+Ns
+i=1 u
+fj
+i , where VI = lI −
+Ns
+i=1 si. Similarly, the priori
+condition to achieve the extreme value VI is that the following
+Ns + 1 conditions need to be satisfied simultaneously:
+1)  is perpendicular to the vectors of En
+I A†
+;
+2)  is collinear to the max singular vectors of
+Et
+1A†
+, . . . , Et
+Ns
+A†
+. Thehexapodrobotinthisarticlewalks
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 19 ===
+60 IEEE TRANSACTIONS ON ROBOTICS, VOL. 41, 2025
+by a tripod or quadruped gait. That is, Ns + 1 = 4 or 5,
+which is less than or equal to the maximal provided num-
+ber 5. Thus, the integrated extreme value VI is realizable.
+REFERENCES
+[1] G. Picardi, A. Astolfi, D. Chatzievangelou, J. Aguzzi, and M. Calisti,
+“Underwater legged robotics: Review and perspectives,” Bioinspiration
+Biomimetics, vol. 18, 2023, Art. no. 031001.
+[2] T. Zhang et al., “From simulation to reality: A learning framework for
+fish-like robots to perform control tasks,” IEEE Trans. Robot., vol. 38,
+no. 6, pp. 3861–3878, Dec. 2022.
+[3] C. Fu and K. Chen, “Section-map stability criterion for biped robots
+Part I: Theory,” in Proc. IEEE Int. Conf. Mechatron. Autom., 2007,
+pp. 1529–1534.
+[4] F. Ma, W. Yan, L. Chen, and R. Cui, “CPG-based motion planning of
+hybrid underwater hexapod robot for wall climbing and transition,” IEEE
+Robot. Autom. Lett., vol. 7, no. 4, pp. 12299–12306, Oct. 2022.
+[5] L. Chen, R. Cui, W. Yan, H. Xu, S. Zhang, and H. Yu, “Terrain-adaptive lo-
+comotion control for an underwater hexapod robot: Sensing leg–terrain in-
+teraction with proprioceptive sensors,” IEEE Robot. Autom. Mag., vol. 31,
+no. 1, pp. 41–52, Mar. 2024.
+[6] M. Calisti, E. Falotico, and C. Laschi, “Hopping on uneven terrains with
+an underwater one-legged robot,” IEEE Robot. Autom. Lett., vol. 1, no. 1,
+pp. 461–468, Jan. 2016.
+[7] G. Picardi, R. Lovecchio, and M. Calisti, “Towards autonomous area in-
+spection with a bio-inspired underwater legged robot,” in Proc. IEEE/RSJ
+Int.Conf. Intell. Robot. Syst., 2021, pp. 930–935.
+[8] C. J. Hu, C. K. Huang, and P. C. Lin, “A torque-actuated dissipative spring
+loaded inverted pendulum model with rolling contact and its use as the
+template for design and dynamic behavior generation on a hexapod robot,”
+in Proc. IEEE Int. Conf. Robot. Autom., 2015, pp. 5177–5183.
+[9] W. C. Lu, M. Y. Yu, and P. C. Lin, “Clock-torqued rolling slip model and
+its application to variable-speed running in a hexapod robot,” IEEE Trans.
+Robot., vol. 34, no. 6, pp. 1643–1650, Dec. 2018.
+[10] A. W. Winkler, C. D. Bellicoso, M. Hutter, and J. Buchli, “Gait and tra-
+jectory optimization for legged systems through phase-based end-effector
+parameterization,” IEEE Robot. Autom. Lett., vol. 3, no. 3, pp. 1560–1567,
+Jul. 2018.
+[11] O. Villarreal, V. Barasuol, P. M. Wensing, D. G. Caldwell, and
+C. Semini, “MPC-based controller with terrain insight for dynamic
+legged locomotion,” in Proc. IEEE Int. Conf. Robot. Autom., 2020,
+pp. 2436–2442.
+[12] Y.Ding,A.Pandala,C.Li,Y.H.Shin,andH.W.Park,“Representation-free
+model predictive control for dynamic motions in quadrupeds,” IEEE Trans.
+Robot., vol. 37, no. 4, pp. 1154–1171, Aug. 2021.
+[13] M. Calisti, F. Corucci, A. Arienti, and C. Laschi, “Dynamics of underwater
+legged locomotion: Modeling and experiments on an octopus-inspired
+robot,” Bioinspiration Biomimetics, vol. 10, 2015, Art. no. 046012.
+[14] M. Vukobratovi and D. Juricic, “Contribution to the synthesis of biped
+gait,” IEEE Trans. Biomed. Eng., vol. BME-16, no. 1, pp. 1–6, Jan. 1968.
+[15] M. Vukobratovic and B. Borovac, “Zero-moment point—Thirty five years
+of its life,” Int. J. Humanoid Robot., vol. 1, no. 1, pp. 157–173, 2004.
+[16] J. W. Grizzle, G. Abba, and F. Plestan, “Asymptotically stable walking
+for biped robots: Analysis via systems with impulse effects,” IEEE Trans.
+Autom. Control, vol. 46, no. 1, pp. 51–64, Jan. 2001.
+[17] E. R. Westervelt, J. W. Grizzle, and D. E. Koditschek, “Hybrid zero
+dynamics of planar biped walkers,” IEEE Trans. Autom. Control, vol. 48,
+no. 1, pp. 42–56, Jan. 2003.
+[18] H. Hirukawa et al., “A universal stability criterion of the foot contact of
+legged robots—adios ZMP,” in Proc. IEEE Int. Conf. Robot. Autom., 2006,
+pp. 1976–1983.
+[19] S. Caron, Q. C. Pham, and Y. Nakamura, “ZMP support areas for multi-
+contact mobility under frictional constraints,” IEEE Trans. Robot., vol. 33,
+no. 1, pp. 67–80, Feb. 2017.
+[20] T. Bretl and S. Lall, “Testing static equilibrium for legged robots,” IEEE
+Trans. Robot., vol. 24, no. 4, pp. 794–807, Aug. 2008.
+[21] H. Audren and A. Kheddar, “3-D robust stability polyhedron in multicon-
+tact,” IEEE Trans. Robot., vol. 34, no. 2, pp. 388–403, Apr. 2018.
+[22] J. Guckenheimer and P. Holmes, Nonlinear Oscillations, Dynamical Sys-
+tems,andBifurcationsofVectorFields,vol.42.Berlin,Germany:Springer,
+2013.
+[23] L. Chen, R. Cui, W. Yan, and F. Ma, “A stability criterion for hybrid-
+driven underwater bladed legged robot based on capture point theory,”
+Acta Automatica Sinica, vol. 50, no. 8, pp. 1565–1576, 2024.
+[24] M. Chellapurath et al., “Analysis of station keeping performance of an
+underwater legged robot,” IEEE-ASME Trans. Mechatron., vol. 27, no. 5,
+pp. 3730–3741, Oct. 2022.
+[25] Z. Cai, X. Chen, Q. Li, H. Liu, and Z. Yu, “Design of a felid-like humanoid
+foot for stability enhancement,” Biomimetics, vol. 7, 2022, Art. no. 235.
+[26] H. Liu et al., “Cat-inspired mechanical design of self-adaptive toes for
+a legged robot,” in Proc. IEEE/RSJ Int. Conf. Intell. Robot. Syst., 2016,
+pp. 2425–2430.
+[27] J. Zheng et al., “Design, fabrication, and characterization of a hybrid bionic
+spherical robotics with multilegged feedback mechanism,” IEEE Robot.
+Autom. Lett., vol. 7, no. 4, pp. 8659–8666, Oct. 2022.
+[28] H. Zhang and A. Song, “Tipover stability enhancement method for a
+trackedmobilemanipulator,”inProc.IEEEInt.Conf.Robot.Autom.,2014,
+pp. 5158–5164.
+[29] H. Kim, M. Sitti, and T. Seo, “Tail-assisted mobility and stability enhance-
+ment in yaw and pitch motions of a water-running robot,” IEEE-ASME
+Trans. Mechatron., vol. 22, no. 3, pp. 1207–1217, Jun. 2017.
+[30] S. Abeywardena and I. Farkhatdinov, “Towards enhanced stability of
+human stance with a supernumerary robotic tail,” IEEE Robot. Autom.
+Lett., vol. 8, no. 9, pp. 5743–5750, Sep. 2023.
+[31] H. Huang, A. Loquercio, A. Kumar, N. Thakkar, K. Goldberg, and J.
+Malik, “Manipulator as a tail: Promoting dynamic stability for legged
+locomotion,”inProc.IEEEInt.Conf.Robot.Autom.,2024,pp.9712–9719.
+[32] R. Tong et al., “Design and modeling of an integral molding flexible
+tail for robotic fish,” IEEE-ASME Trans. Mechatron., to be published,
+doi: 10.1109/TMECH.2024.3408036.
+[33] A. W. Winkler, F. Farshidian, D. Pardo, M. Neunert, and J. Buchli, “Fast
+trajectory optimization for legged robots using vertex-based ZMP con-
+straints,”IEEERobot.Autom.Lett.,vol.2,no.4,pp. 2201–2208,Oct.2017.
+[34] Y. De Viragh, M. Bjelonic, C. D. Bellicoso, F. Jenelten, and M. Hutter,
+“Trajectory optimization for wheeled-legged quadrupedal robots using
+linearized ZMP constraints,” IEEE Robot. Autom. Lett., vol. 4, no. 2,
+pp. 1633–1640, Apr. 2019.
+[35] J. J. Choi, A. Agrawal, K. Sreenath, C. J. Tomlin, and S. Bansal, “Com-
+putation of regions of attraction for hybrid limit cycles using reachability:
+An application to walking robots,” IEEE Robot. Autom. Lett., vol. 7, no. 2,
+pp. 4504–4511, Apr. 2022.
+[36] J. K. Mehr, M. Sharifi, V. K. Mushahwar, and M. Tavakoli, “Intelligent
+locomotion planning with enhanced postural stability for lower-limb
+exoskeletons,” IEEE Robot. Autom. Lett., vol. 6, no. 4, pp. 7588–7595,
+Oct. 2021.
+[37] S. Li, Z. Wu, J. Wang, C. Qiu, M. Tan, and J. Yu, “Robust depth
+and heading control system for a novel robotic dolphin with multi-
+ple control surfaces,” IEEE Trans. Autom. Sci. Eng., to be published,
+doi: 10.1109/TASE.2024.3380394.
+[38] J. Humphreys, J. Li, Y. Wan, H. Gao, and C. Zhou, “Bio-inspired gait
+transitions for quadruped locomotion,” IEEE Robot. Autom. Lett., vol. 8,
+no. 10, pp. 6131–6138, Oct. 2023.
+[39] K. Chen and C. Fu, Humanoid Robot Theory and Technology. Beijing,
+China: Tsinghua Univ. Press, 2010.
+[40] S. P. Bhat and D. S. Bernstein, “Lyapunov analysis of finite-time differen-
+tial equations,” in Proc. Amer. Control Conf., 1995, vol. 3, pp. 1831–1832.
+[41] K. Kim, P. Spieler, E. S. Lupu, A. Ramezani, and S. J. Chung, “A bipedal
+walking robot that can fly, slackline, and skateboard,” Sci. Robot., vol. 6,
+no. 59, 2021, Art. no. eabf8136.
+Lepeng Chen received the B.Eng. and M.S. degrees
+in automatic control from Northwestern Polytech-
+nical University, Xi’an, China, in 2015 and 2018,
+respectively. He is currently working toward the
+Ph.D. degree in automatic control with the School
+of Marine Science and Technology, Northwestern
+Polytechnical University.
+His research interests are underwater legged
+robotics, adaptive control, and motion planning of
+marine vehicles.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 20 ===
+CHEN et al.: STABILITY CRITERION AND STABILITY ENHANCEMENT FOR A THRUSTER-ASSISTED UNDERWATER HEXAPOD ROBOT 61
+Rongxin Cui (Member, IEEE) received the B.Eng.
+degree in autonomic control and the Ph.D. degree in
+control science and engineering from Northwestern
+Polytechnical University, Xi’an, China, in 2003 and
+2008, respectively.
+He is currently a Professor with the School of
+Marine Science and Technology, Northwestern Poly-
+technical University. His current research interests
+include control and navigation for underwater vehi-
+cles.
+Dr. Cui is currently an Associate Editor for IEEE
+TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, and IEEE
+TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS.
+Weisheng Yan received the B.Eng. degree in auto-
+matic control and the Ph.D. degree in navigation,
+guidance, and control from Northwestern Polytech-
+nical University, Xi’an, China, in 1991 and 1999,
+respectively.
+He is currently a Professor with the School of
+Marine Science and Technology, Northwestern Poly-
+technical University. His current research interests in-
+clude guidance, navigation, and control of underwater
+vehicles.
+Chenguang Yang (Fellow, IEEE) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xian, China,
+in 2005 and the Ph.D. degree in control engineering
+from the National University of Singapore, Singa-
+pore, in 2010.
+He is currently the Chair of Robotics with the
+Department of Computer Science, University of Liv-
+erpool, Liverpool, U.K. His research interest lies in
+human–robot interaction and intelligent system de-
+sign.
+Dr. Yang was a recipient of IEEE TRANSACTIONS ON ROBOTICS Best Paper
+Award in 2012 and IEEE Transactions on Neural Networks and Learning
+Systems Outstanding Paper Award in 2022, as the lead author.
+Zhijun Li (Fellow, IEEE) received the Ph.D. degree
+in mechatronics from Shanghai Jiao Tong University,
+Shanghai, China, in 2002.
+He is currently a Chair Professor with Tongji Uni-
+versity, Shanghai. He has authored or coauthored
+more than 400 papers, where the prestigious contri-
+butions were wearable robotics and bio-mechatronics
+systems. His current research interests include wear-
+able robotics, bio-mechatronics systems, intelligent
+control.
+Dr. Li was the recipient of the Distinguished Lec-
+turer (RAS), the Web of Science Highly Cited Researcher (2019–2023), the 2018
+National Tenthousand Talents Program in China, 2016 National Distinguished
+Young Scholar (NSFC). He is a Fellow of and AAIA.
+Hui Xu received the Ph.D. degree in mechanical engi-
+neering from Northwestern Polytechnical University,
+Xi’an, China, in 2006.
+He is currently an Associate Professor with the
+School of Marine Science and Technology, North-
+western Polytechnical University. His research inter-
+ests include underwater robot designing, bioinspired
+systems, biomechatronics.
+Haitao Yu received the B.Eng. degree in mechan-
+ical engineering from Northwestern Polytechnical
+University, Xi’an, China, in 2021. He is currently
+working toward the Ph.D. degree in automatic control
+with the School of Marine Science and Technology,
+Northwestern Polytechnical University.
+His research interests include mechanical design-
+ing, biomimetic robotics, and mechatronics.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:31 UTC from IEEE Xplore. Restrictions apply.

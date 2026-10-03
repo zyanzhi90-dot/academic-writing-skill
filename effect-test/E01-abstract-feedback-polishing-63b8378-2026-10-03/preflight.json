@@ -1,0 +1,21 @@
+{
+  "candidate_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
+  "candidate_blob_identical_files": 58,
+  "candidate_copy_modifications": [],
+  "allowed_material_file_count": 112,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "corresponding_texts": 24,
+  "reuse_corpus_hashes_verified": true,
+  "draft_source_commit": "a7f50665fd18322f0a79bb34538b07e001639e37",
+  "draft_identical_to_committed_blob": true,
+  "facts_experience_mainline_original_bytes": true,
+  "mainline_links_resolve_within_materials": true,
+  "writing_invocations_before_start": 0,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "run_kind": "targeted-feedback-polishing",
+  "independent_first_drafting_evidence": false,
+  "scope": "Last three validation sentences as a unit; other prose only necessary dependencies; no fixed length or required experiment inventory",
+  "target_original_not_supplied": true
+}

@@ -1,0 +1,31 @@
+{
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "first_output_sha256": "7d3866043fc76ad44e854e402c6009fcd824462889c46f0c10c988bc9b706e0f",
+  "first_output_bytes": 2326,
+  "first_output_matches_terminal_message_except_final_newline": true,
+  "outside_materials_explicit_reads": [],
+  "unresolved_read_commands": [],
+  "attempts": 1,
+  "evaluation": "No independent-drafting quality verdict; raw targeted feedback output retained for owner acceptance",
+  "run_kind": "targeted-feedback-polishing",
+  "independent_first_drafting_evidence": false,
+  "loading_collector_sha256": "38790cb4dfd26216d1512d19a48458367fdb4b2c8d502f18484faed93ef5c0cf",
+  "loading_collector_reused_from": "effect-test/E01-abstract-feedback-rewrite-63b8378-2026-10-03/collect_loading.py; output role changed from drafting to polishing only",
+  "actual_loaded_or_searched_files": 21,
+  "completed_material_commands": 26,
+  "verified_source_lines": 1118,
+  "common_instructions_before_selected_cards": true,
+  "fully_returned_cards": [
+    "A02",
+    "A04",
+    "A06",
+    "A07"
+  ],
+  "all_cards_preloaded": false,
+  "raw_records_unchanged_after_loading_audit": true,
+  "thread_id": "01a100ff-89c9-7e11-ab30-91362a4fa0e1",
+  "scope_verification_file": "scope-verification.json"
+}
