@@ -2,7 +2,7 @@
   "basis_commit": "105a6ea",
   "basis_commit_scope": "Accepted example-card source, not the candidate version",
   "candidate_verification": {
-    "candidate_commit": "c8396e9e15b3306c56573325ff634dd0ea50cc1f",
+    "candidate_commit": "bc99169f12a38d74ac31fd9b311a74be572728cb",
     "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
     "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
     "committed_file_sha256": {
@@ -12,16 +12,16 @@
       "nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
       "nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
       "nature-shared/core/terminology-ledger.md": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
-      "nature-shared/core/scientific-expression.md": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1",
+      "nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
       "nature-writing/static/core/stance.md": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
-      "nature-writing/static/core/workflow.md": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7",
+      "nature-writing/static/core/workflow.md": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef",
       "nature-writing/static/core/output-format.md": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
       "nature-writing/static/fragments/paper_type/research.md": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27",
       "nature-writing/static/fragments/language/en.md": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a",
       "nature-writing/static/fragments/journal/generic.md": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
       "nature-writing/static/fragments/task/manuscript.md": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
-      "nature-writing/static/fragments/section/abstract.md": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73",
-      "nature-shared/core/robotics-writing-examples.md": "bdc0cb83a9ec502f1fda51e74c503b37428b93acc724841b7e887a9ee896f49b",
+      "nature-writing/static/fragments/section/abstract.md": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4",
+      "nature-shared/core/robotics-writing-examples.md": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
       "nature-writing/references/abstract.md": "c24ba546659288205d1c64c3e8065aec414a0ce936c20e292e601477ad15d8a0",
       "nature-writing/static/fragments/language/zh-to-en.md": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
       "nature-writing/static/fragments/journal/nature.md": "cf5ac985df8cdcf0e6d3ec32c1499c4db861c8780bda0d1d67a9a0a168da81cb",
@@ -42,12 +42,12 @@
       "nature-polishing/SKILL.md": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa",
       "nature-polishing/manifest.yaml": "80683c8f0713402696f28eb3d5181d378508cdf21d0cdd3fee87ce7482c05342",
       "nature-polishing/static/core/stance.md": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b",
-      "nature-polishing/static/core/failure-modes.md": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc",
+      "nature-polishing/static/core/failure-modes.md": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260",
       "nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
       "nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
-      "nature-polishing/static/fragments/language/en.md": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363",
+      "nature-polishing/static/fragments/language/en.md": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c",
       "nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
-      "nature-polishing/static/fragments/section/abstract.md": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c",
+      "nature-polishing/static/fragments/section/abstract.md": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da",
       "nature-polishing/static/fragments/language/zh-to-en.md": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
       "nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
       "nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
@@ -62,7 +62,7 @@
       "nature-polishing/references/latex-layout.md": "9cdb4a2f69e1314a5a401bd1e90d880287940211a48b07e4eb0c62c3c9dd28a9"
     },
     "committed_example_fragment_sha256": {
-      "common_and_task_index": "7f92afc4e6e1f24e63e92b04a1aff0c3a3df605ec63d0296d00aaf735fee1410",
+      "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
       "A02": "b0caf18529260191ce065a7aba318ff8763b23f576fe4c6aee8101f3c9de5f36",
       "A04": "933a0ebdb2c44df6654195d41ce491fbe1cd671e9b6927bbf37601315a22f9ab",
       "A05": "523ef29c1ea9da422d59b1a5e2cad50a4d73b605669b4791500a79989de9102b",
@@ -80,14 +80,6 @@
         "read_sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d",
         "committed_sha256": "6568c379e8bd23f02ec9cb8cf0d14db8ad02261911bbf8e91f3e8d55cf56b24d",
         "working_crlf_count": 134,
-        "committed_crlf_count": 0,
-        "content_equal_after_lf_normalization": true
-      },
-      {
-        "path": "nature-shared/core/robotics-writing-examples.md",
-        "read_sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
-        "committed_sha256": "bdc0cb83a9ec502f1fda51e74c503b37428b93acc724841b7e887a9ee896f49b",
-        "working_crlf_count": 431,
         "committed_crlf_count": 0,
         "content_equal_after_lf_normalization": true
       },
@@ -185,7 +177,7 @@
       {
         "label": "robotics-writing-examples.md",
         "path": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
-        "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640"
+        "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19"
       },
       {
         "label": "19-paper evidence report",
@@ -315,7 +307,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -323,7 +315,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -347,14 +339,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         },
         {
@@ -406,7 +398,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -414,7 +406,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -438,7 +430,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-writing/static/fragments/language/en.md",
@@ -446,10 +438,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         },
         {
@@ -501,7 +493,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -509,7 +501,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -533,14 +525,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         },
         {
@@ -596,7 +588,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -604,7 +596,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -628,14 +620,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         },
         {
@@ -690,7 +682,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -698,7 +690,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -722,15 +714,15 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A02": "278e32dc7965e0d16844f74ec4a059c6b084eb619001c734d076ed2a027b21b8"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A02": "b0caf18529260191ce065a7aba318ff8763b23f576fe4c6aee8101f3c9de5f36"
           }
         },
         {
@@ -785,7 +777,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -793,7 +785,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -817,15 +809,15 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A04": "5d3916b4403b531c8b8fa37f023fc5dd86e63e444ba5d8cb692724cae9e75138"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A04": "933a0ebdb2c44df6654195d41ce491fbe1cd671e9b6927bbf37601315a22f9ab"
           }
         },
         {
@@ -880,7 +872,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -888,7 +880,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -912,15 +904,15 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A05": "4dd510975a5637d3b71686b51e03d421c4a76cb845ce13b74ccd37f88e075543"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A05": "523ef29c1ea9da422d59b1a5e2cad50a4d73b605669b4791500a79989de9102b"
           }
         },
         {
@@ -975,7 +967,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -983,7 +975,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1007,15 +999,15 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A07": "869538c8c44960ff7d6f92d4afef2bf40fbacbda453947ce10b99a654680e939"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A07": "188ccd8dc20288097d34d7cdd600fb1fa8aacf85d09f0012ef380645139054c0"
           }
         },
         {
@@ -1066,7 +1058,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1074,7 +1066,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1102,10 +1094,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B02": "a2a995885fcecaf8e4d5daa5f755ce52a19c212fbec0e4923edda71bc4242777"
           }
         },
         {
@@ -1156,7 +1148,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1164,7 +1156,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1192,10 +1184,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -1247,7 +1239,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1255,7 +1247,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1283,10 +1275,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -1338,7 +1330,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1346,7 +1338,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1378,10 +1370,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B02": "a2a995885fcecaf8e4d5daa5f755ce52a19c212fbec0e4923edda71bc4242777"
           }
         },
         {
@@ -1430,7 +1422,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1438,7 +1430,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1462,10 +1454,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -1516,7 +1508,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1524,7 +1516,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1548,11 +1540,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B01": "1d04bf4455baf9f7d7d4aa93f554ee6e289daf73b9dccda8b9af60a20fbd0eb8",
+            "B13": "dcf4fc9858a8f1e4a9fdbc0b27038c1b4d15786f7957850ae46615913851264d"
           }
         },
         {
@@ -1614,7 +1606,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1622,7 +1614,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1670,11 +1662,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B01": "1d04bf4455baf9f7d7d4aa93f554ee6e289daf73b9dccda8b9af60a20fbd0eb8",
+            "B13": "dcf4fc9858a8f1e4a9fdbc0b27038c1b4d15786f7957850ae46615913851264d"
           }
         },
         {
@@ -1734,7 +1726,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1742,7 +1734,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1770,10 +1762,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -1825,7 +1817,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1833,7 +1825,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1857,14 +1849,14 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         },
         {
@@ -1917,7 +1909,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -1925,7 +1917,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -1949,7 +1941,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-writing/static/fragments/section/method.md",
@@ -1957,11 +1949,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -2017,7 +2009,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2025,7 +2017,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -2053,10 +2045,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B11": "57c88d55f4d4ae758371e0144ed7032190a93df4e14575fddfcb5f62b5f43ecf"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B11": "d1dde231b96f5fbc7d68feaf761f59234cd9c80715ee162bdac626ee7093f23e"
           }
         },
         {
@@ -2114,7 +2106,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2122,7 +2114,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -2191,7 +2183,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2199,7 +2191,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -2267,7 +2259,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2275,7 +2267,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -2342,7 +2334,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2350,7 +2342,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -2415,7 +2407,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-writing/static/core/stance.md",
@@ -2423,7 +2415,7 @@
         },
         {
           "path": "nature-writing/static/core/workflow.md",
-          "sha256": "125473e71aafb784548acd58f392adae13c4966316d91dd6e83e2fbaa7f920c7"
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
         },
         {
           "path": "nature-writing/static/core/output-format.md",
@@ -2447,7 +2439,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "234e8810153e84a7ff273b48e9a9f81a3dd1fdd13674175d072fa16fc4741c73"
+          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
         },
         {
           "path": "nature-writing/references/abstract.md",
@@ -2497,7 +2489,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2505,7 +2497,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -2517,7 +2509,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -2525,14 +2517,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         }
       ]
@@ -2580,7 +2572,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2588,7 +2580,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -2608,18 +2600,18 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         }
       ]
@@ -2667,7 +2659,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2675,7 +2667,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -2687,7 +2679,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/nature.md",
@@ -2695,14 +2687,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         },
         {
@@ -2754,7 +2746,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2762,7 +2754,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -2774,7 +2766,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -2782,14 +2774,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         }
       ]
@@ -2840,7 +2832,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2848,7 +2840,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -2860,7 +2852,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -2868,15 +2860,15 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A02": "278e32dc7965e0d16844f74ec4a059c6b084eb619001c734d076ed2a027b21b8"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A02": "b0caf18529260191ce065a7aba318ff8763b23f576fe4c6aee8101f3c9de5f36"
           }
         }
       ]
@@ -2927,7 +2919,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -2935,7 +2927,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -2947,7 +2939,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -2955,15 +2947,15 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A04": "5d3916b4403b531c8b8fa37f023fc5dd86e63e444ba5d8cb692724cae9e75138"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A04": "933a0ebdb2c44df6654195d41ce491fbe1cd671e9b6927bbf37601315a22f9ab"
           }
         }
       ]
@@ -3014,7 +3006,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3022,7 +3014,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3034,7 +3026,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3042,15 +3034,15 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A05": "4dd510975a5637d3b71686b51e03d421c4a76cb845ce13b74ccd37f88e075543"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A05": "523ef29c1ea9da422d59b1a5e2cad50a4d73b605669b4791500a79989de9102b"
           }
         }
       ]
@@ -3101,7 +3093,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3109,7 +3101,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3121,7 +3113,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3129,15 +3121,15 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "A07": "869538c8c44960ff7d6f92d4afef2bf40fbacbda453947ce10b99a654680e939"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "A07": "188ccd8dc20288097d34d7cdd600fb1fa8aacf85d09f0012ef380645139054c0"
           }
         }
       ]
@@ -3184,7 +3176,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3192,7 +3184,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3204,7 +3196,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3216,10 +3208,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B02": "a2a995885fcecaf8e4d5daa5f755ce52a19c212fbec0e4923edda71bc4242777"
           }
         },
         {
@@ -3270,7 +3262,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3278,7 +3270,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3290,7 +3282,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3302,10 +3294,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -3357,7 +3349,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3365,7 +3357,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3377,7 +3369,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3389,10 +3381,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -3444,7 +3436,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3452,7 +3444,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3476,14 +3468,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B02": "815247a2240c9077a9511c38fd0a3f48729ddd57d93d648b5dd02c4471ade425"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B02": "a2a995885fcecaf8e4d5daa5f755ce52a19c212fbec0e4923edda71bc4242777"
           }
         },
         {
@@ -3532,7 +3524,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3540,7 +3532,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3552,7 +3544,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3560,10 +3552,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -3614,7 +3606,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3622,7 +3614,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3634,7 +3626,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3642,11 +3634,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B01": "1d04bf4455baf9f7d7d4aa93f554ee6e289daf73b9dccda8b9af60a20fbd0eb8",
+            "B13": "dcf4fc9858a8f1e4a9fdbc0b27038c1b4d15786f7957850ae46615913851264d"
           }
         },
         {
@@ -3712,7 +3704,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3720,7 +3712,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3732,7 +3724,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3764,11 +3756,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B01": "b4d6a8515b86a2d7622951852168be4e75a6c9f5566f7fb9f5ee0c375f1402a3",
-            "B13": "272f5eefc97437e04222c13425e38c012f2e449254e4702375352f964ed455ea"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B01": "1d04bf4455baf9f7d7d4aa93f554ee6e289daf73b9dccda8b9af60a20fbd0eb8",
+            "B13": "dcf4fc9858a8f1e4a9fdbc0b27038c1b4d15786f7957850ae46615913851264d"
           }
         },
         {
@@ -3832,7 +3824,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3840,7 +3832,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3852,7 +3844,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3864,10 +3856,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -3919,7 +3911,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -3927,7 +3919,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -3939,7 +3931,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -3947,14 +3939,14 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1"
           }
         }
       ]
@@ -4003,7 +3995,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4011,7 +4003,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4023,7 +4015,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -4031,7 +4023,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         },
         {
           "path": "nature-polishing/static/fragments/section/methods.md",
@@ -4039,11 +4031,11 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "A06": "74dc12632235804691d23a8aca5684ea1faf26e6d904012061d48cd0e56be43d",
-            "B04": "eceec757362a9c5d11d262083214b6f383cb447b4b6c3e57163efb3b54f086f7"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
           }
         },
         {
@@ -4095,7 +4087,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4103,7 +4095,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4115,7 +4107,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/nature.md",
@@ -4127,10 +4119,10 @@
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
-          "sha256": "9019f1667819c6faf994c50b1589d62b8abedad1f415d5a592cf0e51dfb93640",
+          "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
           "selected_fragment_sha256": {
-            "common_and_task_index": "83906faaef4c44db6e87fa81a38d85990ad055da263897416bbc259ad583582c",
-            "B11": "57c88d55f4d4ae758371e0144ed7032190a93df4e14575fddfcb5f62b5f43ecf"
+            "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+            "B11": "d1dde231b96f5fbc7d68feaf761f59234cd9c80715ee162bdac626ee7093f23e"
           }
         },
         {
@@ -4188,7 +4180,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4196,7 +4188,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4208,7 +4200,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -4261,7 +4253,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4269,7 +4261,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4281,7 +4273,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -4333,7 +4325,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4341,7 +4333,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4353,7 +4345,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -4404,7 +4396,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4412,7 +4404,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4424,7 +4416,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -4471,7 +4463,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4479,7 +4471,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4532,7 +4524,7 @@
         },
         {
           "path": "nature-shared/core/scientific-expression.md",
-          "sha256": "3883f280e73179753d7e13185d22bcc57b86d1f2d1a05a5179e5ad55a3cf13b1"
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
         },
         {
           "path": "nature-polishing/static/core/stance.md",
@@ -4540,7 +4532,7 @@
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
-          "sha256": "7b06d6b2bef5f561235b9090dbe1efed2f2e123678831aa412a4760d21e24dfc"
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
         },
         {
           "path": "nature-polishing/static/core/output-format.md",
@@ -4552,7 +4544,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
-          "sha256": "86811cbabb2f214ed833077d62838f73a4c95bf622c0c3f75d7d6755724e9363"
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
         },
         {
           "path": "nature-polishing/static/fragments/journal/generic.md",
@@ -4560,7 +4552,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "d9ba1d19878782bd9297b1aaf5c789d87fc33ad30f18b9e82bc13d62ef192d5c"
+          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
         }
       ]
     }
