@@ -2,7 +2,7 @@
   "basis_commit": "105a6ea",
   "basis_commit_scope": "Accepted example-card source, not the candidate version",
   "candidate_verification": {
-    "candidate_commit": "c2c09537e4f1f944eb8a8aa82cbc7ecf5203b6a7",
+    "candidate_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
     "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
     "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
     "committed_file_sha256": {
@@ -20,7 +20,7 @@
       "nature-writing/static/fragments/language/en.md": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a",
       "nature-writing/static/fragments/journal/generic.md": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
       "nature-writing/static/fragments/task/manuscript.md": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
-      "nature-writing/static/fragments/section/abstract.md": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4",
+      "nature-writing/static/fragments/section/abstract.md": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9",
       "nature-shared/core/robotics-writing-examples.md": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
       "nature-writing/references/abstract.md": "c24ba546659288205d1c64c3e8065aec414a0ce936c20e292e601477ad15d8a0",
       "nature-writing/static/fragments/language/zh-to-en.md": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
@@ -47,7 +47,7 @@
       "nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
       "nature-polishing/static/fragments/language/en.md": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c",
       "nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
-      "nature-polishing/static/fragments/section/abstract.md": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da",
+      "nature-polishing/static/fragments/section/abstract.md": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7",
       "nature-polishing/static/fragments/language/zh-to-en.md": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
       "nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
       "nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
@@ -339,7 +339,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -430,7 +430,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-writing/static/fragments/language/en.md",
@@ -525,7 +525,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -620,7 +620,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -714,7 +714,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -809,7 +809,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -904,7 +904,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -999,7 +999,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -1849,7 +1849,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -1941,7 +1941,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-writing/static/fragments/section/method.md",
@@ -2439,7 +2439,7 @@
         },
         {
           "path": "nature-writing/static/fragments/section/abstract.md",
-          "sha256": "1027091f3daf20a1df0ae3076943b332868a8363effd76ea3e165eae757470a4"
+          "sha256": "d6a3afca17bdad6d271bb7928c301ea8f8f3d24af8428d8d86b95cfeff8a16a9"
         },
         {
           "path": "nature-writing/references/abstract.md",
@@ -2517,7 +2517,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -2600,7 +2600,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-polishing/static/fragments/language/en.md",
@@ -2687,7 +2687,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -2774,7 +2774,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -2860,7 +2860,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -2947,7 +2947,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -3034,7 +3034,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -3121,7 +3121,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -3939,7 +3939,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-shared/core/robotics-writing-examples.md",
@@ -4023,7 +4023,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         },
         {
           "path": "nature-polishing/static/fragments/section/methods.md",
@@ -4552,7 +4552,7 @@
         },
         {
           "path": "nature-polishing/static/fragments/section/abstract.md",
-          "sha256": "4a9f6c8e2f25b4e81f26d2f06856eb1ee442bd05100643d471f7c8476888c4da"
+          "sha256": "d30f69073998d13c1fcf92141246e5a33ac756cf190d7c3ffcf116721872d2a7"
         }
       ]
     }
