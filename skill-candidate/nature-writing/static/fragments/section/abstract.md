@@ -49,7 +49,16 @@ Open `references/abstract.md` for templates and examples.
 
 - Check the actual opening, object handoffs, method detail, and verification
   against the selected English and author style; correct departures even if
-  the sentence is grammatical.
+  the sentence is grammatical. Work back from the abstract to its contribution,
+  key design roles and advantages, and necessary theoretical and validation
+  support. Apply the necessity criteria in Drafting discipline and Verification
+  expression to consecutive method sentences and validation branches as groups.
+  Merge or omit execution steps or itemized observations whose omission would
+  not affect contribution understanding, evidence support, or claim scope;
+  factual accuracy or new information in each sentence does not replace this
+  whole-paragraph judgment. Preserve necessary objects, conditions, and evidence
+  attribution. Recheck affected sentence relations and English against the
+  selected references' actual realizations.
 - Ending with a broad promise may need scope control.
 - A result may feel ungrounded when neither a decisive comparison nor the logic
   of the supporting test is visible. A number is optional unless it defines the
