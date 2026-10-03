@@ -1,0 +1,16 @@
+{
+  "candidate_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
+  "candidate_blob_identical_files": 100,
+  "candidate_copy_modifications": [],
+  "allowed_material_file_count": 151,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "corresponding_fresh_texts": 24,
+  "example_cards_available": 20,
+  "archive_only_pdf_files": true,
+  "facts_and_experience_original_bytes": true,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "invocations_before_start": 0,
+  "task_prompt_logic": "Only invoke provided Skill to draft complete English Abstract from the facts and attach accurate Chinese translation; original experience supplied. No main line, reference choice, sentence pattern or E01-specific guidance added."
+}

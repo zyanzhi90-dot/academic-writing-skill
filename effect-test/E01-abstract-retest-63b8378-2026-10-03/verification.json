@@ -1,0 +1,29 @@
+{
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "first_output_sha256": "45236b3716b8d5d7ccd61c0c4937d288c54af9145caa36d0a4412a25c2763c23",
+  "first_output_bytes": 2427,
+  "first_output_matches_terminal_message_except_final_newline": true,
+  "outside_materials_explicit_reads": [],
+  "unresolved_read_commands": [],
+  "attempts": 1,
+  "evaluation": "Not performed; no quality verdict",
+  "loading_collector_sha256": "87cf49ca1e2879986a093fadd70402abdd2d5a7c42b2b9ebd78fa1af29a24859",
+  "loading_collector_original_sha256": "20316e17fc3948f3b05bea47e4a4b4de9b87e7747cbb5b8eb82a6b8d87c9d4cd",
+  "actual_loaded_or_searched_files": 21,
+  "completed_material_commands": 22,
+  "verified_source_lines": 1444,
+  "common_instructions_before_selected_cards": true,
+  "fully_returned_cards": [
+    "A02",
+    "A06",
+    "A07"
+  ],
+  "all_cards_preloaded": false,
+  "raw_records_unchanged_after_loading_audit": true,
+  "thread_id": "01a10079-0757-7261-86ee-467a61a72655",
+  "archive_isolation": "Only three exact archived PDFs at declared paths; no historical outputs, metadata, logs or evaluation copied to writer materials",
+  "collector_adaptation": "New copy only: recognize TotalCount then Skip/First, and concatenated whole-file Get-Content output. Initial audit and adaptation diff saved. No raw records or writing output changed."
+}

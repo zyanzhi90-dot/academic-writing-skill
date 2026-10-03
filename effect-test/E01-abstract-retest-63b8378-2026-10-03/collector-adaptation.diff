@@ -1,0 +1,63 @@
+--- reused/collect_loading.py
++++ new-record/collect_loading.py
+@@ -33,24 +33,36 @@
+     numbered = [(int(number), text.rstrip("\r")) for number, text in
+                 re.findall(r"^\s*(\d+): ?(.*)$", output, re.M)]
+     unnumbered_match = False
+-    # This run returned ordinary Get-Content output. Resolve the explicit
+-    # Select-Object range and compare every returned line with frozen UTF-8 text.
+-    if not numbered and len(paths) == 1 and re.search(r"Get-Content", command, re.I):
+-        name = paths[0]
+-        if not name.endswith(".pdf"):
++    reconstructed_by_file = {}
++    # Verify actual unnumbered output against each explicit Get-Content path.
++    # A single path may use TotalCount followed by Skip/First; a batched
++    # whole-file command returns its explicit paths in command order.
++    if not numbered and paths and re.search(r"Get-Content", command, re.I):
++        expected, returned_positions = [], []
++        for name in paths:
++            if name.endswith(".pdf"):
++                continue
+             source_lines = (material / name).read_text(encoding="utf-8").splitlines()
+-            skip = re.search(r"-Skip\s+(\d+)", command, re.I)
+-            first = re.search(r"-First\s+(\d+)", command, re.I)
++            skip = re.search(r"-Skip\s+(\d+)", command, re.I) if len(paths) == 1 else None
++            first = re.search(r"-First\s+(\d+)", command, re.I) if len(paths) == 1 else None
++            total = re.search(r"-TotalCount\s+(\d+)", command, re.I) if len(paths) == 1 else None
+             start = int(skip[1]) if skip else 0
+-            stop = start + int(first[1]) if first else len(source_lines)
+-            expected = source_lines[start:stop]
+-            unnumbered_match = output.splitlines() == expected
+-            if unnumbered_match:
+-                numbered = list(enumerate(expected, start + 1))
+-            else:
+-                mismatches.append({"command_id": item.get("id"),
+-                                   "reason": "Unnumbered return differs from explicit frozen source range",
+-                                   "candidate_sources": [name]})
++            stop = min(len(source_lines), int(total[1])) if total else len(source_lines)
++            if first:
++                stop = min(stop, start + int(first[1]))
++            selected = source_lines[start:stop]
++            expected.extend(selected)
++            returned_positions.extend(enumerate(selected, start + 1))
++            if selected:
++                reconstructed_by_file[name] = [[start + 1, start + len(selected)]]
++        unnumbered_match = output.splitlines() == expected
++        if unnumbered_match:
++            numbered = returned_positions
++        else:
++            reconstructed_by_file = {}
++            mismatches.append({"command_id": item.get("id"),
++                               "reason": "Unnumbered return differs from explicit frozen source range",
++                               "candidate_sources": paths})
+     numbers = [number for number, _ in numbered]
+     ranges = []
+     for number in sorted(set(numbers)):
+@@ -71,6 +83,7 @@
+              "explicit_utf8_read": bool(re.search(r"-Encoding\s+UTF8|--encoding\s+utf-8|encoding\s*=\s*['\"]utf-8", command, re.I)),
+              "verified_source_line_ranges": ranges, "verified_source_lines": len(numbered),
+              "source_lines_reconstructed_from_unnumbered_return": unnumbered_match,
++             "verified_source_ranges_by_file": reconstructed_by_file,
+              "verified_lines_match_frozen_text": bool(sources and numbered) and
+                  not any(x["command_id"] == item.get("id") for x in mismatches),
+              "command": command}

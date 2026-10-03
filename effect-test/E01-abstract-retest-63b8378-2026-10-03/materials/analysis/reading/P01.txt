@@ -1,0 +1,948 @@
+=== PDF PAGE 1 ===
+IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 23, NO. 3, JUNE 2018 1193
+A DMPs-Based Framework for Robot Learning
+and Generalization of Humanlike Variable
+Impedance Skills
+Chenguang Yang , Senior Member, IEEE, Chao Zeng , Cheng Fang , Member, IEEE,
+Wei He , Senior Member, IEEE, and Zhijun Li , Senior Member, IEEE
+Abstract—One promising approach for robots efficiently
+learning skills is to learn manipulation skills from human
+tutors by demonstration and then generalize these learned
+skills to complete new tasks. Traditional learning and
+generalization methods, however, have not well considered
+human impedance features, which makes the skills less
+humanlike and restricted in physical human–robot interac-
+tion scenarios. In particular, stiffness generalization has
+not been well considered. This paper develops a framework
+that enables the robot to learn both movement and stiffness
+features from the human tutor. To this end, the upper limb
+muscle activities of the human tutor are monitored to extract
+variable stiffness in real time, and the estimated human
+arm endpoint stiffness is properly mapped into the robot
+impedance controller. Then, a dynamic movement primi-
+tives model is extended and employed to simultaneously
+encode the movement trajectories and the stiffness profiles.
+In this way, both position trajectory and stiffness profile are
+considered for robot motion control in this paper to realize
+a more complete skill transfer process. More importantly,
+stiffness generalization and movement generalization can
+be efficiently realized by the proposed framework. Exper-
+imental tests have been performed on a dual-arm Baxter
+robot to verify the effectiveness of the proposed method.
+Index Terms—Dynamic movement primitives (DMPs),
+human–robot interaction, stiffness generalization, variable
+impedance skill transfer.
+Manuscript received October 22, 2017; revised January 28, 2018; ac-
+cepted March 13, 2018. Date of publication March 20, 2018; date of
+current version June 12, 2018. Recommended by Technical Editor H. A.
+Varol. This work was supported in part by the National Natural Science
+Foundation of China under Grants 61473120, 61625303, 61751310, in
+part by the Science and Technology Planning Project of Guangzhou un-
+der Grant 201607010006, in part by the State Key Laboratory of Robotics
+and System (HIT) under Grant SKLRS-2017-KF-13, and in part by the
+Fundamental Research Funds for the Central Universities under Grant
+2017ZD057. (Corresponding author: Chenguang Yang.)
+C. Yang and C. Zeng are with the Key Laboratory of Autonomous
+Systems and Networked Control, College of Automation Science and
+Engineering, South China University of Technology, Guangzhou 510640,
+China (e-mail: cyang@ieee.org; mjzengchao@163.com).
+C. Fang is with the Humanoids and Human Centered Mechatronics
+Lab, Istituto Italiano di Tecnologia, Genova 16163, Italy (e-mail: cheng.
+fang@iit.it).
+W. He is with the School of Automation and Electrical Engineering,
+University of Science and Technology Beijing, Beijing 100083, China
+(e-mail: weihe@ieee.org).
+Z. Li is with Department of Automation, University of Science and
+Technology of China, Hefei, 230026, China (email: zjli@ieee.org).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TMECH.2018.2817589
+I. INTRODUCTION
+IT IS increasingly expected that robots are capable of flexible
+skills in order to adapt to more complex situations in phys-
+ical human–robot interaction systems. Teaching by demonstra-
+tion (TbD) [1], [2] is considered as one of the most effective
+ways for robots to learn motion and manipulation skills from
+humans. Conventional TbD methods, e.g., joysticks, keyboard,
+or human motion capture devices, have been more focused on
+fast programming for endpoint movement trajectory planning
+and control. Such interfaces may be efficient for simple tasks
+that depend only on position. However, they are hardly appli-
+cable for complicated interactions, especially when regarding
+scenarios where robots physically interact with the environment
+including humans and where stiffness profiles in addition to
+position trajectories need to be properly regulated [3]–[6].
+Neuroscience studies have demonstrated how humans per-
+form specific tasks by adapting limb muscle stiffness [7]. By
+using synthesized visual and haptic feedback, a human demon-
+strator is able to adjust his limb impedance to reduce the exter-
+nal interference under the control of the central nervous system.
+Variable impedance regulation widely exists in human task-
+performing cases. When performing a particular task, a human
+demonstrator could increase his limb force in a natural manner
+when the resistance force becomes larger, and vice versa. The
+impedance adaptive process plays a great role in such kinds of
+tasks. Similarly, adaptive impedance control is also necessary
+for robotic systems [8]–[10]. In our previous work [11]–[13],
+we have applied variable impedance skill transfer to robot skill
+learning scenarios. However, the work just focused on imitation
+learning, which refers to the process that the robot is only able
+to replay the learned motion skills exactly following what the
+human tutor has demonstrated. This paper further investigates
+the possibility for a robot to generalize the learned skills to new
+situations using a variable stiffness strategy.
+Transferring human limb stiffness, which can be adjusted
+online in a real-time manner to a robot, is an effective way to
+realize variable impedance skill transfer [11], [14]–[16]. The
+electromyographic (EMG) signals extracted from human limbs
+contain rich information of muscle activities, based on which
+variation of human limb impedance can be effectively monitored
+and estimated during a task execution. Compared with the other
+methods [4], [6], [17], which take nonbiological ways to achieve
+1083-4435 © 2018 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+1194 IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 23, NO. 3, JUNE 2018
+Fig. 1. Procedure of the developed TbD system for skills learning and generalization.
+variable gains, the EMG-based method could allow the transfer
+of human impedance features to the robot. Therefore, the robot
+can adapt to complex tasks and environments in a more direct
+way [13].
+In order to generalize skills obtained by imitation learning,
+movement trajectories need to be encoded such that they can
+be easily adapted to new situations. Dynamic movement prim-
+itives (DMPs) are one of the most commonly used methods
+to represent movements of humans and robots [18], [19]. The
+DMPs model is represented by a set of differential equations that
+can encode high-dimensional control policies. Thus far, several
+types of DMPs models have been developed and successfully
+utilized to learn a large number of skills such as ball-in-a-cup
+[20], drumming [20], and serving water [21]. However, these
+papers have only utilized the DMPs model to encode movement
+trajectories.
+Recently, stiffness/force adaptation has been investigated
+based on this model. In [22], a DMPs method has been pre-
+sented for variable stiffness scheduling, in which the gains are
+represented using a function approximator. In [23], a DMPs
+model is developed for the execution of bimanual or tightly cou-
+pled cooperative tasks by coupling force/torque feedback into
+the transform system. Steinmetz et al. [5] proposed a method to
+simultaneously transfer positional and force requirements for in-
+contact tasks. In [24], stiffness adaptation has been introduced
+to assist human tutor to increase the intuitiveness of interac-
+tion during teaching. Nemec et al. [25] proposed a method that
+enables stiffness adaptation in path operational space, consid-
+ering the variance of motion across multiple executions and
+the current speed. These papers have verified the significance of
+stiffness/force adaptation for robot interactions with the environ-
+ment including humans. However, it has not been investigated
+to model and learn the stiffness profiles in “muscle” space.
+This paper proposes a framework that enables robots to ef-
+ficiently learn both motor and stiffness control policies from
+humans. To that end, human limb muscle activities are mon-
+itored for variable stiffness estimation. The DMPs framework
+is extended to generalize movement trajectories and stiffness
+profiles. Additionally, a dual-arm control strategy with haptic
+feedback mechanism is developed for skill transfer. During the
+demonstration, the master arm of the robot is physically con-
+nected with the human tutor’s hand and the slave arm follows
+the motion of the master arm through the attached virtual spring
+(see [13]). Finally, experimental studies are conducted to ver-
+ify the approach on a Baxter robot. The whole framework is
+depicted in Fig. 1.
+The main contributions of this paper can be summarized as
+follows: 1) This paper presents a scheme combining EMG-based
+variable impedance skill transfer with DMP-based motion se-
+quence planning, inheriting the merits of these two aspects for
+robotic skill acquisition; and 2) more importantly, the devel-
+oped framework can simultaneously encode both trajectories
+and stiffness profiles in a unified manner, which allows both
+trajectory generalization and stiffness schedule.
+The rest of this paper is structured as follows. The methodol-
+ogy is first presented in Section II. The experimental evaluation
+is then presented in Section III. Finally, conclusion is given in
+Section IV.
+II. METHODOLOGY
+In this part, the EMG-based variable stiffness estimation
+method is introduced in Section II-A. Then, the teleoperation
+control strategy is developed for dual-arm imitation movement
+in Section II-B. In Section II-C, the DMPs framework for skill
+representation is finally presented.
+A. EMG-Based Variable Stiffness Estimation
+This modality is developed to enable the robot to learn a
+proper stiffness regulation strategy from the human tutor dur-
+ing demonstrations. To do so, the human tutor’s limb endpoint
+stiffness is estimated first. The EMG signals extracted from the
+tutor’s arm are used to monitor the muscle activation for the
+stiffness estimation. Subsequently, the estimated human end-
+point stiffness profile is transferred to the robot as the gains in
+the joint impedance controller.
+The conservative congruence transformation between the
+Cartesian stiffness and the stiffnesses of human arm is defined
+as follows [26]:
+Ken = J+T
+h (qh )[Kj −
+∂J+T
+h (q)Fex
+∂qh
+∂qh ]J+
+h (qh ) (1)
+where Ken ∈ R6×6
+and Kj ∈ R7×7
+are the human arm endpoint
+stiffness and joint stiffness, respectively. J+T
+h ∈ R6×7
+denotes
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+YANG et al.: DMPS-BASED FRAMEWORK FOR ROBOT LEARNING AND GENERALIZATION OF HUMANLIKE VARIABLE IMPEDANCE SKILLS 1195
+Fig. 2. Position of the eight-channel MYO for stiffness estimation.
+the pseudoinverse of the human arm Jacobian matrix, which
+represents the arm posture, and qh ∈ R7
+represents the arm
+joint angles. Fex ∈ R6
+is the external force that is applied at the
+human arm endpoint.
+Generally speaking, the joint stiffness of human arm Kj is
+related to the muscle cocontraction activity, the posture of hu-
+man arm, the muscle stretch reflex, etc. In this paper, a verified
+effective and simplified estimation model of human arm joint
+stiffness is employed [27], [28], where joint stiffness Kj is rep-
+resented as multiplication of a muscle cocontraction indicator
+α(p) and an intrinsic constant stiffness Kj , which can be identi-
+fied at the condition of minimal muscle cocontractions, namely
+Kj = α(p)Kj . The coefficient α(p) can be obtained by
+α(p) = 1 +
+λ1(1 − e−λ2p
+)
+(1 + e−λ2p )
+(2)
+where λ1 and λ2 are positive constant coefficients to be esti-
+mated, and p is an indicator used to represent muscle activation
+level. The indicator p can be obtained in a two-step way: a low-
+pass filter (finite impulse response filter with a cutoff frequency
+of 100 Hz) and a moving average technique are first used to
+extract an envelope of the raw EMG signals from each of N
+channels using an EMG extraction device MYO. There are total
+N = 8 channels of the EMG signals used in this paper. MYO
+is worn on the upper arm to collect raw EMG data from the
+muscles, as shown in Fig. 2. An example of EMG envelope is
+shown in Fig. 3.
+The moving average process takes the following equation:
+f(At) =
+1
+W
+W −1
+
+k=0
+EMG(At−k ) (3)
+where f(At) represents the amplitude of the envelope, W repre-
+sents the window size, which is set at 40 samples (at a sampling
+rate of 100 Hz). EMG(Ak ) indicates the amplitude of the raw
+EMG signal, which is detected from one channel. k and t are the
+sampling point and time, respectively. Then, the indicator p can
+be calculated by summing the absolute values of the amplitudes
+of the envelope of the EMG signals, as shown in the following
+Fig. 3. Example of EMG enveloping by using a low-pass filter and
+moving average method. The blue line represents the raw EMG signals.
+The red line is the filtered stiffness coefficient representing limb muscle
+activities.
+equation [13]:
+p =
+N
+
+i=1
+|fi(At)|. (4)
+Therefore, there are three parameters, i.e., the constant coeffi-
+cients λ1, λ2, and the intrinsically constant joint stiffness matrix
+Kj , that have to be estimated. These parameters can be estimated
+by minimizing the Frobenius norm of the following expression
+which is derived from (1):
+α(p)Kj −
+∂J+T
+h (q)Fex
+∂qh
+− JT
+h (qh )KenJh (qh ) (5)
+where the human arm Cartesian stiffness Ken ∈ R6×6
+can be
+identified in an indirect way [27].
+The human arm Jacobian Jh is responsible for considering
+the geometrical change of the endpoint stiffness profile. To cal-
+culate Jh , a human arm kinematic model, i.e., the D–H model, is
+utilized to represent the simplified human arm kinematics (see
+[29] for details). It represents the human arm as a model with
+7 degrees of freedom (DoFs) : 3 DoFs on the shoulder, 2 DoFs
+on the elbow, and 2 DoFs on the wrist. The calculation of the
+human arm joint angles is realized by measuring the quater-
+nions obtained from two inertial measurement units, and then
+converting them to the joint angles according to [12].
+B. Dual-Arm Control Strategy for Demonstration
+A teleoperation-based kinesthetic teaching strategy is utilized
+for the realization of human-to-robot skills transfer in a teaching
+phase based on a dual-arm robot platform. A dual-arm control
+strategy is accordingly designed to achieve this goal. One of the
+two arms is used as the master arm and the other as the slave
+arm, and the master arm is connected to the human tutor’s hand
+by using a mechanical coupling interface. The human tutor takes
+the master arm to move and the robot slave arm synchronously
+follows the motion to execute a specific task. Compared to the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+1196 IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 23, NO. 3, JUNE 2018
+traditional way of demonstration, in which the human tutor
+may hold and drive the slave arm directly, this indirect way of
+demonstration (teleoperation) can make the human tutor adapt
+his muscle activity and the corresponding Cartesian stiffness
+more naturally. This process can be considered as imitation
+learning.
+A haptic feedback mechanism integrated into the dual-arm
+control is provided to the human tutor, which contributes to
+stimulating the human tutor’s muscle activation for the stability
+improvement of the task execution. A virtual spring-damping
+system is attached between the robot two arms. The human
+tutor’s hand is connected to the robot master arm using a me-
+chanical interface [13]. The slave arm follows the motion of
+the master arm in both Cartesian space and joint space under
+the designed control mode. Due to the movement tracking error
+between the two arms, a virtual resistance force is generated
+as haptic feedback and provided to the human tutor. Thus, the
+tutor is able to “feel” the motion error in a real-time manner and
+can regulate his muscle strength to compensate for the error. We
+leave the detail of the dual-arm control strategy to [13].
+C. Dynamical Movement Primitives for Skill
+Representation
+In this section, the DMPs model learned from multiple
+demonstrations is first introduced for position trajectory adap-
+tation. Furthermore, this DMPs framework is also extended for
+the stiffness adaptation.
+1) DMPs for Trajectory Planning: Generally, DMPs models
+can be classified into two types, i.e., the Discrete DMPs and the
+Rhythmic DMPs with respect to different kinds of tasks. For
+the realization of the experimental task, i.e., the cutting task,
+the former type is used in this paper. A typical DMPs mode
+can be seen as a spring-damping system, which is derived by a
+canonical system. The model is defined as follows [18]–[19]:
+τv̇ = k(g − x) − dẋ + (g − x0)f(s) (6)
+τẋ = v (7)
+where x denotes the position of the robot endpoint or joint angle,
+and v is the velocity. k and d represent the spring and damping
+coefficients of the system, respectively. The positive constant τ
+is the temporal scaling coefficient. By adjusting the coefficient
+τ, duration of a task would be accordingly changed. x0 and g
+denote the initial and goal position, respectively. The external
+force term f(s) is a nonlinear continuous bounded function. s
+is the state of a first-order dynamic system, i.e., the canonical
+system, which shares the same temporal constant τ
+τṡ = −αss, s ∈ [0, 1]; s(0) = 1 (8)
+where the predefined constant is represented by αs.
+The state s can be seen as a phase variable, which is set to
+monotonically decrease from 1 to 0. When s converges to zero,
+the external force term vanishes at the target point [see (9)]. Due
+to the canonical system, the DMPs model depends not on time
+but on the state s, which makes it possible to easily generalize
+the model to be suitable for other situations without changing
+the movement trajectory.
+The nonlinear function f(s) is defined by
+f(s) =
+N
+
+i=1
+γiφi(s)s (9)
+with
+φi(s) =
+exp(−hi(s − ci)2
+)
+N
+j=1 exp(−hj (s − cj )2)
+(10)
+where φi(s) is considered as a normalized radial basis function
+with the center ci and the width hi. Each basis function hi is
+weighted by γi. N denotes the number of the Gaussian functions
+that need to be used in the model. The parameters ci, hi, and N
+are determined in accordance to the situation of a task.
+A supervised learning process is needed for parameter esti-
+mation. Given a single demonstration, we obtain the target force
+ftarget(s) as follows:
+ftarget(s) =
+τv̇ + dẋ − k(g − x)
+g − x0
+. (11)
+Then, the weights γ of DMPs model are calculated using
+locally weighted regression
+min
+
+(ftarget(s) − f(s))2
+
+. (12)
+There are three basic advantages of the DMPs model, which
+are follows:
+1) the generated movement adapts to a new goal g with a
+smooth trajectory, which is similar to the original one;
+thus, the model is spatially generalized;
+2) the model can be generalized in temporal dimension just
+by changing the temporal constant τ without affecting
+the shape of the movement trajectory; and
+3) by adding coupling terms to the differential equation (6),
+the modified model is then able to have other abilities such
+as avoiding static or moving obstacles [21] and robustness
+to external perturbations [30].
+2) DMPs for Stiffness Schedule: In [17], [22], and [31], the
+control policy K (i.e., the gain of the robot joint impedance
+controller) is represented by a function approximator
+K =
+M
+
+i=1
+ωiϕi(s) (13)
+where ϕi(s) are basis functions. ωi are weighting parameters,
+which are calculated via a supervised learning algorithm and
+optimized via a reinforcement learning algorithm.
+In fact, the function approximator is analogous to the force
+function, i.e., f(s) in (9). Their framework only utilized a part of
+the DMPs model due to the lack of a reference stiffness profile
+that can be used for imitation learning. Therefore, it is only able
+to inherit parts of the merits of the DMPs model. There are three
+shortcomings of this framework, which are as follows.
+1) The initial stiffness is set to be a constant value, and it
+needs a learning process for the robot to obtain a variable
+stiffness profile. Thus, their framework is not efficient in
+transferring skills from humans to a robot.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+YANG et al.: DMPS-BASED FRAMEWORK FOR ROBOT LEARNING AND GENERALIZATION OF HUMANLIKE VARIABLE IMPEDANCE SKILLS 1197
+Fig. 4. Extended framework of the DMPs system. Two sets of transform systems are used to represent for position trajectories and stiffness
+profiles, respectively. The two systems are driven by the same canonical system using the same temporal scaling coefficient τ in order to satisfy
+phase synchronization.
+2) The stiffness cannot be directly generalized to other sit-
+uations, i.e., the amplitude and duration cannot be easily
+adjusted to suit for similar tasks with different require-
+ments.
+3) It is not allowed to be used in such scenarios where it
+only has one shot to finish a task because the trial-and-
+error process is needed to learn the stiffness. Taking the
+example of cutting, we would like the robot to cut an
+object in one time but not try several times to achieve a
+proper stiffness profile. Many similar examples can be
+found in industrial applications.
+In order to overcome these shortcomings, we extend the
+framework in this paper based on the idea that a complete
+motion process of a robot should include both position
+trajectories and stiffness profiles. Robots, just like humans,
+should be capable of both trajectory adaptation and stiffness
+adaptation such that they are able to learn and generalize highly
+humanlike skills. To that end, representation of trajectories and
+stiffness profiles can be treated equally. Inspired by [19], our
+extended framework can be described as:
+ṡ = h(s) (14)
+ẋ = g1(x, s, γ) (15)
+ṗ = g2(p, s, ω) (16)
+where h(s) is the canonical system and it is represented by (8).
+Equations (15) and (16) show the two transform systems that
+one is used to encode position trajectories and another one for
+stiffness profiles. The output of the stiffness DMPs model, i.e.,
+Ωi = {pi, ṗi} is also obtained from (18). Note that these two
+transform systems are driven by the same canonical system such
+that the phase synchronization can be guaranteed. It means that
+the appropriate stiffness can be provided to the robot arm when
+it is needed. We use the notation p to represent the stiffness
+because the variable stiffness is evaluated from EMG signals
+and it can be seen as a stiffness indicator (see Section II-A). We
+compute the stiffness DMPs model using the indicator [see (4)]
+instead of the gains of all joints to reduce the computations.
+The whole framework is demonstrated in Fig. 4 that is modi-
+fied from [22]. The calculation procedure for stiffness DMPs is
+similar to the process of movement DMPs and only needs minor
+modifications, i.e., replacing the input x with p and choosing
+proper parameters, such as the spring and damping coefficients,
+and the number of basis functions.
+To learn the weights from multiple demonstrations, we take a
+direct way to determine the weights. First, each demonstration
+is evaluated with a score of the scale from 1 to 10 according
+to its corresponding performance. For each demonstration, a
+coefficient κi is related to the scores πi and defined as follows:
+κi =
+πi
+L
+i=1 πi
+(17)
+where L is the total number of the demonstrations. Then, the
+final DMPs output Ω = {x, ẋ, p} is computed as
+Ω =
+L
+
+i=1
+κiΩi. (18)
+Thus, the multiple demonstrations can be integrated together
+to yield a final output.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+1198 IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 23, NO. 3, JUNE 2018
+Fig. 5. Experimental setup for the cutting task during demonstration.
+III. EXPERIMENTAL EVALUATION
+The humanoid dual-arm Baxter Research Robot (Baxter) de-
+veloped by Rethink Robotics is used in our experimental study.
+Each arm of the robot has 7 DoF, i.e., 2-DoF shoulder joint
+(S0, S1), 2-DoF elbow joint (E0, E1), and 3-DoF wrist joint
+(W0, W1, W2). The kinematics model of the robot arm has
+been developed in the previous work [32]. Joint stiffness and
+damping can be modified under torque control mode, which
+is implemented by the proportion-derivative impedance control
+law. The human tutor’s muscle activity is monitored using a
+MYO device to collect raw EMG signals. Two tasks, cutting
+and lift place, are illustrated to justify the effectiveness of the
+proposed method.
+A. Cutting Task
+The setup is shown in Fig. 5. During demonstration, one
+arm of the robot is used as the master arm, which is physically
+attached to the human tutor’s limb endpoint through a specially
+designed coupling device [13]. The other arm serves as a slave
+arm, and a knife is mounted onto its endpoint as a cutting tool.
+In the teaching phase, the human tutor drives the master arm to
+move, and the slave arm follows the movement and learns the
+patterns of the position trajectory and the stiffness profile of the
+hand of the human tutor. While in the following reproduction
+phase, the slave arm is able to reproduce and generalize the
+learned skill without the assistance of the master arm.
+First, in the teaching phase, the human tutor who has been
+involved in the stiffness calibration demonstrates the cutting
+skill through teleoperation ten times. The trajectories of the
+seven joints as well as the tutor’s limb EMG signals are recorded
+during each demonstration. Note that the EMG signals can be
+evaluated in an almost real-time manner; thus, we can directly
+record the EMG data and calculate the stiffness indicator p.
+Then, a direct way of computing the mixture of movement
+primitives [see (17) and (18)] is used to generate one output of
+the DMPs model based on the multiple demonstrations. Note
+that learning from multiple demonstrations is not the main con-
+cern of this paper. Therefore, a qualitative criterion is employed
+to determine the weight of each single demonstration. To that
+end, each one of the three subjects gives a score ranging from
+1 to 10 for each signal demonstration according to the task exe-
+cution performance. If the system is unstable when the slave arm
+contacts with the object or the object is not cut well eventually
+during the demonstration, it will get a lower score, the weights
+are calculated by using (17). One may also employ objec-
+tive approaches for learning from multiple demonstrations (see,
+e.g., [33]).
+The spring coefficient k and damping coefficient d of the
+DMPs model are set to 150 and 25, respectively. The numbers
+of basis functions are chosen: 100 and 50 for the trajectories
+DMPs and the stiffness DMPs, respectively. Once we achieve
+the generated movement trajectories and stiffness profiles that
+account for multiple demonstrations, the following two subtasks
+are conducted.
+1) Movement Trajectory Planning Using the DMPs Model: In
+this subtask, we would like to extend the ability of DMPs model
+for skill spatial generalization from position control mode to
+impedance control mode. The goal is to generate the learned
+skill to cut an object in different spatial positions. In our case,
+it is designed to cut a cucumber in different positions along the
+y-axis. The robot here is controlled in the EMG-based variable
+impedance mode. Note that in position control mode, only paths
+need to be planned, whereas in impedance control mode, both
+the paths and velocities should be adjusted. The generalized
+trajectories and velocities are achieved just by changing the
+profile of the DMPs model, and they are shown in the top row in
+Fig. 6. It demonstrates that the generalized trajectories are very
+similar to the reference ones but converging to different goals.
+The results of this subtask are shown in the bottom row
+in Fig. 6. Fig. 6(c) shows the measured endpoint position in
+y-axis of the robot slave arm. It demonstrates that the endpoint
+could generalize spatially to different positions. Fig. 6(d) shows
+the executed cuts. This subtask demonstrates that DMPs model
+for skill spatial generalization can be successfully realized in
+impedance control model.
+2) Stiffness Schedule: One of the most important contribu-
+tion of our proposed framework lies in the ability of generalizing
+the stiffness profiles to suit for new given situations. This sub-
+task aims to demonstrate this point. To that end, we generalize
+the reference stiffness indicator (the reference terminal value
+is 0.65) to two different goals, e.g., 0.8 and 0.9, based on the
+extended DMPs model, which is shown in Fig. 7(a). A different
+object is used for cutting in this subtask, which has a thicker
+skin and larger hardness than the object used in the teaching
+phase and the subtask above.
+The robot is required to perform the subtask five times under
+each one of the three conditions described above, resulting in a
+successful rate of 0/5, 1/5, and 5/5, respectively. Fig. 7(b)–(f)
+shows one typical result of this subtask. In this case, it shows
+that the object cannot be successfully cut using the impedance
+control mode with the reference variable stiffness. And when
+the final stiffness value is generalized to 0.8, the subtask still
+cannot be successfully finished. Until it is generalized to a higher
+value, i.e., 0.9, the object can be successfully cut. Note that
+there is a gap between the final positions of the reference and
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+YANG et al.: DMPS-BASED FRAMEWORK FOR ROBOT LEARNING AND GENERALIZATION OF HUMANLIKE VARIABLE IMPEDANCE SKILLS 1199
+Fig. 6. T op: (a) and (b) are the planned trajectories for skill spatial generalization. Bottom: (c) is the measured robot endpoint position in y-axis;
+(d) shows the executed cut locations on the cucumber, two sets of numbers (1–6) mean this subtask is successfully performed twice (six cuts once).
+Cut no. 1 refers to the demonstrated one, and the others refer to the generalized ones. The solid lines denote the reference trajectories obtained
+from imitation learning and the dash lines denote the generalized ones.
+Fig. 7. T op : (a) is the generalization of the stiffness indicator profile to different goals. (b) and (c) are the measured positions and forces of the
+slave arm end-effector in z-axis, respectively. Bottom shows the different cuts by using the reference (d), the first generalized (e), and the second
+generalized stiffness indicator profiles (f), respectively. The object can be cut successfully only by applying the second generalized stiffness profile.
+Note that the object used to cut here is different from the object used in the first subtask, as shown in Fig. 6.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+1200 IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 23, NO. 3, JUNE 2018
+Fig. 8. Experimental setup for the lift-place task.
+the second generalized trajectories, which represents the height
+of the object [see Fig. 7(b)]. From the perspective of force [see
+Fig. 7(c)], it can be seen that the robot lacks adaptability even
+in variable impedance control mode if the desirable stiffness
+profile is not properly generalized, which is consistent with our
+common experience when people perform tasks.
+B. Lift-Place Task
+The setup for the lift-place task is shown in Fig. 8. There
+are two different objects used in this task, objects 1 and 2 have
+the same size (10 cm ×10 cm × 10 cm), but different weights:
+0.83 and 1.40 kg, respectively. The experimental procedure of
+this task is similar to the cutting task. During demonstration, the
+same human tutor teaches the robot to lift the object 1, pass over
+the obstacle (with a height of 18 cm), and finally place it on the
+goal (the red cross mark). The human tutor is required to lift the
+object at as low height as possible to pass it over the obstacle for
+energy saving. After a given number of demonstrations, we can
+generate one integrated position trajectory and one integrated
+stiffness profile, as shown in Fig. 9. The parameters of the DMP
+model are set as the same as in the cutting task.
+During the playback phase, the robot is required to perform
+the task under three different situations: subtask 1: to lift and
+place the object 1 to a new given goal (the black cross mark),
+which is 5 cm away from the old one, with the demonstrated
+stiffness profile (i.e., trajectory spatial schedule); subtask 2:
+to lift and place the object 2 to the new given goal with the
+demonstrated stiffness profile (i.e., without stiffness schedule);
+and subtask 3: to lift and place the object 2 to the new goal with
+a generalized stiffness profile (i.e., both trajectory and stiffness
+generalization).
+Each subtask has been performed seven times. A success rate
+of 7/7 is obtained in the first subtask, which shows the skill
+spatial generalization has been successfully realized. The robot
+has finished the second task and the third subtask with a success
+rate of 1/7 and 6/7, respectively. The two comparative subtasks
+demonstrate the effectiveness of the proposed framework for
+stiffness schedule. Fig. 10 I–IV shows one typical example of
+the demonstrations and the three subtasks, respectively.
+Fig. 9. Trajectories (a) and stiffness profiles (b) of the lift-place task.
+C. Discussion
+It should be emphasized that subtask 2 in Section III-A and
+subtask 3 in Section III-B are successfully performed just by
+adapting the parameters of the DMPs model instead of teaching
+the robot again or requiring additional time-consuming pro-
+cess (e.g., [22] and [34]) for achieving the proper stiffness
+profiles. Additionally, different combinations of the trajecto-
+ries and the stiffness profiles can meet different requirements of
+task situations based on the proposed framework. More specif-
+ically, by combining different movement trajectories with the
+same stiffness profile, skill spatial generalization under vari-
+able impedance control mode can be realized (subtask 1 in
+Section III-A and subtask 1 in Section III-B), and by com-
+bining different stiffness profiles with the same movement tra-
+jectory, then stiffness schedule can be realized (subtask 2 in
+Section III-A), or both trajectories and stiffness profiles can be
+simultaneously achieved (subtask 3 in Section III-B). Further-
+more, the DMP-based framework is model free and available
+for different robotic platforms.
+The reference stiffness profile for stiffness generalization is
+obtained based on the extraction of the EMG signals and the
+subsequent calculation for the endpoint stiffness estimates. The
+human endpoint stiffness estimation method used in this pa-
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+YANG et al.: DMPS-BASED FRAMEWORK FOR ROBOT LEARNING AND GENERALIZATION OF HUMANLIKE VARIABLE IMPEDANCE SKILLS 1201
+Fig. 10. Experimental results of the lift-place task: I-(a)–(e), II-(a)–(e), III-(a)–(e), and IV-(a)–(e) show one typical example of the demonstrations,
+subtask 1, subtask 2, and subtask 3, respectively. The robot fails to perform subtask 2.
+per has been proved useful for impedance regulation in [27].
+Therefore, on one hand, the stiffness transfer and generaliza-
+tion is achieved conveniently and efficiently; on the other hand,
+the reference stiffness profile largely depends on the accura-
+cies of the extracted EMG signals and the stiffness estimation
+model. One may employ more complete stiffness estimation
+model to improve the accuracy of the estimated reference stiff-
+ness profile since the calculation efficiency of the estimation
+during the demonstration phase is not a strict constraint in this
+context.
+Regarding the way, multiple demonstrations are used to gen-
+erate a reference trajectory and a stiffness profile (see Fig. 9).
+The weight of each single demonstration is determined in a qual-
+itative way for simplicity. Other more objective methods such
+as probabilistic movement primitives (e.g., [35]) can be utilized
+to achieve the same purpose. Moreover, different human tutors
+have different demonstrations during the skill transfer process.
+Thus, it may help robots to achieve a better performance of
+executing tasks by considering the variance between different
+humans, namely learning from different human tutors.
+The significance of stiffness adaptation for human-to-robot
+skill transfer has been verified in [13]. The stiffness adaptive
+process of the cutting task and the lift-place task can be seen
+in Figs. 7(a) and 9(b), respectively. This paper introduces the
+capability of stiffness generalization, and therefore enriches the
+diversity of the human-to-robot variable impedance transfer. In
+our tasks, the stiffness generalization refers to the regulation of
+the stiffness profile according to the task requirement. Taking,
+for example, the lift-place task, during the reaching step the
+stiffness is expected to remain small, and it increases when
+larger stiffness is required to lift a heavier object. Surely, it can
+be decreased accordingly as shown in Fig. 9(b).
+IV. CONCLUSION
+We presented a novel framework for learning and generalizing
+humanlike variable impedance skills. The goal was to enable a
+robot to be capable of performing tasks in a humanlike way. The
+merits of the EMG-based variable impedance control and the
+DMP model were integrated into our method for human–robot
+skills transfer. To do so, the human tutor’s upper limb EMG
+signals were extracted to capture his muscle stiffness features.
+The estimated endpoint stiffness profiles then served as variable
+gains in the impedance controller. In this way, the human tutor is
+able to naturally and intuitively transfer his impedance features
+of a specific skill to the robot. The DMP framework was em-
+ployed and extended for both trajectory and stiffness schedule.
+It is worth noting that the stiffness planning and generalization
+for skill transfer can be achieved using our proposed framework,
+which is the first time to be reported in the literature to the best
+of our knowledge.
+The proposed framework was evaluated on a real robot with
+multiple DoFs. The experimental results of the cutting and lift-
+place tasks have demonstrated the effectiveness of the proposed
+framework. It should be also mentioned that our method can
+be easily transplanted to other platforms, and this proposed
+framework can also be applied to a number of potential ap-
+plications, such as industrial robots, robotic exoskeletons, and
+medical robotic systems, which are required to acquire human-
+like manipulation skills.
+In the future work, we will apply our method to perform more
+complex tasks. For example, it can be applied to a human–robot
+collaboration scenario, for instance a wood sawing task is per-
+formed by a robot and a human collaborator (similar to [15]).
+In these situations, research on the coordinated mechanism for
+both movement generalization and stiffness scheduling would
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+1202 IEEE/ASME TRANSACTIONS ON MECHATRONICS, VOL. 23, NO. 3, JUNE 2018
+be essential. Furthermore, the stiffness scheduling mechanism
+we established here can be combined with many other trajec-
+tory expression tools, such as Gaussian mixture model, together
+to achieve variable impedance control for robots, which could
+enrich the diversity of the skills that robots are able to learn.
+ACKNOWLEDGMENT
+The authors would like to thank the editors and the anonymous
+reviewers for their insightful comments that helped them to
+improve the quality of this paper.
+REFERENCES
+[1] A. Billard, S. Calinon, R. Dillmann, and S. Schaal, “Robot programming
+by demonstration,” in Springer Handbook of Robotics. New York, NY,
+USA: Springer, 2008, pp. 1371–1394.
+[2] S. Calinon, Robot Programming by Demonstration. Lausanne,
+Switzerland: EPFL Press, 2009.
+[3] P. Kormushev, S. Calinon, and D. G. Caldwell, “Imitation learning of
+positional and force skills demonstrated via kinesthetic teaching and haptic
+input,” Adv. Robot., vol. 25, no. 5, pp. 581–603, 2011.
+[4] L. Rozo, S. Calinon, D. G. Caldwell, P. Jimenez, and C. Torras, “Learning
+collaborative impedance-based robot behaviors,” AAAI Conf. Artificial
+Intell., Bellevue, WA, USA, 2013, pp. 1422–1428.
+[5] F. Steinmetz, A. Montebelli, and V. Kyrki, “Simultaneous kinesthetic
+teaching of positional and force requirements for sequential in-contact
+tasks,” in Proc. 2015 IEEE-RAS 15th Int. Conf. Humanoid Robots (Hu-
+manoids), Nov. 2015, pp. 202–209.
+[6] L. Rozo, S. Calinon, D. G. Caldwell, P. Jimenez, and C. Torras, “Learning
+physical collaborative robot behaviors from human demonstrations,” IEEE
+Trans. Robot., vol. 32, no. 3, pp. 513–527, Jun. 2016.
+[7] E. Burdet, R. Osu, D. W. Franklin, T. E. Milner, and M. Kawato, “The
+central nervous system stabilizes unstable dynamics by learning optimal
+impedance,” Nature, vol. 414, no. 6862, pp. 446–449, 2001.
+[8] M. Howard, D. J. Braun, and S. Vijayakumar, “Transferring human
+impedance behavior to heterogeneous variable impedance actuators,”
+IEEE Trans. Robot., vol. 29, no. 4, pp. 847–862, Aug. 2013.
+[9] F. Ficuciello, L. Villani, and B. Siciliano, “Variable impedance control of
+redundant manipulators for intuitive human–robot physical interaction,”
+IEEE Trans. Robot., vol. 31, no. 4, pp. 850–863, Aug. 2015.
+[10] W. He and Y. Dong, “Adaptive fuzzy neural network control for a con-
+strained robot using impedance learning,” IEEE Trans. Neural Netw.
+Learn. Syst., vol. 29, no. 4, pp. 1174–1186, Apr. 2018.
+[11] P. Liang, C. Yang, N. Wang, Z. Li, R. Li, and E. Burdet, “Implemen-
+tation and test of human-operated and human-like adaptive impedance
+controls on Baxter robot,” in Advances in Autonomous Robotics Systems.
+New York, NY, USA: Springer, 2014, pp. 109–119.
+[12] C. Yang, P. Liang, A. Ajoudani, Z. Li, and A. Bicchi, “Development of
+a robotic teaching interface for human to human skill transfer,” in Proc.
+2016 IEEE/RSJ Int. Conf. Intell. Robots Syst., Oct. 2016, pp. 710–716.
+[13] C. Yang, C. Zeng, P. Liang, Z. Li, R. Li, and C. Y. Su, “Interface design of
+a physical human-robot interaction system for human impedance adaptive
+skill transfer,” IEEE Trans. Autom. Sci. Eng., vol. 15, no. 1, pp. 329–340,
+Jan. 2018.
+[14] B. Yuan, M. Sekine, J. Gonzalez, J. Tames, W. Yu, and B. Yuan, “Variable
+impedance control based on impedance estimation model with EMG
+signals during extension and flexion tasks for a lower limb rehabilitation
+robotic system,” J. Novel Physiotherapies, vol. 3, no. 178, p. 2, 2013.
+[Online]. Available: https://www.omicsonline.org/open-access/variable-
+impedance-control-based-on-impedance-estimation-model-with-emg-
+signals-during-extension-and-flexion-tasks-for-a-lower-limb-
+rehabilitation-robotic-system-2165-7025-178.php?aid=19135
+[15] L. Peternel, T. Petrič, E. Oztop, and J. Babič, “Teaching robots to cooperate
+with humans in dynamic manipulation tasks based on multi-modal human-
+in-the-loop approach,” Auton. Robots, vol. 36, no. 1–2, pp. 123–136, 2014.
+[16] A. Ajoudani, Transferring Human Impedance Regulation Skills to Robots,
+vol. 110. New York, NY, USA: Springer, 2016.
+[17] J. Buchli, F. Stulp, E. Theodorou, and S. Schaal, “Learning variable
+impedance control,” Int. J. Robot. Res., vol. 30, no. 7, pp. 820–833, 2011.
+[18] S. Schaal, P. Mohajerian, and A. Ijspeert, “Dynamics systems vs. optimal
+control—A unifying view,” Prog. Brain Res., vol. 165, pp. 425–445, 2007.
+[19] A. J. Ijspeert, J. Nakanishi, H. Hoffmann, P. Pastor, and S. Schaal, “Dynam-
+ical movement primitives: Learning attractor models for motor behaviors,”
+Neural Comput., vol. 25, no. 2, pp. 328–373, 2013.
+[20] A. Ude, A. Gams, T. Asfour, and J. Morimoto, “Task-specific generaliza-
+tion of discrete and periodic dynamic movement primitives,” IEEE Trans.
+Robot., vol. 26, no. 5, pp. 800–815, Oct. 2010.
+[21] H. Hoffmann, P. Pastor, D. H. Park, and S. Schaal, “Biologically-inspired
+dynamical systems for movement generation: Automatic real-time goal
+adaptation and obstacle avoidance,” in Proc. 2009 IEEE Int. Conf. Robot.
+Autom., May 2009, pp. 2587–2592.
+[22] F. Stulp, J. Buchli, A. Ellmer, M. Mistry, E. A. Theodorou, and S. Schaal,
+“Model-free reinforcement learning of impedance control in stochastic
+environments,” IEEE Trans. Auton. Mental Develop., vol. 4, no. 4, pp. 330–
+341, Dec. 2012.
+[23] A. Gams, B. Nemec, A. J. Ijspeert, and A. Ude, “Coupling movement
+primitives: Interaction with the environment and bimanual tasks,” IEEE
+Trans. Robot., vol. 30, no. 4, pp. 816–830, Aug. 2014.
+[24] M. Tykal, A. Montebelli, and V. Kyrki, “Incrementally assisted kinesthetic
+teaching for programming by demonstration,” in Proc. 11th ACM/IEEE
+Int. Conf. Human–Robot Interaction, 2016, pp. 205–212.
+[25] B. Nemec, N. Likar, A. Gams, and A. Ude, “Human robot
+cooperation with compliance adaptation along the motion tra-
+jectory,” Auton. Robots, pp. 1–13, 2017. [Online]. Available:
+https://link.springer.com/article/10.1007/s10514-017-9676-3
+[26] S.-F. Chen and I. Kao, “Conservative congruence transformation for joint
+and Cartesian stiffness matrices of robotic hands and fingers,” Int. J. Robot.
+Res., vol. 19, no. 9, pp. 835–847, 2000.
+[27] A. Ajoudani, N. Tsagarakis, and A. Bicchi, “Tele-impedance: Teleoper-
+ation with impedance regulation using a body–machine interface,” Int.
+J. Robot. Res., vol. 31, no. 13, pp. 1642–1656, 2012.
+[28] A. Ajoudani, C. Fang, N. G. Tsagarakis, and A. Bicchi, “A reduced-
+complexity description of arm endpoint stiffness with applications to
+teleimpedance control,” in Proc. 2015 IEEE/RSJ Int. Conf. Intell. Robots
+Syst., Sep. 2015, pp. 1017–1023.
+[29] X. Ding and C. Fang, “A novel method of motion planning for an an-
+thropomorphic arm based on movement primitives,” IEEE/ASME Trans.
+Mechatronics, vol. 18, no. 2, pp. 624–636, Apr. 2013.
+[30] J. Kober, B. Mohler, and J. Peters, “Learning perceptual coupling for
+motor primitives,” in Proc. 2008 IEEE/RSJ Int. Conf. Intell. Robots. Syst.,
+Sep. 2008, pp. 834–839.
+[31] L. Zhijun, T. Zhao, F. Chen, Y. Hu, C.-Y. Su, and T. Fukuda, “Reinforce-
+ment learning of manipulation and grasping using dynamical movement
+primitives for a humanoid-like mobile manipulator,” IEEE/ASME Trans.
+Mechatronics, vol. 23, no. 1, pp. 121–131, Feb. 2018.
+[32] Z. Ju, C. Yang, and H. Ma, “Kinematics modeling and experimental ver-
+ification of Baxter robot,” in Proc. 33rd Chin. Control Conf., Jul. 2014,
+pp. 8518–8523.
+[33] S. Calinon, F. D’halluin, D. G. Caldwell, and A. G. Billard, “Handling
+of multiple constraints and motion alternatives in a robot programming
+by demonstration framework,” in Proc. 2009 9th IEEE-RAS Int. Conf.
+Humanoid Robots, Dec. 2009, pp. 582–588.
+[34] K. Kronander, M. Khansari, and A. Billard, “Incremental motion learning
+with locally modulated dynamical systems,” Robot. Auton. Syst., vol. 70,
+pp. 52–62, 2015.
+[35] A. Paraschos, E. Rueckert, J. Peters, and G. Neumann, “Model-free prob-
+abilistic movement primitives for physical interaction,” in Proc. 2015
+IEEE/RSJ Int. Conf. Intell. Robots. Syst., Sep. 2015, pp. 2860–2866.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in con-
+trol engineering from the National University of
+Singapore, Singapore, in 2010.
+He received postdoctoral training at Imperial
+College London, London, U.K. His research in-
+terests include robotics and automation.
+Dr. Yang is a recipient of the Best Paper Award
+from the IEEE TRANSACTIONS ON ROBOTICS and
+a number of international conferences.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+YANG et al.: DMPS-BASED FRAMEWORK FOR ROBOT LEARNING AND GENERALIZATION OF HUMANLIKE VARIABLE IMPEDANCE SKILLS 1203
+Chao Zeng received the M.S. degree in preci-
+sion instruments and mechanics from Shanghai
+University, Shanghai, China, in 2016. He is cur-
+rently working toward the Ph.D. degree in pattern
+recognition and intelligent system at the College
+of Automation Science and Engineering, South
+China University of Technology, Guangzhou,
+China.
+His research interests include human–robot
+interaction, programming by demonstration, and
+human–robot skill transfers.
+Cheng Fang (M’17) received the Ph.D. de-
+gree in mechanical design and theory from the
+Robotics Research Institute, Beihang University,
+Beijing, China, in 2013.
+He is currently a Postdoctoral Researcher
+with the Humanoids and Human Centered
+Mechatronics Lab, Italian Institute of Technol-
+ogy, Genoa, Italy. His research interests include
+human–robot interaction, musculoskeletal mod-
+eling of human body, and task-motion planning
+and control of anthropomorphic arms.
+Wei He (M’12–SM’16) received his B.Eng. and
+his M.Eng. degrees both in control theory and
+engineering from College of Automation Sci-
+ence and Engineering, South China University of
+Technology (SCUT), China, in 2006 and 2008,
+respectively, and his PhD degree in electrical
+and computer engineering from Department of
+Electrical & Computer Engineering, the National
+University of Singapore (NUS), Singapore, in
+2011. He is currently working as a full profes-
+sor in School of Automation and Electrical Engi-
+neering, University of Science and Technology Beijing, Beijing, China.
+He has co-authored 2 book published in Springer and published over
+100 international journal and conference papers. He has been awarded
+a Newton Advanced Fellowship from the Royal Society, UK. He is a
+recipient of the IEEE SMC Society Andrew P. Sage Best Transactions
+Paper Award in 2017. He serves as an Associate Editor of IEEE Trans-
+actions on Neural Networks and Learning Systems, IEEE Transactions
+on Control Systems Technology, IEEE Transactions on Systems, Man,
+and Cybernetics: Systems and IEEE Access, and an Editor of IEEE/CAA
+Journal of Automatica Sinica, Neurocomputing, and Journal of Intelligent
+& Robotic Systems. He is the member of the IFAC TC on Distributed Pa-
+rameter Systems, IFAC TC on Computational Intelligence in Control and
+IEEE CSS TC on Distributed Parameter Systems. His current research
+interests include robotics, distributed parameter systems and intelligent
+control systems.
+Zhijun Li (M’07–SM’09) received the Ph.D. de-
+gree in mechatronics from Shanghai Jiao Tong
+University, Shanghai, China, in 2002.
+From 2003 to 2005, he was a Postdoc-
+toral Fellow with the Department of Mechani-
+cal Engineering and Intelligent Systems, Univer-
+sity of Electro-Communications, Tokyo, Japan.
+From 2005 to 2006, he was a Research Fellow
+with the Department of Electrical and Computer
+Engineering, National University of Singapore,
+Singapore, and Nanyang Technological Univer-
+sity, Singapore. Since 2012, he has been a Professor with the College of
+Automation Science and Engineering, South China University of Technol-
+ogy, Guangzhou, China. His research interests include service robotics,
+teleoperation systems, nonlinear control, neural network optimization,
+etc.
+Dr. Li has been the Co-Chair of the Technical Committee on
+Biomechatronics and Biorobotics Systems of the IEEE Systems, Man
+and Cybernetics Society, and the Technical Committee on Neuro-
+Robotics Systems of the IEEE Robotics and Automation Society, since
+2016. He is an Editor-at-Large for the Journal of Intelligent and Robotic
+Systems, and an Associate Editor for several IEEE transactions. He was
+the General Chair and Program Chair of 2016 and 2017 IEEE Confer-
+ence on Advanced Robotics and Mechatronics, respectively.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:53:56 UTC from IEEE Xplore. Restrictions apply.

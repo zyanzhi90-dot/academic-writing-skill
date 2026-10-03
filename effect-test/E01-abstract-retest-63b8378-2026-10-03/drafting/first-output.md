@@ -1,0 +1,9 @@
+**English abstract**
+
+This paper proposes a stable estimator of dynamical systems (SEDS) for learning robot point-to-point motions from multiple demonstrations. A Gaussian mixture model and Gaussian mixture regression are used to represent motion as a state-dependent combination of local linear dynamical systems. SEDS optimizes the model parameters under stability constraints to reproduce the demonstrated motions. The constraints require a common target and negative definiteness of the symmetric part of each local system matrix, ensuring global asymptotic stability of the learned nonlinear dynamical system at the target. The autonomous motion generator can respond to spatial and temporal perturbations during execution and continue towards the target. Numerical simulation results on human handwriting motions demonstrate reproduction of the demonstrated trajectories. Experiments with iCub and Katana-T robot arms demonstrate reproduction of demonstrated position and velocity patterns and arrival at the target from different initial positions. The generated trajectories also adjust to a displaced target during robot execution without relearning the model.
+
+**中文翻译**
+
+本文提出稳定动力系统估计器（SEDS），用于从多个示范中学习机器人的点到点运动。该方法利用高斯混合模型和高斯混合回归，将运动表示为多个局部线性动力系统的组合，其组合权重随当前状态变化。SEDS 在稳定性约束下优化模型参数，以再现示范运动。这些约束要求各局部系统具有共同目标，且各局部系统矩阵的对称部分负定，从而保证学习得到的非线性动力系统在目标处全局渐近稳定。自治运动生成器能够在执行过程中响应空间扰动和时间扰动，并继续朝目标运动。人类手写运动的数值模拟结果展示了对示范轨迹的再现。iCub 和 Katana-T 机械臂实验展示了对示范中位置及速度特点的再现，以及从不同初始位置到达目标的能力。在机器人执行过程中，目标位置改变后，生成的轨迹也会相应调整，无需重新学习模型。
+
+说明：全局渐近稳定性保证针对所学习的动力系统；真实机器人通过底层控制器跟踪生成运动，相关分析依赖其输入—状态稳定性假设。摘要将时间扰动响应表述为模型能力，未将其写成独立实验验证的结果。
