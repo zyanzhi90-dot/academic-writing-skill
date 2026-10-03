@@ -631,27 +631,27 @@
       "PDF 9–10 Appendices A–B"
     ],
     "仿真设置与可核对结果": [
-      "PDF 5–7 §V.A, Table I, Figs.2–8"
+      "PDF 5–7 §V.A, Table I, Figs.2–8",
+      "PDF 7 Fig.6 colorbar k=1 light to k=10 dark; higher-iteration cost curves lower in the main response interval"
     ],
     "实机交互与可核对结果": [
       "PDF 7–9 §V.B, Figs.9–13"
     ],
     "证据中的不确定性": [
-      "PDF 7 Fig.6 vs text",
-      "PDF 8 Fig.12 vs PDF 9 summary",
+      "PDF 8 Fig.12 arrow-label interpretation pending owner review; kept separate from the confirmed simulation improvement",
       "PDF 8 contact timing text vs Figs.12–13"
     ]
   },
   "source_uncertainties": [
-    "Second-case cost curve ordering conflicts with cost-decrease narrative; first-case decline and stiffness/error trade-off retained separately.",
+    "Experimental second-case cost interpretation remains pending owner review. Enlarged Fig.12 arrows label upper curve k=0 and lower curve k=10, differing from the acceptance feedback. Neither a cost-decrease conflict nor experimental second-case cost improvement is treated as a verified finding. Simulation Fig.6 supports cost improvement.",
     "Experimental contact end time says 16 s in setup and 6 s later; disputed numeric time omitted.",
     "Outer-loop matrix product/dimension and force-sign issues noted in owner-only locators; no independent proof verification claimed."
   ],
   "file_sha256": {
     ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
-    "准备记录.md": "be04f14a26bc2aa6bf46b3e18df9f7bf4d5477c66d99cf0f6ba151978d146b42",
-    "来源定位.md": "03a75d4d338c0edef6d65a269a2d8dbca301832579450e3457cc99f39fbeeab1",
-    "科学事实包.md": "40b535b3925cf2f33516e73269e6692a6c4554f000126a1abb514e6cb46f4f53",
+    "准备记录.md": "514c189a55e1dc63b3ee621dc87943badc50a0c86a0d11b252fefcefb2d183ef",
+    "来源定位.md": "95402f0d7a444c9fc686537ef42314a2cc876cde04838874e6e600f1820f1121",
+    "科学事实包.md": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
     "source/full-text.txt": "b616ad345f73b0eed227d89a704c9fb33212f24d5e7803436a6075b9d292ace2",
     "source/Impedance_Learning_for_Robots_Interacting_With_Unknown_Environments.pdf": "f2d5ace4977902ebd7b66b1cf53cffee760ae290f3cd96eaf9e895267b82e64f",
     "source/render-review.json": "559378c03c5d53fee77e5b15aa8fb1c883e6e74f6f8b9cc2f96e9056f3593f21",
@@ -697,5 +697,42 @@
       11
     ],
     "review": "Scientific themes and conditions checked against full paper; source inconsistencies retained explicitly. No abstract outline, prose generation, source correction or writing evaluation performed."
+  },
+  "evidence_recheck": {
+    "date": "2026-10-03",
+    "basis_commit": "eecbd69dce1286569bf73e0d35a48be792cb2d7c",
+    "scope": "Second-weight-setting evidence interpretation only",
+    "pdf_sha256": "f2d5ace4977902ebd7b66b1cf53cffee760ae290f3cd96eaf9e895267b82e64f",
+    "fig6": {
+      "pdf_page": 7,
+      "printed_page": 1428,
+      "colorbar": "k=1 light; k=10 dark",
+      "observation": "Higher-iteration dark cost curves are lower in the main response interval.",
+      "support": "Cost improvement in the second simulation setting, consistent with the body text.",
+      "independent_from_experimental_uncertainty": true
+    },
+    "fig12": {
+      "pdf_page": 8,
+      "printed_page": 1429,
+      "enlarged_arrow_labels": "Upper curve k=0; lower curve k=10.",
+      "feedback_discrepancy": "Acceptance feedback describes k=10 as higher; the enlarged PDF arrow labels indicate the reverse.",
+      "status": "Pending owner review; experimental second-case cost improvement not asserted; stiffness/error observations retained.",
+      "original_pdf_unmodified": true
+    },
+    "raw_source_files_unchanged": true,
+    "skill_unchanged": true,
+    "old_test_materials_unchanged": true,
+    "writing_runs": 0,
+    "checks": {
+      "only_requested_four_records_changed": true,
+      "all_material_hashes_match": true,
+      "raw_source_bytes_match_eecbd69": true,
+      "candidate_matches_63b8378": true,
+      "facts_scientific_topic_headings_unchanged": true,
+      "facts_no_target_english_or_abstract_translation_added": true,
+      "markdown_links_resolve": true,
+      "utf8_valid": true,
+      "fig6_simulation_separated_from_pending_fig12_experiment": true
+    }
   }
 }
