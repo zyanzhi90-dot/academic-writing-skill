@@ -1,0 +1,29 @@
+{
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "first_output_sha256": "7a3ca0c8db8519e17ff41b86d2b0bbf74d4d47eab131764c2584b6348a363fa6",
+  "first_output_bytes": 2628,
+  "first_output_matches_terminal_message_except_final_newline": true,
+  "outside_materials_explicit_reads": [],
+  "unresolved_read_commands": [],
+  "attempts": 1,
+  "evaluation": "Not performed; no quality verdict",
+  "loading_collector_sha256": "20316e17fc3948f3b05bea47e4a4b4de9b87e7747cbb5b8eb82a6b8d87c9d4cd",
+  "actual_loaded_or_searched_files": 21,
+  "completed_material_commands": 26,
+  "verified_source_lines": 1438,
+  "common_instructions_before_selected_cards": true,
+  "fully_returned_cards": [
+    "A02",
+    "A05",
+    "A06",
+    "A07"
+  ],
+  "all_cards_preloaded": false,
+  "raw_records_unchanged_after_loading_audit": true,
+  "thread_id": "01a0fffd-48d7-7c90-b217-d6c50cbe8aa3",
+  "archive_isolation": "Only three original PDFs inside the new material-only runtime at declared relative paths; no historical output, logs, metadata or evaluation supplied; candidate bytes unchanged",
+  "collector_adaptation": "New copy only: recognize explicit rg --encoding utf-8 in the UTF-8 audit flag; raw events and first output unchanged"
+}
