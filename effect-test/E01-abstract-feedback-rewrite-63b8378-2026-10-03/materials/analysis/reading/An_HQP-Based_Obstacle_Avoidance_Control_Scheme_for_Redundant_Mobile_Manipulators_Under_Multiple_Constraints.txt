@@ -1,0 +1,1435 @@
+=== PDF PAGE 1 ===
+6004 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+An HQP-Based Obstacle Avoidance Control
+Scheme for Redundant Mobile Manipulators
+Under Multiple Constraints
+Jingmou Nie , Graduate Student Member, IEEE, Yaonan Wang , Yang Mo ,
+Zhiqiang Miao , Member, IEEE, Yiming Jiang , Hang Zhong , Member, IEEE, and Jie Lin
+Abstract—It is a challenging problem for redundant
+wheeled mobile manipulators to satisfy multiple physical
+constraints and avoid obstacles while performing certain
+tasks, not to mention constraining tracking performance.
+In this article, a control scheme based on hierarchical
+quadratic programming-prescribed performance control
+(HQP-PPC) is proposed. The first layer of HQP can achieve
+trajectory tracking, obstacle avoidance, and physical con-
+straints. The second layer of HQP is used to guide the
+direction of obstacle avoidance and produce a smoother
+planned path. The prescribed performance function (PPF)
+can ensure tracking performance so that the physical con-
+straints and obstacle avoidance constraints are satisfied
+in actual motion. Moreover, the proposed controller can
+guarantee the tracking performance of the end effector due
+to the characteristics of the PPF. Finally, the effectiveness
+and superiority of the proposed method are verified by
+simulations and experiments.
+Index Terms—Hierarchical quadratic program, prescri-
+bed performance control (PPC), redundant robot, wheeled
+mobile manipulators.
+Manuscript received 7 November 2021; revised 19 April 2022 and
+14 June 2022; accepted 17 July 2022. Date of publication 10 August
+2022; date of current version 23 January 2023. This work was supported
+in part by the National Key Research and Development Program of
+China under Grant 2021YFB1714700, in part by the National Natural
+Science Foundation of China under Grant 61903135, Grant 61733004,
+Grant 62076091, and Grant 62003136, in part by the Hunan Provincial
+Natural Science Foundation of China under Grant 2021JJ20029, in part
+by the Science and Technology Innovation Program of Hunan Province
+under Grant 2021RC3060, in part by the Special funding support for the
+Construction of Innovative Provinces in Hunan Province under Grant
+2019GK1010 and Grant 2021GK1010, in part by the Fellowship of the
+China Postdoctoral Science Foundation under Grant 2020M672486,
+in part by the Changsha Municipal Natural Science Foundation under
+Grant kq2014060 Grant kq2014056, in part by the Major Project of
+Science and Technology Innovation 2030 under Grant 2021ZD0113100,
+and in part by the State Key Laboratory of Advanced Design and Manu-
+facturing for Vehicle Body. (Corresponding author: Yang Mo.)
+The authors are with the College of Electrical and Information Engine-
+ering, Hunan University, Changsha 410082, China (e-mail: niejingmou
+@hnu.edu.cn; yaonan@hnu.edu.cn; moyanghnu@hnu.edu.cn; miaozhi
+qiang@hnu.edu.cn; ymjiang@hnu.edu.cn; zhonghang@hnu.edu.cn; lin-
+jie0275@hnu.edu.cn).
+Color versions of one or more figures in this article are available at
+https://doi.org/10.1109/TIE.2022.3196390.
+Digital Object Identifier 10.1109/TIE.2022.3196390
+I. INTRODUCTION
+AWHEELED mobile manipulator robot (WMMR) can be
+described as an n-degree of freedom (DOF) manipulator
+mounted on a wheeled mobile robot. Since WWMRs have
+a large working space and high DOF, they are widely used
+in intelligent manufacturing [1], rescue [2], cleaning [3], and
+nursing [4]. Much research has been done on the control meth-
+ods of WMMRs in configuration space, such as model-based
+control [5], adaptive control [6], [7], sliding-mode control [8],
+and neural network control [9], [10]. However, most WMMR
+tasks are usually performed by the end effector; therefore, the
+study of control methods in the task space is more significant.
+From the perspective of the dynamic level, the dynamic cou-
+pling, nonlinearity, nonholonomic constraints, and uncertain-
+ties between the platform and its mounted robot manipulator
+make tracking performance difficult to guarantee. Therefore,
+the controllers based on the dynamic model focus more on the
+estimation and compensation of the unknown model. In [11],
+Galicki proposed an integral controller in which the manipulator
+coordinates and the task error plus the gradient of a kinematic
+criterion function to be integrated to compensate for the er-
+rors caused by the uncertainty of the model. In [12], a robust
+impedance controller based on time-delay compensation for
+uncertain mobile manipulators was proposed to suppress the
+unknown disturbances. On the other hand, some researchers
+have considered the redundancy of WMMRs and used the
+null space and Moore–Penrose inverse of the Jacobian matrix
+to solve the obstacle avoidance problem of mobile platforms
+when WMMRs perform the main tasks [13], [14]. Furthermore,
+Zhao et al. [15] exploited the redundancy of wheeled humanoid
+dual-arm robots and achieved holonomic constraints by solv-
+ing quadratic programming (QP). However, the aforementioned
+controllers require additional methods to estimate the unknown
+model or compensate for the disturbances, which makes the con-
+troller too complex. In addition, these methods cannot guarantee
+tracking accuracy and do not address the physical constraints
+(position and velocity constraints) and obstacle avoidance prob-
+lem simultaneously.
+Determining solutions that better utilize the redundancy of
+WMMRs has been the subject of numerous studies at the kine-
+maticlevel.Theseincludeachievingrepeatablemovements[16],
+[17], physical constraints [18] (joint position and velocity), and
+0278-0046 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+NIE et al.: HQP-BASED OBSTACLE AVOIDANCE CONTROL SCHEME 6005
+obstacle avoidance [4]. To the best of the authors’ knowledge,
+there are three main solutions, which are as follows.
+1) Use the general weighted least-norm (GWLN) inverse
+and null space to realize constraints [19].
+2) Solve the QP problem to achieve motion planning [20].
+3) Use reinforcement learning to obtain the optimal solution
+for inverse kinematics [21].
+In general weighted inverse kinematics, there are inevitably
+singular problems [22]. The linear variational inequalities-based
+primal-dual neural network (LVI-PDNN) can solve the QP
+problem quickly [23], but it may not converge to an optimal
+solution at some time points and cannot consider subsequent
+movements,leadingtotrackingandobstacleavoidanceconflicts,
+such as making the mobile platform stop for obstacle avoidance,
+which may lead to failure of tracking. Reinforcement learning
+takes considerable time, especially when the DOF of the robot
+increases. Due to the updating of motion experiences, it is dif-
+ficult for reinforcement learning to obtain sufficiently accurate
+solutions through limited exploration [24]. On the other hand,
+the aforementioned methods use velocity as the control input,
+but they ignore the fact that the real-time velocity of the motor
+is not necessarily the same as the control input velocity [22],
+which may cause the robot to violate constraints on the actual
+motion even if the planned path is optimal. Furthermore, since
+velocity tracking is not considered, nondifferentiable functions
+are used in the planner’s design process [4], [20], resulting in an
+unsmooth planned reference trajectory and increasing the risk
+of constraint violation in practice.
+Overcoming the aforementioned drawbacks in a single con-
+troller or planner is very difficult. To suppress and predeter-
+mine the velocity tracking error, a dynamic model must be
+considered because this is the only way to constrain this error.
+Most existing online planning methods rely on accurate model
+information [13]–[20], [22], [23]; however, the dynamic model
+information is difficult to measure accurately, leading to unsatis-
+factory planning results. Therefore, a planner-controller system
+should be organized. The planner should be designed at the
+kinematic level and must consider the velocity tracking error.
+The controller must execute the planned reference trajectory
+with high precision and determine the errors bound in advance.
+HQP can realize subtasks as much as possible while executing
+the main tasks [25]. This property of classifying tasks makes it
+possible to better utilize the redundancy of robots and complete
+multiple tasks with low computational cost [26]. Because of
+this property, HQP is widely used in humanoid robots [27].
+The aforementioned planning problems can be better solved by
+adding subtasks that specify the direction of obstacle avoidance
+and by considering tracking errors. For the control methods,
+there are studies on high-precision control methods, such as
+BLF-based control methods [28], [29] and error transforma-
+tion [30]. The model-free prescribed performance control (PPC)
+method has been widely used for robotic arms [31], mobile
+robots [32], and multiple-input–multiple-output systems [33]
+due to its insensitivity to model information and concise form.
+However, this method has not been used to track the trajectory
+of redundant mobile manipulator end effectors due to their
+nonholonomic constraints and high degrees of freedom.
+To summarize, an HQP-PPC scheme is proposed to avoid
+obstacles without violating the physical constraints and track-
+ing performance constraints. Compared to the aforementioned
+methods [4], [22], the HQP-PPC scheme has the following
+advantages.
+1) HQP enables the subtask of providing obstacle avoidance
+directions. In addition, the obstacle avoidance function is
+optimized. These improvements can provide a smoother
+reference trajectory, increase the probability of successful
+obstacle avoidance, and simplify the design of a con-
+troller.
+2) By using prescribed performance function (PPF) to con-
+strain the tracking performance, the bound of velocity
+trackingerror canbepredeterminedandusedinthedesign
+of HQP to ensure that the constraints are not violated in
+actual motion.
+3) In the HQP-PPC scheme, HQP fully exploits the redun-
+dancy of mobile manipulators and provides a smooth
+reference trajectory for PPC. PPC takes advantage of its
+ability to set the bound of tracking error in advance to
+ensure accurate tracking of the reference trajectory.
+4) The proposed control scheme can ensure tracking per-
+formance without violating the constraints and realize
+obstacle avoidance.
+The rest of this article is organized as follows. In Section II,
+the WMR system is described. The controller design for WMR
+is derived in Section III, including the introduction of PPF, path
+planning, and control law design. Simulations and experiments
+are designed in Sections IV and V, respectively. Section VI
+discusses the defects of the proposed method and correspond-
+ing solutions, and other possible methods for this problem are
+probed. Finally, Section VII concludes this article.
+II. PRELIMINARIES AND PROBLEM FORMULATION
+A. List of Symbols
+In Table I, the main symbols used across this paper are
+reported.
+B. Kinematics Modeling
+A WMMR can be described as an ma DOF manipulator
+mounted on a wheeled mobile robot. The end-effector coor-
+dinates Oe = [X, Y, Z]T
+of the WMMR can be expressed as a
+function of the joint angles qa = [qa1, qa2, . . . , qama
+] ∈ Rma
+,
+and the coordinates of mobile platform qv = [xv, yv, θv]T
+. Let
+q = [qT
+v , qT
+a ]T
+∈ Rm
+, we have
+Oe = f1(q) (1)
+Then, the end-effector velocity is
+Ȯe = J1q̇ (2)
+where J1 = ∂f1/∂q ∈ R3×m
+. For the WMMR, there is a full-
+rank matrix Hv(qv) = [cos θv sin θv 0; 0 0 1]T
+such that we
+have
+q̇v = Hv(qv)η̇ (3)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+6006 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+where η̇ = [v, w]T
+, v represents the line velocity and w repre-
+sents the angular velocity of the mobile platform in the robot’s
+local coordinate frame. Define ˙
+ξ = [η̇T
+, q̇T
+a ]T
+∈ Rn
+; then,
+q̇ = H(q) ˙
+ξ (4)
+where H(q) = [Hv 0; 0 I] ∈ Rm×n
+. Substituting (4) into (2), we
+can obtain the relation between the velocity of the end effector,
+manipulator joint, and mobile platform [11]
+Ȯe = J2
+˙
+ξ (5)
+where J2 = J1H(qv) ∈ R3×n
+.
+C. Dynamics Modeling
+The dynamics of the WMMR can be expressed as the follow-
+ing form [34]:
+M(q)q̈ + C(q, q̇)q̇ + G(q) = B(q)τ + A(q)T
+χ (6)
+where M(q) ∈ Rm×m
+denotes the inertia matrix, which is sym-
+metric bounded positive definite, C(q, q̇)q̇ ∈ Rm
+is the cen-
+tripetal and Coriolis torque vector, G(q) ∈ Rm
+expresses the
+gravitational torque vector, B(q) ∈ Rm×n
+is a full-rank input
+transformation matrix, A(q) ∈ R2×m
+is the full-rank matrix, and
+χ denotes the Lagrangian multiplier with the nonholonomic
+constraints. τ ∈ Rn
+is the torque generated by the driving motor.
+The WMMR can be separated into two parts: the mobile
+platform and the manipulator. Therefore, the dynamics of the
+WMMR (6) can be written as[6]
+M(q) =
+
+Mv Mva
+Mav Ma
+
+, C(q, q̇) =
+
+Cv Cva
+Cav Ca
+
+G(q) =
+
+Gv
+Ga
+
+, B(q) =
+
+Bv 0
+0 Ba
+
+τ =
+
+τv
+τa
+
+, χ =
+
+χv
+0
+
+, A =
+
+Av 0
+0 0
+
+where Av(qv) ∈ R2×3
+is the full-rank kinematic constraint
+matrix. From [6], we have HT
+v (qv)AT
+v (qv) = 0, and the matrix
+HT
+v Hv is also full rank.
+According to (4) and its derivative, the dynamics of the
+WMMR can be expressed in the following form[7]:
+M1(ξ)¨
+ξ + C1(ξ, ˙
+ξ) ˙
+ξ + G1(ξ) = u1 (7)
+where M1 =[HT
+v MvHv, HT
+v Mva; MavHv, Ma]∈Rn×n
+,
+C1 =[HT
+v MvḢ + HT
+v CvHv, HT
+v Cva; MavḢ+CavHv, Ca]
+∈ Rn×n
+, G1 = [HT
+v Gv; Ga] ∈ Rn
+, and u1 = [HT
+v Bvτv; Baτa]
+∈ Rn
+.
+D. Prescribed Performance Function (PPF)
+To ensure the tracking performance of the end effector and
+avoid violating the constraints, sufficient tracking accuracy for
+the reference trajectory is required. Therefore, this section sum-
+marizes the preliminary knowledge necessary for the PPC.
+As shown in Fig. 2, The prescribed performance is achieved if
+each element ei(t), i = 1, . . . , n of the tracking error e(t) ∈ Rn
+satisfies the following inequalities for ∀t ≥ 0:
+−δiρi(t) < ei(t) < ρi(t) in case of ei(0) ≥ 0 (8)
+−ρi(t) < ei(t) < δiρi(t) in case of ei(0) ≤ 0 (9)
+where δi(t) ∈ (0, 1], i = 1, 2, . . . , n are used to denote the over-
+shoot allowed for error ei(t), and ρi(t), i = 1, 2, . . . , n are
+bounded, smooth, strictly positive, and decreasing functions of
+time, which satisfy limt→+∞ρi(t) > 0, i = 1, 2, . . . , n. In this
+article, the function ρi(t) is defined as[35]
+ρi(t) = (ρ0i − ρ∞i) −1
+i + ρ∞i (10)
+where ρ0i and ρ∞i are positive constants and ρ0i should sat-
+isfy ρ0i > |ei(0)|. i is a rate function that has the following
+form [35]:
+i =
+⎧
+⎨
+⎩
+
+Ti
+Ti−t
+4
+ektit
+, 0 ≤ t < Ti
+∞. t ≥ Ti
+(11)
+kti is a positive constant that can be designed. i(0) = 1,
+where 0 < Ti < ∞ is a finite time specified by the user. To
+ensure that i is continuous everywhere, we should define
+limt→T − ( Ti
+Ti−t )4
+et
+= ∞.
+To satisfy the prescribed performance for tracking error ei(t),
+we define the error transformation
+εi(t) = Ti(êi(t)) (12)
+êi(t)  ei(t)
+ρi(t) is the normalized tracking error, and the transfor-
+mation function Ti(·), i = 1, . . . , n is a smooth, strictly increas-
+ing function proposed by [31] as follows
+Ti(êi) = ln
+
+δi + êi
+δi(1 − êi)
+
+in case of ei(0) ≥ 0 (13)
+Ti(êi) = ln
+
+δi(1 + êi)
+1 − êi
+
+in case of ei(0) ≤ 0. (14)
+For the convenience of the control law design, the derivative
+of εi is
+ε̇i(t) = λiρ−1
+i (t)[ėi(t) + αiei(t)] (15)
+where λi and αiare defined as
+λi 
+∂Ti
+∂êi
+> 0, αi  −
+ρ̇i
+ρi(t)
+≥ 0. (16)
+It is easy to verify that there is a positive constant ϑi satisfies[33]
+eiλiεi = ϑi|ei|2
+. (17)
+The satisfaction of the prescribed performance boundary of
+tracking error e is directly related to the boundedness of trans-
+formed error ε. In fact, given |εi| ≤ ε̄i, for the positive constant
+ε̄i, the normalized tracking error êi is confined as follows:
+Ωi = {êi ∈ R : −δi ≤ êi ≤ δ̄i} in case of ei(0) ≥ 0 (18)
+Ωi = {êi ∈ R : −δ̄i ≤ êi ≤ δi} in case of ei(0) ≤ 0 (19)
+where δi and δ̄i are constants satisfying δi < δi < δ̄i < 1.
+Hence, the prescribed performance problem of the guaran-
+teed inequality constraints (8) and (9) are transformed into the
+bounded problem of the transformed error εi.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+NIE et al.: HQP-BASED OBSTACLE AVOIDANCE CONTROL SCHEME 6007
+Fig. 1. WMMR tracks the trajectory of the end effector in a multiobsta-
+cle environment.
+Before designing the control scheme, some assumptions and
+lemmas need to be presented.
+Assumption1: ThedesiredtrajectoryOer isboundedandonce
+differentiable.
+Assumption 2: All obstacles can be represented by a point
+with a radius or by a line segment with a radius. Assuming
+that the WMMR consists of line segments, the distance between
+the WMMR and an obstacle can be determined by finding the
+distance from point to line or from line to line. The obstacle
+avoidance threshold is determined by the radius of the joints or
+mobile platform and the radius of the obstacle.
+Lemma1: [31]Iff(t, x)and[∂f/∂x](t, x)arecontinuouson
+[a, b] × D, for some domain D ⊂ Rn
+, then f is locally Lipschitz
+in x on [a, b] × D, and there exists a maximal solution x(t) for
+the initial value problem (IVP)
+ẋ = f(t, x), x(0) = x0 ∈ D
+on a time interval [0, τmax) with τmax ∈ {R∗
++, ∞}, such that
+x(t) ∈ D ∀t ∈ [0, τmax).
+Lemma2: [33]ConsideranIVPandassumethatthehypothe-
+ses of Lemma 1 are upheld. For a maximal solution x(t) defined
+on the interval [0, τmax), if τmax = ∞, then for any compact
+set D ⊂ D, there exists a time instant τ ∈ [0, τmax) such that
+x(τ ) /
+∈ D .
+III. CONTROLLER DESIGN
+As shown in Fig. 1, The control objective is to design a
+controller for the WMMR so that it can follow a desired tra-
+jectoryOer = [Oerx; Oery; Oerz]withinaprescribedperformance
+constraint while ensuring that the WMMR operates in safe areas,
+such as achieving joint or velocity limits and obstacle avoidance.
+The main ideas of this control scheme are as follows: HQP is
+used to account for physical constraints and obstacle avoidance
+to obtain reference velocity ˙
+ξr. Control input u1 is provided
+by PPC to ensure tracking accuracy. PPC provides the velocity
+tracking error boundary for HQP and ensures that the constraints
+are not violated even if there is a velocity tracking error. HQP
+provides the reference velocity for PPC, which allows the robot
+to avoid obstacles while tracking the desired trajectory Oer.
+A. HQP-Based Path Planning
+In this section, we discuss obtaining the reference velocity
+˙
+ξr ∈ Rn
+in the configuration space by HQP. HQP can realize
+Fig. 2. Constructing performance bounds by performance functions.
+path planning according to the priority order of the task. In this
+article, there are three main goals that must be realized, which
+are as follows:
+1) the end trajectory can track the target trajectory;
+2) obstacle avoidance;
+3) physical constraints.
+The secondary objective is to guide the direction of obstacle
+avoidance.
+The main objectives can be written as the following QP ques-
+tion:
+minimize
+1
+2
+( ˙
+ξr − ˙
+ξs)T
+( ˙
+ξr − ˙
+ξs) (20)
+subject to J2
+˙
+ξr = Ȯer − Keλoεo (21)
+˜
+J1
+˙
+ξr ≤ ṽ (22)
+ζ̃−
+≤ ˙
+ξr ≤ ζ̃+
+(23)
+˙
+ξs ∈ Rn
+will be obtained later through the second-level QP
+problem and used to achieve the subtask. In the first-level QP
+problem, we can accomplish the secondary objective as much
+as possible by minimizing (20). The remaining equation and
+inequalities are related to the main task. These parameters in the
+aforementioned QP question are detailed as follows.
+1) Trajectory Constraint: Equation (21) represents the tra-
+jectory constraint of the end effector. From (12), the normalized
+errors εo can be transformed by
+εoi = Ti (êoi) i = 1, 2, 3 (24)
+where êoi = eoi(t)
+ρoi(t) and
+eo = Oe − Oer (25)
+represent the position tracking error, the gain matrix Ke =
+diagi∈{1,2,3}[kei] is positive, and λo = diagi∈{1,2,3}[λoi] is de-
+fined by (16).
+2) Obstacle Avoidance Constraint: Inequality (22) can
+implement the obstacle avoidance constraint. Obstacle avoid-
+ance can be seen as the critical point on the robot that must
+maintain a certain distance from the obstacle point. To achieve
+this goal, we find a point p = [xp, yp, zp]T
+on the robot that is
+closest to the obstacle o = [xo, yo, zo]T
+, as shown in Fig. 3, and
+define the distance d between the obstacle and the robot as
+d = (p − o)T
+(p − o). (26)
+For distance d, we set two thresholds d1 and d2, where d1 >
+d2. Obstacle avoidance should be started when d is less than d1,
+and d2 is the distance that is not allowed to be reached, which
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+6008 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+is usually determined by the radius of the obstacle and the robot
+joint. To facilitate the design of the constraint condition, we
+normalized the distance d as
+dn =
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+1, d < d2
+cos2
+
+π(d−d1)
+2(d2−d1)
+
+, d2 ≤ d ≤ d2
+0. d > d1.
+(27)
+We define the following function g(dn) with respect to the
+normalized distance:
+g(dn) =
+⎧
+⎪
+⎨
+⎪
+⎩
+0, dn < 0
+0.1 tan dnπ
+2 , 0 ≤ dn ≤ 1
+∞. dn > 1.
+(28)
+To complete obstacle avoidance, the function g(dn) should be
+monotonically nonincreasing. Therefore, the following inequal-
+ity needs to be satisfied:
+∂g
+∂q
+q̇ ≤ 0. (29)
+Let ˜
+J1 = ∂g
+∂q H ∈ R1×n
+, and consider the velocity tracking er-
+rors
+eξ = ˙
+ξ − ˙
+ξr (30)
+and their bound ρξ ∈ Rn
+caused by PPC, which will be proven in
+the next section. Then, we have ˜
+J1ξr + | ˜
+J1||ρξ| ≥ ˜
+J1ξ = ∂g
+∂q q̇.
+Defining ṽ = −| ˜
+J1||ρξ|, the obstacle avoidance constraint (22)
+is obtained. We should note that when d > d1, we have ∂g
+∂q = 0,
+and inequality (22) has no effect on ξr.
+Remark 1: Compared to [4], [20], and [22], the proposed
+method does not use sign or other nondifferentiable functions,
+and the obstacle avoidance function g(dn) is continuously dif-
+ferentiable so that the reference velocity ˙
+ξr is smooth, which is
+important for the subsequent design of the controller.
+3) Joint Limit Constraint: Inequality (23) represents the
+joint limit constraint. Physical limits are common problems for
+practical robot systems. It is necessary to consider physical con-
+straints to ensure the safety of the robot. The physical constraints
+include the limits of joint angles and the limits of robot velocity
+q−
+a ≤ qa ≤ q+
+a , ˙
+ξ−
+≤ ˙
+ξ ≤ ˙
+ξ+
+(31)
+where q±
+a ∈ Rma
+and ˙
+ξ±
+∈ Rn
+denote the bounds of the joint
+angles and velocities of the robot. According to [22], (31) can
+be converted into the following inequalities:
+ζ−
+≤ ˙
+ξ ≤ ζ+
+(32)
+where ζ−
+=max{a(ς−
+− ς), ˙
+ξ−
+}, ζ+
+=min{a(ς+
+− ς), ˙
+ξ+
+},
+ς−
+= [−∞, −∞, q−T
+a ]T
+, ς = [0, 0, qT
+a ]T
+, ς+
+= [+∞, +∞,
+q+T
+a ]T
+, and a is a positive constant determined by the control
+frequency.
+Considering velocity tracking errors and their bound ρξ, we
+have
+ζ−
++ ρξ ≤ ˙
+ξr ≤ ζ+
+− ρξ. (33)
+Letting ζ̃−
+= ζ−
++ ρξ and ζ̃+
+= ζ+
+− ρξ, we can obtain the
+joint limit constraint (23).
+Fig. 3. Direction of obstacle avoidance. (a) When the desired trajec-
+tory is below the obstacle. (b) When the desired trajectory is above the
+obstacle.
+Remark 2: The possible error in velocity tracking is taken into
+account in HQP so that the robot does not violate the constraints
+in actual operation. In contrast, the error range must be deter-
+mined in advance, which requires a higher control performance.
+4) Guiding the Direction of Obstacle Avoidance: Inequa-
+lity (22) does not specify the direction of obstacle avoidance,
+and the obstacle avoidance scheme may be rational at the present
+time, but the solution obtained is only the optimal solution at the
+present time and does not take into account the entire trajectory,
+which may cause obstacle avoidance and trajectory following to
+potentially conflict and ultimately cause the singularity of the
+Jacobian matrix (e.g., bringing the mobile platform to a halt,
+which is very likely with minimization of ˙
+ξr, especially in the
+face of the obstacles on the ground).
+To overcome this problem and obtain a smoother desired
+path, the following second-level QP problem is used to guide
+the direction of obstacle avoidance:
+minimize
+1
+2
+˙
+ξT
+s
+˙
+ξs (34)
+subject to ˜
+J1
+˙
+ξs = vp (35)
+vp ∈ R3
+will be determined by the position of the obstacle, the
+desired trajectory of the end effector Oer and the distance from
+the obstacle. As shown in Fig. 3, when Oerz is below the obstacle
+vp = [0; 0; −g(dn)]. (36)
+When Oerz is above the obstacle, we need to find the closest
+endpoint oe to o on the obstacle; then,
+vp = g(dn)[oex − ox; oey − oy; 0]. (37)
+The aforementioned real-time online solution methods of QP
+problems are all referred to in [17]. From [17, Appendix 1], for
+all êo ∈ Ωo, we have
+J2
+˙
+ξr = Ȯer − Keλoεo +  (38)
+¨
+ξr is bounded, and there is a positive constant ¯
+ that satisfies
+|| ≤ ¯
+.
+B. Control Law Design
+Define the following transformed velocity error:
+εξi = Ti (êξi) i = 1, 2, . . . , n (39)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+NIE et al.: HQP-BASED OBSTACLE AVOIDANCE CONTROL SCHEME 6009
+where êξi =
+eξi(t)
+ρξi(t) . When the errors εoi and εξi are bounded,
+the tracking errors eo and ėo are in the prescribed region.
+We propose the following model-free control law:
+u1 = −JT
+2 Koλoεo − Kξλξεξ (40)
+where Ko = diagi∈{1,2,3}[koi] and Kξ = diagi∈{1,...,n}[kξi] are
+the positive diagonal gain matrices and λξ = diagi∈{1,...,n}[λξi]
+is defined by (16).
+Theorem 1: Consider system (7) under Assumptions 1 and
+2, the model-free control law (40) with the overshoot in-
+dices δo, δξ ∈ (0, 1], and the performance functions ρo(t), ρξ(t),
+among which ρo(0), ρξ(0) should be selected to satisfy ρoi(0) >
+|eoi(0)|, i = 1, 2, 3 and ρξi(0) > |eξi(0)|, i = 1, . . . , n, respec-
+tively, then all closed-loop signals are bounded and the pre-
+scribed performance of the tracking errors eo is guaranteed.
+Proof: Theorem 1 is proven in four steps.
+Step 1: Substituting the control law (40) and tracking errors
+and (30) into the system model (7), we have
+M1ėξ + C1eξ + JT
+2 Koλoεo + Kξλξεξ + Δ1 = 0 (41)
+where Δ1 = M1(¨
+ξr − ˙
+JT
+2 Keeo − JT
+2 Keė0) + C1( ˙
+ξr − JT
+2
+Keeo) + G1. It is easy to ascertain that there is a positive
+constant Δ̄ ∀êo ∈ Ωo and that ∀êξ ∈ Ωξ satisfies the inequality
+||Δ1|| ≤ Δ̄1 from the previous section. The aforementioned
+state-space error system (41) can be written with respect to the
+normalized states ê = [êT
+o êT
+ξ ]T
+as[31]
+˙
+ê = f(ê, t) (42)
+with f(ê, t) : Ω × R+
+→ Rn+3
+with Ω = Ωξ × Ωo. By con-
+structing the appropriate δoi, δξi, ρoi(0) and ρξi(0), we can let
+ê(0) ∈ Ω. Therefore, the locally Lipschitz continuity of f(ê, t)
+can be concluded invoking Lemma 1. Then, the system (42) has
+a unique maximal solution over a time interval [0, tmax), which
+implies that the transformed errors εo, εξ and λo, λξ are well
+defined over t ∈ [0, tmax).
+Step 2: Consider the following Lyapunov function:
+V1(eξ, εo, t) =
+1
+2
+eT
+ξ M1eξ +
+1
+2
+εT
+o Koρoεo. (43)
+Substituting the system trajectories of (41) into the derivative of
+V1 yields
+V̇1 = − eT
+ξ Kξλξεξ − eT
+ξ JT
+2 Koλoεo
++ eT
+ξ Δ1 + εT
+o Koρoε̇o +
+1
+2
+εT
+o Koρ̇oεo. (44)
+Utilizing ėo ≤ J2eξ − Keλoεo + ¯
+, then ε̇o ≤ λoρ−1
+o [J2eξ −
+Keλoεo + ¯
+ + αoeo], where αo = diagi∈{1,...,n}[αoi]. There-
+fore, (44) can be expressed as
+V̇1 = − eT
+ξ Kξλξεξ − εT
+o KoλoλT
+o Keεo + εT
+o Koλo¯
+
++ eT
+ξ Δ1 + εT
+o Koλoαoeo +
+1
+2
+εT
+o Koρ̇oεo. (45)
+Since Δ1 is bounded, eT
+ξ Δ1 ≤ Δ̄2
+1/2 + ||eξ||2
+/2. Accord-
+ing to (17), eT
+ξ Kξλξεξ = ϑξ||eξ||2
+, where ϑξ is a posi-
+tive constant. In view of Young’s inequality [35], we have
+εT
+o Koλo¯
+ ≤ 1
+σ1
+K2
+o εT
+o λoλT
+o εo + σ1¯
+T
+¯
+; then, Ko, and Ke can
+be designed so that there is always a constant σ1 that
+satisfies inequality −εT
+o KoλoλT
+o Keεo + 1
+σ1
+K2
+o εT
+o λoλT
+o εo +
+εT
+o Koλoαoeo ≤ −ϑo||εo||2
+, where ϑo is a positive constant.
+From the requirement of the performance function, ρ̇o <
+0 ∀t ∈ [0, tmax), then 1
+2 εT
+o Koρ̇oεo < 0 by the design of Ko.
+Hence, (45) can be expressed as
+V̇1 ≤ − ϑξ −
+1
+2
+||eξ||2
+− ϑo||εo||2
++
+1
+2
+Δ̄2
+1 + σ1¯
+T
+¯
+
+≤ −κ1V1 + ı1 (46)
+whereκ1 = min{λmin(ϑξ − 1
+2 )/λmax(M1), ϑo/λmax(Koρo)},
+and ı1 = 1
+2 Δ̄2
+1 + σ1¯
+T
+¯
+. It is easy to ascertain that
+êo ∈ Ωo ∀t ∈ [0, τmax), and Ωo = {êo ∈ R : |εo| ≤
+
+(2(V1(0) + (ı1/κ1)))/λmax(Koρo)} from [29]. For the
+set Ωo, there is always a constant ε̄o large enough for Ωo to be
+a compact subset of Ωo.
+Step 3: Consider the following Lyapunov function:
+V2(εξ) =
+1
+2
+εT
+ξ Kξεξ. (47)
+The derivative of εξ with respect to time is:
+ε̇ξ = −λξρ−1
+ξ M−1
+1 Kξλξεξ − λξρ−1
+ξ Δ2 (48)
+where Δ2 = M−1
+1 (C1eξ + JT
+3 Koλoεo + Δ1) + αξeξ. Since
+εo has been proven to be bounded ∀t ∈ [0, tmax), Δ2 sat-
+isfies ||Δ2|| ≤ Δ̄2, ∀t ∈ [0, tmax), where Δ̄2 is a positive
+constant.
+Substituting (48) into the derivative of V2 yields
+V̇2 = −εT
+ξ Kξλξρ−1
+ξ M−1
+1 Kξλξεξ − εT
+ξ Kξλξρ−1
+ξ Δ2. (49)
+By the properties of the inertia matrix M1, there is a σ2
+> 0 such that εT
+ξ Kξλξρ−1
+ξ M−1
+1 Kξλξεξ ≤ σ2||Kξλξεξ||2
+.
+−εT
+ξ Kξλξρ−1
+ξ Δ2 ≤ σ3||Kξλξεξ||2
++ Δ̄2/(4σ3), where σ3 is
+an adjusted positive constant to make σ2 − σ3 > 0. Hence, (49)
+can be written as
+V̇2 ≤ −(σ2 − σ3)||Kξλξεξ||2
++
+Δ̄2
+4σ3
+≤ −κ2V2 + ı2 (50)
+where κ2 = (σ2 − σ3)||Kξλξ||2
+, ı2 = Δ̄2
+4σ3
+. Then, êξ
+∈ Ωξ ∀t ∈ [0, tmax), where Ωξ = {êξ ∈ R : |εξ| ≤
+
+(2(V2(0) + (ı2/κ2)))/λmax(Kξ)} from [29] and it is is
+a compact subset of Ωξ for a sufficiently large ε̄ξ.
+Step 4: There is a unique solution ê(t) for the closed-loop
+system that satisfies ê(t) ∈ Ω ⊂ Ω ∀t ∈ [0, tmax). Assuming
+tmax < ∞, according to Lemma 2, there exists a time instant
+t ∈ [0, tmax) such that ê(τ) ∈ Ω, which contradicts ê(t) ∈ Ω ⊂
+Ω ∀t ∈ [0, tmax). Thus, tmax = ∞.
+From the aforementioned proof, the control law (40) can
+ensure that the transformed errors εo and εξ are bounded; then,
+according to the property of the transform function (12), the
+tracking errors eo and eξ must be within the specified range.
+Therefore, Theorem 1 has been proven.
+Remark 3: The proposed method can ensure the tracking
+performance of the end-effector trajectory Or, suppress the
+planning error  caused by HQP, determine the tracking accuracy
+of the planning velocity ˙
+ξr and avoid violating the constraints.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+6010 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+Fig. 4. Simulation results of HQP-PPC. (a) Trajectory of the WMMR in HQP-PPC-AO2. (b) Trajectory of the WMMR in HQP-PPC-AO1.
+(c) Trajectory of the WMMR in HQP-PPC-NAO. (d) Distance 1 between the robot and obstacle. (e) Distance 2 between the robot and obstacle.
+Moreover, the proposed method does not need any model in-
+formation or fitting model structure, so the complexity of the
+control scheme is low. 
+IV. SIMULATIONS
+Toverifytheeffectivenessofourcontrolscheme,threenumer-
+ical simulations are carried out. The robot’s dynamic model is
+similar to [34]. The mechanical structure of a three-axis mobile
+manipulator is shown in Fig. 10(b). The physical parameters
+of the robots are taken as r = 0.065 m and L0 = 0.1 m. The
+mass of the robot is mc = 3 kg, and the wheel is mw = 0.1
+kg. The moment of inertia Ic = 1.625 kg · m2
+, Iw = 0.005 kg ·
+m2
+, and Im = 0.0025 kg · m2
+and the gravitational constant
+g = 9.8 m / s2
+. The length and width of the robot chassis
+are 0.15 m, and the height h is 0.1 m. The length of each
+joint is L1 = 0.2 m, L2 = 0.3 m, and L3 = 0.15 m, and the
+radius is 0.025 m. The bounds are q+
+a = −q−
+a = [π
+2 , π
+2 , π
+2 ]T
+rad and ˙
+ξ+
+= − ˙
+ξ−
+= [2.5, 2.5, 2.5, 2.5, 2.5]T
+m/s or rad/s. In
+each case, the simulations have the same initial pose qv(0) =
+[0, 0, π/3]T
+, qa(0) = [0, π/3, −π/8]T
+and desired end-effector
+trajectory Oer = [0.26 + 0.45t, 0.38, 0.31]T
+. There are two ob-
+stacles. The first obstacle is an infinitely long cylinder with
+a radius of 0.025 m, perpendicular to the x-axis, and its
+x = 0.47, z = 0.4, which is used to demonstrate the effect of
+the method on the avoidance of obstacles above the moving
+platform. According to the radius of obstacle 1 and the manip-
+ulator, the obstacle avoidance thresholds are d1 = 0.05 m and
+d2 = 0.3 m. The second obstacle is placed on the ground at
+x = 4, y = 0.55, z = 0, and its radius is 0.15 m. The second
+obstacle can reflect the obstacle avoidance effect of the moving
+platform. The obstacle avoidance thresholds are d1 = 0.3 m and
+d2 = 0.6 m.
+A. Test of the Obstacle Avoidance Function
+This subsection discusses the effect of HQP-PPC on obsta-
+cle avoidance by turning ON and OFF the obstacle avoidance
+function. The control gains in HQP-PPC are chosen as Ke =
+0.001, Ko = 4, and Kξ = diag([6, 6, 4, 2, 2]). The gain of the
+first QP solver in [17] is 1000, and that of the second QP
+solver is 500. The parameters of the PPF are ρ0o = 0.2, ρ∞o =
+0.005, ρ0ξ = 0.6, ρ∞ξ = 0.1, δo = δξ = 1, To = Tξ = 5, and
+kto = ktξ = 1.
+The simulation cases are as follows.
+1) HQP-PPC-AO2: Turn ON all obstacle avoidance functions
+to avoid all obstacles.
+2) HQP-PPC-AO1: Turn ON the first obstacle avoidance func-
+tion to avoid the first obstacle.
+3) HQP-PPC-NAO: Turn OFF all obstacle avoidance functions
+and not avoid obstacles.
+Fig. 4(a)–(c) shows the trajectory of the WMMR by using
+HQP-PPC. The WMMR will certainly collide with obstacles if
+the obstacle avoidance function is not performed, which can also
+be seen from the distance between the obstacles and the critical
+points in Fig. 4(d) and (e). As shown in Fig. 5, the velocity,
+position, and tracking error constraints are not violated in HQP-
+PPC-AO2.
+B. Test of the HQP Function
+This subsection serves to show the performance of HQP.
+In this subsection, the two commonly used inverse kinematics
+methods QP [4] and GWLN [22] are used for comparison. It
+should be noted that these two methods operate in kinematics,
+and there are no disturbances in the simulation that affect the
+performance of these two methods.
+1) Quadratic programming (QP): As shown in Fig. 6(a), the
+QP method is not effective in trajectory tracking of the WMMR
+with low redundancy. None of the obstacles can be successfully
+avoided, especially obstacle 2, which directly affects the trajec-
+tory tracking of the end effector. This is because the inequality
+constraint (28) (or [4, inequality (9)]) does not directly provide
+the force to move away from the obstacle and may cause critical
+points to stop, which conflicts with the trajectory tracking and
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+NIE et al.: HQP-BASED OBSTACLE AVOIDANCE CONTROL SCHEME 6011
+Fig. 5. Simulation results of HQP-PPC-AO2. (a) Velocity of the WMMR. (b) Joint angles of the manipulator. (c) Control input. (d) Tracking errors.
+Fig. 6. Simulation results of QP. (a) Trajectory of the WMMR. (b) Velocity of the WMMR. (c) Joint angles of the manipulator.
+Fig. 7. Simulation results of the GWLN. (a) Trajectory of the WMMR. (b) Velocity of the WMMR. (c) Joint angles of the manipulator.
+makes the whole system out of control. On the other hand,
+the sign function makes the velocity discontinuous, as seen in
+Fig. 6(b); even at relatively stable 0–5 s, the velocity curves
+are discontinuous, making control at the dynamic level very
+difficult. In Fig. 6(c), the joint angles of the manipulator are
+shown. Note that the velocity and position constraints are not
+violated when the robot is out of control, which is due to the
+characteristics of LVI-PDNN.
+2) General weighted least-norm (GWLN): Fig. 7(a) shows
+the trajectory of the WMMR using the GWLN method, which
+shows good performance in tracking. However, due to the
+shortcomings of the GWLN method, the robot inevitably en-
+ters a singularity when it approaches obstacles, which leads
+to the failure of obstacle avoidance. Due to the singularity,
+the velocity increases sharply near the obstacles in Fig. 7(b).
+Therefore, this method must be used with great caution in
+practical applications. At approximately 10 s in Fig. 7(c), the
+position is outside of the constraint due to the sudden increase in
+velocity.
+In summary, without HQP, neither single-layer QP nor the
+GWLN can achieve good obstacle avoidance and obtain a satis-
+factory solution to inverse kinematics.
+C. Test of the PPC Function
+This subsection discusses the effect of PPC, in which the
+two common dynamics control methods, adaptive robust control
+(ARC) [6] and fuzzy logic control (FLC) [36], are used for
+comparison.
+If the PPF is not applied, not only can the end-effector tracking
+accuracy shown in Figs. 8(a) and 9(a) not be guaranteed but the
+velocity constraints shown in Fig. 8(b) and Fig. 9(b) are also
+violated because the velocity tracking error bound cannot be
+determined in advance.
+V. EXPERIMENTS
+To verify the effectiveness of our method, comparative ex-
+periments are performed. The experimental apparatus is shown
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+6012 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+Fig. 8. Simulation results of ARC. (a) Tracking errors. (b) Velocity of
+the WMMR.
+Fig. 9. Simulation results of FLC. (a) Tracking errors. (b) Velocity of the
+WMMR.
+in Fig. 10(a). The host computer obtains the position of the
+mobile platform via OptiTrack and reads the encoder to obtain
+the joint angle and velocity of the WMMR. The communication
+frequency between the host computer and the WMMR is 70 Hz.
+Since the chatter in the velocity data collected by the sensor
+affects the control effect, median filtering is performed on all
+velocity signals.
+Since the robot may violate constraints in the compari-
+son experiment, we set ˙
+ξ+
+= − ˙
+ξ−
+= [1, 1, 1, 1, 1]T
+m/s or rad/s
+in the experiments for safety. The initial pose is qv(0) =
+[−1.35, 0.65, 0]T
+, qa(0) = [0, 0, 0]T
+, and the desired end-
+effector trajectory is Oer = [0.35 − 3.6 cos(πt/8)/π, 0.15 −
+3.6 sin(πt/8)/π, 0.45 + 0.1 cos t]T
+. We set up two obstacles.
+The first obstacle is placed on the ground at [0.1, −0.85, 0], and
+its radius is 0.15 m. The second obstacle is infinitely long with
+a radius of 0.025 m, perpendicular to the x-axis, and one end of
+the stick is [−0.5, 1.0, 0.35]. The obstacle avoidance thresholds
+are d1 = 0.05 m and d2 = 0.3 m.
+A. Test of the Obstacle Avoidance Function
+The control gains in HQP-PPC are chosen as Ke = 0.001,
+Ko = 0.1, and Kξ = diag([0.6, 0.6, 0.4, 0.2, 0.2]). The pa-
+rameters of the PPF are ρ0o = 1.2, ρ∞o = 0.02, ρ0ξ = 0.6,
+ρ∞ξ = 0.1, δo = δξ = 1, To = Tξ = 10, and kto = ktξ = 0.1.
+The gain of the first QP solver in [17] is 100, and the second
+is 50.
+As with the simulations, there are three cases in this sub-
+section: HQP-PPC-AO2, HQP-PPC-AO1, and HQP-PPC-NAO.
+Fig. 11 shows the trajectory of the WMMR in these three
+cases. It can be seen that two obstacles collide when the robot
+TABLE I
+MAIN VARIABLES ADOPTED IN THIS ARTICLE
+turns OFF the obstacle avoidance function, and each obstacle
+is successfully avoided when the obstacle avoidance function
+is turned ON. The experimental results of HQP-PPC-AO2 are
+shown in Fig. 12. Fig. 12(a) shows the velocity, which verifies
+the superiority of the proposed method in implementing the
+physical constraints of the robot. Fig. 12(d) shows the tracking
+errors, which reflects the high accuracy of our method. Fig. 12(b)
+shows the joint angles of the manipulator. Fig. 12(c) shows the
+control input.
+B. Test of the HQP Function
+In this subsection, we set the motors to velocity mode and
+used QP to determine the reference velocity.
+Fig. 13 shows the WMMR velocity and the reference velocity
+planned through QP. The reference velocity ξr varies greatly.
+Although the reference velocity satisfies the velocity constraint,
+the actual velocity violates it. As shown in Fig. 16, the robot
+successfully avoided the first obstacle but collided with the
+second obstacle.
+C. Test of the PPC Function
+In this subsection, similar to the simulation, ARC and FLC
+were used instead of PPC. Figs. 14 and 15 show the velocity and
+tracking error of ARC and FLC, respectively. Compared with
+Fig. 12(a) and (d), PPC has better tracking accuracy and meets
+the velocity constraints.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+NIE et al.: HQP-BASED OBSTACLE AVOIDANCE CONTROL SCHEME 6013
+Fig. 10. Experimental facilities. (a) Control system of the WMMR. (b) Mechanical structure of the two-axis mobile manipulator.
+Fig. 11. Experimental trajectory of the WMMR by using HQP-PPC. (a) HQP-PPC-AO2. (b) HQP-PPC-AO1. (c) HQP-PPC-NAO.
+Fig. 12. Experimental results of HQP-PPC-AO2. (a) Velocity of the WMMR. (b) Joint angles of the manipulator. (c) Control input. (d) Tracking
+errors.
+Fig. 13. Experimental results of QP. (a) Velocity of the WMMR.
+(b) Reference velocity ξr by solving QP.
+VI. DISCUSSION
+The results of simulations and experiments show that several
+control objectives of this method have been achieved, which are
+as follows:
+Fig. 14. Experimental results of ARC. (a) Velocity of the WMMR.
+(b) Tracking errors.
+1) the tracking accuracy of the end effector is guaranteed;
+2) all joint angles and velocity constraints are realized;
+3) obstacle avoidance is realized.
+To achieve the control objectives simultaneously, the whole
+planning-control scheme must also have the following features.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+6014 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+Fig. 15. Experiment results of FLC. (a) Velocity of the WMMR.
+(b) Tracking errors.
+Fig. 16. Distances between the robot and the obstacle in the experi-
+ment. (a) Distance 1. (b) Distance 2.
+1) The scheme should provide a smooth reference trajectory.
+In this article, to avoid producing an untraceable reference
+trajectory, the obstacle avoidance function is improved,
+and the obstacle avoidance direction is determined by
+HQP.
+2) The controller can ensure tracking accuracy and prede-
+termine the tracking error.
+The characteristics of the controller can provide the planner
+with a known tracking error to obtain a reasonable trajectory and
+ensure a better execution of the planned trajectory.
+To make a controller with excellent characteristics for which
+the tracking performance can be predetermined theoretically,
+the BLF and PPF are used in [28] and [30]–[33]; however, when
+approaching the boundary, these methods are at risk of chattering
+and boundary breaching. These risks can be reduced in some
+ways. On the one hand, increasing the control frequency as much
+as possible can significantly reduce the robot’s motion in one
+sampling time, thus decreasing the probability of the WMMR
+approaching the boundary. On the other hand, reasonable control
+parameters can also avoid risks to a certain extent. These control
+parameters should be rectified several times in the experiment
+to achieve the optimal control effect.
+In addition to the methods mentioned and compared in this
+article, there are other commonly used planning methods, such
+as kinodynamic probabilistic motion planning. This planning
+method uses heuristic algorithms on random discrete way points,
+taking into account the dynamic constraints of the robot, to
+reach the target position by node expansion and pruning of
+erroneous nodes. In general, this method is usually applied to
+point stabilization problems, and due to its predictive ability,
+a sufficiently good reference trajectory can be provided in a
+complex environment. In contrast, it requires higher computing
+power.Althoughthisapproachisseldomappliedtothetrajectory
+tracking problem, the idea of using the probability method to
+produce an optimal trajectory may provide a new method for
+redundant mobile manipulators.
+VII. CONCLUSION
+In this article, an HQP-PPF control scheme was proposed
+to realize the end-effector tracking, obstacle avoidance, and
+physical constraints of the WMMR. At the kinematic level, the
+method used HQP to plan the movement in the configuration
+space. The first-layer QP was used to avoid obstacles and realize
+physical constraints, and a smoother obstacle avoidance function
+was proposed. The second-layer QP was used to guide the
+direction of obstacle avoidance. On the other hand, the PPF
+can not only ensure the tracking accuracy of the end effector
+but also accurately realize the planned trajectory so that the
+actual movement of the WMMR can achieve obstacle avoid-
+ance and cannot violate the constraints. Finally, the effective-
+ness of the proposed method was verified by simulations and
+experiments.
+REFERENCES
+[1] A. Marino, “Distributed adaptive control of networked cooperative mo-
+bile manipulators,” IEEE Trans. Control Syst. Technol., vol. 26, no. 5,
+pp. 1646–1660, Sep. 2018.
+[2] H. Peng, M. Wu, H. Lu, J. Xiao, C. Cheng, and J. Li, “Stability control
+for medical rescue robot in unconstructed environment,” in Proc. 5th Int.
+Conf. Adv. Robot. Mechatronics, Dec. 2020, pp. 184–188.
+[3] H. N. Esfahan, V. Azimirad, and M. Danesh, “A time delay controller
+included terminal sliding mode and fuzzy gain tuning for underwater
+vehicle-manipulator systems,” Ocean Eng., vol. 107, pp. 97–107, 2015.
+[4] Z. Zhang, S. Yang, S. Chen, Y. Luo, H. Yang, and Y. Liu, “A vector-based
+constrained obstacle avoidance scheme for wheeled mobile redundant
+robot manipulator,” IEEE Trans. Cogn. Develop. Syst., vol. 13, no. 3,
+pp. 465–474, Sep. 2021.
+[5] M. Rigotti-Thompson, M. Torres-Torriti, F. A. Auat Cheein, and G. Troni,
+“H∞ based terrain disturbance rejection for hydraulically actuated mobile
+manipulators with a nonrigid link,” IEEE/ASME Trans. Mechatronics,
+vol. 25, no. 5, pp. 2523–2533, Oct. 2020.
+[6] Z. Li, S. S. Ge, and A. Ming, “Adaptive robust motion/force control of
+holonomic-constrained nonholonomic mobile manipulators,” IEEE Trans.
+Syst., Man, Cybern. B, Cybern., vol. 37, no. 3, pp. 607–616, Jun. 2007.
+[7] Z. Li, S. S. Ge, M. Adams, and W. S. Wijesoma, “Adaptive robust
+output-feedback motion/force control of electrically driven nonholonomic
+mobile manipulators,” IEEE Trans. Control Syst. Technol., vol. 16, no. 6,
+pp. 1308–1315, Nov. 2008.
+[8] H. Yang and S. Yin, “Actuator and sensor fault estimation for time-delay
+markov jump systems with application to wheeled mobile manipulators,”
+IEEE Trans. Ind. Inform., vol. 16, no. 5, pp. 3222–3232, May 2020.
+[9] G.-H. Xu, F. Qi, Q. Lai, and H. H.-C. Iu, “Fixed time synchronization
+control for bilateral teleoperation mobile manipulator with nonholonomic
+constraint and time delay,” IEEE Trans. Circuits Syst. II, Exp. Briefs,
+vol. 67, no. 12, pp. 3452–3456, Dec. 2020.
+[10] Y. Liu, Z. Li, H. Su, and C.-Y. Su, “Whole-body control of an autonomous
+mobile manipulator using series elastic actuators,” IEEE/ASME Trans.
+Mechatronics, vol. 26, no. 2, pp. 657–667, Apr. 2021.
+[11] M. Galicki, “Control of mobile manipulators in a task space,” IEEE Trans.
+Autom. Control, vol. 57, no. 11, pp. 2962–2967, Nov. 2012.
+[12] M. Souzanchi-K., A. Arab, M.-R. Akbarzadeh-T., and M. M. Fateh,
+“Robust impedance control of uncertain mobile manipulators using time-
+delay compensation,” IEEE Trans. Control Syst. Technol., vol. 26, no. 6,
+pp. 1942–1953, Nov. 2018.
+[13] G. D. White, R. M. Bhatt, C. P. Tang, and V. N. Krovi, “Experimental
+evaluation of dynamic redundancy resolution in a nonholonomic wheeled
+mobile manipulator,” IEEE/ASME Trans. Mechatronics, vol. 14, no. 3,
+pp. 349–357, Jun. 2009.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+NIE et al.: HQP-BASED OBSTACLE AVOIDANCE CONTROL SCHEME 6015
+[14] V. Andaluz, F. Roberti, J. M. Toibero, and R. Carelli, “Adaptive unified
+motion control of mobile manipulators,” Control Eng. Pract., vol. 20,
+no. 12, pp. 1337–1352, 2012.
+[15] T. Zhao, Y. Liu, Z. Li, C.-Y. Su, and Y. Feng, “Adaptive control and opti-
+mization of mobile manipulation subject to input saturation and switching
+constraints,” IEEE Trans. Autom. Sci. Eng., vol. 16, no. 4, pp. 1543–1555,
+Oct. 2019.
+[16] K. Tchon and J. Jakubiak, “A repeatable inverse kinematics algorithm
+with linear invariant subspaces for mobile manipulators,” IEEE Trans.
+Syst., Man, Cybern. B., Cybern., vol. 35, no. 5, pp. 1051–1057, Oct. 2005.
+[17] L. Xiao and Y. Zhang, “A new performance index for the repetitive motion
+of mobile manipulators,” IEEE Trans. Cybern., vol. 44, no. 2, pp. 280–292,
+Feb. 2014.
+[18] X. Lv, E. Xu, and J. Liu, “Lagrange based kinematic control for a class of
+mobile manipulators with physical constraints,” in Proc. IEEE Int. Conf.
+Artif. Intell. Ind. Des., 2021, pp. 389–392.
+[19] H. Xing, A. Torabi, L. Ding, H. Gao, Z. Deng, and M. Tavakoli, “Enhance-
+ment of force exertion capability of a mobile manipulator by kinematic
+reconfiguration,” IEEE Robot. Automat. Lett., vol. 5, no. 4, pp. 5842–5849,
+Oct. 2020.
+[20] Z. Zhang, S. Chen, J. Xie, and S. Yang, “Two hybrid multiobjective motion
+planning schemes synthesized by recurrent neural networks for wheeled
+mobile robot manipulators,” IEEE Trans. Syst., Man, Cybern. Syst., vol. 51,
+no. 5, pp. 3270–3281, May 2021.
+[21] P. Adolfo, Y. Wen, and L. Xiaoou, “Multi-agent reinforcement learning
+for redundant robot control in task-space,” Int. J. Mach. Learn. Cybern.,
+vol. 12, pp. 231–241, 2021.
+[22] S. Huang, J. Xiang, W. Wei, and M. Z. Q. Chen, “On the virtual joints for
+kinematic control of redundant manipulators with multiple constraints,”
+IEEE Trans. Control Syst. Technol., vol. 26, no. 1, pp. 65–76, Jan. 2018.
+[23] Y. Zhang, X. Lv, Z. Li, Z. Yang, and K. Chen, “Repetitive motion planning
+of PA10 robot arm subject to joint physical limits and using LVI-based
+primal-dual neural network,” Mechatronics, vol. 18, no. 9, pp. 475–485,
+2008.
+[24] X. Li, H. Liu, and M. Dong, “A general framework of motion planning
+for redundant robot manipulator based on deep reinforcement learning,”
+IEEE Trans. Ind. Inform., vol. 18, no. 8, pp. 5253–5263, Aug. 2022,
+doi: 10.1109/TII.2021.3125447.
+[25] A. Escande, N. Mansard, and P.-B. Wieber, “Hierarchical quadratic pro-
+gramming: Fast online humanoid-robot motion generation,” Int. J. Robot.
+Res., vol. 33, no. 7, pp. 1006–1028, 2014.
+[26] L. Saab, O. E. Ramos, F. Keith, N. Mansard, P. Soueres, and J.-Y. Fourquet,
+“Dynamic whole-body motion generation under rigid contacts and other
+unilateral constraints,” IEEE Trans. Robot., vol. 29, no. 2, pp. 346–362,
+Apr. 2013.
+[27] Y. Lee, S. Kim, J. Park, N. Tsagarakis, and J. Lee, “A whole-body
+control framework based on the operational space formulation under
+inequality constraints via task-oriented optimization,” IEEE Access, vol. 9,
+pp. 39813–39826, 2021, doi: 10.1109/ACCESS.2021.3064151.
+[28] L. Liu, Y. J. Liu, D. Li, S. Tong, and Z. Wang, “Barrier Lyapunov function-
+based adaptive fuzzy FTC for switched systems and its applications to
+resistance-inductance-capacitance circuit system,” IEEE Trans. Cybern.,
+vol. 50, no. 8, pp. 3491–3502, Aug. 2020.
+[29] H. Wei, Y. Zhao, and C. Sun, “Adaptive neural network control of a marine
+vessel with constraints using the asymmetric barrier Lyapunov function,”
+IEEE Trans. Cybern., vol. 47, no. 7, pp. 1641–1651, Jul. 2017.
+[30] Y. Liu, Q. Zeng, S. Tong, C. L. P. Chen, and L. Liu, “Adaptive neural
+network control for active suspension systems with time-varying vertical
+displacement and speed constraints,” IEEE Trans. Ind. Electron., vol. 66,
+no. 12, pp. 9458–9466, Dec. 2019.
+[31] Y. Hu, Y. Geng, B. Wu, and D. Wang, “Model-free prescribed perfor-
+mance control for spacecraft attitude tracking,” IEEE Trans. Control Syst.
+Technol., vol. 29, no. 1, pp. 165–179, Jan. 2021.
+[32] B. S. Park and S. J. Yoo, “A low-complexity tracker design for uncertain
+nonholonomic wheeled mobile robots with time-varying input delay at
+nonlinear dynamic level,” Nonlinear Dyn., vol. 89, no. 4, pp. 1705–1717,
+2017.
+[33] I. S. Dimanidis, C. P. Bechlioulis, and G. A. Rovithakis, “Output feedback
+approximation-free prescribed performance tracking control for uncertain
+MIMO nonlinear systems,” IEEE Trans. Autom. Control, vol. 65, no. 12,
+pp. 5058–5069, Dec. 2020.
+[34] J. H. Chung, S. A. Velinsky, and R. A. Hess, “Interaction control of
+a redundant mobile manipulator,” Int. J. Robot. Res., vol. 17, no. 12,
+pp. 1302–1309, 1998.
+[35] Z. Zhang, Y. Song, and K. Zhao, “Neuroadaptive cooperative control with-
+out velocity measurement for multiple humanoid robots under full-state
+constraints,” IEEE Trans. Ind. Electron., vol. 66, no. 4, pp. 2956–2964,
+Apr. 2019.
+[36] M. Boukattaya and T. Damak, “Coordinated motion control of a non-
+holonomic mobile manipulators using self-tuning fuzzy logic control,”
+in Proc. 19th Int. Conf. Sci. Techn. Autom. Control Comput. Eng., 2019,
+pp. 176–185.
+Jingmou Nie (Graduate Student Member,
+IEEE) received the B.S. degree in mea-
+surement and control technology and instru-
+ment, in 2018, from the College of Electrical
+and Information Engineering, Hunan University,
+Changsha, China, where he is currently working
+toward the Ph.D. degree in control theory and
+control engineering.
+His current research interests include robotics
+modeling and control, and pathing planning of
+the mobile robot.
+Yaonan Wang received the B.S. degree in com-
+puter engineering from East China Science and
+Technology University, Fuzhou, China, in 1981,
+and the M.S. and Ph.D. degrees in electrical
+engineering from Hunan University, Changsha,
+China, in 1990 and 1994, respectively.
+He has been a Professor with Hunan Uni-
+versity since 1995. His current research in-
+terests include robotics, intelligent perception
+and control, and computer vision for industrial
+applications.
+Dr. Wang is an Academician of the Chinese Academy of Engineering.
+Yang Mo received the B.S., M.S., and Ph.D.
+degrees in mechanical engineering from the
+School of Mechatronical Engineering, Beijing
+Institute of technology, Beijing, China, in 2013,
+2016 and 2020 respectively.
+He is currently a Postdoc Fellow with the De-
+partment of Electrical and Information Engineer-
+ing, Hunan University, Changsha, China. His
+current research interests include visual servo-
+ing, motion control, and space robot.
+Zhiqiang Miao (Member, IEEE) received the
+B.S. and Ph.D. degrees in electrical and in-
+formation engineering from Hunan University,
+Changsha, China, in 2010 and 2016, respec-
+tively.
+From 2014 to 2015, he was a Visiting Scholar
+with the University of New Mexico, Albuquerque,
+NM, USA. From 2016 to 2018, he was a Postdoc
+Fellow with the Department of Mechanical and
+Automation Engineering, The Chinese Univer-
+sity of Hong Kong, Hong Kong. He is currently
+an Associate Professor with the College of Electrical and Information
+Engineering, Hunan University. His research interests include multirobot
+systems, visual navigation, and nonlinear control.
+Dr. Miao was the recipient of the Outstanding Doctoral Dissertation
+Award of Hunan Province in 2018, the Outstanding Doctoral Disser-
+tation Nomination Award of Chinese Association of Control in 2018,
+and the IEEE Robotics and Automation Letters Best Paper Honorable
+Mention Award in 2020. He served as the Associate Editors for the IEEE
+International Conference on Robotics and Automation 2022, EEE/RSJ
+International Conference on Intelligent Robots and Systems 2020, and
+IEEE International Conference on Advanced Robotics and Mechatronics
+2022.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 13 ===
+6016 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 6, JUNE 2023
+Yiming Jiang received the Ph.D. degree in
+pattern recognition and intelligent system from
+the School of Control Science and Engineer-
+ing, South China University of Technology,
+Guangzhou, China, in 2019.
+He has been a Visiting Scholar with the
+University of Portsmouth, Portsmouth, U.K., in
+2017–2018. He is currently an Associate Pro-
+fessor with the School of Robotics, Hunan Uni-
+versity, Changsha, China. His research interests
+include robotics, intelligent control, and human–
+robot interaction.
+Hang Zhong (Member, IEEE) received the B.S.,
+M.S., and Ph.D. degrees in automation sci-
+ence from the College of Electrical and Informa-
+tion Engineering, Hunan University, Changsha,
+China, in 2013, 2016, and 2020 respectively,
+He is currently a Postdoctoral Fellow with Hu-
+nan University. His current research interests
+include robotics modeling and control, visual
+servo control, and path planning of the aerial
+robots.
+Jie Lin received the B.S. degree in automation
+from the College of Electrical Engineering and
+Automation, Fuzhou University, Fujian, China, in
+2019. He is currently working toward the Ph.D.
+degree in control science and engineering with
+the Hunan University, Changsha, China.
+His current research interests include multi-
+robot systems, visual servoing, and nonlinear
+control.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:54 UTC from IEEE Xplore. Restrictions apply.

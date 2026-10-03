@@ -1,0 +1,21 @@
+{
+  "candidate_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
+  "candidate_blob_identical_files": 100,
+  "candidate_copy_modifications": [],
+  "allowed_material_file_count": 154,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "fresh_extracted_texts": 24,
+  "facts_experience_and_current_draft_original_bytes": true,
+  "approved_mainline_substantive_content_unchanged": true,
+  "mainline_link_relocation_only": true,
+  "mainline_copy_links_within_materials": true,
+  "run_kind": "feedback-rewrite",
+  "independent_first_drafting_evidence": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "writing_invocations_before_start": 0,
+  "preparation_attempts": 2,
+  "preparation_issue": "pdftotext nested Windows path limitation fixed before freeze or model invocation",
+  "target_original_not_supplied": true
+}
