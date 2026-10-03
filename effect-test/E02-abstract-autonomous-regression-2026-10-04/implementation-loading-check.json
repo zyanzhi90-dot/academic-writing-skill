@@ -1997,5 +1997,76 @@
       ]
     }
   ],
-  "case_count": 22
+  "case_count": 22,
+  "candidate_verification": {
+    "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+    "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
+    "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
+    "committed_file_sha256": {
+      "nature-writing/SKILL.md": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9",
+      "nature-writing/manifest.yaml": "6568c379e8bd23f02ec9cb8cf0d14db8ad02261911bbf8e91f3e8d55cf56b24d",
+      "nature-shared/core/reader-workflow.md": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "nature-shared/core/terminology-ledger.md": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
+      "nature-writing/static/core/stance.md": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
+      "nature-writing/static/core/workflow.md": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef",
+      "nature-writing/static/core/output-format.md": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
+      "nature-writing/static/fragments/paper_type/research.md": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27",
+      "nature-writing/static/fragments/language/en.md": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a",
+      "nature-writing/static/fragments/journal/generic.md": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
+      "nature-writing/static/fragments/task/manuscript.md": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
+      "nature-writing/static/fragments/section/abstract.md": "745ff1c6748b3464e1ca9596e5d5328b8928b233f85272f7e638af8ff9125e83",
+      "nature-shared/core/robotics-writing-examples.md": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
+      "nature-writing/references/abstract.md": "c24ba546659288205d1c64c3e8065aec414a0ce936c20e292e601477ad15d8a0",
+      "nature-writing/static/fragments/language/zh-to-en.md": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
+      "nature-writing/static/fragments/journal/nature.md": "cf5ac985df8cdcf0e6d3ec32c1499c4db861c8780bda0d1d67a9a0a168da81cb",
+      "nature-shared/core/nature-abstract.md": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
+      "nature-writing/static/fragments/paper_type/algorithmic.md": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7",
+      "nature-writing/static/fragments/section/method.md": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04",
+      "nature-shared/core/robotics-main-text.md": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b",
+      "nature-polishing/SKILL.md": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa",
+      "nature-polishing/manifest.yaml": "80683c8f0713402696f28eb3d5181d378508cdf21d0cdd3fee87ce7482c05342",
+      "nature-polishing/static/core/stance.md": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649",
+      "nature-polishing/static/core/failure-modes.md": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260",
+      "nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
+      "nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
+      "nature-polishing/static/fragments/language/en.md": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c",
+      "nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
+      "nature-polishing/static/fragments/section/abstract.md": "86d2a8ad625cecb4727444e1229069f4450e194124b78b8999de967f5f30cb20",
+      "nature-polishing/static/fragments/language/zh-to-en.md": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
+      "nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
+      "nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
+      "nature-polishing/static/fragments/section/methods.md": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f"
+    },
+    "committed_example_fragment_sha256": {
+      "common_and_task_index": "d64de5d0c3fc6fb13592d40526c4ea9faf5e566216728550a8bf34e1aff95a0e",
+      "A02": "b0caf18529260191ce065a7aba318ff8763b23f576fe4c6aee8101f3c9de5f36",
+      "A04": "933a0ebdb2c44df6654195d41ce491fbe1cd671e9b6927bbf37601315a22f9ab",
+      "A05": "523ef29c1ea9da422d59b1a5e2cad50a4d73b605669b4791500a79989de9102b",
+      "A06": "1f7e36485983d496ec62cc4f3264c36c3fd46cab1ae9b1e11afc6fc1c12e86a1",
+      "A07": "188ccd8dc20288097d34d7cdd600fb1fa8aacf85d09f0012ef380645139054c0",
+      "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+    },
+    "line_ending_differences": [
+      {
+        "path": "nature-writing/manifest.yaml",
+        "read_sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d",
+        "committed_sha256": "6568c379e8bd23f02ec9cb8cf0d14db8ad02261911bbf8e91f3e8d55cf56b24d",
+        "working_crlf_count": 134,
+        "committed_crlf_count": 0,
+        "content_equal_after_lf_normalization": true
+      },
+      {
+        "path": "nature-polishing/manifest.yaml",
+        "read_sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07",
+        "committed_sha256": "80683c8f0713402696f28eb3d5181d378508cdf21d0cdd3fee87ce7482c05342",
+        "working_crlf_count": 98,
+        "committed_crlf_count": 0,
+        "content_equal_after_lf_normalization": true
+      }
+    ],
+    "all_read_files_match_committed_content": true
+  }
 }

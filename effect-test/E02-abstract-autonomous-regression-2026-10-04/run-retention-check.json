@@ -1,0 +1,19 @@
+{
+  "base_commit": "39a01da8122e12a2d8b5174b868ff6d0bfff2b06",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "run_kind": "known-E02-autonomous-regression",
+  "attempts": 1,
+  "old_tracked_files_count": 3154,
+  "changed_old_files": [
+    "skill-candidate/nature-polishing/static/fragments/section/abstract.md",
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+    "候选版实施与加载核对.md"
+  ],
+  "old_outputs_diagnoses_and_logs_unchanged": true,
+  "candidate_unchanged_after_freeze": true,
+  "frozen_inputs_unchanged": true,
+  "first_output_sha256": "8b1bffbc711e4fc1878d556c337b72df49af4deb66bcb67bb6c5c7cedcfb5334",
+  "report_links_checked": 20,
+  "evaluation_artifact": "修改与自主回归报告.md, Sections 4-5",
+  "effect_status": "Not confirmed to meet author requirements; no stability, transfer or overall-skill claim"
+}

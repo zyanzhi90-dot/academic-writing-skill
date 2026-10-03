@@ -1,0 +1,61 @@
+--- f1d19ce-independent/execute_once.py
++++ known-E02-regression/execute_once.py
+@@ -18,7 +18,8 @@
+ HELPER_PATH = ROOT / "effect-test/P17-abstract-first-drafting-2026-10-02/execute_once.py"
+ HELPER = runpy.run_path(str(HELPER_PATH))
+ git, digest, inventory, CLI = (HELPER[name] for name in ("git", "digest", "inventory", "CLI"))
+-COMMIT = "f1d19cef06b3e4775213cd046e9555c2eaa0a53b"
++COMMIT = "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d"
++RUN_KIND = "known-E02-autonomous-regression"
+ MODEL, EFFORT = "gpt-6.1-sol", "high"
+ FACTS = "effect-test/E02-abstract-materials-2026-10-03/科学事实包.md"
+ EXPERIENCE = "我自己的经验和做法.txt"
+@@ -133,10 +134,10 @@
+                 package = directory / role
+                 if package.is_dir():
+                     installed.append({"directory": str(package), "files": inventory(package)})
+-    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-f1d19ce-independent-")) / "materials"
++    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-known-autonomous-regression-")) / "materials"
+     shutil.copytree(materials, runtime)
+     save("frozen-materials.json", {
+-        "candidate_commit": COMMIT, "preparation_commit": git("rev-parse", "HEAD").decode().strip(),
++        "candidate_commit": COMMIT, "run_kind": RUN_KIND, "new_paper_transfer_evidence": False, "preparation_commit": git("rev-parse", "HEAD").decode().strip(),
+         "model": MODEL, "reasoning_effort": EFFORT,
+         "original_candidate_files_sha256": original, "modified_copy_files": [],
+         "facts_source": FACTS, "facts_source_sha256": digest(ROOT / FACTS),
+@@ -144,7 +145,7 @@
+             "last_change_commit": git("log", "-1", "--format=%H", "--", FACTS).decode().strip(),
+             "blob_id": git("rev-parse", "HEAD:" + FACTS).decode().strip(),
+             "sha256": digest(ROOT / FACTS),
+-            "correction_owner_acceptance_status": "Pending owner acceptance; this run explicitly authorized using the current corrected materials",
++            "material_status": "Original E02 materials reused unchanged under current author authorization",
+             "status_record_not_provided_to_writer": True,
+         },
+         "experience_material_version": {
+@@ -195,7 +196,7 @@
+         "English, analysis and selection notes. Do not preload all cards or PDFs. Source-link definitions "
+         "and all 21 current learning-paper PDFs, three separately copied archive-paper PDFs, and their corresponding freshly extracted texts in this "
+         "materials directory are available on demand. "
+-        "Reference science does not add author facts. This is one new independent first-pass context. "
++        "Reference science does not add author facts. This is one autonomous first-pass regression on the known E02 materials in a fresh context, not a new-paper transfer test. "
+         "Only files within the current materials directory are permitted inputs. Do not read outside it, "
+         "installed skills, the source project, the target original paper or its extractions, source locators, "
+         "preparation or evaluation materials, old outputs or their expression derivatives, or execution records. "
+@@ -216,7 +217,7 @@
+     (dest / "execution-prompt.txt").write_text(prompt, encoding="utf-8")
+     save("drafting/execution-command.json", cmd)
+     save("drafting/frozen-run.json", {
+-        "candidate_commit": COMMIT, "model": MODEL, "reasoning_effort": EFFORT,
++        "candidate_commit": COMMIT, "run_kind": RUN_KIND, "new_paper_transfer_evidence": False, "model": MODEL, "reasoning_effort": EFFORT,
+         "input_sha256": frozen["materials_files_sha256"],
+         "prompt_sha256": digest(dest / "execution-prompt.txt"), "working_directory": str(runtime),
+         "cli_sha256": digest(CLI), "cli_version": subprocess.check_output([str(CLI), "--version"]).decode().strip(),
+@@ -234,7 +235,7 @@
+             code = 124
+     save("drafting/run-meta.json", {
+         "exit_code": code, "duration_seconds": round(time.time() - started, 2),
+-        "model": MODEL, "reasoning_effort": EFFORT, "candidate_commit": COMMIT, "attempt": 1,
++        "model": MODEL, "reasoning_effort": EFFORT, "candidate_commit": COMMIT, "run_kind": RUN_KIND, "new_paper_transfer_evidence": False, "attempt": 1,
+         "first_output_exists": (dest / "first-output.md").is_file(), "evaluation": "Not performed; no prose editing",
+     })
+     print("Only invocation: exit", code, "output", (dest / "first-output.md").is_file())

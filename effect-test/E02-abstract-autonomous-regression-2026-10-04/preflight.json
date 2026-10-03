@@ -1,0 +1,25 @@
+{
+  "run_kind": "known-E02-autonomous-regression",
+  "new_paper_transfer_evidence": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "input_task_facts_experience_byte_identical_to_f1d19ce_run": true,
+  "permitted_corpus_byte_identical_to_f1d19ce_run": true,
+  "changed_writer_candidate_files": [
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md"
+  ],
+  "candidate_copies_identical_to_frozen_git_objects": true,
+  "writer_input_names": [
+    "personal-experience.txt",
+    "scientific-facts.md",
+    "task.md"
+  ],
+  "manual_mainline_old_drafts_feedback_diagnosis_and_target_original_not_provided": true,
+  "input_sha256": {
+    "personal-experience.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "scientific-facts.md": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "task.md": "c7600365fd5367cdcd8886b5ae63713d7b362c8512a92db1bdb4b23afe0f0623"
+  },
+  "materials_count": 151
+}

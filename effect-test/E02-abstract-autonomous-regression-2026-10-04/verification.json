@@ -1,0 +1,13 @@
+{
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "first_output_sha256": "8b1bffbc711e4fc1878d556c337b72df49af4deb66bcb67bb6c5c7cedcfb5334",
+  "first_output_bytes": 2612,
+  "first_output_matches_terminal_message_except_final_newline": true,
+  "outside_materials_explicit_reads": [],
+  "unresolved_read_commands": [],
+  "attempts": 1,
+  "evaluation": "Not performed; no quality verdict"
+}
