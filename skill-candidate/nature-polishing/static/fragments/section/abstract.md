@@ -31,6 +31,19 @@ under this author style. Apply the common expression core to object handoffs.
 
 ## Polishing priorities
 
+Within the requested scope, identify the central contribution: what the work
+does and how the key design provides its supported role and advantage.
+Organize the abstract around this account; retain theory and validation only
+to substantiate or bound its claims.
+Use the selected main abstracts' whole-paragraph content choices and progression
+to judge what belongs. This is a contribution–support relationship, not a fixed
+sentence order.
+
+If the user asks to discuss the abstract first, give a short Chinese main line
+with the intended emphasis and major inclusions and omissions. For a direct
+drafting or polishing request, make the same decisions internally and proceed
+without a confirmation stage.
+
 - Cut sentences that summarize background that the title already implies.
 - Make the author-supported problem and contribution easy to locate.
 - Keep the central contribution identifiable; retain supporting claims when
@@ -55,8 +68,12 @@ Use `Numerical simulation results demonstrate …` (A07) as the default
 realization for supported numerical findings and `Experimental studies are also carried out to …` (A04) for an actual experimental study purpose. Consult
 the actual English and selection notes. Adapt the evidence object, action
 strength, and complement; use another approved main-reference realization
-when it better fits the evidence and established style. Identify the analysis
-or study and what it establishes or assesses; a purpose clause does not establish success. Preserve the distinct
+when it better fits the evidence and established style. Map retained theory
+and validation to the central claim each supports or bounds. Keep data sizes,
+platforms, test items, and observation sequences only when their omission
+would obscure that support or change the claim's scope; availability in the
+author material alone does not justify inclusion. Identify the analysis or
+study and what it establishes or assesses; a purpose clause does not establish success. Preserve the distinct
 objects and strength of simulations, experiments, and theoretical guarantees.
 Use a specific supported finding in place of a generic validity claim where
 available. Combine evidence subjects and conclusions only when support

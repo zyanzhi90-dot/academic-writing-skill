@@ -57,6 +57,19 @@ Open `references/abstract.md` for templates and examples.
 
 ## Drafting discipline
 
+Within the requested scope, identify the central contribution: what the work
+does and how the key design provides its supported role and advantage.
+Organize the abstract around this account; retain theory and validation only
+to substantiate or bound its claims.
+Use the selected main abstracts' whole-paragraph content choices and progression
+to judge what belongs. This is a contribution–support relationship, not a fixed
+sentence order.
+
+If the user asks to discuss the abstract first, give a short Chinese main line
+with the intended emphasis and major inclusions and omissions. For a direct
+drafting or polishing request, make the same decisions internally and proceed
+without a confirmation stage.
+
 - Keep it compact. Cut sentences that re-summarize background the title already implies.
 - Make the key design and its supported advantage clear. Expand construction
   steps, conditions, or definitions only when needed to understand the
@@ -82,11 +95,14 @@ realization for supported numerical findings and `Experimental studies are also 
 their English and selection notes from the loaded example reference. Adapt
 the evidence object, action strength, and complement to author science;
 use another approved main-reference realization when it better fits the
-evidence and established style. Map each evidence source to its supported
-findings before combining reference sentences. Combine evidence subjects
+evidence and established style. Map each retained evidence source to the
+central claim it supports or bounds before combining reference sentences.
+Combine evidence subjects
 and shared conclusions only when their support relationships remain clear;
-keep differing findings or scopes identifiable. Include data sizes and
-platforms only when they define the contribution or evidence scope. Preserve
+keep differing findings or scopes identifiable. Keep data sizes, platforms,
+test items, and observation sequences only when their omission would obscure
+support for a central claim or change its scope; availability in the author
+material alone does not justify inclusion. Preserve
 theoretical, simulation, and experimental attribution and strength. A study
 purpose is not a demonstrated result; preferred wording must not strengthen
 a claim. State specific findings, not generic validity. Check that the
