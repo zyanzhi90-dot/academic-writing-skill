@@ -1,0 +1,20 @@
+{
+  "candidate_commit": "c2c09537e4f1f944eb8a8aa82cbc7ecf5203b6a7",
+  "skill_invoked": "nature-polishing",
+  "run_kind": "targeted-feedback-polishing",
+  "independent_first_drafting_evidence": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "candidate_blob_identical_files": 58,
+  "candidate_copy_modifications": [],
+  "allowed_material_files": 111,
+  "input_files": 5,
+  "facts_experience_draft_original_bytes": true,
+  "author_feedback_preserved_verbatim": true,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "corresponding_verified_texts": 24,
+  "permitted_corpus_bytes_reused_unchanged": true,
+  "all_20_cards_available": true,
+  "invocations_before_start": 0
+}

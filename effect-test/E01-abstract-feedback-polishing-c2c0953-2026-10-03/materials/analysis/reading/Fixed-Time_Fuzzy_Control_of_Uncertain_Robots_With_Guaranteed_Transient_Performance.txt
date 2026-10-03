@@ -1,0 +1,2157 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023 1041
+Fixed-Time Fuzzy Control of Uncertain Robots With
+Guaranteed Transient Performance
+Chengzhi Zhu , Student Member, IEEE, Chenguang Yang , Senior Member, IEEE, Yiming Jiang ,
+and Hui Zhang , Member, IEEE
+Abstract—In this article, an adaptive fixed-time fuzzy control
+scheme is proposed for an uncertain robot manipulator with user-
+defined performance. A novel symmetrical barrier Lyapunov func-
+tion is designed based on the error conversion mechanism and
+the performance function such that the tracking errors will not
+violate the prescribed output constraints. A novel adaptive law is
+constructed and incorporated into the fixed-time controller design
+such that all the closed-loop signals can be bounded and achieve
+practical fixed-time convergence regardless of the initial conditions.
+Finally, the feasibility and superiority of the proposed scheme are
+demonstrated based on simulation and experimental studies using
+a Baxter robot.
+Index Terms—Adaptive fuzzy control, barrier Lyapunov
+function (BLF), fixed-time convergence, robot manipulator.
+I. INTRODUCTION
+FOR the robot dynamic systems, uncertain nonlinear terms
+usually exist due to the time-varying model parameters and
+the external disturbance during operation. Combined with adap-
+tive control techniques, the neural network (NN) [1]–[5] and
+the fuzzy logic system (FLS) [6]–[8] have been widely applied
+to handle the tracking control problem for the uncertain robot
+systems because of their universal approximation capability.
+In [4], an NN control scheme has been proposed for a robot ma-
+nipulator to achieve trajectory tracking with output constraints
+and input saturation. In [5], an admittance adaptation method
+has been proposed for robot–environment interaction, and the
+Manuscript received 28 January 2022; revised 6 June 2022; accepted 22 July
+2022. Date of publication 27 July 2022; date of current version 1 March 2023.
+This work was supported in part by the National Key R&D Program of China
+under Grant 2021ZD0114503, in part by the National Natural Science Founda-
+tion of China under Grant U20A20200, Grant 62133005, and Major Research
+Grant 92148204, in part by the Guangdong Basic and Applied Basic Research
+Foundation under Grant 2019B1515120076 and Grant 2020B1515120054, in
+part by the Industrial Key Technologies R&D Program of Foshan under Grant
+2020001006308 and Grant 2020001006496, in part by the Hunan Science Fund
+for Distinguished Young Scholars under Grant 2021JJ10025, and in part by
+the Changsha Municipal Natural Science Foundation under Grant kq2014060.
+(Corresponding author: Chenguang Yang.)
+Chengzhi Zhu and Chenguang Yang are with the Key Laboratory of Au-
+tonomous Systems and Networked Control, College of Automation Science and
+Engineering, South China University of Technology, Guangzhou 510640, China
+(e-mail: chengzhi.zhu@qq.com; cyang@ieee.org).
+Yiming Jiang and Hui Zhang are with the School of Robotics and the Visual
+Perception and Control Technology National Engineering Laboratory, Hunan
+University, Changsha 410082, China (e-mail: ymjiang@hnu.edu.cn; zhanghui-
+hby@126.com).
+Color versions of one or more figures in this article are available at
+https://doi.org/10.1109/TFUZZ.2022.3194373.
+Digital Object Identifier 10.1109/TFUZZ.2022.3194373
+guaranteed trajectory tracking can be achieved by an NN-based
+controller. In [9], a number of advanced NN control algorithms
+have been introduced in detail for nonlinear systems, including
+robots. In [7], an adaptive robust fuzzy control scheme has been
+proposed for the uncertain two-degree-of-freedom (DOF) lower
+limb exoskeleton robot system to enhance the rehabilitation
+training. In [8], an adaptive fuzzy control scheme has been
+proposed for robotic systems to achieve fixed-time convergence
+and user-defined performance simultaneously. In [10], a novel
+adaptive controller based on active inference has been proposed
+for the robot to handle large model uncertainties and a large
+number DOFs, which enable to deal with the robot uncertainty,
+besides the NN and the FLS. It should be noted that large calcu-
+lation is always required because of the weight iterative process
+in traditional fuzzy control schemes. In our previous work [11],
+a topology optimization method has been proposed to reduce
+the data amount for calculation and storage in wireless sensor
+networks, which is exciting because it may enlighten optimizing
+the FLS structure to reduce the computational complexity in our
+future work. Moreover, the desired transient performance and
+convergence time are rarely discussed simultaneously in most
+of the existing fuzzy control schemes.
+In practice, the undesirable transient performance may lead
+to the system instability, even the system safety problems some-
+times. Recently, the barrier Lyapunov functions (BLFs) have
+been widely used to achieve the state and output constraints
+in the nonlinear control problems [12]–[16]. In [12], with the
+exponential-type BLF, a practical event-triggered prescribed-
+time controller has been proposed for a class of space teleoper-
+ation systems. In [14], a new command filtered fuzzy controller
+has been proposed for a class of unknown nonlinear systems to
+handle full-state constraints and finite-time convergence simul-
+taneously. In [16], an adaptive fuzzy leader-following tracking
+control scheme has been proposed for heterogeneous nonlinear
+multiagent systems with finite-time output constraints. In this
+article, a novel symmetric BLF is designed to guarantee the
+desired transient performance of the robot system.
+In many industrial systems, the system states are required to
+achieve fast convergence speed for better control performance.
+There have been some proposed research works focused on the
+convergence time of the systems [17]–[19]. In [17], an adaptive
+observer-based fuzzy controller has been proposed for a class
+of strict-feedback nonlinear systems to achieve finite-time con-
+vergence. In [18], an adaptive finite-time sliding-mode control
+scheme has been proposed for a class of nonlinear systems
+1063-6706 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+1042 IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023
+with some matched uncertainties. Nevertheless, for the existing
+finite-time control schemes, the convergence time of the systems
+is always related to the initial conditions, which are sometimes
+unavailable. To improve the control performance, the fixed-time
+control schemes have been proposed and applied in the nonlinear
+control community [20]–[22]. In [20], a novel fixed-time adap-
+tive fuzzy control scheme combined with the BLF technique
+has been proposed for uncertain nonstrict-feedback nonlinear
+systems. In [21], an adaptive event-based fixed-time control
+scheme has been proposed for the active vehicle suspension
+systems, and the predefined constraints can be guaranteed.
+Motivated by the above research works, the problem of fixed-
+time tracking control is discussed for uncertain robot systems
+based on the FLS and the BLF technique in this article. The
+major contributions of our work can be listed as follows.
+1) A novel symmetric BLF is designed to avoid the viola-
+tion of the output constraints; thus, the desired transient
+performance of the robot system can be guaranteed.
+2) A novel adaptive law is proposed such that the bounded-
+ness of all the closed-loop signals can be proved. Then, the
+assumption that the weight estimation is bounded in recent
+fixed-time control research [23]–[25] can be relaxed.
+3) The tracking performance of the robot system can achieve
+practical fixed-time convergence regardless of the initial
+conditions.
+II. PROBLEM FORMULATION AND PRELIMINARIES
+A. Problem Formulation
+The following dynamic equation of an n-DOF robot is con-
+sidered:
+M(q)q̈ + C(q, q̇)q̇ + G(q) + τd(q, q̇) = τ (1)
+where q, q̇, q̈ ∈ Rn
+are expressed as the vectors of position,
+velocity, and acceleration, respectively. M(q), C(q, q̇) ∈ Rn×n
+,
+and G(q) ∈ Rn
+mean the unknown inertia matrix, centripetal
+Coriolis torque matrix, and gravitational vector, respectively.
+τ ∈ Rn
+and τd(q, q̇) ∈ Rn
+are the input torque and the unknown
+disturbance related to the system signals, respectively.
+The objective of our work is to make the output errors in
+(1) converge to a predefined neighborhood around zero with
+guaranteed transient performance in fixed time regardless of the
+initial conditions. Meanwhile, all the closed-loop signals can be
+bounded during the operation. The controller design strategy is
+demonstrated in Fig. 1.
+B. Preliminaries
+Property1(See [8]):ThematrixM(q)in(1)issymmetricand
+positive definite. The term Ṁ(q) − 2C(q, q̇) is skew symmetric
+and satisfies that δT
+(Ṁ(q) − 2C(q, q̇))δ = 0 ∀δ ∈ Rn
+.
+Assumption 1: The reference trajectory vector qd ∈ Rn
+and
+its first-order derivative q̇d ∈ Rn
+are considered continuous and
+bounded.
+Lemma 1 (See [26]): For a general system ẋ(t) = g(x), when
+the Lyapunov function V (x) satisfies the following inequality:
+V̇ (x) ≤ −μ1 V η1
+(x) − μ2 V η2
+(x) + ρ, where μ1, μ2, and ρ
+Fig. 1. Framework for the fixed-time fuzzy robot controller.
+denote positive constants and the parameters η1 ∈ (0, 1) and
+η2 ∈ (1, ∞), the system is practically fixed-time stable. And
+the residual set of the system can be represented as
+Ω1 =
+
+x|V ≤ min
+
+[ρ/(μ1(1 − θ))]1/η1
+,
+[ρ/(μ2(1 − θ))]1/η2
+
+where θ ∈ (0, 1). And the convergence time of the system can
+be derived as T ≤ Tmax = 1
+μ1θ(1−η1) + 1
+μ2θ(η2−1) .
+Lemma 2 (See [27]): The following inequalities hold for any
+xr ∈ R and y ∈ R+
+:
+n
+
+r=1
+|xr|y
+≥
+ n
+
+r=1
+|xr|
+y
+, 0 < y ≤ 1 (2)
+n
+
+r=1
+|xr|y
+≥ n1−y
+ n
+
+r=1
+|xr|
+y
+, y > 1. (3)
+Lemma 3 (See [28]): The following inequality holds for any
+a, b ∈ R and  ∈ R+
+:
+ab ≤
+h1
+h1
+|a|h1
++
+1
+h2h2
+|b|h2
+(4)
+where h1, h2 ∈ (1, ∞) are both positive constants, which satisfy
+that (h1 − 1)(h2 − 1) = 1.
+Fuzzy Logic System (See [8]): As described in [8], an FLS is
+applied to approximate the unknown function f(Z) : Rk
+→ R
+in this article, where Z ∈ ΩC ⊂ Rk
+is the FLS input vector and k
+is the dimension of the FLS input. The fuzzy IF–THEN inference
+rules of the knowledge base in the FLS can be described as
+follows:
+Rule l: If Z1 is Al
+1, Z2 is Al
+2,..., Zk is Al
+k,
+then ψ is Bl
+, l = 1, 2, . . ., N0
+where Z = [Z1, Z2, . . ., Zk]T
+∈ Rk
+and ψ are the input and
+output of the FLS, respectively. μAl
+j
+(Zj) and μBl (ψ) can be
+represented as the membership functions of the fuzzy sets Al
+j
+and Bl
+, respectively. N0 is the number of the fuzzy rules. Then,
+we represent the FLS as follows:
+ψ =
+N0
+l=1 ωl
+k
+j=1 μAl
+j
+(Zj)
+N0
+l=1
+k
+j=1 μAl
+j
+(Zj)
+(5)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+ZHU et al.: FIXED-TIME FUZZY CONTROL OF UNCERTAIN ROBOTS WITH GUARANTEED TRANSIENT PERFORMANCE 1043
+where ωl is the point that achieves μBl (ωl) = 1. The member-
+ship function μAl
+j
+(Zj) is selected as a general Gaussian function
+μAl
+j
+(Zj) = exp −
+(Zj − σl
+j)2
+l
+j
+(6)
+where σl
+j and l
+j represent the center and the width, respectively.
+Define the fuzzy basic function as
+Sl(Z) =
+k
+j=1 μAl
+j
+(Zj)
+N0
+l=1
+k
+j=1 μAl
+j
+(Zj)
+. (7)
+Then, (5) can be rewritten as ψ = WT
+S(Z), where W =
+[ω1, ω2, . . ., ωN0
+]T
+and S(Z) = [S1(Z), S2(Z), . . ., SN0
+(Z)]T
+,
+respectively.
+Lemma 4 (See [29]): For a continuous function f(Z) defined
+on a compact set ΩC, there exists an FLS such that
+sup
+Z∈ΩC
+f(Z) − WT
+S(Z) ≤ ς (8)
+for any given ς > 0.
+In terms of Lemma 4, the function f(Z) can be formulated as
+f(Z) = W∗T
+S(Z) + ε(Z) ∀Z ∈ ΩC ∈ Rk
+(9)
+where W∗
+, S(Z) ∈ RN0
+are the optimal weight vector and
+the regression vector, respectively. And |ε(Z)| ≤ ε̄ denotes the
+approximation error of the FLS and is bounded by some positive
+constant ε̄ for all Z ∈ ΩC.
+III. CONTROL DESIGN
+The tracking error signals are defined below before proceed-
+ing to the control design:
+e = q − qd, z = q̇ − α (10)
+where e = [e1, e2, . . ., en]T
+∈ Rn
+and z = [z1, z2, . . ., zn]T
+∈
+Rn
+are the position tracking error and the velocity tracking
+error vectors of the robot manipulator, respectively. q, qd ∈ Rn
+denote the actual and desired trajectory, respectively. And α =
+[α1, α2, . . ., αn]T
+∈ Rn
+is the virtual controller to be specified
+later.
+Inspired by Chen et al. [30], a series of smoothly decreasing
+functions are defined as follows to constrain the tracking errors:
+βi = (0i − ∞i)e−ϑit
++ ∞i, i = 1, 2, . . ., n (11)
+where 0i, ∞i, ϑi (i = 1, 2, . . ., n) are all properly designed
+positive constants. It can be noted that when the tracking error
+ei is constrained in the range −βi < ei < βi, the designed
+parameters 0i, ∞i, and ϑi can specify the tracking transient
+response of the system, i.e., the exponential term ϑi regulates
+the convergence rate, and 0i and ∞i can define the maximum
+overshoot and the steady error, respectively.
+Inspired by Yang et al. [31], a coordinate transformation of
+the tracking error vector e is applied and a novel symmetric BLF
+is designed as follows:
+ϕ = [ϕ1, ϕ2, . . ., ϕn]T
+=
+
+e1
+β1
+,
+e2
+β2
+, . . .,
+en
+βn
+T
+(12)
+V1 =
+n
+
+i=1
+1
+2
+
+ϕ2
+i
+1 − ϕ2
+i
+
+(13)
+where ϕi is defined as the ith element of the vector ϕ ∈ Rn
+and
+the initial value of ei satisfies that −0i < ei(0) < 0i.
+Taking the derivative of (13) with respect to time combined
+with (12), we can obtain
+V̇1 =
+n
+
+i=1
+ϕi(ėiβi − eiβ̇i)
+β2
+i (1 − ϕ2
+i )2
+. (14)
+From (10), we have
+ėi = q̇i − q̇di = zi + αi − q̇di. (15)
+Substituting (15) into (14), we have
+V̇1 =
+n
+
+i=1
+ϕizi + ϕiαi − ϕiq̇di − β̇iϕ2
+i
+βi(1 − ϕ2
+i )2
+. (16)
+Then, the virtual controller αi is designed as follows:
+αi = q̇di + ϕiβ̇i − k1iβiϕ3
+i − k2iβi |ϕi|0.5
+sgn(ϕi)(1 − ϕ2
+i )
+5
+4
+(17)
+where sgn(·) represents the signum function and k1i and k2i are
+both positive constants.
+Substituting (17) into (16), we have
+V̇1 =
+n
+
+i=1
+ϕizi
+βi(1 − ϕ2
+i )2
+−
+4k1i
+1
+2 ϕ2
+i
+2
+(1 − ϕ2
+i )2
+−
+k2i |ϕi|
+3
+2
+(1 − ϕ2
+i )
+3
+4
+=
+n
+
+i=1
+⎧
+⎨
+⎩
+φi − 4k1i
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+2
+−
+k2i
+1
+2
+3
+4
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+3
+4
+⎫
+⎬
+⎭
+(18)
+where φi = eizi
+(β2
+i −e2
+i )(1−ϕ2
+i )
+.
+Then, a positive candidate Lyapunov function is defined as
+V2 = V1 +
+1
+2
+zT
+Mz (19)
+where M denotes the abbreviation of M(q) in (1).
+Taking the derivative of (19) combined with (1) and (10), we
+can obtain
+V̇2 = V̇1 + zT
+(τ − Cq̇ − G − τd − Mα̇) +
+1
+2
+zT
+Ṁz (20)
+where C, G, and τd are the abbreviation of C(q, q̇), G(q), and
+τd(q, q̇) in (1), respectively.
+According to Property 1, we can rewrite (20) as
+V̇2 = V̇1 + zT
+(τ − Cα − G − τd − Mα̇). (21)
+We define the unknown vector, which will be approximated
+by the FLSs as
+F(Z) = −Cα − G − τd − Mα̇ (22)
+where Z = [qT
+, q̇T
+, αT
+, α̇T
+]T
+∈ R4n
+is the FLS input vec-
+tor and F(Z) = [F1(Z), F2(Z), . . ., Fn(Z)]T
+∈ Rn
+is the n-
+dimensional unknown function vector.
+Substituting (22) into (21), we can obtain
+V̇2 = V̇1 + zT
+[τ + F(Z)] . (23)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+1044 IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023
+We exploit n FLSs in Section II-B to approximate the un-
+known functions Fi(Z) in (22) (i = 1, 2, . . ., n). Then, we can
+represent the function Fi(Z) and its estimation F̂i(Z), respec-
+tively, as
+Fi(Z) = W∗T
+i Si(Z) + εi
+F̂i(Z) = ŴT
+i Si(Z)
+(24)
+where W∗T
+i , ŴT
+i ∈ RN0i
+are the optimal and estimated FLS
+weight vector, respectively. N0i is the fuzzy rules number of the
+ith FLS. Si(Z) ∈ RN0i
+is the ith FLS’s basis function vector.
+AccordingtothedefinitionoftheFLS,thereisapositiveconstant
+ε̄i such that the estimation error of the FLS in (24) is bounded
+by εi ≤ ε̄i.
+Then, the adaptive fixed-time fuzzy control law for the system
+(1) is designed as
+τi = −
+ei
+(β2
+i − e2
+i )(1 − ϕ2
+i )
+− k3iz3
+i − F̂i
+− k4i |zi|0.5
+tanh(zi) −
+3
+4
+zi (25)
+where k3i and k4i are all proper positive constants and F̂i is the
+abbreviation of F̂i(Z) in (24).
+A novel FLS weight adaptive law is designed as
+˙
+Ŵi = Qi
+
+ziSi − γ1iŴi − γ2i(ŴT
+i Ŵi)Ŵi
+
+(26)
+where the term Qi is a positive-definite diagonal matrix. The
+parameters γ1i and γ2i are both designed positive constants. Si
+denotes the abbreviation of Si(Z) in (24).
+Theorem 1: Consider the uncertain robot system in (1) with
+the initial conditions ei(0) satisfying that −βi(0) < ei(0) <
+βi(0), when the virtual controllers αi in (17), the control law τi
+in (25), and the adaptation law in (26) are employed; the tracking
+errors ei can achieve fixed-time convergence without violating
+the symmetric output constraints −βi < ei < βi. Meanwhile,
+all the closed-loop signals in the system can be proved to be
+bounded.
+Proof: The global system Lyapunov function is designed as
+follows:
+V = V2 +
+1
+2
+n
+
+i=1
+W̃T
+i Q−1
+i W̃i (27)
+where W̃i = W∗
+i − Ŵi denotes the estimation vector of the
+optimal FLS weight W∗
+i .
+Substituting (18) and (23)–(26) into the derivative of V , we
+can obtain
+V̇ =
+n
+
+i=1
+⎧
+⎨
+⎩
+−4k1i
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+2
+−
+k2i
+1
+2
+3
+4
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+3
+4
+−4k3i
+
+1
+2
+z2
+i
+2
+−
+k4i
+1
+2
+3
+4
+×
+
+1
+2
+3
+4
+zi |zi|
+1
+2 tanh(zi)
+−ziŴT
+i Si + ziW∗T
+i Si + ziεi −
+3
+4
+z2
+i − ziW̃T
+i Si
++γ1iW̃T
+i Ŵi + γ2i(ŴT
+i Ŵi)W̃T
+i Ŵi
+⎫
+⎬
+⎭
+. (28)
+According to [31], for any ν ∈ R and c > 0, the following
+inequality can be held:
+0 ≤ |ν| − νtanh(
+ν
+c
+) ≤ ιc (29)
+where ι is a positive constant satisfying that ι = e−(ι+1)
+, i.e.,
+ι = 0.2785.
+Then, the following inequality can be obtained:
+−zitanh(zi) ≤ − |zi| + 0.2785 (30)
+where c ∈ R+
+in (29) has been selected as c = 1.
+With Young’s inequality being employed, we can obtain the
+following inequality:
+0.2785k4i |zi|
+1
+2 ≤
+3
+4
+(0.2785k4i)
+4
+3 +
+1
+4
+z2
+i . (31)
+By (30) and (31), we can conclude that
+−
+k4i
+1
+2
+3
+4
+×
+
+1
+2
+3
+4
+zi |zi|
+1
+2 tanh(zi)
+≤
+k4i
+1
+2
+3
+4
+×
+
+1
+2
+3
+4
+|zi|
+1
+2 (− |zi| + 0.2785)
+≤ −
+k4i
+1
+2
+3
+4
+
+1
+2
+z2
+i
+3
+4
++ 0.2785k4i |zi|
+1
+2
+≤ −
+k4i
+1
+2
+3
+4
+
+1
+2
+z2
+i
+3
+4
++
+1
+4
+z2
+i + ζ1i (32)
+where ζ1i = 3
+4 (0.2785k4i)
+4
+3 .
+For the term ziεi in (28), the following inequality can be
+obtained:
+ziεi ≤ |zi| |εi| ≤
+1
+2
+z2
+i +
+1
+2
+ε2
+i ≤
+1
+2
+z2
+i +
+1
+2
+ε̄2
+i . (33)
+Substituting (32) and (33) into (28), we can obtain
+V̇ =
+n
+
+i=1
+⎧
+⎨
+⎩
+−4k1i
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+2
+−
+k2i
+1
+2
+3
+4
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+3
+4
+−4k3i
+
+1
+2
+z2
+i
+2
+−
+k4i
+1
+2
+3
+4
+
+1
+2
+z2
+i
+3
+4
++
+1
+4
+z2
+i + ζ1i +
+1
+2
+z2
+i
++
+1
+2
+ε̄2
+i −
+3
+4
+z2
+i + γ1iW̃T
+i Ŵi + γ2i
+
+ŴT
+i Ŵi
+
+W̃T
+i Ŵi
+⎫
+⎬
+⎭
+.
+(34)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+ZHU et al.: FIXED-TIME FUZZY CONTROL OF UNCERTAIN ROBOTS WITH GUARANTEED TRANSIENT PERFORMANCE 1045
+Utilizing Young’s inequality, we have
+γ1iW̃T
+i Ŵi = γ1iW̃T
+i (W∗
+i − W̃i)
+≤ −γ1i
+
+
+W̃i
+
+
+
+2
++ γ1i
+⎛
+⎜
+⎝
+
+
+W̃i
+
+
+
+2
+2
++
+W∗
+i
+2
+2
+⎞
+⎟
+⎠
+≤ γ1i
+⎛
+⎜
+⎝
+W∗
+i
+2
+2
+−
+
+
+W̃i
+
+
+
+2
+2
+⎞
+⎟
+⎠ . (35)
+Then, for any given positive constant γ3i > 0, the following
+formulas can be concluded:
+−
+γ1i
+2
+
+
+W̃i
+
+
+
+2
+= −
+1
+4
+⎡
+⎢
+⎢
+⎣
+
+
+W̃i
+
+
+
+√
+γ1i − (2)
+1
+4
+γ3i
+&
+
+W̃i
+
+
+
+√
+γ1i
+⎤
+⎥
+⎥
+⎦
+2
+−γ3i
+⎛
+⎜
+⎝
+
+
+W̃i
+
+
+
+2
+2
+⎞
+⎟
+⎠
+3
+4
+−
+γ1i
+4
+
+
+W̃i
+
+
+
+2
++
+√
+2
+4
+×
+γ2
+3i
+γ1i
+
+
+W̃i
+
+
+ (36)
+and
+√
+2
+4
+×
+γ2
+3i
+γ1i
+
+
+W̃i
+
+
+
+=
+1
+γ1i
+⎛
+⎝
+γ1i
+
+
+W̃i
+
+
+
+2
+×
+√
+2γ2
+3i
+2γ1i
+⎞
+⎠
+≤
+1
+γ1i
+⎛
+⎜
+⎝
+γ2
+1i
+
+
+W̃i
+
+
+
+2
+8
++
+γ4
+3i
+4γ2
+1i
+⎞
+⎟
+⎠
+≤
+γ1i
+8
+
+
+W̃i
+
+
+
+2
++
+γ4
+3i
+4γ3
+1i
+. (37)
+Substituting (36) and (37) into (35), we can obtain
+γ1iW̃T
+i Ŵi ≤ −γ3i
+⎛
+⎜
+⎝
+
+
+W̃i
+
+
+
+2
+2
+⎞
+⎟
+⎠
+3
+4
++
+γ1i
+2
+W∗
+i
+2
++
+γ4
+3i
+4γ3
+1i
+. (38)
+In addition, we have
+γ2i
+
+ŴT
+i Ŵi
+
+W̃T
+i Ŵi
+= γ2i
+
+W∗
+i − W̃i
+T 
+W∗
+i − W̃i
+
+W̃T
+i
+
+W∗
+i − W̃i
+
+= γ2i
+
+W∗
+i
+2
+W̃T
+i W∗
+i − W∗
+i
+2
+
+
+W̃i
+
+
+
+2
+− 2
+
+W̃T
+i W∗
+i
+2
++3
+
+
+W̃i
+
+
+
+2
+W̃T
+i W∗
+i −
+
+
+W̃i
+
+
+
+4
+
+. (39)
+From Lemma 3, we can conclude that
+W∗
+i
+2
+W̃T
+i W∗
+i ≤ W∗
+i
+3
+
+
+W̃i
+
+
+ ≤ W∗
+i
+2
+
+
+W̃i
+
+
+
+2
++
+1
+4
+W∗
+i
+4
+(40)
+3
+
+
+W̃i
+
+
+
+2
+W̃T
+i W∗
+i
+≤ 3
+
+
+W̃i
+
+
+
+3
+W∗
+i
+≤ 3
+3ξ
+4
+3
+i
+4
+
+
+W̃i
+
+
+
+4
++
+1
+4ξ4
+i
+W∗
+i
+4
+(41)
+where 0 < ξi < (2
+3 )
+3
+2 is a positive parameter specified by the
+designer.
+Remark 1: Two auxiliary positive parameters γ3i and ξi are
+introduced to demonstrate the fixed-time convergence for the
+system, but they are not involved in the control scheme design.
+The control performance can be optimized by appropriately
+selecting the control parameters in (17), (25), and (26).
+Substituting (38)–(41) into (34), we can obtain
+V̇ ≤
+n
+
+i=1
+⎧
+⎨
+⎩
+−4k1i
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+2
+−
+k2i
+1
+2
+3
+4
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+3
+4
+−4k3i
+
+1
+2
+z2
+i
+2
+−
+k4i
+1
+2
+3
+4
+
+1
+2
+z2
+i
+3
+4
++ ζ1i +
+1
+2
+ε̄2
+i
++
+γ1i
+2
+W∗
+i
+2
++
+γ4
+3i
+4γ3
+1i
+− γ3i
+⎛
+⎜
+⎝
+
+
+W̃i
+
+
+
+2
+2
+⎞
+⎟
+⎠
+3
+4
++γ2i
+
+1
+4
+W∗
+i
+4
+− 2
+
+W̃T
+i W∗
+i
+2
++
+3
+4ξ4
+i
+W∗
+i
+4
++
+
+9ξ
+4
+3
+i
+4
+− 1
+
+
+
+W̃i
+
+
+
+4
+⎫
+⎬
+⎭
+≤
+n
+
+i=1
+⎧
+⎨
+⎩
+−4k1i
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+2
+−
+k2i
+1
+2
+3
+4
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+3
+4
+−4k3i
+
+1
+2
+z2
+i
+2
+−
+k4i
+1
+2
+3
+4
+
+1
+2
+z2
+i
+3
+4
++ ζ2i
+γ3i
+⎛
+⎜
+⎝
+
+
+W̃i
+
+
+
+2
+2
+⎞
+⎟
+⎠
+3
+4
+− γ2i
+
+4 − 9ξ
+4
+3
+i
+ 
+1
+2
+
+
+W̃i
+
+
+
+2
+2
+⎫
+⎬
+⎭
+(42)
+where ζ2i = ζ1i + 1
+2 ε̄2
+i + γ1i
+2 W∗
+i
+2
++
+γ4
+3i
+4γ3
+1i
++ γ2i
+
+1
+4 + 3
+4ξ4
+i
+
+W∗
+i
+4
+is a positive constant.
+Combined with Lemma 2, we can conclude that
+V̇ ≤
+n
+
+i=1
+−4k1i
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+2
+−
+n
+
+i=1
+k2i
+1
+2
+3
+4
+
+ϕ2
+i
+2(1 − ϕ2
+i )
+3
+4
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+1046 IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023
+− min
+
+4k3i
+λ2
+max(M)n
+ 
+1
+2
+zT
+Mz
+2
+− min
+⎡
+⎣
+γ2i
+
+4 − 9ξ
+4
+3
+i
+
+λ2
+max
+
+Q−1
+i
+
+n
+⎤
+⎦
+ n
+
+i=1
+1
+2
+W̃T
+i Q−1
+i W̃i
+2
+− min
+⎡
+⎣ k4i
+1
+2
+3
+4
+λ
+3
+4
+max(M)
+⎤
+⎦
+
+1
+2
+zT
+Mz
+3
+4
+− min
+⎡
+⎣ γ3i
+λ
+3
+4
+max
+
+Q−1
+i
+
+⎤
+⎦
+ n
+
+i=1
+1
+2
+W̃T
+i Q−1
+i W̃i
+3
+4
++ ζ2
+≤ − P1 V 2
+− P2 V
+3
+4 + ζ2 (43)
+where P1 = 1
+3n min
+
+4k1i, 4k3i
+λ2
+max(M) ,
+γ2i(4−9ξ
+4
+3
+i )
+λ2
+max(Q−1
+i )
+
+, P2 = min
+
+k2i
+( 1
+2 )
+3
+4
+,
+k4i
+( 1
+2 )
+3
+4 λ
+3
+4
+max(M)
+, γ3i
+λ
+3
+4
+max(Q−1
+i )
+
+, and ζ2 = n
+i=1
+
+ζ1i + 1
+2 ε̄2
+i + γ1i
+2
+W∗
+i
+2
++
+γ4
+3i
+4γ3
+1i
++ γ2i
+
+1
+4 + 3
+4ξ4
+i
+
+W∗
+i
+4
+
+.
+Then, the boundedness of V is demonstrated in two stages:
+V ∈ [1, +∞) and V ∈ [0, 1). We have the following inequali-
+ties:
+V̇ ≤ − P1 V 2
+− P2 V
+3
+4 + ζ2 ≤ −P1V + ζ2, V ≥ 1 (44)
+V̇ ≤ − P1 V 2
+− P2 V
+3
+4 + ζ2 ≤ −P2V + ζ2, 0 ≤ V < 1.
+(45)
+According to the definition of the Lyapunov function in (13),
+(19), and (27), the initial condition of −0i < ei(0) < 0i, and
+the results in [31] and [32], we can infer the boundedness of
+ϕ2
+i
+1−ϕ2
+i
+, zi, and W̃i, respectively. Then, the transient performance
+−βi < ei < βi can be achieved during the operation from (12).
+Fromthedefinitionofq = qd + ewithAssumption1,thebound-
+edness of q can be inferred. Then, combined with the bounded-
+ness of βi and β̇i, we can conclude the boundedness of the virtual
+controller αi. Then, q̇i = zi + αi is also bounded. According
+to the boundedness of Ŵi = W∗
+i − W̃i and the Gaussian basis
+function vector Si(Z), the controller in (25) is also bounded.
+Therefore, all the signals in the closed-loop system have been
+proved to be bounded.
+In addition, from (43) and Lemma 1, we can conclude that
+the system is fixed-time convergent regardless of the initial
+conditions. And the residual set of the system can be shown
+as
+Ωg =
+*
+x|V ≤ min
+
+ζ2
+P2(1 − θ1)
+4
+3
+,
+
+ζ2
+P1(1 − θ1)
+1
+2
++
+(46)
+where θ1 is a positive constant satisfying θ1 ∈ (0, 1).
+And the convergence time can be expressed as
+Tgmax =
+4
+P2θ1
++
+1
+P1θ1
+. (47)
+So far, the proof of Theorem 1 has been completed.
+Remark 2: In the recent fixed-time control research
+[23]–[25], the weight estimation W̃i is assumed to be bounded
+in the fixed-time stability analysis, which lacks theoretical basis.
+In our work, a novel adaptive law is proposed such that the
+boundedness of W̃i can be proved theoretically instead of
+being assumed. Moreover, the system output ei can be symmet-
+rically constrained by (−βi, βi) due to the introduction of the
+BLF in (13) such that the desired transient performance can be
+guaranteed. Therefore, the superiority of our work can be shown
+compared with the existing control schemes.
+Remark 3: From (47) and the definitions of P1 and P2, we
+can conclude that larger k1i, k2i, k3i, k4i, Qi, γ2i, and γ3i will
+make larger P1 and P2; thus, faster convergence can be achieved.
+In addition, by appropriately selecting the parameters 0i, ∞i,
+and ϑi in (11), the tracking errors can be constrained in the
+predefined range (−βi, βi) rather than the uncertain residual
+set in (46) because of the introduction of the BLF in (13). It
+should be noted that larger control gains k1i, k2i, k3i, and k4i
+and smaller steady-state error ∞i will lead to larger control
+torque, which may practically exceed the input upper limit of the
+robot in accordance with the expression in (25). Therefore, in the
+practical application, the parameters can be selected empirically
+combined with the control performance and the mechanical
+limitation.
+IV. SIMULATION STUDY
+In this section, a two-DOF robot model is selected to illus-
+trate the effectiveness and superiority of the fixed-time fuzzy
+controller in (25).
+A. Simulation Setup
+When n = 2 in (1), M(q), C(q, q̇), G(q), and τd(q, q̇) of the
+robot system are defined as follows:
+M(q) =
+M11 M12
+M21 M22
+C(q, q̇) =
+C11 C12
+C21 C22
+G(q) =
+G1
+G2
+τd(q, q̇) =
+τd1
+τd2
+(48)
+where
+M11 = m1l2
+c1 + m2(l2
+1 + l2
+c2 + 2l1lc2cosq2) + I1 + I2
+M12 = M21 = m2(l2
+c2 + l1lc2cosq2) + I2
+M22 = m2l2
+c2 + I2
+C11 = −m2l1lc2q̇2sinq2
+C12 = −m2l1lc2(q̇1 + q̇2)sinq2
+C21 = m2l1lc2q̇1sinq2
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+ZHU et al.: FIXED-TIME FUZZY CONTROL OF UNCERTAIN ROBOTS WITH GUARANTEED TRANSIENT PERFORMANCE 1047
+C22 = 0
+G1 = (m1lc2 + m2l1)gcosq1 + m2lc2gcos(q1 + q2)
+G2 = m2lc2gcos(q1 + q2)
+τd1 = sin(0.5q1) + sin(0.3q̇1)
+τd2 = sin(0.5q2) + sin(0.3q̇2) (49)
+with m1 = m2 = 2 kg and l1 = l2 = 0.5 m being the ith (i =
+1, 2) link’s mass and length, respectively. g and lci (i = 1, 2)
+denote the gravitational acceleration and the distance between
+the (i − 1)th joint and the mass center of the ith link, respec-
+tively. The inertia of the ith link can be calculated as I1 = I2 =
+0.125kg · m2
+.
+The desired trajectory of the two joints is set to be qd =
+[π/2 + 0.7cos(2t) − 0.7, π/4 + 0.8sin(2t)]T
+. In order to show
+the fixed-time convergence of the system regardless of the
+initial conditions, the initial errors of the two links are set
+as [0.1, −0.1]T
+, [0.2, −0.2]T
+, [0.4, −0.4]T
+, and [0.8, −0.8]T
+respectively. Moreover, the transient performance functions β1
+and β2 are set as
+β1 = β2 = (1 − 0.01)e−2t
++ 0.01. (50)
+The parameters in the controller design can be set as
+k11 = k21 = 4, k12 = k22 = 1.8, k31 = k41 = 10, and k32 =
+k42 = 5. And the parameters of the FLS adaptive law in (26)
+are set as Q1 = diag{1}, Q2 = diag{0.7}, γ11 = γ21 = 0.02,
+and γ12 = γ22 = 0.008.
+An adaptive NN controller in [33] has been applied to the
+same two-DOF robot manipulator to further show the superiority
+of our control scheme. With the two different controllers, the
+physical parameters of the system, the desired trajectory, and
+the output constraints are all set the same as that in the above
+simulation study, and the initial position error is set the same
+as [0.1, −0.1]T
+. By the repeated simulation to achieve better
+control performance, for the virtual controller in (51), the NN
+controller in (52), and the adaptive law in (53) in [33]
+α1i = ẏdi − k1ie1i (51)
+ui = −k2ie2i −
+1
+2a2
+i
+e2iθ̂iφT
+φ (52)
+˙
+θ̂i =
+λi
+2a2
+i
+e2
+2iφT
+φ − γiθ̂i (53)
+the parameters are, respectively, set as k1 = [40, 25]T
+, k2 =
+[19.6, 9.6]T
+, ai = 1.5, and γi = 1 for i = 1, 2.
+B. Simulation Results
+The simulation results are shown in Figs. 3–8. With four
+different initial conditions, we can see that the tracking error
+ei and the FLS weight estimation Ŵi can all achieve fixed-time
+convergence from Figs. 3, 4, and 6. Meanwhile, the tracking
+error ei can be constrained in the range −βi < ei < βi during
+Fig. 2. Schematic diagram of the Baxter robot for the experiment.
+the operation; thus, the predefined transient performance can be
+guaranteed. The bounded control input τi with different initial
+conditions is shown in Fig. 5. Then, all the closed-loop system
+signals are all bounded from all the above results.
+The comparison simulation results are shown in Figs. 7 and 8,
+from which we can see that both the controllers can achieve quite
+good tracking performance. In fact, better tracking performance
+can be achieved when more proper parameters are selected
+in [33] during our massive repeated simulation. However, when
+the selected parameters in [33] are suboptimal, the predefined
+output constraints may be violated, such as the results in Fig. 7.
+However, the same predefined transient constraints can always
+be guaranteed with the proposed control scheme. Thus, the
+superiority of our work has been shown in terms of the tran-
+sient performance. We can see that the tracking performance
+of the proposed method is worse than that of the comparison
+method for a short period of time from the initial moment in
+the simulation, which may be because the initial torque of the
+proposed controller is relatively large; thus, a relatively oscilla-
+tory response has been caused. In addition, the weight estimation
+can always achieve faster convergence with the proposed control
+scheme in our massive repeated comparison simulation, such as
+the results in Fig. 8, which has shown the superiority of the
+proposed scheme from another level.
+V. EXPERIMENTAL STUDY
+The Baxter bimanual robot, as shown in Fig. 2, is used to
+further demonstrate the practicability of the proposed controller.
+It is equipped with two seven-DOF arms whose upper limit of
+the control torques applying to the joints is 50 N · m (the first
+four joints) and 15 N · m (the last three joints) for each arm. For
+simplicity and without loss of generality, we choose the fourth
+and sixth joints of the left arm, i.e., left e1 and left w1 for the
+experiment, which has been marked out in the diagram.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+1048 IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023
+Fig. 3. Tracking error of the two-DOF robot manipulator with the proposed
+controller.
+Fig. 4. Trajectory tracking of the two-DOF robot manipulator with the pro-
+posed controller.
+Fig. 5. Control input of the two-DOF robot manipulator with the proposed
+controller.
+A. Experimental Setup
+The desired trajectory is set to qd = [π/2 + 0.6cos(2t) −
+0.6, π/4 + 0.8sin(2t)]T
+. In order to show the fixed-time conver-
+gence of the system regardless of the initial conditions, the initial
+errors of the two joints are set as [0.1, −0.1]T
+, [0.2, −0.2]T
+,
+Fig. 6. FLS weight estimation of the two-DOF robot manipulator with the
+proposed controller.
+Fig. 7. Tracking error of the two-DOF robot manipulator with the proposed
+controller and the controller in [33].
+Fig. 8. FLS/NN weight estimation of the two-DOF robot manipulator with
+the proposed controller and the controller [33].
+[0.4, −0.4]T
+, and [0.8, −0.8]T
+, respectively. Moreover, the tran-
+sient performance functions β1 and β2 are, respectively, set as
+β1 = (1 − 0.07)e−2t
++ 0.07 (54)
+β2 = (1 − 0.17)e−2t
++ 0.17. (55)
+The parameters in the controller design can be set as
+k11 = 1, k21 = 1, k12 = 3.5, k22 = 1, k31 = 1, k41 = 1, k32 =
+0.3, and k42 = 2. And the parameters of the FLS adaptive
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+ZHU et al.: FIXED-TIME FUZZY CONTROL OF UNCERTAIN ROBOTS WITH GUARANTEED TRANSIENT PERFORMANCE 1049
+Fig. 9. Tracking error of left e1 and w1 joints with the proposed controller.
+Fig. 10. Trajectory tracking of left e1 and w1 joints with the proposed
+controller.
+law in (26) are set as Q1 = diag{0.2}, Q2 = diag{0.8},
+γ11 = γ21 = 15, and γ12 = γ22 = 10.
+Remark 4: From (25), we can conclude that when ei are close
+to the limits of the output constraints ±βi, very large control
+torque will be made; then, the input upper limit of the Baxter
+joints may be violated. Therefore, the slightly larger ∞1 and
+∞2 are designed in (54) and (55).
+An adaptive NN controller in [33] and a proportional–
+derivative (PD) controller have been applied to the same Bax-
+ter robot in this article to further show the superiority of our
+control scheme. Similar to the comparison simulation above,
+the parameters in (51)–(53) are set as k1 = [10, 4]T
+, k2 =
+[2, 2]T
+, ai = 1.5, and γi = 1 for i = 1, 2 according to a num-
+ber of experiments we have made. And the PD controller is
+designed as τ = −Kpe − Kdė, where Kp = diag(50, 40) and
+Kd = diag(
+√
+0.5, 0.5). The desired trajectory and the output
+constraints are all set the same as that in the above experiment
+study, and the initial position errors are all set the same as
+[0.1, −0.1]T
+with the three controllers.
+B. Experimental Results
+The experimental results are shown in Figs. 9–14. With four
+different initial conditions, we can see that the tracking error
+ei and the FLS weight estimation Ŵi can all achieve fixed-time
+convergence from Figs. 9, 10, and 12. Moreover, from Fig. 9, the
+Fig. 11. Control input of left e1 and w1 joints with the proposed controller.
+Fig. 12. FLS weight estimation of W1 and W2 with the proposed controller.
+Fig. 13. Tracking error of left e1 and w1 joints with different controllers.
+tracking errors of the left e1 and w1 joints can be both convergent
+to a small neighborhood around zero of [−0.05, 0.05] with the
+proposed controller, and the predefined transient performance
+−βi < ei < βi can be guaranteed during the operation. The
+bounded control input τi with different initial conditions is
+shown in Fig. 11. It can be seen that the input upper limit of
+the Baxter joints is not violated during the operation except for
+a short period of time in the initial moment with the initial errors
+[−0.8, 0.8], which may due to the initial errors being too close
+to the limits of the output constraints ±βi.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+1050 IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023
+Fig. 14. FLS/NN weight estimation of the Baxter robot with the proposed
+controller and the controller in [33].
+The comparison experimental results are shown in Figs. 13
+and 14, from which we can see that all the controllers can
+achieve quite good tracking performance. In fact, better tracking
+performance can be achieved when more proper parameters
+are selected in [33] and the PD controller during our massive
+repeated experiment. However, when the selected parameters in
+the two comparative controllers are suboptimal, the predefined
+output constraints may be violated, such as the results in Fig. 13.
+However, the same predefined transient constraints can always
+be guaranteed with the proposed control scheme within the
+machine tolerance. Thus, the superiority of our work has been
+shown in terms of the transient performance. In addition, the
+weight estimation can always achieve faster convergence with
+theproposedcontrolschemeinourmassiverepeatedcomparison
+experiment, such as the results in Fig. 14, which has shown the
+superiority of the proposed scheme from another level.
+VI. CONCLUSION
+This article developed an adaptive fixed-time fuzzy control
+scheme for an uncertain robot system such that the system can
+achieve convergent in predefined time regardless of the initial
+conditions. A newly designed symmetric BLF was integrated
+into the controller design such that the desired transient perfor-
+mance can be guaranteed and the steady-state error can be artifi-
+cially designed rather than constrained in the uncertain residual
+set in Lemma 1, like most practical fixed-time control schemes.
+A novel adaptive law was proposed such that the boundedness of
+all the closed-loop signals can be proved. Then, the assumption
+thattheweightestimationisboundedinrecentfixed-timecontrol
+research[23]–[25]canberelaxed. Thefeasibilityandsuperiority
+of the proposed controller were demonstrated by simulation and
+experimental results.
+As is known, the common function approximation technique
+FLS/NN can only work over an unpredictable compact set,
+which has affected the system control performance. In the future,
+the fixed-time fuzzy control problem of unknown robots with
+global stability will be discussed.
+REFERENCES
+[1] T. Sun, H. Pei, Y. Pan, H. Zhou, and C. Zhang, “Neural network-based
+sliding mode adaptive control for robot manipulators,” Neurocomputing,
+vol. 74, no. 14/15, pp. 2377–2384, 2011.
+[2] Y. Jiang, Y. Wang, Z. Miao, J. Na, Z. Zhao, and C. Yang, “Composite-
+learning-based adaptive neural control for dual-arm robots with rela-
+tive motion,” IEEE Trans. Neural Netw. Learn. Syst., vol. 33, no. 3,
+pp. 1010–1021, Mar. 2022.
+[3] S. Zhang, Y. Dong, Y. Ouyang, Z. Yin, and K. Peng, “Adaptive neural
+control for robotic manipulators with output constraints and uncertainties,”
+IEEE Trans. Neural Netw. Learn. Syst., vol. 29, no. 11, pp. 5554–5564,
+Nov. 2018.
+[4] C. Yang, D. Huang, W. He, and L. Cheng, “Neural control of robot
+manipulators with trajectory tracking constraints and input saturation,”
+IEEE Trans. Neural Netw. Learn. Syst., vol. 32, no. 9, pp. 4231–4242,
+Sep. 2021.
+[5] C. Yang, G. Peng, Y. Li, R. Cui, L. Cheng, and Z. Li, “Neural networks
+enhanced adaptive admittance control of optimized robot–environment
+interaction,” IEEE Trans. Cybern., vol. 49, no. 7, pp. 2568–2579,
+Jul. 2019.
+[6] F. Zhang and P. Huang, “Fuzzy-based adaptive super-twisting sliding-
+mode control for a maneuverable tethered space net robot,” IEEE Trans.
+Fuzzy Syst., vol. 29, no. 7, pp. 1739–1749, Jul. 2021.
+[7] J. Han, S. Yang, L. Xia, and Y.-H. Chen, “Deterministic adaptive robust
+control with a novel optimal gain design approach for a fuzzy 2-DoF lower
+limb exoskeleton robot system,” IEEE Trans. Fuzzy Syst., vol. 29, no. 8,
+pp. 2373–2387, Aug. 2021.
+[8] Y. Pan, P. Du, H. Xue, and H.-K.xs Lam, “Singularity-free fixed-time fuzzy
+control for robotic systems with user-defined performance,” IEEE Trans.
+Fuzzy Syst., vol. 29, no. 8, pp. 2388–2398, Aug. 2021.
+[9] F. Lewis, S. Jagannathan, and A. Yesildirak, Neural Network Control of
+Robot Manipulators and Non-Linear Systems. Boca Raton, FL, USA: CRC
+Press, 2020.
+[10] C. Pezzato, R. Ferrari, and C. H. Corbato, “A novel adaptive controller for
+robot manipulators based on active inference,” IEEE Robot. Autom. Lett.,
+vol. 5, no. 2, pp. 2973–2980, Apr. 2020.
+[11] Z. Lu, N. Wang, and C. Yang, “A novel iterative identification based on
+the optimised topology for common state monitoring in wireless sensor
+networks,” Int. J. Syst. Sci., vol. 53, no. 1, pp. 25–39, 2022.
+[12] Z. Wang, H.-K. Lam, B. Xiao, Z. Chen, B. Liang, and T. Zhang, “Event-
+triggered prescribed-time fuzzy control for space teleoperation systems
+subject to multiple constraints and uncertainties,” IEEE Trans. Fuzzy Syst.,
+vol. 29, no. 9, pp. 2785–2797, Sep. 2021.
+[13] W. Sun, S.-F. Su, Y. Wu, and J. Xia, “Novel adaptive fuzzy control for
+output constrained stochastic nonstrict feedback nonlinear systems,” IEEE
+Trans. Fuzzy Syst., vol. 29, no. 5, pp. 1188–1197, May 2021.
+[14] L. Zhao, G. Liu, and J. Yu, “Finite-time adaptive fuzzy tracking control
+for a class of nonlinear systems with full-state constraints,” IEEE Trans.
+Fuzzy Syst., vol. 29, no. 8, pp. 2246–2255, Aug. 2021.
+[15] I. Zare, P. Setoodeh, and M. H. Asemani, “Fault-tolerant tracking control of
+discrete-time TS fuzzy systems with input constraint,” IEEE Trans. Fuzzy
+Syst., vol. 30, no. 6, pp. 1914–1928, Jun. 2022.
+[16] Y. Salmanpour, M. M. Arefi, A. Khayatian, and O. Kaynak, “Event-
+triggered fuzzy adaptive leader-following tracking control of non-
+affine multiagent systems with finite-time output constraint and in-
+put saturation,” IEEE Trans. Fuzzy Syst., vol. 30, no. 4, pp. 933–944,
+Apr. 2022.
+[17] J. Qiu, T. Wang, K. Sun, I. J. Rudas, and H. Gao, “Disturbance observer-
+based adaptive fuzzy control for strict-feedback nonlinear systems with
+finite-time prescribed performance,” IEEE Trans. Fuzzy Syst., vol. 30,
+no. 4, pp. 1175–1184, Apr. 2022.
+[18] B. Zhu, Y. Wang, H. Zhang, and X. Xie, “Fuzzy functional observer-
+based finite-time adaptive sliding-mode control for nonlinear systems
+with matched uncertainties,” IEEE Trans. Fuzzy Syst., vol. 30, no. 4,
+pp. 918–932, Apr. 2022.
+[19] S. Sui, H. Xu, S. Tong, and C. P. Chen, “A novel prescribed performance
+fuzzy adaptive output feedback control for nonlinear MIMO systems
+in finite-time,” IEEE Trans. Fuzzy Syst., early access, Oct. 14, 2021,
+doi: 10.1109/TFUZZ.2021.3119750.
+[20] J. Sun, J. Yi, and Z. Pu, “Fixed-time adaptive fuzzy control for uncertain
+nonstrict-feedback systems with time-varying constraints and input sat-
+urations,” IEEE Trans. Fuzzy Syst., vol. 30, no. 4, pp. 1114–1128, Apr.
+2022.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+ZHU et al.: FIXED-TIME FUZZY CONTROL OF UNCERTAIN ROBOTS WITH GUARANTEED TRANSIENT PERFORMANCE 1051
+[21] T. Jia, Y. Pan, H. Liang, and H.-K. Lam, “Event-based adaptive fixed-
+time fuzzy control for active vehicle suspension systems with time-varying
+displacement constraint,” IEEE Trans. Fuzzy Syst., vol. 30, no. 8, pp. 2813–
+2821, Aug. 2022.
+[22] D. Yao, C. Dou, D. Yue, and X.-P. Xie, “Event triggered practical fixed-
+time fuzzy containment control for stochastic multi-agent systems,” IEEE
+Trans. Fuzzy Syst., vol. 30, no. 8, pp. 3052–3062, Aug. 2022.
+[23] C. He, J. Wu, J. Dai, Z. Zhe, and T. Tong, “Fixed-time adaptive neural
+tracking control for a class of uncertain nonlinear pure-feedback systems,”
+IEEE Access, vol. 8, pp. 28867–28879, 2020.
+[24] D. Ba, Y.-X. Li, and S. Tong, “Fixed-time adaptive neural tracking control
+for a class of uncertain nonstrict nonlinear systems,” Neurocomputing,
+vol. 363, pp. 273–280, 2019.
+[25] W. Yang, Y. Pan, and H. Liang, “Event-triggered adaptive fixed-time
+NN control for constrained nonstrict-feedback nonlinear systems with
+prescribed performance,” Neurocomputing, vol. 422, pp. 332–344, 2021.
+[26] Y. Huang and Y. Jia, “Adaptive fixed-time six-DoF tracking control for
+noncooperative spacecraft fly-around mission,” IEEE Trans. Control Syst.
+Technol., vol. 27, no. 4, pp. 1796–1804, Jul. 2019.
+[27] Z. Zuo, “Nonsingular fixed-time consensus tracking for second-order
+multi-agent networks,” Automatica, vol. 54, pp. 305–309, 2015.
+[28] X. Jin, “Adaptive fixed-time control for MIMO nonlinear systems with
+asymmetric output constraints using universal barrier functions,” IEEE
+Trans. Autom. Control, vol. 64, no. 7, pp. 3046–3053, Jul. 2019.
+[29] C. Yang, Y. Jiang, J. Na, Z. Li, L. Cheng, and C.-Y. Su, “Finite-time
+convergence adaptive fuzzy control for dual-arm robot with unknown kine-
+maticsanddynamics,”IEEETrans.FuzzySyst.,vol.27,no.3,pp. 574–588,
+Mar. 2019.
+[30] M. Chen, H. Wang, and X. Liu, “Adaptive practical fixed-time tracking
+control with prescribed boundary constraints,” IEEE Trans. Circuits Syst.
+I: Regular Papers, vol. 68, no. 4, pp. 1716–1726, Apr. 2021.
+[31] C. Yang, Y. Jiang, Z. Li, W. He, and C.-Y. Su, “Neural control of bimanual
+robots with guaranteed global stability and motion precision,” IEEE Trans.
+Ind. Inform., vol. 13, no. 3, pp. 1162–1171, Jun. 2017.
+[32] C. Zhu, Y. Jiang, and C. Yang, “Fixed-time neural control of robot
+manipulator with global stability and guaranteed transient perfor-
+mance,” IEEE Trans. Ind. Electron., early access, Mar. 9, 2022,
+doi: 10.1109/TIE.2022.3156037.
+[33] R. Prakash, K. V. Gupta, and L. Behera, “Adaptive backstepping neural
+tracking control of an uncertain robot manipulator with dynamic distur-
+bances,” in Proc. IEEE Symp. Ser. Comput. Intell., 2020, pp. 1936–1943.
+Chengzhi Zhu (Student Member, IEEE) received the
+B.S. degree in automation from Qinghai University,
+Xining, China, in 2018. He is currently working
+toward the Ph.D. degree major in control science
+and engineering with the South China University of
+Technology, Guangzhou, China.
+From 2015 to 2016, he was a Visiting Student with
+the East China University of Science and Technology,
+Shanghai, China. His current research interests in-
+clude robotics, intelligent control, and human–robot
+interaction.
+Chenguang Yang (Senior Member, IEEE) received
+the B.Eng. degree in measurement and control from
+NorthwesternPolytechnicalUniversity,Xi’an,China,
+in 2005, and the Ph.D. degree in control engineering
+from the National University of Singapore, Singa-
+pore, in 2010.
+Dr. Yang was a recipient of IEEE TRANSAC-
+TIONS ON ROBOTICS Best Paper Award in 2012 and
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND
+LEARNING SYSTEMS Outstanding Paper Award in
+2022 as the lead author. His research interest include
+robotics and automation.
+Yiming Jiang received the Ph.D. degree in pattern
+recognitionandintelligentsystemsfromtheSchoolof
+Control Science and Engineering, South China Uni-
+versity of Technology, Guangzhou, China, in 2019.
+From 2017 to 2018, he was a Visiting Scholar with
+the University of Portsmouth, Portsmouth, U.K. He
+is currently an Associated Professor with the School
+of Robotics, Hunan University, Changsha, China. His
+research interests include robotics, intelligent control,
+and human–robot interaction.
+Hui Zhang (Member, IEEE) received the B.S., M.S.,
+and Ph.D. degrees in pattern recognition and intel-
+ligent systems from Hunan University, Changsha,
+China, in 2004, 2007, and 2012, respectively.
+He is currently a Professor with the School of
+Robotics, Hunan University. He is a Visiting Scholar
+with the Computer Vision and Sensing Systems
+Laboratory, Department of Electrical and Computer
+Engineering, University of Windsor, Windsor, ON,
+Canada. His research interests include machine vi-
+sion, sparse representation, and visual tracking.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore. Restrictions apply.
