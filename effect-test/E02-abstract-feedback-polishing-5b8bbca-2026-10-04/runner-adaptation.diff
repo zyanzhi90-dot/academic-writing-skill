@@ -1,0 +1,94 @@
+--- effect-test/E01-abstract-feedback-polishing-c2c0953-2026-10-03/execute_once.py
++++ new-record/execute_once.py
+@@ -1,4 +1,4 @@
+-"""Freeze and run one targeted E01 feedback polish; not independent drafting evidence."""
++"""Freeze and run one E02 contribution-organization feedback polish; not independent drafting evidence."""
+ from __future__ import annotations
+ 
+ import argparse
+@@ -18,13 +18,14 @@
+ HELPER_PATH = ROOT / "effect-test/P17-abstract-first-drafting-2026-10-02/execute_once.py"
+ HELPER = runpy.run_path(str(HELPER_PATH))
+ git, digest, inventory, CLI = (HELPER[name] for name in ("git", "digest", "inventory", "CLI"))
+-COMMIT = "c2c09537e4f1f944eb8a8aa82cbc7ecf5203b6a7"
++COMMIT = "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d"
+ MODEL, EFFORT = "gpt-6.1-sol", "high"
+-FACTS = "effect-test/E01-abstract-materials-2026-10-02/科学事实包.md"
++FACTS = "effect-test/E02-abstract-materials-2026-10-03/科学事实包.md"
+ EXPERIENCE = "我自己的经验和做法.txt"
+-PREVIOUS = ROOT / "effect-test/E01-abstract-retest-c2c0953-2026-10-03"
+-DRAFT = "effect-test/E01-abstract-retest-c2c0953-2026-10-03/drafting/first-output.md"
+-RUN_KIND = "targeted-feedback-polishing"
++PREVIOUS = ROOT / "effect-test/E02-abstract-autonomous-regression-2026-10-04"
++DRAFT = "effect-test/E02-abstract-autonomous-regression-2026-10-04/drafting/first-output.md"
++RUN_KIND = "human-assisted-E02-feedback-polishing"
++MAINLINE = "effect-test/E02-abstract-discussed-writing-f1d19ce-2026-10-03/materials/inputs/approved-mainline.md"
+ 
+ 
+ def save(name, data):
+@@ -64,15 +65,9 @@
+     (inputs / "scientific-facts.md").write_bytes((ROOT / FACTS).read_bytes())
+     (inputs / "personal-experience.txt").write_bytes((ROOT / EXPERIENCE).read_bytes())
+     (inputs / "current-draft.md").write_bytes((ROOT / DRAFT).read_bytes())
+-    (inputs / "feedback.md").write_text(
+-        "作者此前明确指出 Simulations of …、Experiments with … 的表达不符合要求，并认可 Experimental studies are also carried out to …、Numerical simulation results demonstrate … 等成熟写法。本稿验证句仍保留上述问题。请读取匹配的认可范例实际英文，分别适配模拟研究目的、实机结果和移动目标观察，落实作者要求的朴素句法、明确对象及句间推进。保持研究目的、实际发现和模型能力的区别，不补造模拟结论或增强证据。\n\n"
+-        "修改限于验证部分及必要上下文，保留其余合格内容，准确同步中文翻译。\n",
+-        encoding="utf-8")
+-    (inputs / "task.md").write_text(
+-        "本轮仅对 inputs/current-draft.md 的摘要执行一次定点反馈修订，不起草新稿或推进其他部分。本任务为反馈 Polishing，不是独立首次 Drafting。\n\n"
+-        "调用冻结的 nature-polishing，以 inputs/scientific-facts.md 为唯一作者科学依据，并依据原样 inputs/personal-experience.txt 及 inputs/feedback.md。读取匹配认可范例的实际英文，再适配为作者自己的科学内容。修改限于验证部分及必要上下文，保留其余合格内容；稿件不能作为增补事实的依据。\n\n"
+-        "返回完整英文摘要及准确同步的中文翻译。必要说明置于摘要正文外，简要指出本次修改位置、实际参考和修改依据；不把本次反馈修订当作独立首次起草通过证据。\n",
+-        encoding="utf-8")
++    (inputs / "approved-mainline.md").write_bytes((ROOT / MAINLINE).read_bytes())
++    (inputs / "feedback.md").write_bytes((RECORD / "feedback-input.txt").read_bytes())
++    (inputs / "task.md").write_bytes((RECORD / "task-input.txt").read_bytes())
+     examples = "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+     lines = (materials / examples).read_text(encoding="utf-8").splitlines()
+     common_end = lines.index("## 摘要")
+@@ -91,7 +86,7 @@
+                 package = directory / role
+                 if package.is_dir():
+                     installed.append({"directory": str(package), "files": inventory(package)})
+-    runtime = Path(tempfile.mkdtemp(prefix="e01-abstract-feedback-polishing-c2c0953-")) / "materials"
++    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-feedback-polishing-5b8bbca-")) / "materials"
+     shutil.copytree(materials, runtime)
+     save("frozen-materials.json", {
+         "candidate_commit": COMMIT, "preparation_commit": git("rev-parse", "HEAD").decode().strip(),
+@@ -100,6 +95,10 @@
+         "original_candidate_files_sha256": original, "modified_copy_files": [],
+         "facts_source": FACTS, "facts_source_sha256": digest(ROOT / FACTS),
+         "experience_source": EXPERIENCE, "experience_source_sha256": digest(ROOT / EXPERIENCE),
++        "human_assisted": True, "autonomous_pass": False, "transfer_pass": False,
++        "approved_mainline_source": MAINLINE, "approved_mainline_sha256": digest(ROOT / MAINLINE),
++        "author_request_sha256": digest(RECORD / "author-request.txt"),
++        "feedback_derivation": "Exact lines 2-4 of author-request.txt plus final newline; no paraphrase or extra English suggestion",
+         "draft_source": DRAFT, "draft_source_sha256": digest(ROOT / DRAFT),
+         "feedback_file": "inputs/feedback.md", "feedback_sha256": digest(inputs / "feedback.md"),
+         "reuse_materials_source": PREVIOUS.relative_to(ROOT).as_posix() + "/materials",
+@@ -133,14 +132,15 @@
+         f"Complete the Abstract-only targeted-feedback Polishing task at {runtime / 'inputs/task.md'}. "
+         f"Read the author facts at {runtime / 'inputs/scientific-facts.md'} and personal experience at "
+         f"{runtime / 'inputs/personal-experience.txt'}, the authorized current draft at "
+-        f"{runtime / 'inputs/current-draft.md'}, and feedback at {runtime / 'inputs/feedback.md'}. "
++        f"{runtime / 'inputs/current-draft.md'}, the already-approved main line at "
++        f"{runtime / 'inputs/approved-mainline.md'}, and feedback at {runtime / 'inputs/feedback.md'}. "
+         "This is one targeted feedback revision, not independent first drafting. "
+         "Invoke only the frozen local nature-polishing at "
+         f"{runtime / 'skill-candidate/nature-polishing/SKILL.md'} and load its manifest, matching fragments "
+         "and declared dependencies. Read all text explicitly as UTF-8: PowerShell Get-Content -Encoding UTF8 "
+         "or Python read_text(encoding='utf-8'). For shared robotics examples, first read only common "
+         f"instructions and task index (lines 1-{examples['common_and_task_index_lines'][1]}) in "
+-        f"{runtime / examples['file']}; then choose and read relevant card ranges, including their actual "
++        f"{runtime / examples['file']}; then read A06 followed by A07 and choose other relevant card ranges, including their actual "
+         "English, analysis and selection notes. Do not preload all cards or PDFs. Source-link definitions "
+         "and all 21 current learning-paper PDFs, three separately copied archive-paper PDFs, and their corresponding freshly extracted texts in this "
+         "materials directory are available on demand. "
+@@ -150,7 +150,7 @@
+         "preparation or evaluation materials other than the supplied feedback, other outputs or their expression derivatives, or execution records. "
+         "Do not browse the internet or change files. Use explicit absolute paths and bounded ranges for "
+         "material reads so actual loading is auditable. Return the complete English abstract and accurate "
+-        "Chinese translation, with necessary notes outside the abstract."
++        "Chinese translation, with necessary notes outside the abstract. Use numbered source-line reads (one file per command) to make returned ranges directly verifiable; use PowerShell $n=0; Get-Content -LiteralPath <absolute-path> -Encoding UTF8 | ForEach-Object { $n++; \"${n}: $_\" } | Select-Object -Skip <start> -First <count>. No alternative abstracts or second sampling."
+     )
+     disabled_skills = "skills.config=[" + ",".join(
+         "{path=" + json.dumps(path) + ",enabled=false}"

@@ -1,0 +1,40 @@
+{
+  "scope": "Human-assisted E02 feedback polishing; sole first output retained without manual prose edits",
+  "thread_id": "01a1029a-2072-7382-aa42-6d21692ca501",
+  "event_counts": {
+    "thread.started": 1,
+    "turn.started": 1,
+    "turn.completed": 1,
+    "turn.failed": 0
+  },
+  "attempts": 1,
+  "human_assisted": true,
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "raw_record_sha256": {
+    "author-request.txt": "78c676ffcee75a867c84f983050ccfc30c23617bbc1e44c54a5c934ff6a92c8b",
+    "feedback-input.txt": "7654b5d6ca0e2b2b8a11653c1c1675834c3a5826849632700d8edbef95c3a255",
+    "task-input.txt": "a635e86b89630771ca26f0b2660655760065cebd8680b538c8014a52965754cd",
+    "execute_once.py": "3189c156006dfbe60c92279974ff376ccabd61452fcdfaaafcb8aa1f9a1299c2",
+    "collect_loading.py": "139555a6e7ee2e92022caa60bc5f0f4e6826c3f0e89c820ccfdae85d46c772a0",
+    "frozen-materials.json": "a344b91e1ecb6f06d2a550074b3945cb69ffcd555e8a900d3c38237b9c786b78",
+    "preflight.json": "bc8ae2bb657accf1e78c0cb4b6e1f6505fb4a55a3c03bf7a1dff48061d2de955",
+    "verification.json": "76a72250d93b7de4b2afd450b3f3d2c00bb3c05f19552070e5cac67d37ff8488",
+    "polishing/first-output.md": "6d630e831165271342a0ac088d2b2327f76c3e5bd304539ea404b76e4f4ee25d",
+    "polishing/english-abstract.txt": "71f37bcef7484db165c36032156295d3dc9e85d96efb4e64bc7c8588b366bdaf",
+    "polishing/chinese-translation.txt": "712a32efb9c12bfb07c46c25a215808c3e257f1131729e459715db1e98e9aabc",
+    "polishing/events.jsonl": "ff31fa66ef55cc58064cb81bb168e81bb5665715f6dfe71c7e81c2e6ada50c52",
+    "polishing/stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "polishing/execution-prompt.txt": "256d885d54bb54fa5d14882c87bb9c55107b7981aa43312341b9541d5b7c4fe5",
+    "polishing/execution-command.json": "4d6c5a29176467741f6046aa66dc95a69b568738d6a09c0a364db3243d2d264d",
+    "polishing/frozen-run.json": "5ebe45c659ee7074289cc2b535a5b238cb477da514c07cbde68ce66b89902252",
+    "polishing/run-meta.json": "c3133bd461c9b79f2932b2e8db5a07a70fbeb608e7cb27480919e807c0e79c21",
+    "polishing/loading-audit.json": "fd4fda6f2960cc6905556f926f682e7bbd827c6a0d2bda1d732690f8de8498ed",
+    "polishing/loaded-files.json": "dd984228708cc19d58b76ad030391a9a12fa484334999e388caf37a24fd56a63",
+    "polishing/required-loading-check.json": "dc78dee0718483d517452e04960951e088118ad0a390c9caca2fea977750b4b5"
+  },
+  "standalone_abstracts": "Exact byte slices of first-output.md, excluding headings and separator blank lines; no added newline",
+  "english_sentence_count_descriptive_only": 7,
+  "all_loaded_files_checked": true,
+  "byte_preservation_verification": "verification.json"
+}

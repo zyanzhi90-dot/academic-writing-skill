@@ -1,0 +1,11 @@
+--- effect-test/E02-abstract-autonomous-regression-2026-10-04/collect_loading.py
++++ new-record/collect_loading.py
+@@ -8,7 +8,7 @@
+ frozen = json.loads((RECORD / "frozen-materials.json").read_text(encoding="utf-8"))
+ runtime = Path(frozen["runtime_directory"])
+ material = RECORD / "materials"
+-dest = RECORD / "drafting"
++dest = RECORD / "polishing"
+ events = [json.loads(line) for line in (dest / "events.jsonl").read_text(encoding="utf-8").splitlines()]
+ commands, mismatches, unmatched_numbered, types = [], [], [], {}
+ example_reads = []

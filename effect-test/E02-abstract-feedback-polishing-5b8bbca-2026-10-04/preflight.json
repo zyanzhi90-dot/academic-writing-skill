@@ -1,0 +1,35 @@
+{
+  "local_and_remote_head": "6ae610dbfef5782e12388566bbdf5421fee704db",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "run_kind": "human-assisted-E02-feedback-polishing",
+  "human_assisted": true,
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "candidate_copies_byte_identical_to_frozen_git_objects": true,
+  "facts_experience_draft_mainline_byte_identical_to_authorized_sources": true,
+  "feedback_exact_author_request_lines": [
+    2,
+    4
+  ],
+  "writer_input_names": [
+    "approved-mainline.md",
+    "current-draft.md",
+    "feedback.md",
+    "personal-experience.txt",
+    "scientific-facts.md",
+    "task.md"
+  ],
+  "target_original_and_previous_evaluations_excluded": true,
+  "materials_file_count": 112,
+  "independent_invocations_before_run": 0,
+  "input_sha256": {
+    "approved-mainline.md": "9ab670d8f4fadd307d8cc1e9d2d89dd7e1d490840a8d695f654e0901349fd3fe",
+    "current-draft.md": "8b1bffbc711e4fc1878d556c337b72df49af4deb66bcb67bb6c5c7cedcfb5334",
+    "feedback.md": "7654b5d6ca0e2b2b8a11653c1c1675834c3a5826849632700d8edbef95c3a255",
+    "personal-experience.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "scientific-facts.md": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "task.md": "a635e86b89630771ca26f0b2660655760065cebd8680b538c8014a52965754cd"
+  }
+}

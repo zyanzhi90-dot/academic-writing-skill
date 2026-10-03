@@ -1,0 +1,154 @@
+{
+  "axes": "algorithmic / abstract / en / generic",
+  "required_files": {
+    "inputs/task.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 5,
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    "skill-candidate/nature-polishing/SKILL.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 136,
+      "command_ids": [
+        "item_2"
+      ]
+    },
+    "inputs/current-draft.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 11,
+      "command_ids": [
+        "item_3"
+      ]
+    },
+    "inputs/scientific-facts.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 51,
+      "command_ids": [
+        "item_4"
+      ]
+    },
+    "inputs/personal-experience.txt": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 11,
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    "inputs/feedback.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 3,
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    "inputs/approved-mainline.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 17,
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    "skill-candidate/nature-polishing/manifest.yaml": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 107,
+      "command_ids": [
+        "item_8"
+      ]
+    },
+    "skill-candidate/nature-shared/core/reader-workflow.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 21,
+      "command_ids": [
+        "item_9"
+      ]
+    },
+    "skill-candidate/nature-shared/core/terminology-ledger.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 67,
+      "command_ids": [
+        "item_10"
+      ]
+    },
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 41,
+      "command_ids": [
+        "item_11"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/core/stance.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 26,
+      "command_ids": [
+        "item_13"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/core/output-format.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 26,
+      "command_ids": [
+        "item_15"
+      ]
+    },
+    "skill-candidate/nature-shared/core/ethics.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 95,
+      "command_ids": [
+        "item_12"
+      ]
+    },
+    "skill-candidate/nature-shared/core/scientific-expression.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 89,
+      "command_ids": [
+        "item_14"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/core/failure-modes.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 51,
+      "command_ids": [
+        "item_17"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 23,
+      "command_ids": [
+        "item_19"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/fragments/language/en.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 26,
+      "command_ids": [
+        "item_21"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/fragments/section/abstract.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 89,
+      "command_ids": [
+        "item_20"
+      ]
+    },
+    "skill-candidate/nature-polishing/static/fragments/journal/generic.md": {
+      "full_nonblank_source_returned": true,
+      "source_lines": 17,
+      "command_ids": [
+        "item_22"
+      ]
+    }
+  },
+  "all_required_nonblank_lines_returned": true,
+  "example_cards_complete": [
+    "A06",
+    "A07",
+    "A04",
+    "A05"
+  ],
+  "body_module_loaded": false,
+  "reference_pdfs_read": false
+}

@@ -1,0 +1,47 @@
+{
+  "scope": "Coordinator-only boundary check; never supplied to writer. Logical nonempty line indices after universal-newline decoding, not original PDF equation verification.",
+  "source_path": "effect-test/E02-abstract-materials-2026-10-03/source/full-text.txt",
+  "source_sha256": "b616ad345f73b0eed227d89a704c9fb33212f24d5e7803436a6075b9d292ace2",
+  "checks": [
+    {
+      "id": "robot_dynamics_scope",
+      "anchor": "Property 1 [39]",
+      "nonempty_logical_line_range": [
+        181,
+        193
+      ],
+      "excerpt": "force exerted by the environment and it can be measured by\na force/torque sensor.\nProperty 1 [39]: \u0003M(q(t))\u0003 ≤ kM, \u0003C(q(t), q̇(t))\u0003 ≤\nkC\u0003q̇(t)\u0003 and \u0003G(q(t))\u0003 ≤ kG, where kM, kC, and kG are\nunknown positive scalars.\nSuppose that the environment dynamics are described by\nthe following mass-damping-spring model:\nME (t)q̈(t) + CE (t)q̇(t) + GE (t)q(t) = f (t) (4)\nwhere ME (t), CE (t), and GE (t) are the inertia, damping, and\nstiffness matrices of the environment dynamics, respectively.\nNote that ME (t), CE (t), and GE(t) are unknown and they\nare only used for the analysis. This model represents a large\nrange of environments [40]. For example, it may describe"
+    },
+    {
+      "id": "bounded_reference_derivatives",
+      "anchor": "Lemma 3:",
+      "nonempty_logical_line_range": [
+        571,
+        602
+      ],
+      "excerpt": "V (e(t), ė(t)) and W(e(t), ė(t)) are positive definite in e(t) and\nė(t), if μ > 0, and Kp and Kd are chosen properly.\nLemma 3: According to Property 1, the following\ninequality holds:\n\u0013\n− M(qr (t))q̈r (t) − C(qr (t), q̇r (t))q̇r (t)\n−G(qr(t)) − Ksgnvec(y(t))\n\u0014T\ny(t) ≤ 0 (26)\nwhere K = diag(k1, k2, . . . , kn) and \u0003K\u0003 = kMl1 + kCl2\n2 +\nkG, with l1 and l2 as the upper bounds of\n\u0003q̈r (t)\u0003 and \u0003q̇r (t)\u0003, respectively, sgnvec(y(t)) =\n[sgn(y1(t)), sgn(y2(t)), . . . , sgn(yn(t)))]T with y1(t), y2(t),\n. . . , yn(t) as the components of y(t), and sgn(·) denotes the\nsign function.\nProof: See Appendix A.\nB. Adaptive Control\nIn [34] and [35], it has been shown that the position control\nof the robot arm can be guaranteed by PD-like control (20)\nplus a learning term. This learning term only employs an\nauxiliary variable composed of the tracking error and velocity\nerror. The above results motivate the control design in this\npaper, which includes PD-like control (20) plus an adaptive\nterm. The extension from the learning to adaptive case is\nnot straightforward. The underlying reason is that while the\nwhole robot dynamics with the desired trajectory are invariant\nin each iteration, only physical parameters (e.g., inertia and\nlink length) are invariant in each adaptive period, without\nconsidering the uncertainty. In this situation, we need to find\nsomething inherently invariant in the adaptive case, which are\nfound to be the upper bounds of the robot dynamics, as shown"
+    },
+    {
+      "id": "adaptive_law_and_guarantee",
+      "anchor": "Theorem 1:",
+      "nonempty_logical_line_range": [
+        620,
+        640
+      ],
+      "excerpt": "where S is a positive definite matrix and ȳ(t) =\n[y1(t)sgn(y1(t)), . . . , yn(t)sgn(yn(t))]T . Note that after k̂(t)\nis obtained from (29), K̂(t) in (27) is obtained as K̂(t) =\ndiag(k̂(t)).\nConsidering (3) and the control input (27), the closed-loop\nsystem dynamics are obtained as\nM(q(t))q̈(t) + C(q(t), q̇(t))q̇(t) + G(q(t))\n−KpSinvec(e(t)) − Kdė(t) + K̂(t)sgnvec(y(t)) = 0. (30)\nTheorem 1: Given the dynamics (3), with the developed\ncontrol (27) and updating law (29), position control of the\nrobot arm is achieved, i.e., limt→∞ e(t) = 0. In addition, all\nthe signals in the closed-loop system (30) are bounded.\nProof: See Appendix B.\nRemark 5: In [35], τ(t) = KpSinvec(e(t)) + Kdė(t) +\nY(q̈r(t), q̇r (t), qr (t))θ̂(t)+ f (t) with the updating law θ̂(t) =\n−S−1Y T (q̈r(t), q̇r (t), qr (t))y(t). θ̂(t) is the estimate of θ ∈\nRnθ , θ is a vector of the physical parameters of the robot arm,\nnθ is a positive integer denoting the number of these parame-\nters, and Y(q̈(t), q̇(t), q(t)) ∈ Rn×nθ is the regression matrix.\nIt employs the linear-in-parameter property, which causes a\ndifficulty especially when the robot has a high DOF, because"
+    },
+    {
+      "id": "finite_initial_lyapunov_values_and_convergence",
+      "anchor": "suppose",
+      "nonempty_logical_line_range": [
+        1022,
+        1042
+      ],
+      "excerpt": "0\nV(e(s), ė(s))ds ≤ 0. (40)\nThe above inequality shows that W(e(t), ė(t)) +\n1/2k̃(t)Sk̃(t) ≤ W(e(0), ė(0)) + 1/2k̃(0)Sk̃(0) and\nthus W(e(t), ė(t)) + 1/2k̃(t)Sk̃(t) is bounded suppose\nW(e(0), ė(0)) and 1/2k̃(0)Sk̃(0) are bounded. According\nto Lemma 2, W(e(t), ė(t)) is positive definite in e(t)\nand ė(t), thus W(e(t), ė(t)), and k̃(t)Sk̃(t) are bounded,\nand immediately we obtain e(t) ∈ L∞, ė(t) ∈ L∞, and\nk̃(t) ∈ L∞. In addition, it is found from the above inequality\nthat\n\u0006 t\n0 V (e(s), ė(s))ds is bounded, and thus we have\ne(t) ∈ L2 as V(e(t), ė(t)) is positive definite in e(t) and ė(t).\nė(t) ∈ L∞ and e(t) ∈ L2 lead to limt→∞ e(t) = 0, which\ncompletes the proof.\nREFERENCES\n[1] N. Hogan, “Impedance control—An approach to manipulation.\nI—Theory. II—Implementation. III—Applications,” J. Dyn. Syst., Meas.,\nControl, vol. 107, no. 1, pp. 1–24, 1985.\n[2] J. J. Gonzalez and G. R. Widmann, “A force commanded impedance"
+    }
+  ],
+  "reference_locators": "Existing accepted source locator: PDF p.2 Property 1; p.4 Lemma 2; p.5 Lemma 3/Theorem 1/adaptive law; pp.9-10 Appendix B.",
+  "independent_proof_revalidation": false,
+  "target_original_abstract_not_read_for_this_check": true,
+  "writer_material_contains_target_original_or_this_record": false
+}
