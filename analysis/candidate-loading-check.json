@@ -2,7 +2,7 @@
   "basis_commit": "105a6ea",
   "basis_commit_scope": "Accepted example-card source, not the candidate version",
   "candidate_verification": {
-    "candidate_commit": "bc99169f12a38d74ac31fd9b311a74be572728cb",
+    "candidate_commit": "c2c09537e4f1f944eb8a8aa82cbc7ecf5203b6a7",
     "read_hash_basis": "files_read.sha256 hashes actual working-tree bytes; selected_fragment_sha256 hashes returned UTF-8 text retaining its line endings",
     "committed_hash_basis": "SHA-256 of git show candidate_commit:skill-candidate/path bytes; independent of checkout line-ending conversion",
     "committed_file_sha256": {
@@ -41,7 +41,7 @@
       "nature-writing/static/fragments/task/submission-package.md": "69410d283d738e82a35f2d8da1bcfb48385e924b68c1deef84cb2a5be8dceb9d",
       "nature-polishing/SKILL.md": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa",
       "nature-polishing/manifest.yaml": "80683c8f0713402696f28eb3d5181d378508cdf21d0cdd3fee87ce7482c05342",
-      "nature-polishing/static/core/stance.md": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b",
+      "nature-polishing/static/core/stance.md": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649",
       "nature-polishing/static/core/failure-modes.md": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260",
       "nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
       "nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
@@ -2493,7 +2493,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -2576,7 +2576,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -2663,7 +2663,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -2750,7 +2750,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -2836,7 +2836,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -2923,7 +2923,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3010,7 +3010,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3097,7 +3097,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3180,7 +3180,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3266,7 +3266,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3353,7 +3353,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3440,7 +3440,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3528,7 +3528,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3610,7 +3610,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3708,7 +3708,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3828,7 +3828,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3915,7 +3915,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -3999,7 +3999,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4091,7 +4091,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4184,7 +4184,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4257,7 +4257,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4329,7 +4329,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4400,7 +4400,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4467,7 +4467,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
@@ -4528,7 +4528,7 @@
         },
         {
           "path": "nature-polishing/static/core/stance.md",
-          "sha256": "5aaa30bec7c2582e6267be107b9aa4d8085257e963a79fedeb951bc1ce19a66b"
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
         },
         {
           "path": "nature-polishing/static/core/failure-modes.md",
