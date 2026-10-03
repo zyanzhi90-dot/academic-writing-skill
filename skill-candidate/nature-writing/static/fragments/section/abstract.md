@@ -51,10 +51,12 @@ Open `references/abstract.md` for templates and examples.
 ## Drafting discipline
 
 - Keep it compact. Cut sentences that re-summarize background the title already implies.
-- Make the key method design and its supported advantage clear and concise;
-  explain one central contribution when needed, but compress the details of
-  multiple contributions so no module obscures the others or the main results.
-  Do not turn the body method into an abbreviated inventory.
+- Make the key design and its supported advantage clear. Expand construction
+  steps, conditions, or definitions only when needed to understand the
+  contribution or bound its claim. Added information alone does not justify
+  expansion; a criterion may itself be the contribution. Keep details across
+  contributions compact, preserving guarantee objects, strength, and necessary
+  conditions.
 - Include a quantitative result only when it defines, supports, or materially
   bounds the central claim. Do not invent numbers or fill the abstract with an
   experiment inventory.
@@ -70,9 +72,12 @@ Open `references/abstract.md` for templates and examples.
 Prefer mature realizations such as `Numerical simulation results demonstrate …`
 (A07) and `Experimental studies are also carried out to …` (A04) when they fit
 the author evidence. Read their actual English and selection notes from the
-loaded example reference. Name the analysis or study and what it establishes
-or assesses. A study purpose is not a demonstrated result; simulations,
-experiments, and theoretical guarantees must retain their distinct objects
-and strength. Adapt the complement to specific supported findings, not a
-generic validity claim. A06/A05 provide other natural verification choices;
-no sentence or experimental inventory is mandatory.
+loaded example reference. Map each evidence source to its supported findings,
+then adapt the reference sentence and complement. Combine evidence subjects
+and shared conclusions only when their support relationships remain clear;
+keep differing findings or scopes identifiable. Include data sizes and
+platforms only when they define the contribution or evidence scope. Preserve
+theoretical, simulation, and experimental attribution and strength. A study
+purpose is not a demonstrated result; preferred wording must not strengthen
+a claim. State specific findings, not generic validity. A06/A05 remain natural
+alternatives; no sentence or experimental inventory is mandatory.
