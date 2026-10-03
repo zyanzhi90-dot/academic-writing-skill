@@ -1,0 +1,10 @@
+{
+  "run_kind": "writing-after-discussed-mainline",
+  "attempts": 1,
+  "protected_project_files_unchanged": 2980,
+  "record_links_valid": 19,
+  "first_output_sha256": "3659ba26c1e94dbe08d6f083328ec6152165260608f024928b37ce028a0522e7",
+  "initial_parser_result_preserved": true,
+  "raw_output_and_events_not_rewritten": true,
+  "evaluation": "Not performed; owner acceptance pending"
+}

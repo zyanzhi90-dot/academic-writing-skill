@@ -1,0 +1,34 @@
+--- previous/collect_loading.py
++++ discussed-writing/collect_loading.py
+@@ -39,13 +39,18 @@
+     # whole-file command returns its explicit paths in command order.
+     if not numbered and paths and re.search(r"Get-Content", command, re.I):
+         expected, returned_positions = [], []
+-        for name in paths:
++        operations = [(name, command) for name in paths]
++        if len(paths) == 1:
++            fragments = re.findall(r"Get-Content\b[^;]*", command, re.I)
++            if len(fragments) > 1:
++                operations = [(paths[0], fragment) for fragment in fragments]
++        for name, read_fragment in operations:
+             if name.endswith(".pdf"):
+                 continue
+             source_lines = (material / name).read_text(encoding="utf-8").splitlines()
+-            skip = re.search(r"-Skip\s+(\d+)", command, re.I) if len(paths) == 1 else None
+-            first = re.search(r"-First\s+(\d+)", command, re.I) if len(paths) == 1 else None
+-            total = re.search(r"-TotalCount\s+(\d+)", command, re.I) if len(paths) == 1 else None
++            skip = re.search(r"-Skip\s+(\d+)", read_fragment, re.I) if len(paths) == 1 else None
++            first = re.search(r"-First\s+(\d+)", read_fragment, re.I) if len(paths) == 1 else None
++            total = re.search(r"-TotalCount\s+(\d+)", read_fragment, re.I) if len(paths) == 1 else None
+             start = int(skip[1]) if skip else 0
+             stop = min(len(source_lines), int(total[1])) if total else len(source_lines)
+             if first:
+@@ -54,7 +59,7 @@
+             expected.extend(selected)
+             returned_positions.extend(enumerate(selected, start + 1))
+             if selected:
+-                reconstructed_by_file[name] = [[start + 1, start + len(selected)]]
++                reconstructed_by_file.setdefault(name, []).append([start + 1, start + len(selected)])
+         unnumbered_match = output.splitlines() == expected
+         if unnumbered_match:
+             numbered = returned_positions

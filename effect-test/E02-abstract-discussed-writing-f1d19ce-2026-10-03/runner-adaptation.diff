@@ -1,0 +1,125 @@
+--- previous/execute_once.py
++++ discussed-writing/execute_once.py
+@@ -1,4 +1,4 @@
+-"""Run one E02 Abstract content-organization feedback revision; not independent drafting evidence."""
++"""Run one E02 Abstract after the approved Chinese discussion plan; not autonomous first drafting evidence."""
+ from __future__ import annotations
+ 
+ import argparse
+@@ -20,12 +20,13 @@
+ git, digest, inventory, CLI = (HELPER[name] for name in ("git", "digest", "inventory", "CLI"))
+ COMMIT = "f1d19cef06b3e4775213cd046e9555c2eaa0a53b"
+ MODEL, EFFORT = "gpt-6.1-sol", "high"
+-PREVIOUS = ROOT / "effect-test/E02-abstract-retest-f1d19ce-2026-10-03"
+-FACTS = "effect-test/E02-abstract-retest-f1d19ce-2026-10-03/materials/inputs/scientific-facts.md"
+-EXPERIENCE = "effect-test/E02-abstract-retest-f1d19ce-2026-10-03/materials/inputs/personal-experience.txt"
+-DRAFT = "effect-test/E02-abstract-retest-f1d19ce-2026-10-03/drafting/first-output.md"
+-DRAFT_COMMIT = "88c109681b9025ae93d6e779b4fb11693ecd946b"
+-RUN_KIND = "content-organization-feedback-revision"
++PREVIOUS = ROOT / "effect-test/E02-abstract-feedback-revision-f1d19ce-2026-10-03"
++FACTS = "effect-test/E02-abstract-feedback-revision-f1d19ce-2026-10-03/materials/inputs/scientific-facts.md"
++EXPERIENCE = "effect-test/E02-abstract-feedback-revision-f1d19ce-2026-10-03/materials/inputs/personal-experience.txt"
++PLAN = "effect-test/E02-abstract-discussion-f1d19ce-2026-10-03/内容取舍与中文主线.md"
++PLAN_COMMIT = "00241e464a9be6ad5bd50eb635d502f4bd6092ef"
++RUN_KIND = "writing-after-discussed-mainline"
++
+ 
+ 
+ def save(name, data):
+@@ -50,16 +51,15 @@
+     inputs.mkdir()
+     (inputs / "scientific-facts.md").write_bytes((ROOT / FACTS).read_bytes())
+     (inputs / "personal-experience.txt").write_bytes((ROOT / EXPERIENCE).read_bytes())
+-    draft = git("show", DRAFT_COMMIT + ":" + DRAFT)
+-    assert draft == (ROOT / DRAFT).read_bytes()
+-    (inputs / "current-draft.md").write_bytes(draft)
+-    feedback = (RECORD / "author-feedback.md").read_bytes()
+-    (inputs / "feedback.md").write_bytes(feedback)
+-    (inputs / "task.md").write_text(
+-        "本轮仅对 inputs/current-draft.md 中的最新 E02 摘要作一次内容组织反馈修订，不推进其他部分。本任务是反馈修订，不是新的独立起草测试。\n"
+-        "读取 inputs/scientific-facts.md、inputs/personal-experience.txt、inputs/current-draft.md 和原样 inputs/feedback.md，调用提供的冻结 nature-writing 按作者反馈执行。科学内容以原样事实包为准，对照 A06／A07 完整摘要，按反馈允许的范围调整必要句子。\n"
+-        "交付完整英文摘要、准确中文翻译及简短修改依据，必要作者说明置于摘要正文之外。\n",
+-        encoding="utf-8")
++    plan = git("show", PLAN_COMMIT + ":" + PLAN)
++    assert plan == (ROOT / PLAN).read_bytes()
++    (RECORD / "approved-plan-source.md").write_bytes(plan)
++    plan_body = plan.decode("utf-8").split("本方案供作者确认内容主线与取舍。", 1)[0]
++    # Only the discussion content enters the writer; coordinator records stay outside.
++    # Keep its two reference links valid in the isolated inputs directory.
++    plan_body = plan_body.replace("../../文献资料/", "../文献资料/")
++    (inputs / "approved-mainline.md").write_text(plan_body, encoding="utf-8")
++    (inputs / "task.md").write_bytes((RECORD / "writing-task.md").read_bytes())
+     previous = json.loads((PREVIOUS / "frozen-materials.json").read_text(encoding="utf-8"))
+     assert previous["candidate_commit"] == COMMIT
+     assert inventory(PREVIOUS / "materials") == previous["materials_files_sha256"]
+@@ -108,15 +108,16 @@
+                 package = directory / role
+                 if package.is_dir():
+                     installed.append({"directory": str(package), "files": inventory(package)})
+-    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-f1d19ce-feedback-")) / "materials"
++    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-discussed-writing-")) / "materials"
+     shutil.copytree(materials, runtime)
+     save("frozen-materials.json", {
+         "candidate_commit": COMMIT, "preparation_commit": git("rev-parse", "HEAD").decode().strip(),
+         "model": MODEL, "reasoning_effort": EFFORT,
+         "run_kind": RUN_KIND, "independent_first_drafting_evidence": False,
+-        "draft_source": DRAFT, "draft_source_commit": DRAFT_COMMIT,
+-        "draft_source_sha256": digest(ROOT / DRAFT),
+-        "feedback_file": "inputs/feedback.md", "feedback_sha256": digest(inputs / "feedback.md"),
++        "approved_plan_source": PLAN, "approved_plan_source_commit": PLAN_COMMIT,
++        "approved_plan_source_sha256": digest(RECORD / "approved-plan-source.md"),
++        "approved_plan_writer_file": "inputs/approved-mainline.md",
++        "approved_plan_copy_changes": "Only discussion content before the historical closing/operational record is provided; two PDF links changed from ../../文献资料/ to ../文献资料/ to resolve within isolated materials. Scientific content and choices unchanged.",
+         "reuse_freeze_record_sha256": digest(PREVIOUS / "frozen-materials.json"),
+         "corpus_transfer": "Only hash-verified permitted PDFs and corresponding texts copied; no prior execution records, other drafts, diagnoses or evaluations passed to writer",
+         "original_candidate_files_sha256": original, "modified_copy_files": [],
+@@ -125,7 +126,6 @@
+             "last_change_commit": git("log", "-1", "--format=%H", "--", FACTS).decode().strip(),
+             "blob_id": git("rev-parse", "HEAD:" + FACTS).decode().strip(),
+             "sha256": digest(ROOT / FACTS),
+-            "correction_owner_acceptance_status": "Pending owner acceptance; this run explicitly authorized using the current corrected materials",
+             "status_record_not_provided_to_writer": True,
+         },
+         "experience_material_version": {
+@@ -144,7 +144,7 @@
+                             "all_20_cards_available": True, "all_21_current_papers_available": True,
+                             "all_3_declared_archive_papers_available": True},
+         "excluded": ["target original paper and extraction texts", "source locators", "preparation records",
+-                     "evaluations other than supplied author feedback", "outputs and expression derivatives other than the authorized current draft", "source project and execution records"],
++                     "diagnoses and evaluations", "old outputs and expression derivatives", "source project and execution records"],
+         "isolation": "Fresh ephemeral CLI in a project-external material-only directory; automatic project docs, installed skills, plugins and network search disabled for this invocation. Allowed-input prompt and actual command audit; no OS-level read isolation claimed.",
+     })
+     print("Frozen", len(original), "candidate files and", len(corpus), "reference files; no candidate changes")
+@@ -160,11 +160,10 @@
+     dest.mkdir()
+     examples = frozen["example_loading"]
+     prompt = (
+-        f"Complete the Abstract-only content-organization feedback-revision task at {runtime / 'inputs/task.md'}. "
+-        f"Read the author facts at {runtime / 'inputs/scientific-facts.md'} and personal experience at "
+-        f"{runtime / 'inputs/personal-experience.txt'}, the current draft at "
+-        f"{runtime / 'inputs/current-draft.md'}, and author feedback at "
+-        f"{runtime / 'inputs/feedback.md'}. Invoke only the frozen local nature-writing at "
++        f"Complete the Abstract-only writing-after-discussion task at {runtime / 'inputs/task.md'}. "
++        f"Read the original author facts at {runtime / 'inputs/scientific-facts.md'}, personal experience at "
++        f"{runtime / 'inputs/personal-experience.txt'}, and the approved Chinese content plan at "
++        f"{runtime / 'inputs/approved-mainline.md'}. Invoke only the frozen local nature-writing at "
+         f"{runtime / 'skill-candidate/nature-writing/SKILL.md'} and load its manifest, matching fragments "
+         "and declared dependencies. Read all text explicitly as UTF-8: PowerShell Get-Content -Encoding UTF8 "
+         "or Python read_text(encoding='utf-8'). For shared robotics examples, first read only common "
+@@ -173,13 +172,13 @@
+         "English, analysis and selection notes. Do not preload all cards or PDFs. Source-link definitions "
+         "and all 21 current learning-paper PDFs, three separately copied archive-paper PDFs, and their corresponding freshly extracted texts in this "
+         "materials directory are available on demand. "
+-        "Reference science does not add author facts. This is one feedback revision in a fresh context, not independent first drafting. "
++        "Reference science does not add author facts. This is one writing invocation after an approved discussion plan in a fresh context, not autonomous independent first drafting. "
+         "Only files within the current materials directory are permitted inputs. Do not read outside it, "
+         "installed skills, the source project, the target original paper or its extractions, source locators, "
+-        "preparation or evaluation materials other than the supplied author feedback, other outputs or their expression derivatives, or execution records. "
++        "preparation, diagnosis or evaluation materials, old outputs or their expression derivatives, or execution records. "
+         "Do not browse the internet or change files. Use explicit absolute paths and bounded ranges for "
+         "material reads so actual loading is auditable. Return the complete English abstract and accurate "
+-        "Chinese translation and brief revision rationale, with necessary notes outside the abstract."
++        "Chinese translation and brief explanation, with necessary notes outside the abstract."
+     )
+     disabled_skills = "skills.config=[" + ",".join(
+         "{path=" + json.dumps(path) + ",enabled=false}"

@@ -1,0 +1,26 @@
+{
+  "run_kind": "经讨论主线后的写作",
+  "independent_first_drafting_evidence": false,
+  "candidate_commit": "f1d19cef06b3e4775213cd046e9555c2eaa0a53b",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "original_facts_and_experience_byte_identical": true,
+  "candidate_and_corpus_identical_to_previous_freeze": true,
+  "plan_source_commit": "00241e464a9be6ad5bd50eb635d502f4bd6092ef",
+  "writer_plan_copy_changes": "Only discussion content before the historical closing/operational record is provided; two PDF links changed from ../../文献资料/ to ../文献资料/ to resolve within isolated materials. Scientific content and choices unchanged.",
+  "writer_input_files": [
+    "approved-mainline.md",
+    "personal-experience.txt",
+    "scientific-facts.md",
+    "task.md"
+  ],
+  "materials_count": 152,
+  "target_original_old_drafts_and_operational_records_not_provided": true,
+  "shared_collector_unchanged": true,
+  "input_sha256": {
+    "approved-mainline.md": "9ab670d8f4fadd307d8cc1e9d2d89dd7e1d490840a8d695f654e0901349fd3fe",
+    "personal-experience.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "scientific-facts.md": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "task.md": "22c6b3fc0a80bd04aa4b36d35c1e231d717c5db5e1b4b4a81dd163df8ac60787"
+  }
+}

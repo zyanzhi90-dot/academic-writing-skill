@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "duration_seconds": 221.77,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "candidate_commit": "f1d19cef06b3e4775213cd046e9555c2eaa0a53b",
+  "attempt": 1,
+  "run_kind": "writing-after-discussed-mainline",
+  "independent_first_drafting_evidence": false,
+  "first_output_exists": true,
+  "evaluation": "Not performed; no prose editing"
+}
