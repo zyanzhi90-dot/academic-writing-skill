@@ -1,0 +1,23 @@
+{
+  "paper_title": "Impedance Learning for Robots Interacting With Unknown Environments",
+  "authors": [
+    "Yanan Li",
+    "Shuzhi Sam Ge"
+  ],
+  "journal": "IEEE Transactions on Control Systems Technology",
+  "year": 2014,
+  "volume": 22,
+  "issue": 4,
+  "pages": "1422–1432",
+  "doi": "10.1109/TCST.2013.2286194",
+  "source_type": "user-provided local PDF",
+  "source_path": "D:\\桌面\\论文\\整理读过 的文章\\Impedance_Learning_for_Robots_Interacting_With_Unknown_Environments.pdf",
+  "pdf_relative_path": "source/Impedance_Learning_for_Robots_Interacting_With_Unknown_Environments.pdf",
+  "pages_pdf": 11,
+  "sha256": "f2d5ace4977902ebd7b66b1cf53cffee760ae290f3cd96eaf9e895267b82e64f",
+  "bytes": 1149557,
+  "original_byte_identical": true,
+  "online_publication_date": "2013-11-04",
+  "current_issue_publication_year": 2014,
+  "extraction_tool": "pdftotext -raw -enc UTF-8; page markers added; original PDF unmodified"
+}

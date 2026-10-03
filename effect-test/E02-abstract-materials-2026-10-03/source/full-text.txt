@@ -1,0 +1,1221 @@
+=== PDF PAGE 1 / PRINTED 1422 ===
+1422 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY, VOL. 22, NO. 4, JULY 2014
+Impedance Learning for Robots Interacting
+With Unknown Environments
+Yanan Li and Shuzhi Sam Ge, Fellow, IEEE
+Abstract—In this paper, impedance learning is investigated for
+robots interacting with unknown environments. A two-loop con-
+trol framework is employed and adaptive control is developed for
+the inner-loop position control. The environments are described
+as time-varying systems with unknown parameters in the state-
+space form. The gradient-following and betterment schemes
+are employed to obtain a desired impedance model, subject to
+unknown environments. The desired interaction performance is
+achieved in the sense that a defined cost function is minimized.
+Simulation and experiment studies are carried out to verify the
+validity of the proposed method.
+Index Terms—Adaptive control, impedance learning, interac-
+tion control, robotic control, unknown environment.
+I. INTRODUCTION
+NOWADAYS, robots are anticipated to participate in and
+learn from long-term interactions with different environ-
+ments, and to be safely deployed in myriad social applications
+such as elderly care, health care, and human–robot coop-
+eration. In these applications, the environments are usually
+unknown and dynamically changing, which brings along many
+problems to control engineers.
+Impedance control is usually employed in interaction
+control and its robustness and feasibility have been acknowl-
+edged in [1]– [9]. In particular, a desired passive impedance
+model is usually prescribed and the safety of the robot
+and environment is guaranteed. However, to prescribe an
+impedance model is prone to be conservative in many situ-
+ations, and a better interaction performance can be expected
+with other choices [10], [11]. In addition, a fixed impedance
+model may not suffice in many applications, and variable
+impedance is necessary [12], [13]. Therefore, to obtain the
+critical values of desired impedance parameters is essential
+and it is still an open problem due to the extreme difficulty
+of environment modeling [14]– [16]. Instead of modeling
+environments, human beings adjust their limb impedance
+through repetitive learning subject to unknown environments.
+Manuscript received July 29, 2012; revised January 3, 2013 and July 1,
+2013; accepted October 3, 2013. Manuscript received in final form October
+13, 2013. Date of publication November 4, 2013; date of current version
+June 16, 2014. Recommended by Associate Editor M. Zefran.
+Y. Li is with the Institute for Infocomm Research, A*STAR, Singapore
+138632 (e-mail: hit.li.yn@gmail.com).
+S. S. Ge is with the Social Robotics Laboratory, Interactive Digital Media
+Institute and the Department of Electrical and Computer Engineering, National
+University of Singapore, Singapore 117576, and also with the Robotics
+Institute and School of Computer Science and Engineering, University
+of Electronic Science and Technology of China, Chengdu 610054, China
+(e-mail: elegesz@nus.edu.sg).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TCST.2013.2286194
+For example, when a person opens a door, he/she may fail in
+the first time because he/she does not have the knowledge of
+this door, e.g., mass, inertia, friction at the hinge, and so on.
+After he/she tries to open the door for several times, he/she
+is able to open the door to a desired position with the least
+effort. During the process of opening a door, this person learns
+a best set of impedance parameters of his/her limb in the sense
+that the target position is achieved and the control effort is
+minimized.
+It is possible to apply human beings’ learning skill dis-
+cussed above to robot control [17]– [19]. Specifically, the
+robot dynamics can be governed by a target impedance model
+with impedance control. Then, in a similar way, as human
+beings adjust their limb impedance, parameters of the target
+impedance model are adjusted through learning based on cer-
+tain criteria. This kind of learning schemes has been developed
+in many research studies. In [20], associative search network
+learning is applied to a wall-following task. In [21], impedance
+parameters are regulated through learning of neural networks.
+However, as discussed in [22], artificial neural network tech-
+niques need an expensive data preprocessing for training
+examples to learn. In [23], internal-model-based learning is
+developed for a high-speed insertion task. This method has a
+simple formulation but it is limited to a simple application.
+Instead, reinforcement learning is based on the trial-and-error
+method, which is more similar to the way of human learning
+[24]. In [25], an equilibrium point control model is employed
+and the stiffness matrix is updated according to different
+application requirements using natural actor–critic algorithm.
+In [26], a supervised learning paradigm is employed to acquire
+the plant dynamics and its stochastic properties, such that
+optimal control in the sense of task accuracy and energy
+cost is achieved. In [27], PI2 (policy improvement with path
+integrals) algorithm is adopted to make reinforcement learning
+in high degrees-of-freedom (DOFs) robotic systems become
+possible. Different from the above works of reinforcement
+learning, the environment dynamics are described explicitly
+in this paper so that it is possible to obtain the gradient of the
+defined cost function. In this way, the proposed impedance
+learning has a straightforward yet much simpler framework,
+and it provides feasibility in practical implementations. It
+is able to adjust time-varying stiffness and damping matri-
+ces simultaneously, and is applicable for a large range of
+applications.
+When the desired impedance parameters are obtained
+through learning, there are several methods to impose the
+desired impedance model on the robot arm. An approach
+widely used is to design an inner position control loop in
+1063-6536 © 2013 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 2 / PRINTED 1423 ===
+LI AND GE: IMPEDANCE LEARNING FOR ROBOTS INTERACTING 1423
+conjunction with an outer force control loop. This strategy
+is appealing for robot systems that are designed for position
+regulation, including almost all industrial robots [28]. In this
+strategy, the force control loop is used to determine the virtual
+desired trajectory. Then, the position control loop serves to
+track the virtual desired trajectory, and the control objective
+becomes trajectory tracking, which has been widely studied in
+the past decades. It has been shown that a simple proportional-
+derivative (PD) control is able to guarantee a closed-loop
+system with a bounded tracking error, and this error may
+be reduced by increasing the PD gains [29]. To completely
+eliminate the tracking error, PD control is usually companied
+with computed-torque control [30]. However, the performance
+of computed-torque control is limited by the computation
+complexity and the existence of uncertainties. In the control
+literature, adaptive control has been extensively studied to
+cope with the problem of parametric and nonparametric uncer-
+tainties [31], [32]. In [33], adaptive control is proposed by
+introducing the regressor and using linear-in-the-parameter
+property. This method has been employed and developed in
+many other research studies. In [34], [35], adaptive control
+is developed with the regressor computed offline, and the
+simplicity of the control design is slightly improved. Although
+the model-based adaptive control mentioned above guaran-
+tees trajectory tracking, the knowledge of robot structure is
+required and the difficulty is caused in practice. To find a
+method without using the robot structure information, much
+effort is made with machine learning approaches, e.g., neural
+networks [36]–[38]. Instead of that, in this paper, we will
+propose an adaptive control without using either the regressor
+or the machine learning approaches.
+With the above discussion, we highlight the contributions
+of this paper as follows.
+1) Physical robot–environment interaction is investigated,
+where the environment is described as a time-varying
+system in the state-space form.
+2) Impedance learning is proposed to iteratively adjust the
+impedance parameters of the robot arm, such that the
+desired impedance model is obtained despite unknown
+environments.
+3) Adaptive control is developed for the position control in
+the two-loop control framework, and trajectory tracking
+is achieved without using the regressor.
+The rest of this paper is organized as follows. In Section II,
+the system overview of a robot interacting with unknown
+environments is given, and the control objective is discussed.
+In Sections III and IV, the details of the proposed impedance
+learning and position control are presented, respectively.
+In Sections V-A and V-B, simulation and experiment with
+different control objectives are conducted to verify the feasi-
+bility of the proposed method. Concluding remarks are given
+in Section VI.
+II. SYSTEM OVERVIEW
+A. Dynamic Model
+In this paper, we consider a system where a rigid robot arm
+physically interacts with an unknown environment. Suppose
+that the kinematics of the robot arm are given by
+x(t) = φ(q(t)) (1)
+where x(t), q(t) ∈ Rn, and n are positions/oritations in the
+Cartesian space (operational space), joint coordinates in the
+joint space, and DOF, respectively. Differentiating (1) with
+respect to time results in
+ẋ(t) = J(q(t))q̇(t) (2)
+where J(q(t)) ∈ Rn×n is the Jacobian matrix.
+The dynamics of the robot arm in the joint space are given
+by
+M(q(t))q̈(t)+C(q(t), q̇(t))q̇(t)+G(q(t)) = τ(t)− f (t) (3)
+where M(q(t)) ∈ Rn×n is the inertia matrix,
+C(q(t), q̇(t))q̇(t) ∈ Rn denotes the Coriolis and centrifugal
+force, G(q(t)) ∈ Rn is the gravitational force, τ(t) ∈ Rn
+is the control input, and f (t) ∈ Rn denotes the interaction
+force exerted by the environment and it can be measured by
+a force/torque sensor.
+Property 1 [39]: M(q(t)) ≤ kM, C(q(t), q̇(t)) ≤
+kCq̇(t) and G(q(t)) ≤ kG, where kM, kC, and kG are
+unknown positive scalars.
+Suppose that the environment dynamics are described by
+the following mass-damping-spring model:
+ME (t)q̈(t) + CE (t)q̇(t) + GE (t)q(t) = f (t) (4)
+where ME (t), CE (t), and GE (t) are the inertia, damping, and
+stiffness matrices of the environment dynamics, respectively.
+Note that ME (t), CE (t), and GE(t) are unknown and they
+are only used for the analysis. This model represents a large
+range of environments [40]. For example, it may describe
+the dynamics of a human limb in physical human–robot
+interaction [16], or the dynamics of a viscoelastic object in
+robotic manipulation.
+B. Control Objective
+The objective of this paper is to control the interaction
+between the robot arm and the environment. To achieve it, we
+develop a control architecture, as shown in Fig. 1. In particular,
+we consider the following target impedance model:
+Md (t)(q̈d(t) − q̈r(t)) + Cd(t)(q̇d(t) − q̇r(t))
++ Gd(t)(qd(t) − qr(t)) = f (t) (5)
+where Md(t), Cd(t), and Gd(t) are the desired inertia, damp-
+ing, and stiffness matrices, respectively, qd(t) is the desired
+trajectory, and qr(t) is the virtual desired trajectory of the
+position control loop.
+Two steps are included in this control architecture:
+impedance learning and position control. In the first step,
+we need to find Md(t), Cd(t), and Gd(t) to achieve a
+certain desired interaction performance, and the environment
+dynamics have to be considered. However, previous studies
+have shown that it is extremely difficult to obtain an exact
+model of the environment in many situations, e.g., human
+limb. In this regard, we aim to develop an iterative learning
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 3 / PRINTED 1424 ===
+1424 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY, VOL. 22, NO. 4, JULY 2014
+Fig. 1. Control architecture.
+law, which is able to find Md (t), Cd(t), and Gd(t) through
+repetitive interactions and does not require the environment
+model. In the second step, position control is developed to
+make q(t) → qr(t) as t → ∞, such that the impedance model
+becomes
+Md(t)(q̈d(t) − q̈(t)) + Cd(t)(q̇d(t) − q̇(t))
++ Gd(t)(qd(t) − q(t)) = f (t). (6)
+Note that only the virtual desired trajectory qr (t) will be
+refined according to (5), while the control performance of
+the inner position control loop is not affected by the outer-
+loop impedance learning. In the following two sections, the
+proposed impedance learning and position control will be
+discussed in detail.
+III. IMPEDANCE LEARNING
+A. Preliminary: Generic Betterment Scheme
+For the development of impedance learning in the following
+section, we introduce the following lemma about the better-
+ment scheme.
+Lemma 1 [14]: Consider the following linear time-varying
+systems described by:
+ξ̇(t) = A(t)ξ(t) + B(t)u(t)
+v(t) = C(t)ξ(t), ξ(t) ∈ Rm
+, u(t), v(t) ∈ Rr
+. (7)
+The control input u(t) is iteratively updated as
+uk
+(t) = uk−1
+(t) + α
+[v̇d(t) − v̇k
+(t)] (8)
+where k is the iteration number, vd(t) is the desired output,
+and α satisfies the following inequality:
+I − α
+B(t)C(t)∞ < 1 (9)
+with I as the unit matrix of a proper dimension.
+If C(t)B(t) is nonsingular and vk(0) = vd(0), then the
+betterment process for system (7) is convergent in the sense
+that vk(t) → vd(t) uniformly in t ∈ [0, t f ] as k → ∞, where
+t f is the iteration period.
+B. Betterment Scheme Applied to Impedance Learning
+To develop impedance learning, a cost function to measure
+the interaction performance is usually defined. We denote this
+cost function as (t) and explain it later. Because arbitrary
+selection of Md (t) may cause instability [42], it is fixed to
+equal to the apparent inertia and only Cd(t) and Gd(t) are
+updated during the learning process.
+To gradually decrease (t) by updating Cd(t) and Gd(t),
+the gradient-following scheme is employed and the following
+learning law is proposed:
+Ck
+d(t) = Ck−1
+d (t) − βC
+
+∂k(t)
+∂Ck
+d(t)
+T
+= Ck−1
+d (t) − βC
+
+∂ f k(t)
+∂Ck
+d(t)
+T 
+∂k(t)
+∂ f k(t)
+T
+Gk
+d(t) = Gk−1
+d (t) − βG
+
+∂k(t)
+∂Gk
+d(t)
+T
+= Gk−1
+d (t) − βG
+
+∂ f k(t)
+∂Gk
+d(t)
+T 
+∂k(t)
+∂ f k(t)
+T
+(10)
+where positive scalars βC and βG represent the learning rates.
+According to (6), we have
+∂ f k(t)
+∂Ck
+d(t)
+= ėkT
+q (t),
+∂ f k(t)
+∂Gk
+d(t)
+= ekT
+q (t) (11)
+where eq(t) = qd(t)−q(t). Because the environment dynamics
+are unknown, the gradient of reinforcement ∂k(t)/∂ f k(t) is
+not available. The betterment scheme in Lemma 1 is adopted
+to cope with this problem in the following.
+To employ the betterment scheme in Lemma 1, the environ-
+ment model (4) has to be represented in the state-space form.
+Particularly, by choosing states x1(t) = q(t), x2(t) = q̇(t) and
+x3(t) =
+ t
+0 f (s)ds, we rewrite (4) in the following state-space
+form:
+⎡
+⎣
+ẋ1(t)
+ẋ2(t)
+ẋ3(t)
+⎤
+⎦ =
+⎡
+⎣
+0 In 0
+−M−1
+E (t)GE (t) −M−1
+E (t)CE (t) 0
+0 0 0
+⎤
+⎦
+×
+⎡
+⎣
+x1(t)
+x2(t)
+x3(t)
+⎤
+⎦ +
+⎡
+⎣
+0
+−M−1
+E (t)
+In
+⎤
+⎦ f (t). (12)
+In the above formulation, we assume that f (0) = 0 such that
+ẋ3(t) = f (t) − f (0) = f (t). By denoting
+ξ(t) =
+⎡
+⎣
+x1(t)
+x2(t)
+x3(t)
+⎤
+⎦
+A(t) =
+⎡
+⎣
+0 In 0
+−M−1
+E (t)GE (t) −M−1
+E (t)CE (t) 0
+0 0 0
+⎤
+⎦
+B(t) =
+⎡
+⎣
+0
+−M−1
+E (t)
+In
+⎤
+⎦ (13)
+we further write the above equation into a more compact form
+ξ̇(t) = A(t)ξ(t) + B(t) f (t). (14)
+To be coherent with the denotation in Lemma 1, we have
+v(t) = C(t)ξ(t) (15)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 4 / PRINTED 1425 ===
+LI AND GE: IMPEDANCE LEARNING FOR ROBOTS INTERACTING 1425
+where C(t) defines the relationship between the states (i.e.,
+position, velocity, and integral of interaction force) and the
+output v(t).
+As shown by Lemma 1, if we take the interaction force f (t)
+as the control input to the environment dynamics (14), it will
+be updated as
+f k
+(t) = f k−1
+(t) + α
+v̇d(t) − v̇k
+(t)
+= f k−1
+(t) − α
+v̇k
+(t) − v̇d(t) (16)
+where α satisfies the inequality (9), such that vk(t) → vd(t)
+as k → ∞. In other words, the control input f is itera-
+tively updated to decrease the error between vk(t) and vd(t).
+Approximately, we measure this error by the cost function
+(t) = v(t) − vd(t)2 where  · 2 denotes two-norm, and
+obtain
+f k
+(t) = f k−1
+(t) − β
+
+∂k(t)
+∂ f k(t)
+T
+. (17)
+Remark 1: The definition of the cost function (t) shows
+that the aim of impedance learning in this paper can be
+trajectory tracking, integral force tracking, or the combina-
+tion/compromise of these two, by choosing different C(t). For
+example, if the control objective is integral force tracking,
+we may choose C(t) = [0, 0, c]T , where c is a constant.
+Note that the defined cost function includes position, velocity,
+and integral interaction force, which are different quantities
+with different units of measurements. Therefore, in practical
+implementations, partial knowledge of both the robot and envi-
+ronment and trial-and-error may be needed to define a proper
+cost function. This is the same as in the well-known linear
+quadratic regulator [43], where a typical cost function includes
+position, velocity, and control torque, and it is nontrivial to
+determine their weights.
+Remark 2: The cost function-based method has been
+employed in most of the works of impedance learning in
+the literature, such as wall following [20], ball inserting [23],
+door opening and ball catching [25], and explosive movement
+tasks [13].
+Comparing (16) and (17), we obtain
+∂k(t)
+∂ f k(t)
+= α v̇k
+(t) − v̇d(t)
+T
+(18)
+where β has been absorbed by α as α = α/β.
+Substituting (11) and (18) to (10), we obtain the learning
+law
+Ck
+d(t) = Ck−1
+d (t) − αβCėk
+q(t) v̇k
+(t) − v̇d(t)
+T
+Gk
+d(t) = Gk−1
+d (t) − αβGek
+q(t) v̇k
+(t) − v̇d(t)
+T
+. (19)
+Remark 3: It is found that the above learning law has a
+simple formulation, which is developed based on the sen-
+sory feedback from the environment instead of modeling the
+environment. The sensory feedback includes the position and
+velocity errors eq(t) and ėq(t), which are, respectively, used
+to update Gd(t) and Cd(t). It may also include the force error
+e f (t) = fd(t) − f (t), which is introduced by the defined
+cost function (t). However, learning rates βC and βG are
+open parameters, which are difficult to tune in sophisticated
+tasks [44]. Further investigations on this issue are needed in
+practical implementations.
+Remark 4: As the gradient of reinforcement ∂k(t)/∂ f k(t)
+is difficult to obtain in the presence of unknown environ-
+ments, various estimation methods have been proposed in the
+literature. In [23], ∂k(t)/∂ f k(t) is estimated based on an
+internal model, which is identified from the data collection
+of input f k(t) and output k(t). Suppose that the internal
+model is obtained as ˆ
+k(t) = ϕT f k(t), then the gradient of
+reinforcement is estimated as ∂ ˆ
+k(t)/∂ f k(t) = ϕT . In this
+paper, however, we employ the betterment scheme, as stated
+in Lemma 1. Under the betterment scheme, a time series of
+input signal to a plant is iteratively updated using an error
+signal between the output signal and the target signal such
+that the output signal at the next iteration approaches the target
+signal [21]. As a result, the estimation process is avoided.
+IV. POSITION CONTROL
+As Md , Cd, and Gd have been obtained through the outer-
+loop impedance learning, the virtual desired trajectory qr is
+obtained according to the impedance model (5). Position
+control will be developed in this section to make the actual
+position q track qr.
+A. Preliminary: PD-Like Control
+The following PD-like control was developed in [34] and
+[35] for position control:
+τpd(t) = KpSinvec(e(t)) + Kdė(t) + f (t) (20)
+where e(t) = qr(t) − q(t) is the tracking error, Kp and Kd
+are diagonal matrices with positive entries, Sinvec(e(t)) =
+[Sin(e1(t)), Sin(e2(t)), . . . , Sin(en(t))]T with ei(t), i =
+1, 2, . . . , n as the components of e(t), and Sin(ei(t)) is defined
+as
+Sin(ei(t)) =
+⎧
+⎨
+⎩
+1, ei (t) ≥ π
+2
+sin(ei(t)), |ei(t)| < π
+2
+−1, ei (t) ≤ −π
+2 .
+(21)
+Lemma 2 [34], [35]: Denoting an auxiliary variable
+y(t) = −ė(t) − μSinvec(e(t)) (22)
+with μ > 0, we have the following inequality:
+
+[M(q(t))ë(t)+C(q(t), q̇(t))ė(t)−KpSinvec(e(t))−Kdė(t)]
++ [M(q(t)) − M(qr (t))]q̈r(t)
++ [C(q(t), q̇(t)) − C(qr (t), q̇r (t))]q̇r(t)
++ [G(q(t)) − G(qr(t))]
+T
+y(t)
+≥ V (e(t), ė(t)) +
+d
+dt
+(W(e(t), ė(t))) (23)
+where
+W(e(t), ė(t)) =
+1
+2
+ėT
+(t)M(q(t))ė(t) +
+n
+
+i=1
+pi(1 − Cos(q̇i(t)))
++μSinT
+vec(e(t))M(q(t))ė(t)
+V (e(t), ė(t)) = ėT
+(t){Kd −c1I −α[M(q(t))+(c2 + c3)I]}ė(t)
++SinT
+vec(e(t))(μKp − c4 I)Sinvec(e(t)) (24)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 5 / PRINTED 1426 ===
+1426 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY, VOL. 22, NO. 4, JULY 2014
+with pi, i = 1, 2, . . . , n as the diagonal entries of Kp,
+qi(t), i = 1, 2, . . . , n as the components of q(t), cj , j =
+1, 2, 3, 4 as some constants, and Cos(q̇i(t)) defined as
+Cos(q̇i(t)) =
+⎧
+⎨
+⎩
+−q̇i(t) + π
+2 , q̇i(t) ≥ π
+2
+cos(q̇i(t)), |q̇i(t)| < π
+2
+q̇i(t) + π
+2 , q̇i(t) ≤ −π
+2 .
+(25)
+V (e(t), ė(t)) and W(e(t), ė(t)) are positive definite in e(t) and
+ė(t), if μ > 0, and Kp and Kd are chosen properly.
+Lemma 3: According to Property 1, the following
+inequality holds:
+
+− M(qr (t))q̈r (t) − C(qr (t), q̇r (t))q̇r (t)
+−G(qr(t)) − Ksgnvec(y(t))
+T
+y(t) ≤ 0 (26)
+where K = diag(k1, k2, . . . , kn) and K = kMl1 + kCl2
+2 +
+kG, with l1 and l2 as the upper bounds of
+q̈r (t) and q̇r (t), respectively, sgnvec(y(t)) =
+[sgn(y1(t)), sgn(y2(t)), . . . , sgn(yn(t)))]T with y1(t), y2(t),
+. . . , yn(t) as the components of y(t), and sgn(·) denotes the
+sign function.
+Proof: See Appendix A.
+B. Adaptive Control
+In [34] and [35], it has been shown that the position control
+of the robot arm can be guaranteed by PD-like control (20)
+plus a learning term. This learning term only employs an
+auxiliary variable composed of the tracking error and velocity
+error. The above results motivate the control design in this
+paper, which includes PD-like control (20) plus an adaptive
+term. The extension from the learning to adaptive case is
+not straightforward. The underlying reason is that while the
+whole robot dynamics with the desired trajectory are invariant
+in each iteration, only physical parameters (e.g., inertia and
+link length) are invariant in each adaptive period, without
+considering the uncertainty. In this situation, we need to find
+something inherently invariant in the adaptive case, which are
+found to be the upper bounds of the robot dynamics, as shown
+in Property 1. Note that these upper bounds are not necessarily
+to be known, which can be estimated with the developed
+updating law.
+In particular, the proposed adaptive position control is given
+by
+τ(t) = KpSinvec(e(t)) + Kdė(t)
+−K̂sgnvec(y(t)) + f (t) (27)
+where K̂(t) is a diagonal matrix with elements k̂i(t), i =
+1, 2, . . . , n. For the analysis convenience, we denote
+k(t) = [k1(t), k2(t), . . . , kn(t)]T
+k̂(t) = [k̂1(t), k̂2(t), . . . , k̂n(t)]T
+(28)
+and thus K = diag(k) and K̂(t) = diag(k̂(t)).
+The updating law for k̂(t) is developed as
+˙
+k̂(t) = S−1
+ȳ(t) (29)
+where S is a positive definite matrix and ȳ(t) =
+[y1(t)sgn(y1(t)), . . . , yn(t)sgn(yn(t))]T . Note that after k̂(t)
+is obtained from (29), K̂(t) in (27) is obtained as K̂(t) =
+diag(k̂(t)).
+Considering (3) and the control input (27), the closed-loop
+system dynamics are obtained as
+M(q(t))q̈(t) + C(q(t), q̇(t))q̇(t) + G(q(t))
+−KpSinvec(e(t)) − Kdė(t) + K̂(t)sgnvec(y(t)) = 0. (30)
+Theorem 1: Given the dynamics (3), with the developed
+control (27) and updating law (29), position control of the
+robot arm is achieved, i.e., limt→∞ e(t) = 0. In addition, all
+the signals in the closed-loop system (30) are bounded.
+Proof: See Appendix B.
+Remark 5: In [35], τ(t) = KpSinvec(e(t)) + Kdė(t) +
+Y(q̈r(t), q̇r (t), qr (t))θ̂(t)+ f (t) with the updating law θ̂(t) =
+−S−1Y T (q̈r(t), q̇r (t), qr (t))y(t). θ̂(t) is the estimate of θ ∈
+Rnθ , θ is a vector of the physical parameters of the robot arm,
+nθ is a positive integer denoting the number of these parame-
+ters, and Y(q̈(t), q̇(t), q(t)) ∈ Rn×nθ is the regression matrix.
+It employs the linear-in-parameter property, which causes a
+difficulty especially when the robot has a high DOF, because
+the robot structure is required as a priori knowledge. Similarly,
+most of the adaptive control designs for position control in
+the literature employ the linear-in-parameter property, e.g.,
+[29], [33]. Instead of that, the proposed adaptive control in
+this paper does not require any robot dynamics information,
+and is thus model-free and provides feasibility for practical
+implementations.
+Remark 6: Compared with the methods in [29], [33], and
+[35], the second-order derivative of qr (t), i.e., q̈r(t), is not
+used in the proposed position control. This may help in some
+applications where q̈r(t) is not available.
+V. SIMULATION AND EXPERIMENT
+A. Simulation Study
+In this section, we verify the validity of the proposed
+impedance learning and adaptive control through simulation
+studies. A six-DOF PUMA560 robot is considered and this
+simulation is implemented with the robotics toolbox intro-
+duced in [45].
+In the first part of the simulation study, the effectiveness
+of the proposed adaptive control is verified, and the control
+performances with different control parameters are discussed.
+The initial position of the robot arm in the joint space is q(0) =
+[0, 0, 0, 0, 0, 0]T . The desired trajectory of the robot arm for
+each joint is given by 12(t/t f )5−30(t/t f )4+20(t/t f )3, where
+t f = 5. Control parameters in (27) and (29) are summarized in
+Table I. Note that in the first three cases, the proposed adaptive
+control is not adopted so the parameter S is not available.
+Inner-loop tracking errors of each joint with different control
+parameters are shown in Fig. 2. It is found that tracking
+errors can be reduced by increasing Kp and Kd but they
+cannot be eliminated, and the stability of the system may be
+destroyed when Kp and Kd are too large. Tracking errors
+asymptotically converge to zero when the proposed adaptive
+control is adopted, of which the validity has been verified.
+The convergence rate can be increased by reducing S, but too
+small S may also cause system instability. In addition, for the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 6 / PRINTED 1427 ===
+LI AND GE: IMPEDANCE LEARNING FOR ROBOTS INTERACTING 1427
+TABLE I
+CONTROL PARAMETERS
+Fig. 2. Inner-loop tracking errors with different control parameters. Upper, from left to right: Joints 1–3. Below, from left to right: Joints 4–6.
+same control parameters, the tracking error is also affected by
+the desired trajectory. Particularly, further simulation can be
+carried out to show that it takes a longer time to track a faster
+desired trajectory. It is essential to emphasize that only the
+parameters in Table I have been tuned during the simulation,
+and the control design is much easier than adaptive control in
+[29]–[35].
+In the second part of the simulation study, the validity of
+the proposed impedance learning is verified. The environment
+dynamics are described by (4) with ME (t) = 0.01(sin πt)2 I,
+CE (t) = 0.1(sin πt)2 I, and GE (t) = 20(sin πt)2 I, which
+are time varying and unknown to the designer. To show the
+robustness of the proposed impedance learning, the disconti-
+nuity of the environment dynamics has also been considered
+during the simulation. In particular, the interaction force is
+considered to suddenly drop to 0 at t = 1s, i.e., ME (t) = 0,
+CE (t) = 0, and GE(t) = 0 for t > 1 s. The initial position
+and the desired trajectory are the same as in the first part of the
+simulation study. The control parameters in (27) and (29) are
+Kp = [1000, 100, 100, 10, 10, 10], Kd = [50, 10, 10, 1, 1, 1],
+and S = [0.2, 0.02, 0.04, 0.2, 0.2, 0.2]. Md (t) is fixed to
+equal to the apparent inertia and the initial values of Cd(t)
+and Gd(t) in the first iteration (k = 0) are C0
+d(t) = 10 I and
+G0
+d(t) = 10 I. The parameters in (19) are αβC = 20 and
+αβG = 20, which can be adjusted to modulate the convergence
+rate of the learning process. As discussed in Section III, the
+control objective can be trajectory tracking, integral force
+tracking, and the combination/compromise of these two with
+the proposed impedance learning, by choosing different cost
+functions. In the first case, we choose C(t) = [50, 0, 1]T ,
+Fig. 3. Cost functions in the first case.
+fd = 0, and thus the cost function is (t) =
+50eq(t) −
+ t
+0 e f (s)ds2; ten iterations are performed
+and the simulation results are shown in Figs. 3–5. On the
+right-hand side of each figure, there is a color bar, which
+illustrates that the colors of simulation results become darker
+when the iteration number increases. Note that position errors
+and interaction forces in Fig. 4 are the simulation results of
+Joint 1. The results of other joints are similar and thus not
+shown in this simulation. From Fig. 3, it is found that the
+cost function becomes smaller when the iteration number
+increases. This is followed by the result that the position
+error becomes smaller while the interaction force from zeroes
+to ones becomes larger when the iteration number increases,
+as shown in Fig. 4. Correspondingly, impedance parameters
+from zeroes to ones become larger when the iteration number
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 7 / PRINTED 1428 ===
+1428 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY, VOL. 22, NO. 4, JULY 2014
+Fig. 4. Position errors and interaction forces in the first case.
+Fig. 5. Damping and stiffness parameters in the first case.
+increases, as shown in Fig. 5. Observing the impedance
+parameters of the environment dynamics with respect to
+time, the impedance parameters of the robot arm in Fig. 5
+are updated correspondingly. For example, the peak of the
+interaction force appears at around 0.6 s when the impedance
+parameters of the environment dynamics become the largest,
+and the impedance parameters of the robot arm also become
+the largest. In addition, the interaction force is set to suddenly
+drop to zero at t = 1 s, and there is discontinuity at this
+point. As a result, an overshoot appears after t = 1 s in
+Fig. 5. Nonetheless, the robot arm moves smoothly, which
+can be observed by the position error in Fig. 4. The above
+results have shown that the robot arm increases its impedance
+parameters iteratively to resist the interference from the
+environment, while it keeps its impedance parameters when
+there is no interference. These results are similar to that in
+[27] and in accord with the human motor control performance.
+In the first case, the weight of the position error in the
+cost function is 50 while the weight of the integral interaction
+force is one, which shows that trajectory tracking is more
+important than zero force regulation. Therefore, impedance
+parameters become larger such that the robot arm stiffens up
+to resist the interference from the environment. Subsequently,
+the position error becomes smaller and the interaction force
+becomes larger. In the second case, we change C(t) to
+C(t) = [3, 0, 1]T , and thus the cost function becomes (t) =
+3eq(t)−
+ t
+0 e f (s)ds2. As the weight of the position error in
+this case is smaller than that in the first case, it is expected
+that the robot arm becomes more compliant; ten iterations are
+performed and the simulation results are shown in Figs. 6–8.
+In particular, the impedance parameters shown in Fig. 8 indeed
+Fig. 6. Cost functions in the second case.
+Fig. 7. Position errors and interaction forces in the second case.
+Fig. 8. Damping and stiffness parameters in the second case.
+become smaller from zeroes to ones. Accordingly, in Fig. 7,
+it is shown that the interaction force becomes smaller while the
+position error becomes larger. In Fig. 6, the cost function still
+becomes smaller as the iteration number increases, although
+the performance is very different from that in Fig. 3. Similarly
+as in Fig. 5, there is also an overshoot in Fig. 8 due to the
+existence of discontinuity in the environment dynamics, but it
+does not have an obvious effect on the control performance of
+the robot arm.
+B. Experimental Study
+In this section, the proposed method is further examined
+on a real robot, Nancy, which is developed in Social Robotics
+Laboratory, National University of Singapore [46]. The motor,
+which drives the joint, is controlled by Maxon’s EPOS2
+70/10 dual-loop controller. It works in the CANopen network
+and provides multiple operational modes including position,
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 8 / PRINTED 1429 ===
+LI AND GE: IMPEDANCE LEARNING FOR ROBOTS INTERACTING 1429
+Fig. 9. Nancy and experiment scenario.
+Fig. 10. Cost functions and stiffness parameters in the first case.
+velocity, and current modes. An ATI mini-40 force/torque
+sensor is installed at the left wrist of Nancy to measure the
+force/torque exerted by environments.
+In this experiment, the left wrist of Nancy follows a desired
+trajectory qr (t) = 0.02 t rad while it interacts with a human
+hand, which plays the role of unknown environment, as shown
+in Fig. 9. The left wrist of Nancy moves back to the original
+position at the beginning of each iteration, and the position
+of the human hand is fixed during the interaction. In each
+iteration, with a period of 18 s, the interaction starts at t = 5 s
+and ends at t = 16 s. The interaction phases, i.e., interaction
+and noninteraction, switch according to the time displayed on
+the computer screen. Similarly, as in simulation studies, the
+interaction force drops to zero at t = 16 s immediately, and
+thus there is discontinuity. Two cases with different control
+objectives are considered. In these two cases, Md(t) is fixed
+to equal to the apparent inertia and the initial values of Cd(t)
+and Gd(t) are C0
+d (t) = 3.6 and G0
+d(t) = 3.6. The parameters
+in (19) are αβC = 40 and αβG = 40. Other values of these
+parameters can be chosen to adjust the convergence rate of the
+learning process.
+In the first case, we choose the cost function as (t) =
+10eq(t) −
+ t
+0 e f (s)ds2 and then trajectory tracking is more
+important than zero force regulation. In Figs. 10 and 11, the
+results at different iterations k = 0, 5, 10 are, respectively,
+shown. From Fig. 11, it is found that the position error
+Fig. 11. Position errors and interaction forces in the first case.
+Fig. 12. Cost functions and stiffness parameters in the second case.
+becomes smaller when the iteration number increases. Corre-
+spondingly, the stiffness parameter Gd(t) becomes larger and
+the defined cost function becomes smaller when the iteration
+number increases, as shown in Fig. 10. The result of the
+damping parameter Cd(t) is similar to that of Gd(t), and is
+thus omitted. Similarly as in simulation studies, the above
+results have revealed the expected interaction performance:
+impedance parameters become larger to make the robot arm
+stiffen up such that the interference from the environment is
+resisted, and they keep unchanged if there is no interference
+from the environment.
+In the second case, we change the cost function to (t) =
+eq(t) −
+ t
+0 e f (s)ds2, in which the weight of trajectory
+tracking is smaller and it is expected that the robot arm
+becomes more compliant. The results at k = 0, 5, 10 in the
+second case are shown in Figs. 12 and 13. Different from
+that in Figs. 10 and 11, the position error becomes larger
+and correspondingly the stiffness parameter Gd(t) becomes
+smaller when the iteration number increases. It is obvious that
+the robot arm becomes more compliant in this case. As the
+interaction force drops to zero immediately at t = 6 s, there is
+an overshoot in the result of stiffness parameter in Fig. 12, but
+it does not have obvious effect on the motion of the robot arm.
+In addition, the force signal is typically noisy and the learning
+process is not as smooth as that in simulation studies. While
+the above results are acceptable, these practical issues need to
+be further considered for better interaction control.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 9 / PRINTED 1430 ===
+1430 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY, VOL. 22, NO. 4, JULY 2014
+Fig. 13. Position errors and interaction forces in the second case.
+To summarize, by choosing different cost functions, it is
+determined that the control objective can be trajectory
+tracking, integral force tracking, or the combina-
+tion/compromise of these two. The proposed impedance
+learning guarantees that the defined cost function becomes
+smaller and subsequently the control objective is achieved,
+subject to unknown dynamic environments. The advantage
+of the proposed impedance learning over impedance
+control with fixed impedance parameters lies in a modest
+performance can be obtained if a good set of fixed impedance
+parameters is predefined (when k = 1), and a better
+performance can be obtained only with variant impedance
+parameters because the environments are dynamically
+changing.
+VI. CONCLUSION
+In this paper, the problem of robots interacting with
+unknown environments has been investigated. Impedance
+learning has been developed to obtain desired impedance
+parameters subject to unknown dynamic environments.
+The proposed impedance learning has employed gradient-
+following and betterment schemes. Adaptive control has
+been developed for the trajectory tracking in the inner
+position control loop, and subsequently the control objec-
+tive has been achieved. The feasibility and validity of the
+proposed method have been verified by simulation and
+experiment.
+APPENDIX A
+PROOF OF LEMMA 3
+[−M(qr(t))q̈r (t) − C(qr(t), q̇r (t))q̇r (t) − G(qr(t))
+−Ksgnvec(y(t))]T
+y(t)
+≤ [M(qr (t))q̈r(t) + C(qr (t), q̇r (t))q̇r (t)
++G(qr(t))]y(t) − K y(t)
+≤ [M(qr (t))q̈r (t) + C(qr(t), q̇r (t))q̇r (t)
++G(qr(t))]y(t) − K y(t)
+≤ (kMq̈r(t) + kCq̇r(t)q̇r (t)
++kG)y(t) − Ky(t) ≤ 0. (31)
+APPENDIX B
+PROOF OF THEOREM 1
+Rewrite the closed-loop dynamics (30) as
+M(q(t))q̈(t) + C(q(t), q̇(t))q̇(t) + G(q(t))
+− KpSinvec(e(t)) − Kdė(t) + K̂sgnvec(y(t))
+= [M(q(t))ë(t) + C(q(t), q̇(t))ė(t) − KpSinvec(e(t))
+− Kdė(t)] + [M(q(t))q̈r(t) + C(q(t), q̇(t))q̇r (t)
++ G(q(t))] + K̂sgnvec(y(t))
+= [M(q(t))ë(t) + C(q(t), q̇(t))ė(t) − KpSinvec(e(t))
+− Kdė(t)] + {[M(q(t)) − M(qr (t))]q̈r (t)
++ [C(q(t), q̇(t)) − C(qr (t), q̇r (t))]q̇r(t) + [G(q(t))
+−G(qr(t))]} + [M(qr(t))q̈r (t) + C(qr (t), q̇r (t))q̇r(t)
++ G(qr(t))] + K̂sgnvec(y(t))
+= [M(q(t))ë(t) + C(q(t), q̇(t))ė(t) − KpSinvec(e(t))
+−Kdė(t)] + {[M(q(t)) − M(qr (t))]q̈r (t)
++ [C(q(t), q̇(t)) − C(qr (t), q̇r (t))]q̇r(t)
++ [G(q(t)) − G(qr(t))]} + [M(qr (t))q̈r (t)
++ C(qr(t), q̇r (t))q̇r (t) + G(qr(t))] + [Ksgnvec(y(t))
++ K̃sgnvec(y(t))] = 0 (32)
+where K̃(t) = K̂(t)− K. From the above equation, we obtain
+M(q(t))ë(t) + C(q(t), q̇(t))ė(t) − KpSinvec(e(t))
+− Kdė(t) + {[M(q(t)) − M(qr (t))]q̈r (t)
++ [C(q(t), q̇(t)) − C(qr(t), q̇r (t))]q̇r (t) + [G(q(t))
+− G(qr(t))]} + K̃sgnvec(y(t))
+= − M(qr(t))q̈r (t) − C(qr (t), q̇r (t))q̇r (t) − G(qr(t))
+− Ksgnvec(y(t)). (33)
+According to Lemma 2, we have
+
+[M(q(t))ë(t) + C(q(t), q̇(t))ė(t) − KpSinvec(e(t))
+− Kdė(t)] + [M(q(t)) − M(qr (t))]q̈r(t)
++ [C(q(t), q̇(t)) − C(qr(t), q̇r (t))]q̇r (t) + [G(q(t))
+− G(qr (t))]
+T
+y(t)
+≥ V (e(t), ė(t)) +
+d
+dt
+[W(e(t), ė(t))]. (34)
+In addition, we have the following result according to the
+updating law (29):
+d
+dt
+
+1
+2
+k̃T
+Sk̃(t)
+
+= k̃T
+(t)S ˙
+k̃(t) = k̃T
+(t)S
+˙
+k̂(t) = k̃T
+(t)ȳ(t)
+= K̃(t)sgnvec(y(t))yT
+(t). (35)
+Substituting the above equation into (34), we have
+
+[M(q(t))ë(t) + C(q(t), q̇(t))ė(t) − KpSin(e(t)) − Kdė(t)]
++ [M(q(t)) − M(qr (t))]q̈r (t)
++ [C(q(t), q̇(t)) − C(qr(t), q̇r (t))]q̇r (t)
++ [G(q(t)) − G(qr(t))]
+T
+y(t) + K̃(t)yT
+(t)sgnvec(y(t))
+≥ V(e(t), ė(t)) +
+d
+dt
+
+W(e(t), ė(t)) +
+1
+2
+k̃(t)Sk̃(t)
+
+(36)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 10 / PRINTED 1431 ===
+LI AND GE: IMPEDANCE LEARNING FOR ROBOTS INTERACTING 1431
+which leads to
+[−M(qr(t))q̈r (t) − C(qr(t), q̇r (t))q̇r(t) − G(qr (t))
+− Ksgnvec(y(t))]T
+y(t) ≥ V (e(t), ė(t))
++
+d
+dt
+
+W(e(t), ė(t)) +
+1
+2
+k̃(t)Sk̃(t)
+
+. (37)
+According to Lemma 3, we obtain
+V (e(t), ė(t)) +
+d
+dt
+
+W(e(t), ė(t)) +
+1
+2
+k̃(t)Sk̃(t)
+
+≤ 0 (38)
+and thus
+d
+dt
+
+W(e(t), ė(t)) +
+1
+2
+k̃(t)Sk̃(t)
+
+≤ −V (e(t), ė(t)). (39)
+Taking the integral of both sides of the above equation, we
+have
+W(e(t), ė(t)) +
+1
+2
+k̃(t)Sk̃(t) − W(e(0), ė(0)) −
+1
+2
+k̃(0)Sk̃(0)
+≤ −
+ t
+0
+V(e(s), ė(s))ds ≤ 0. (40)
+The above inequality shows that W(e(t), ė(t)) +
+1/2k̃(t)Sk̃(t) ≤ W(e(0), ė(0)) + 1/2k̃(0)Sk̃(0) and
+thus W(e(t), ė(t)) + 1/2k̃(t)Sk̃(t) is bounded suppose
+W(e(0), ė(0)) and 1/2k̃(0)Sk̃(0) are bounded. According
+to Lemma 2, W(e(t), ė(t)) is positive definite in e(t)
+and ė(t), thus W(e(t), ė(t)), and k̃(t)Sk̃(t) are bounded,
+and immediately we obtain e(t) ∈ L∞, ė(t) ∈ L∞, and
+k̃(t) ∈ L∞. In addition, it is found from the above inequality
+that
+ t
+0 V (e(s), ė(s))ds is bounded, and thus we have
+e(t) ∈ L2 as V(e(t), ė(t)) is positive definite in e(t) and ė(t).
+ė(t) ∈ L∞ and e(t) ∈ L2 lead to limt→∞ e(t) = 0, which
+completes the proof.
+REFERENCES
+[1] N. Hogan, “Impedance control—An approach to manipulation.
+I—Theory. II—Implementation. III—Applications,” J. Dyn. Syst., Meas.,
+Control, vol. 107, no. 1, pp. 1–24, 1985.
+[2] J. J. Gonzalez and G. R. Widmann, “A force commanded impedance
+control scheme for robots with hard nonlinearities,” IEEE Trans. Control
+Syst. Technol., vol. 3, no. 4, pp. 398–408, Dec. 1995.
+[3] C. H. Wu, K. S. Hwang, and S. L. Chang, “Analysis and implementation
+of a neuromuscular-like control for robotic compliance,” IEEE Trans.
+Control Syst. Technol., vol. 5, no. 6, pp. 586–597, Nov. 1997.
+[4] R. B. Gillespie, J. E. Colgate, and M. A. Peshkin, “A general frame-
+work for cobot control,” IEEE Trans. Robot. Autom., vol. 17, no. 4,
+pp. 391–401, Aug. 2001.
+[5] K. M. Lynch, C. Liu, A. Sorensen, S. Kim, M. Peshkin, J. E. Colgate,
+et al., “Motion guides for assisted manipulation,” Int. J. Robot. Res.,
+vol. 21, no. 1, pp. 27–43, Jan. 2002.
+[6] S. Jung, T. C. Hsia, and R. G. Bonitz, “Force tracking impedance
+control of robot manipulators under unknown environment,” IEEE Trans.
+Control Syst. Technol., vol. 12, no. 3, pp. 474–483, May 2004.
+[7] Y. Hirata, Z. Wang, K. Fukaya, and K. Kosuge, “Transporting an
+object by a passive mobile robot with servo brakes in cooperation with
+a human,” Adv. Robot., vol. 23, no. 4, pp. 387–404, 2009.
+[8] L. P. J. Selen, D. W. Franklin, and D. M. Wolpert, “Impedance control
+reduces instability that arises from motor noise,” J. Neurosci., vol. 29,
+no. 40, pp. 12606–12616, 2009.
+[9] Y. Li, S. S. Ge, and C. Yang, “Learning impedance control for
+physical robot-environment interaction,” Int. J. Control, vol. 85, no. 2,
+pp. 182–193, 2012.
+[10] S. P. Buerger and N. Hogan, “Complementary stability and loop shaping
+for improved human–robot interaction,” IEEE Trans. Robot., vol. 23,
+no. 2, pp. 232–244, Apr. 2007.
+[11] V. Duchaine and C. Gosselin, “Investigation of human-robot interaction
+stability using Lyapunov theory,” in Proc. IEEE Int. Conf. Robot. Autom.,
+Piscataway, NJ, USA, May 2008, pp. 2189–2194.
+[12] T. Tsumugiwa, R. Yokogawa, and K. Hara, “Variable impedance control
+based on estimation of human arm stiffness for human-robot cooperative
+calligraphic task,” in Proc. IEEE Int. Conf. Robot. Autom., May 2002,
+pp. 644–650.
+[13] D. J. Braun, M. Howard, and S. Vijayakumar, “Optimal variable stiffness
+control: Formulation and application to explosive movement tasks,”
+Auto. Robots, vol. 33, no. 3, pp. 237–253, 2012.
+[14] R. Ikeura and H. Inooka, “Variable impedance control of a robot for
+cooperation with a human,” in Proc. IEEE Int. Conf. Robot. Autom.,
+May 1995, pp. 3097–3102.
+[15] T. Tsumugiwa, R. Yokogawa, and K. Hara, “Variable impedance control
+with regard to working process for man-machine cooperation-work sys-
+tem,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., Oct./Nov. 2001,
+pp. 1564–1569.
+[16] M. Rahman, R. Ikeura, and K. Mizutani, “Investigation the impedance
+characteristic of human arm for development of robots to cooperate
+with humans,” JSME Int. J. Ser. C, vol. 45, no. 2, pp. 510–518,
+2002.
+[17] R. M. Sanner and M. Kosha, “A mathematical model of the adap-
+tive control of human arm motions,” Biol. Cybern., vol. 80, no. 5,
+pp. 369–382, 1999.
+[18] T. Liu and C. Wang, “Learning from neural control in motor systems,”
+in Proc. IEEE Int. Conf. Robot. Biomimet., Dec. 2007, pp. 1995–2000.
+[19] G. Ganesh, A. Albu-Schäffer, M. Haruno, M. Kawato, and E. Burdet,
+“Biomimetic motor behavior for simultaneous adaptation of force,
+impedance and trajectory in interaction tasks,” in Proc. IEEE ICRA,
+May 2010, pp. 2705–2711.
+[20] M. Cohen and T. Flash, “Learning impedance parameters for robot con-
+trol using an associative search network,” IEEE Trans. Robot. Autom.,
+vol. 7, no. 3, pp. 382–390, Jun. 1991.
+[21] T. Tsuji and P. G. Morasso, “Neural network learning of robot arm
+impedance in operational space,” IEEE Trans. Syst., Man, Cybern., B,
+Cybern., vol. 26, no. 2, pp. 290–298, Apr. 1996.
+[22] D. S. M. F. A. Albers, S. Schillo, and P. Meckl, “A new two-layer
+reinforcement learning approach the control of a 2DOF manipulator,” in
+Proc. 8th IEEE ICCA, Jun. 2010, pp. 546–551.
+[23] B. H. Yang and H. Asada, “Progressive learning and its application to
+robot impedance learning,” IEEE Trans. Neural Netw., vol. 7, no. 4,
+pp. 941–952, Jul. 1996.
+[24] R. S. Sutton and A. G. Barto, Reinforcement Learning: An Introduction.
+Cambridge, MA, USA: MIT Press, 1998.
+[25] B. Kim, J. Park, S. Park, and S. Kang, “Impedance learning for robotic
+contact tasks using natural actor-critic algorithm,” IEEE Trans. Syst.,
+Man, Cybern. B, Cybern., vol. 40, no. 2, pp. 433–443, Apr. 2010.
+[26] D. Mitrovic, S. Klanke, and S. Vijayakumar, “Learning impedance con-
+trol of antagonistic systems based on stochastic optimization principles,”
+Int. J. Robot. Res., vol. 30, no. 5, pp. 556–573, 2011.
+[27] J. Buchli, F. Stulp, E. Theodorou, and S. Schaal, “Learning variable
+impedance control,” Int. J. Robot. Res., vol. 30, pp. 820–833, 2011.
+[28] S. P. Buerger, “Stable, high-force, low-impedance robotic actuators
+for human-interactive machines,” Ph.D. dissertation, Dept. Mech. Eng.,
+MIT, Cambridge, MA, USA, 2005.
+[29] L. L. Whitcomb, A. A. Rizzi, and D. E. Koditschek, “Comparative
+experiments with a new adaptive controller for robot arms,” IEEE Trans.
+Robot. Autom., vol. 9, no. 1, pp. 59–70, Feb. 1993.
+[30] J. Y. S. Luh, M. W. Walker, and R. P. C. Paul, “On-line computational
+scheme for mechanical manipulators,” J. Dyn., Syst., Meas., Control,
+vol. 102, no. 2, pp. 69–76, 1980.
+[31] W. He and S. S. Ge, “Robust adaptive boundary control of a vibrating
+string under unknown time-varying disturbance,” IEEE Trans. Control
+Syst. Technol., vol. 20, no. 1, pp. 48–58, Jan. 2012.
+[32] W. He, S. S. Ge, B. V. E. How, Y. S. Choo, and K.-S. Hong,
+“Robust adaptive boundary control of a flexible marine riser with vessel
+dynamics,” Automatica, vol. 47, no. 4, pp. 722–732, 2011.
+[33] J.-J. E. Slotine and W. Li, “On the adaptive control of robotic manipu-
+lators,” Int. J. Robot. Res., vol. 6, no. 3, pp. 49–59, 1987.
+[34] S. Arimoto, “Fundamental problems of robot control: Part I, innovations
+in the realm of robot servo-loops,” Robotica, vol. 13, no. 1, pp. 19–27,
+1995.
+[35] S. Arimoto, “Fundamental problems of robot control: Part II. A nonlinear
+circuit theory towards an understanding of dexterous motions,” Robotica,
+vol. 13, no. 2, pp. 111–122, 1995.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.
+
+
+=== PDF PAGE 11 / PRINTED 1432 ===
+1432 IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY, VOL. 22, NO. 4, JULY 2014
+[36] S. S. Ge, C. C. Hang, and L. C. Woon, “Adaptive neural network control
+of robot manipulators in task space,” IEEE Trans. Ind. Electron., vol. 44,
+no. 6, pp. 746–752, Dec. 1997.
+[37] C. Kwan, F. L. Lewis, and D. M. Dawson, “Robust neural-network
+control of rigid-link electrically driven robots,” IEEE Trans. Neural
+Netw., vol. 9, no. 4, pp. 581–588, Jul. 1998.
+[38] S. Lin and A. A. Goldenberg, “Neural-network control of mobile
+manipulators,” IEEE Trans. Neural Netw., vol. 12, no. 5, pp. 1121–1133,
+Sep. 2001.
+[39] A. Tayebi, “Adaptive iterative learning control for robot manipulators,”
+Automatica, vol. 40, no. 7, pp. 1195–1203, 2004.
+[40] K. Dupree, C. H. Liang, G. Hu, and W. E. Dixon, “Adaptive Lyapunov-
+based control of a robot and mass–spring system undergoing an impact
+collision,” IEEE Trans. Syst., Man, Cybern. B, Cybern., vol. 38, no. 4,
+pp. 1050–1061, Aug. 2008.
+[41] S. Arimoto, S. Kawamura, and F. Miyazaki, “Bettering operation of
+robots by learning,” J. Robot. Syst., vol. 1, no. 2, pp. 123–140, 1984.
+[42] J. E. Colgate and N. Hogan, “Robust control of dynamically interacting
+systems,” Int. J. Control, vol. 48, no. 1, pp. 65–88, 1988.
+[43] R. Johansson and M. W. Spong, “Quadratic optimization of impedance
+control,” in Proc. IEEE Int. Conf. Robot. Autom., vol. 1. May 1994,
+pp. 616–621.
+[44] J. Kober and J. Peters, “Policy search for motor primitives in robotics,”
+Mach. Learn., vol. 84, nos. 1–2, pp. 171–203, 2011.
+[45] P. I. Corke, “A robotics toolbox for MATLAB,” IEEE Robot. Autom.
+Mag., vol. 3, no. 1, pp. 24–32, Mar. 1996.
+[46] S. S. Ge, J. J. Cabibihan, Z. Zhang, Y. Li, C. Meng, H. He, et al.,
+“Design and development of Nancy, a social robot,” in Proc. 8th Int.
+Conf. Ubiquitous Robots Ambient Intell., Nov. 2011, pp. 568–573.
+Yanan Li received the B.E. degree in control science and engineering
+from the Harbin Institute of Technology, Harbin, China, in 2006, the M.E.
+degree in control and mechatronics engineering from the Shenzhen Graduate
+School, Harbin Institute of Technology, Shenzhen, China, in 2009, and the
+Ph.D. degree from the NUS Graduate School for Integrative Sciences and
+Engineering, National University of Singapore, Singapore, in 2013.
+Currently, he is a Research Scientist at the Institute for Infocomm Research,
+Agency for Science, Technology and Research (A*STAR), Singapore. His
+research interests include physical human-robot interaction and human-robot
+collaboration.
+Shuzhi Sam Ge (S’90–M’92–SM’99–F’06) received the B.Sc. degree from
+the Beijing University of Aeronautics and Astronautics, Beijing, China, in
+1986, and the Ph.D. degree from the Imperial College of Science, Technology
+and Medicine, University of London, London, U.K., in 1993.
+He is the Founding Director of the Robotics Institute, and the Institute
+of Intelligent Systems and Information Technology, University of Electronic
+Science and Technology of China, Chengdu, China. He is the Founding
+Director of the Social Robotics Laboratory, Interactive Digital Media Institute,
+National University of Singapore (NUS), Singapore. He is a Professor with
+the Department of Electrical and Computer Engineering, NUS.
+Prof. Ge is the Editor-in-Chief of the International Journal of Social
+Robotics. He has served as an Associate Editor for a number of flagship
+journals. He has served as a Vice President of technical activities from 2009
+to 2010, and Vice President for membership activities from 2011 to 2012, and
+the IEEE Control Systems Society.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on January 31,2025 at 09:56:28 UTC from IEEE Xplore. Restrictions apply.

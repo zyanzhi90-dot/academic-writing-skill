@@ -1,0 +1,701 @@
+{
+  "target_id": "E02",
+  "date": "2026-10-03",
+  "planned_skill_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
+  "basis_head": "5bfa1670004251acd140d0c441f627f5c7af2537",
+  "audit_excludes_new_E02_directory": true,
+  "pdf_count": 288,
+  "unique_pdf_count": 26,
+  "existing_target_pdf_matches": [],
+  "unique_pdf_inventory": [
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf",
+      "sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+      "copy_count": 10,
+      "pages": 13,
+      "metadata": {
+        "title": "",
+        "author": "",
+        "subject": ""
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2007.892229"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf",
+      "sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+      "copy_count": 10,
+      "pages": 19,
+      "metadata": {
+        "title": "Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks",
+        "author": "Noah Geiger; Tamim Asfour; Neville Hogan; Johannes Lachner",
+        "subject": ""
+      },
+      "first_page_dois": [],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf",
+      "sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+      "copy_count": 10,
+      "pages": 14,
+      "metadata": {
+        "title": "Variable Impedance Control of Redundant Manipulators for Intuitive Human&#x2013;Robot Physical Interaction",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2015;31;4;10.1109/TRO.2015.2430053"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2015.2430053"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf",
+      "sha256": "f5cffa8442a945002bb52bfd4c251232f3545f1c929c3ad45c39034d208ea7ba",
+      "copy_count": 10,
+      "pages": 11,
+      "metadata": {
+        "title": "Adaptive Neural Network Control of AUVs With Control Input Nonlinearities Using Reinforcement Learning",
+        "author": "",
+        "subject": "IEEE Transactions on Systems, Man, and Cybernetics: Systems;2017;47;6;10.1109/TSMC.2016.2645699"
+      },
+      "first_page_dois": [
+        "10.1109/TSMC.2016.2645699"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf",
+      "sha256": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc",
+      "copy_count": 13,
+      "pages": 12,
+      "metadata": {
+        "title": "Adaptive Parameter Estimation and Control Design for Robot Manipulators With Finite-Time Convergence",
+        "author": "",
+        "subject": "IEEE Transactions on Industrial Electronics;2018;65;10;10.1109/TIE.2018.2803773"
+      },
+      "first_page_dois": [
+        "10.1109/TIE.2018.2803773"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf",
+      "sha256": "f9942cc7d22ee1fae39e589531f984f398d9f6cda1cc45f61955a617cd69ee71",
+      "copy_count": 10,
+      "pages": 13,
+      "metadata": {
+        "title": "An HQP-Based Obstacle Avoidance Control Scheme for Redundant Mobile Manipulators Under Multiple Constraints",
+        "author": "",
+        "subject": "IEEE Transactions on Industrial Electronics;2023;70;6;10.1109/TIE.2022.3196390"
+      },
+      "first_page_dois": [
+        "10.1109/TIE.2022.3196390.",
+        "10.1109/TIE.2022.3196390"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf",
+      "sha256": "580f84729b9798dea73df545842e26a11c016e8951e4c80bfaa2d7a90b03f9d1",
+      "copy_count": 13,
+      "pages": 8,
+      "metadata": {
+        "title": "Asymmetric Bimanual Control of Dual-Arm Exoskeletons for Human-Cooperative Manipulations",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2018;34;1;10.1109/TRO.2017.2765334"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2017.2765334"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf",
+      "sha256": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029",
+      "copy_count": 13,
+      "pages": 11,
+      "metadata": {
+        "title": "A DMPs-Based Framework for Robot Learning and Generalization of Humanlike Variable Impedance Skills",
+        "author": "",
+        "subject": "IEEE/ASME Transactions on Mechatronics;2018;23;3;10.1109/TMECH.2018.2817589"
+      },
+      "first_page_dois": [
+        "10.1109/TMECH.2018.2817589"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "copy_count": 13,
+      "pages": 12,
+      "metadata": {
+        "title": "Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion",
+        "author": "",
+        "subject": "IEEE Transactions on Neural Networks and Learning Systems;2022;33;3;10.1109/TNNLS.2020.3037795"
+      },
+      "first_page_dois": [
+        "10.1109/TNNLS.2020.3037795.",
+        "10.1109/TNNLS.2020.3037795"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "copy_count": 10,
+      "pages": 11,
+      "metadata": {
+        "title": "untitled",
+        "author": "",
+        "subject": ""
+      },
+      "first_page_dois": [
+        "10.1109/TIE.2017.2694410"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf",
+      "sha256": "8563538806c3fbd7f0473bfca7a6b7f9b6b32cad6121cc264364a2359c405a08",
+      "copy_count": 13,
+      "pages": 15,
+      "metadata": {
+        "title": "Finite-Time Convergence Adaptive Fuzzy Control for Dual-Arm Robot With Unknown Kinematics and Dynamics",
+        "author": "",
+        "subject": "IEEE Transactions on Fuzzy Systems;2019;27;3;10.1109/TFUZZ.2018.2864940"
+      },
+      "first_page_dois": [
+        "10.1109/TFUZZ.2018.2864940"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "copy_count": 10,
+      "pages": 11,
+      "metadata": {
+        "title": "untitled",
+        "author": "",
+        "subject": ""
+      },
+      "first_page_dois": [
+        "10.1109/TFUZZ.2022.3194373.",
+        "10.1109/TFUZZ.2022.3194373"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf",
+      "sha256": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba",
+      "copy_count": 13,
+      "pages": 10,
+      "metadata": {
+        "title": "Fixed-Time Neural Control of Robot Manipulator With Global Stability and Guaranteed Transient Performance",
+        "author": "",
+        "subject": "IEEE Transactions on Industrial Electronics;2023;70;1;10.1109/TIE.2022.3156037"
+      },
+      "first_page_dois": [
+        "10.1109/TIE.2022.3156037.",
+        "10.1109/TIE.2022.3156037"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+      "sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1",
+      "copy_count": 13,
+      "pages": 13,
+      "metadata": {
+        "title": "Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2011;27;5;10.1109/TRO.2011.2158251"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2011.2158251"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf",
+      "sha256": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2",
+      "copy_count": 13,
+      "pages": 17,
+      "metadata": {
+        "title": "Impedance Learning for Human-Guided Robots in Contact With Unknown Environments",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2023;39;5;10.1109/TRO.2023.3281483"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2023.3281483.",
+        "10.1109/TRO.2023.3281483"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf",
+      "sha256": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d",
+      "copy_count": 13,
+      "pages": 19,
+      "metadata": {
+        "title": "Learning a Flexible Neural Energy Function With a Unique Minimum for Globally Stable and Accurate Demonstration Learning",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2023;39;6;10.1109/TRO.2023.3303011"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2023.3303011.",
+        "10.1109/TRO.2023.3303011"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf",
+      "sha256": "1cfc9c55441a561894cd0805f9c96f1955ed4584e84d322c626bb2d545763a5c",
+      "copy_count": 13,
+      "pages": 8,
+      "metadata": {
+        "title": "Learning compliant grasping and manipulation by teleoperation with adaptive force control",
+        "author": "",
+        "subject": "2021 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS);2021; ; ;10.1109/IROS51168.2021.9636832"
+      },
+      "first_page_dois": [
+        "10.1109/IROS51168.2021.9636832"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf",
+      "sha256": "ed87e10164c937acc3169eaa39e07706b9d9308c5647891a2b6ecf08c6795660",
+      "copy_count": 13,
+      "pages": 14,
+      "metadata": {
+        "title": "Multi-hierarchy interaction control of a redundant robot using impedance learning",
+        "author": "Yiming Jiang",
+        "subject": "Mechatronics, 67 (2020) 102348. doi:10.1016/j.mechatronics.2020.102348"
+      },
+      "first_page_dois": [
+        "10.1016/j.mechatronics.2020.102348"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf",
+      "sha256": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86",
+      "copy_count": 13,
+      "pages": 10,
+      "metadata": {
+        "title": "Neural Control of Bimanual Robots With Guaranteed Global Stability and Motion Precision",
+        "author": "",
+        "subject": "IEEE Transactions on Industrial Informatics;2017;13;3;10.1109/TII.2016.2612646"
+      },
+      "first_page_dois": [
+        "10.1109/TII.2016.2612646"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf",
+      "sha256": "06f5965943da4191a6109446d916e3c8917fa4380717dac2993804b737afe420",
+      "copy_count": 10,
+      "pages": 12,
+      "metadata": {
+        "title": "Neural Control of Robot Manipulators With Trajectory Tracking Constraints and Input Saturation",
+        "author": "",
+        "subject": "IEEE Transactions on Neural Networks and Learning Systems;2021;32;9;10.1109/TNNLS.2020.3017202"
+      },
+      "first_page_dois": [
+        "10.1109/TNNLS.2020.3017202"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf",
+      "sha256": "feaf9611e71898f066f4a889a09d08659a6296bf104a9a59ef8a86db658334ce",
+      "copy_count": 13,
+      "pages": 11,
+      "metadata": {
+        "title": "Physical Human&#x2013;Robot Interaction of a Robotic Exoskeleton By Admittance Control",
+        "author": "",
+        "subject": "IEEE Transactions on Industrial Electronics;2018;65;12;10.1109/TIE.2018.2821649"
+      },
+      "first_page_dois": [
+        "10.1109/TIE.2018.2821649"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "copy_count": 11,
+      "pages": 11,
+      "metadata": {
+        "title": "Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives",
+        "author": "",
+        "subject": "IEEE Transactions on Neural Networks and Learning Systems;2019;30;3;10.1109/TNNLS.2018.2852711"
+      },
+      "first_page_dois": [
+        "10.1109/TNNLS.2018.2852711"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf",
+      "sha256": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1",
+      "copy_count": 13,
+      "pages": 20,
+      "metadata": {
+        "title": "Stability Criterion and Stability Enhancement for a Thruster-Assisted Underwater Hexapod Robot",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2025;41; ;10.1109/TRO.2024.3492374"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2024.3492374"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-feedback-polishing-63b8378-2026-10-03/materials/文献资料/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf",
+      "sha256": "a78470558a68d6fbbf15374d3961f8c0b78a5c8adc15807258aa1e0d2863dd28",
+      "copy_count": 10,
+      "pages": 12,
+      "metadata": {
+        "title": "Teleoperation Control Based on Combination of Wave Variable and Neural Networks",
+        "author": "",
+        "subject": "IEEE Transactions on Systems, Man, and Cybernetics: Systems;2017;47;8;10.1109/TSMC.2016.2615061"
+      },
+      "first_page_dois": [
+        "10.1109/TSMC.2016.2615061"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Impedance_Learning-Based_Adaptive_Force_Tracking_for_Robot_on_Unknown_Terrains.pdf",
+      "sha256": "94323bf41e835bdabd98056933b06d7a5b264b869b77c4a4eac23368430515fa",
+      "copy_count": 3,
+      "pages": 17,
+      "metadata": {
+        "title": "Impedance Learning-Based Adaptive Force Tracking for Robot on Unknown Terrains",
+        "author": "",
+        "subject": "IEEE Transactions on Robotics;2025;41; ;10.1109/TRO.2025.3530345"
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2025.3530345"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    },
+    {
+      "representative": "effect-test/E01-abstract-materials-2026-10-02/source/PDFs/Learning_Stable_Nonlinear_Dynamical_Systems_With_Gaussian_Mixture_Models.pdf",
+      "sha256": "8ed98e7f94cd8178e80ca6c3eacd0e06fc13cdcae3b40b7dcf94ed346a763360",
+      "copy_count": 2,
+      "pages": 15,
+      "metadata": {
+        "title": "untitled",
+        "author": "",
+        "subject": ""
+      },
+      "first_page_dois": [
+        "10.1109/TRO.2011.2159412"
+      ],
+      "target_doi_in_first_page": false,
+      "target_title_in_first_page": false
+    }
+  ],
+  "current_learning_pdf_count": 21,
+  "current_learning_pdf_names": [
+    "Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf",
+    "Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf",
+    "An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf",
+    "Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf",
+    "A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf",
+    "Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+    "Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+    "Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf",
+    "Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+    "Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf",
+    "Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+    "Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf",
+    "Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf",
+    "Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf",
+    "Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf",
+    "Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf",
+    "Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf",
+    "Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf",
+    "Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+    "Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf",
+    "Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf"
+  ],
+  "shared_source_definitions": {
+    "robotics-writing-examples.md": [
+      [
+        "P01",
+        "../../../文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf"
+      ],
+      [
+        "P05",
+        "../../../文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf"
+      ],
+      [
+        "P04",
+        "../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf"
+      ],
+      [
+        "P06",
+        "../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf"
+      ],
+      [
+        "P08",
+        "../../../文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf"
+      ],
+      [
+        "P09",
+        "../../../文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf"
+      ],
+      [
+        "P11",
+        "../../../文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf"
+      ],
+      [
+        "P12",
+        "../../../文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf"
+      ],
+      [
+        "P16",
+        "../../../文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf"
+      ],
+      [
+        "P17",
+        "../../../文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf"
+      ],
+      [
+        "P18",
+        "../../../文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf"
+      ],
+      [
+        "P19",
+        "../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf"
+      ],
+      [
+        "Fuzzy2023",
+        "../../../文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf"
+      ],
+      [
+        "ESO2017",
+        "../../../文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf"
+      ]
+    ],
+    "robotics-main-text.md": []
+  },
+  "target_title_or_doi_text_hits": [
+    {
+      "path": ".\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\analysis\\extracted\\P14.txt",
+      "line": 777,
+      "text": "[11] Li Y , Ge SS . Impedance learning for robots interacting with unknown environments.            ulators with null-space compliance. IEEE Trans Rob 2014;30(2):493–506 ."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-feedback-rewrite-63b8378-2026-10-03\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-retest-2026-10-02\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-feedback-rewrite-2026-10-02\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-feedback-polishing-c2c0953-2026-10-03\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-feedback-polishing-63b8378-2026-10-03\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-retest-d78be2d-2026-10-02\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\P17-abstract-feedback-duration-2026-10-02\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-first-drafting-2026-10-02\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-first-drafting-2026-10-02\\materials\\analysis\\extracted\\P14.txt",
+      "line": 777,
+      "text": "[11] Li Y , Ge SS . Impedance learning for robots interacting with unknown environments.            ulators with null-space compliance. IEEE Trans Rob 2014;30(2):493–506 ."
+    },
+    {
+      "path": ".\\effect-test\\P17-abstract-feedback-duration-2026-10-02\\materials\\analysis\\extracted\\P14.txt",
+      "line": 777,
+      "text": "[11] Li Y , Ge SS . Impedance learning for robots interacting with unknown environments.            ulators with null-space compliance. IEEE Trans Rob 2014;30(2):493–506 ."
+    },
+    {
+      "path": ".\\effect-test\\P17-abstract-first-drafting-2026-10-02\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\P17-abstract-first-drafting-2026-10-02\\materials\\analysis\\extracted\\P14.txt",
+      "line": 777,
+      "text": "[11] Li Y , Ge SS . Impedance learning for robots interacting with unknown environments.            ulators with null-space compliance. IEEE Trans Rob 2014;30(2):493–506 ."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-retest-63b8378-2026-10-03\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-retest-c2c0953-2026-10-03\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    },
+    {
+      "path": ".\\effect-test\\E01-abstract-retest-c8396e9-2026-10-03\\materials\\analysis\\reading\\P14.txt",
+      "line": 1428,
+      "text": "[11] Li Y, Ge SS. Impedance learning for robots interacting with unknown environments."
+    }
+  ],
+  "rg_exit_code": 0,
+  "text_hit_interpretation": "P14 bibliography entry [11] and byte/text-derived frozen copies; bibliographic citation only, not a target source, example or prior tested paper.",
+  "known_prior_paper_test_targets": [
+    "P01 (P2 fragment task): A DMPs-Based Framework for Robot Learning and Generalization of Humanlike Variable Impedance Skills",
+    "P17: Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives",
+    "E01: Learning Stable Nonlinear Dynamical Systems With Gaussian Mixture Models"
+  ],
+  "source_sha256": "f2d5ace4977902ebd7b66b1cf53cffee760ae290f3cd96eaf9e895267b82e64f",
+  "fact_topic_source_map": {
+    "交互任务与研究对象": [
+      "PDF 1 §I",
+      "PDF 2 §II"
+    ],
+    "环境表示与所学阻抗": [
+      "PDF 2 equations 3–5",
+      "PDF 3 §III.B"
+    ],
+    "阻抗学习与位置控制的关系": [
+      "PDF 3 Fig.1, equations 10–15",
+      "PDF 4 equations 16–24",
+      "PDF 5 equations 27–30"
+    ],
+    "理论支持与成立条件": [
+      "PDF 2 Property 1",
+      "PDF 3 Lemma 1",
+      "PDF 4 Remarks 1,3",
+      "PDF 5 Lemma 3,Theorem 1",
+      "PDF 9–10 Appendices A–B"
+    ],
+    "仿真设置与可核对结果": [
+      "PDF 5–7 §V.A, Table I, Figs.2–8"
+    ],
+    "实机交互与可核对结果": [
+      "PDF 7–9 §V.B, Figs.9–13"
+    ],
+    "证据中的不确定性": [
+      "PDF 7 Fig.6 vs text",
+      "PDF 8 Fig.12 vs PDF 9 summary",
+      "PDF 8 contact timing text vs Figs.12–13"
+    ]
+  },
+  "source_uncertainties": [
+    "Second-case cost curve ordering conflicts with cost-decrease narrative; first-case decline and stiffness/error trade-off retained separately.",
+    "Experimental contact end time says 16 s in setup and 6 s later; disputed numeric time omitted.",
+    "Outer-loop matrix product/dimension and force-sign issues noted in owner-only locators; no independent proof verification claimed."
+  ],
+  "file_sha256": {
+    ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+    "准备记录.md": "be04f14a26bc2aa6bf46b3e18df9f7bf4d5477c66d99cf0f6ba151978d146b42",
+    "来源定位.md": "03a75d4d338c0edef6d65a269a2d8dbca301832579450e3457cc99f39fbeeab1",
+    "科学事实包.md": "40b535b3925cf2f33516e73269e6692a6c4554f000126a1abb514e6cb46f4f53",
+    "source/full-text.txt": "b616ad345f73b0eed227d89a704c9fb33212f24d5e7803436a6075b9d292ace2",
+    "source/Impedance_Learning_for_Robots_Interacting_With_Unknown_Environments.pdf": "f2d5ace4977902ebd7b66b1cf53cffee760ae290f3cd96eaf9e895267b82e64f",
+    "source/render-review.json": "559378c03c5d53fee77e5b15aa8fb1c883e6e74f6f8b9cc2f96e9056f3593f21",
+    "source/source-manifest.json": "02042bbd9d6fdb126d54c9b3840df034080dbc5ca46857e2523dbaae23f56b2f"
+  },
+  "preparation_only": true,
+  "writing_model_invocations": 0,
+  "effect_test_runs": 0,
+  "facts_contain_target_english_or_abstract_translation": false,
+  "facts_contain_predetermined_abstract_outline_or_length": false,
+  "source_and_locator_excluded_from_future_writing": true,
+  "precommit_checks": {
+    "original_pdf_byte_identical": true,
+    "all_recorded_file_hashes_match": true,
+    "markdown_links_resolve": true,
+    "utf8_no_replacement_characters": true,
+    "candidate_unchanged_from_63b8378": true,
+    "only_new_E02_materials_changed": true,
+    "facts_only_latin_identifiers": [
+      "PUMA",
+      "Nancy"
+    ],
+    "source_figures_visually_checked": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "full_paper_pages_read": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "review": "Scientific themes and conditions checked against full paper; source inconsistencies retained explicitly. No abstract outline, prose generation, source correction or writing evaluation performed."
+  }
+}
