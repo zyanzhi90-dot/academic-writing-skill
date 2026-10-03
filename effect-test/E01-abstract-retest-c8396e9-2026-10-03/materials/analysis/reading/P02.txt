@@ -1,0 +1,1548 @@
+=== PDF PAGE 1 ===
+8112 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 65, NO. 10, OCTOBER 2018
+Adaptive Parameter Estimation and Control
+Design for Robot Manipulators With
+Finite-Time Convergence
+Chenguang Yang , Senior Member, IEEE, Yiming Jiang, Wei He , Senior Member, IEEE,
+Jing Na , Member, IEEE, Zhijun Li , Senior Member, IEEE, and Bin Xu
+Abstract—For parameter identifications of robot
+systems, most existing works have focused on the esti-
+mation veracity, but few works of literature are concerned
+with the convergence speed. In this paper, we developed
+a robot control/identification scheme to identify the un-
+known robot kinematic and dynamic parameters with
+enhanced convergence rate. Superior to the traditional
+methods, the information of parameter estimation error
+was properly integrated into the proposed identification
+algorithm, such that enhanced estimation performance
+was achieved. Besides, the Newton–Euler (NE) method was
+used to build the robot dynamic model, where a singular
+value decomposition-based model reduction method was
+designed to remedy the potential singularity problems of
+the NE regressor. Moreover, an interval excitation condition
+was employed to relax the requirement of persistent exci-
+tation condition for the kinematic estimation. By using the
+Lyapunov synthesis, explicit analysis of the convergence
+rate of the tracking errors and the estimated parameters
+were performed. Simulation studies were conducted to
+show the accurate and fast convergence of the proposed
+finite-time (FT) identification algorithm based on a 7-DOF
+arm of Baxter robot.
+Manuscript received September 1, 2017; revised November 20, 2017
+and December 31, 2017; accepted January 19, 2018. Date of publication
+February 8, 2018; date of current version June 1, 2018. This work was
+supported in part by the National Nature Science Foundation under Grant
+61473120 and Grant 61573174, in part by the Science and Technology
+Planning Project of Guangzhou under Grant 201607010006, in part by
+the State Key Laboratory of Robotics and System (HIT) under Grant
+SKLRS-2017-KF-13, in part by the Fundamental Research Funds for the
+Central Universities 2017ZD057, and in part by Shenzhen Science and
+Technology Project JCYJ20160229172341417. (Corresponding author:
+Chenguang Yang.)
+C. Yang and Y. Jiang are with the Key Laboratory of Autonomous
+Systems and Networked Control, South China University of Technology,
+Guangzhou 510641, China (e-mail: cyang@ieee.org; ym.jiang2015@
+gmail.com).
+Z. Li is with Department of Automation, University of Science and
+Technology of China, Hefei 230026, China (e-mail: zjli@ieee.org).
+W. He is with the School of Automation and Electrical Engineering,
+University of Science and Technology Beijing, Beijing 100083, China
+(e-mail: weihe@ieee.org).
+J. Na is with the Faculty of Mechanical and Electrical Engineering,
+Kunming University of Science and Technology, Kunming 650093, China
+(e-mail: najing25@163.com).
+B. Xu is with the School of Automation, Northwestern Polytechnical
+University, Xi’an 710072, China, and also with the Research Institute of
+Northwestern Polytechnical University in Shenzhen, Shenzhen 518057,
+China (e-mail: smileface.binxu@gmail.com).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TIE.2018.2803773
+Index Terms—Adaptive control, finite time, robotic ma-
+nipulator, parameter estimation, unknown kinematics and
+dynamics.
+I. INTRODUCTION
+AS ONE of the most promising techniques, robotics have
+been extensively studied by industrial and academic com-
+munities in recent years [1]–[5], while automated robots have
+been widely allocated in the modern manufacturing and facto-
+ries, e.g., YuMi made by ABB, Baxter made by Rethink, and
+Rolins’ Justin developed by German Aerospace Agency [6]. To
+guarantee the control performance of the robot manipulators,
+whose dynamics are highly nonlinear, time varying, and strong
+coupling, model-based control methods were proposed by us-
+ing complete robot dynamic information. Many well-performed
+robot controllers such as computed torque control [7], aug-
+mented proportional-derivative control [8], and impedance con-
+trol [9] are model-based control and have been successfully
+implemented in a wide range of robot applications.
+A prerequisite of the model-based control is that the robot
+dynamic model should be perfectly known, since an inaccu-
+rate model may lead to degradation of the control performance
+or even incur instability [3]. Approximation-based control ap-
+proaches such as fuzzy logic control and neural network have
+been used to learn the robot dynamic model [10]–[12]. In these
+approximation-based controls, however, only uniformly ulti-
+mate boundedness of the tracking errors was proved and the
+convergence of the estimated weights was not guaranteed to their
+real values. This may lead to slow convergence speed and longer
+weights training process, which block the approximation-based
+control for practical applications. Alternatively, the Newton–
+Euler (NE) modeling method, which builds the robot dynamic
+model by using forward and backward iterations, is appreci-
+ated by modeling accuracy and computational efficiency and
+has been widely implemented in robot dynamic modeling [13].
+In this paper, a modified NE method is used to establish the
+robot dynamic model.
+In the NE modeling procedure, the knowledge of robot dy-
+namic parameters is important for establishing an accurate
+model. However, such parameters are hardly known beforehand
+due to the complex robotic mechanism and uncertainties in the
+environment. Therefore, many techniques have been proposed
+to obtain the robot dynamic parameters. An early study of the
+0278-0046 © 2018 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+YANG et al.: ADAPTIVE PARAMETER ESTIMATION AND CONTROL DESIGN FOR ROBOT MANIPULATORS WITH FINITE-TIME CONVERGENCE 8113
+robotic dynamics identification was reported in [14], where least
+square (LS) methods were used to identify the unknown iner-
+tial parameters. An application of the above-mentioned work
+was shown in [15], where the dynamic parameters of the up-
+per limb of a humanoid robot were successfully identified by
+using a modified LS identifier. An identification algorithm was
+proposed for flexible joint robot manipulators in [16], where
+accurate prediction of the joint torque has been achieved. More-
+over, the estimation with uncertainties such output measure-
+ments delay and dirty derivative velocity were successfully ad-
+dressed in [17]–[19]. While numerous approaches have been
+reported to identify the unknown dynamic parameters, few have
+considered the convergence rate of the estimation. Without the
+accurate and fast convergence of the estimated parameter, the
+disturbances caused by unknown robot dynamics cannot be sup-
+pressed timely, which may lead to the degeneration of the control
+performance and transient responses.
+On the other hand, kinematic uncertainties widely exist in
+robot control and the nominal kinematic values may not pro-
+vide accurate information in the realistic operation scenarios.
+In resent literature, the robot tracking control with uncertain
+kinematics has been reported [20], [21]. To control a robot with
+uncertain kinematics and gravitational force, an adaptive set-
+point control scheme was proposed in [21], where the knowl-
+edge of robot Jacobian matrix was not used. A neural network
+robot control scheme combining with an adaptive Jacobin ap-
+proximation control was presented to deal with the absence of
+kinematics and dynamics [22]. Although the above-mentioned
+adaptive schemes guaranteed the performance of the tracking
+control, only boundedness of the estimated parameters was ob-
+tained, whereas the convergence of the estimated parameters
+to their true values cannot be retained. It will be more desir-
+able to achieve fast and accurate estimation of robot kinematic
+parameters rather than boundedness since we can obtain better
+control performance (especially transient performance) from the
+convergence of the estimated parameters [23].
+In this paper, we develop an adaptive scheme to estimate the
+unknown kinematic and dynamic parameters, such that the kine-
+matic parameters converged to their real values within a finite
+time, whereas the estimated errors of the dynamic parameters
+converged to a small neighborhood around zero in the finite
+time. It has been reported that the estimation performance will
+be improved if the adaptive laws contain the information of
+the estimated errors [24]. In [25], an optimal control strategy
+with finite-time adaptation was applied in a nonlinear system by
+using the dynamic programming algorithm. An adaptive estima-
+tion technique was proposed for a robot manipulator [26], where
+the information of estimation errors was used. Motivated by the
+above-mentioned works, in this paper, a set of auxiliary-filtered
+matrices are designed for both robot kinematic and dynamic es-
+timation by integrating the information of the estimation errors.
+Comparing with the Lagrange model used in [26], the NE model
+used in this paper is much simpler and is more computationally
+efficient.
+Another contribution to be highlighted is the improved ac-
+curacy of the estimated parameters by using the model reduc-
+tion (MR) method. In the adaptive estimation, the persistent
+excitation (PE) condition is important to guarantee the conver-
+gence of the estimated parameters. However, the PE condition
+may not be able to satisfy when we identify the NE model of a
+high degree of freedom (DOF) robot (such as 7-DOF Baxter).
+Taking the robot dynamics τ = SΦ for example, where S is
+an NE regressor matrix, Φ is a vector of dynamic parameters,
+and τ is the joint torque. It has been reported in [27] that some
+columns in the matrix S may be linearly dependent on each
+other due to the restriction of robotic mechanism and lack of
+sensors. In this regard, the regressor matrix may have a rank
+deficiency and consequently lead to the dissatisfaction of the
+PE condition. To address this problem, this paper develops an
+MR algorithm using two steps of singular value decompositions
+(SVD), such that the PE condition could be fulfilled in a relaxed
+manner.
+It is worth to mention that the PE condition requires con-
+tinuous excitation input of the robot joints, which may cause
+excessive actuator torque in practice. In comparison to the PE
+condition, the interval excitation (IE) condition only needs the
+interval exciting input, which greatly alleviates the requirement
+of the input. In this paper, the IE condition is introduced in
+the estimation of kinematic parameters, such that the finite-time
+identification is more feasible for implementation.
+Main contributions of this paper are summarized as follows.
+1) The construction of a novel finite-time robot con-
+trol/identification scheme based on an NE model, with
+a leakage term driven by parameter estimation errors.
+2) The designed robot controller efficiently works in the
+presence of dynamics uncertainties to guarantee the
+finite-time convergence of both tracking error and es-
+timation error simultaneously.
+3) The potential singularity problem of the NE regressor is
+remedied by introducing an SVD-based MR algorithm.
+II. ROBOT KINEMATICS AND DYNAMICS MODELING
+In this section, we present a brief review of the robot kinematic
+modeling and dynamic modeling. The robot kinematics will be
+modeled using Denavit-Hartenberg (DH) notation, and the robot
+dynamic model will be built using the NE formulations.
+A. Kinematic Modeling of the Robotic Manipulator
+Let us define a vector of the robotic end-effector positions
+x ∈ RN0
+and a vector of joint angles q ∈ RN
+, where N0 is the
+DOF of the task space and N is the DOF of joint space. Forward
+kinematics of the manipulator can be described in the following
+form:
+x = fkine(q). (1)
+Then, the relationship between the joint velocity q̇ and end-
+effector velocity ẋ can be obtained by taking the partial differ-
+entiation of fkine as follows:
+ẋ =
+∂fkine(q)
+∂q
+q̇ = J(q, θ)q̇ (2)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+8114 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 65, NO. 10, OCTOBER 2018
+TABLE I
+KINEMATIC AND INERTIA PARAMETERS IN NE MODELING
+mi ∈ R Mass of link i
+τi ∈ R The actuator torque at joint i
+ψi ∈ R3 Angular velocity of the ith coordinate frame.
+˙
+ψi ∈ R3 Angular acceleration of the ith coordinate frame.
+vi ∈ R3 Line velocity of link i
+v̇i ∈ R3 Line acceleration of link i
+fci ∈ R3 The force at joint i caused by the
+motion of link i
+nci ∈ R3 The torque at joint i caused by the
+motion of link i
+Ii ∈ R3 Inertial parameters of link i
+where θ ∈ Rh
+are constants denoting the kinematic parameters,
+h denotes the number kinematics parameters, and J(q, θ) ∈
+RNo ×N
+is the robotic Jacobian matrix.
+To facilitate the parameters estimation, the following property
+and assumption are considered.
+Property 1 (See [22]). The Jacobian matrix J(q, θ) can be
+linearly parameterized as follows:
+J(q, θ)q̇ = R(q, q̇)θ (3)
+where R(q, q̇) ∈ RN ×h
+is the regressor of Jacobian.
+Assumption 1: The Jacobian matrix of the robotic arm is of
+full rank and the robot is well controlled to avoid the singularity
+during the estimation.
+B. Dynamic Modeling of the Robotic Manipulator
+The robot dynamic model is built by using the NE method.
+The modeling procedure consists of two recursions: a forward
+recursion and a backward recursion, which are derived as fol-
+lows [14]. Some symbols used in the modeling procedure are
+given in Table I
+ψi = i−1
+i Rψi−1 + zi ˙
+qi
+ψ̇i = i−1
+i Rψ̇i−1 + i−1
+i Rψi−1 × zi ˙
+qi + zi ¨
+qi
+˙
+vi = i−1
+i R[v̇i−1 + ψ̇i−1 × i−1
+i P + ψi−1 × (ψi−1 × i−1
+i P)]
+fci = mi ˙
+ςi + ψ̇i × mhi
++ ψi × (ψi × mhi
+)
+nci = Iiψ̇i + ψi × (Iiψi) − ˙
+ςi × mhi
+(4)
+where zi is a vector of joint rotation axis, i.e., zi = [0, 0, 1]T
+,
+˙
+ςi = v̇i + ψi × vi, i−1
+i R is the rotation transform matrix, and
+i−1
+i P ∈ R3
+is the transformation vector. Then, the linear pa-
+rameterization of (4) with respect to mi, mhi, and Ii can be
+given as
+ζii = [nT
+ci, fT
+ci ]T
+=
+
+0 −L( ˙
+ςi) E(ψ̇i)+L(ψi)E(ψi)
+˙
+ςi L(ψ̇i)+L(ψi)L(ψi) 0
+
+⎡
+⎢
+⎣
+mi
+mhi
+L(¯
+Ii)
+⎤
+⎥
+⎦
+= AiΦi (5)
+where Ai is a matrix with a proper dimension, Φi =
+[mi, mhi
+, L(¯
+Ii)]T
+is a vector of unknown inertia parameters,
+Fig. 1. Finite-time kinematics estimation strategy.
+and L(¯
+Ii) = [Ixx, Ixy , Ixz , Iyy , Iyz , Izz ]T
+is a vector of link in-
+ertias. L(·) and E(·) are defined as
+L(ψ) =
+⎡
+⎣
+0 −ψz ψy
+ψz 0 −ψx
+−ψy ψx 0
+⎤
+⎦ ,
+E(ψ) =
+⎡
+⎣
+ψx ψy ψz 0 0 0
+0 ψx 0 ψy ψz 0
+0 0 ψx 0 ψy ψz
+⎤
+⎦ .
+It should be noted that ζii is a force/torque at joint i exclusively
+depending on the movement of link i. Then, the network force
+ζi can be obtained by summarizing the torque of each link in
+the following manner [14], i.e., ζi = N
+j=i ζij , with
+ζij = TciTci+1 · · · Tcj ζjj , Tci =
+
+i
+i+1Pi
+i+1R i
+i+1R
+i
+i+1R 0
+
+.
+Since τi = zT
+i 0
+T
+ζi and considering (5), we can obtain the
+linear-in-parameterized NE formulation as follows
+τ = SΦ =
+⎡
+⎢
+⎢
+⎢
+⎢
+⎣
+S11 S12 · · · S1N
+0 S22 · · · S2N
+.
+.
+.
+.
+.
+.
+...
+.
+.
+.
+0 0 · · · SN N
+⎤
+⎥
+⎥
+⎥
+⎥
+⎦
+⎡
+⎢
+⎢
+⎢
+⎢
+⎣
+Φ1
+Φ2
+.
+.
+.
+ΦN
+⎤
+⎥
+⎥
+⎥
+⎥
+⎦
+(6)
+where Hij = TciTci+1 · · · Tcj Ai, and particularly, Hii = Ai.
+Sij = zi 0
+T
+Hij .
+III. FINITE PARAMETER IDENTIFICATION SCHEME DESIGN
+In this section, finite-time identification schemes are devel-
+oped to obtain the robot kinematic and dynamic parameters,
+which are assumed to be unknown in this paper.
+A. Identification of the Kinematic Parameters
+Fig. 1 illustrates the kinematic estimation strategy. The un-
+known kinematic parameters θ would be estimated using a finite-
+time estimator with ensured finite-time convergence. Combining
+(1)–(3), we have
+ẋ = J(q, θ)q̇ = R(q, q̇)θ. (7)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+YANG et al.: ADAPTIVE PARAMETER ESTIMATION AND CONTROL DESIGN FOR ROBOT MANIPULATORS WITH FINITE-TIME CONVERGENCE 8115
+Note that the end-effector velocity ẋ is measured by using an
+external sensor, which may be sensitive to noises. To avoid using
+the velocity term, a stable linear filter (·)f = 1
+l1 s+1 (·) is adopted
+on both sides of (7) as follows
+Rf (q, q̇)θ = ẋf (8)
+where Rf (q, q̇) ∈ RN ×h
+is the filtered regressor matrix, and ẋf
+is the filtered velocity satisfying the following equality,
+l1Ṙf (q, q̇) + Rf (q, q̇) = R(q, q̇) Rf |t=0 = 0
+l1ẋf + xf = x xf |t=0 = 0
+(9)
+with l1 being a positive constant. Then, ẋf could be replaced by
+(x−xf )
+l1
+in terms of (9). Therefore, only position information need
+to be used during the estimation. Two definitions are introduced
+as follows.
+Definition 1 (See [26]): A vector or matrix function Rf is
+persistently exciting (or satisfy the PE condition) if there exist
+T > 0, ε > 0 such that
+ t+T
+t Rf (r)T
+Rf (r)dr ≥ εI, ∀t ≥ 0.
+Definition 2 (See [28]): A bounded vector or matrix func-
+tion Rf is interval exciting (or satisfy the IE condition) over
+an interval [Te − T0, Te] if there exist Te, T0, and ε such that
+ Te
+Te −T0
+Rf (τ)T
+Rf (τ)dτ ≥ εI holds.
+Remark 1: The PE condition is necessary to ensure the con-
+vergence of the estimated parameters. However, this condition
+is not easy to guarantee. In comparison to the PE condition,
+the IE condition only needs to hold in an interval time, which
+greatly alleviates the requirement.
+In the following, let us introduce an auxiliary matrix D ∈
+Rh×h
+and two auxiliary vectors T ∈ RN
+and P ∈ RN
+as
+follows:
+⎧
+⎪
+⎨
+⎪
+⎩
+Ḋ = −ϑD + Rf (q, q̇)T
+Rf (q, q̇) D(0) = 0
+Ṫ = −ϑT + Rf (q, q̇)T (x−xf )
+l1
+T (0) = 0
+P = T − Dθ̂
+(10)
+where ϑ is a positive constant representing a forgetting factor for
+the filter matrix, and it is designed to keep the balance between
+the robustness and the convergence rate.
+Integrating on both sides of (10) with respect to time, the
+solution of D and T can be derived as follows:
+D(t) =
+ t
+0 e−ϑ(t−r)
+Rf (q(r), q̇(r))T
+Rf (q(r), q̇(r))dr
+T (t) =
+ t
+0 e−ϑ(t−r)
+Rf (q(r), q̇(r))T (x−xf )
+l1
+dr.
+(11)
+Remark 2: From the definition of PE condition, we
+can obtain that
+ t+T
+t RT
+f (r)Rf (r)dr ≥ εI, which also
+equals to
+ t
+t−T RT
+f (r)Rf (r)dr ≥ εI, for t > T > 0. Thus,
+if Rf satisfies the PE condition, the relationship
+ t
+t−T
+RT
+f (r)Rf (r)dr ≥ εI will hold for t > T > 0. Then, let
+us consider the integration interval r ∈ [t − T, t]. Since
+t − r ≤ T, we can obtain that e−ϑ(t−r)
+≥ e−ϑT
+> 0 ac-
+cording to the monotonicity of the exponential function.
+Then, we can derive that
+ t
+t−T e−ϑ(t−τ )
+RT
+f (r)Rf (r)dr ≥
+ t
+t−T e−ϑT
+RT
+f (τ)Rf (τ)dr ≥ e−ϑT
+εI. In addition,
+ t
+0 e−ϑ(t−r)
+RT
+f (r)Rf (r)dr >
+ t
+t−T e−ϑ(t−r)
+RT
+f (r)Rf (r)dr holds for all
+Fig. 2. Finite-time dynamic estimation strategy of a robot manipulator.
+t > T > 0. From the above-mentioned analysis, we have
+D =
+ t
+0 e−ϑ(t−r)
+RT
+f (r)Rf (r)dr > e−ϑT
+ t
+t−T RT
+f (r)Rf (r)dr
+≥ e−ϑT
+εI. This implies that D is positive definite and its
+minimum eigenvalue satisfies λmin(D) > σ with σ = e−ϑT
+ε.
+Remark 3: Comparing the structure between D(t) and T (t)
+in (11), and in terms of (8), we can obtain that T = Dθ. Hence,
+P can be represented by P = Dθ − Dθ̂ = Dθ̃. This implies that
+P contains the information of the estimated error θ̃.
+Then, the updating law for θ̂ is designed as follows:
+˙
+θ̂ =
+⎧
+⎪
+⎨
+⎪
+⎩
+− Γ
+P
+||P||
+if P = 0
+0 if P = 0
+(12)
+where Γ is a positive constant to be specified by the designer.
+Note that in the estimation of kinematic parameters, the end-
+effector position x and the joint variables q, q̇ are assumed to
+be bounded and available. This can be achieved via an internal
+position controller of the robot manipulator.
+Theorem 1: Consider the robotic kinematics model
+(3), assume that Rf (q, q̇) satisfies the IE condition
+ Te
+Te −T0
+Rf (τ)T
+Rf (τ)(τ)dτ ≥ εI for some positive constants
+Te, T0, and ε. Then, the estimation error of kinematic parameters
+will converge to the origin in a finite time ta under the parameter
+estimation law (12), satisfying ta ≤ ||θ̃(0)||λmax(Γ−1
+)/σ + Te,
+with σ being a positive value, λmax(•) being the maximum ma-
+trix eigenvalue.
+Proof. Please see Appendix A. 
+B. Identification of the Dynamic Parameters
+In this part, an adaptive estimation scheme will be developed
+to identify the unknown dynamic parameters. The estimation
+strategy is demonstrated in Fig. 2.
+1) Auxiliary Matrix Design: Similar to the identification
+process in Section III-A, a group of auxiliary matrix is con-
+structed for the dynamic identification as follows:
+⎧
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎩
+U̇ = −δU + ST
+S U(0) = 0
+Ḃ = −δB + ST
+τ B(0) = 0
+E = B − UΦ̂
+(13)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+8116 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 65, NO. 10, OCTOBER 2018
+where δ is a positive constant to be specified. The so-
+lution of U and B can be derived as U(t) =
+ t
+0 e−δ(t−r)
+ST
+(r)S(r)dr, B(t) =
+ t
+0 e−δ(t−r)
+ST
+(r)τdr.
+Note that in the estimation, the PE condition may not be
+satisfied since U(t) may not be full rank [15]. To solve this
+problem, an SVD-MR method is developed as follows.
+2) SVD-MR: As for a common robotic arm, the unknown
+inertial parameters can be categorized into three groups, i.e., pa-
+rameters absolutely identifiable, parameters unidentifiable, and
+parameters identified in linear combinations [29]. The main idea
+is to build a minimum set of inertial parameters through the fol-
+lowing three steps.
+1) Eliminating the zero elements columns of U.
+2) Recombining the linear identifiable columns in U and
+then eliminating the columns that have no effect on the
+joint torque.
+3) Rearranging and selecting the inertial parameters Φ.
+Assuming that the rank of matrix U is rank(U) = ζr , applying
+the SVD on the matrix U, we have
+U = V AY T
+= V
+
+Σ 0
+0 0
+ 
+Y T
+1
+Y T
+2
+
+(14)
+where V ∈ Rζu ×ζu
+and Y = [Y T
+1 , Y T
+2 ]T
+∈ Rζu ×ζu
+are or-
+thogonal matrices, Σ ∈ Rζr ×ζr
+is a matrix of princi-
+pal elements, ζu is a constant denoting the dimen-
+sion of U. Y1 ∈ Rζu ×ζr
+and Y2 ∈ Rζu ×(ζu −ζr )
+are the
+submatrices.
+From (14) we have B(t) = U(t)Φ = V ΣY T
+1 Φ =
+ t
+0
+e−δ(t−r)
+ST
+(r)τdr. Thus, we can derive that the matrix Y2 and
+zero rows in Y1 would not affect the output of B(t). Hence,
+the corresponding inertial parameters can be grouped into the
+unidentifiable parameters. On the other hand, since [Y T
+1 , Y T
+2 ]T
+is an orthogonal matrix, thus the subspace of zero columns in Y T
+2
+corresponds to the subspace of linearly independent columns in
+Y T
+1 , which means that we can find the absolutely identifiable
+inertial parameters Φ through the zero columns in Y T
+2 . Then, the
+rest of inertial parameters can be grouped into linear identifiable
+parameters.
+After the categorization of the three groups’ inertial parame-
+ters, we need to obtain the combinations form of the linear iden-
+tifiable parameters Φc . Then, an augment matrix Ur is designed
+by eliminating the columns of U, which are corresponding to
+the unidentifiable parameters and absolutely identifiable param-
+eters. Assume that the rank of Ur is rank(Ur ) = ζr2
+, then an
+SVD is further employed on Ur as follows:
+Ur = Vr Ar Y T
+r = Vr
+
+Σr 0
+0 0
+ 
+Y T
+r1
+Y T
+r2
+
+(15)
+where Σr ∈ Rζr 2
+×ζr 2 is a diagonal matrix. Yr1 ∈ Rζu 2 ×ζr 2
+and
+Yr2 ∈ Rζu 2 ×(ζu 2 −ζr 2 )
+are the submatrices and ζu2 is a constant
+denoting the dimension of Ur . The rows of matrix Yr2 (and
+the corresponding elements in Φc) can be rearranged as follows
+[27]:
+PT
+Y T
+r2 =
+
+Y T
+r21
+Y T
+r22
+
+PT
+Φc =
+
+Φ1
+Φ2
+
+(16)
+where P is a selecting permutation matrix to guarantee Y T
+r22 to
+be a regular matrix, Φ1 ∈ Rζu 2 −ζr 2
+and Φ2 ∈ Rζr 2
+are the sub-
+vectors. Premultiplying PT
+on Φc as shown in the right-hand
+side of (16), we can derive the detailed form of the linear identi-
+fiable parameters Φ
+
+c as Φ
+
+c = Φ1 − βΦ2, where β = Yr21Y −1
+r22
+is the coefficient matrix of the linear combinations. Then, the
+argument parameters set Φr could be obtained by adding Φa to
+Φ
+
+c as Φr = [Φa , Φ
+
+c ]T
+. The corresponding regressor matrix Sr
+can be obtained by choosing the corresponding columns in S.
+Thus, the NE equation (6) could be reconstructed as τ = Sr Φr .
+Remark 4: It should be emphasized that the regrouping of
+inertial parameters would not change the calculation result of the
+joint torque, i.e., τ = Sr Φr = SΦ, since the deleted parameters
+and the corresponding columns in S have no contribution to the
+joint torque [27].
+3) Finite-Time Estimation Design: Subsequently, we will
+introduce an alternative FT adaptive law to estimate the param-
+eters Φr . Let us define an auxiliary matrix Q, where the time
+derivative of Q is given as follows:
+Q̇ = δQ − QST
+r Sr Q, Q(0) = Q−1
+0 > 0 (17)
+and δ > 0 is a positive constant. Note that the following matrix
+equality exists: d
+dt QQ−1
+= Q̇Q−1
++ QQ̇−1
+= 0. Multiplying
+Q−1
+on both side of (17) and considering the above-mentioned
+equality, we have
+Q−1
+Q̇Q−1
+= −Q−1
+QQ̇−1
+= δQ−1
+QQ−1
+− Q−1
+QST
+r Sr QQ−1
+= δQ−1
+− ST
+r Sr . (18)
+Then, the solution of the first-order differential equation (18) can
+be obtained as Q−1
+(t) = e−δt
+Q0 +
+ t
+0 e−δ(t−r)
+ST
+r (r)Sr (r)dr,
+where the initial condition Q0 = Q−1
+(0) > 0 is
+used, selected as Q0 = ηI, η is a positive constant.
+Since Uc =
+ t
+0 e−δ(t−r)
+ST
+r (r)Sr (r)dr, we have Q(t) =
+e−δt
+Q0 + Uc(t)
+−1
+.
+Then, let us employ the SVD for the matrix Uc as Uc =
+VcAcYT
+c , where Vc is an orthogonal matrix whose columns
+are eigenvectors of UcUT
+c , Yc is an orthogonal matrix whose
+columns are eigenvectors of UT
+c Uc, and Ac is a diagonal matrix
+of the form Ac = diag{a1, . . . , an }. Note that the matrix Vc and
+Yc are unitary matrices such that the relationships Vc VT
+c = I and
+YcYT
+c = I hold. Then, it follows that
+Q =
+
+e−δt
+Q0 + Uc
+−1
+=
+
+Vc(Ac + e−δt
+ηI)YT
+c
+−1
+= Yc(Ac + e−δt
+ηI)−1
+VT
+c .
+(19)
+Since Vc satisfies that V−1
+c = VT
+c , we can obtain that VT
+c Uc =
+AcYT
+c . Then, multiplying Uc on both side of (19), we have
+QUc = Yc(Ac + e−δt
+ηI)−1
+VT
+c Uc
+= Yc(Ac + e−δt
+ηI)−1
+AcYT
+c
+= Yc diag
+ a1
+a1 + e−δtη
+, . . . ,
+an
+an + e−δtη
+
+YT
+c . (20)
+It should be noted that Ac is a diagonal matrix in the above-
+mentioned equation.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+YANG et al.: ADAPTIVE PARAMETER ESTIMATION AND CONTROL DESIGN FOR ROBOT MANIPULATORS WITH FINITE-TIME CONVERGENCE 8117
+Let us define an auxiliary term F(t) as follows:
+F(t) = Yc diag
+
+e−δt
+η
+a1 + e−δtη
+, . . . ,
+e−δt
+η
+an + e−δtη
+
+YT
+c . (21)
+Then, (20) can be rewritten as follows:
+Q(t)Uc (t) = I − F(t). (22)
+Note that for the nonzero eigenvalue ai, the term e−δ t
+η
+ai +e−δ t η
+would
+converge to zero when t → ∞. Then, we have
+Φ̃r = Φr − Φ̂r = [QUc + F] Φr − Φ̂r . (23)
+Now the estimated errors could be expressed by (23), which will
+be used to design the adaptive law in the next section.
+IV. ADAPTIVE FINITE-TIME ROBOT CONTROL DESIGN
+Based on the NE dynamic model and the finite-time identi-
+fication, in this section, we aim to control the robot to track a
+desired trajectory in the presence of dynamics uncertainties. The
+dynamics of a robot manipulator can be described as follows:
+M(q)q̈ + C(q, q̇)q̇ + G(q) = Sr (q̈, q̇, q)Φr = τ (24)
+where q ∈ RN
+is the vector of joint position, M(q) ∈ RN ×N
+is a symmetric inertia matrix, C(q, q̇)q̇ ∈ RN
+denotes the cen-
+tripetal and Coriolis matrix, G(q) ∈ RN ×N
+is a gravity force,
+and τ ∈ RN
+is the joint torque. Before processing the control
+design, we introduce two residual error signals as follows:
+eq = q − qd, es = q̇ − q̇r (25)
+where qd is the reference joint position trajectory, whereas q̇r is
+reference velocity, which is defined as q̇r = q̇d + λeq , and λ is a
+positive constant. Substituting the definition into (25), es could
+be rewritten as es = ėq + λeq .
+To facilitate formulation, the following property of the robot
+control and assumption are introduced.
+Property 2: The matrix M(q) is symmetric and positive def-
+inite while the matrix Ṁ(q) − 2C(q, q̇) is skew-symmetric.
+Assumption 2: The reference joint position trajectory qd and
+its derivatives q̇d are continuous and bounded.
+Substituting (25) into (24), we have
+M(q)ės + C(q, q̇)es = τ − Sr (q̈r , q̇r , q̇, q)Φr . (26)
+Then, let us design the control signal as follows:
+τ = −K1es + Sr (q̈r , q̇r , q̇, q)Φ̂r + τr (27)
+where τr is the robust term defined as
+τr =
+
+−K2
+es
+||es || (es = 0)
+0 (es = 0)
+K1 and K2 are the selected positive control gains. Substituting
+controller (27) into (26), the error dynamics could be formulated
+as follows:
+M(q)ės + C(q, q̇)es = −K1es + Sr (q̈r , q̇r , q̇, q)Φ̃r + τr .
+(28)
+Fig. 3. Overlook of the Baxter robot.
+TABLE II
+DH CONVENTION TABLE OF THE BAXTER LEFT ROBOTIC ARM
+Link i θi (deg) di (m) ai−1 (m) αi−1 (rad)
+1 q1 0 0 0
+2 q2 + π/2 0 a1 −π/2
+3 q3 d3 0 π/2
+4 q4 0 a3 −π/2
+5 q5 d5 0 π/2
+6 q6 0 a5 −π/2
+7 q7 d7 0 π/2
+The adaptive law can be designed as follows:
+˙
+Φ̂r =
+−Γd
+
+ST
+r es − Φ̂r −QBc
+||Φ̂r −QBc ||
+
+if ||Φ̂r − QBc|| = 0
+−ΓdST
+r es if ||Φ̂r − QBc|| = 0
+(29)
+where Γd is a positive constant, Bc =
+ t
+0 e−δ(t−r)
+ST
+r (r)τdr.
+Theorem 2: Consider the robotic dynamic model (24) with
+the controller (27) and FT adaptation law in (29) and employ
+the generated excitation trajectory. It could be derived that the
+tracking error converges to a small neighborhood around the
+origin, and the estimated errors Φ̃r converges to a small compact
+set around zero within a finite time.
+Proof. Please see Appendix B. 
+V. SIMULATION AND EXPERIMENT STUDY
+To illustrate the effectiveness of the proposed algorithms,
+simulations and experiments are carried out based on a 7-DOF
+Baxter robot arm as shown in Fig. 3.
+A. Kinematics FT Estimation and Verification
+1) Simulation Setup: The coordinate frames of the 7-DOF
+Baxter robot are shown in Fig. 3. For a chain of revolute joints,
+the DH notation was used to build the kinematics model as listed
+in Table II, and the nominal values are a1 = 0.069, a3 = 0.069,
+a5 = 0.01, d3 = 0.36435, d5 = 0.37429, and d7 = 0.22953.
+These parameters are assumed to be unknown and will be esti-
+mated using the FT adaptation law (12). During the kinematic
+estimation, the Baxter robot would run in the position control
+module such that the velocity of each joint is stable and bounded.
+The Baxter robot is commanded to track the reference
+trajectory qdi = ai cos(0.3t + biπ) + ci, where a1 = a2 = 0.1,
+a3 = a4 = 0.3, a5 = a6 = a7 = 0.5, b1 = 0, b2 = 0.4,
+b3 = 0.1, b4 = 0.3, b5 = 0.6, b6 = 0.8, b7 = 0.5, c1 = 0.2,
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+8118 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 65, NO. 10, OCTOBER 2018
+Fig. 4. Input signals with IE.
+Fig. 5. Convergence of the estimate parameters in the interval time.
+Fig. 6. Tracking performance.
+Fig. 7. Minimum eigenvalue of the auxiliary matrix D.
+c2 = 0.15, c3 = c4 = −0.1, c5 = c6 = c7 = 0, which is
+excited during the period 0–12 s and 18–24 s, and remains
+unchanged during 12–18 s. The gains are set to ϑ = 0.015,
+Γ = 0.025, l1 = 0.01. The initial values of the estimated param-
+eters are selected to θ̂(0) = [0.05, 0.05, 0.05, 0.2, 0.19, 0.1]T
+.
+2) Simulation Results: Results of the kinematic estimation
+are shown in Figs. 4–7. Fig. 4 illustrates the joint velocities of
+the robot, which satisfied the IE condition. We can see that q̇i is
+excited during the time interval 0–12 s and 18–24 s, and during
+the period 12–18 s the inputs stay the same. Parameters esti-
+mation performance is shown in Fig. 5, and the tracking errors
+are shown in Fig. 6. It can be seen from Fig. 5 that all the es-
+timated DH parameters (solid line “−”) converge to their true
+values (dashed line “−−”) with fast convergence rate. Even the
+inputs are keeping silent for a short period of time, the proposed
+algorithm can still guarantee the estimation performance. Com-
+paring with the adaptive gradient descent method as shown in
+Fig. 5, the estimation performance of the proposed FT algorithm
+is much better in both convergence speed and accuracy. Fig. 7
+shows the profile of the minimum eigenvalue of the auxiliary
+matrix D.
+As shown in Fig. 7, the minimum eigenvalue of the D rises
+during the periods 1–12 s and 18–24 s, and reaches to the peak
+at about 24 s, which verified the satisfaction of IE condition.
+This also shows that the proposed algorithm could effectively
+work under the interval exciting inputs.
+3) Robustness Verification and Experiment: To further
+show the effectiveness of our proposed estimation algorithm,
+robustness tests are conducted by adding unknown external dis-
+turbances to the system model. In some practical applications,
+uncertainties may inevitably exist in the measurement of end-
+effector position, e.g., the camera-based object tracking system
+may easily be affected by environmental noises. In the compar-
+ative studies, we conduct the test by adding the white noises
+with different intensity to the measured end-effector position.
+The external disturbance is chosen to be d(t) = σw(t), where σ
+is the degree of intensity, and w(t) is the white Gaussian noise
+with the power of 1 dBW. For fair comparisons, the parame-
+ters in the adaptive estimation are chosen the same and robot is
+tracking the same trajectories.
+The simulation results are depicted as shown in Figs. 8–13.
+The disturbances added on the measured end-effector position
+are shown in Figs. 8, 10, and 12, with σ chosen to be σ = 0.005,
+σ = 0.01, and σ = 0.02. It can be observed from the figures
+that the maximum deviations added on the measured positions
+are about ±2 cm, ±4 cm, and ±6 cm, respectively. The para-
+meters estimation performance are shown in Figs. 9, 11, and 13.
+We can see from the figures that the parameters of three groups
+are observed with satisfactory convergence rate and accuracy,
+even in the presence of external disturbances.
+In addition, experiments have been further performed based
+on the left robotic arm of a real Baxter robot, as shown in
+Fig. 3. In the experiment, the robot is commanded to track a
+set of sinusoidal and cosine trajectories depicted in Fig. 14.
+The estimation results are shown in Fig. 15. We can see from
+the figure that most of the estimated parameters are close to
+the nominal values (dashed line) and observed with satisfactory
+convergence performance. Thus, the robustness of the proposed
+estimation algorithm can be verified.
+B. Adaptive FT Dynamics Estimation and Control
+A numerical experiment is further conducted to verify the
+dynamic parameters estimation. The initial NE model of Baxter
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+YANG et al.: ADAPTIVE PARAMETER ESTIMATION AND CONTROL DESIGN FOR ROBOT MANIPULATORS WITH FINITE-TIME CONVERGENCE 8119
+Fig. 8. Added disturbances on the end-effector position σ = 0.005.
+Fig. 9. Kinematics estimation performance with the disturbance σ =
+0.005.
+Fig. 10. Added disturbances on the end-effector position (σ = 0.01).
+Fig. 11. Kinematics estimation performance with the disturbance
+(σ = 0.01).
+robot contains 70 inertial parameters. After MR, these param-
+eters are recombined into 43 parameters with 22 absolutely
+identifiable parameters and 21 linear combinations of the lin-
+early identifiable parameters. Periodic and bandlimited excita-
+tion joint reference trajectories q̈d, q̇d, qd are generated by using
+the Fourier expansion to guarantee the excitation condition [15].
+The control gains are chosen as k1 = diag [320, 185,
+40, 42, 5, 10, 0.38], k2 = diag [26, 19, 3, 5, 0.4, 0.75, 0.03]. The
+gains of the adaptation law are selected to be Γd = 20 and δ = 2.
+The initial parameters of Φ̂r are selected to be zero. The initial
+states of q, q̇, and q̈ are set to zero.
+Fig. 12. Added disturbances on the end-effector position (σ = 0.02).
+Fig. 13. Kinematics estimation performance with the disturbance
+(σ = 0.02).
+Fig. 14. Trajectories of the joint angles.
+Fig. 15. Kinematics estimation performance of the experiments.
+The estimation results are depicted as shown inFigs. 16–25,
+where Figs. 16–22 show the robot tracking performance and
+Figs. 24 and 25 show the parameters estimation performance.
+We can see from the figures that the robot follows the reference
+trajectories well by using our proposed finite-time estimation
+algorithm, and satisfactory transient performances are observed.
+To further verify the effectiveness of the proposed algorithm,
+comparison studies have been carried out based on a PID con-
+troller, an adaptive controller in [26], and the proposed con-
+troller, respectively. The comparative results are depicted in
+Figs. 16–23. As seen from the figures, although stable tracking
+performance can be obtained by all three types of controllers, the
+tracking errors of the PID control (dashed-dotted line “−.”) are
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+8120 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 65, NO. 10, OCTOBER 2018
+Fig. 16. Tracking performance of Joint 1.
+Fig. 17. Tracking performance of Joint 2.
+Fig. 18. Tracking performance of Joint 3.
+Fig. 19. Tracking performance of Joint 4.
+relatively large, and the control performance of the FT method
+is superior to the PID controller in both transient and steady
+stages. Comparing with the adaptive controller, the tracking er-
+rors under the proposed controller converged faster than the
+adaptive control method and are observed with better transient
+control performance. This is because that the MR algorithm
+used in this paper can reduce the redundant information of the
+NE robot dynamic model and result in better estimation per-
+formance. Fig. 23 shows the profile of the root-mean-square
+error (RMSE) of tracking errors of the seven joints. We can see
+clearly from the figure that both steady-state and transient errors
+are improved than the other two, which verify the effectiveness
+of the proposed controller.
+Fig. 20. Tracking performance of Joint 5.
+Fig. 21. Tracking performance of Joint 6.
+Fig. 22. Tracking performance of Joint 7.
+Fig. 23. RMSE of the tracking error.
+To further validate the parameter estimation performance, the
+RMSE of the estimated parameters is introduced as eRMSE =
+n
+i=1
+
+(Φ̂i − Φi)2/n, where n is the parameters number. The
+parameters estimation performance is depicted as shown in
+Figs. 24–25. As seen from Fig. 24, all the estimated inertial
+parameters could converge to a small bound of their true values
+in a short time, whereas in Fig. 25, the two subfigures show that
+the profiles of RMSE converge to a small neighborhood around
+zero. Comparisons of the parameter estimation performance
+have also been carried out based on our proposed FT estimated
+algorithm and the adaptive estimation method in [26]. The de-
+tails of the estimated parameters are shown in Table III, where
+the real values, the parameters estimated by using our proposed
+finite-time algorithm, and adaptive estimation method in [26]
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+YANG et al.: ADAPTIVE PARAMETER ESTIMATION AND CONTROL DESIGN FOR ROBOT MANIPULATORS WITH FINITE-TIME CONVERGENCE 8121
+Fig. 24. Estimation performance of the inertial parameters with the
+proposed method.
+Fig. 25. RMSE of the estimated inertial parameters.
+have been presented, respectively. We can see from Table III
+that the parameters estimated by using our proposed method is
+close to the real dynamic parameters, and has more estimation
+accuracy than conventional adaptive estimation method.
+Remark 5: In this paper, we investigated the parameters esti-
+mation of the unknown robot dynamics based on the NE model.
+The SVD-based MR algorithm has been used to remove the
+redundant information in the NE model, such that the efficiency
+and accuracy of the parameters estimation have been improved.
+In comparison with the estimation method in [26], the NE model
+used in this paper is much simpler and more suitable for the real-
+time estimation of a high DOF robot.
+VI. CONCLUSION
+Based on a novel parameter identification scheme, this paper
+developed a robot controller in the presence of unknown kine-
+matics and dynamics. The DH method was employed to build
+the kinematic model of a robot, whereas the recursive NE formu-
+lation was applied to build the robot dynamic model. Finite-time
+identifiers were developed to estimate the unknown kinematic
+TABLE III
+ESTIMATION PERFORMANCE OF DYNAMIC PARAMETERS
+No. Real Proposed Adaptive No. Real Proposed Adaptive
+1 0.0689 0.1322 0.0864 23 0.0208 0.0205 0.0084
+2 − 0.2773 − 0.6104 − 1.4653 24 0.0118 0.0110 0.0105
+3 − 4.1237 − 4.0514 − 3.4160 25 0.0021 0.0032 0.0338
+4 1.5528 1.5552 1.3533 26 0.0284 0.0283 0.0063
+5 0.6692 0.9955 1.8549 27 − 0.0011 − 0.0015 0.0344
+6 1.5244 1.5274 1.4008 28 0.0033 0.0032 − 0.0114
+7 − 0.0253 0.0211 0.1150 29 0.0093 0.0091 0.0345
+8 0.1696 0.1666 0.0683 30 0.0071 0.0069 0
+9 0.4057 0.3986 0.4159 31 0.0007 0.0013 0.0047
+10 0.0168 0.0600 0.0580 32 0.0168 0.0166 − 0.0086
+11 − 0.0241 − 0.0670 − 0.1071 33 0.0006 − 0.0007 0.0146
+12 0.0087 0.0334 0.0360 34 0.0112 0.0110 0.0016
+13 0.0027 − 0.0051 0.0484 35 0.0054 0.0055 0.0021
+14 0.0332 0.0839 0.0266 36 0.0039 0.0031 0.0226
+15 − 0.4721 − 0.4638 1.4161 37 − 0.0002 − 0.0008 0.0109
+16 − 1.8565 − 1.8240 − 1.1679 38 0.0028 0.0027 0.0088
+17 − 0.0162 − 0.0153 − 0.0279 39 0.0005 0.0005 0.0013
+18 0.7035 0.6918 0.4194 40 0.0009 0.0009 − 0.0030
+19 0.1869 0.1836 − 0.2221 41 0.0005 0.0007 0.0044
+20 0.6905 0.6790 0.3696 42 0.0001 0.0001 0.0179
+21 − 0.0246 0.0217 0.1070 43 0.0002 0.0002 0.0117
+22 0.0087 0.0085 − 0.0214
+and dynamic parameters with guaranteed finite-time conver-
+gence. An MR technique was introduced to relax the PE con-
+dition in the identification of robot dynamic parameters. Simu-
+lation and experimental results demonstrated that the proposed
+method could guarantee the convergence of the estimated pa-
+rameters to a small neighborhood of their real values in the finite
+time, which verified the effectiveness of the proposed controller.
+APPENDIX A
+PROOF OF THEOREM 1
+Let us consider a Lyapunov function as follows:
+Lk =
+1
+2
+θ̃T
+Γ−1
+θ̃. (30)
+Considering P = Dθ − Dθ̂ = Dθ̃, in the case of P = 0, T ≥
+Te, and the positiveness of D under IE condition, the param-
+eter estimated error θ̃ would converge to zero. In the case
+of P = 0, let us differentiate (30) with respect to time and
+substituting (12) into it yields L̇k = θ̃T
+Γ−1 ˙
+θ̂. Substituting the
+adaptive law
+˙
+θ̂ = −Γ P
+||P|| , we have L̇k = −θ̃T P
+||P|| = −θ̃T
+Dθ̃
+||Dθ̃||
+.
+Notice that the matrix D is positive definite, thus all singu-
+lar values of D are great than zero. Considering θ̃ is a vec-
+tor, thus we can derive property that θ̃T
+Dθ̃ ≥ λmin(D)θ̃T
+θ̃.
+Then, we have L̇k = −θ̃T
+Dθ̃
+||Dθ̃||
+≤ − λm in (D)
+λm a x (D) ||θ̃|| ≤ −μ
+√
+Lk , with
+μ =
+
+λm in (D)
+λm a x (D) /λmax(Γ−1). As the IE condition is satisfied,
+we can derive D > σI in terms of (11) and the Definition
+2, hence, there is always a positive constant μ such that
+μ ≥
+
+λm in (D)
+λm a x (D) /λmax(Γ−1). According to the result in [30],
+we can obtain that θ̃ could converge to zero within finite time
+ta ≤ 2
+
+Lk (0)/μ + Te. 
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+8122 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 65, NO. 10, OCTOBER 2018
+APPENDIX B
+PROOF OF THEOREM 2
+Let us consider the following Lyapunov candidate:
+Ld =
+1
+2
+eT
+s Mes +
+1
+2
+Φ̃T
+r Γ−1
+d Φ̃r . (31)
+Taking the time deviation of Ld, we can obtain that
+L̇d = eT
+s Mės +
+1
+2
+eT
+s Ṁes + Φ̃T
+r Γ−1
+d
+˙
+Φ̂r . (32)
+Then, substituting (28) into (32) obtains
+L̇d = eT
+s (−K1es + Sr (q̈r , q̇r , q̇, q)Φ̃r + τr ) − eT
+s C(q, q̇)es
++
+1
+2
+eT
+s Ṁes + Φ̃T
+r Γ−1
+d
+˙
+Φ̂r . (33)
+According to Property 2, and substituting the adaptation law
+(29) into (33), we have
+L̇d ≤ eT
+s (−K1es + Sr Φ̃r + τr )−Φ̃T
+r
+
+ST
+r es −
+Φ̂r − QBc
+||Φ̂r − QBc||
+
+≤ −eT
+s K1es + Φ̃T
+r
+Φ̂r − QBc
+||Φ̂r − QBc||
+− K2
+eT
+s es
+||es||
+. (34)
+According to (22) and considering that FΦr = Φr − QBc,
+Bc = UcΦr , (34) can be rewritten as follows:
+L̇d = −eT
+s K1es − (Φ̂r − Φr )T Φ̂r − QBc
+||Φ̂r − QBc||
+− K2
+eT
+s es
+||es||
+≤ −(Φ̂r − FΦr − QBc)T Φ̂r − QBc
+||Φ̂r − QBc||
+− K2
+eT
+s es
+||es||
+≤ −(Φ̂r − QBc)T Φ̂r − QBc
+||Φ̂r − QBc||
++ ||FΦr || − K2||es||
+≤ −||Φ̂r − QBc|| + ||FΦr || − K2||es||
+≤ −||Φr − QBc + Φ̂r − Φr || + ||FΦr || − K2||es||
+≤ −||FΦr − Φ̃r || + ||FΦr || − K2||es||
+≤ −||Φ̃r || − K2||es|| + 2||FΦr ||
+≤ −μd
+
+Ld + ρd (35)
+where μd = min{
+
+2/λmax(Γ−1
+d ), K2
+
+2/λmax(M)}, ρd =
+2||F||||Φr ||. Since F and Φr are bounded and lim
+t→∞
+F = 0, there
+exists a compact set Ω :=
+
+Φ̃r |Ld(Φ̃r ) ≤ (c/μd)2
+
+around
+zero, such that ∀Φ̃r /
+∈ Ω, L̇d < 0, where c is a small positive
+constant, which satisfies that c > γd|ρd|, 0 < γd < 1. Accord-
+ing to the result in [30], we can derive that the signal outside
+of Ω could enter this compact set within a finite time, and will
+remain inside the set for all future time. Hence, the parameter
+estimated errors are able to converge to a small compact set of
+their real values in the finite time. Besides, ud could be chosen
+large by properly selecting Γd and K2 and ρd will converge to
+zero when t → ∞. This implies that the compact set Ω can be
+chosen small and will converge to zero when t is sufficiently
+large. The convergence rate could also be enhanced by choosing
+a larger gain Γd. 
+REFERENCES
+[1] W. He, Z. Yan, C. Sun, and Y. Chen, “Adaptive neural network control
+of a flapping wing micro aerial vehicle with disturbance observer,” IEEE
+Trans. Cybern., vol. 47, no. 10, pp. 3452–3465, Oct. 2017.
+[2] C. Yang, Y. Jiang, Z. Li, W. He, and C.-Y. Su, “Neural control of bimanual
+robots with guaranteed global stability and motion precision,” IEEE Trans.
+Ind. Informat., vol. 13, no. 3, pp. 1162–1171, Jun. 2017.
+[3] C. Chen, Z. Liu, Y. Zhang, C. L. P. Chen, and S. Xie, “Actuator backlash
+compensation and accurate parameter estimation for active vibration iso-
+lation system,” IEEE Trans. Ind. Electron., vol. 63, no. 3, pp. 1643–1654,
+Mar. 2016.
+[4] L. Cheng, Z.-G. Hou, M. Tan, and W.-J. Zhang, “Tracking control of a
+closed-chain five-bar robot with two degrees of freedom by integration of
+an approximation-based approach and mechanical design,” IEEE Trans.
+Syst., Man, Cybern., Part B, Cybern., vol. 42, no. 5, pp. 1470–1479,
+Oct. 2012.
+[5] C. Yang, X. Wang, Z. Li, Y. Li, and C.-Y. Su, “Teleoperation control based
+on combination of wave variable and neural networks,” IEEE Trans. Syst.,
+Man, Cybern., Syst., vol. 47, no. 8, pp. 2125–2136, Aug. 2017.
+[6] C. F. Juang, Y. H. Chen, and Y. H. Jhan, “Wall-following control of
+a hexapod robot using a data-driven fuzzy controller learned through
+differential evolution,” IEEE Trans. Ind. Electron., vol. 62, no. 1, pp. 611–
+619, Jan. 2015.
+[7] H. Davis and W. Book, “Torque control of a redundantly actuated passive
+manipulator,” in Proc. Amer. Control Conf., 1997, vol. 2, pp. 959–963.
+[8] H. Cheng, Y.-K. Yiu, and Z. Li, “Dynamics and control of redundantly
+actuated parallel manipulators,” IEEE/ASME Trans. Mechatronics, vol. 8,
+no. 4, pp. 483–491, Dec. 2003.
+[9] C. Yang, G. Ganesh, S. Haddadin, S. Parusel, A. Albu-Schaeffer, and
+E. Burdet, “Human-like adaptation of force and impedance in stable and
+unstable interactions,” IEEE Trans. Robot., vol. 27, no. 5, pp. 918–930,
+Oct. 2011.
+[10] Z. Liu, C. Chen, and Y. Zhang, “Decentralized robust fuzzy adaptive
+control of humanoid robot manipulation with unknown actuator backlash,”
+IEEE Trans. Fuzzy Syst., vol. 23, no. 3, pp. 605–616, Jun. 2015.
+[11] Y. J. Liu and S. Tong, “Adaptive fuzzy identification and control for a class
+of nonlinear pure-feedback MIMO systems with unknown dead zones,”
+IEEE Trans. Fuzzy Syst., vol. 23, no. 5, pp. 1387–1398, Oct. 2015.
+[12] C. Yang, K. Huang, H. Cheng, Y. Li, and C.-Y. Su, “Haptic identification by
+ELM-controlled uncertain manipulator,” IEEE Trans. Syst., Man, Cybern.,
+Syst., vol. 47, no. 8, pp. 2398–2409, Aug. 2017.
+[13] H. Kawasaki, T. Bito, and K. Kanzaki, “An efficient algorithm for the
+model-based adaptive control of robotic manipulators,” IEEE Trans.
+Robot. Autom., vol. 12, no. 3, pp. 496–501, Jun. 1996.
+[14] C. G. Atkeson, C. H. An, and J. M. Hollerbach, “Estimation of inertial
+parameters of manipulator loads and links,” Int. J. Robot. Res., vol. 5,
+no. 3, pp. 101–119, 1986.
+[15] W. He, W. Ge, Y. Li, Y.-J. Liu, C. Yang, and C. Sun, “Model identification
+and controldesign for a humanoid robot,” IEEE Trans.Syst., Man, Cybern.,
+Syst., vol. 47, no. 1, pp. 45–57, Jan. 2017.
+[16] R. Miranda-Colorado and J. Moreno-Valenzuela, “Experimental parame-
+ter identification of flexible joint robot manipulators,” Robotica, vol. 36,
+pp. 313–332, Mar. 2018, doi: 10.1017/S0263574717000224.
+[17] J. Moreno-Valenzuela and C. Aguilar-Avelar, Motion Control of Under-
+actuated Mechanical Systems. Cham, Switzerland: Springer, 2018.
+[18] J. Moreno-Valenzuela and C. Aguilar-Avelar, “Identification of underac-
+tuated mechanical systems,” in Motion Control of Underactuated Mechan-
+ical Systems. New York, NY, USA: Springer, 2018, pp. 27–49.
+[19] C. Aguilar-Avelar and J. Moreno-Valenzuela, “New feedback
+linearization-based control for arm trajectory tracking of the Furuta pen-
+dulum,” IEEE/ASME Trans. Mechatronics, vol. 21, no. 2, pp. 638–648,
+Apr. 2016.
+[20] C.-C. Cheah, C. Liu, and J. Slotine, “Adaptive Jacobian tracking control
+of robots with uncertainties in kinematic, dynamic and actuator models,”
+IEEE Trans. Automat. Control, vol. 51, no. 6, pp. 1024–1029, Jun. 2006.
+[21] C. C. Cheah, M. Hirano, S. Kawamura, and S. Arimoto, “Approximate
+Jacobian control for robots with uncertain kinematics and dynamics,”
+IEEE Trans. Robot. Autom., vol. 19, no. 4, pp. 692–702, Aug. 2003.
+[22] L. Cheng, Z.-G. Hou, and M. Tan, “Adaptive neural network tracking
+control for manipulators with uncertain kinematics, dynamics and actuator
+model,” Automatica, vol. 45, no. 10, pp. 2312–2318, 2009.
+[23] J. Na, G. Herrmann, and K. Zhang, “Improving transient performance
+of adaptive control via a modified reference model and novel adapta-
+tion,” Int. J. Robust Nonlinear Control, vol. 27, no. 8, pp. 1351–1372,
+2017.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+YANG et al.: ADAPTIVE PARAMETER ESTIMATION AND CONTROL DESIGN FOR ROBOT MANIPULATORS WITH FINITE-TIME CONVERGENCE 8123
+[24] P. M. Patre, W. Mackunis, M. Johnson, and W. E. Dixon, “Composite
+adaptive control for Euler–Lagrange systems with additive disturbances,”
+Automatica, vol. 46, no. 1, pp. 140–147, 2010.
+[25] Y. Lv, J. Na, Q. Yang, X. Wu, and Y. Guo, “Online adaptive optimal
+control for continuous-time nonlinear systems with completely unknown
+dynamics,” Int. J. Control, vol. 89, no. 1, pp. 99–112, 2016.
+[26] J. Na, M. N. Mahyuddin, G. Herrmann, X. Ren, and P. Barber, “Ro-
+bust adaptive finite-time parameter estimation and control for robotic sys-
+tems,” Int. J. Robust Nonlinear Control, vol. 25, no. 16, pp. 3045–3071,
+2015.
+[27] M. Gautier, “Numerical calculation of the base inertial parameters of
+robots,” J. Robot. Syst., vol. 8, no. 4, pp. 485–506, 2007.
+[28] Y. Pan, M. J. Er, D. Huang, and Q. Wang, “Adaptive fuzzy control with
+guaranteed convergence of optimal approximation error,” IEEE Trans.
+Fuzzy Syst., vol. 19, no. 5, pp. 807–818, Oct. 2011.
+[29] K. Radkhah, D. Kulic, and E. Croft, “Dynamic parameter identification
+for the CRS a460 robot,” in Proc. Int. Conf. Intell. Robots Syst., 2007,
+pp. 3842–3847.
+[30] V. I. Utkin, Sliding Modes in Control and Optimization. New York, NY,
+USA: Springer, 2013.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in con-
+trol engineering from the National University of
+Singapore, Singapore, in 2010.
+He received Postdoctoral training at Imperial
+College London, UK. His research interests lie
+in robotics and automation.
+Prof. Yang was awarded Marie Curie Interna-
+tional Incoming Fellowship, Best Paper Award of
+the IEEE Transactions on Robotics and Best Paper Awards from numer-
+ous international conferences.
+Yiming Jiang received the B.S. degree in
+automation from Hunan University, Changsha,
+China, in 2011, the M.S. degree in control the-
+ory and engineering from the School of Au-
+tomation, Guangdong University of Technol-
+ogy, Guangzhou, China, in 2015, and is cur-
+rently working toward the Ph.D. degree in pat-
+tern recognition and intelligent systems with
+the School of Control Science and Engineer-
+ing, South China University of Technology,
+Guangzhou, China.
+His research interests include robotics, intelligent control, human–
+robot interaction, etc.
+Wei He (M’12–SM’16) received the B.Eng. and
+M.Eng. degrees in control engineering from
+the College of Automation Science and Engi-
+neering, South China University of Technology,
+Guangzhou, China, in 2006 and 2008, respec-
+tively, and the Ph.D. degree in control engineer-
+ing from the Department of Electrical and Com-
+puter Engineering, National University of Singa-
+pore, Singapore, in 2011.
+He is currently a Full Professor with the
+School of Automation and Electrical Engineer-
+ing, University of Science and Technology Beijing, Beijing, China. He
+has coauthored 2 book published in Springer and authored or coau-
+thored more than 100 international journal and conference papers. His
+current research interests include robotics, distributed parameter sys-
+tems, and intelligent control systems.
+He was the recipient of a Newton Advanced Fellowship from the Royal
+Society, U.K., the IEEE SMC Society Andrew P. Sage Best Transactions
+Paper Award in 2017. He is the Chair of IEEE SMC Society Beijing Capi-
+tal Region Chapter. He is an Associate Editor of the IEEE TRANSACTIONS
+ON NEURAL NETWORKS AND LEARNING SYSTEMS, the IEEE TRANSACTIONS
+ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, and IEEE ACCESS, and
+an Editor of the IEEE/CAA JOURNAL OF AUTOMATICA SINICA, Neurocom-
+puting, and Journal of Intelligent and Robotic Systems. He is the member
+of the IFAC TC on Distributed Parameter Systems, IFAC TC on Computa-
+tional Intelligence in Control, and IEEE CSS TC on Distributed Parameter
+Systems.
+Jing Na (M’15) received the B.S. degree in au-
+tomation and Ph.D. degree in dynamics and con-
+trol from the School of Automation, Beijing Insti-
+tute of Technology, Beijing, China, in 2004 and
+2010, respectively.
+From 2011 to 2013, he was a Monaco/ITER
+Postdoctoral Fellow with the ITER Organiza-
+tion Saint-Paul-ls-Durance, France. From 2015
+to 2017, he was a Marie Curie Intra-European
+Fellow with the Department of Mechanical Engi-
+neering, University of Bristol, Bristol, U.K. Since
+2010, he has been with the Faculty of Mechanical and Electrical En-
+gineering, Kunming University of Science and Technology, Kunming,
+China, where he became a Professor in 2013. His current research
+interests include intelligent control, adaptive parameter estimation, non-
+linear control, and their applications.
+Prof. Na is an Associate Editor for Neurocomputing. He was the recip-
+ient of the Best Application Paper Award of the third IFAC International
+Conference on Intelligent Control and Automation Science (IFAC ICONS
+2013), and 2017 Hsue-shen Tsien Paper Award.
+Zhijun Li (M’07–SM’09) received the Ph.D. de-
+gree in mechatronics from Shanghai Jiao Tong
+University, Shanghai, China, in 2002.
+Since 2012, he has been a Professor with
+the College of Automation Science and Engi-
+neering, South China University of Technology,
+Guangzhou, China. His current research inter-
+ests include service robotics, teleoperation sys-
+tems, nonlinear control, neural network opti-
+mization, etc.
+Dr. Li is an Editor-at-Large for the Journal of
+Intelligent and Robotic Systems, an Associate Editor for the IEEE TRANS-
+ACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, IEEE TRANSAC-
+TIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, and IEEE TRANS-
+ACTIONS ON AUTOMATION SCIENCE AND ENGINEERING. He has been the
+General Chair for 2016 IEEE Conference on Advanced Robotics and
+Mechatronics, Macau, China.
+Bin Xu received the B.S. degree in measure-
+ment and control from Northwestern Polytech-
+nical University, Xi’an, China, in 2006, and the
+Ph.D. degree in computer science from Ts-
+inghua University, Beijing, China, in 2012.
+He is currently a Professor with the School
+of Automation, Northwestern Polytechnical Uni-
+versity. His research interests include intelligent
+control and adaptive control with application to
+flight dynamics.
+Dr. Xu is an Associate Editor for Neurocom-
+puting, International Journal of Advanced Robotic Systems, Chinese
+Journal of Aeronautics, and Science China Information Sciences.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:57 UTC from IEEE Xplore. Restrictions apply.

@@ -1,0 +1,16 @@
+{
+  "candidate_commit": "c8396e9e15b3306c56573325ff634dd0ea50cc1f",
+  "candidate_blob_identical_files": 100,
+  "candidate_copy_modifications": [],
+  "allowed_material_file_count": 151,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "corresponding_fresh_texts": 24,
+  "example_cards_available": 20,
+  "archive_only_pdf_files": true,
+  "facts_and_experience_original_bytes": true,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "invocations_before_start": 0,
+  "task_prompt_logic": "Reused unchanged; no reference selection, abstract structure or failure-specific feedback added"
+}
