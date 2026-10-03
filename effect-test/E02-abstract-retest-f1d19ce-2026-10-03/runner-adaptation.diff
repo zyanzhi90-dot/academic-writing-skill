@@ -1,0 +1,20 @@
+--- previous-E02/execute_once.py
++++ current-retest/execute_once.py
+@@ -18,7 +18,7 @@
+ HELPER_PATH = ROOT / "effect-test/P17-abstract-first-drafting-2026-10-02/execute_once.py"
+ HELPER = runpy.run_path(str(HELPER_PATH))
+ git, digest, inventory, CLI = (HELPER[name] for name in ("git", "digest", "inventory", "CLI"))
+-COMMIT = "63b8378808a16bf9904bf741aa125cde06ef47db"
++COMMIT = "f1d19cef06b3e4775213cd046e9555c2eaa0a53b"
+ MODEL, EFFORT = "gpt-6.1-sol", "high"
+ FACTS = "effect-test/E02-abstract-materials-2026-10-03/科学事实包.md"
+ EXPERIENCE = "我自己的经验和做法.txt"
+@@ -133,7 +133,7 @@
+                 package = directory / role
+                 if package.is_dir():
+                     installed.append({"directory": str(package), "files": inventory(package)})
+-    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-63b8378-independent-")) / "materials"
++    runtime = Path(tempfile.mkdtemp(prefix="e02-abstract-f1d19ce-independent-")) / "materials"
+     shutil.copytree(materials, runtime)
+     save("frozen-materials.json", {
+         "candidate_commit": COMMIT, "preparation_commit": git("rev-parse", "HEAD").decode().strip(),

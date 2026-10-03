@@ -1,0 +1,124 @@
+{
+  "classification": "同一 E02 材料的隔离复测",
+  "threads": [
+    "01a10196-c914-7213-bb0a-7fadd04d7e97"
+  ],
+  "turns_started": 1,
+  "turns_completed": 1,
+  "attempts": 1,
+  "run_meta": {
+    "exit_code": 0,
+    "duration_seconds": 220.53,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "candidate_commit": "f1d19cef06b3e4775213cd046e9555c2eaa0a53b",
+    "attempt": 1,
+    "first_output_exists": true,
+    "evaluation": "Not performed; no prose editing"
+  },
+  "first_output": {
+    "bytes": 3244,
+    "sha256": "e9050e4d1bf5a502142c15943edbf2dfaac0214d00994e19b1b7965437a447ab",
+    "matches_final_message": true,
+    "headings": []
+  },
+  "loading": {
+    "commands": 20,
+    "collector_verified_lines": 1398,
+    "supplemental_verified_lines": 231,
+    "verified_lines_total": 1629,
+    "files": 21,
+    "read_paths": [
+      "inputs/personal-experience.txt",
+      "inputs/scientific-facts.md",
+      "inputs/task.md",
+      "skill-candidate/nature-shared/core/ethics.md",
+      "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+      "skill-candidate/nature-shared/core/reader-workflow.md",
+      "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+      "skill-candidate/nature-shared/core/scientific-expression.md",
+      "skill-candidate/nature-shared/core/terminology-ledger.md",
+      "skill-candidate/nature-writing/SKILL.md",
+      "skill-candidate/nature-writing/manifest.yaml",
+      "skill-candidate/nature-writing/references/abstract.md",
+      "skill-candidate/nature-writing/static/core/output-format.md",
+      "skill-candidate/nature-writing/static/core/stance.md",
+      "skill-candidate/nature-writing/static/core/workflow.md",
+      "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+      "skill-candidate/nature-writing/static/fragments/language/en.md",
+      "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+      "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md",
+      "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+      "skill-candidate/nature-writing/static/fragments/task/manuscript.md"
+    ],
+    "complete_cards": [
+      "A04",
+      "A05",
+      "A06",
+      "A07"
+    ],
+    "common_before_cards": true,
+    "outside_material_reads": [],
+    "unresolved_material_commands": [],
+    "rg_heading_searches": [
+      {
+        "id": "item_18",
+        "scope": "rg heading search; no explicit encoding option; returned source lines match frozen UTF-8; not a complete-file/card read"
+      }
+    ],
+    "supplemental_input_mapping": [
+      {
+        "command_id": "item_1",
+        "method": "Manual resolution of explicit $p base and four relative suffixes; full raw return compared line by line to concatenated frozen UTF-8 files; no command rerun",
+        "base": "C:\\Users\\user2\\AppData\\Local\\Temp\\e02-abstract-f1d19ce-independent-ram1f9zn\\materials",
+        "files": [
+          {
+            "path": "inputs/task.md",
+            "lines": [
+              1,
+              2
+            ],
+            "sha256": "c7600365fd5367cdcd8886b5ae63713d7b362c8512a92db1bdb4b23afe0f0623"
+          },
+          {
+            "path": "inputs/scientific-facts.md",
+            "lines": [
+              1,
+              51
+            ],
+            "sha256": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805"
+          },
+          {
+            "path": "inputs/personal-experience.txt",
+            "lines": [
+              1,
+              11
+            ],
+            "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0"
+          },
+          {
+            "path": "skill-candidate/nature-writing/SKILL.md",
+            "lines": [
+              1,
+              167
+            ],
+            "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+          }
+        ],
+        "verified_lines": 231,
+        "raw_return_sha256": "fcb014c1b6e4c9f1c00b44631169d2c117f89247fb7b4b4978acf84104001e43",
+        "returned_lines_match_frozen": true,
+        "reason": "Existing collector records only literal absolute file paths; raw collector and events retained unchanged"
+      }
+    ],
+    "matches_frozen_materials_and_candidate": true
+  },
+  "preservation": {
+    "material_files": 151,
+    "protected_project_files": 2637,
+    "installed_packages": 6,
+    "installed_files": 260,
+    "all_unchanged": true
+  },
+  "quality_verdict": "Not evaluated; owner acceptance pending; no new-paper transfer claim"
+}

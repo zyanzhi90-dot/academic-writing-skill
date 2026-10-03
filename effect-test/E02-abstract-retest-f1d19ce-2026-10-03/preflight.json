@@ -1,0 +1,25 @@
+{
+  "classification": "同一 E02 材料的隔离复测",
+  "candidate_commit": "f1d19cef06b3e4775213cd046e9555c2eaa0a53b",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "original_inputs_byte_identical": true,
+  "input_sha256": {
+    "scientific-facts.md": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "personal-experience.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "task.md": "c7600365fd5367cdcd8886b5ae63713d7b362c8512a92db1bdb4b23afe0f0623"
+  },
+  "materials_vs_previous_E02": {
+    "total_files": 151,
+    "only_changed_material_files": [
+      "skill-candidate/nature-writing/static/fragments/section/abstract.md"
+    ],
+    "all_other_150_materials_byte_identical": true
+  },
+  "candidate_copy_modified": false,
+  "target_file_excluded": true,
+  "archived_references_only_three_pdfs": true,
+  "cli_version": "codex-cli 0.159.2",
+  "runner_changes_only_candidate_version_and_runtime_label": true,
+  "writing_quality_evaluation": "Not performed"
+}
