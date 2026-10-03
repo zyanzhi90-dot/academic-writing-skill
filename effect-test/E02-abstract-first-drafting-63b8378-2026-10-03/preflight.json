@@ -1,0 +1,29 @@
+{
+  "candidate_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
+  "candidate_blob_identical_files": 100,
+  "candidate_copy_modifications": [],
+  "allowed_material_file_count": 151,
+  "current_learning_pdfs": 21,
+  "isolated_archive_pdfs": 3,
+  "corresponding_fresh_texts": 24,
+  "archive_only_pdf_files": true,
+  "facts_and_experience_original_bytes": true,
+  "facts_material_version": {
+    "last_change_commit": "9a8e7dccd25bd043a4fefdb7a336532e1f8ad2d4",
+    "blob_id": "485f9defc8e9fe4a21b727ef6880cdcf6584c7a1",
+    "sha256": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "correction_owner_acceptance_status": "Pending owner acceptance; this run explicitly authorized using the current corrected materials",
+    "status_record_not_provided_to_writer": true
+  },
+  "experience_material_version": {
+    "last_change_commit": "6072e279abf43fa2c1b00a963158a6306a15aa94",
+    "blob_id": "7c6ebdb976b1c2af167972ca3cddabb34d7e8c7c",
+    "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0"
+  },
+  "target_source_pdf_not_copied": true,
+  "forbidden_project_records_not_copied": true,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "invocations_before_start": 0,
+  "task_prompt_logic": "Current task only; Skill autonomously determines central contribution, selection, organization and reference-English adaptation. No target-specific main line, sentence count, reference selection, source interpretation or quality feedback added."
+}

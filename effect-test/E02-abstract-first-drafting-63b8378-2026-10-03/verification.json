@@ -1,0 +1,54 @@
+{
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_files_unchanged": true,
+  "installed_skills_unchanged": true,
+  "first_output_sha256": "252987640f684ab0a9aa5b58384858fc47719fab9c2bb69a06ced09bf906be94",
+  "first_output_bytes": 3285,
+  "first_output_matches_terminal_message_except_final_newline": true,
+  "outside_materials_explicit_reads": [],
+  "unresolved_read_commands": [],
+  "attempts": 1,
+  "evaluation": "Not performed; no quality verdict",
+  "loading_collector_sha256": "87cf49ca1e2879986a093fadd70402abdd2d5a7c42b2b9ebd78fa1af29a24859",
+  "reused_loading_collector_path": "effect-test/E01-abstract-retest-63b8378-2026-10-03/collect_loading.py",
+  "loading_collector_byte_identical_to_reused_version": true,
+  "actual_loaded_or_searched_files": 21,
+  "completed_material_commands": 6,
+  "verified_source_lines": 1510,
+  "loaded_file_hashes_match_frozen_inputs_and_candidate_blobs": true,
+  "common_instructions_before_selected_cards": true,
+  "fully_returned_cards": [
+    "A04",
+    "A05",
+    "A06",
+    "A07"
+  ],
+  "all_cards_preloaded": false,
+  "raw_records_unchanged_after_loading_audit": true,
+  "raw_first_run_files_sha256": {
+    "first-output.md": "252987640f684ab0a9aa5b58384858fc47719fab9c2bb69a06ced09bf906be94",
+    "events.jsonl": "2d23a3c620046d6d82c782ba2e92ca2ed1ad2583e289b3642bba4a453b3f8d1e",
+    "stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "execution-command.json": "7257b0df580c0989d3dce7514f2321ef7e971bf7102ff784fd345551b6ec6b5a",
+    "execution-prompt.txt": "4c91f2645c1904b99689044a9d6738fe7799be04b2b8be8e70f2ae1cd0c5c76e",
+    "frozen-run.json": "eff813aa4869600006a1923ca098fd6b0405980653f0f2a6a953279c72f083dc",
+    "run-meta.json": "6ff1424ebca16e78ec38745302d43560694538f0ebccb090e944af743a3fd23d"
+  },
+  "thread_id": "01a10142-7c1b-7652-9066-d6973674597f",
+  "turns_started": 1,
+  "turns_completed": 1,
+  "facts_material_version": {
+    "last_change_commit": "9a8e7dccd25bd043a4fefdb7a336532e1f8ad2d4",
+    "blob_id": "485f9defc8e9fe4a21b727ef6880cdcf6584c7a1",
+    "sha256": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "correction_owner_acceptance_status": "Pending owner acceptance; this run explicitly authorized using the current corrected materials",
+    "status_record_not_provided_to_writer": true
+  },
+  "experience_material_version": {
+    "last_change_commit": "6072e279abf43fa2c1b00a963158a6306a15aa94",
+    "blob_id": "7c6ebdb976b1c2af167972ca3cddabb34d7e8c7c",
+    "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0"
+  },
+  "archive_isolation": "Copy only three exact archived PDFs into the declared relative locations inside the new isolated materials; no historical output, log, metadata or evaluation copied; frozen candidate bytes unchanged"
+}

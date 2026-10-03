@@ -1,0 +1,406 @@
+{
+  "scope": "Actual loading and byte-preservation evidence; no prose quality verdict",
+  "candidate_commit": "63b8378808a16bf9904bf741aa125cde06ef47db",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "attempts": 1,
+  "completed_item_types": {
+    "agent_message": 4,
+    "command_execution": 6
+  },
+  "verified_source_lines_checked": 1510,
+  "text_mismatches": [],
+  "unmapped_numbered_returns": [],
+  "commands": [
+    {
+      "command_id": "item_1",
+      "exit_code": 0,
+      "paths": [
+        "inputs/task.md",
+        "inputs/scientific-facts.md",
+        "inputs/personal-experience.txt",
+        "skill-candidate/nature-writing/SKILL.md"
+      ],
+      "explicit_utf8_read": true,
+      "verified_source_line_ranges": [
+        [
+          1,
+          167
+        ]
+      ],
+      "verified_source_lines": 231,
+      "source_lines_reconstructed_from_unnumbered_return": true,
+      "verified_source_ranges_by_file": {
+        "inputs/task.md": [
+          [
+            1,
+            2
+          ]
+        ],
+        "inputs/scientific-facts.md": [
+          [
+            1,
+            51
+          ]
+        ],
+        "inputs/personal-experience.txt": [
+          [
+            1,
+            11
+          ]
+        ],
+        "skill-candidate/nature-writing/SKILL.md": [
+          [
+            1,
+            167
+          ]
+        ]
+      },
+      "verified_lines_match_frozen_text": true,
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\inputs\\\\task.md' -Encoding UTF8; Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\inputs\\\\scientific-facts.md' -Encoding UTF8; Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\inputs\\\\personal-experience.txt' -Encoding UTF8; Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\SKILL.md' -Encoding UTF8\""
+    },
+    {
+      "command_id": "item_2",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/manifest.yaml",
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "explicit_utf8_read": true,
+      "verified_source_line_ranges": [
+        [
+          1,
+          144
+        ]
+      ],
+      "verified_source_lines": 288,
+      "source_lines_reconstructed_from_unnumbered_return": false,
+      "verified_source_ranges_by_file": {},
+      "verified_lines_match_frozen_text": true,
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\manifest.yaml'; \"'$t = Get-Content -LiteralPath $p -Encoding UTF8; for ($i=0; $i -lt [Math]::Min(260,$t.Count); $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] }; $p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$t = Get-Content -LiteralPath $p -Encoding UTF8; for ($i=0; $i -lt [Math]::Min(144,$t.Count); $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] }'"
+    },
+    {
+      "command_id": "item_4",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/reader-workflow.md",
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+        "skill-candidate/nature-shared/core/ethics.md",
+        "skill-candidate/nature-shared/core/terminology-ledger.md",
+        "skill-candidate/nature-shared/core/scientific-expression.md",
+        "skill-candidate/nature-writing/static/core/stance.md",
+        "skill-candidate/nature-writing/static/core/workflow.md",
+        "skill-candidate/nature-writing/static/core/output-format.md"
+      ],
+      "explicit_utf8_read": true,
+      "verified_source_line_ranges": [
+        [
+          1,
+          128
+        ]
+      ],
+      "verified_source_lines": 519,
+      "source_lines_reconstructed_from_unnumbered_return": false,
+      "verified_source_ranges_by_file": {},
+      "verified_lines_match_frozen_text": true,
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\reader-workflow.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\paper-type-taxonomy.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\ethics.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\terminology-ledger.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\scientific-expression.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\stance.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\workflow.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\output-format.md'); foreach (\"'$p in $paths) { $p; $t = Get-Content -LiteralPath $p -Encoding UTF8; for ($i=0; $i -lt [Math]::Min(260,$t.Count); $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] } }'"
+    },
+    {
+      "command_id": "item_5",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+        "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md",
+        "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+        "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+        "skill-candidate/nature-writing/static/fragments/language/en.md",
+        "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "explicit_utf8_read": true,
+      "verified_source_line_ranges": [
+        [
+          1,
+          111
+        ]
+      ],
+      "verified_source_lines": 236,
+      "source_lines_reconstructed_from_unnumbered_return": false,
+      "verified_source_ranges_by_file": {},
+      "verified_lines_match_frozen_text": true,
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\task\\\\manuscript.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\paper_type\\\\algorithmic.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\section\\\\abstract.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\zh-to-en.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\en.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\journal\\\\generic.md'); foreach (\"'$p in $paths) { $p; $t = Get-Content -LiteralPath $p -Encoding UTF8; for ($i=0; $i -lt [Math]::Min(260,$t.Count); $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] } }; Select-String -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8 -Pattern '\"'^## A|''^## B|''^### A|''^### B'\"' | Select-Object -First 12 LineNumber,Line\""
+    },
+    {
+      "command_id": "item_6",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+        "skill-candidate/nature-writing/references/abstract.md"
+      ],
+      "explicit_utf8_read": true,
+      "verified_source_line_ranges": [
+        [
+          1,
+          122
+        ],
+        [
+          183,
+          232
+        ]
+      ],
+      "verified_source_lines": 172,
+      "source_lines_reconstructed_from_unnumbered_return": false,
+      "verified_source_ranges_by_file": {},
+      "verified_lines_match_frozen_text": true,
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$t = Get-Content -LiteralPath $p -Encoding UTF8; foreach ($range in @(@(207,218),@(219,232),@(183,206))) { '\"'Range {0}-{1}' -f \"'$range[0],$range[1]; for ($i=$range[0]-1; $i -lt $range[1]; $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] } }; $p = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\skill-candidate\\\\nature-writing\\\\references\\\\abstract.md'; \"'$p; $t = Get-Content -LiteralPath $p -Encoding UTF8; for ($i=0; $i -lt [Math]::Min(260,$t.Count); $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] }'"
+    },
+    {
+      "command_id": "item_8",
+      "exit_code": 0,
+      "paths": [
+        "inputs/task.md",
+        "inputs/scientific-facts.md",
+        "inputs/personal-experience.txt"
+      ],
+      "explicit_utf8_read": true,
+      "verified_source_line_ranges": [
+        [
+          1,
+          51
+        ]
+      ],
+      "verified_source_lines": 64,
+      "source_lines_reconstructed_from_unnumbered_return": false,
+      "verified_source_ranges_by_file": {},
+      "verified_lines_match_frozen_text": true,
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$reads = @(@('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\inputs\\\\task.md',1,12),@('C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\inputs\\\\scientific-facts.md',1,100),@('C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-63b8378-independent-48nfctky\\\\materials\\\\inputs\\\\personal-experience.txt',1,30)); foreach (\"'$read in $reads) { $read[0]; $t = Get-Content -LiteralPath $read[0] -Encoding UTF8; for ($i=$read[1]-1; $i -lt [Math]::Min($read[2],$t.Count); $i++) { '\"'{0}: {1}' -f (\"'$i+1),$t[$i] } }'"
+    }
+  ],
+  "examples": {
+    "common_range": [
+      1,
+      144
+    ],
+    "common_returned_command": "item_2",
+    "first_card_text_command": "item_6",
+    "common_returned_before_card_text": true,
+    "cards": [
+      {
+        "id": "A01",
+        "source_range": [
+          147,
+          158
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "A02",
+        "source_range": [
+          159,
+          170
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "A03",
+        "source_range": [
+          171,
+          182
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "A04",
+        "source_range": [
+          183,
+          194
+        ],
+        "heading_returned": true,
+        "complete_nonblank_card_returned": true,
+        "command_ids": [
+          "item_6"
+        ]
+      },
+      {
+        "id": "A05",
+        "source_range": [
+          195,
+          206
+        ],
+        "heading_returned": true,
+        "complete_nonblank_card_returned": true,
+        "command_ids": [
+          "item_6"
+        ]
+      },
+      {
+        "id": "A06",
+        "source_range": [
+          207,
+          218
+        ],
+        "heading_returned": true,
+        "complete_nonblank_card_returned": true,
+        "command_ids": [
+          "item_6"
+        ]
+      },
+      {
+        "id": "A07",
+        "source_range": [
+          219,
+          230
+        ],
+        "heading_returned": true,
+        "complete_nonblank_card_returned": true,
+        "command_ids": [
+          "item_6"
+        ]
+      },
+      {
+        "id": "B01",
+        "source_range": [
+          233,
+          257
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B13",
+        "source_range": [
+          258,
+          269
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B02",
+        "source_range": [
+          272,
+          287
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B03",
+        "source_range": [
+          288,
+          299
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B04",
+        "source_range": [
+          300,
+          318
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B05",
+        "source_range": [
+          319,
+          330
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B06",
+        "source_range": [
+          331,
+          342
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B07",
+        "source_range": [
+          343,
+          358
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B08",
+        "source_range": [
+          361,
+          372
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B09",
+        "source_range": [
+          373,
+          392
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B10",
+        "source_range": [
+          393,
+          406
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B12",
+        "source_range": [
+          407,
+          422
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      },
+      {
+        "id": "B11",
+        "source_range": [
+          423,
+          444
+        ],
+        "heading_returned": false,
+        "complete_nonblank_card_returned": false,
+        "command_ids": []
+      }
+    ],
+    "all_cards_completely_returned": false
+  },
+  "raw_record_sha256": {
+    "events.jsonl": "2d23a3c620046d6d82c782ba2e92ca2ed1ad2583e289b3642bba4a453b3f8d1e",
+    "stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "execution-command.json": "7257b0df580c0989d3dce7514f2321ef7e971bf7102ff784fd345551b6ec6b5a",
+    "execution-prompt.txt": "4c91f2645c1904b99689044a9d6738fe7799be04b2b8be8e70f2ae1cd0c5c76e"
+  },
+  "evidence_limit": "Explicit command paths and source lines: returned numbers where present, or an explicit Get-Content/Select-Object range verified line for line against frozen UTF-8 text. Searches and headings are not complete card reads; no OS-level read isolation or comprehension claim."
+}
