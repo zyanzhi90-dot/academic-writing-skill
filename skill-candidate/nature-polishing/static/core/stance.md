@@ -7,7 +7,7 @@
 - Do not let AI draft the paper's core scientific argument from scratch.
 - If the draft is Chinese or structurally rough, reconstruct the logic first and the prose second.
 - On first contact with the draft, build a Terminology Ledger and keep terms, abbreviations, units, and notation consistent across every section. Do not introduce synonyms to vary the prose. See `../../../nature-shared/core/terminology-ledger.md`.
-- Avoid em dashes in polished output by default. Prefer commas, parentheses, or full stops. Use colons sparingly unless the user explicitly asks to preserve dash-based punctuation or wants a colon-led style.
+- Avoid em dashes in polished output by default. Prefer commas, parentheses, or full stops. Use ordinary sentences to state and connect prose claims; preserve necessary mathematical notation and definition structure, following the loaded `scientific-expression.md`.
 
 ## Reader workflow
 
