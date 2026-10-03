@@ -1,0 +1,345 @@
+{
+  "loaded_or_searched_files": [
+    {
+      "path": "inputs/feedback.md",
+      "sha256": "62f6bde3327f72b875c8ff73bd13db1a66e16e574980e592505fb1001dc797c2",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/personal-experience.txt",
+      "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+      "command_ids": [
+        "item_2"
+      ]
+    },
+    {
+      "path": "inputs/current-draft.md",
+      "sha256": "e9050e4d1bf5a502142c15943edbf2dfaac0214d00994e19b1b7965437a447ab",
+      "command_ids": [
+        "item_3"
+      ]
+    },
+    {
+      "path": "inputs/task.md",
+      "sha256": "faaff4246ada44ff88d18cac929c707f239c0a82a09594381ef012fe5825fd58",
+      "command_ids": [
+        "item_4"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/SKILL.md",
+      "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9",
+      "command_ids": [
+        "item_5"
+      ]
+    },
+    {
+      "path": "inputs/scientific-facts.md",
+      "sha256": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+      "command_ids": [
+        "item_6"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/manifest.yaml",
+      "sha256": "6568c379e8bd23f02ec9cb8cf0d14db8ad02261911bbf8e91f3e8d55cf56b24d",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+      "sha256": "70843877798a39a658e123f757e822f93224aba6da2558985c77d9f6929b3b19",
+      "command_ids": [
+        "item_8",
+        "item_24",
+        "item_28",
+        "item_29",
+        "item_30"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/ethics.md",
+      "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "command_ids": [
+        "item_11"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+      "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "command_ids": [
+        "item_10"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/reader-workflow.md",
+      "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "command_ids": [
+        "item_12"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/stance.md",
+      "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
+      "command_ids": [
+        "item_15",
+        "item_26"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/scientific-expression.md",
+      "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
+      "command_ids": [
+        "item_13"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/workflow.md",
+      "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef",
+      "command_ids": [
+        "item_16",
+        "item_25"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/terminology-ledger.md",
+      "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "command_ids": [
+        "item_14"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/paper_type/research.md",
+      "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27",
+      "command_ids": [
+        "item_19"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+      "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
+      "command_ids": [
+        "item_17"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/output-format.md",
+      "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
+      "command_ids": [
+        "item_20",
+        "item_27"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+      "sha256": "17a4274fb39eb51eb00a400362fd04afc6dccb0342b6dca8c0591407c957cedb",
+      "command_ids": [
+        "item_18"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+      "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
+      "command_ids": [
+        "item_22"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+      "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
+      "command_ids": [
+        "item_23"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/language/en.md",
+      "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a",
+      "command_ids": [
+        "item_21"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "item_1",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\inputs\\\\feedback.md' -Encoding UTF8 | Select-Object -First 260\"",
+      "exit_code": 0,
+      "output_characters": 429
+    },
+    {
+      "id": "item_2",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\inputs\\\\personal-experience.txt' -Encoding UTF8 | Select-Object -First 250\"",
+      "exit_code": 0,
+      "output_characters": 478
+    },
+    {
+      "id": "item_3",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\inputs\\\\current-draft.md' -Encoding UTF8 | Select-Object -First 260\"",
+      "exit_code": 0,
+      "output_characters": 2134
+    },
+    {
+      "id": "item_4",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\inputs\\\\task.md' -Encoding UTF8 | Select-Object -First 240\"",
+      "exit_code": 0,
+      "output_characters": 307
+    },
+    {
+      "id": "item_5",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\SKILL.md' -Encoding UTF8 | Select-Object -First 280\"",
+      "exit_code": 0,
+      "output_characters": 11525
+    },
+    {
+      "id": "item_6",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\inputs\\\\scientific-facts.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 2315
+    },
+    {
+      "id": "item_7",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\manifest.yaml' -Encoding UTF8 | Select-Object -First 280\"",
+      "exit_code": 0,
+      "output_characters": 9820
+    },
+    {
+      "id": "item_8",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8 | Select-Object -First 144\"",
+      "exit_code": 0,
+      "output_characters": 10202
+    },
+    {
+      "id": "item_11",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\ethics.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 4045
+    },
+    {
+      "id": "item_10",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\paper-type-taxonomy.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 2456
+    },
+    {
+      "id": "item_12",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\reader-workflow.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 988
+    },
+    {
+      "id": "item_15",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\stance.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 2427
+    },
+    {
+      "id": "item_13",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\scientific-expression.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 5838
+    },
+    {
+      "id": "item_16",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\workflow.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 7471
+    },
+    {
+      "id": "item_14",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\terminology-ledger.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 3432
+    },
+    {
+      "id": "item_19",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\paper_type\\\\research.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 2112
+    },
+    {
+      "id": "item_17",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\task\\\\manuscript.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 486
+    },
+    {
+      "id": "item_20",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\output-format.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 2095
+    },
+    {
+      "id": "item_18",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\section\\\\abstract.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 6902
+    },
+    {
+      "id": "item_22",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\zh-to-en.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 2170
+    },
+    {
+      "id": "item_23",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\journal\\\\generic.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 1173
+    },
+    {
+      "id": "item_21",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\en.md' -Encoding UTF8 | Select-Object -First 300\"",
+      "exit_code": 0,
+      "output_characters": 1451
+    },
+    {
+      "id": "item_24",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n '\"'^#{1,4} (A0[4-7]|B01)|''^'\"\\\\[.*\\\\]:' 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'\"",
+      "exit_code": 0,
+      "output_characters": 2115
+    },
+    {
+      "id": "item_26",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\stance.md' -Encoding UTF8 | Select-Object -First 160\"",
+      "exit_code": 0,
+      "output_characters": 2427
+    },
+    {
+      "id": "item_25",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\workflow.md' -Encoding UTF8 | Select-Object -First 240\"",
+      "exit_code": 0,
+      "output_characters": 7471
+    },
+    {
+      "id": "item_27",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\output-format.md' -Encoding UTF8 | Select-Object -First 160\"",
+      "exit_code": 0,
+      "output_characters": 2095
+    },
+    {
+      "id": "item_28",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8 | Select-Object -Skip 206 -First 12\"",
+      "exit_code": 0,
+      "output_characters": 2277
+    },
+    {
+      "id": "item_29",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8 | Select-Object -Skip 218 -First 14\"",
+      "exit_code": 0,
+      "output_characters": 2553
+    },
+    {
+      "id": "item_30",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-f1d19ce-feedback-aat_hb7n\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8 | Select-Object -Skip 182 -First 24\"",
+      "exit_code": 0,
+      "output_characters": 3912
+    }
+  ],
+  "unresolved_read_commands": [],
+  "outside_materials_explicit_reads": [],
+  "evidence_limit": "Explicit file paths in completed commands; raw events preserve outputs and selected ranges. A search or range read is not asserted to be a complete-file read.",
+  "evaluation": "Not performed"
+}

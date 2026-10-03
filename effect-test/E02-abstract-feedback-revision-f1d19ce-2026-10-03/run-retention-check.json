@@ -1,0 +1,64 @@
+{
+  "run_kind": "content-organization-feedback-revision",
+  "independent_first_drafting_evidence": false,
+  "candidate_commit": "f1d19cef06b3e4775213cd046e9555c2eaa0a53b",
+  "threads": [
+    "01a101b7-6ac6-7402-bc97-59b4f93c81e6"
+  ],
+  "turns_started": 1,
+  "turns_completed": 1,
+  "attempts": 1,
+  "first_output_sha256": "5825b5f8837967e85155efebdd9ae39ae54c896cfeca565c9639c2967784b5c2",
+  "first_output_bytes": 3542,
+  "first_output_matches_final_message": true,
+  "loading": {
+    "commands": 29,
+    "files": 22,
+    "verified_lines": 1595,
+    "read_paths": [
+      "inputs/current-draft.md",
+      "inputs/feedback.md",
+      "inputs/personal-experience.txt",
+      "inputs/scientific-facts.md",
+      "inputs/task.md",
+      "skill-candidate/nature-shared/core/ethics.md",
+      "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+      "skill-candidate/nature-shared/core/reader-workflow.md",
+      "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+      "skill-candidate/nature-shared/core/scientific-expression.md",
+      "skill-candidate/nature-shared/core/terminology-ledger.md",
+      "skill-candidate/nature-writing/SKILL.md",
+      "skill-candidate/nature-writing/manifest.yaml",
+      "skill-candidate/nature-writing/static/core/output-format.md",
+      "skill-candidate/nature-writing/static/core/stance.md",
+      "skill-candidate/nature-writing/static/core/workflow.md",
+      "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+      "skill-candidate/nature-writing/static/fragments/language/en.md",
+      "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+      "skill-candidate/nature-writing/static/fragments/paper_type/research.md",
+      "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+      "skill-candidate/nature-writing/static/fragments/task/manuscript.md"
+    ],
+    "complete_cards": [
+      "A04",
+      "A05",
+      "A06",
+      "A07"
+    ],
+    "common_before_cards": true,
+    "rg_heading_or_source_link_searches": [
+      "item_24"
+    ],
+    "outside_material_reads": [],
+    "unresolved_material_reads": [],
+    "matches_frozen_candidate_and_inputs": true
+  },
+  "preservation": {
+    "material_files": 153,
+    "previous_project_files": 2806,
+    "installed_packages": 6,
+    "installed_files": 260,
+    "all_unchanged": true
+  },
+  "quality_verdict": "Owner acceptance pending; feedback revision only, not independent drafting or transfer evidence"
+}

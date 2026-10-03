@@ -1,0 +1,20 @@
+{
+  "candidate_commit": "f1d19cef06b3e4775213cd046e9555c2eaa0a53b",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "run_kind": "content-organization-feedback-revision",
+  "independent_first_drafting_evidence": false,
+  "author_feedback_copy_byte_identical": true,
+  "original_facts_and_experience_byte_identical": true,
+  "current_draft_copy_byte_identical": true,
+  "candidate_and_reference_files_byte_identical_to_previous_freeze": true,
+  "materials_count": 153,
+  "target_original_and_other_historical_materials_excluded": true,
+  "input_sha256": {
+    "current-draft.md": "e9050e4d1bf5a502142c15943edbf2dfaac0214d00994e19b1b7965437a447ab",
+    "feedback.md": "62f6bde3327f72b875c8ff73bd13db1a66e16e574980e592505fb1001dc797c2",
+    "personal-experience.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "scientific-facts.md": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+    "task.md": "faaff4246ada44ff88d18cac929c707f239c0a82a09594381ef012fe5825fd58"
+  }
+}
