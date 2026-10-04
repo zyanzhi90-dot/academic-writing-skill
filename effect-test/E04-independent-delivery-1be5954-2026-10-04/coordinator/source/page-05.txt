@@ -1,0 +1,137 @@
+drawbacks of position control and is better able to exploit
+position control’s advantages.
+Square
+Kitchen p4
+0.25
+0.00
+0.25
+0.50
+0.75
+1.00
+Relative Success Rate Change
+Velocity vs Positional Control
+LSTM-GMM
+BET
+DiffusionPolicy-C
+DiffusionPolicy-T
+Fig. 5: Velocity v.s. Position Control. The performance differ-
+ence when switching from velocity to position control. While both
+BCRNN and BET performance decrease, Diffusion Policy is able to
+leverage the advantage of position and improve its performance.
+C. Benefits of Action-Sequence Prediction
+Sequence prediction is often avoided in most policy learning
+methods due to the difficulties in effectively sampling from
+high-dimensional output spaces. For example, IBC would
+struggle in effectively sampling high-dimensional action space
+with a non-smooth energy landscape. Similarly, BC-RNN and
+BET would have difficulty specifying the number of modes
+that exist in the action distribution (needed for GMM or k-
+means steps).
+In contrast, DDPM scales well with output dimensions
+without sacrificing the expressiveness of the model, as demon-
+strated in many image generation applications. Leveraging this
+capability, Diffusion Policy represents action in the form of a
+high-dimensional action sequence, which naturally addresses
+the following issues:
+• Temporal action consistency: Take Fig 4 as an example.
+To push the T block into the target from the bottom, the
+policy can go around the T block from either left or right.
+However, suppose each action in the sequence is predicted
+as independent multimodal distributions (as done in BC-
+RNN and BET). In that case, consecutive actions could be
+drawn from different modes, resulting in jittery actions that
+alternate between the two valid trajectories.
+• Robustness to idle actions: Idle actions occur when a
+demonstration is paused and results in sequences of identical
+positional actions or near-zero velocity actions. It is common
+during teleoperation and is sometimes required for tasks
+like liquid pouring. However, single-step policies can easily
+overfit to this pausing behavior. For example, BC-RNN and
+IBC often get stuck in real-world experiments when the idle
+actions are not explicitly removed from training.
+D. Training Stability
+While IBC, in theory, should possess similar advantages
+as diffusion policies. However, achieving reliable and high-
+performance results from IBC in practice is challenging due
+to IBC’s inherent training instability [48]. Fig 7 shows training
+1
+2
+4
+8
+16
+32
+64 128
+Action Horizon (steps)
+0.0
+-0.1
+-0.2
+-0.3
+-0.4
+-0.5
+-0.6
+Relative Perf Change
+Action Horizon
+0
+1
+2
+3
+4
+5
+6
+7
+Latency (steps)
+Latency Robustness
+PushT
+Square
+Fig. 6: Diffusion Policy Ablation Study. Change (difference) in
+success rate relative to the maximum for each task is shown on the Y-
+axis. Left: trade-off between temporal consistency and responsiveness
+when selecting the action horizon. Right: Diffusion Policy with
+position control is robust against latency. Latency is defined as the
+number of steps between the last frame of observations to the first
+action that can be executed.
+error spikes and unstable evaluation performance throughout
+the training process, making hyperparameter turning critical
+and checkpoint selection difficult. As a result, Florence et al.
+[12] evaluate every checkpoint and report results for the best-
+performing checkpoint. In a real-world setting, this workflow
+necessitates the evaluation of many policies on hardware to
+select a final policy. Here, we discuss why Diffusion Policy
+appears significantly more stable to train.
+An implicit policy represents the action distribution using
+an Energy-Based Model (EBM):
+pθ(a|o) = e−Eθ (o,a)
+Z(o,θ)
+(6)
+where Z(o,θ) is an intractable normalization constant (with
+respect to a).
+To train the EBM for implicit policy, an InfoNCE-style loss
+function is used, which equates to the negative log-likelihood
+of Eq 6:
+LinfoNCE = −log(
+e−Eθ (o,a)
+e−Eθ (o,a) +∑
+Nneg
+j=1e−Eθ (o,ea j) )
+(7)
+where a set of negative samples {eaj}Nneg
+j=1 are used to estimate
+the intractable normalization constant Z(o,θ). In practice, the
+inaccuracy of negative sampling is known to cause training
+instability for EBMs [11, 48].
+Diffusion Policy and DDPMs sidestep the issue of estimat-
+ing Z(a,θ) altogether by modeling the score function [46] of
+the same action distribution in Eq 6:
+∇a log p(a|o) = −∇aEθ(a,o)−∇a logZ(o,θ)
+|
+{z
+}
+=0
+≈−εθ(a,o)
+(8)
+where the noise-prediction network εθ(a,o) is approximating
+the negative of the score function ∇a log p(a|o) [26], which
+is independent of the normalization constant Z(o,θ). As a
+result, neither the inference (Eq 4) nor training (Eq 5) process
+of Diffusion Policy involves evaluating Z(o,θ), thus making
+Diffusion Policy training more stable.

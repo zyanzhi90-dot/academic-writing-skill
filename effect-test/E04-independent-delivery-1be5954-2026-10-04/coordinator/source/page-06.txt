@@ -1,0 +1,307 @@
+Lift
+Can
+Square
+Transport
+ToolHang
+Push-T
+ph
+mh
+ph
+mh
+ph
+mh
+ph
+mh
+ph
+ph
+LSTM-GMM [29]
+1.00/0.96
+1.00/0.93
+1.00/0.91
+1.00/0.81
+0.95/0.73
+0.86/0.59
+0.76/0.47
+0.62/0.20
+0.67/0.31
+0.67/0.61
+IBC [12]
+0.79/0.41
+0.15/0.02
+0.00/0.00
+0.01/0.01
+0.00/0.00
+0.00/0.00
+0.00/0.00
+0.00/0.00
+0.00/0.00
+0.90/0.84
+BET [42]
+1.00/0.96
+1.00/0.99
+1.00/0.89
+1.00/0.90
+0.76/0.52
+0.68/0.43
+0.38/0.14
+0.21/0.06
+0.58/0.20
+0.79/0.70
+DiffusionPolicy-C
+1.00/0.98
+1.00/0.97
+1.00/0.96
+1.00/0.96
+1.00/0.93
+0.97/0.82
+0.94/0.82
+0.68/0.46
+0.50/0.30
+0.95/0.91
+DiffusionPolicy-T
+1.00/1.00
+1.00/1.00
+1.00/1.00
+1.00/0.94
+1.00/0.89
+0.95/0.81
+1.00/0.84
+0.62/0.35
+1.00/0.87
+0.95/0.79
+TABLE I: Behavior Cloning Benchmark (State Policy) We present success rates with different checkpoint selection methods in the format
+of (max performance) / (average of last 10 checkpoints), with each averaged across 3 training seeds and 50 different environment initial
+conditions (150 in total). LSTM-GMM corresponds to BC-RNN in RoboMimic[29], which we reproduced and obtained slightly better results
+than the original paper. Our results show that Diffusion Policy significantly improves state-of-the-art performance across the board.
+Lift
+Can
+Square
+Transport
+ToolHang
+Push-T
+ph
+mh
+ph
+mh
+ph
+mh
+ph
+mh
+ph
+ph
+LSTM-GMM [29]
+1.00/0.96
+1.00/0.95
+1.00/0.88
+0.98/0.90
+0.82/0.59
+0.64/0.38
+0.88/0.62
+0.44/0.24
+0.68/0.49
+0.69/0.54
+IBC [12]
+0.94/0.73
+0.39/0.05
+0.08/0.01
+0.00/0.00
+0.03/0.00
+0.00/0.00
+0.00/0.00
+0.00/0.00
+0.00/0.00
+0.75/0.64
+DiffusionPolicy-C
+1.00/1.00
+1.00/1.00
+1.00/0.97
+1.00/0.96
+0.98/0.92
+0.98/0.84
+1.00/0.93
+0.89/0.69
+0.95/0.73
+0.91/0.84
+DiffusionPolicy-T
+1.00/1.00
+1.00/0.99
+1.00/0.98
+1.00/0.98
+1.00/0.90
+0.94/0.80
+0.98/0.81
+0.73/0.50
+0.76/0.47
+0.78/0.66
+TABLE II: Behavior Cloning Benchmark (Visual Policy) Performance are reported in the same format as in Tab I. LSTM-GMM numbers
+were reproduced to get a complete evaluation in addition to the best checkpoint performance reported. Diffusion Policy shows consistent
+performance improvement, especially for complex tasks like Transport and ToolHang.
+0
+500
+1000
+Epoch
+0.0
+0.001
+0.002
+0.003
+0.004
+Train Action Pred MSE
+Real PushT Img
+0
+500
+1000
+Epoch
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Success Rate
+Sim PushT State
+Diffusion Policy
+IBC
+Fig. 7: Training Stability. Left: IBC fails to infer training actions
+with increasing accuracy despite smoothly decreasing training loss
+for energy function. Right: IBC’s evaluation success rate oscillates,
+making checkpoint selection difficult (evaluated using policy rollouts
+in simulation).
+V. EVALUATION
+We systematically evaluate Diffusion Policy on 12 tasks
+from 4 benchmarks [12, 15, 29, 42]. This evaluation suite
+includes both simulated and real environments, single and
+multiple task benchmarks, fully actuated and under-actuated
+systems, and rigid and fluid objects. We found Diffusion
+Policy to consistently outperform the prior state-of-the-art on
+all of the tested benchmarks, with an average success-rate
+improvement of 46.9%. In the following sections, we provide
+an overview of each task, our evaluation methodology on that
+task, and our key takeaways.
+A. Simulation Environments and datasets
+1) Robomimic: [29] is a large-scale robotic manipulation
+benchmark designed to study imitation learning and offline
+Task
+# Rob # Obj ActD #PH #MH Steps Img? HiPrec
+Simulation Benchmark
+Lift
+1
+1
+7
+200
+300
+400
+Yes
+No
+Can
+1
+1
+7
+200
+300
+400
+Yes
+No
+Square
+1
+1
+7
+200
+300
+400
+Yes
+Yes
+Transport
+2
+3
+14
+200
+300
+700
+Yes
+No
+ToolHang
+1
+2
+7
+200
+0
+700
+Yes
+Yes
+Push-T
+1
+1
+2
+200
+0
+300
+Yes
+Yes
+BlockPush
+1
+2
+2
+0
+0
+350
+No
+No
+Kitchen
+1
+7
+9
+656
+0
+280
+No
+No
+Realworld Benchmark
+Push-T
+1
+1
+2
+136
+0
+600
+Yes
+Yes
+6DoF Pour
+1
+liquid
+6
+90
+0
+600
+Yes
+No
+Periodic Spread
+1
+liquid
+6
+90
+0
+600
+Yes
+No
+Mug Flip
+1
+1
+7
+250
+0
+600
+Yes
+No
+TABLE III: Tasks Summary. # Rob: number of robots, #Obj: number
+of objects, ActD: action dimension, PH: proficient-human demonstra-
+tion, MH: multi-human demonstration, Steps: max number of rollout
+steps, HiPrec: whether the task has a high precision requirement.
+BlockPush uses 1000 episodes of scripted demonstrations.
+RL. The benchmark consists of 5 tasks with a proficient human
+(PH) teleoperated demonstration dataset for each and mixed
+proficient/non-proficient human (MH) demonstration datasets
+for 4 of the tasks (9 variants in total). For each variant, we
+report results for both state- and image-based observations.
+Properties for each task are summarized in Tab III.
+2) Push-T: adapted from IBC [12], requires pushing a T-
+shaped block (gray) to a fixed target (red) with a circular

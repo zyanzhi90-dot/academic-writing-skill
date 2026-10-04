@@ -1,0 +1,104 @@
+{
+  "case": "E04",
+  "stages": {
+    "drafting": {
+      "thread_id": "01a10794-3567-76f3-8c1b-50299379e7df",
+      "candidate_commit": "1be5954bdcbd24c9d7bbc390441cb34bd9dc4f72",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "first_output_sha256": "a4795bc1538a4823926affa785f4266c9cb50cece1ba79b2ff6dfa2f94c830c6",
+      "English_sha256": "8622ea60de5ecc38ba5dd683d3379e544f0733e04f614eb549d99496a82ffce1",
+      "Chinese_sha256": "bb715b17d13d6080b995e4108bd44904d79c2280c8face925c9f75cecc4b2a54",
+      "word_count": 175,
+      "sentence_count": 8,
+      "run_meta": {
+        "exit_code": 0,
+        "duration_seconds": 273.99,
+        "attempt": 1,
+        "first_output_exists": true,
+        "first_output_sha256": "a4795bc1538a4823926affa785f4266c9cb50cece1ba79b2ff6dfa2f94c830c6"
+      },
+      "usage": [
+        {
+          "input_tokens": 381794,
+          "cached_input_tokens": 337536,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5528,
+          "reasoning_output_tokens": 2395
+        }
+      ],
+      "core_return_checks": {
+        "skill-candidate/nature-shared/core/reader-workflow.md": true,
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md": true,
+        "skill-candidate/nature-shared/core/ethics.md": true,
+        "skill-candidate/nature-shared/core/terminology-ledger.md": true,
+        "skill-candidate/nature-shared/core/scientific-expression.md": true,
+        "skill-candidate/nature-writing/static/core/stance.md": true,
+        "skill-candidate/nature-writing/static/core/workflow.md": true,
+        "skill-candidate/nature-writing/static/core/output-format.md": true,
+        "skill-candidate/nature-writing/SKILL.md": true,
+        "skill-candidate/nature-writing/manifest.yaml": true,
+        "skill-candidate/nature-writing/static/fragments/section/abstract.md": true,
+        "skill-candidate/nature-shared/core/abstract-delivery.md": true
+      },
+      "first_progress_message": "我会先读取冻结 Skill 的路由和必需依赖，再按摘要任务选择范例，据此撰写英文摘要、中文翻译及必要作者说明。\n"
+    },
+    "polishing": {
+      "thread_id": "01a10799-49e3-7183-9877-2ceb82e662aa",
+      "candidate_commit": "1be5954bdcbd24c9d7bbc390441cb34bd9dc4f72",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "first_output_sha256": "161942ec8822b0fbde1f1a8b1fa36990d775cd0d6d06f66caebb2e60ac4ff35d",
+      "English_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "Chinese_sha256": "9b59f5a30abbd1fcbc4f367348da29cf06406d7770d41a090c95582ef399dbac",
+      "word_count": 175,
+      "sentence_count": 8,
+      "run_meta": {
+        "exit_code": 0,
+        "duration_seconds": 319.49,
+        "attempt": 1,
+        "first_output_exists": true,
+        "first_output_sha256": "161942ec8822b0fbde1f1a8b1fa36990d775cd0d6d06f66caebb2e60ac4ff35d"
+      },
+      "usage": [
+        {
+          "input_tokens": 402944,
+          "cached_input_tokens": 355968,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6520,
+          "reasoning_output_tokens": 3478
+        }
+      ],
+      "core_return_checks": {
+        "skill-candidate/nature-shared/core/reader-workflow.md": true,
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md": true,
+        "skill-candidate/nature-shared/core/ethics.md": true,
+        "skill-candidate/nature-shared/core/terminology-ledger.md": true,
+        "skill-candidate/nature-shared/core/scientific-expression.md": true,
+        "skill-candidate/nature-polishing/static/core/stance.md": true,
+        "skill-candidate/nature-polishing/static/core/failure-modes.md": true,
+        "skill-candidate/nature-polishing/static/core/output-format.md": true,
+        "skill-candidate/nature-polishing/SKILL.md": true,
+        "skill-candidate/nature-polishing/manifest.yaml": true,
+        "skill-candidate/nature-polishing/static/fragments/section/abstract.md": true,
+        "skill-candidate/nature-shared/core/abstract-delivery.md": true
+      },
+      "first_progress_message": "我会按冻结版 nature-polishing 的路由和依赖读取要求，先核定摘要的核心贡献，再参照选中范例的真实英文完成摘要、中文翻译和必要作者说明。\n"
+    }
+  },
+  "combined_delivery_source": "polishing/first-output.md",
+  "delivery_file_hashes": {
+    "abstract.en.txt": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+    "abstract.zh.txt": "9b59f5a30abbd1fcbc4f367348da29cf06406d7770d41a090c95582ef399dbac",
+    "English-stage-diff.patch": "9a5d3c980f8f339ada1a59143125a7b03dfc37a0450d1eb33630b39c26b25850",
+    "first-delivery.md": "161942ec8822b0fbde1f1a8b1fa36990d775cd0d6d06f66caebb2e60ac4ff35d"
+  },
+  "writer_invocations": 2,
+  "feedback_reruns": 0,
+  "English_manual_edits": 0,
+  "manual_content_or_order_feedback": 0,
+  "coordinator_operation": "Exact section extraction and file copy, no prose editing",
+  "separate_statuses_required": true,
+  "stability_pass_not_inferred": true,
+  "evaluation_timing": "Both complete first outputs saved before coordinator prose evaluation"
+}

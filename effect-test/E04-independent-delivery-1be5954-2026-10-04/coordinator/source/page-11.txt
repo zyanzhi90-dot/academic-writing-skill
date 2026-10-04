@@ -1,0 +1,114 @@
+be conceptually understood as learning the gradient field of
+an implicit action score and then optimizing that gradient
+during inference. Diffusion models [44, 18] have recently been
+applied to solve various different control tasks [20, 51, 1].
+In particular, Janner et al. [20] and Huang et al. [19] explore
+how diffusion models may be used in the context of planning
+and infer a trajectory of actions that may be executed in a given
+environment. In the context of Reinforcement Learning, Wang
+et al. [53] use diffusion model for policy representation and
+regularization with state-based observations. In contrast, in this
+work, we explore how diffusion models may instead be effec-
+tively applied in the context of behavioral cloning for effective
+visuomotor control policy. To construct effective visuomotor
+control policies, we propose to combine DDPM’s ability to
+predict high-dimensional action squences with closed-loop
+control, as well as a new transformer architecture for action
+diffusion and a manner to integrate visual inputs into the action
+diffusion model.
+Wang et al. [54] explore how diffusion models learned from
+expert demonstrations can be used to augment classical explicit
+polices without directly taking advantage of diffusion models
+as policy representation.
+Concurrent to us, Pearce et al. [34], Reuss et al. [39] and
+Hansen-Estruch et al. [16] has conducted a complimentary
+analysis of diffusion-based policies in simulated environments.
+While they focus more on effective sampling strategies, lever-
+aging classifier-free guidance for goal-conditioning as well
+as applications in Reinforcement Learning, and we focus on
+effective action spaces, our empirical findings largely concur
+in the simulated regime. In addition, our extensive real-
+world experiments provide strong evidence for the importance
+of a receding-horizon prediction scheme, the careful choice
+between velocity and position control, and the necessity of
+optimization for real-time inference and other critical design
+decisions for a physical robot system.
+VIII. LIMITATIONS AND FUTURE WORK
+Although we have demonstrated the effectiveness of diffu-
+sion policy in both simulation and real-world systems, there
+are limitations that future work can improve. First, our im-
+plementation inherits limitations from behavior cloning, such
+as suboptimal performance with inadequate demonstration
+data. Diffusion policy can be applied to other paradigms,
+such as reinforcement learning [54, 16], to take advantage of
+suboptimal and negative data. Second, diffusion policy has
+higher computational costs and inference latency compared
+to simpler methods like LSTM-GMM. Our action sequence
+prediction approach partially mitigates this issue, but may not
+suffice for tasks requiring high rate control. Future work can
+exploit the latest advancements in diffusion model acceleration
+methods to reduce the number of inference steps required,
+such as new noise schedules[7], inference solvers[23], and
+consistency models [47].
+IX. CONCLUSION
+In this work, we assess the feasibility of diffusion-based
+policies for robot behaviors. Through a comprehensive evalu-
+ation of 12 tasks in simulation and the real world, we demon-
+strate that diffusion-based visuomotor policies consistently
+and definitively outperform existing methods while also being
+stable and easy to train. Our results also highlight critical
+design factors, including receding-horizon action prediction,
+end-effector position control, and efficient visual conditioning,
+that is crucial for unlocking the full potential of diffusion-
+based policies. While many factors affect the ultimate quality
+of behavior-cloned policies — including the quality and quan-
+tity of demonstrations, the physical capabilities of the robot,
+the policy architecture, and the pretraining regime used —
+our experimental results strongly indicate that policy structure
+poses a significant performance bottleneck during behavior
+cloning. We hope that this work drives further exploration
+in the field into diffusion-based policies and highlights the
+importance of considering all aspects of the behavior cloning
+process beyond just the data used for policy training.
+X. ACKNOWLEDGEMENT
+This work was supported in part by NSF Awards 2037101,
+2132519, 2037101, and Toyota Research Institute. We would
+like to thank Google for the UR5 robot hardware. The views
+and conclusions contained herein are those of the authors
+and should not be interpreted as necessarily representing the
+official policies, either expressed or implied, of the sponsors.
+REFERENCES
+[1] Anurag Ajay, Yilun Du, Abhi Gupta, Joshua Tenenbaum,
+Tommi Jaakkola, and Pulkit Agrawal.
+Is conditional
+generative modeling all you need for decision-making?
+arXiv preprint arXiv:2211.15657, 2022. 11
+[2] Brenna D Argall, Sonia Chernova, Manuela Veloso,
+and Brett Browning. A survey of robot learning from
+demonstration.
+Robotics and autonomous systems, 57
+(5):469–483, 2009. 10
+[3] Christopher G Atkeson and Stefan Schaal. Robot learn-
+ing from demonstration.
+In ICML, volume 97, pages
+12–20, 1997. 10
+[4] Yahav Avigal, Lars Berscheid, Tamim Asfour, Torsten
+Kröger, and Ken Goldberg. Speedfolding: Learning effi-
+cient bimanual folding of garments. In 2022 IEEE/RSJ
+International Conference on Intelligent Robots and Sys-
+tems (IROS), pages 1–8. IEEE, 2022. 10
+[5] Christopher M Bishop. Mixture density networks. Aston
+University, 1994. 10
+[6] Mariusz
+Bojarski,
+Davide
+Del
+Testa,
+Daniel
+Dworakowski, Bernhard Firner, Beat Flepp, Prasoon
+Goyal, Lawrence D Jackel, Mathew Monfort, Urs
+Muller, Jiakai Zhang, et al.
+End to end learning for
+self-driving cars.
+arXiv preprint arXiv:1604.07316,
+2016. 10

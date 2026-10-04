@@ -1,0 +1,135 @@
+[7] Ting Chen.
+On the importance of noise scheduling
+for diffusion models. arXiv preprint arXiv:2301.10972,
+2023. 11
+[8] Bo Dai, Zhen Liu, Hanjun Dai, Niao He, Arthur Gretton,
+Le Song, and Dale Schuurmans. Exponential family es-
+timation via adversarial dynamics embedding. Advances
+in Neural Information Processing Systems, 32, 2019. 10
+[9] Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li,
+and Li Fei-Fei.
+Imagenet: A large-scale hierarchical
+image database. In 2009 IEEE conference on computer
+vision and pattern recognition, pages 248–255. Ieee,
+2009. 8
+[10] Yilun Du and Igor Mordatch. Implicit generation and
+generalization in energy-based models.
+arXiv preprint
+arXiv:1903.08689, 2019. 10
+[11] Yilun Du, Shuang Li, Joshua Tenenbaum, and Igor
+Mordatch. Improved contrastive divergence training of
+energy based models. arXiv preprint arXiv:2012.01316,
+2020. 1, 5, 10
+[12] Pete Florence, Corey Lynch, Andy Zeng, Oscar A
+Ramirez, Ayzaan Wahid, Laura Downs, Adrian Wong,
+Johnny Lee, Igor Mordatch, and Jonathan Tompson.
+Implicit behavioral cloning. In 5th Annual Conference
+on Robot Learning, 2021. 1, 2, 4, 5, 6, 7, 8, 10
+[13] Peter Florence, Lucas Manuelli, and Russ Tedrake. Self-
+supervised correspondence in visuomotor policy learn-
+ing. IEEE Robotics and Automation Letters, 5(2):492–
+499, 2019. 4, 7, 10
+[14] Will Grathwohl, Kuan-Chieh Wang, Joern-Henrik Jacob-
+sen, David Duvenaud, and Richard Zemel.
+Learning
+the stein discrepancy for training and evaluating energy-
+based models without sampling. In International Con-
+ference on Machine Learning, 2020. 10
+[15] Abhishek Gupta, Vikash Kumar, Corey Lynch, Sergey
+Levine, and Karol Hausman. Relay policy learning: Solv-
+ing long-horizon tasks via imitation and reinforcement
+learning. arXiv preprint arXiv:1910.11956, 2019. 2, 6,
+7
+[16] Philippe Hansen-Estruch, Ilya Kostrikov, Michael Janner,
+Jakub Grudzien Kuba, and Sergey Levine. Idql: Implicit
+q-learning as an actor-critic method with diffusion poli-
+cies. arXiv preprint arXiv:2304.10573, 2023. 11
+[17] Kaiming He, Haoqi Fan, Yuxin Wu, Saining Xie, and
+Ross Girshick.
+Momentum contrast for unsupervised
+visual representation learning.
+In Proceedings of the
+IEEE/CVF conference on computer vision and pattern
+recognition, pages 9729–9738, 2020. 4
+[18] Jonathan Ho, Ajay Jain, and Pieter Abbeel.
+De-
+noising diffusion probabilistic models.
+arXiv preprint
+arXiv:2006.11239, 2020. 1, 2, 4, 11
+[19] Siyuan Huang, Zan Wang, Puhao Li, Baoxiong Jia,
+Tengyu Liu, Yixin Zhu, Wei Liang, and Song-Chun Zhu.
+Diffusion-based generation, optimization, and planning
+in 3d scenes.
+arXiv preprint arXiv:2301.06015, 2023.
+11
+[20] Michael Janner, Yilun Du, Joshua Tenenbaum, and
+Sergey Levine.
+Planning with diffusion for flexible
+behavior synthesis.
+In International Conference on
+Machine Learning, 2022. 3, 11
+[21] Michael Janner, Yilun Du, Joshua Tenenbaum, and
+Sergey Levine.
+Planning with diffusion for flexible
+behavior synthesis.
+In Kamalika Chaudhuri, Stefanie
+Jegelka, Le Song, Csaba Szepesvari, Gang Niu, and Sivan
+Sabato, editors, Proceedings of the 39th International
+Conference on Machine Learning, Proceedings of Ma-
+chine Learning Research. PMLR, 17–23 Jul 2022. 3
+[22] Daniel Jarrett, Ioana Bica, and Mihaela van der Schaar.
+Strictly batch imitation learning by energy-based dis-
+tribution matching.
+Advances in Neural Information
+Processing Systems, 33:7354–7365, 2020. 10
+[23] Tero Karras, Miika Aittala, Timo Aila, and Samuli Laine.
+Elucidating the design space of diffusion-based genera-
+tive models. arXiv preprint arXiv:2206.00364, 2022. 11
+[24] Yann LeCun, Sumit Chopra, Raia Hadsell, Fu Jie Huang,
+and et al.
+A tutorial on energy-based learning.
+In
+Predicting Structured Data. MIT Press, 2006. 10
+[25] Liyuan Liu, Xiaodong Liu, Jianfeng Gao, Weizhu Chen,
+and Jiawei Han. Understanding the difficulty of training
+transformers. arXiv preprint arXiv:2004.08249, 2020. 4
+[26] Nan Liu, Shuang Li, Yilun Du, Antonio Torralba, and
+Joshua B Tenenbaum.
+Compositional visual genera-
+tion with composable diffusion models. arXiv preprint
+arXiv:2206.01714, 2022. 5
+[27] Ajay Mandlekar, Fabio Ramos, Byron Boots, Silvio
+Savarese, Li Fei-Fei, Animesh Garg, and Dieter Fox.
+Iris: Implicit reinforcement without interaction at scale
+for learning control from offline robot manipulation data.
+In 2020 IEEE International Conference on Robotics and
+Automation (ICRA). IEEE, 2020. 4, 7, 10
+[28] Ajay Mandlekar, Danfei Xu, Roberto Martín-Martín,
+Silvio Savarese, and Li Fei-Fei. Learning to generalize
+across long-horizon tasks from human demonstrations.
+arXiv preprint arXiv:2003.06085, 2020. 4, 7, 10
+[29] Ajay Mandlekar, Danfei Xu, Josiah Wong, Soroush
+Nasiriany, Chen Wang, Rohun Kulkarni, Li Fei-Fei,
+Silvio Savarese, Yuke Zhu, and Roberto Martín-Martín.
+What matters in learning from offline human demonstra-
+tions for robot manipulation. In 5th Annual Conference
+on Robot Learning, 2021. 1, 2, 4, 6, 7, 10, 14
+[30] David Q Mayne and Hannah Michalska.
+Receding
+horizon control of nonlinear systems.
+In Proceedings
+of the 27th IEEE Conference on Decision and Control,
+pages 464–465. IEEE, 1988. 3
+[31] Suraj Nair, Aravind Rajeswaran, Vikash Kumar, Chelsea
+Finn, and Abhinav Gupta.
+R3m: A universal visual
+representation for robot manipulation.
+In 6th Annual
+Conference on Robot Learning, 2022. 8
+[32] Radford M Neal et al. Mcmc using hamiltonian dynam-
+ics. Handbook of markov chain monte carlo, 2011. 1
+[33] Alexander Quinn Nichol and Prafulla Dhariwal.
+Im-
+proved denoising diffusion probabilistic models.
+In
+International Conference on Machine Learning, pages

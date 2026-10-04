@@ -1,0 +1,64 @@
+pizza dough as well as the poured sauce shape are varied.
+For resetting, we manually gather sauce towards the center
+of the dough, and wipe the remaining dough clean. The
+rotational components for tele-op commands are discarded
+during spreading and sauce transferring to avoid accidentally
+scooping or spilling sauce.
+2) Evaluation: Both Diffusion Policy and LSTM-GMM
+are trained for 1000 epochs. The last checkpoint is used for
+evaluation.
+Each method is evaluated from the same set of random
+initial conditions, where positions of the pizza dough and
+sauce bowl are varied. We use a similar protocol as in Push-
+T to set up initial conditions. We do not try to match initial
+shape of poured sauce for spreading. Instead, we make sure
+the amount of sauce is fixed during all experiments.
+The evaluation episodes are terminated by moving the spoon
+upward (away form the dough) for 0.5 seconds, or when the
+operator deems the policy’s behavior is unsafe.
+The coverage metric is computed by first projecting the
+RGB image from both the left and right cameras onto the
+table space through homography, then computing the coverage
+in each projected image. The maximum coverage between the
+left and right cameras is reported.
+3) UR5 robot station: Experiments for the Push-T task are
+performed on the UR5 robot station.
+The UR5 robot accepts end-effector space positional com-
+mand at 125Hz, which is linearly interpolated from the 10Hz
+command from either human demonstration or the policy. The
+interpolation controller limits the end-effector velocity to be
+below 0.43 m/s and its position to be within the region 1cm
+above the table for safety reason. Position-controlled policies
+directly predicts the desired end-effector pose, while velocity-
+controlled policies predicts the difference the current positional
+setpoint and the previous setpoint.
+The UR5 robot station has 5 realsense D415 depth camera
+recording 720p RGB videos at 30fps. Only 2 of the cameras
+are used for policy observation, which are down-sampled to
+320x240 at 10fps.
+During demonstration, the operator teleoperates the robot
+via a 3dconnexion SpaceMouse at 10Hz.
+J. Franka robot station
+Experiments for Sauce Pouring and Spreading tasks are
+performed on the Franka robot station.
+A custom mid-level controller is implemented to generate
+desired joint positions from desired end effector poses from
+the learned policies. At each time step, we solve a differential
+kinematics problem (formulated as a Quadratic Program) to
+compute the desired joint velocity to track the desired end
+effector velocity. The resulting joint velocity is Euler inte-
+grated into joint position, which is tracked by a joint level
+controller on the robot. This formulation allows us to impose
+constraints such as collision avoidance, safety region for end
+effector and joint limits. It also enables regulating redundant
+DoF in the null space of the end effector commands. This
+mid-level controller is particularly valuable for safeguarding
+the learned policy during hardware deployment.
+The operator uses a SpaceMouse input device to control
+robot’s end effector, and the gripper is controlled by a trigger
+button. Tele-op and learned policies run at 10Hz, and the mid-
+level controller runs around 1kHz. Desired end effector pose
+commands are interpolated by the mid-level controller. This
+station has 2 realsense D415 RGBD camera streaming VGA
+RGB images at 30fps, which are downsampled to 320x240 at
+10fps as input to the learned policies.

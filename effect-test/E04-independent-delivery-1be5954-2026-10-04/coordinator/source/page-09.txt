@@ -1,0 +1,67 @@
+Time
+Diffusion
+Policy
+(R3M)
+Avg of End States
+Diffusion
+Policy
+(End2End)
+LSTM-GMM
+(End2End)
+IBC
+(End2End)
+A
+C
+D
+B
+Fig. 8: Realworld Push-T Comparisons. Columns 1-4 show action trajectories based on key events. The last column shows averaged images
+of the end state. A: Diffusion policy (End2End) achieves more accurate and consistent end states. B: Diffusion Policy (R3M) gets stuck
+initially but later recovers and finishes the task. C: LSTM-GMM fails to reach the end zone while adjusting the T block, blocking the eval
+camera view. D: IBC prematurely ends the pushing stage.
+Visual 
+Occlusion
+Perturbation during
+ Pushing Stage
+Perturbation during 
+Finishing Stage
+Fig. 9: Robustness Test for Diffusion Policy. Left: A waving hand
+in front of the camera for 3 seconds causes slight jitter, but the
+predicted actions still function as expected. Middle: Diffusion Policy
+immediately corrects shifted block position to the goal state during
+the pushing stage. Right: Policy immediately aborts heading to the
+end zone, returning the block to goal state upon detecting block shift.
+This novel behavior was never demonstrated. Please check the videos
+in the supplementary material.
+handle pointing left, as shown in Fig. 10. Depending on the
+mug’s initial pose, the demonstrator might directly place the
+mug in desired orientation, or may use additional push of the
+handle to rotation the mug. As a result, the demonstration
+dataset is highly multi-modal: grasp vs push, different types
+of grasps (forehand vs backhand) or local grasp adjustments
+(rotation around mug’s principle axis), and are particularly
+challenging for baseline approaches to capture.
+Result Analysis. Diffusion policy is able to complete this
+task with 90% success rate over 20 trials. The richness of
+2
+1
+Human
+LSTM-GMM
+Diffusion Policy
+Succ %
+1.0
+0.0
+0.9
+Fig. 10: 6DoF Mug Flipping Task. The robot needs to 1⃝Pickup
+a randomly placed mug and place it lip down (marked orange). 2⃝
+Rotate the mug such that its handle is pointing left.
+captured behaviors is best appreciated with the video. Al-
+though never demonstrated, the policy is also able to sequence
+multiple pushes for handle alignment or regrasps for dropped
+mug when necessary. For comparison, we also train a LSTM-
+GMM policy trained with a subset of the same data. For 20 in-
+distribution initial conditions, the LSTM-GMM policy never
+aligns properly with respect to the mug, and fails to grasp in
+all trials.
+C. Sauce Pouring and Spreading
+The sauce pouring and spreading tasks are designed to test
+Diffusion Policy’s ability to work with non-rigid objects, 6

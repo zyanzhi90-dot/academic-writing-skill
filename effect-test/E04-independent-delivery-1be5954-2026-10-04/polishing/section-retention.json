@@ -1,0 +1,21 @@
+{
+  "stage": "polishing",
+  "source": "first-output.md",
+  "source_sha256": "161942ec8822b0fbde1f1a8b1fa36990d775cd0d6d06f66caebb2e60ac4ff35d",
+  "sections": {
+    "first-abstract.en.txt": {
+      "sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "exact_original_substring": true,
+      "heading": "**English abstract**",
+      "operation": "Separate the original section; only surrounding line breaks normalized"
+    },
+    "first-abstract.zh.txt": {
+      "sha256": "9b59f5a30abbd1fcbc4f367348da29cf06406d7770d41a090c95582ef399dbac",
+      "exact_original_substring": true,
+      "heading": "**中文翻译**",
+      "operation": "Separate the original section; only surrounding line breaks normalized"
+    }
+  },
+  "English_wording_changed": false,
+  "assessment_or_author_notes_sent_to_polishing": false
+}

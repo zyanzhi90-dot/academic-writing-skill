@@ -1,0 +1,19 @@
+{
+  "target_not_a_corpus_pdf": true,
+  "target_abstract_opening_exact_matches": [],
+  "title_and_term_mentions": {
+    "Visuomotor Policy Learning via Action Diffusion": [
+      {
+        "path": "analysis/reading/P06.txt",
+        "count": 1
+      }
+    ],
+    "Diffusion Policy": [
+      {
+        "path": "analysis/reading/P06.txt",
+        "count": 2
+      }
+    ]
+  },
+  "interpretation": "Target is not a library paper or card. Citation and background mentions inside allowed reference papers may exist; these are disclosed, not a claim of absent model prior knowledge."
+}

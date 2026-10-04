@@ -1,0 +1,128 @@
+[59] Andy Zeng, Pete Florence, Jonathan Tompson, Stefan
+Welker, Jonathan Chien, Maria Attarian, Travis Arm-
+strong, Ivan Krasin, Dan Duong, Vikas Sindhwani, et al.
+Transporter networks: Rearranging the visual world for
+robotic manipulation. In Conference on Robot Learning,
+pages 726–747. PMLR, 2021. 10
+[60] Tianhao Zhang, Zoe McCarthy, Owen Jow, Dennis Lee,
+Xi Chen, Ken Goldberg, and Pieter Abbeel.
+Deep
+imitation learning for complex manipulation tasks from
+virtual reality teleoperation. In 2018 IEEE International
+Conference on Robotics and Automation (ICRA), pages
+5628–5635. IEEE, 2018. 4, 7, 10
+[61] Yi Zhou, Connelly Barnes, Jingwan Lu, Jimei Yang, and
+Hao Li.
+On the continuity of rotation representations
+in neural networks.
+In Proceedings of the IEEE/CVF
+Conference on Computer Vision and Pattern Recognition,
+pages 5745–5753, 2019. 14
+APPENDIX
+A. Normalization
+Properly normalizing action data is critical to achieve best
+performance for Diffusion Policy. Scaling the min and max of
+each action dimension independently to [−1,1] works well
+for most tasks. Since DDPMs clip prediction to [−1,1] at
+each iteration to ensure stability, the common zero-mean unit-
+variance normalization will cause some region of the action
+space to be inaccessible. When the data variance is small (e.g.,
+near constant value), shift the data to zero-mean without scal-
+ing to prevent numerical issues. We leave action dimensions
+corresponding to rotation representations (e.g. Quaternion)
+unchanged.
+B. Rotation Representation
+For all environments with velocity control action space,
+we followed the standard practice [29] to use 3D axis-angle
+representation for the rotation component of action. Since ve-
+locity action commands are usually close to 0, the singularity
+and discontinuity of the axis-angle representation don’t usu-
+ally cause problems. We used the 6D rotation representation
+proposed in Zhou et al. [61] for all environments (real-world
+and simulation) with positional control action space.
+C. Image Augmentation
+Following Mandlekar et al. [29], we employed random crop
+augmentation during training. The crop size for each task is
+indicated in Tab. VI. During inference, we take a static center
+crop with the same size.
+D. Hyperparameters
+Hyerparameters used for Diffusion Policy on both simula-
+tion and realworld benchmarks are shown in Tab. VI and Tab.
+VII. Since the Block Push task uses a Markovian scripted
+oracle policy to generate demonstration data, we found its
+optimal hyper parameter for observation and action horizon
+to be very different from other tasks with human teleop
+demostrations.
+1 2 3 4 5 6 7 8
+0.3
+0.2
+0.1
+0.0
+Relative Perf Change
+State-CNN
+1 2 3 4 5 6 7 8
+Obs Horizon (steps)
+Vision-CNN
+1 2 3 4 5 6 7 8
+Vision-Transformer
+PushT
+Square
+Fig. 12: Observation Horizon Ablation Study. State-based Dif-
+fusion Policy is not sensitive to observation horizon. Vision-based
+Diffusion Policy prefers low but > 1 observation horizon, with 2
+being a good compromise for most tasks.
+40
+60
+90
+130
+200
+# Training Demo Episodes
+0.0
+-0.1
+-0.2
+-0.3
+-0.4
+-0.5
+-0.6
+-0.7
+Relative Perf Change
+Push-T Data Efficiency
+40
+60
+90
+130
+200
+# Training Demo Episodes
+Square Data Efficiency
+DiffusionPolicy
+LSTM-GMM
+Fig. 13: Data Efficiency Ablation Study. Diffusion Policy outper-
+forms LSTM-GMM [29] at every training dataset size.
+We found that the optimal hyperparameters for CNN-
+based Diffusion Policy are consistent across tasks. In contrast,
+transformer-based Diffusion Policy’s optimal attention dropout
+rate and weight decay varies greatly across different tasks.
+During tuning, we found increasing the number of parameters
+in CNN-based Diffusion Policy always improves performance,
+therefore the optimal model size is limited by the available
+compute and memory capacity. On the other hand, increasing
+model size for transformer-based Diffusion Policy (in particu-
+lar number of layers) hurts performance sometimes. For CNN-
+based Diffusion Policy, We found using FiLM conditioning
+to pass-in observations is better than impainting on all tasks
+except Push-T. Performance reported for DiffusionPolicy-C on
+Push-T in Tab. I used impaiting instead of FiLM.
+On simulation benchmarks, we used the iDDPM algorithm
+[33] with the same 100 denoising diffusion iterations for both
+training and inference. We used DDIM [45] on realworld
+benchmarks to reduce the inference denoising iterations to 16
+therefore reducing inference latency.
+We used batch size of 256 for all state-based experiments
+and 64 for all image-based experiments. For learning-rate
+scheduling, we used cosine schedule with linear warmup.
+CNN-based Diffusion Policy is warmed up for 500 steps while
+Transformer-based Diffusion Policy is warmed up for 1000
+steps.
+E. Data Efficiency
+We found Diffusion Policy to outperform LSTM-GMM [29]
+at every training dataset size, as shown in Fig. 13.

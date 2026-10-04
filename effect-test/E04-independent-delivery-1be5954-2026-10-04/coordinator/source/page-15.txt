@@ -1,0 +1,369 @@
+H-Param
+Ctrl
+To
+Ta
+Tp
+ImgRes
+CropRes
+#D-Params
+#V-Params
+Lr
+WDecay
+D-Iters Train
+D-Iters Eval
+Lift
+Pos
+2
+8
+16
+2x84x84
+2x76x76
+256
+22
+1e-4
+1e-6
+100
+100
+Can
+Pos
+2
+8
+16
+2x84x84
+2x76x76
+256
+22
+1e-4
+1e-6
+100
+100
+Square
+Pos
+2
+8
+16
+2x84x84
+2x76x76
+256
+22
+1e-4
+1e-6
+100
+100
+Transport
+Pos
+2
+8
+16
+4x84x85
+4x76x76
+264
+45
+1e-4
+1e-6
+100
+100
+ToolHang
+Pos
+2
+8
+16
+2x240x240
+2x216x216
+256
+22
+1e-4
+1e-6
+100
+100
+Push-T
+Pos
+2
+8
+16
+1x96x96
+1x84x84
+256
+22
+1e-4
+1e-6
+100
+100
+Block Push
+Pos
+3
+1
+12
+N/A
+N/A
+256
+0
+1e-4
+1e-6
+100
+100
+Kitchen
+Pos
+2
+8
+16
+N/A
+N/A
+256
+0
+1e-4
+1e-6
+100
+100
+Real Push-T
+Pos
+2
+6
+16
+2x320x240
+2x288x216
+67
+22
+1e-4
+1e-6
+100
+16
+Real Pour
+Pos
+2
+8
+16
+2x320x240
+2x288x216
+67
+22
+1e-4
+1e-6
+100
+16
+Real Spread
+Pos
+2
+8
+16
+2x320x240
+2x288x216
+67
+22
+1e-4
+1e-6
+100
+16
+Real Mug Flip
+Pos
+2
+8
+16
+2x320x240
+2x288x216
+67
+22
+1e-4
+1e-6
+100
+16
+TABLE VI: Hyperparameters for CNN-based Diffusion Policy Ctrl: position or velocity control To: observation horizon Ta: action horizon
+Tp: action prediction horizon ImgRes: environment observation resolution (Camera views x W x H) CropRes: random crop resolution #D-
+Params: diffusion network number of parameters in millions #V-Params: vision encoder number of parameters in millions Lr: learining rate
+WDecay: weight decay D-Iters Train: number of training diffusion iterations D-Iters Eval: number of inference diffusion iterations (enabled
+by DDIM [45])
+H-Param
+Ctrl
+To
+Ta
+Tp
+#D-params
+#V-params
+#Layers
+Emb Dim
+Attn Dropout
+Lr
+WDecay
+D-Iters Train
+D-Iters Eval
+Lift
+Pos
+2
+8
+10
+9
+22
+8
+256
+0.3
+1e-4
+1e-3
+100
+100
+Can
+Pos
+2
+8
+10
+9
+22
+8
+256
+0.3
+1e-4
+1e-3
+100
+100
+Square
+Pos
+2
+8
+10
+9
+22
+8
+256
+0.3
+1e-4
+1e-3
+100
+100
+Transport
+Pos
+2
+8
+10
+9
+45
+8
+256
+0.3
+1e-4
+1e-3
+100
+100
+ToolHang
+Pos
+2
+8
+10
+9
+22
+8
+256
+0.3
+1e-4
+1e-3
+100
+100
+Push-T
+Pos
+2
+8
+16
+9
+22
+8
+256
+0.01
+1e-4
+1e-1
+100
+100
+Block Push
+Vel
+3
+1
+5
+9
+0
+8
+256
+0.3
+1e-4
+1e-3
+100
+100
+Kitchen
+Pos
+4
+8
+16
+80
+0
+8
+768
+0.1
+1e-4
+1e-3
+100
+100
+Real Push-T
+Pos
+2
+6
+16
+80
+22
+8
+768
+0.3
+1e-4
+1e-3
+100
+16
+TABLE VII: Hyperparameters for Transformer-based Diffusion Policy Ctrl: position or velocity control To: observation horizon Ta: action
+horizon Tp: action prediction horizon #D-Params: diffusion network number of parameters in millions #V-Params: vision encoder number
+of parameters in millions Emb Dim: transformer token embedding dimension Attn Dropout: transformer attention dropout probability Lr:
+learining rate WDecay: weight decay (for transformer only) D-Iters Train: number of training diffusion iterations D-Iters Eval: number of
+inference diffusion iterations (enabled by DDIM [45])
+F. Observation Horizon
+We found state-based Diffusion Policy to be insensitive to
+observation horizon, as shown in Fig. 12. However, vision-
+based Diffusion Policy, in particular the variant with CNN
+backbone, see performance decrease with increasing observa-
+tion horizon. In practice, we found an observation horizon
+of 2 is good for most of the tasks for both state and image
+observations.
+G. Performance Improvement Calculation
+For each task i (column) reported in Tab. I, Tab. II and Tab.
+IV (mh results ignored), we find the maximum performance
+for baseline methods max_baselinei and the maximum per-
+formance for Diffusion Policy variant (CNN vs Transformer)
+max_oursi. For each task, the performance improvement is
+calculated as improvementi = max_oursi−max_baselinei
+max_baselinei
+(positive
+for all tasks). Finally, the average improvement is calculated as
+avg_improvement = 1
+N ∑i
+N improvementi = 0.46858 ≈46.9%.
+H. Push-T
+1) Demonstrations: 136 demonstrations are collected and
+used for training. The initial condition is varied by randomly
+pushing or tossing the T block onto the table. Prior to this
+data collection session, the operator has performed this task
+for many hours and should be considered proficient at this
+task.
+2) Evaluation: We used a fixed training time of 12 hours
+for each method, and selected the last checkpoint for each,
+with the exception of IBC, where the checkpoint with min-
+imum training set action prediction MSE error due to IBC’s
+training stability issue. The difficulty of training and check-
+point selection for IBC is demonstrated in main text Fig. 7.
+Each method is evaluated for 20 episodes, all starting from
+the same set of initial conditions. To ensure the consistency
+of initial conditions, we carefully adjusted the pose of the T
+block and the robot according to overlayed images from the
+top-down camera.
+Each evaluation episode is terminated by either keeping the
+end-effector within the end-zone for more than 0.5 second, or
+by reaching the 60 sec time limit.
+The IoU metric is directly computed in the top-down camera
+pixel space.
+I. Sauce Pouring and Spreading
+1) Demonstrations: 50 demonstrations are collected, and
+90% are used for training for each task. For pouring, initial
+locations of the pizza dough and sauce bowl are varied. After
+each demonstration, sauce is poured back into the bowl, and
+the dough is wiped clean. For spreading, location of the

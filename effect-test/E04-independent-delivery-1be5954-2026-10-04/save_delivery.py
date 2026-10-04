@@ -1,0 +1,47 @@
+"""Retain Polishing's first delivery exactly, with separate stage provenance."""
+from pathlib import Path
+import difflib
+import hashlib
+import json
+import re
+import shutil
+
+RECORD = Path(__file__).resolve().parent
+sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+dest = RECORD/'delivery'
+assert not dest.exists()
+dest.mkdir()
+for source, name in [('first-output.md','first-delivery.md'), ('first-abstract.en.txt','abstract.en.txt'), ('first-abstract.zh.txt','abstract.zh.txt')]:
+    p=RECORD/'polishing'/source
+    shutil.copyfile(p,dest/name)
+    assert p.read_bytes()==(dest/name).read_bytes()
+stages={}
+for stage in ('drafting','polishing'):
+    p=RECORD/stage
+    frozen=json.loads((p/'frozen-run.json').read_text(encoding='utf-8'))
+    loading=json.loads((p/'loading-and-retention.json').read_text(encoding='utf-8'))
+    events=[json.loads(s) for s in (p/'events.jsonl').read_text(encoding='utf-8').splitlines()]
+    en=(p/'first-abstract.en.txt').read_text(encoding='utf-8').strip()
+    stages[stage]={
+        'thread_id':loading['thread']['thread_id'],
+        'candidate_commit':frozen['candidate_commit'], 'model':frozen['model'], 'reasoning_effort':frozen['reasoning_effort'],
+        'first_output_sha256':sha(p/'first-output.md'), 'English_sha256':sha(p/'first-abstract.en.txt'),
+        'Chinese_sha256':sha(p/'first-abstract.zh.txt'),
+        'word_count':len(en.split()), 'sentence_count':len(re.split(r'(?<=[.!?])\s+(?=[A-Z])',en)),
+        'run_meta':json.loads((p/'run-meta.json').read_text(encoding='utf-8')),
+        'usage':[e.get('usage') for e in events if e.get('type')=='turn.completed'],
+        'first_progress_message':next(e['item']['text'] for e in events if e.get('type')=='item.completed' and e.get('item',{}).get('type')=='agent_message'),
+        'core_return_checks':loading['core_full_return_status'],
+    }
+assert stages['drafting']['thread_id']!=stages['polishing']['thread_id']
+original=(RECORD/'drafting/first-abstract.en.txt').read_text(encoding='utf-8')
+final=(RECORD/'polishing/first-abstract.en.txt').read_text(encoding='utf-8')
+(dest/'English-stage-diff.patch').write_text(''.join(difflib.unified_diff(original.splitlines(True),final.splitlines(True),fromfile='Drafting first abstract',tofile='Polishing first abstract')),encoding='utf-8')
+report={'case':'E04','stages':stages,'combined_delivery_source':'polishing/first-output.md',
+        'delivery_file_hashes':{p.name:sha(p) for p in dest.iterdir() if p.is_file()},
+        'writer_invocations':2,'feedback_reruns':0,'English_manual_edits':0,'manual_content_or_order_feedback':0,
+        'coordinator_operation':'Exact section extraction and file copy, no prose editing',
+        'separate_statuses_required':True,'stability_pass_not_inferred':True,
+        'evaluation_timing':'Both complete first outputs saved before coordinator prose evaluation'}
+(dest/'provenance.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({s:{k:v[k] for k in ['thread_id','word_count','sentence_count','first_progress_message']} for s,v in stages.items()},ensure_ascii=False,indent=2))

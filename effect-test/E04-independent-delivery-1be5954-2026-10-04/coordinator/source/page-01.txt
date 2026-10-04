@@ -1,0 +1,90 @@
+Robotics: Science and Systems 2023
+Daegu, Republic of Korea, July 10-July 14, 2023
+Diffusion Policy:
+Visuomotor Policy Learning via Action Diffusion
+Cheng Chi1, Siyuan Feng2, Yilun Du3, Zhenjia Xu1, Eric Cousineau2, Benjamin Burchfiel2, Shuran Song1
+1 Columbia University
+2 Toyota Research Institute
+3 MIT
+https://diffusion-policy.cs.columbia.edu
+Mixture of Gaussians
+Explicit Policy
+(a) Explicit Policy
+(b) Implicit Policy
+(c) Diffusion Policy
+Implicit Policy
+Diffusion Policy
+ iter
+Action 
+Representation
+Scalar (Regression)
+Categorical
+Fig. 1: Policy Representations. a) Explicit policy with different types of action representations. b) Implicit policy learns an energy function
+conditioned on both action and observation and optimizes for actions that minimize the energy landscape c) Diffusion policy refines noise
+into actions via a learned gradient field. This formulation provides stable training, allows the learned policy to accurately model multimodal
+action distributions, and accommodates high-dimensional action sequences.
+Abstract—This paper introduces Diffusion Policy, a new way of
+generating robot behavior by representing a robot’s visuomotor
+policy as a conditional denoising diffusion process. We bench-
+mark Diffusion Policy across 12 different tasks from 4 different
+robot manipulation benchmarks and find that it consistently
+outperforms existing state-of-the-art robot learning methods with
+an average improvement of 46.9%. Diffusion Policy learns the
+gradient of the action-distribution score function and iteratively
+optimizes with respect to this gradient field during inference
+via a series of stochastic Langevin dynamics steps. We find
+that the diffusion formulation yields powerful advantages when
+used for robot policies, including gracefully handling multimodal
+action distributions, being suitable for high-dimensional action
+spaces, and exhibiting impressive training stability. To fully
+unlock the potential of diffusion models for visuomotor policy
+learning on physical robots, this paper presents a set of key
+technical contributions including the incorporation of receding
+horizon control, visual conditioning, and the time-series diffusion
+transformer. We hope this work will help motivate a new
+generation of policy learning techniques that are able to leverage
+the powerful generative modeling capabilities of diffusion models.
+Code, data, and training details will be publicly available.
+I. INTRODUCTION
+Policy learning from demonstration, in its simplest form,
+can be formulated as the supervised regression task of learning
+to map observations to actions. In practice however, the unique
+nature of predicting robot actions — such as the existence
+of multimodal distributions, sequential correlation, and the
+requirement of high precision — makes this task distinct and
+challenging compared to other supervised learning problems.
+Prior work attempts to address this challenge by exploring
+different action representations (Fig 1 a) – using mixtures
+of Gaussians [29], categorical representations of quantized
+actions [42], or by switching the the policy representation (Fig
+1 b) – from explicit to implicit to better capture multi-modal
+distributions [12, 56].
+In this work, we seek to address this challenge by intro-
+ducing a new form of robot visuomotor policy that generates
+behavior via a “conditional denoising diffusion process [18]
+on robot action space”, Diffusion Policy. In this formulation,
+instead of directly outputting an action, the policy infers the
+action-score gradient, conditioned on visual observations, for
+K denoising iterations (Fig. 1 c). This formulation allows robot
+policies to inherit several key properties from diffusion models
+– significantly improving performance.
+• Expressing multimodal action distributions. By learn-
+ing the gradient of the action score function [46] and
+performing Stochastic Langevin Dynamics sampling on
+this gradient field, Diffusion policy can express arbitrary
+normalizable distributions [32], which includes multi-
+modal action distributions, a well-known challenge for
+policy learning.
+• High-dimensional output space. As demonstrated by
+their impressive image generation results, diffusion mod-
+els have shown excellent scalability to high-dimension
+output spaces. This property allows the policy to jointly
+infer a sequence of future actions instead of single-step
+actions, which is critical for encouraging temporal action
+consistency and avoiding myopic planning.
+• Stable training. Training energy-based policies often
+requires negative sampling to estimate an intractable
+normalization constant, which is known to cause training
+instability [11, 12]. Diffusion Policy bypasses this re-
+quirement by learning the gradient of the energy function
+and thereby achieves stable training while maintaining

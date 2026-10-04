@@ -1,0 +1,125 @@
+3
+Pouring Goal
+Spreading Goal
+2
+1
+1
+2
+3
+4
+Pour
+Spread
+IoU
+Succ
+Coverage
+Succ
+Human
+0.79
+1.00
+0.79
+1.00
+LSTM-GMM
+0.06
+0.00
+0.27
+0.00
+Diffusion Policy
+0.74
+0.79
+0.77
+1.00
+Fig. 11: Realworld Sauce Manipulation.
+[Left] 6DoF pouring
+Task. The robot needs to 1⃝dip the ladle to scoop sauce from the
+bowl, 2⃝approach the center of the pizza dough, 3⃝pour sauce, and
+4⃝lift the ladle to finish the task. [Right] Periodic spreading Task
+The robot needs to 1⃝approach the center of the sauce with a grasped
+spoon, 2⃝spread the sauce to cover pizza in a spiral pattern, and 3⃝
+lift the spoon to finish the task.
+Dof action spaces, and periodic actions in real-world setups.
+Our Franka Panda setup and tasks are shown in Fig 11.
+The goal for the 6DoF pouring task is to pour one full
+ladle of sauce onto the center of the pizza dough, with
+performance measured by IoU between the poured sauce
+mask and a nominal circle at the center of the pizza dough
+(illustrated by the green circle in Fig 11). The goal for the
+periodic spreading task is to spread sauce on pizza dough,
+with performance measured by sauce coverage. Variations
+across evaluation episodes come from random locations for the
+dough and the sauce bowl. The success rate is computed by
+thresholding with minimum human performance. Results are
+best viewed in supplemental videos. Both tasks were trained
+with the same Push-T hyperparameters, and successful policies
+were achieved on the first attempt.
+The sauce pouring task requires the robot to remain sta-
+tionary for a period of time to fill the ladle with viscous
+tomato sauce. The resulting idle actions are known to be
+challenging for behavior cloning algorithms and therefore are
+often avoided or filtered out. Fine adjustments during pouring
+are necessary during sauce pouring to ensure coverage and to
+achieve the desired shape.
+The demonstrated sauce-spreading strategy is inspired by
+the human chef technique, which requires both a long-horizon
+cyclic pattern to maximize coverage and short-horizon feed-
+back for even distribution (since the tomato sauce used often
+drips out in lumps with unpredictable sizes). Periodic motions
+are known to be difficult to learn and therefore are often ad-
+dressed by specialized action representations [58]. Both tasks
+require the policy to self-terminate by lifting the ladle/spoon.
+Result Analysis. Diffusion policy achieves close-to-human
+performance on both tasks, with coverage 0.74 vs 0.79 on
+pouring and 0.77 vs 0.79 on spreading. Diffusion policy
+reacted gracefully to external perturbations such as moving the
+pizza dough by hand during pouring and spreading. Results
+are best appreciated with videos in the supplemental material.
+LSTM-GMM performs poorly on both sauce pouring and
+spreading tasks. It failed to lift the ladle after successfully
+scooping sauce in 15 out of 20 of the pouring trials. When
+the ladle was successfully lifted, the sauce was poured off-
+centered. LSTM-GMM failed to self-terminate in all trials.
+We suspect LSTM-GMM’s hidden state failed to capture suf-
+ficiently long history to distinguish between the ladle dipping
+and the lifting phases of the task. For sauce spreading, LSTM-
+GMM always lifts the spoon right after the start, and failed to
+make contact with the sauce in all 20 experiments.
+VII. RELATED WORK
+Creating capable robots without requiring explicit program-
+ming of behaviors is a longstanding challenge in the field
+[3, 2, 38]. While conceptually simple, behavior cloning has
+shown surprising promise on an array of real-world robot
+tasks, including manipulation [60, 13, 28, 27, 59, 37, 4]
+and autonomous driving [36, 6]. Current behavior cloning
+approaches can be categorized into two groups, depending on
+the policy’s structure.
+Explicit Policy. The simplest form of explicit policies
+maps from world state or observation directly to action
+[36, 60, 13, 41, 50, 37, 6]. They can be supervised with a
+direct regression loss and have efficient inference time with
+one forward pass. Unfortunately, this type of policy is not
+suitable for modeling multi-modal demonstrated behavior, and
+struggles with high-precision tasks [12]. A popular approach
+to model multimodal action distributions while maintaining
+the simplicity of direction action mapping is convert the
+regression task into classification by discretizing the action
+space [59, 56, 4]. However, the number of bins needed to ap-
+proximate a continuous action space grows exponentially with
+increasing dimensionality. Another approach is to combine
+Categorical and Gaussian distributions to represent continuous
+multimodal distributions via the use of MDNs [5, 29] or
+clustering with offset prediction [42, 43]. Nevertheless, these
+models tend to be sensitive to hyperparameter tuning, exhibit
+mode collapse, and are still limited in their ability to express
+high-precision behavior [12].
+Implicit Policy. Implicit policies [12, 22] define distribu-
+tions over actions by using Energy-Based Models (EBMs)
+[24, 10, 8, 14, 11]. In this setting, each action is assigned
+an energy value, with action prediction corresponding to the
+optimization problem of finding a minimal energy action.
+Since different actions may be assigned low energies, implicit
+policies naturally represent multi-modal distributions. How-
+ever, existing implicit policies [12] are unstable to train due
+to the necessity of drawing negative samples when computing
+the underlying Info-NCE loss.
+Diffusion Models. Diffusion models are probabilistic gen-
+erative models that iteratively refine randomly sampled noise
+into draws from an underlying distribution. They can also

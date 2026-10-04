@@ -1,0 +1,21 @@
+{
+  "stage": "drafting",
+  "source": "first-output.md",
+  "source_sha256": "a4795bc1538a4823926affa785f4266c9cb50cece1ba79b2ff6dfa2f94c830c6",
+  "sections": {
+    "first-abstract.en.txt": {
+      "sha256": "8622ea60de5ecc38ba5dd683d3379e544f0733e04f614eb549d99496a82ffce1",
+      "exact_original_substring": true,
+      "heading": "**English abstract — nature-writing draft**",
+      "operation": "Separate the original section; only surrounding line breaks normalized"
+    },
+    "first-abstract.zh.txt": {
+      "sha256": "bb715b17d13d6080b995e4108bd44904d79c2280c8face925c9f75cecc4b2a54",
+      "exact_original_substring": true,
+      "heading": "**中文翻译**",
+      "operation": "Separate the original section; only surrounding line breaks normalized"
+    }
+  },
+  "English_wording_changed": false,
+  "assessment_or_author_notes_sent_to_polishing": false
+}

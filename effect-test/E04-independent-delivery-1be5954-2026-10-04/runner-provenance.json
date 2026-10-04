@@ -1,0 +1,19 @@
+{
+  "source": "effect-test/E02-delivery-repair-2026-10-04/execute_once.py",
+  "source_sha256": "c49f2254dd4ca8a2c0b754c664035489795ceff1287da205b24ad33d23a34da4",
+  "adaptations": [
+    "E04 facts and identity",
+    "original current author inputs",
+    "reference files only from frozen prior materials",
+    "retain working native CLI path",
+    "disable installed and plugin skills for both user homes",
+    "independent transfer flag"
+  ],
+  "unchanged": [
+    "one invocation per stage",
+    "full actual input return check",
+    "ephemeral material-only session",
+    "model and effort",
+    "first output retention and read audit"
+  ]
+}

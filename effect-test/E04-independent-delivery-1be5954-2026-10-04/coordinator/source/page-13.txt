@@ -1,0 +1,150 @@
+8162–8171. PMLR, 2021. 4, 14
+[34] Tim Pearce, Tabish Rashid, Anssi Kanervisto, Dave
+Bignell, Mingfei Sun, Raluca Georgescu, Sergio Valcar-
+cel Macua, Shan Zheng Tan, Ida Momennejad, Katja
+Hofmann, et al.
+Imitating human behaviour with dif-
+fusion models. arXiv preprint arXiv:2301.10677, 2023.
+11
+[35] Ethan Perez, Florian Strub, Harm De Vries, Vincent
+Dumoulin, and Aaron Courville. Film: Visual reasoning
+with a general conditioning layer. In Proceedings of the
+AAAI Conference on Artificial Intelligence, 2018. 3
+[36] Dean A Pomerleau. Alvinn: An autonomous land vehicle
+in a neural network.
+Advances in neural information
+processing systems, 1, 1988. 10
+[37] Rouhollah Rahmatizadeh, Pooya Abolghasemi, Ladislau
+Bölöni, and Sergey Levine.
+Vision-based multi-task
+manipulation for inexpensive robots using end-to-end
+learning from demonstration. In 2018 IEEE international
+conference on robotics and automation (ICRA), pages
+3758–3765. IEEE, 2018. 10
+[38] Harish Ravichandar, Athanasios S Polydoros, Sonia
+Chernova, and Aude Billard. Recent advances in robot
+learning from demonstration. Annual review of control,
+robotics, and autonomous systems, 3:297–330, 2020. 10
+[39] Moritz Reuss, Maximilian Li, Xiaogang Jia, and Rudolf
+Lioutikov.
+Goal-conditioned imitation learning us-
+ing score-based diffusion policies.
+In Proceedings of
+Robotics: Science and Systems (RSS), 2023. 11
+[40] Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U-
+net: Convolutional networks for biomedical image seg-
+mentation. In Medical Image Computing and Computer-
+Assisted Intervention–MICCAI 2015: 18th International
+Conference, Munich, Germany, October 5-9, 2015, Pro-
+ceedings, Part III 18, pages 234–241. Springer, 2015. 3
+[41] Stéphane Ross, Geoffrey Gordon, and Drew Bagnell. A
+reduction of imitation learning and structured prediction
+to no-regret online learning.
+In Proceedings of the
+fourteenth international conference on artificial intelli-
+gence and statistics, pages 627–635. JMLR Workshop
+and Conference Proceedings, 2011. 10
+[42] Nur Muhammad Mahi Shafiullah, Zichen Jeff Cui, Ari-
+untuya Altanzaya, and Lerrel Pinto. Behavior transform-
+ers: Cloning $k$ modes with one stone.
+In Alice H.
+Oh, Alekh Agarwal, Danielle Belgrave, and Kyunghyun
+Cho, editors, Advances in Neural Information Processing
+Systems, 2022. 1, 2, 3, 4, 6, 7, 10
+[43] Pratyusha Sharma, Lekha Mohan, Lerrel Pinto, and Ab-
+hinav Gupta. Multiple interactions made easy (mime):
+Large scale demonstrations data for imitation. In Con-
+ference on robot learning. PMLR, 2018. 10
+[44] Jascha
+Sohl-Dickstein,
+Eric
+Weiss,
+Niru
+Maheswaranathan,
+and
+Surya
+Ganguli.
+Deep
+unsupervised
+learning
+using
+nonequilibrium
+thermodynamics.
+In
+International
+Conference
+on
+Machine Learning, 2015. 11
+[45] Jiaming Song, Chenlin Meng, and Stefano Ermon. De-
+noising diffusion implicit models. In International Con-
+ference on Learning Representations, 2021. 4, 14, 15
+[46] Yang Song and Stefano Ermon. Generative modeling by
+estimating gradients of the data distribution. Advances
+in neural information processing systems, 32, 2019. 1, 5
+[47] Yang Song, Prafulla Dhariwal, Mark Chen, and Ilya
+Sutskever.
+Consistency
+models.
+arXiv
+preprint
+arXiv:2303.01469, 2023. 11
+[48] Duy-Nguyen Ta, Eric Cousineau, Huihua Zhao, and
+Siyuan Feng.
+Conditional energy-based models for
+implicit policies: The gap between theory and practice.
+arXiv preprint arXiv:2207.05824, 2022. 5
+[49] Matthew Tancik, Pratul Srinivasan, Ben Mildenhall, Sara
+Fridovich-Keil, Nithin Raghavan, Utkarsh Singhal, Ravi
+Ramamoorthi, Jonathan Barron, and Ren Ng. Fourier fea-
+tures let networks learn high frequency functions in low
+dimensional domains. Advances in Neural Information
+Processing Systems, 33:7537–7547, 2020. 3
+[50] Sam Toyer, Rohin Shah, Andrew Critch, and Stuart
+Russell.
+The magical benchmark for robust imitation.
+Advances in Neural Information Processing Systems, 33:
+18284–18295, 2020. 10
+[51] Julen Urain, Niklas Funk, Georgia Chalvatzaki, and Jan
+Peters. Se (3)-diffusionfields: Learning cost functions for
+joint grasp and motion optimization through diffusion.
+arXiv preprint arXiv:2209.03855, 2022. 11
+[52] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob
+Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser,
+and Illia Polosukhin. Attention is all you need. Advances
+in neural information processing systems, 30, 2017. 3
+[53] Zhendong Wang, Jonathan J Hunt, and Mingyuan
+Zhou.
+Diffusion policies as an expressive policy
+class for offline reinforcement learning. arXiv preprint
+arXiv:2208.06193, 2022. 11
+[54] Zhendong Wang, Jonathan J Hunt, and Mingyuan Zhou.
+Diffusion policies as an expressive policy class for offline
+reinforcement learning.
+In The Eleventh International
+Conference on Learning Representations, 2023.
+URL
+https://openreview.net/forum?id=AHvFDPi-FA. 11
+[55] Max Welling and Yee W Teh.
+Bayesian learning via
+stochastic gradient langevin dynamics. In Proceedings
+of the 28th international conference on machine learning
+(ICML-11), pages 681–688, 2011. 2
+[56] Jimmy
+Wu,
+Xingyuan
+Sun,
+Andy
+Zeng,
+Shuran
+Song, Johnny Lee, Szymon Rusinkiewicz, and Thomas
+Funkhouser. Spatial action maps for mobile manipula-
+tion. In Proceedings of Robotics: Science and Systems
+(RSS), 2020. 1, 10
+[57] Yuxin Wu and Kaiming He. Group normalization. In
+Proceedings of the European conference on computer
+vision (ECCV), pages 3–19, 2018. 4
+[58] Jingyun Yang, Junwu Zhang, Connor Settle, Akshara Rai,
+Rika Antonova, and Jeannette Bohg. Learning periodic
+tasks from human demonstrations. In 2022 International
+Conference on Robotics and Automation (ICRA), pages
+8658–8665. IEEE, 2022. 10

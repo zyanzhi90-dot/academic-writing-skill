@@ -1,0 +1,124 @@
+①
+②
+Human
+IBC
+LSTM-GMM
+Diffusion Policy
+Demo
+pos
+vel
+pos
+vel
+T-E2E ImgNet R3M E2E
+IoU
+0.84
+0.14 0.19 0.24
+0.25
+0.53
+0.24
+0.66 0.80
+Succ %
+1.00
+0.00 0.00 0.20
+0.10
+0.65
+0.15
+0.80 0.95
+Duration
+20.3
+56.3 41.6 47.3
+51.7
+57.5
+55.8
+31.7 22.9
+TABLE V: Realworld Push-T Experiment. a) Hardware setup. b)
+Illustration of the task. The robot needs to 1⃝precisely push the T-
+shaped block into the target region, and 2⃝move the end-effector to
+the end-zone. c) The ground truth end state used to calculate IoU
+metrics used in this table. Table: Success is defined by the end-
+state IoU greater than the minimum IoU in the demonstration dataset.
+Average episode duration presented in seconds. T-E2E stands for end-
+to-end trained Transformer-based Diffusion Policy
+latency up to 4 steps (Fig 6). We also find that velocity control
+is more affected by latency than position control, likely due
+to compounding error effects.
+Diffusion Policy is stable to train. We found that the
+optimal hyperparameters for Diffusion Policy are mostly con-
+sistent across tasks. In contrast, IBC [12] is prone to training
+instability. This property is discussed in Sec IV-D.
+VI. REALWORLD EVALUATION
+We evaluated Diffusion Policy in the realworld performance
+on 4 tasks across 2 hardware setups – with training data from
+different demonstrators for each setup. On the realworld Push-
+T task, we perform ablations examining Diffusion Policy on
+2 architecture options and 3 visual encoder options; we also
+benchmarked against 2 baseline methods with both position-
+control and velocity-control action spaces. On all tasks, Dif-
+fusion Policy variants with both CNN backbones and end-
+to-end-trained visual encoders yielded the best performance.
+More details about the task setup and parameters may be found
+in supplemental materials.
+A. Realworld Push-T Task
+Real-world Push-T is significantly harder than the simulated
+version due to 3 modifications: 1. The real-world Push-T
+task is multi-stage. It requires the robot to 1⃝push the T
+block into the target and then 2⃝move its end-effector into a
+designated end-zone to avoid occlusion. 2. The policy needs
+to make fine adjustments to make sure the T is fully in the
+goal region before heading to the end-zone, creating additional
+short-term multimodality. 3. The IoU metric is measured at
+the last step instead of taking the maximum over all steps.
+We threshold success rate by the minimum achieved IoU
+metric from the human demonstration dataset. Our UR5-based
+experiment setup is shown in Fig V. Diffusion Policy predicts
+robot commands at 10 Hz and these commands then linearly
+interpolated to 125 Hz for robot execution.
+Result Analysis. Diffusion Policy performed close to hu-
+man level with 95% success rate and 0.8 v.s. 0.84 average
+IoU, compared with the 0% and 20% success rate of best-
+performing IBC and LSTM-GMM variants. Fig 8 qualitatively
+illustrates the behavior for each method starting from the same
+initial condition. We observed that poor performance during
+the transition between stages is the most common failure case
+for the baseline method due to high multimodality during
+those sections and an ambiguous decision boundary. LSTM-
+GMM got stuck near the T block in 8 out of 20 evaluations
+(3rd row), while IBC prematurely left the T block in 6 out
+of 20 evaluations (4th row). We did not follow the common
+practice of removing idle actions from training data due to
+task requirements, which also contributed to LSTM and IBC’s
+tendency to overfit on small actions and get stuck in this task.
+The results are best appreciated with videos in supplemental
+materials.
+End-to-end v.s. pre-trained vision encoders We tested
+Diffusion Policy with pre-trained vision encoders (ImageNet
+[9] and R3M[31]), as seen in Tab. V. Diffusion Policy with
+R3M achieves an 80% success rate but predicts jittery actions
+and is more likely to get stuck compared to the end-to-end
+trained version. Diffusion Policy with ImageNet showed less
+promising results with abrupt actions and poor performance.
+We found that end-to-end training is still the most effective
+way to incorporate visual observation into Diffusion Policy,
+and our best-performing models were all end-to-end trained.
+Robustness against perturbation Diffusion Policy’s ro-
+bustness against visual and physical perturbations was eval-
+uated in a separate episode from experiments in Tab V. As
+shown in Fig 9, three types of perturbations are applied. 1)
+The front camera was blocked for 3 secs by a waving hand
+(left column), but the diffusion policy, despite exhibiting some
+jitter, remained on-course and pushed the T block into position.
+2) We shifted the T block while Diffusion Policy was making
+fine adjustments to the T block’s position. Diffusion policy
+immediately re-planned to push from the opposite direction,
+negating the impact of perturbation. 3) We moved the T
+block while the robot was en route to the end-zone after
+the first stage’s completion. The Diffusion Policy immediately
+changed course to adjust the T block back to its target and
+then continued to the end-zone. This experiment indicates that
+Diffusion Policy may be able to synthesize novel behavior
+in response to unseen observations.
+B. Mug Flipping Task
+The mug flipping task is designed to test Diffusion Policy’s
+ability to handle complex 3D rotations while operating close
+to the hardware’s kinematic limits. The goal is to reorient a
+randomly placed mug to have 1⃝the lip facing down 2⃝the
