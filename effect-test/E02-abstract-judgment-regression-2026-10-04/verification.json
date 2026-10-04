@@ -1,0 +1,664 @@
+{
+  "run_kind": "known-E02-autonomous-regression",
+  "candidate_commit": "86d0cd1f325e3d24626f01a71aed803ded6c73fb",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "single_invocation": true,
+  "new_paper_transfer_evidence": false,
+  "first_output_sha256": "0d504c604bd658fe805315286d340ef8a3dfe45a33d33e5a8f356254d5d1bb8b",
+  "raw_output_matches_final_logged_message": true,
+  "raw_output_unedited": true,
+  "inputs": {
+    "inputs/task.md": {
+      "sha256": "c7600365fd5367cdcd8886b5ae63713d7b362c8512a92db1bdb4b23afe0f0623",
+      "whole_original_text_in_initial_prompt": true,
+      "model_read_coverage": {
+        "missing_nonblank_lines": [],
+        "whole_nonblank_text_returned": true
+      }
+    },
+    "inputs/scientific-facts.md": {
+      "sha256": "a693a2c185160810f2cf5f1af317457315cf006b6ee18f08d6ba243d9c1cf805",
+      "whole_original_text_in_initial_prompt": true,
+      "model_read_coverage": {
+        "missing_nonblank_lines": [],
+        "whole_nonblank_text_returned": true
+      }
+    },
+    "inputs/personal-experience.txt": {
+      "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+      "whole_original_text_in_initial_prompt": true,
+      "model_read_coverage": {
+        "missing_nonblank_lines": [],
+        "whole_nonblank_text_returned": true
+      }
+    },
+    "inputs/core-requirements.txt": {
+      "sha256": "077e7fce1500dbea375434c65b90f441f0cee946a56179c60ada6b7cc4485ca9",
+      "whole_original_text_in_initial_prompt": true,
+      "model_read_coverage": {
+        "missing_nonblank_lines": [],
+        "whole_nonblank_text_returned": true
+      }
+    },
+    "inputs/abstract-writing-method.txt": {
+      "sha256": "3971242e4bb39a2fa8c12b211c44b18befc2ac2f946a27a297fef1cf64f4e730",
+      "whole_original_text_in_initial_prompt": true,
+      "model_read_coverage": {
+        "missing_nonblank_lines": [],
+        "whole_nonblank_text_returned": true
+      }
+    }
+  },
+  "commands": [
+    {
+      "id": "item_1",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\SKILL.md' -Encoding UTF8); \"'$start = 1; $end = 240; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/SKILL.md"
+      ],
+      "numbered_lines": 167,
+      "verified_lines": 167,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_2",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\manifest.yaml' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/manifest.yaml"
+      ],
+      "numbered_lines": 144,
+      "verified_lines": 144,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_4",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\inputs\\\\scientific-facts.md' -Encoding UTF8); \"'$start = 1; $end = 180; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "inputs/scientific-facts.md"
+      ],
+      "numbered_lines": 51,
+      "verified_lines": 51,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_5",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\inputs\\\\task.md' -Encoding UTF8); \"'$start = 1; $end = 100; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "inputs/task.md"
+      ],
+      "numbered_lines": 2,
+      "verified_lines": 2,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_7",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\inputs\\\\core-requirements.txt' -Encoding UTF8); \"'$start = 1; $end = 80; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "inputs/core-requirements.txt"
+      ],
+      "numbered_lines": 1,
+      "verified_lines": 1,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_6",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\inputs\\\\personal-experience.txt' -Encoding UTF8); \"'$start = 1; $end = 80; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "inputs/personal-experience.txt"
+      ],
+      "numbered_lines": 11,
+      "verified_lines": 11,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_8",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\inputs\\\\abstract-writing-method.txt' -Encoding UTF8); \"'$start = 1; $end = 100; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "inputs/abstract-writing-method.txt"
+      ],
+      "numbered_lines": 13,
+      "verified_lines": 13,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_9",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\reader-workflow.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/reader-workflow.md"
+      ],
+      "numbered_lines": 21,
+      "verified_lines": 21,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_10",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\paper-type-taxonomy.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md"
+      ],
+      "numbered_lines": 41,
+      "verified_lines": 41,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_12",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\terminology-ledger.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/terminology-ledger.md"
+      ],
+      "numbered_lines": 67,
+      "verified_lines": 67,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_11",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\ethics.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/ethics.md"
+      ],
+      "numbered_lines": 95,
+      "verified_lines": 95,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_13",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\scientific-expression.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/scientific-expression.md"
+      ],
+      "numbered_lines": 89,
+      "verified_lines": 89,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_16",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\output-format.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/core/output-format.md"
+      ],
+      "numbered_lines": 40,
+      "verified_lines": 40,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_14",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\stance.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/core/stance.md"
+      ],
+      "numbered_lines": 38,
+      "verified_lines": 38,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_15",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\workflow.md' -Encoding UTF8); \"'$start = 1; $end = 260; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/core/workflow.md"
+      ],
+      "numbered_lines": 128,
+      "verified_lines": 128,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_17",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\task\\\\manuscript.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/task/manuscript.md"
+      ],
+      "numbered_lines": 9,
+      "verified_lines": 9,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_18",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\paper_type\\\\algorithmic.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md"
+      ],
+      "numbered_lines": 28,
+      "verified_lines": 28,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_21",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\en.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/language/en.md"
+      ],
+      "numbered_lines": 29,
+      "verified_lines": 29,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_20",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\zh-to-en.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md"
+      ],
+      "numbered_lines": 41,
+      "verified_lines": 41,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_19",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\section\\\\abstract.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/section/abstract.md"
+      ],
+      "numbered_lines": 117,
+      "verified_lines": 117,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_22",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\journal\\\\generic.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/static/fragments/journal/generic.md"
+      ],
+      "numbered_lines": 18,
+      "verified_lines": 18,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_23",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8); \"'$start = 1; $end = 146; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "numbered_lines": 146,
+      "verified_lines": 146,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_24",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n '\"'^## A0[1-8]|''^## B01'\"' 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'\"",
+      "exit_code": 1,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "numbered_lines": 0,
+      "verified_lines": 0,
+      "utf8_explicit": false
+    },
+    {
+      "id": "item_25",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n '\"'^#{2,4} .*A0[1-8]|''^#{2,4} .*B01'\"' 'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'\"",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "numbered_lines": 9,
+      "verified_lines": 9,
+      "utf8_explicit": false
+    },
+    {
+      "id": "item_26",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8); \"'$start = 209; $end = 224; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "numbered_lines": 16,
+      "verified_lines": 16,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_29",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8); \"'$start = 185; $end = 208; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "numbered_lines": 24,
+      "verified_lines": 24,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_28",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md' -Encoding UTF8); \"'$start = 225; $end = 256; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+      ],
+      "numbered_lines": 32,
+      "verified_lines": 32,
+      "utf8_explicit": true
+    },
+    {
+      "id": "item_30",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$lines = @(Get-Content -LiteralPath '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e02-abstract-judgment-regression-dbdo9o0v\\\\materials\\\\skill-candidate\\\\nature-writing\\\\references\\\\abstract.md' -Encoding UTF8); \"'$start = 1; $end = 220; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '\"'{0}: {1}' -f \"'$i,$lines[$i-1] } }'",
+      "exit_code": 0,
+      "paths": [
+        "skill-candidate/nature-writing/references/abstract.md"
+      ],
+      "numbered_lines": 122,
+      "verified_lines": 122,
+      "utf8_explicit": true
+    }
+  ],
+  "actual_content_coverage": {
+    "skill-candidate/nature-writing/SKILL.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/manifest.yaml": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "inputs/scientific-facts.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "inputs/task.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "inputs/core-requirements.txt": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "inputs/personal-experience.txt": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "inputs/abstract-writing-method.txt": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-shared/core/reader-workflow.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-shared/core/terminology-ledger.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-shared/core/ethics.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-shared/core/scientific-expression.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/core/output-format.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/core/stance.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/core/workflow.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/fragments/task/manuscript.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/fragments/language/en.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-writing/static/fragments/journal/generic.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    },
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+      "missing_nonblank_lines": [
+        147,
+        151,
+        153,
+        155,
+        157,
+        159,
+        163,
+        165,
+        167,
+        169,
+        171,
+        175,
+        177,
+        179,
+        181,
+        183,
+        259,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        270,
+        272,
+        274,
+        276,
+        278,
+        280,
+        282,
+        284,
+        286,
+        288,
+        290,
+        292,
+        294,
+        296,
+        298,
+        300,
+        302,
+        304,
+        306,
+        308,
+        310,
+        312,
+        314,
+        316,
+        318,
+        320,
+        322,
+        324,
+        326,
+        328,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        337,
+        339,
+        341,
+        343,
+        345,
+        347,
+        349,
+        351,
+        353,
+        355,
+        357,
+        359,
+        361,
+        363,
+        365,
+        367,
+        369,
+        371,
+        373,
+        375,
+        377,
+        379,
+        381,
+        383,
+        385,
+        387,
+        389,
+        391,
+        393,
+        395,
+        397,
+        399,
+        401,
+        403,
+        405,
+        407,
+        409,
+        411,
+        413,
+        415,
+        417,
+        419,
+        421,
+        423,
+        425,
+        427,
+        429,
+        431,
+        433,
+        435,
+        437,
+        439,
+        441,
+        443,
+        445,
+        447,
+        449,
+        451,
+        453,
+        455,
+        457,
+        459,
+        461,
+        463,
+        465,
+        467,
+        469,
+        471,
+        473,
+        475,
+        477,
+        479,
+        481,
+        483,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499
+      ],
+      "whole_nonblank_text_returned": false
+    },
+    "skill-candidate/nature-writing/references/abstract.md": {
+      "missing_nonblank_lines": [],
+      "whole_nonblank_text_returned": true
+    }
+  },
+  "actual_example_cards": {
+    "A04": {
+      "source_range": [
+        185,
+        196
+      ],
+      "missing_nonblank_lines": [],
+      "full_real_english_and_analysis_returned": true
+    },
+    "A05": {
+      "source_range": [
+        197,
+        208
+      ],
+      "missing_nonblank_lines": [],
+      "full_real_english_and_analysis_returned": true
+    },
+    "A06": {
+      "source_range": [
+        209,
+        224
+      ],
+      "missing_nonblank_lines": [],
+      "full_real_english_and_analysis_returned": true
+    },
+    "A07": {
+      "source_range": [
+        225,
+        240
+      ],
+      "missing_nonblank_lines": [],
+      "full_real_english_and_analysis_returned": true
+    },
+    "A08": {
+      "source_range": [
+        241,
+        254
+      ],
+      "missing_nonblank_lines": [],
+      "full_real_english_and_analysis_returned": true
+    }
+  },
+  "common_missing_nonblank_lines": [],
+  "required_missing_files": [],
+  "source_return_mismatches": [],
+  "unresolved_content_reads": [],
+  "outside_materials_explicit_reads": [],
+  "changed_protected_files": [],
+  "changed_installed_skills": [],
+  "raw_record_sha256": {
+    "events.jsonl": "25daa1fcfce8fb0f8e7052df75692b68a294130faf65b9f0d937f09be328af74",
+    "stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "execution-command.json": "043b405525f23ed78cd9a925e16581a9830c8f475b18a8e071872de51648e3af",
+    "execution-prompt.txt": "b192aec36b144dd2fce38fd5c22b3782fb88de7c6aa40ef8349bf4d35c172977"
+  },
+  "limit": "Actual returned contents and explicit paths audited; not an effect verdict or OS-level isolation claim."
+}

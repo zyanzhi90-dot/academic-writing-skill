@@ -1,0 +1,97 @@
+Complete the Abstract-only Drafting task at C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\inputs\task.md. Read original author facts at C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\inputs\scientific-facts.md, personal experience at C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\inputs\personal-experience.txt, complete core requirements at C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\inputs\core-requirements.txt and the author's abstract-writing method at C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\inputs\abstract-writing-method.txt. Invoke only the frozen local nature-writing at C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\skill-candidate\nature-writing\SKILL.md, loading its manifest, required core, matching fragments and declared dependencies. For shared robotics examples, read common instructions and task index first (lines 1-146 of C:\Users\user2\AppData\Local\Temp\e02-abstract-judgment-regression-dbdo9o0v\materials\skill-candidate\nature-shared\core\robotics-writing-examples.md), then choose relevant cards and read their actual English, analysis and selection notes. Do not preload all cards or PDFs. The 25 declared reference PDFs and their verified extracted texts in analysis/reading are available on demand. Reference science does not add author facts. This is one autonomous first-pass regression on known E02 materials, not a new-paper transfer test. Only the materials directory is permitted input. Do not read outside it, installed skills, the source project, target original paper/abstract, source locators, old outputs, feedback, human main lines, coordinator analyses/evaluations or execution records. Do not browse or change files. Return one complete English abstract and accurate Chinese translation with necessary notes outside the abstract. Read UTF-8 using absolute paths and bounded numbered ranges, one file per command. Always wrap indexed Get-Content in @(...) and check actual returned contents. Numbered reads: $lines = @(Get-Content -LiteralPath <path> -Encoding UTF8); $start = <first>; $end = <last>; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '{0}: {1}' -f $i,$lines[$i-1] } }. The execution layer has compared all returned lines of the following permitted original inputs; their complete texts follow, without additional writing guidance:
+
+<original-input path="inputs/task.md">
+本轮仅调用提供的 nature-writing，根据 inputs/scientific-facts.md 中的中文科学事实包和 inputs/personal-experience.txt 中的原样作者经验，直接撰写完整英文摘要，并附准确中文翻译。
+由 Skill 自主确定中心贡献、内容取舍和论述组织，严格从认可参考的真实英文出发，借鉴段落推进、连续句关系、句型句式和具体用词，替换为本研究科学内容。表达准确、清晰、简洁、朴素、专业，结论限于事实包明确支持的范围。必要作者说明置于摘要之外。
+
+</original-input>
+
+<original-input path="inputs/scientific-facts.md">
+# 库外研究 E02：摘要科学事实包
+
+本材料仅提供独立撰写本研究摘要所需的中文科学内容。以下按科学主题归纳，排列不规定摘要顺序、句式、篇幅或取舍；支持细节不要求全部写入。
+
+## 交互任务与研究对象
+
+研究刚性机械臂与未知、随时间变化的环境之间的物理交互。预先固定一组阻抗参数可能过于保守，也可能不能适应环境动力学的变化。研究通过重复交互学习适合任务的阻抗参数，使机器人按照选定的交互性能要求运动。
+
+交互要求可以是轨迹跟踪、交互力积分的跟踪，或两者的折中。轨迹精度与柔顺性并非在所有任务中同时最大化；任务要求由交互误差代价及其权重体现。
+
+## 环境表示与所学阻抗
+
+环境在分析中表示为参数未知的线性时变质量—阻尼—弹簧系统，再写成状态空间形式；状态包含位置、速度和交互力的时间积分。环境的惯性、阻尼和刚度参数用于推导，不需要在学习实施前辨识出精确数值。这不是对任意未知非线性环境的无条件保证。
+
+目标阻抗描述期望运动与内环虚拟参考运动之间的关系。学习实际更新随时间变化的期望阻尼和刚度，期望惯性固定为表观惯性。不能把方法写成同时学习惯性、阻尼和刚度三个参数。
+
+## 阻抗学习与位置控制的关系
+
+控制采用双环结构。外环根据交互反馈迭代调整目标阻抗，并由目标阻抗关系生成内环的虚拟参考轨迹。内环控制机械臂实际位置跟踪该虚拟参考轨迹，使所学阻抗能够在机器人运动中实现。任务期望轨迹、虚拟参考轨迹和实际轨迹是三个不同对象；内环误差收敛不等于存在交互时实际运动无偏差地跟踪任务期望轨迹。
+
+外环结合梯度跟随和迭代改进方案。梯度跟随用于根据交互误差代价调整阻抗；迭代改进利用输出误差及其变化率构造更新，避免先辨识环境内部模型来估计代价对交互力的梯度。阻尼和刚度更新分别使用任务速度误差与位置误差，交互力误差是否参与由任务代价决定。这是重复交互中的阻抗参数学习，不是从人类示范拟合运动模型。
+
+内环在类比例—微分控制上增加自适应补偿，根据位置和速度误差构造辅助量，更新补偿增益。控制律不需要机器人动力学参数的回归矩阵，也不需要以神经网络近似动力学；机器人动力学界限的具体数值不必预先给定。内环控制实施不使用虚拟参考轨迹的二阶导数。
+
+## 理论支持与成立条件
+
+论文给出内环位置控制定理：在所考虑的机械臂动力学、相应控制律和自适应更新律下，实际位置对虚拟参考轨迹的误差渐近趋于零，闭环信号有界。证明使用机器人惯性、科氏／离心项和重力项的界限，虚拟参考速度及加速度有界，以及适当选取的控制增益与正定自适应参数矩阵。这里的保证是渐近跟踪，不是固定时间收敛，也不是任意增益下的稳定性。
+
+外环借助线性时变系统的迭代改进收敛条件进行推导，包括合适迭代增益所满足的收缩条件、相关输入—输出矩阵非奇异，以及各试次初始输出与目标初始输出一致。推导中的交互力积分还采用初始交互力为零的条件。该论证不能扩大为任意未知环境、任意学习率下的无条件收敛或全局最优阻抗保证。
+
+不需要精确环境模型不等于不需要任何先验信息或调参。位置与力积分的量纲不同，代价权重的选择可能需要部分机器人及环境知识与试调；复杂任务中学习率的选择仍有困难。
+
+## 仿真设置与可核对结果
+
+仿真使用六自由度 PUMA560 机械臂，分别考察内环自适应位置控制和外环阻抗学习。
+
+内环比较不同控制增益及有无自适应补偿的情况。论文报告，自适应控制使跟踪误差渐近趋于零；单独增大比例—微分增益能够减小误差，但不能消除误差，过大的增益可能导致不稳定。自适应参数的选择也影响收敛速度及稳定性，不能据此主张无需调参。
+
+阻抗学习仿真设置未知的时变环境参数，并包含环境作用突然消失、交互力降为零的情形。两种位置误差权重分别进行十次迭代。轨迹跟踪权重较高时，阻尼和刚度增加，位置误差减小，交互力增大，所示代价曲线降低；轨迹跟踪权重较低时，阻尼和刚度降低、位置误差增大，体现更柔顺的任务取舍；在所示主要响应区间，较高迭代次数的代价曲线更低，支持该仿真设置下的代价改进。环境作用消失时阻抗参数出现过冲，所示位置运动没有明显受损。该特定仿真观察不能扩大为对所有突变环境的理论保证。
+
+## 实机交互与可核对结果
+
+实验在 Nancy 机器人左腕进行，腕部力／力矩传感器测量交互作用。机器人重复执行同一运动，与位置保持固定的人手接触；人手充当未知环境。每个试次开始时机器人返回初始位置，试次包含接触和非接触阶段。
+
+两种任务设置采用不同的位置误差权重，展示初始、第5次和第10次迭代的结果。较高轨迹跟踪权重下，刚度随迭代增加，位置误差与所示代价减小。较低轨迹跟踪权重下，刚度降低、位置误差增大，机器人表现得更柔顺。论文说明阻尼变化与刚度相似，但实验图未单独展示阻尼结果。
+
+接触结束后，刚度曲线出现过冲；论文报告机器人运动未明显受影响。实际力信号有噪声，学习过程不如仿真平滑。这些证据来自所测试的腕部—人手重复交互，不能推广为任意机器人、环境或非重复任务均达到相同效果，也不提供统一提升百分比或所有其他算法的总体优劣结论。
+
+## 证据中的不确定性
+
+论文将降低任务代价作为方法目标，两种权重设置的仿真和第一种实机设置的曲线支持代价改进。第二种实机设置的代价曲线判读仍待复核，暂不作为已核实的代价改进结果；这不影响可以分别核对的刚度降低、位置误差增大等观测，但不能据此宣称“全部实机设置的代价均随迭代下降”，更不能表述为实验已证明全局最优。实验段落对接触结束时刻也有不一致，本材料不提供该争议时刻的数值。
+
+</original-input>
+
+<original-input path="inputs/personal-experience.txt">
+
+先把自己真正要表达的科学内容确定下来，再注重写作中的顶刊逻辑与表达。比较好的做法是，通过大量阅读积累丰富的例子，并在具体写作时灵活调用这些积累。
+
+以某几篇论文为主要模仿对象，吸收它们组织内容、推进论述和实现英文表达的方式，逐渐形成自己的主要风格。同时，不断从其他文献中补充经验：遇到某一部分更好的逻辑、句式或用词，就吸收进来，使下次表达相关内容时有更好的写法可以参考。
+
+具体写作时，逐部分写作。每个部分先确定自己真正要表达的科学内容，然后因为脑中已有大量相关文献的相关例子，所以能够根据当前要表达的内容选择、组合和调整合适的写法。**从段落逻辑、句与句的逻辑到句型句式和具体用词，都可以模仿，做到信手拈来。**需要更仔细的推敲时，也可以回查模仿对象原文，直接参照对应的段落和句子。
+
+**最终，每句话都承载自己的科学含义。**借鉴范例的逻辑与表达时，让逻辑关系、事实、条件和结论准确对应自己的工作。
+
+简言之，找到大量好的论文并积累大量例子，然后直接模仿/抄就行了，只是要把其中的内容换成自己想表达的意思，在表达上不要搞创新
+
+
+</original-input>
+
+<original-input path="inputs/core-requirements.txt">
+以成熟 Skill 为底座，结合我的写作经验《我自己的经验和做法.txt》，系统学习我提供的大量优秀论文，对基座skill做“sft”，把其中优秀的逻辑组织、句间推进、句型句式和具体用词落实到 Skill，简言之就是直接抄就行了（详见《我自己的经验和做法.txt》），让它用顶会顶刊的成熟表达写出你自己的科学内容。
+</original-input>
+
+<original-input path="inputs/abstract-writing-method.txt">
+摘要可以概括成三条规则：
+先说明为什么需要这个方法，再说明方法怎么解决这个问题，最后只保留最能证明核心贡献的证据。
+具体来说：
+1. 动机要直接服务方法：只保留能解释“为什么这样设计”的关键问题，不写泛背景。
+2. 方法写关键设计及其作用：不是罗列模块，而是说明每个关键设计解决什么、带来什么优势。
+3. 验证只留最强证据：用最少的仿真/实验结果证明核心主张，不把平台、设置、数字和分支写成实验清单。
+
+
+总之，紧凑的表达出：问题为什么需要解决 → 关键设计为什么有效 → 最强证据证明它确实有效。
+
+
+具体写法和表达可以抄：Composite-Learning-Based Adaptive Neural Control
+for Dual-Arm Robots With Relative Motion、Residual Reinforcement Learning for Robot Control、Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives的摘要
+</original-input>

@@ -1,0 +1,13 @@
+{
+  "run_kind": "known-E02-autonomous-regression",
+  "new_paper_transfer_evidence": false,
+  "first_output_unedited": true,
+  "correct_E02_facts_and_five_inputs_complete": true,
+  "declared_three_file_candidate_scope_verified": true,
+  "all_protected_project_files_unchanged_since_invocation": 4701,
+  "all_frozen_inputs_unchanged": 155,
+  "utf8_files_checked": 154,
+  "record_links_resolve": true,
+  "scripts_compile": true,
+  "effect_verdict": "Partial target behavior; necessary local human corrections remain. See evaluation.md."
+}

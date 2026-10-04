@@ -1,0 +1,29 @@
+{
+  "run_kind": "known-E02-autonomous-regression",
+  "new_paper_transfer_evidence": false,
+  "first_output_sha256": "0d504c604bd658fe805315286d340ef8a3dfe45a33d33e5a8f356254d5d1bb8b",
+  "english_byte_offsets": [
+    22,
+    1498
+  ],
+  "chinese_byte_offsets": [
+    1518,
+    2667
+  ],
+  "exact_byte_slices_without_added_newlines": true,
+  "english_words": 184,
+  "english_sentences": [
+    "Fixed impedance parameters may be overly conservative or fail to accommodate changing environment dynamics during physical interaction.",
+    "This paper proposes an impedance learning method for rigid manipulators interacting with unknown, time-varying environments.",
+    "An outer loop combines gradient following with iterative improvement to learn time-varying damping and stiffness according to a weighted cost of position and integrated interaction-force errors.",
+    "The iterative improvement uses output errors and their rates of change to construct the updates without identifying exact environment parameters.",
+    "The impedance relation generates a virtual reference trajectory for an inner position controller.",
+    "Adaptive compensation is added to proportional–derivative control to track the virtual reference trajectory without requiring a robot dynamics regressor.",
+    "Under the assumed robot dynamics, bounded reference velocity and acceleration, and appropriate gain conditions, theoretical analysis establishes asymptotic tracking of the virtual reference trajectory and bounded closed-loop signals.",
+    "Numerical simulations and repeated wrist–hand interaction experiments demonstrate adaptation of the accuracy–compliance trade-off to the task weights.",
+    "In the trajectory-focused experiment, stiffness increases while position error and task cost decrease over iterations.",
+    "A lower trajectory-tracking weight produces lower stiffness and greater compliance, with larger position errors."
+  ],
+  "output_unchanged_before_evaluation": true,
+  "classification": "Known-case autonomous first output; effect evaluated separately, no revision made"
+}
