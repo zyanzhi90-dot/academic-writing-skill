@@ -42,6 +42,7 @@ Use this package only as a dependency of another installed Nature skill.
   and feedback. Read common use/check instructions, task index, and selected
   cards (A for abstracts, B for body); do not preload the full corpus. Exclude
   incidental robotics, title-only, submission administration, and layout.
-  Abstract-only tasks do not load the body module. This file is the sole example
-  authority; project PDFs and reports are optional source lookups.
+  Abstract-only tasks do not load the body module. Its cards and task-linked
+  references are the example authority; project PDFs and reports are optional
+  source lookups.
 - Return to the requesting skill for task logic, output format, and final QA.

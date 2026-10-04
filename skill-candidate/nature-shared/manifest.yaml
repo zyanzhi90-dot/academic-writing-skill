@@ -17,6 +17,8 @@ core:
       path: core/scientific-expression.md
     - condition: nature-writing or nature-polishing handles a robotics-centred abstract or body, overall reasoning, standalone paragraph, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
       path: core/robotics-writing-examples.md
+    - condition: selected through the common robotics example index for Introduction drafting, restructuring, polishing, or feedback; read selection notes and task-matched B15-B18 passages, with P17 as the default expression anchor
+      path: core/robotics-introduction-examples.md
     - condition: nature-writing or nature-polishing requests shared robotics manuscript-body decisions for a robotics-centred body section or paragraph group, whole-manuscript reasoning, Related Work, or Chinese-to-English; not incidental examples, title/abstract-only, submission administration, or layout
       path: core/robotics-main-text.md
     - condition: shared ethics, safety, authorship, disclosure, or non-invention guardrails are needed

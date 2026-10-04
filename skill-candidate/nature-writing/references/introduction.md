@@ -15,11 +15,20 @@
 
 ## Goal
 
-Write a strong introduction in three steps:
+Use this guide to develop an introduction from the author's scientific meaning:
 
 1. Think through the introduction logic.
-2. Apply a suitable template below.
-3. Revise the introduction repeatedly.
+2. Select, combine, and adjust suitable organizations and actual English from the references.
+3. Check the affected prose with the existing workflow and shared expression core.
+
+The arrangements and sentence skeletons below are options, not a required
+sequence, paragraph count, gap at each paragraph end, or result-reporting quota.
+The author's facts, scientific relations, expression requirements, and target
+venue govern their use. For robotics, follow the common example index to
+task-selected Introduction passages; retain its P17 expression anchor and use
+supplemental realizations where the author's content calls for them. Source
+wording and older example snippets remain evidence, not exceptions to
+`scientific-expression.md`.
 
 ## Introduction Logic Map
 
@@ -27,17 +36,17 @@ Write a strong introduction in three steps:
 graph LR
   L1[What task are we solving]
   L2[Which metrics should this task improve]
-  L3[SOTA methods fail to meet target metrics]
-  L4[Root technical issue behind this failure]
+  L3[Prior capabilities and conditions relative to the task]
+  L4[Unresolved technical issue or condition]
   L5[Our technical solution and method pipeline]
   L6[Why the solution works]
   L7[Additional technical contributions]
 
   R1[Part 1 Task applications and target metrics]
-  R2[Part 2 SOTA methods failure and root issue]
+  R2[Part 2 Prior capability conditions and unresolved issue]
   R3[Part 3 Proposed solution and why it works]
   R4[Part 4 Additional contributions and impact]
-  R5[Part 5 Experiments]
+  R5[Evaluation route when needed to explain the contribution]
 
   L1 --> L2
   L2 --> L3
@@ -64,19 +73,32 @@ graph LR
 
 ### Backward reasoning (answer these first)
 
-1. What technical problem do we solve, and why is there no well-established solution? (important)
+1. What technical problem or condition do we address, what has prior work established, and what remains unresolved for this task? (important)
 2. What are the contributions of our pipeline (e.g., a new valuable task, a new valuable metric, a new technical problem, or a new technique)?
 3. What are the benefits of our contributions, why can they solve this technical challenge, and what new insight do they bring? (important)
 4. How do we use prior methods to lead readers to our solved challenge and our new insight?
 
-### Forward story (write in this order)
+### Forward story (one possible organization)
 
 1. Introduce the paper's task.
 2. Use prior methods to lead to the technical challenge we solve.
 3. Present xx contributions to solve this technical challenge.
 4. Explain technical advantages of our contributions and explicitly express our new insight. (important)
 
+Order these moves by the author's scientific dependencies. A paragraph group
+may motivate one component and introduce its design before explaining another
+necessary condition. P17 introduces multi-demonstration modeling before
+trajectory execution; Fuzzy2023 introduces a BLF before the convergence-time
+discussion; ESO2017 uses current sensor availability to motivate state
+estimation and further prior-work comparison. The task-selected shared cards
+provide their actual English. Keep the reason for each design legible without
+forcing all literature before every mention of the method.
+
 ## Section Skeleton
+
+This is an optional method-paper arrangement. A contribution may be realized
+in connected prose or a list; preview evaluation only when it helps explain
+the study's contribution. Preserve current venue requirements.
 
 ```latex
 \section{Introduction}
@@ -159,7 +181,7 @@ Writing structure:
 Opening-paragraph skeleton:
 
 1. `[Task/application importance sentence].`
-2. `Given input ..., previous methods usually ...`
+2. `[Available input] provides ... Previous methods use [input] to ...`
 3. `Although they work in many cases, they fail at ... because ...`
 
 Expert note:
@@ -187,12 +209,11 @@ Key logic before writing (faithful translation):
 2. For existing tasks: identify which recent methods have this challenge, why those methods exist, and optionally what earlier challenge they were trying to solve.
 3. For novel tasks: at minimum, define the technical challenge solved by our pipeline.
 
-Important warning :
+Prior work and the present advance:
 
-1. Do not first present a naive solution and then describe our improvement over it.
-2. That writing makes the work look like a low-score incremental patch.
-3. Even if the work is actually incremental, do not write it this way.
-4. Why: this writing style can erase reader curiosity and make the idea look straightforward only because the writing hand-holds the reader.
+1. State prior capabilities and operating conditions accurately, then identify the condition, mechanism, or information use the present work changes.
+2. Retain a supported improvement or inherited idea when it explains why the design is needed and how it works. Incremental work must be described faithfully.
+3. Remove development history that does not explain the contribution. Do not hide a real technical dependency or manufacture a prior-method failure to create curiosity.
 
 ### Technical-Challenge Version 1 (existing task, with existing methods)
 
@@ -344,10 +365,10 @@ Writing structure:
 
 Sentence skeleton:
 
-1. `Inspired by previous methods, ...`
+1. `The method builds on ... to ...`
 2. `Our innovation is introducing ...`
 3. `We observe that ...`
-4. `Considering that ..., we introduce ...`
+4. `[Scientific object] has [relevant property]. We introduce [module] to [supported purpose].`
 5. `In contrast to ..., our module ...`
 
 Local cite:
@@ -369,8 +390,8 @@ Sentence skeleton:
 
 1. `Our innovation is ...`
 2. `We observe that ...`
-3. `Considering that ..., we ...`
-4. `This leads to ... and achieves ...`
+3. `[Scientific object or condition] requires ... We [design action] to ...`
+4. `[Named design] enables ...` (use the author's supported relation; separate distinct effects when needed)
 
 Local cite:
 
@@ -390,7 +411,7 @@ Why not recommended (writing structure warning):
 
 1. Presenting only abstract insight without concrete pipeline steps weakens technical clarity.
 2. Introducing many new terms without mechanism-level explanation creates a novelty illusion.
-3. Reviewers may interpret this as shallow or incremental work.
+3. These choices can obscure the actual mechanism and scope of the advance.
 
 Local cite:
 
