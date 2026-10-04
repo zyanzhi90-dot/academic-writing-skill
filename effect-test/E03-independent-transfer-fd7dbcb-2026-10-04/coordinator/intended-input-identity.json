@@ -1,0 +1,7 @@
+{
+  "case": "E03",
+  "facts_source": "effect-test/E03-independent-transfer-fd7dbcb-2026-10-04/科学事实包.md",
+  "facts_source_sha256": "247c1bcb6ec104de9cf0907ecbad2d38db50c6a1b29a0b49255c7d62710d8d5c",
+  "source_status": "Original extraction frozen; never delivered to a writer in this turn",
+  "candidate_commit": "fd7dbcb7f8c6bc5d40e2396c2aa9f3571cbb3eee"
+}

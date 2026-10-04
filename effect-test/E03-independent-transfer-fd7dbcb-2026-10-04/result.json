@@ -1,0 +1,15 @@
+{
+  "requested_run_kind": "E03-independent-transfer",
+  "execution_valid": false,
+  "actual_writer_case": "E02",
+  "actual_model_invocations": 1,
+  "valid_E03_invocations": 0,
+  "E03_output_quality": "not_observed",
+  "reason": "Wrong source path delivered original E02 facts instead of the selected E03 facts",
+  "frozen_candidate_commit": "fd7dbcb7f8c6bc5d40e2396c2aa9f3571cbb3eee",
+  "skill_modified": false,
+  "skill_installed": false,
+  "feedback_reruns_selection_or_output_edits": false,
+  "correct_E03_extraction_and_return_validation_saved": true,
+  "owner_acceptance_pending": true
+}

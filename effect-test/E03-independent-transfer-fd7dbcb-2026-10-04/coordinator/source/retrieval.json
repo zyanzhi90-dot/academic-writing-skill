@@ -1,0 +1,18 @@
+[
+  {
+    "file": "target.pdf",
+    "requested_url": "https://arxiv.org/pdf/1812.03201v2",
+    "final_url": "https://arxiv.org/pdf/1812.03201v2",
+    "content_type": "application/pdf",
+    "bytes": 2959124,
+    "sha256": "c6279120f9e0a799a9d7a943a5624a5738250e588f99c5fc8a9fac28e2039641"
+  },
+  {
+    "file": "arxiv-metadata.html",
+    "requested_url": "https://arxiv.org/abs/1812.03201v2",
+    "final_url": "https://arxiv.org/abs/1812.03201v2",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 43477,
+    "sha256": "d1cc7f376bc8dd5ba67210870de3e191fc28ea574fc6ad02a56d9d7e140460c3"
+  }
+]

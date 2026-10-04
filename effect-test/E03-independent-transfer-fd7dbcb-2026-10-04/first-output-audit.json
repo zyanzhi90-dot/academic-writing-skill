@@ -1,0 +1,401 @@
+{
+  "declared_run_kind": "E03-independent-transfer",
+  "actual_writer_case": "E02",
+  "eligible_as_E03_transfer": false,
+  "single_cli_invocation": true,
+  "no_feedback_rerun_selection_or_output_edit": true,
+  "first_output_sha256": "ed864f721716f51d35798683062527ef9c661078423d25165d24a6f56d86348f",
+  "english_byte_offsets": [
+    17,
+    1861
+  ],
+  "chinese_byte_offsets": [
+    1880,
+    3260
+  ],
+  "derived_text_is_exact_byte_slice_without_added_newline": true,
+  "english_word_count": 247,
+  "english_sentences": [
+    "This paper proposes an impedance learning method for rigid robot manipulators interacting with unknown, time-varying environments.",
+    "The method combines an outer impedance learning loop with an inner adaptive position controller.",
+    "A weighted interaction error cost specifies the requirements for trajectory tracking, tracking of the time integral of interaction force, or a trade-off between them.",
+    "The outer loop combines gradient following and iterative improvement to adjust time-varying desired damping and stiffness according to this cost, while the desired inertia remains fixed at the apparent inertia.",
+    "The learning update uses output errors and their rates of change without requiring identification of an internal environment model.",
+    "The learning analysis represents the environment as a linear time-varying mass–damper–spring system.",
+    "The learned impedance generates a virtual reference trajectory for the inner position controller.",
+    "Adaptive compensation is added to proportional–derivative control to track this trajectory without requiring a robot dynamics regressor or the second derivative of the virtual reference trajectory.",
+    "Under the assumed robot dynamics, bounded reference derivatives and suitable gain conditions, the inner controller ensures asymptotic tracking of the virtual reference trajectory and bounded closed-loop signals.",
+    "Numerical simulation results for a PUMA560 manipulator and repeated wrist–hand interaction experiments on the Nancy robot demonstrate task-dependent impedance adaptation.",
+    "Higher trajectory tracking weights lead to increased stiffness and smaller position errors, whereas lower weights lead to decreased stiffness and greater compliance at the cost of larger position errors.",
+    "Simulations and the experiment with the higher tracking weight also show reductions in the interaction error cost."
+  ],
+  "actual_returned_content_coverage": {
+    "inputs/task.md": {
+      "command_ids": [
+        "item_1"
+      ],
+      "nonempty_source_lines": 2,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "inputs/personal-experience.txt": {
+      "command_ids": [
+        "item_2"
+      ],
+      "nonempty_source_lines": 5,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "inputs/core-requirements.txt": {
+      "command_ids": [
+        "item_2"
+      ],
+      "nonempty_source_lines": 1,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "inputs/scientific-facts.md": {
+      "command_ids": [
+        "item_3"
+      ],
+      "nonempty_source_lines": 26,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/SKILL.md": {
+      "command_ids": [
+        "item_4"
+      ],
+      "nonempty_source_lines": 131,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/manifest.yaml": {
+      "command_ids": [
+        "item_5"
+      ],
+      "nonempty_source_lines": 137,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+      "command_ids": [
+        "item_6",
+        "item_8",
+        "item_15",
+        "item_17"
+      ],
+      "nonempty_source_lines": 295,
+      "mismatched_or_missing_line_numbers": [
+        145,
+        147,
+        149,
+        151,
+        153,
+        155,
+        157,
+        159,
+        161,
+        163,
+        165,
+        167,
+        169,
+        171,
+        173,
+        175,
+        177,
+        179,
+        181,
+        241,
+        243,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        254,
+        256,
+        258,
+        260,
+        262,
+        264,
+        266,
+        268,
+        270,
+        272,
+        274,
+        276,
+        278,
+        280,
+        282,
+        284,
+        286,
+        288,
+        290,
+        292,
+        294,
+        296,
+        298,
+        300,
+        302,
+        304,
+        306,
+        308,
+        310,
+        312,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        321,
+        323,
+        325,
+        327,
+        329,
+        331,
+        333,
+        335,
+        337,
+        339,
+        341,
+        343,
+        345,
+        347,
+        349,
+        351,
+        353,
+        355,
+        357,
+        359,
+        361,
+        363,
+        365,
+        367,
+        369,
+        371,
+        373,
+        375,
+        377,
+        379,
+        381,
+        383,
+        385,
+        387,
+        389,
+        391,
+        393,
+        395,
+        397,
+        399,
+        401,
+        403,
+        405,
+        407,
+        409,
+        411,
+        413,
+        415,
+        417,
+        419,
+        421,
+        423,
+        425,
+        427,
+        429,
+        431,
+        433,
+        435,
+        437,
+        439,
+        441,
+        443,
+        445,
+        447,
+        449,
+        451,
+        453,
+        455,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470
+      ],
+      "whole_nonempty_contents_returned_verbatim": false
+    },
+    "skill-candidate/nature-writing/static/core/stance.md": {
+      "command_ids": [
+        "item_9"
+      ],
+      "nonempty_source_lines": 28,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/core/workflow.md": {
+      "command_ids": [
+        "item_9",
+        "item_13"
+      ],
+      "nonempty_source_lines": 96,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/core/output-format.md": {
+      "command_ids": [
+        "item_9",
+        "item_13"
+      ],
+      "nonempty_source_lines": 30,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/reader-workflow.md": {
+      "command_ids": [
+        "item_10"
+      ],
+      "nonempty_source_lines": 14,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md": {
+      "command_ids": [
+        "item_10"
+      ],
+      "nonempty_source_lines": 29,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/ethics.md": {
+      "command_ids": [
+        "item_10"
+      ],
+      "nonempty_source_lines": 69,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/terminology-ledger.md": {
+      "command_ids": [
+        "item_10"
+      ],
+      "nonempty_source_lines": 51,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/task/manuscript.md": {
+      "command_ids": [
+        "item_11",
+        "item_14"
+      ],
+      "nonempty_source_lines": 7,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": {
+      "command_ids": [
+        "item_11",
+        "item_14"
+      ],
+      "nonempty_source_lines": 19,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md": {
+      "command_ids": [
+        "item_11",
+        "item_14"
+      ],
+      "nonempty_source_lines": 91,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/journal/generic.md": {
+      "command_ids": [
+        "item_11"
+      ],
+      "nonempty_source_lines": 12,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": {
+      "command_ids": [
+        "item_12"
+      ],
+      "nonempty_source_lines": 30,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/language/en.md": {
+      "command_ids": [
+        "item_12"
+      ],
+      "nonempty_source_lines": 21,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/scientific-expression.md": {
+      "command_ids": [
+        "item_12"
+      ],
+      "nonempty_source_lines": 80,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/references/abstract.md": {
+      "command_ids": [
+        "item_16"
+      ],
+      "nonempty_source_lines": 84,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    }
+  },
+  "actual_example_cards": {
+    "A04": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        183,
+        194
+      ]
+    },
+    "A05": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        195,
+        206
+      ]
+    },
+    "A06": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        207,
+        222
+      ]
+    },
+    "A07": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        223,
+        238
+      ]
+    }
+  },
+  "core_requirements_whole_line_returned": true,
+  "outside_materials_explicit_reads": [],
+  "remaining_unresolved_commands": [],
+  "effect_verdict": "Execution invalid for E03: wrong-case facts. No E03 prose judgment.",
+  "input_identity_evidence": "input-identity-audit.json"
+}
