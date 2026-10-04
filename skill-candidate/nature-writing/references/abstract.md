@@ -25,7 +25,7 @@ Answer these before writing:
 
 1. What technical problem do we address, and what author-supported limitation motivates the work? (important)
 2. What is our technical contribution?
-3. Why can our method work in essence?
+3. What explains the key design choices, and how do they address the task problem?
 4. What technical advantage and new insight do we provide? (important)
 
 The versions below illustrate possible moves and English realizations. Select,
@@ -47,7 +47,7 @@ Introduce the technical challenge, then use one to two sentences to present the 
 2. Technical challenge for previous methods.
 3. One to two sentences introducing the technical contribution for solving the challenge.
 4. Benefits of the technical contribution.
-5. Experiment summary.
+5. Decisive evidence for the contribution's advantage.
 
 ### Expert Notes
 
@@ -71,7 +71,7 @@ Introduce the technical challenge, then use one to two sentences to present the 
 3. One sentence introducing the insight for solving the challenge.
 4. One to two sentences introducing the technical contribution that implements the insight.
 5. Benefits of technical novelty.
-6. Experiment summary.
+6. Decisive evidence for the contribution's advantage.
 
 ### Expert Notes
 
@@ -96,7 +96,7 @@ Version 3: When there are multiple technical contributions, describe each contri
 3. Contribution sentence 1 + technical advantage.
 4. Contribution sentence 2 + technical advantage.
 5. Contribution sentence 3 + technical advantage.
-6. Experiment summary.
+6. Decisive evidence for the contribution's advantage.
 
 ### Expert Notes
 

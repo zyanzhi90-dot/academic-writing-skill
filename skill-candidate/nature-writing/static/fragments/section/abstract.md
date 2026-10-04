@@ -48,12 +48,13 @@ Open `references/abstract.md` for templates and examples.
 ## Contribution and reference adaptation
 
 Establish the author-supported contributions, distinguishing the proposed
-designs from the established tools they use. For each key design retained,
-decide its task role and how it provides the claimed effect or advantage.
-Keep an information source, a compensated uncertainty, an output handoff or
-another enabling relation when the reader needs it to understand that effect;
-leave out internal calculations that do not explain it. A technical name can
-suffice when its role is clear; otherwise state the necessary relation.
+designs from the established tools they use. Make the task need and the reason
+for key design choices clear in the contribution sentence group. Connect each
+retained design to the problem it addresses and the action or information that
+provides its effect. Select an information source, compensated uncertainty,
+output handoff or another enabling relation when it explains that choice or
+effect; omit internal calculations that do not. A technical name suffices when
+these relationships are already clear.
 
 Choose the main reference by these scientific relationships. Adapt its
 whole-paragraph content choices and consecutive sentence logic, replacing
@@ -85,13 +86,16 @@ the evidence object, action strength and complement to author science; use
 another approved main-reference realization when it better fits the evidence
 and established style. A study purpose is not a demonstrated result.
 
-Select the contribution-level finding supported by each retained evidence
-source. A supported capability, comparison or task-dependent effect can be
-specific without itemizing each setting or curve. Report a shared finding
-jointly when the sources support it; retain separate findings when their
-differences matter to the contribution or its evidence boundary. Keep numbers,
-platforms and individual observations only when they materially establish or
-bound that finding. Do not turn an observed trend into an unconditional claim.
+Select the strongest evidence sufficient to establish the core contribution's
+claimed effect and scope. Keep an additional result when omitting it would
+leave a necessary claim unsupported or change its interpretation or boundary.
+A supported capability, comparison or task-dependent effect can be specific
+without itemizing settings or curves. Report a shared conclusion jointly when
+sources support it; keep source-specific findings and conditions where they
+affect that conclusion. Include numbers and platforms when they make the
+selected evidence assessable or delimit the claim; omit an unneeded
+experimental branch together with its details. Do not turn an observed trend
+into an unconditional claim.
 
 Match theoretical guarantees to their model, object, strength and necessary
 conditions. Retain a condition that defines a contribution or limits its

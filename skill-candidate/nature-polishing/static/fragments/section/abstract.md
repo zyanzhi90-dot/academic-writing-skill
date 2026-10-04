@@ -32,12 +32,14 @@ under this author style. Apply the common expression core to object handoffs.
 ## Polishing priorities
 
 Establish the author-supported contributions and distinguish proposed designs
-from established tools. Check whether each retained key design has a clear
-task role and whether its action or information explains its claimed effect.
-Keep an information source, compensated uncertainty, output handoff or other
-enabling relation when the explanation depends on it; omit internal calculations
-that do not serve that relation. A technical name suffices when its role is
-already clear. Restore a missing scientific link before shortening.
+from established tools. Check that the contribution sentence group makes the
+task need and the reason for key design choices clear. Connect each retained
+design to the problem it addresses and the action or information that provides
+its effect. Select an information source, compensated uncertainty, output
+handoff or another enabling relation when it explains that choice or effect;
+omit internal calculations that do not. A technical name suffices when these
+relationships are already clear. Restore a missing scientific link before
+shortening.
 
 Match these relationships to the selected reference's actual whole paragraph
 and consecutive sentences. Preserve an already sound argument; repair the
@@ -61,13 +63,16 @@ the evidence object, action strength and complement to author science; use
 another approved main-reference realization when it better fits the evidence
 and established style. A study purpose is not a demonstrated result.
 
-Select the contribution-level finding supported by each retained evidence
-source. A supported capability, comparison or task-dependent effect can be
-specific without itemizing each setting or curve. Report a shared finding
-jointly when the sources support it; retain separate findings when their
-differences matter to the contribution or its evidence boundary. Keep numbers,
-platforms and individual observations only when they materially establish or
-bound that finding. Do not turn an observed trend into an unconditional claim.
+Select the strongest evidence sufficient to establish the core contribution's
+claimed effect and scope. Keep an additional result when omitting it would
+leave a necessary claim unsupported or change its interpretation or boundary.
+A supported capability, comparison or task-dependent effect can be specific
+without itemizing settings or curves. Report a shared conclusion jointly when
+sources support it; keep source-specific findings and conditions where they
+affect that conclusion. Include numbers and platforms when they make the
+selected evidence assessable or delimit the claim; omit an unneeded
+experimental branch together with its details. Do not turn an observed trend
+into an unconditional claim.
 
 Match theoretical guarantees to their model, object, strength and necessary
 conditions. Retain a condition that defines a contribution or limits its
