@@ -1,0 +1,81 @@
+Complete the human-feedback abstract revision in C:\Users\user2\AppData\Local\Temp\e03-human-feedback-wkrtf2ij\materials\inputs\task.md. Use the unchanged draft at C:\Users\user2\AppData\Local\Temp\e03-human-feedback-wkrtf2ij\materials\inputs\current-draft.md and original scientific facts at C:\Users\user2\AppData\Local\Temp\e03-human-feedback-wkrtf2ij\materials\inputs\scientific-facts.md. Read the complete original personal experience and core requirements in C:\Users\user2\AppData\Local\Temp\e03-human-feedback-wkrtf2ij\materials\inputs. Invoke only the current frozen Writing candidate at C:\Users\user2\AppData\Local\Temp\e03-human-feedback-wkrtf2ij\materials\skill-candidate\nature-writing\SKILL.md, its manifest, required core, matching abstract fragments and declared dependencies. Read common instructions and task index of the shared robotics example library, then the complete A06/A07/A08 English and analysis. Compare actual consecutive sentences and wording during generation and final phrase/sentence/paragraph checks. Verified A06/A07 full texts are analysis/reading/P17.txt and P05.txt; A08 is analysis/reading/RRL2019.txt. Original E03 author-v2 text and source check are in source-e03, available to resolve scientific meaning. Retain accurate established organization and mature expressions; change only what current feedback scientifically or rhetorically requires. Do not presume each sentence needs editing. Return one complete English abstract, accurate Chinese translation and concise actual-change rationale. Label human-feedback revision, never autonomous or transfer pass. Do not generate alternatives, run tests, request more feedback or edit files. Only this materials directory is permitted input; do not browse or read historical evaluations, external files or installed skills. Read UTF-8 using explicit absolute paths and bounded numbered ranges, one file per command. Always wrap indexed PowerShell Get-Content in @(...) and verify actual returned contents. Numbered reads: $lines = @(Get-Content -LiteralPath <path> -Encoding UTF8); $start = <first-line>; $end = <last-line>; for ($i=$start; $i -le $end; $i++) { if ($i -le $lines.Count) { '{0}: {1}' -f $i,$lines[$i-1] } }. The execution layer has compared every returned line of the following original permitted inputs; the complete texts follow, without an added outline or prewritten target:
+
+<original-input path="inputs/task.md">
+先核对最新状态，负责人已核对至 ff1def8。本轮修订 effect-test/E03-independent-transfer-fd7dbcb-valid-2026-10-04/drafting/first-output.md，目标是补足组合理由、收紧验证内容，达到作者要求的摘要取舍和成熟表达。
+复用科学事实包、原文及来源核对，阅读《核心要求.txt》《我自己的经验和做法.txt》和 A06／A07／新增 A08 的真实英文与分析。直接模仿／抄适合当前科学内容的整段组织、连续句逻辑、句型句式和具体用词，把内容换成作者自己的。每个词、每句话都要斟酌，不能仅仅把意思表达出来就完成任务。
+前半段补清为什么这样组合：传统反馈控制擅长利用明确的模型结构，接触、摩擦难以准确建模，RL 通过交互学习补足残差部分。保留准确的信号相加、完整任务优化关系及科学范围，不要求改成背景开篇。后半段只保留最能证明方法优势的证据，避免将成功次数、千步结果和两个实验分支写成清单；数字与条件按所选结论的实际需要取舍。
+使用当前候选及声明依赖，沿用 gpt-6.1-sol / high，完成必要的句群调整与逐词精修，不预设每句都要改。输出完整英文摘要、准确中文译文及简洁修改依据，另存为人工反馈修订稿。保留首次稿和历史评价，补充负责人验收结论，不将修订结果计作自主或迁移通过。
+不修改或安装 Skill，不重复自主测试。提交同步并确认状态后停止，交负责人验收。
+
+</original-input>
+
+<original-input path="inputs/scientific-facts.md">
+# E03 中文科学事实包
+
+## 实验资料
+
+- F01：验证任务是在两个竖立块之间插入夹持的第三个块，同时避免使竖立块倾倒或离开目标位置。使用七自由度 Sawyer 机械臂开展 MuJoCo 仿真及真实机器人实验。
+- F02：在该装配任务的仿真和实机比较中，残差强化学习比使用相同底层强化学习算法、但没有基准控制器的纯强化学习需要更少交互样本，并取得更好的最终表现。该比较不能直接推出对所有机器人任务都成立。
+- F03：实机测试中，竖立块初始方向准确时，残差方法和人工设计控制器均完成 20 次中的 20 次插入；初始方向错位时，残差方法成功 15/20 次，人工设计控制器成功 2/20 次。成功由人工判断块是否保持竖立并处于正确位置。
+- F04：实机方向变化训练在每次重置时，将每个竖立块置于原方向、顺时针偏转或逆时针偏转之一，偏转角为 20°。机器人通过学习小幅接触修正动作推正块而不使其倾倒；该行为约用 8,000 个交互样本、约三小时实机训练逐渐获得。
+- F05：仿真中研究竖立块初始方向变化、零均值控制噪声和带偏置控制噪声；在考察范围内，残差方法的表现比人工设计控制器更能容忍这些变化。实机控制噪声实验仅考察带偏置的情形，随着所测偏置增加，残差策略仍可学习完成任务。实机未验证全部仿真噪声类型。
+- F06：另一个仿真到实机实验将两侧块固定。先在同一情景的仿真中用深度强化学习获得策略，再把该策略作为固定基准，在实机上学习相加的残差策略。该设置在不足 1,000 个实机交互时间步内学会完成插入；不能把这个数字移用于两侧块自由移动或方向随机变化的实验。
+
+## 控制设计与学习量
+
+- F07：控制输入由两个控制信号相加得到：一个固定的基准反馈控制器输出，以及一个从机器人和物体状态学习的参数化残差策略输出。常规设置的基准控制器由人工设计，残差策略由与环境交互的强化学习优化。
+- F08：基准控制器利用已有的位置控制结构处理机器人运动的几何目标；残差策略学习接触、摩擦以及外部物体动力学所需的修正行为。其作用是利用已有控制结构减少从零学习整个控制策略的负担，同时适应基准控制器不能充分处理的交互。
+- F09：机器人和物体状态相互耦合，机器人运动影响物体。奖励包含机器人运动的几何目标和物体状态目标；学习优化的是两个控制信号相加后、针对完整任务奖励的期望回报，不能把两个目标当作彼此独立的优化问题，也不能认为残差策略只优化物体奖励项。
+- F10：所实现的学习器使用双延迟深度确定性策略梯度（TD3）的一个变体，通过经验回放中的交互数据优化残差神经网络策略。TD3、常规反馈控制、阻抗控制、神经网络及经验回放都是已有工具；本文方法不要求必须使用 TD3。
+- F11：真实机器人采用柔顺的关节空间阻抗控制；仿真采用笛卡尔空间位置控制。实机观测包括摄像跟踪估计的位置及竖直方向末端力；仿真可获得较完整的状态和力矩信息。相加的控制结构不等于显式识别接触动力学或辨识摩擦参数。
+
+## 理论与证据范围
+
+- F12：基准反馈控制律在不加入学习残差且相关机器人子空间可稳定化的条件下，可以使机器人状态误差具有指数稳定动态。这一论述不构成加入残差后的完整机器人—物体闭环系统的稳定性或收敛定理。
+- F13：本文没有给出所学习残差策略的无条件稳定性、全局最优性或安全保证。减少探索范围是该任务中的经验性观察；不能将其表述为所有训练过程均安全，也不能将奖励优化说成必然达到最优解。
+
+## 研究对象与动机
+
+- F14：研究面向包含接触、摩擦和可移动物体的机器人操作控制，实证对象是块装配。机器人受驱动控制，而外部物体通过与机器人接触而间接受控；状态可以直接观测或由测量估计。
+- F15：传统反馈控制能有效利用机器人运动的已知结构，但接触、摩擦及机器人与物体的耦合难以准确建模，手工设计的控制器在这些交互及环境变化下可能表现不佳。纯强化学习可以从交互中学习控制，但从零学习所需数据较多，早期探索也可能带来实机风险。本文通过组合已有反馈控制与可学习残差处理这两类困难，未提出一种新的基础强化学习算法。
+
+</original-input>
+
+<original-input path="inputs/personal-experience.txt">
+
+先把自己真正要表达的科学内容确定下来，再注重写作中的顶刊逻辑与表达。比较好的做法是，通过大量阅读积累丰富的例子，并在具体写作时灵活调用这些积累。
+
+以某几篇论文为主要模仿对象，吸收它们组织内容、推进论述和实现英文表达的方式，逐渐形成自己的主要风格。同时，不断从其他文献中补充经验：遇到某一部分更好的逻辑、句式或用词，就吸收进来，使下次表达相关内容时有更好的写法可以参考。
+
+具体写作时，逐部分写作。每个部分先确定自己真正要表达的科学内容，然后因为脑中已有大量相关文献的相关例子，所以能够根据当前要表达的内容选择、组合和调整合适的写法。**从段落逻辑、句与句的逻辑到句型句式和具体用词，都可以模仿，做到信手拈来。**需要更仔细的推敲时，也可以回查模仿对象原文，直接参照对应的段落和句子。
+
+**最终，每句话都承载自己的科学含义。**借鉴范例的逻辑与表达时，让逻辑关系、事实、条件和结论准确对应自己的工作。
+
+简言之，找到大量好的论文并积累大量例子，然后直接模仿/抄就行了，只是要把其中的内容换成自己想表达的意思，在表达上不要搞创新
+
+
+</original-input>
+
+<original-input path="inputs/core-requirements.txt">
+以成熟 Skill 为底座，结合我的写作经验《我自己的经验和做法.txt》，系统学习我提供的大量优秀论文，对基座skill做“sft”，把其中优秀的逻辑组织、句间推进、句型句式和具体用词落实到 Skill，简言之就是直接抄就行了（详见《我自己的经验和做法.txt》），让它用顶会顶刊的成熟表达写出你自己的科学内容。
+</original-input>
+
+<original-input path="inputs/current-draft.md">
+**English abstract**
+
+This paper proposes residual reinforcement learning for robotic manipulation involving contact, friction and movable objects. The control input is the sum of the outputs of a fixed feedback controller and a residual policy learned from robot and object states. The feedback controller guides robot motion towards geometric goals, and the residual policy learns corrections for contact, friction and object dynamics. Reinforcement learning optimizes the residual policy to maximize the expected return for the full task under the combined control. The method is evaluated in simulation and on a seven-degree-of-freedom Sawyer arm by inserting a grasped block between two upright blocks while keeping them upright and in their target positions. The results demonstrate that the residual method requires fewer interaction samples and achieves better final performance than reinforcement learning using the same underlying algorithm without a baseline controller. In real-robot tests with initially misaligned blocks, the residual method achieves 15 successful insertions in 20 trials, compared with 2 in 20 for the hand-designed controller. In a separate simulation-to-real experiment with the two outer blocks fixed, a policy trained in simulation is used as the fixed baseline. The residual policy learns to complete insertion in fewer than 1,000 real-robot interaction steps.
+
+**中文翻译**
+
+本文提出一种残差强化学习方法，用于涉及接触、摩擦和可移动物体的机器人操作。控制输入由固定反馈控制器的输出与根据机器人和物体状态学习的残差策略输出相加得到。反馈控制器引导机器人运动以实现几何目标，残差策略则学习针对接触、摩擦和物体动力学的修正动作。强化学习在组合控制作用下优化残差策略，以最大化完整任务的期望回报。该方法在仿真和七自由度 Sawyer 机械臂上进行评估，任务是在两个竖立块之间插入夹持的第三个块，同时使两侧块保持竖立并处于目标位置。结果表明，与采用相同底层算法但不使用基准控制器的强化学习相比，残差方法所需的交互样本更少，最终表现更好。在竖立块初始方向错位的实机测试中，残差方法在20次试验中成功完成15次插入，人工设计控制器则成功2次。在另一个将两侧块固定的仿真到实机实验中，仿真训练得到的策略被用作固定基准。残差策略在不足1,000个实机交互时间步内学会完成插入。
+
+**摘要外说明**
+
+| 统一术语 | 中文含义与使用范围 |
+|---|---|
+| residual reinforcement learning | 残差强化学习 |
+| fixed baseline | 固定基准；常规设置采用反馈控制器，迁移实验采用仿真训练策略 |
+| residual policy | 残差策略；其输出与固定基准的输出相加 |
+
+表达主要参照 A06、A07 的方法开篇、对象交接和验证句式，并借鉴 A05 的控制作用与比较表达。科学结论仅来自作者事实包：样本效率及最终表现对应 F02，错位实机对照对应 F03，固定两侧块的迁移结果对应 F06。
+</original-input>

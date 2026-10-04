@@ -1,0 +1,42 @@
+{
+  "run_kind": "人工反馈修订",
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "final_english_words": 190,
+  "final_sentences": [
+    "This paper proposes residual reinforcement learning for robotic manipulation involving contact, friction and movable objects.",
+    "Conventional feedback control can exploit the known structure of robot motion through explicit models, but contact and friction are difficult to model accurately.",
+    "The control input is the sum of the outputs of a fixed feedback controller and a residual policy based on robot and object states.",
+    "The feedback controller guides robot motion towards geometric goals, and the residual policy learns corrections for contact, friction and object dynamics through interaction with the environment.",
+    "Reinforcement learning optimizes the residual policy to maximize the expected return for the full task under the combined control.",
+    "The method is evaluated in simulation and on a Sawyer arm by inserting a grasped block between two upright blocks while keeping them upright and in their target positions.",
+    "The results demonstrate that the residual method requires fewer interaction samples and achieves better final performance than reinforcement learning using the same underlying algorithm without a baseline controller.",
+    "In real-robot tests with initially misaligned blocks, the residual method achieves 15 successful insertions in 20 trials, compared with 2 in 20 for the hand-designed controller."
+  ],
+  "only_declared_two_delivery_edits": true,
+  "raw_model_revision_unchanged": true,
+  "original_first_draft_and_historical_evaluation_unchanged": true,
+  "candidate_and_installed_skills_unchanged": true,
+  "required_loaded_files_complete": [
+    "skill-candidate/nature-writing/SKILL.md",
+    "skill-candidate/nature-writing/manifest.yaml",
+    "skill-candidate/nature-shared/core/reader-workflow.md",
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+    "skill-candidate/nature-shared/core/ethics.md",
+    "skill-candidate/nature-shared/core/terminology-ledger.md",
+    "skill-candidate/nature-shared/core/scientific-expression.md",
+    "skill-candidate/nature-writing/static/core/stance.md",
+    "skill-candidate/nature-writing/static/core/workflow.md",
+    "skill-candidate/nature-writing/static/core/output-format.md",
+    "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+    "skill-candidate/nature-writing/static/fragments/paper_type/methods.md",
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+    "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+    "skill-candidate/nature-writing/static/fragments/language/en.md",
+    "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+    "skill-candidate/nature-writing/references/abstract.md"
+  ],
+  "utf8_files_checked": 154,
+  "delivery_links_resolve": true,
+  "effect_classification": "Human feedback revision pending owner acceptance, not autonomous evidence"
+}

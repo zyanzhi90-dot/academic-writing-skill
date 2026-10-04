@@ -1,0 +1,29 @@
+{
+  "run_kind": "人工反馈修订",
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "raw_model_revision_sha256": "f4d7b874b07508f69d43b528d02d7cd5bf4e9102826339350d9839b5a2e4e41b",
+  "raw_model_revision_unchanged": true,
+  "delivery_check_local_edits": [
+    {
+      "english_before": "a residual policy learned from robot and object states",
+      "english_after": "a residual policy based on robot and object states",
+      "chinese_before": "根据机器人和物体状态学习的残差策略",
+      "chinese_after": "基于机器人和物体状态的残差策略",
+      "basis": "F07、式(5)：机器人和物体状态是策略输入；学习来源在下一句明确为环境交互。区分输入与数据来源，保持相加结构。"
+    },
+    {
+      "english_before": "on a seven-degree-of-freedom Sawyer arm",
+      "english_after": "on a Sawyer arm",
+      "chinese_before": "仿真和七自由度 Sawyer 机械臂",
+      "chinese_after": "仿真和 Sawyer 机械臂",
+      "basis": "F01、A06 末句及其分析：保留实机平台和任务范围；自由度数不解释残差方法或所选比较，不承担本稿的必要范围。"
+    }
+  ],
+  "english_words": 190,
+  "delivery_files_sha256": {
+    "feedback-revision.md": "c56a6014a98483b0d19c1813145b6ab8e58dfb3c8e34f96efdfa853d92aa2a8a",
+    "abstract.en.txt": "54ef02f56f2a550032c64e347fb2655839dfaf05b466808373d09e2eb0a55e7a",
+    "abstract.zh.txt": "f24a363da98ffb476440cce3cd2acf162e6df45793fc2114d3fe85983f3e2635"
+  }
+}
