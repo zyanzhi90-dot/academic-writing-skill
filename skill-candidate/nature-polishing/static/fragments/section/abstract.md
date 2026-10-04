@@ -82,13 +82,9 @@ their conclusions. Do not invent results or close with generic validity.
 
 ## Delivery check
 
-Compare the complete paragraph, consecutive sentences and meaningful phrases
-with the selected real English and author facts. Check contribution relations
-and content necessity as well as object names, terminology, conditions, syntax
-and collocations. Follow the actual length requirement; otherwise use the
-selected abstracts' information load to cut excess background and detail.
-Repair missing scientific links, unsupported claims and departures from the
-author's established style. Preserve correct mature wording and reasonable
-variants that express the same supported relationship; the availability of
-another wording does not require a change. Place consequential unresolved
-author questions outside the abstract.
+Load `../../../../nature-shared/core/abstract-delivery.md` and execute its
+source-to-prose check before delivering the abstract. Reopen the original
+scientific material after reading the draft, map both assertions and necessary
+contribution relations, and revise from that comparison. Use the existing
+section priorities and selected real English; a fluent draft or a correct
+author note does not establish that the abstract itself passes.

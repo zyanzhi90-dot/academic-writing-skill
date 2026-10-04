@@ -94,6 +94,10 @@ axes:
 
 references:
   on_demand:
+    - condition: complete abstract drafting or delivery; execute source-grounded delivery after preserving the working draft
+      path: ../nature-shared/core/abstract-delivery.md
+    - condition: autonomous complete abstract delivery after Drafting; a distinct Polishing pass with original author material, excluding Drafting-only requests
+      path: ../nature-polishing/SKILL.md
     - condition: task is manuscript and robotics is the central scientific subject; abstract or body drafting, restructuring, overall reasoning, standalone paragraphs, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
       path: ../nature-shared/core/robotics-writing-examples.md
     - condition: task is manuscript and the central subject is a robot control, learning, manipulation, locomotion, or physical-interaction system; drafting or restructuring any body section or paragraph group, whole-manuscript reasoning, or independent Related Work, including Chinese-to-English prose; exclude incidental examples, title/abstract-only, submission-package, and layout requests

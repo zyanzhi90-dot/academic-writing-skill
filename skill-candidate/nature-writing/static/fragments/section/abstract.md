@@ -105,13 +105,10 @@ their conclusions. Do not invent results or close with generic validity.
 
 ## Delivery check
 
-Compare the complete paragraph, consecutive sentences and meaningful phrases
-with the selected real English and author facts. Check contribution relations
-and content necessity as well as object names, terminology, conditions, syntax
-and collocations. Follow the actual length requirement; otherwise use the
-selected abstracts' information load to cut excess background and detail.
-Repair missing scientific links, unsupported claims and departures from the
-author's established style. Preserve correct mature wording and reasonable
-variants that express the same supported relationship; the availability of
-another wording does not require a change. Place consequential unresolved
-author questions outside the abstract.
+Load `../../../../nature-shared/core/abstract-delivery.md` for the source-grounded
+delivery procedure. Preserve the working draft, then hand it and the original
+author material to `../../../../nature-polishing/SKILL.md` and its declared
+dependencies for a distinct Polishing pass. Do not label the working draft as
+checked delivery or replace that pass with the drafter's assurance. If the
+requested task is Drafting alone, return the working draft with that stage
+identified; do not record a Polishing result that was not run.
