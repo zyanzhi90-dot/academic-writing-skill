@@ -1,0 +1,9 @@
+{
+  "source_record": "effect-test/E02-autonomous-regression-A06-A07-2026-10-04",
+  "copied_scripts_sha256": {
+    "execute_once.py": "d141045388aae34501f3bc3892becd2862994a12f2b03d82d253079306cb11fc",
+    "verify_git_bytes.py": "70f89ddf842d5aac985d70cb7c4257850b1c14e4ee46a5552dd97eb7dfff8050"
+  },
+  "source_scripts_reused_byte_identically": true,
+  "standard_request_inputs_and_run_parameters_unchanged": true
+}

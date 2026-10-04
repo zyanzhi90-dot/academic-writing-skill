@@ -1,0 +1,11 @@
+**English abstract**
+
+This paper proposes an impedance learning method for rigid robot manipulators interacting with unknown, time-varying environments. The method integrates impedance adaptation and adaptive position control in a two-loop structure. The outer loop combines gradient following with iterative improvement to adjust time-varying desired damping and stiffness, with desired inertia held fixed. A weighted interaction error cost specifies the tradeoff between trajectory tracking and tracking the time integral of interaction force. For the linear time-varying mass–damper–spring environment model considered, the iterative update uses output errors and their rates of change without requiring prior identification of the environment parameters. The desired impedance generates a virtual reference trajectory for the inner loop. An adaptive proportional–derivative position controller tracks the virtual reference trajectory without requiring a robot dynamics regressor or the virtual reference acceleration. Under the stated boundedness assumptions and suitable control and adaptation gains, the inner-loop tracking error converges asymptotically to zero and the closed-loop signals remain bounded. Numerical simulation results with a PUMA560 manipulator demonstrate task-dependent impedance adaptation and improvements in the interaction error cost. Experiments with repeated wrist–hand contact on the Nancy robot also demonstrate task-dependent stiffness adaptation. In the tested interactions, a higher trajectory-tracking weight increases stiffness and reduces position error, whereas a lower weight decreases stiffness and produces more compliant motion.
+
+**中文翻译**
+
+本文提出一种阻抗学习方法，用于刚性机械臂与未知、时变环境之间的物理交互。该方法采用双环结构，将阻抗调整与自适应位置控制相结合。外环结合梯度跟随与迭代改进，调整随时间变化的期望阻尼和刚度，同时保持期望惯性不变。加权交互误差代价规定轨迹跟踪与交互力时间积分跟踪之间的折中。对于所考虑的线性时变质量—阻尼—弹簧环境模型，迭代更新利用输出误差及其变化率，无需预先辨识环境参数。期望阻抗为内环生成虚拟参考轨迹。自适应比例—微分位置控制器跟踪该虚拟参考轨迹，无需机器人动力学回归矩阵，也无需虚拟参考轨迹的加速度。在所述有界性假设以及适当的控制增益和自适应增益下，内环跟踪误差渐近趋于零，闭环信号保持有界。PUMA560 机械臂的数值仿真结果表明，阻抗能够随任务要求调整，交互误差代价得到改善。Nancy 机器人腕部与人手重复接触的实验也表明，刚度能够随任务要求调整。在所测试的交互中，较高的轨迹跟踪权重使刚度增大、位置误差减小，而较低的权重使刚度减小、运动更加柔顺。
+
+**摘要之外的说明**
+
+英文主要借鉴已读取的 A06、A07 的组织与普通句式，并参考 A05 的交互学习表述。理论收敛结论仅针对实际位置跟踪虚拟参考轨迹；摘要未将第二种实机设置的代价下降作为已核实结果。`core-requirements.txt` 仅含“以”，未提供完整的附加要求。

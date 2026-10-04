@@ -1,0 +1,141 @@
+{
+  "run_kind": "known-E02-autonomous-regression",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "single_cli_invocation": true,
+  "generation_feedback_reruns_selection_or_edits": false,
+  "first_output_sha256": "b096ba53c6f3d0b9f2f3cea939d581779d59e554e95ed23a1c2e1239c98586dc",
+  "english_slice_byte_offsets": [
+    22,
+    1681
+  ],
+  "chinese_slice_byte_offsets": [
+    1701,
+    2954
+  ],
+  "derived_files_are_exact_byte_slices_without_added_newline": true,
+  "english_sentences": [
+    "This paper proposes an impedance learning method for rigid robot manipulators interacting with unknown, time-varying environments.",
+    "The method integrates impedance adaptation and adaptive position control in a two-loop structure.",
+    "The outer loop combines gradient following with iterative improvement to adjust time-varying desired damping and stiffness, with desired inertia held fixed.",
+    "A weighted interaction error cost specifies the tradeoff between trajectory tracking and tracking the time integral of interaction force.",
+    "For the linear time-varying mass–damper–spring environment model considered, the iterative update uses output errors and their rates of change without requiring prior identification of the environment parameters.",
+    "The desired impedance generates a virtual reference trajectory for the inner loop.",
+    "An adaptive proportional–derivative position controller tracks the virtual reference trajectory without requiring a robot dynamics regressor or the virtual reference acceleration.",
+    "Under the stated boundedness assumptions and suitable control and adaptation gains, the inner-loop tracking error converges asymptotically to zero and the closed-loop signals remain bounded.",
+    "Numerical simulation results with a PUMA560 manipulator demonstrate task-dependent impedance adaptation and improvements in the interaction error cost.",
+    "Experiments with repeated wrist–hand contact on the Nancy robot also demonstrate task-dependent stiffness adaptation.",
+    "In the tested interactions, a higher trajectory-tracking weight increases stiffness and reduces position error, whereas a lower weight decreases stiffness and produces more compliant motion."
+  ],
+  "english_sentence_count": 11,
+  "english_word_count": 211,
+  "returned_input_and_rule_content_coverage": {
+    "inputs/task.md": {
+      "command_ids": [
+        "item_1"
+      ],
+      "source_nonempty_lines": 2,
+      "mismatched_or_missing_line_numbers": [],
+      "all_nonempty_lines_returned_verbatim": true
+    },
+    "inputs/scientific-facts.md": {
+      "command_ids": [
+        "item_5"
+      ],
+      "source_nonempty_lines": 26,
+      "mismatched_or_missing_line_numbers": [],
+      "all_nonempty_lines_returned_verbatim": true
+    },
+    "inputs/personal-experience.txt": {
+      "command_ids": [
+        "item_3"
+      ],
+      "source_nonempty_lines": 5,
+      "mismatched_or_missing_line_numbers": [],
+      "all_nonempty_lines_returned_verbatim": true
+    },
+    "inputs/core-requirements.txt": {
+      "command_ids": [
+        "item_4"
+      ],
+      "source_nonempty_lines": 1,
+      "mismatched_or_missing_line_numbers": [
+        1
+      ],
+      "all_nonempty_lines_returned_verbatim": false,
+      "source_bytes": 413,
+      "source_characters": 157,
+      "actual_returned_rows": {
+        "1": "以"
+      },
+      "cause": "Single-line Get-Content returned a scalar string; indexing $t[0] returned its first character"
+    },
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md": {
+      "command_ids": [
+        "item_19"
+      ],
+      "source_nonempty_lines": 91,
+      "mismatched_or_missing_line_numbers": [],
+      "all_nonempty_lines_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/references/abstract.md": {
+      "command_ids": [
+        "item_30"
+      ],
+      "source_nonempty_lines": 84,
+      "mismatched_or_missing_line_numbers": [],
+      "all_nonempty_lines_returned_verbatim": true
+    }
+  },
+  "actual_example_loading": {
+    "A05": {
+      "line_range": [
+        195,
+        206
+      ],
+      "full_english_and_analysis_returned_verbatim": true
+    },
+    "A06": {
+      "line_range": [
+        207,
+        222
+      ],
+      "full_english_and_analysis_returned_verbatim": true
+    },
+    "A07": {
+      "line_range": [
+        223,
+        238
+      ],
+      "full_english_and_analysis_returned_verbatim": true
+    }
+  },
+  "writer_input_files": 152,
+  "only_allowed_input_inventory": true,
+  "facts_experience_core_and_standard_request_byte_identical": true,
+  "full_required_input_actually_returned": false,
+  "outside_materials_explicit_reads": [],
+  "collector_unresolved_commands_retained": [
+    "item_26"
+  ],
+  "manual_command_resolution": {
+    "command_id": "item_26",
+    "source": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+    "reason": "Collector path regex could not join shell-quoted path fragments; all returned heading rows match the unique frozen file",
+    "returned_heading_line_numbers": [
+      33,
+      120,
+      147,
+      159,
+      171,
+      183,
+      195,
+      207,
+      223
+    ],
+    "boundary_status": "Resolved as search of the permitted shared example file"
+  },
+  "remaining_unresolved_read_commands": [],
+  "isolation_limit": "Fresh ephemeral context and material-only directory with audited reads; no OS-level read isolation claimed",
+  "effect_verdict": "See evaluation.md; incomplete core-requirements read prevents a full-input autonomous pass claim"
+}

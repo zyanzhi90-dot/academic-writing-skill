@@ -1,0 +1,1494 @@
+=== PDF PAGE 1 ===
+1162 IEEE TRANSACTIONS ON INDUSTRIAL INFORMATICS, VOL. 13, NO. 3, JUNE 2017
+Neural Control of Bimanual Robots With
+Guaranteed Global Stability and
+Motion Precision
+Chenguang Yang, Senior Member, IEEE, Yiming Jiang, Zhijun Li, Senior Member, IEEE,
+Wei He, Senior Member, IEEE, and Chun-Yi Su, Senior Member, IEEE
+Abstract—Robots with coordinated dual arms are able to
+perform more complicated tasks that a single manipulator
+could hardly achieve. However, more rigorous motion preci-
+sion is required to guarantee effective cooperation between
+the dual arms, especially when they grasp a common object.
+In this case, the internal forces applied on the object must
+also be considered in addition to the external forces. There-
+fore, a prescribed tracking performance at both transient
+and steady states is first specified, and then, a controller
+is synthesized to rigorously guarantee the specified motion
+performance. In the presence of unknown dynamics of both
+the robot arms and the manipulated object, the neural net-
+work approximation technique is employed to compensate
+for uncertainties. In order to extend the semiglobal stabil-
+ity achieved by conventional neural control to global sta-
+bility, a switching mechanism is integrated into the control
+design. Effectiveness of the proposed control design has
+been shown through experiments carried out on the Baxter
+Robot.
+Index Terms—Bimanual robots, global uniformly ulti-
+mately boundedness (GUUB), neural networks (NNs),
+tailored tracking performance.
+Manuscript received June 25, 2016; revised August 26, 2016; ac-
+cepted September 14, 2016. Date of publication September 22, 2016;
+date of current version June 1, 2017. This work was partially supported
+by the National Nature Science Foundation under Grant 61473120,
+Grant 61573147, and Grant 91520201, the Guangdong Provincial Nat-
+ural Science Foundation under Grant 2014A030313266 and Interna-
+tional Science and Technology Collaboration Grant 2015A050502017,
+Science and Technology Planning Project of Guangzhou under Grant
+201607010006, and the Fundamental Research Funds for the Central
+Universities under Grant 2015ZM065. Paper no. TII-16-0565.
+C. Yang is with the Key Laboratory of Autonomous Systems and Net-
+worked Control, Ministry of Education, South China University of Tech-
+nology, Guangzhou 510641, China, and with Zienkiewicz Centre for
+Computational Engineering, Swansea University, Swansea SA1 8EN,
+U.K. (e-mail: cyang@ieee.org).
+Y. Jiang and Z. Li are with the Key Laboratory of Autonomous Systems
+and Networked Control, Ministry of Education, South China University
+of Technology, Guangzhou 510641, China (e-mail: ym.jiang@qq.com;
+zjli@ieee.org).
+W. He is with the School of Automation and Electrical Engineering,
+University of Science and Technology Beijing, Beijing 100083, China
+(e-mail: hewei.ac@ustb.edu.cn).
+C.-Y. Su is with the Key Laboratory of Autonomous Systems and Net-
+worked Control, Ministry of Education, South China University of Tech-
+nology, Guangzhou 510641, China, on leave from Concordia University,
+Montréal, QC H4B 1R6, Canada (e-mail: cysu@alcor.concordia.ca ).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TII.2016.2612646
+I. INTRODUCTION
+WITH bimanual cooperation, humans are able to perform
+delicate and complicated manipulations. There has been
+a pronounced tendency in the robotics and automation commu-
+nity to shift focus of studies from single manipulators to coor-
+dinated dual-arm robots [1]–[6]. In comparison to a single-arm
+robot, a dual-arm robot has prominent advantages in handling
+capability, loading capability, as well as manipulative skills. For
+example, in tool using tasks such as carving or screwing, dis-
+tribution of motions and forces required by the tasks between
+the two robot arms greatly reduces the complexity and energy
+cost of manipulation, compared with that of a single robot arm.
+Therefore, the topics of dual-arm robot control have attracted
+much research attention over the past decades [7]–[10]. The
+early studies of coordinative control schemes of two robotic
+arms were reported in [11] and [12], where the position tracking
+and force control were addressed. To deal with the unknown
+output hysteresis in the control of coordinate robot, an adaptive
+neural control was presented with computational efficiency [6].
+In [7], a dual neural network (NN) has been used to resolve the
+distribution problem of redundant coordination robot systems
+by using multicriteria to minimize the global kinetic energy.
+It should be emphasized that the motion precision is of great
+importance in the robot operation, especially for the dual-arm
+manipulation [13]. A precise coordination of both arms can
+ensure that no excessive internal force would occur, and also
+reduce possible variation of the internal forces. In this regard,
+the rigorous requirement of motion precision implies that the
+transient performance in the operation must also be taken into
+account. Therefore, much effort in the control community has
+been made to achieve a desired transient performance [14]–[17].
+For this purpose, an effective tracking algorithm was proposed
+to control a five-bar closed-chain robot based on transformation
+of tracking errors in [16]. In [17], a constraint on output was con-
+sidered for control of a class of multiinput multioutput (MIMO)
+systems. The above-mentioned control approaches rely on pur-
+posely built transformations with appropriate inverses, which
+increase the complexity of the control design.
+In practice, usually, the kinematics information of robots can
+be accurately known from the manufacturer, but there exist in-
+evitable uncertainties of the dynamics of the robot [18]–[22].
+Nevertheless, we can always access the input–output data of a
+1551-3203 © 2016 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+YANG et al.: NEURAL CONTROL OF BIMANUAL ROBOTS WITH GUARANTEED GLOBAL STABILITY AND MOTION PRECISION 1163
+robot system; thus, it is desirable to use available input–output
+data to approximate the unknown robot dynamics, in order to de-
+sign a controller with satisfactory performance. One of the most
+successful control approaches is the NN based or fuzzy logics
+based intelligent controller, which utilizes the powerful univer-
+sal approximation ability of them to compensate for unknown
+dynamics [23]–[34]. In [35], the NN was used to approximate
+the hypersonic flight vehicle dynamics in the tracking control of
+strict-feedback systems. In [15], the NN was used to compen-
+sate for the complicated nonlinearity in the closed-loop robot
+dynamics.
+It should be noted that the above-mentioned NN control meth-
+ods only ensure stability in the sense of semiglobally uniformly
+ultimately boundedness (SGUUB) of the closed-loop signals,
+because the NN’s approximation only holds over a certain com-
+pact set, the so-called NN’s approximation domain. Therefore,
+the range of state variable must be within this approximation
+domain during operation. However, such a compact set is im-
+possible to be identified precisely beforehand, especially for
+highly nonlinear complicated systems with MIMO. Therefore,
+it is important to develop an NN controller with guaranteed
+global stability. In [36], a robust adaptive neural controller was
+developed to achieve global uniformly ultimately boundedness
+(GUUB) stability. An adaptive NN control for hypersonic flight
+vehicle systems was proposed to ensure GUUB stability in [35].
+However, only single-input single-output systems were reported
+in most existing works, and few of them consider transient per-
+formance at the same time.
+In this paper, we aim to achieve both tailored transient per-
+formance and guaranteed global stability at the same time, by
+exploiting the barrier Lyapunov functions (BLFs). The BLFs
+were originally developed in the nonlinear control commu-
+nity to deal with the state and output constraints [37]–[40].
+A BLF-based controller was developed to control a robot ma-
+nipulator with joint space constraints in [37]. In [40], an asym-
+metric time-varying BLF was presented for nonlinear systems
+in a strict-feedback form. In our previous work [41], a time-
+varying BLF based robot controller was developed to achieve
+desired tracking performance on a single arm robot in the joint
+space.
+It is noted that by posing constraints to the behavior of the
+states or outputs, tracking errors can be indirectly constrained
+using the BLF technique. Motivated by this, in this paper, the
+BLF technique was exploited to achieve the tailored tracking
+performance at both transient and steady states. Compared with
+the regulation of steady-state responses, the shaping of the tran-
+sient control is much more difficult. By constructing a prescribed
+tracking performance requirement function, a proper BLF is
+proposed for controller synthesis of a dual-arm robot, such that
+both transient and steady-state tracking performance can be en-
+sured. Meanwhile, a switching mechanism is introduced into
+the NN controller design to ensure global stability. In compar-
+ison to the conventional NN controllers that only ensure the
+stability of SGUUB, our proposed NN controller guarantees
+global stability of the closed-loop system. This is practically
+much more useful as the requirement of the NN inputs is greatly
+relaxed.
+Fig. 1. Overview of the dual-arm robot manipulated a common object.
+II. PROBLEM FORMULATION AND MODELING PROCEDURE
+A. Problem Formulation
+Consider a bimanual robot grasping a common object; our
+objective is to design a robot controller such that the manipulated
+object could track a desired trajectory xd specified in the task
+space, as shown in Fig. 1, while simultaneously guarantee the
+following.
+1) The tracking errors fall into the predefined bounds to
+achieve tailored tracking performances.
+2) All the signals in the closed-loop bimanual robot system
+remain GUUB.
+3) The internal forces between the end-effectors and the ob-
+ject converge to a small neighborhood of specified values.
+B. Modeling of the Bimanual Robot
+The position and orientation of the manipulated object could
+be defined by a vector x ∈ RN0
+, where N0 is the object’s degree
+of freedom (DOF). Assume that both arms grasp the object
+rigidly so that there is no relative motion in between the object
+and the end-effectors. Then, based on the forward kinematics of
+robot manipulator, the relations between task space and robot
+joint space can be calculated in the following manner:
+x = pi(qi), ẋ = ṗi(qi) = Ji(qi)q̇i (1)
+where qi ∈ RNi
+and q̇i ∈ RNi
+are vectors of joint variable and
+joint velocity of the ith robotic arm, respectively, and Ni is the
+DOF of the ith robotic arm. pi is a continuous function, and
+Ji(qi) is the Jacobian matrix. The following assumptions are
+considered to facilitate the modeling procedure of the bimanual
+robot system.
+Assumption 1: The dynamics of the robot manipulators are
+uncertain, while the kinematics is accurately available. The
+robotic arms are operating away from any singular configu-
+rations during the motion.
+Assumption 2: The rigid object would not be deformed by
+the exerted forces.
+Then, the dynamics of each robot arm are described in the
+following Lagrangian form:
+Mi(qi)q̈i + Ci(qi, q̇i)q̇i + Gi(qi) = τi + JT
+ei
+(qi)Fei
+(2)
+where Mi(qi) ∈ RNi ×Ni
+, Ci(qi, q̇i) ∈ RNi ×Ni
+, and Gi(qi) ∈
+RNi
+are the inertial matrix, Coriolis and centrifugal matrix, and
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+1164 IEEE TRANSACTIONS ON INDUSTRIAL INFORMATICS, VOL. 13, NO. 3, JUNE 2017
+gravity vector, respectively. JT
+ei
+(qi) represents the robotic arm’s
+Jacobian matrix, while τi ∈ RNi
+is the joint torque, and Fei
+∈
+RN0
+is the force vector exerted at end-effector. The dynamics
+of the object’s motion can be described as
+Mo(x)ẍ + Co(x, ẋ)ẋ + Go(x) = Fo (3)
+where Mo (x), Co (x, ẋ), and Go (x) denote the inertial, Coriolis
+and centrifugal matrix, and the gravitational vector of manipu-
+lated object, respectively, while Fo ∈ RN0
+is the resulting force
+given as follows:
+Fo = −Foe1
+− Foe2
+, Foei
+= fi + foi
+(4)
+where Foei
+is the interaction force applied on the end-effector
+of the ith robotic arm. Foei
+are decomposed into an external
+force foi
+and an internal force fi, where the external forces
+foi derive the motion of the object, and the internal forces fi
+cancel with each other and satisfy the constraint f1 + f2 = 0[n].
+Combination of (3) and (4) yields
+fi = Foei
+− Di(t)(fo1
++ fo2
+) (5)
+where Di(t) ∈ RN0 ×N0
+is the object load distribution matrix
+satisfying D1(t) + D2(t) = IN0
+, where IN0
+∈ RN0 ×N0
+is an
+identity matrix.
+Combination of (2)–(5) and the kinematic (1) yields a com-
+pact form below:
+τi = Mi(qi)q̈i + Ci(qi, q̇i)q̇i + Gi(qi) − JT
+i (qi)fi (6)
+where Mi = Mi + DiMo , Mo = JT
+i MoJi, Ci = Ci +
+Di(MD + Co), Co = JT
+i Co Ji, MD = JT
+i Mo
+˙
+Ji, Gi = Gi +
+DiGo , Go = JT
+i Go . To be self-contained, the fundamental prop-
+erties of robot manipulator dynamics, which will be used later
+for control design and analysis, are described below.
+Property 1 [10]: The skew-symmetric matrix 2Ci(qi, q̇i) −
+[Ṁi(qi) − Ḋi(t)Mo (qi, q̇i)] satisfies that
+∂T
+
+2Ci(qi, q̇i) − Ṁi(qi)
+
+− Ḋi(t)Mo (qi, q̇i)
+
+∂ = 0, ∀∂.
+Property 2 [10]: The matrix Ḋi(t)M0(qi) is bounded and
+uniformly continuous and satisfies the following inequality:
+Ḋi(t)M0(qi) ≤ 2, ∀t ≥ 0 (7)
+where  is a positive constant.
+III. CONTROL DESIGN
+Before proceeding to the control design, let us introduce the
+following tracking error signals:
+e = x − xd, zi = q̇i − αi i = 1, 2 (8)
+where e = [e1, e2, . . . , eN0
+] ∈ RN0
+stands for the position
+tracking error of the manipulated object, zi = [zi1, zi2, . . . ,
+ziNi
+] ∈ RNi
+stand for the velocity tracking error of each robotic
+arm in joint space, αi is a virtual controller to be specified in
+(19), and xd is the reference trajectory of the manipulated object.
+Our control strategy is illustrated in Fig. 2.
+Fig. 2. Framework for the bimanual robot controller.
+Fig. 3. Relationship between the tracking error ek (t) and the
+performance function.
+A. Specification on Requirement for
+Tracking Performance
+To specify tracking performance, especially transient per-
+formance (e.g., overshoot, undershoot, and coverage rate), we
+construct a series of smoothly decreasing functions φ(t) = [φ1,
+φ2, . . ., φN0
+] to shape the motion of the object as
+φk (t) = (ρ0k − ρ∞k )e−ak t
++ ρ∞k (9)
+where ρ0k , ρ∞k , and ak (k = 1, 2, . . . , N0) are properly cho-
+sen positive constants. Let us define ϕa,k (t) = −β1k φk (t) and
+ϕb,k (t) = β2k φk (t), with positive constants β1k and β2k to be
+specified by the designer.
+Remark 1: The functions ϕa,k (t) and ϕb,k (t) specify the
+tracking transient response, i.e., the exponential term ak regu-
+lates the required convergence rate of tracking errors, β1k ρ0k
+and −β2k ρ0k define the maximum overshoot and undershoot,
+and −β1k ρ∞k and β2k ρ∞k regulate the bounds of the steady
+errors, as shown in Fig. 3. This implies that we are able to reg-
+ulate both transient and steady-state performance by properly
+choosing parameters β1k , β2k , ρ0k , ρ∞k , and ak .
+The following coordinate transformation of tracking errors
+will be used in the later design:
+ξa =
+
+e1
+ϕa,1
+, . . . ,
+eN0
+ϕa,N0
+T
+ξb =
+
+e1
+ϕb,1
+, . . . ,
+eN0
+ϕb,N0
+T
+ξk = hk (ek )ξb,k + (1 − hk (ek ))ξa,k (10)
+where ξa,k and ξb,k are the kth element of the vectors ξa and ξb,
+respectively, and hk (ek ) is defined as
+hk (ek ) =
+
+1, ek ≥ 0
+0, otherwise.
+(11)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+YANG et al.: NEURAL CONTROL OF BIMANUAL ROBOTS WITH GUARANTEED GLOBAL STABILITY AND MOTION PRECISION 1165
+B. Controller Design Using BLF and Backstepping
+Inspired by the work [40], an asymmetric time-varying barrier
+function is constructed for the ith robotic arm as
+Vi1 =
+N0
+k=1
+hk
+2
+ln
+1
+1 − ξ2
+b,k
++
+1 − hk
+2
+ln
+1
+1 − ξ2
+a,k
+. (12)
+The differentiation of (12) with respect to time gives us
+V̇i1 =
+N0
+k=1
+hk
+1 − ξ2
+b,k
+ξb,k
+˙
+ξb,k +
+1 − hk
+1 − ξ2
+a,k
+ξa,k
+˙
+ξa,k . (13)
+According to definitions of ξa,k and ξb,k , and substituting (8)
+into (13), we have
+V̇i1 =
+N0
+k=1
+ξ2
+k
+(1 − ξ2
+k )ek
+ėk
++
+N0
+k=1
+(1 − hk )ξ2
+a,k
+(1 − ξ2
+a,k )
+ϕ̇a,k
+ϕa,k
++
+hk ξ2
+b,k
+(1 − ξ2
+b,k )
+ϕ̇b,k
+ϕb,k
+.
+(14)
+Then, by defining a transient control vector
+P =
+
+ξ2
+1
+(1 − ξ2
+1 )e1
+,
+ξ2
+2
+(1 − ξ2
+2 )e2
+, . . . ,
+ξ2
+N0
+(1 − ξ2
+N0
+)eN0
+T
+(15)
+and substituting it into (14), we rewrite Vi1 as follows:
+V̇i1 = PT
+ė +
+N0
+k=1
+(1 − hk )ξ2
+a,k
+(1 − ξ2
+a,k )
+ϕ̇a,k
+ϕa,k
++
+hk ξ2
+b,k
+(1 − ξ2
+b,k )
+ϕ̇b,k
+ϕb,k
+.
+(16)
+Note that the relation between ẋ and q̇i as specified in (1)
+always hold. According to the definitions of e and zi in (8),
+we have
+ė = Ji(q)(zi + αi) − ẋd, i = 1, 2. (17)
+Substituting (17) into (16) yields
+V̇i1 = PT
+(Ji(q)(zi + αi) − ẋd)
++
+N0
+k=1
+(1 − hk )ξ2
+a,k
+(1 − ξ2
+a,k )
+ϕ̇a,k
+ϕa,k
++
+hk ξ2
+b,k
+(1 − ξ2
+b,k )
+ϕ̇b,k
+ϕb,k
+.
+(18)
+Then, let us design a virtual controller αi as
+αi = J+
+i (q) (ẋd − K1e − σ(t)e) (19)
+where J+
+i (qi) is the Moore–Penrose inverse of Ji(qi), K1 =
+diag{k11, k12, . . . , k1N0
+}, with k1k
+being positive constants.
+And σ(t) = diag{σ1(t), σ2(t), . . . , σN0
+(t)} with σk (t) =
+
+(
+ϕ̇a , k
+ϕa , k
+)2 + (
+ϕ̇b , k
+ϕb , k
+)2 + ka , where ka selected as a positive pa-
+rameter that ensures the boundedness of α̇i when ϕ̇a,k (t) and
+ϕ̇b,k (t) are zero. Substituting (19) into (18) yields
+V̇i1 = PT
+Ji(q)zi − PT
+(K1e + σ(t)e)
++
+N0
+k=1
+hk ξ2
+b,k
+(1 − ξ2
+b,k )
+ϕ̇b,k
+ϕb,k
++
+(1 − hk )ξ2
+a,k
+(1 − ξ2
+a,k)
+ϕ̇a,k
+ϕa,k
+.
+(20)
+Note that the following inequality holds:
+σk (t) − hk
+ϕ̇a,k
+ϕa,k
+− (1 − hk )
+ϕ̇b,k
+ϕb,k
+≥ 0. (21)
+Using the definition of P in (15) and in terms of (21), (20)
+can be rewritten as
+V̇i1 ≤ −
+N0
+k=1
+k1k
+ξ2
+k
+(1 − ξ2
+k )
++ PT
+Ji(q)zi. (22)
+C. Global Adaptive NN (GANN) Control
+1) Radial Basis Function Neural Network (RBFNN)
+[42]: In this paper, the following RBFNNs are used to
+approximate a continuous vector function F(Z) = [f1(Z),
+f2(Z), . . . , fn (Z)]T
+∈ Rn
+,
+F̂(Z) = ŴT
+S(Z) (23)
+where F̂(Z) ∈ Rn
+is the estimate of F(Z), Z ∈ ΩZ ⊂ Rq
+is
+NN inputs vector, and q denotes the demonstration of the in-
+put; Ŵ = [Ŵ1, Ŵ2, . . . , Ŵn ] ∈ Rn × l
+is the estimation of NN
+optimal weight matrix W∗
+, and l is the number of NN nodes.
+S(Z) = [s1(Z), s2(Z), . . . , sl(Z)]T
+∈ Rl
+is the regressor vec-
+tor, with si(·) being a radial basis function. In general, the most
+commonly used Gaussian radial basis functions are employed
+as follows:
+si(Z − μi) = exp
+
+−(Z − μi)T
+(Z − μi)
+ϑ2
+i
+
+(24)
+where μi (i = 1, . . . , l) are distinct points in state space, μi =
+[μi1, μi2, . . . , μiq ]T
+is the center of the neural and ϑi is the
+Gaussian function’s width. It has been established that, with
+sufficiently large node number, an arbitrary continuous function
+F(Z) can be approximated by the RBFNN (23) over a compact
+set ΩZ as
+F (Z) = W∗T
+S (Z) + ε(Z) ∀Z ∈ ΩZ (25)
+where W∗
+is an ideal constant weight vector, and ε(Z) ∈ Rn
+is the approximation error. There exist ideal weight vector W∗
+such that |ε(Z)| < ε∗
+with constant ε∗
+> 0 for all Z ∈ ΩZ .
+2) Global NN Control Design: Let us define a positive
+Lyapunov function as
+Vi2 = Vi1 +
+1
+2
+zT
+i Mizi. (26)
+Substituting (6) and (8) into its derivative, and considering
+Properties 1 and 2, we can derive from (26) that
+V̇i2 ≤ V̇i1 + izT
+i zi
++ zT
+i (τi − Mα̇i − Ciαi − Gi + JT
+i (qi)fi) (27)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+1166 IEEE TRANSACTIONS ON INDUSTRIAL INFORMATICS, VOL. 13, NO. 3, JUNE 2017
+where Mi, Gi, and Ci are abbreviations of Mi(q), Gi(q), and
+Ci(q, q̇), respectively, and i is a positive constant specified
+in (7).
+Considering the dynamics of robot in (6), we reformulate it
+by using a function vector Fi(Zi) ∈ RNi
+as
+Fi(Zi) = −(Mα̇i + Ciαi + Gi) (28)
+where Fi(Zi) = [fi,1(Zi), fi,2(Zi), . . . , fi,Ni
+(Zi)]T
+, Zi =
+[qT
+i , q̇T
+i , αT
+i , α̇T
+i ]T
+∈ Rνi
+, with νi = 4Ni. It should be noted
+that, for the functions fi,j (Zi) ∈ R, j = 1, 2, . . . , Ni, there ex-
+ist known bounded nonnegative smooth functions fU
+i,j (Zi) such
+that |fi,j (Zi)| ≤ fU
+i,j (Zi), ∀Z ∈ Rνi
+.
+Applying RBFNN described in Section III-C, we see that over
+a compact set Ωi1
+F̂i(Zi) = ŴT
+i Si(Zi) + εi (29)
+where Ŵi = [Ŵi,1, Ŵi,2, . . . , Ŵi,Ni
+]T
+∈ Rli ×Ni
+is the esti-
+mation of optimal neural weight matrix W∗
+i , and Ŵi,j =
+[ω̂i,j1, ω̂i,j1, . . . , ω̂i,jli
+] ∈ Rli
+, Si(Zi) ∈ Rli
+is the basis vec-
+tor function, with li being the NN node number, and εi is the
+NN construction error satisfying |εi| < ε̄i .
+Prior to proceeding to the control design, let us introduce a
+set of smooth switching functions Qi(Zi) ∈ RNi ×Ni
+as
+Qi(Zi) = diag
+
+Mi1(Zi), Mi2(Zi), . . . , MiNi
+(Zi)
+
+(30)
+where Mij(Zi) =
+νi
+c=1 m(zic), and m(zic) is designed as
+m(zic) =
+⎧
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎩
+1, |zic| < d1,ic
+d2
+2 , i c −z2
+i c
+d2
+2 , i c −d2
+1 , i c
+e
+z 2
+i c
+−d 2
+1 , i c
+ω i (d 2
+2 , i c
+−d 2
+1 , i c )
+2
+, otherwise
+0, |zic| > d2,ic
+(31)
+where d1,ic and d2,ic are positive constants satisfying 0 <
+d1,ic < d2,ic, and ωi are positive constants with ωi ≥ 1.
+Remark 2: The switching function m(·) is scaled to m(·)= 1
+in the compact set Ω1 and m(·) = 0 outside the domain Ω2, as
+shown in Fig. 4 . Therefore, the adaptive NN control can be
+thoroughly disabled when the neural active region is no longer
+remain.
+Then, the adaptive global NN robot control law is
+designed as
+τi = −K2izi − JT
+i (qi)P − JT
+i (qi)fdi
+− Qi(Zi)Φa
+i
+− (1 − Qi(Zi))Φb
+i (32)
+where K2i = diag{k2,i1, k2,i2, . . . , k2,iNi
+} is an designed pos-
+itive definite diagonal matrix, fdi is the desired internal force,
+and P is the transient controller specified in (15). Φa
+i and Φb
+i are
+designed as
+Φa
+i = F̂i(Zi), Φb
+i = FU
+i (Zi)Γi
+FU
+i (Zi)zi
+
+(33)
+where F̂i is the estimate of Fi, and FU
+i = diag{fU
+i,1(Zi),
+fU
+i,2(Zi), . . . , fU
+i,Ni
+(Zi)}, Γi(
+F U
+i (Zi )zi
+ ) = [tanh(Fi (Zi )zi 1
+ ),
+tanh(Fi (Zi )zi 2
+ ), . . . , tanh(
+Fi (Zi )zi N i
+ )]T
+, with  being a
+positive parameter.
+Fig. 4. Global tracking performance.
+The NN weight adaptive law is designed as
+˙
+Ŵi = Θi(Qi(Zi)S(Zi)zi − γiŴi) (34)
+where Θi is a positive-definite matrix, and γi is a positive con-
+stant.
+Remark 3: The controller proposed in (32) consists of an
+adaptive NN controller Φa
+i and an extra robust controller Φa
+i .
+When the tracking runs in the NN active domain Ω1, the term
+Φa
+i plays a decisive role; once the NN runs out of the Ω2, the
+extra robust term Φb
+i will pull the state back. If the NN runs in
+the domain between the Ω2 and Ω1, both terms work and will
+pull the state back to the compact set Ω1.
+Consider the following Lyapunov function:
+Vi = Vi2 +
+1
+2
+Ni
+j=1
+W̃T
+i,j Θ−1
+i W̃i,j (35)
+where ˜
+(∗) = ˆ
+(∗) − (∗). Taking the derivative of (35) along time,
+and considering the control law (32) and the adaptive law
+(34), yields
+V̇i = V̇i1 + zT
+i
+
+− K2izi + izi − JT
+i (qi)P + JT
+i (qi) ˜
+fi
+
++ zT
+i
+
+− Qi(Zi)Φa
+i − (I − Qi(Zi))Φb
+i + Fi(Zi)
+
++
+Ni
+j=1
+W̃T
+i,j Θ−1
+i
+˙
+Ŵi,j (36)
+where ˜
+fi = fi − fdi. Substituting (29), (33), and (34) into (36),
+we have
+V̇i ≤ V̇i1 + zT
+i (−K2izi − JT
+i (qi)P + JT
+i (qi) ˜
+fi + izi)
++
+Ni
+j=1
+
+zijfU
+i,j − zijfU
+i,j tanh
+zijfU
+i,j
+
+
++
+Ni
+j=1
+
+−γiW̃T
+i,j (W∗
+ij + W̃i,j ) + zijεij
+
+. (37)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+YANG et al.: NEURAL CONTROL OF BIMANUAL ROBOTS WITH GUARANTEED GLOBAL STABILITY AND MOTION PRECISION 1167
+Note that the following inequalities hold in terms of Young’s
+inequality:
+− W̃T
+i,j (W∗
+ij + W̃i,j ) ≤ −
+1
+2
+||W̃i,j ||2
++
+1
+2
+||Wi,j
+∗
+||2
+zijεij ≤
+1
+2
+z2
+ij +
+1
+2
+ε2
+ij. (38)
+And the following inequality holds for any  > 0 and z ∈ R:
+0 ≤ |z| − z tanh
+ z
+
+
+≤ κ (39)
+where κ is a constant satisfying κ = e−(κ+1)
+, i.e., κ = 0.2785.
+Substituting (22), (38), and (39) into (37), we have
+V̇i ≤ −
+N0
+k=1
+k1j
+ξ2
+k
+(1 − ξ2
+k )
++
+
+ė + (K1 + σ)e
+T
+˜
+fi
++
+Ni
+j=1
+− k2,ij − i −
+1
+2
+z2
+ij −
+1
+2
+γi|W̃i,j ||2
++
+Ni
+j=1
+1
+2
+γi||Wi,j
+∗
+||2
++
+1
+2
+ε2
+ij + κ . (40)
+Then, taking the Lyapunov function V = V1 + V2 and con-
+sidering the property of internal forces, we have
+V̇ = V̇1 + V̇2 ≤
+N0
+k=1
+−2k1k
+ln
+1
+(1 − ξ2
+k )
++
+2
+i=1
+Ni
+j=1
+−kc,ij z2
+ij −
+1
+2
+γi|W̃i,j ||2
++
+2
+i=1
+Ni
+j=1
+1
+2
+γi||Wi,j
+∗
+||2
++
+1
+2
+ε2
+ij + κ (41)
+where kc,ij = k2,ij − i − 1
+2 , and the fact
+ξ2
+k
+(1−ξ2
+k )
+≥ ln 1
+(1−ξ2
+k )
+,
+∀|ξk | < 1 has been used.
+D. Stability Analysis
+Theorem 1: Consider the bimanual robot system in (6), to-
+gether with the virtual controllers αi in (19), the control law
+(32), the adaptation law in (34), and the performance functions
+in (9). Given initial conditions ek satisfy ϕa,k (0) < ek (0) <
+ϕb,k (0), the proposed adaptive control scheme can guarantee the
+following.
+1) The tracking error e are bounded by the predefined func-
+tion ϕaj .
+2) All the tracking signals in the closed-loop system are
+uniformly ultimately bounded.
+3) The tracking error e converges to a small neighborhood
+of zero.
+Proof. From (12), (26), and (35), we have
+V =
+N0
+k=1
+ln
+1
+1 − ξ2
+k
++
+1
+2
+2
+i=1
+zT
+i Mi(zi)zi
++
+1
+2
+2
+i=1
+Ni
+j=1
+W̃T
+i,j Θ−1
+i W̃i,j . (42)
+Fig. 5. Illustration of the setup of the experiment. [photo taken at South
+China University of Technology].
+According to (42), inequality (41) can be represented as
+V̇ (t) = −ηV (t) + μ (43)
+where η = min{2λmin(K1),
+2λm in (Kc i
+)
+λm a x (Mi ) , γi
+λmax(Θ−1
+i )
+, |i = 1, 2},
+μ =
+2
+i=1
+Ni
+j=1(1
+2 ε2
+i + 1
+2 ||W∗
+i,j ||2
++ κ), and Kci
+=
+diag{kc,i1, kc,i2, . . . , kc,iNi
+}.
+Multiplying both sides by eηt
+in (43), and applying the inte-
+gration over [0, t], we have
+V (t) ≤ (V (0) − μ/η)Ee−ηt
++ μ/η ≤ V (0) + μ/η. (44)
+From the above inequality, and in terms of (12), (26), and
+(35), as well as the initial condition of ξk (0), we can conclude
+that the terms ln(1/(1 − ξ2
+k )), zi as well as the NN weight
+estimation errors W̃i,j are bounded. Thus, we can conclude
+that ϕa < e < ϕb, which implies the transient performance is
+guaranteed. And since ϕa and ϕb are bounded function, e must
+be bounded. From (8), we can obtain that x is also bounded.
+Therefore Ji is bounded. From the definition of αi, we can
+know that αi is also bounded. In terms of the boundedness of
+zi and αi and according to q̇i = zi + αi, q̇i is also bounded.
+Hence, all the signals in the closed-loop dual-arm robot system
+are bounded. This completes the proof. 
+Remark 4: The designed matrices K1 and Kci
+in the con-
+troller can be chosen simply as positive-definite diagonal ma-
+trices. The gains in the NN adaptive law Θi and γi should be
+positive. And in terms of (44), if the gains K1, K2i
+, and γi are
+chosen to be relatively small, while Θi chosen relatively large,
+then the amplitude of tracking error could be made smaller.
+Theorem 2: The proposed global adaptive NN controller
+(32) also guarantees that the error of the internal force ˜
+fi con-
+verges to a small neighborhood of the origin.
+Proof. See the Appendix.
+IV. EXPERIMENTAL STUDIES
+The Baxter bimanual robot, as shown in Fig. 5, is used in
+the experiment. It is of two 7-DOF arms and advanced sensing
+technologies, including position, force, and torque sensors and
+control at every joint. The resolution for the joint sensors is
+14 bits with 360◦
+(0.022◦
+per tick resolution), while the maxi-
+mum joint torques that can be applied to the joints are 50 N·m
+(the first four joints) and 15 N·m (the last three joints).
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+1168 IEEE TRANSACTIONS ON INDUSTRIAL INFORMATICS, VOL. 13, NO. 3, JUNE 2017
+Fig. 6. Tracking performance of the manipulated object. (a) x. (b) y. (c) θ. (d) Task space trajectory.
+In the experiment, the Baxter robot is commanded to grasp
+an object by using its two robotics arms with grippers mounted
+on the end-effectors. For each robotic arm, we initialized the
+position of the joints to make the arm locating in a horizontal
+plane as shown in Fig. 5. For simplicity and without loss of
+generality, we use three parallel revolute joints (s0, e1, w1) of
+each arm to derive the motion in the experiment. The grasped
+object is a cylinder made of plastic, with 0.1 kg in weight, 0.1 m
+in length, and 0.06 m in diameter. The internal forces could
+be calculated by using torque sensors equipped with each joint
+together with gravity compensation model built in [43] and in
+terms of (5).
+In order to well approximate the robot dynamics and
+considering both the accuracy and the computational efficiency,
+we divide the inputs of RBFNN into two groups, with one group
+containing [qT
+i , α̇T
+i ]T
+∈ R6
+and another [qT
+i , q̇T
+i , αT
+i ]T
+∈ R9
+,
+and employ three centers for each input dimension of the NNs,
+and ended up with totally l1 = 20 412 NN nodes for each NN.
+The centers of the NNs nodes are evenly spaced between the
+upper and lower bounds of the motion range and speed limits
+of each joint in [−1.7, 1.7] × [−1.05, 2.61] × [−1.57, 2.09] ×
+[−1.5, 1.5] × [−1.5, 1.5] × [−1.5, 1.5]
+
+[−1.7, 1.7] × [−1.05,
+2.61] × [−1.57, 2.09] × [−1.5, 1.5] × [−1.5, 1.5] × [−1.5,
+1.5] × [−1.5, 1.5] × [−1.5, 1.5] × [−1.5, 1.5]. And the NNs
+weight matrix are initialized as Ŵ1(0) = 0 ∈ R3l1 ×3
+and
+Ŵ2(0) = 0 ∈ R3l2 ×3
+. And the gains of NN adaptive law
+are chosen as Θ1 = diag{2}, Θ2 = diag{2}. The designed
+parameters K1 and K2i of the controller are specified as
+K1 = diag{10, 9, 9}, K21 = K22 = diag{9, 4.5, 1.2}. And the
+parameters  in the controller (32) are selected as  = 0.1.
+In the experiment, the object is required to trace the following
+trajectory specified in the Cartesian space:
+⎛
+⎜
+⎝
+x
+y
+θ
+⎞
+⎟
+⎠ =
+⎛
+⎜
+⎝
+0.65 + 0.1 sin(2π/5t)
+0.12 cos(2π/5t)
+0
+⎞
+⎟
+⎠ . (45)
+The initial configuration of the object is (0.55, 0.2, 0.2),
+and the initial velocity is set to ẋ(0) = 0, ẏ(0) = 0, θ̇(0) = 0.
+The desired internal forces are chosen as fd1 = [0, 3, 0], fd2 =
+[0, −3, 0]. The parameters of the performance function (9)
+are designed with ρ01 = ρ02 = 0.2, ρ03 = 0.4, ρ∞1 = ρ∞2 =
+0.012, ρ∞3 = 0.025, and ak = 2.5, β1k = β2k = 1, k = 1, 2, 3.
+A. Experimental Results
+The experimental results are presented in Figs. 6–9. The track-
+ing performance of the manipulated object in task space is shown
+Fig. 7. Tracking error of the object manipulation. (a)–(c) Tracking errors
+with the proposed controller. (d)–(f) Tracking errors with the modified
+controllers u1 (t) and u2 (t).
+in Fig. 6(d), where the proposed controller is observed with a
+good performance when following a circular trajectory. The
+tracking trajectories with respect to x, y, and θ are depicted in
+Fig. 6(a)–(c). The tracking errors of the manipulated object are
+shown in Fig. 7(a)–(c). As shown in these figures, the grasped
+object follows the reference trajectories very well, and the track-
+ing errors converge to a neighborhood around zero without vi-
+olation of the prescribed transient bound (red-dashed line “-”).
+The trajectories of control inputs, internal force errors, joint po-
+sitions, and NN weight norm are depicted as shown in Figs. 8
+and 9. We can see from the figures that closed-loop signals
+are bounded and the internal force errors converge to a neigh-
+borhood of zero. In addition, comparative experimental results
+based on two modified controllers are shown in Fig. 7(d)–(f)
+(u1(t) controller without NN adaptation; u2(t) controller with-
+out both transient and NN control). As shown in these figures,
+without using the NN control and transient control, the tracking
+errors violated the prescribed transient bounds, while relatively
+larger steady-stage errors are observed without using the NN
+control. The experimental results illustrate that our proposed
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+YANG et al.: NEURAL CONTROL OF BIMANUAL ROBOTS WITH GUARANTEED GLOBAL STABILITY AND MOTION PRECISION 1169
+Fig. 8. Control inputs and internal force errors of each arm of the Baxter
+robot. (a) τ1 . (b) τ2 . (c) ˜
+f1 = f1 − fd1
+. (d) ˜
+f2 = f2 − fd2
+.
+Fig. 9. Trajectory of joint position and the convergence of NN weight.
+(a) Joint angles qij . (b) NN weight norm ||Wij || (i = 1, 2, j = 1, 2, 3).
+controller can successfully guarantee the tracking errors remain-
+ing in the predefined region and ensure the prescribed transient
+bounds to be never violated.
+V. CONCLUSION
+In this paper, we designed an adaptive neural control for
+general dual-arm robot systems, with prescribed tracking per-
+formance and guaranteed global stability. By introduction of a
+set of boundary functions and then introducing them into the
+controller design, specified motion precision in both transient
+and steady states are achieved. The transient responses such as
+overshoot, settling time, and final tracking RBFNNs are em-
+ployed to approximate the unknown dynamics of both the robot
+arms and the manipulated object. Semiglobal stability achieved
+by the conventional neural control has been extended to global
+stability by incorporation of a switching mechanism into the
+controller. The resulted neural control also ensures proper in-
+ternal force applied on the object, as specified by the designer.
+Experiment studies have demonstrated the effectiveness of the
+proposed control scheme.
+APPENDIX
+Proof of Theorem 2: Combining (6) and (32), we can obtain
+the error dynamics equation as
+Miżi + Cizi + Gi + εi + (I − Qi)(−Φa
+i − Φb
+i ) + K2izi
+= JT
+(qi) ˜
+fi − JT
+i (qi)P. (46)
+Then, multiplying Ji(qi)M−1
+i on both sides on the (46), we
+have
+Mci
+˜
+fi = Ji(qi)M−1
+i (I − Qi)(−Φa
+i − Φb
+i ) + Mci
+P
++ Ji(qi)M−1
+i
+
+(Ci + K2i)zi + Gi + εi
+
++ Ji(qi)żi
+(47)
+where Mci
+= Ji(qi)M−1
+i JT
+(qi). Since Ji(qi)zi = ė +
+(−K1 + σ)e, we can obtain that
+˙
+Ji(qi)zi + Ji(qi)żi = ë + Λė (48)
+where Λ = −K1 + σ. Substituting (48) into (46), we
+have Mci
+˜
+fi = ë + Λė + χi, where χi = Ji(qi)M−1
+i (I −
+Qi)(−Φa
+i − Φb
+i ) + Mci
+P + Ji(qi)M−1
+i ((Ci + K2i)zi + Gi +
+εi) − ˙
+Ji(qi)zi.
+Then, let us compute the term and consider the fol-
+lowing equality by using the property of internal forces,
+U ˜
+f = H, where ˜
+f = [ ˜
+fT
+1 , ˜
+fT
+2 ]T
+, H = [χT
+1 − χT
+2 , 0]T
+, and U =
+[
+Mc1
+−Mc2
+I I
+]. Since the terms Mc1
+and Mc2
+are positive defi-
+nite, we can obtain that U is bounded and invertible. As analyzed
+in the proof of Theorem 1, qi, q̇i, e, and zi are all bounded, and
+we can deduce that χi is also bounded; hence, H is bounded.
+Therefore, the vector of internal forces errors ˜
+f are bounded.
+This completes the proof. 
+REFERENCES
+[1] Y.-H. Liu and S. Arimoto, “Decentralized adaptive and nonadaptive po-
+sition/force controllers for redundant manipulators in cooperations,” Int.
+J. Robot. Res., vol. 17, no. 3, pp. 232–247, 1998.
+[2] B. Bona, M. Indri, and N. Smaldone, “Rapid prototyping of a model-based
+control with friction compensation for a direct-drive robot,” IEEE/ASME
+Trans. Mechatronics, vol. 11, no. 5, pp. 576–584, Oct. 2006.
+[3] M. Foumani, I. Gunawan, K. Smith-Miles, and M. Y. Ibrahim, “Notes on
+feasibility and optimality conditions of small-scale multifunction robotic
+cell scheduling problems with pickup restrictions,” IEEE Trans. Ind.
+Informat., vol. 11, no. 3, pp. 821–829, Jun. 2015.
+[4] C. Chen, Z. Liu, Y. Zhang, C. L. P. Chen, and S. Xie, “Saturated Nussbaum
+function based approach for robotic systems with unknown actuator dy-
+namics,” IEEE Trans. Cybern., vol. 46, no. 10, pp. 2311–2322, Oct. 2016.
+[5] B. Bona, L. Carlone, M. Indri, and S. Rosa, “Supervision and monitoring
+of logistic spaces by a cooperative robot team: Methodologies, problems,
+and solutions,” Intell. Service Robot., vol. 7, no. 4, pp. 185–202, 2014.
+[6] Z. Liu, C. Chen, Y. Zhang, and C. P. Chen, “Adaptive neural control for
+dual-arm coordination of humanoid robot with unknown nonlinearities in
+output mechanism,” IEEE Trans. Cybern., vol. 45, no. 3, pp. 507–518,
+Mar. 2015.
+[7] Z.-G. Hou, L. Cheng, and M. Tan, “Multicriteria optimization for coor-
+dination of redundant robots using a dual neural network,” IEEE Trans.
+Syst., Man, Cybern. B, Cybern., vol. 40, no. 4, pp. 1075–1087, Aug. 2010.
+[8] A. Ferraro, M. Indri, and I. Lazzero, “Dynamic update of a virtual cell
+for programming and safe monitoring of an industrial robot,” IFAC Proc.
+Vol., vol. 45, no. 22, pp. 822–827, 2012.
+[9] Z.-G. Hou, L. Cheng, and M. Tan, “Decentralized robust adaptive control
+for the multiagent system consensus problem using neural networks,”
+IEEE Trans. Syst., Man, Cybern. B, Cybern., vol. 39, no. 3, pp. 636–647,
+Jun. 2009.
+[10] Y. Jiang, Z. Liu, C. Chen, and Y. Zhang, “Adaptive robust fuzzy control
+for dual arm robot with unknown input deadzone nonlinearity,” Nonlinear
+Dyn., vol. 81, no. 3, pp. 1301–1314, 2015.
+[11] J.-H. Jean and L.-C. Fu, “An adaptive control scheme for coordinated
+multimanipulator systems,” IEEE Trans. Robot. Autom., vol. 9, no. 2,
+pp. 226–231, Apr. 1993.
+[12] W.-H. Zhu and J. D. Schutter, “Control of two industrial manipulators
+rigidly holding an EGG,” IEEE Control Syst., vol. 19, no. 2, pp. 24–30,
+Apr. 1999.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+1170 IEEE TRANSACTIONS ON INDUSTRIAL INFORMATICS, VOL. 13, NO. 3, JUNE 2017
+[13] K. C. Lau, E. Y. Y. Leung, P. W. Y. Chiu, C. Y. Yam, J. Y. W. Lau, and
+C. C. Y. Poon, “A flexible surgical robotic system for removal of
+early-stage gastrointestinal cancers by endoscopic submucosal dissec-
+tion,” IEEE Trans. Ind. Informat., 2016, in press, doi: 10.1109/TII.
+2016.2576960.
+[14] S.-L. Dai, M. Wang, and C. Wang, “Neural learning control of
+marine surface vessels with guaranteed transient tracking perfor-
+mance,” IEEE Trans. Ind. Electron., vol. 63, no. 3, pp. 1717–1727,
+Mar. 2016.
+[15] L. Cheng, Y. Lin, Z.-G. Hou, M. Tan, J. Huang, and W. Zhang, “In-
+tegrated design of machine body and control algorithm for improving
+the robustness of a closed-chain five-bar machine,” IEEE/ASME Trans.
+Mechatronics, vol. 17, no. 3, pp. 587–591, Jun. 2012.
+[16] L. Cheng, Z.-G. Hou, M. Tan, and W.-J. Zhang, “Tracking control of
+a closed-chain five-bar robot with two degrees of freedom by integra-
+tion of an approximation-based approach and mechanical design,” IEEE
+Trans. Syst., Man, Cybern. B, Cybern., vol. 42, no. 5, pp. 1470–1479,
+Oct. 2012.
+[17] W. Meng, Q. Yang, and Y. Sun, “Adaptive neural control of nonlinear
+MIMO systems with time-varying output constraints,” IEEE Trans. Neural
+Netw. Learn. Syst., vol. 26, no. 5, pp. 1074–1085, May 2015.
+[18] C. Yang, X. Wang, L. Cheng, and H. Ma, “Neural-learning based Telerobot
+control with guaranteed performance,” IEEE Trans. Cybern., 2016, in
+press, doi: 10.1109/TCYB.2016.2573837.
+[19] C. Yang, Z. Li, and J. Li, “Trajectory planning and optimized adaptive
+control for a class of wheeled inverted pendulum vehicle models,” IEEE
+Trans. Cybern., vol. 43, no. 1, pp. 24–35, Feb. 2013.
+[20] C. Yang, Z. Li, R. Cui, and B. Xu, “Neural network-based motion control
+of an under-actuated wheeled inverted pendulum model,” IEEE Trans.
+Neural Netw. Learn. Syst., vol. 25, no. 11, pp. 2004–2016, 2014.
+[21] C. Chen, Z. Liu, Y. Zhang, and C. L. P. Chen, “Modeling and adaptive
+compensation of unknown multiple frequency vibrations for the stabiliza-
+tion and control of an active isolation system,” IEEE Trans. Control Syst.
+Technol., vol. 24, no. 3, pp. 900–911, May 2016.
+[22] S.-L. Dai, C. Wang, and F. Luo, “Identification and learning control of
+ocean surface ship using neural networks,” IEEE Trans. Ind. Informat.,
+vol. 8, no. 4, pp. 801–810, Nov. 2012.
+[23] Y.-J. Liu, S.-C. Tong, D. Wang, T.-S. Li, and C. P. Chen, “Adaptive neural
+output feedback controller design with reduced-order observer for a class
+of uncertain nonlinear SISO systems,” IEEE Trans. Neural Netw., vol. 22,
+no. 8, pp. 1328–1334, Aug. 2011.
+[24] B. Ren, Q.-C. Zhong, and J. Chen, “Robust control for a class of non-
+affine nonlinear systems based on the uncertainty and disturbance es-
+timator,” IEEE Trans. Ind. Electron., vol. 62, no. 9, pp. 5881–5888,
+Sep. 2015.
+[25] C. Yang, X. Wang, Z. Li, Y. Li, and C.-Y. Su, “Teleoperation control based
+on combination of wave variable and neural networks,” IEEE Trans. Syst.,
+Man, Cybern. Syst., Man, and Cybernetics: Systems, 2016, in press, doi:
+10.1109/TSMC.2016.2615061.
+[26] Y. Wang, L. Cheng, Z.-G. Hou, J. Yu, and M. Tan, “Optimal formation
+of multirobot systems based on a recurrent neural network,” IEEE Trans.
+Neural Netw. Learn. Syst., vol. 27, no. 2, pp. 322–333, Feb. 2016.
+[27] Y. J. Liu and S. Tong, “Adaptive fuzzy control for a class of nonlinear
+discrete-time systems with backlash,” IEEE Trans. Fuzzy Syst., vol. 22,
+no. 5, pp. 1359–1365, Oct. 2014.
+[28] Y. Liu, Y. Gao, S. Tong, and Y. Li, “Fuzzy approximation-based adaptive
+backstepping optimal control for a class of nonlinear discrete-time systems
+with dead-zone,” IEEE Trans. Fuzzy Syst., vol. 24, no. 1, pp. 16–28,
+Feb. 2016.
+[29] Y. J. Liu and S. Tong, “Adaptive fuzzy control for a class of unknown
+nonlinear dynamical systems,” Fuzzy Sets Syst., vol. 263, pp. 49–70,
+2015.
+[30] S.-L. Dai, C. Wang, and M. Wang, “Dynamic learning from adap-
+tive neural network control of a class of nonaffine nonlinear systems,”
+IEEE Trans. Neural Netw. Learn. Syst., vol. 25, no. 1, pp. 111–123,
+Jan. 2014.
+[31] H. C. Huang, “Fusion of modified bat algorithm soft computing and dy-
+namic model hard computing to online self-adaptive fuzzy control of
+autonomous mobile robots,” IEEE Trans. Ind. Informat., vol. 12, no. 3,
+pp. 972–979, Jun. 2016.
+[32] C. Chen, Z. Liu, K. Xie, Y. J. Liu, Y. Zhang, and C. L. P. Chen, “Adaptive
+fuzzy asymptotic control of MIMO systems with unknown input coeffi-
+cients via a robust Nussbaum gain based approach,” IEEE Trans. Fuzzy
+Syst., 2016, in press, doi: 10.1109/TFUZZ.2016.2604848.
+[33] G. Lai, Z. Liu, Y. Zhang, C. L. P. Chen, and S. Xie, “Asymmetric ac-
+tuator backlash compensation in quantized adaptive control of uncertain
+networked nonlinear systems,” IEEE Trans. Neural Netw. Learn. Syst.,
+2016, in press, doi: 10.1109/TNNLS.2015.2506267.
+[34] G. Lai, Z. Liu, Y. Zhang, and C. L. P. Chen, “Adaptive fuzzy track-
+ing control of nonlinear systems with asymmetric actuator backlash
+based on a new smooth inverse,” IEEE Trans. Cybern., vol. 46, no. 6,
+pp. 1250–1262, Jun. 2016.
+[35] B. Xu, C. Yang, and Y. Pan, “Global neural dynamic surface tracking
+control of strict-feedback systems with application to hypersonic flight
+vehicle,” IEEE Trans. Neural Netw. Learn. Syst., vol. 26, no. 10, pp. 2563–
+2575, 2015.
+[36] J.-T. Huang, “Global tracking control of strict-feedback systems using
+neural networks,” IEEE Trans. Neural Netw. Learn. Syst., vol. 23, no. 11,
+pp. 1714–1725, Nov. 2012.
+[37] Z.-L. Tang, S. S. Ge, K. P. Tee, and W. He, “Adaptive neural control for an
+uncertain robotic manipulator with joint space constraints,” Int. J. Control,
+vol. 89, no. 7, pp. 1428–1446, 2016.
+[38] B. Ren, S. S. Ge, K. P. Tee, and T. H. Lee, “Adaptive neural con-
+trol for output feedback nonlinear systems using a barrier Lyapunov
+function,” IEEE Trans. Neural Netw., vol. 21, no. 8, pp. 1339–1345,
+Aug. 2010.
+[39] W. He, Y. Chen, and Z. Yin, “Adaptive neural network control of an
+uncertain robot with full-state constraints,” IEEE Trans. Cybern., vol. 46,
+no. 3, pp. 620–629, Mar. 2016.
+[40] K. P. Tee, B. Ren, and S. S. Ge, “Control of nonlinear systems with time-
+varying output constraints,” Automatica, vol. 47, no. 11, pp. 2511–2516,
+2011.
+[41] C. Yang, Y. Jiang, Z. Li, W. He, and C.-Y. Su, “Global NN control of robot
+manipulator with prescribed transient tracking performance,” in the 12th
+World Congress on Intelligent Control and Automation (WCICA), Guilin,
+China, pp. 2092–2097, Jun. 12–17, 2016.
+[42] W. He, Y. Dong, and C. Sun, “Adaptive neural impedance control of
+a robotic manipulator with input saturation,” IEEE Trans. Syst., Man,
+Cybern., Syst., vol. 46, no. 3, pp. 334–344, Mar. 2016.
+[43] C. Yang, H. Ma, and M. Fu, Advanced Technologies in Modern Robotic
+Applications. New York, NY, USA: Springer, 2016.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in control
+engineering from the National University of Sin-
+gapore, Singapore, in 2010. He received post-
+doctoral training at Imperial College London,
+London, U.K.
+He is a Senior Lecturer with Zienkiewicz Cen-
+tre for Computational Engineering, Swansea
+University, Swansea, U.K. He is also with South
+China University of Technology, Guangzhou, China. His research inter-
+ests include in robotics, automation, and computational intelligence.
+Yiming Jiang received the B.Eng. degree in
+automation from Hunan University, Changsha,
+China, in 2011, and the M.Eng. degree in control
+science and engineering from Guangdong Uni-
+versity of Technology, Guangzhou, China, 2015.
+He is currently working toward the Ph.D. degree
+in the College of Automation Science and Engi-
+neering, South China University of Technology,
+Guangzhou, China.
+His research interests include robotics and
+intelligent control.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+YANG et al.: NEURAL CONTROL OF BIMANUAL ROBOTS WITH GUARANTEED GLOBAL STABILITY AND MOTION PRECISION 1171
+Zhijun Li (M’07–SM’09) received the Ph.D. de-
+gree in mechatronics from Shanghai Jiao Tong
+University, Shanghai, China, in 2002.
+From 2003 to 2005, he was a Postdoctoral
+Fellow in the Department of Mechanical Engi-
+neering and Intelligent systems, The University
+of Electro-Communications, Tokyo, Japan. From
+2005 to 2006, he was a Research Fellow in the
+Department of Electrical and Computer Engi-
+neering, National University of Singapore, and
+Nanyang Technological University, Singapore.
+From 2007 to 2011, he was an Associate Professor in the Department
+of Automation, Shanghai Jiao Tong University. In 2008, he was a visiting
+scholar in Microsoft Research Asia, Beijing, China. Since 2012, he is cur-
+rently a Professor in the College of Automation Science and Engineering,
+South China University of Technology, Guangzhou, China. In 2015, he is
+a visiting Professor in the Faculty of Science and Technology, University
+of Macau, Macau, China, and the Department of Advanced Robotics,
+Italian Institute of Technology, Genoa, Italy. His current research inter-
+ests include service robotics, teleoperation systems, nonlinear control,
+and neural network optimization.
+Dr. Li has been the Chair of the Technical Committee on Biomecha-
+tronics and Biorobotics Systems of the IEEE Systems, Man and Cyber-
+netics Society since 2016. He is serving as an Editor-at-Large of the
+Journal of Intelligent and Robotic Systems, an Associate Editor of the
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS and
+the IEEE TRANSACTIONS ON SYSTEMS, MAN AND CYBERNETICS: SYSTEMS,
+and the IEEE TRANSACTIONS ON AUTOMATION SCIENCE AND ENGINEERING.
+He has been the General Chair of the 2016 IEEE Conference on Ad-
+vanced Robotics and Mechatronics, Macau, China.
+Wei He (M’12–SM’16) received the B.Eng. de-
+gree in automation from the College of Au-
+tomation Science and Engineering, South China
+University of Technology (SCUT), Guangzhou,
+China, in 2006, and the Ph.D. degree in control
+engineering from the Department of Electrical
+and Computer Engineering, National University
+of Singapore (NUS), Singapore, in 2011.
+He was a Research Fellow in the Department
+of Electrical and Computer Engineering, NUS,
+from 2011 to 2012. He is currently a Full Profes-
+sor in the School of Automation and Electrical Engineering, University
+of Science and Technology Beijing, Beijing, China. His current research
+interests include robotics, distributed parameter systems, and intelligent
+control systems.
+Dr. He is served as an Editor of the Journal of Intelligent and Robotic
+Systems and IEEE/CAA JOURNAL OF AUTOMATICA SINIC.
+Chun-Yi Su (SM’99) received the Ph.D. degree
+in control engineering from South China Univer-
+sity of Technology, Guangzhou, China, in 1990.
+He joined Concordia University, Montreal,
+QC, Canada, in 1998, after a seven-year stint
+with the University of Victoria, Victoria, BC,
+Canada. He is currently with the College of Au-
+tomation Science and Engineering, South China
+University of Technology, on leave from Concor-
+dia University. His current research interests in-
+clude the application of automatic control theory
+to mechanical systems. He is particularly interested in control of sys-
+tems involving hysteresis nonlinearities. He has authored or coauthored
+more than 300 publications in journals, book chapters, and conference
+proceedings.
+Dr. Su has served as an Associate Editor of the IEEE TRANSACTIONS
+ON AUTOMATIC CONTROL, the IEEE TRANSACTIONS ON CONTROL SYSTEMS
+TECHNOLOGY, and the Journal of Control Theory and Applications. He
+has been on the Editorial Board of 18 journals, including the IFAC Jour-
+nal of Control Engineering Practice and Mechatronics.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:49:51 UTC from IEEE Xplore. Restrictions apply.
