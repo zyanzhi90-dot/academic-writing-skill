@@ -1,0 +1,51 @@
+{
+  "source": "effect-test/E02-abstract-autonomous-regression-2026-10-04/execute_once.py",
+  "source_sha256": "2fefa16110b8960ded8720a0cf37792426c768dff38d291c5f96f875efb85722",
+  "changes": [
+    {
+      "old": "COMMIT = \"5b8bbca46a436f4a3b73cb2cf3bc73984e16471d\"",
+      "new": "COMMIT = json.loads((RECORD / \"preflight.json\").read_text(encoding=\"utf-8\"))[\"frozen_candidate_commit\"]"
+    },
+    {
+      "old": "    inputs = materials / \"inputs\"",
+      "new": "    previous_record = ROOT / \"effect-test/E02-abstract-autonomous-regression-2026-10-04\"\n    previous_frozen = json.loads((previous_record / \"frozen-materials.json\").read_text(encoding=\"utf-8\"))\n    prior_sources = {item[\"path\"]: item for item in previous_frozen[\"corpus_sources\"]}\n    prior_extractions = {item[\"pdf\"]: item for item in previous_frozen[\"corpus_extraction\"][\"papers\"]}\n    inputs = materials / \"inputs\""
+    },
+    {
+      "old": "    (inputs / \"personal-experience.txt\").write_bytes((ROOT / EXPERIENCE).read_bytes())",
+      "new": "    (inputs / \"personal-experience.txt\").write_bytes((ROOT / EXPERIENCE).read_bytes())\n    (inputs / \"core-requirements.txt\").write_bytes((ROOT / \"\\u6838\\u5fc3\\u8981\\u6c42.txt\").read_bytes())"
+    },
+    {
+      "old": "        # Extract only current PDFs; do not pass stale old-corpus texts to the writer.\n        result = subprocess.run([extraction_tool, \"-raw\", \"-enc\", \"UTF-8\", str(target), \"-\"],\n                                capture_output=True, check=True)\n        pages = result.stdout.decode(\"utf-8\").replace(\"\\r\\n\", \"\\n\").split(\"\\f\")\n        if not pages[-1].strip():\n            pages.pop()\n        assert pages and all(page.strip() for page in pages)\n        lines = []\n        for number, page in enumerate(pages, 1):\n            lines.extend([f\"=== PDF PAGE {number} ===\", page.strip(), \"\"])\n        text_relative = Path(\"analysis/reading\") / ((paper_id or paper.stem) + \".txt\")\n        text_target = materials / text_relative\n        text_target.parent.mkdir(parents=True, exist_ok=True)\n        text_target.write_text(\"\\n\".join(lines), encoding=\"utf-8\")\n",
+      "new": "        # Reuse the already verified PDF extraction, checking both its PDF and text hashes.\n        previous = prior_extractions[relative.as_posix()]\n        assert previous[\"pdf_sha256\"] == digest(paper)\n        text_relative = Path(previous[\"text\"])\n        previous_text = previous_record / \"materials\" / text_relative\n        assert digest(previous_text) == previous[\"text_sha256\"] == prior_sources[text_relative.as_posix()][\"sha256\"]\n        text_target = materials / text_relative\n        text_target.parent.mkdir(parents=True, exist_ok=True)\n        text_target.write_bytes(previous_text.read_bytes())\n"
+    },
+    {
+      "old": "\"pages\": len(pages), \"pdf_sha256\": digest(paper),",
+      "new": "\"pages\": previous[\"pages\"], \"pdf_sha256\": digest(paper),"
+    },
+    {
+      "old": "\"stderr\": result.stderr.decode(\"utf-8\", errors=\"replace\")})",
+      "new": "\"stderr\": previous[\"stderr\"], \"reused_verified_text\": True})"
+    },
+    {
+      "old": "\"total_pdf_count\": len(papers), \"fresh_text_count\": len(extractions),",
+      "new": "\"total_pdf_count\": len(papers), \"reused_verified_text_count\": len(extractions),"
+    },
+    {
+      "old": "\"method\": \"pdftotext -raw -enc UTF-8; page markers; no prose rewriting\",",
+      "new": "\"method\": \"Reuse byte-verified prior pdftotext -raw -enc UTF-8 texts with page markers; no prose rewriting\",\n                              \"reuse_source_record\": previous_record.relative_to(ROOT).as_posix(),"
+    },
+    {
+      "old": "        f\"{runtime / 'inputs/personal-experience.txt'}. Invoke only the frozen local nature-writing at \"",
+      "new": "        f\"{runtime / 'inputs/personal-experience.txt'} and core requirements at \"\n        f\"{runtime / 'inputs/core-requirements.txt'}. Invoke only the frozen local nature-writing at \""
+    },
+    {
+      "old": "and their corresponding freshly extracted texts in this ",
+      "new": "and their corresponding verified extracted texts in this "
+    },
+    {
+      "old": "Reference science does not add author facts. This is one autonomous first-pass regression on the known E02 materials in a fresh context, not a new-paper transfer test. ",
+      "new": "Reference science does not add author facts. "
+    }
+  ],
+  "single_invocation_and_collection_implementation_retained": true
+}

@@ -1,0 +1,103 @@
+{
+  "run_kind": "known-E02-autonomous-regression",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "single_cli_invocation": true,
+  "generation_feedback_reruns_selection_or_edits": false,
+  "first_output_sha256": "c82d25c81b985ce99bf07ce9c3ef680a018a053ef6dfa9c6cd9cdc8d9caf9463",
+  "english_slice_byte_offsets": [
+    22,
+    1375
+  ],
+  "chinese_slice_byte_offsets": [
+    1395,
+    2430
+  ],
+  "derived_files_are_exact_byte_slices_without_added_newline": true,
+  "english_sentences": [
+    "This paper proposes an impedance learning method for rigid robot manipulators interacting with unknown, time-varying environments.",
+    "An outer learning loop combines gradient following and iterative improvement to adjust the desired damping and stiffness, while the desired inertia remains fixed.",
+    "The learning is formulated for a linear time-varying mass–damper–spring environment and does not require prior identification of its exact parameters.",
+    "A weighted interaction-error cost specifies the trade-off between trajectory tracking and tracking the time integral of interaction force.",
+    "An inner adaptive position controller is designed to track the virtual reference trajectory generated from the learned impedance without requiring a robot dynamics regressor.",
+    "Theoretical analysis establishes bounded closed-loop signals and asymptotic tracking of the virtual reference trajectory when its velocity and acceleration are bounded and the control and adaptation gains satisfy the required conditions.",
+    "Numerical simulation results demonstrate task-cost improvement for different trajectory-tracking weights.",
+    "Experiments with repeated robot wrist–human hand contact further demonstrate that a higher trajectory-tracking weight increases stiffness and reduces position error, whereas a lower weight decreases stiffness and produces more compliant motion."
+  ],
+  "english_word_count": 173,
+  "actual_example_card_loading": {
+    "A04": {
+      "line_range": [
+        183,
+        194
+      ],
+      "all_nonempty_card_lines_returned_verbatim": true,
+      "full_english_quote_returned": true,
+      "card_sha256": "933a0ebdb2c44df6654195d41ce491fbe1cd671e9b6927bbf37601315a22f9ab"
+    },
+    "A05": {
+      "line_range": [
+        195,
+        206
+      ],
+      "all_nonempty_card_lines_returned_verbatim": true,
+      "full_english_quote_returned": true,
+      "card_sha256": "523ef29c1ea9da422d59b1a5e2cad50a4d73b605669b4791500a79989de9102b"
+    },
+    "A06": {
+      "line_range": [
+        207,
+        222
+      ],
+      "all_nonempty_card_lines_returned_verbatim": true,
+      "full_english_quote_returned": true,
+      "card_sha256": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5"
+    },
+    "A07": {
+      "line_range": [
+        223,
+        238
+      ],
+      "all_nonempty_card_lines_returned_verbatim": true,
+      "full_english_quote_returned": true,
+      "card_sha256": "cb2bc59cf49d8d5c60321acb336407af10b7c90aadaa3e25961d1555bbde9314"
+    }
+  },
+  "updated_A06_A07_analysis_loaded_verbatim": true,
+  "writer_input_files": 152,
+  "only_allowed_input_inventory": true,
+  "author_facts_experience_core_and_standard_request_byte_identical": true,
+  "outside_materials_explicit_reads": [],
+  "transport_events_within_the_single_invocation": [
+    {
+      "type": "error",
+      "message": "Reconnecting... 2/5 (workspace routing discovery failed)"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 3/5 (workspace routing discovery failed)"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 4/5 (workspace routing discovery failed)"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 5/5 (workspace routing discovery failed)"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_0",
+        "type": "error",
+        "message": "Falling back from WebSockets to HTTPS transport. workspace routing discovery failed"
+      }
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 1/5 (workspace routing discovery failed)"
+    }
+  ],
+  "isolation_limit": "New ephemeral context and material-only directory with audited reads; no OS-level read isolation claimed",
+  "scientific_or_writing_effect_verdict": "See coordinator evaluation.md; loading does not establish writing quality"
+}
