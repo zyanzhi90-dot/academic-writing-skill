@@ -31,59 +31,59 @@ under this author style. Apply the common expression core to object handoffs.
 
 ## Polishing priorities
 
-Within the requested scope, identify the central contribution: what the work
-does and how the key design provides its supported role and advantage.
-Organize the abstract around this account; retain theory and validation only
-to substantiate or bound its claims.
-Use the selected main abstracts' whole-paragraph content choices and progression
-to judge what belongs, including phrases, modifiers, and qualifiers. Retain or
-adapt them to explain the contribution, clarify scientific relations, support
-a claim, or set necessary scope; otherwise omit them. Scientific truth alone
-does not justify inclusion. Preserve object identity, necessary conditions,
-and evidence attribution. This is a contribution–support relationship, not a
-fixed sentence order.
+Establish the author-supported contributions and distinguish proposed designs
+from established tools. Check whether each retained key design has a clear
+task role and whether its action or information explains its claimed effect.
+Keep an information source, compensated uncertainty, output handoff or other
+enabling relation when the explanation depends on it; omit internal calculations
+that do not serve that relation. A technical name suffices when its role is
+already clear. Restore a missing scientific link before shortening.
+
+Match these relationships to the selected reference's actual whole paragraph
+and consecutive sentences. Preserve an already sound argument; repair the
+affected sentence group using the reference's content choices, mature syntax
+and specific wording, with author facts replacing its scientific content.
+Combine better local realizations from other references within that argument.
+Judge groups and their phrases by contribution understanding, support and
+necessary scope. Not every paper needs every relation or the same sentence count.
 
 If the user asks to discuss the abstract first, give a short Chinese main line
 with the intended emphasis and major inclusions and omissions. For a direct
 drafting or polishing request, make the same decisions internally and proceed
 without a confirmation stage.
 
-- Cut sentences that summarize background that the title already implies.
-- Make the author-supported problem and contribution easy to locate.
-- Keep the central contribution identifiable; retain supporting claims when
-  they establish it or define a necessary boundary, rather than inventorying Results.
-- Keep the key method design and its supported advantage clear and concise.
-  Expand steps, conditions, or definitions only to explain the contribution
-  or bound its claim; a criterion may itself be the contribution. One central
-  contribution may need explanation; with several, compress each design to
-  its essential role and advantage. Preserve guarantee objects, strength,
-  and necessary conditions.
-- Keep a number only when it defines, supports, or materially bounds the main
-  discovery; numeric reporting is not mandatory by itself.
-- Retain a closing finding or bounded implication when it advances the abstract;
-  remove a closing restatement with no new argument function.
-- Check the real venue/task length requirement or the information load of the
-  selected main abstracts; remove unnecessary background, implementation detail,
-  and repeated guarantees without deleting necessary conditions.
-
 ## Verification expression
 
 Use `Numerical simulation results demonstrate …` (A07) as the default
-realization for supported numerical findings and `Experimental studies are also carried out to …` (A04) for an actual experimental study purpose. Consult
-the actual English and selection notes. Adapt the evidence object, action
-strength, and complement; use another approved main-reference realization
-when it better fits the evidence and established style. Map retained theory
-and validation to the central claim each supports or bounds. Keep data sizes,
-platforms, test items, and observation sequences only when their omission
-would obscure that support or change the claim's scope; availability in the
-author material alone does not justify inclusion. Identify the analysis or
-study and what it establishes or assesses; a purpose clause does not establish success. Preserve the distinct
-objects and strength of simulations, experiments, and theoretical guarantees.
-Use a specific supported finding in place of a generic validity claim where
-available. Combine evidence subjects and conclusions only when support
-relationships remain clear; keep differing findings and scopes identifiable.
-Check the actual opening, object handoffs, method detail, and verification
-against the selected English and author style. Apply the same content-necessity
-test to phrases, modifiers, and qualifiers within retained sentences;
-grammatical validity alone does not establish completion. No single sentence
-pattern or experimental inventory is required.
+realization for supported numerical findings and `Experimental studies are also carried out to …` (A04) for an actual experimental study purpose. Read
+their English and selection notes from the loaded example reference. Adapt
+the evidence object, action strength and complement to author science; use
+another approved main-reference realization when it better fits the evidence
+and established style. A study purpose is not a demonstrated result.
+
+Select the contribution-level finding supported by each retained evidence
+source. A supported capability, comparison or task-dependent effect can be
+specific without itemizing each setting or curve. Report a shared finding
+jointly when the sources support it; retain separate findings when their
+differences matter to the contribution or its evidence boundary. Keep numbers,
+platforms and individual observations only when they materially establish or
+bound that finding. Do not turn an observed trend into an unconditional claim.
+
+Match theoretical guarantees to their model, object, strength and necessary
+conditions. Retain a condition that defines a contribution or limits its
+guarantee; omit proof detail that does neither. Preserve the distinction between
+theory, simulation and experiment, and the scope of each source when combining
+their conclusions. Do not invent results or close with generic validity.
+
+## Delivery check
+
+Compare the complete paragraph, consecutive sentences and meaningful phrases
+with the selected real English and author facts. Check contribution relations
+and content necessity as well as object names, terminology, conditions, syntax
+and collocations. Follow the actual length requirement; otherwise use the
+selected abstracts' information load to cut excess background and detail.
+Repair missing scientific links, unsupported claims and departures from the
+author's established style. Preserve correct mature wording and reasonable
+variants that express the same supported relationship; the availability of
+another wording does not require a change. Place consequential unresolved
+author questions outside the abstract.

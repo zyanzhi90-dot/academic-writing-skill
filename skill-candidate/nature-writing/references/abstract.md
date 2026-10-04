@@ -52,7 +52,7 @@ Introduce the technical challenge, then use one to two sentences to present the 
 ### Expert Notes
 
 1. Discuss previous work around the technical challenge that we actually solve.
-2. For the contribution sentence(s), usually mention the technical term/name only; do not explain every detailed step.
+2. State the design's task role and supported advantage; include the enabling relation needed to understand them, without listing implementation steps.
 3. The technical term must be easy to understand; readers should not feel a jump.
 4. This ability is very important for writing a good abstract.
 
@@ -77,7 +77,7 @@ Introduce the technical challenge, then use one to two sentences to present the 
 
 1. Discuss previous work around the technical challenge that we actually solve.
 2. Introduce the insight in one clear sentence.
-3. For the implementation sentence(s), usually mention the technical term/name only; do not explain every detailed step.
+3. Name the implementation and explain how its design provides the stated role or advantage; omit internal steps that do not serve that explanation.
 4. The technical term must be easy to understand; do not create a jump in reading.
 5. This ability is very important for writing a good abstract.
 
@@ -101,7 +101,7 @@ Version 3: When there are multiple technical contributions, describe each contri
 ### Expert Notes
 
 1. When there are multiple technical contributions, describe each contribution together with its technical advantage.
-2. The ability to express "contribution + advantage" in one sentence is very important for writing a good abstract.
+2. Keep each contribution connected to its advantage; use consecutive sentences when an enabling relation needs explanation, rather than forcing both into one sentence.
 
 Version 3 local cite:
 
