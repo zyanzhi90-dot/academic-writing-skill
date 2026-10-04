@@ -1,0 +1,460 @@
+=== PDF p.1 / blocks in column reading order ===
+[p1-b0 bbox=49.0,30.9,563.1,37.8]
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+777
+
+[p1-b1 bbox=56.3,59.2,555.7,83.1]
+Robot Learning System Based on Adaptive Neural
+
+[p1-b2 bbox=91.6,87.2,520.3,111.1]
+Control and Dynamic Movement Primitives
+
+[p1-b3 bbox=99.6,124.7,512.4,135.7]
+Chenguang Yang
+, Senior Member, IEEE, Chuize Chen, Wei He
+, Senior Member, IEEE,
+
+[p1-b4 bbox=149.5,141.9,462.5,153.0]
+Rongxin Cui, Member, IEEE, and Zhijun Li
+, Senior Member, IEEE
+
+[p1-b5 bbox=49.0,191.8,300.2,360.2]
+Abstract—This
+paper
+proposes
+an
+enhanced
+robot
+skill
+learning system considering both motion generation and trajec-
+tory tracking. During robot learning demonstrations, dynamic
+movement primitives (DMPs) are used to model robotic motion.
+Each DMP consists of a set of dynamic systems that enhances
+the stability of the generated motion toward the goal. A Gaussian
+mixture model and Gaussian mixture regression are integrated
+to improve the learning performance of the DMP, such that
+more features of the skill can be extracted from multiple
+demonstrations. The motion generated from the learned model
+can be scaled in space and time. Besides, a neural-network-based
+controller is designed for the robot to track the trajectories
+generated from the motion model. In this controller, a radial
+basis function neural network is used to compensate for the effect
+caused by the dynamic environments. The experiments have been
+performed using a Baxter robot and the results have conﬁrmed
+the validity of the proposed methods.
+
+[p1-b6 bbox=49.0,366.8,300.3,395.7]
+Index
+Terms—Dynamic
+movement
+primitives
+(DMPs),
+Gaussian mixture model (GMM), neural network (NN), robot
+learning.
+
+[p1-b7 bbox=49.0,403.9,213.2,447.0]
+I. INTRODUCTION
+R
+
+[p1-b8 bbox=49.0,419.5,300.3,501.3]
+ECENTLY, robots have been widely applied in various
+ﬁelds, especially in manufacturing. Adaptable robots
+are required due to the increasingly fast updates of the
+manufactured products. Hence, it is necessary to develop
+methods for enhancing robot learning. Robot learning from
+demonstration (LfD) is a valuable technique to simplify the
+strategy of robot learning [1], [2]. The human tutor shows the
+
+[p1-b9 bbox=49.0,512.5,300.0,592.1]
+Manuscript received August 17, 2017; revised December 17, 2017 and
+March 19, 2018; accepted June 22, 2018. Date of publication July 26, 2018;
+date of current version February 19, 2019. This work was supported in
+part by the National Nature Science Foundation under Grant 61473120 and
+Grant 61472325, in part by the Science and Technology Planning Project of
+Guangzhou under Grant 201607010006, in part by the State Key Laboratory of
+Robotics and System under Grant SKLRS-2017-KF-13, and in part by Funda-
+mental Research Funds for the Central Universities under Grant 2017ZD057.
+(Corresponding author: Chenguang Yang.)
+
+[p1-b10 bbox=49.0,593.3,300.0,628.1]
+C. Yang and C. Chen are with the Key Laboratory of Autonomous Systems
+and Networked Control, College of Automation Science and Engineering,
+South China University of Technology, Guangzhou 510640, China (e-mail:
+cyang@ieee.org; aucchen@outlook.com).
+
+[p1-b11 bbox=49.0,629.0,299.9,655.0]
+W. He is with the School of Automation and Electrical Engineering,
+University of Science and Technology Beijing, Beijing 100083, China
+(e-mail: weihe@ieee.org).
+
+[p1-b12 bbox=49.0,656.0,299.8,681.9]
+R.
+Cui
+is
+with
+the
+School
+of
+Marine
+Science
+and
+Technology,
+Northwestern
+Polytechnical
+University,
+Xi’an
+710072,
+China
+(e-mail:
+rongxin.cui@gmail.com).
+
+[p1-b13 bbox=49.0,682.9,299.9,699.7]
+Z. Li is with the Department of Automation, University of Science and
+Technology of China, Hefei 230026, China (e-mail: zjli@ieee.org).
+
+[p1-b14 bbox=49.0,700.8,299.6,717.7]
+Color versions of one or more of the ﬁgures in this paper are available
+online at http://ieeexplore.ieee.org.
+
+[p1-b15 bbox=55.7,718.8,238.2,726.7]
+Digital Object Identiﬁer 10.1109/TNNLS.2018.2852711
+
+[p1-b20 bbox=68.8,737.7,542.5,745.7]
+This work is licensed under a Creative Commons Attribution 3.0 License. For more information, see http://creativecommons.org/licenses/by/3.0/
+
+[p1-b16 bbox=312.0,191.2,563.2,225.0]
+way to complete a task and then the robot learns, via motion
+modeling, to reproduce the skill. Therefore, it is essential to
+consider how to model motions effectively.
+
+[p1-b17 bbox=312.0,227.1,563.5,440.3]
+The dynamic system (DS) is a powerful tool for motion
+modeling
+[3].
+Compared
+to
+the
+conventional
+methods,
+e.g., interpolation techniques, DS offers a ﬂexible solu-
+tion to model stable and extensible trajectories. In addition,
+the motion encoded with the DS is robust to perturba-
+tions. An approach based on DS was used to learn human
+motions [4], where the unknown mapping of the DS was
+approximated using a neural network (NN) called extreme
+learning machine [5]. The learned model showed adequate
+stability and generalization. However, this DS-based method
+required considerable demonstration data for training. In con-
+trast, the dynamic movement primitive (DMP), which is based
+on a nonlinear DS [6], only requires one demonstration to
+model motion; here, the DMP models the movement trajectory
+as a spring-damper system integrated with an unknown func-
+tion to be learned. The inherent property of the spring-damper
+system enhances the stability and robustness (to perturbations)
+of the generated motion.
+
+[p1-b18 bbox=312.0,442.2,563.4,607.6]
+DMPs have been often employed to solve robot learning
+problems because of their ﬂexibility. In [7], DMPs were
+modiﬁed to model fast movement inherent in hitting motion.
+Another study used reinforcement learning to combine DMP
+sequences so that the robot could perform more complex
+tasks [8]. While both these studies employed multiple DMPs
+to compose a complete action, another study [9] used multiple
+DMPs to model style-adaptive trajectory, where the style of the
+generated motion could be changed by modulating the weight
+parameters that were coupled with the goals. As mentioned
+in [10], optimal demonstration is difﬁcult to obtain and multi-
+ple demonstrations can encode the ideal trajectory implicitly.
+Therefore, we consider integrating multiple demonstrations
+into one DMP model in this paper.
+
+[p1-b19 bbox=312.0,609.6,563.2,727.2]
+Probabilistic approaches have shown good performance in
+motion encoding [11]–[13]. The inherent variability of the
+demonstrations can be extracted, and thus, more features
+of the demonstrations can be preserved. In [14], an LfD
+framework using a Gaussian mixture model (GMM) and a
+Bernoulli mixture model was used to extract the features
+from multiple demonstrations. A new motion was generated
+through Gaussian mixture regression (GMR). In contrast with
+the above-mentioned methods, GMM combined with GMR
+can provide additional motion information for robots when
+
+=== PDF p.2 / blocks in column reading order ===
+[p2-b0 bbox=49.0,30.9,563.1,37.8]
+778
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 30, NO. 3, MARCH 2019
+
+[p2-b1 bbox=49.0,224.0,207.5,232.0]
+Fig. 1.
+Block diagram of the proposed system.
+
+[p2-b2 bbox=49.0,256.5,300.3,350.1]
+learning from multiple demonstrations. In [3], a learn-
+ing approach named stable estimator of dynamical sys-
+tems (SEDS) was proposed for motion modeling, where an
+unknown function was modeled using GMR. DS-GMR is
+another method that combines the DS with the statistical
+learning approach [15]. Both methods exploit the robustness
+and generalization capability of the DS as well as the excellent
+learning performance of the probabilistic methods.
+
+[p2-b3 bbox=49.0,352.1,300.4,529.5]
+To take advantage of the performance of the DS and
+the probabilistic approach, we integrate DMP and GMM
+into our proposed system, where the nonlinear function of
+DMP is modeled with GMM and its estimate is retrieved
+through GMR. This modiﬁcation enables the robot to extract
+more features of the motions from multiple demonstrations
+and to generate motions that synthesize these features. The
+original DMP was learned using the locally weighted regres-
+sion (LWR) [16], and the locally weighted projection regres-
+sion [17] was employed to optimize the bandwidth of each
+kernel of LWR. Despite the added complexity of the learning
+procedure, these methods enable the DMP to learn from
+only one demonstration. Reservoir computing [18] is another
+method used to approximate the nonlinear function, but its
+computing efﬁciency is less than that of GMR.
+
+[p2-b4 bbox=49.0,531.4,300.4,744.6]
+The imitation performance of robots also depends on the
+accuracy of the trajectory tracking controller that involves the
+robot dynamics. Generally, a model-based control performs
+better if the model is accurate enough [19]. However, an accu-
+rate dynamic model of a manipulator cannot be obtained in
+advance due to some uncertainties, e.g., unknown payload. The
+approximation-based controllers have been designed to over-
+come such uncertainties. They utilize function approximation
+tools to learn the nonlinear characteristics of the robot dynam-
+ics. NNs have been widely used in controller design because
+of their approximation ability [20]–[22]. In [23], the backprop-
+agation NN (BPNN) was utilized to approximate the unknown
+nonlinear function in the model of the vibration suppression
+device, while in [24], the radial basis function NN (RBFNN)
+was utilized to approximate the unknown nonlinearity of the
+telerobot system. Compared to BPNN, the learning procedure
+of RBFNN is based on local approximation; thus, RBFNN
+can avoid getting stuck in the local optimum and has a faster
+
+[p2-b5 bbox=312.0,256.5,563.1,302.3]
+convergence rate. Besides, the number of hidden layer units of
+RBFNN can be adaptively adjusted during the training phase,
+making NN more ﬂexible and adaptive. Therefore, RBFNN is
+more appropriate for the design of real-time control.
+
+[p2-b6 bbox=312.0,304.2,563.4,457.7]
+In this paper, an NN-based controller is designed to guaran-
+tee the tracking performance of the manipulator in joint space,
+where RBFNN is employed to approximate the nonlinear
+functions of the robot dynamics. The stability of the controller
+is guaranteed by the Lyapunov stability theory. As shown
+in Fig. 1, the robot learning system consists of the motion
+generation component and the trajectory tracking component.
+The former utilizes the motion model based on DMP to learn
+and generalize motion skills; these, in turn, are represented
+as a set of trajectories in joint space. The latter employs the
+adaptive controller to track the trajectories generated from the
+former, and RBFNN is incorporated to compensate for the
+uncertain dynamics.
+
+[p2-b7 bbox=312.0,459.7,563.3,589.2]
+Here, we present a novel and complete robot learning
+framework that considers the performance of both motion gen-
+eration and trajectory tracking. The SEDS presented in [3] is
+similar to our DMP-based model. However, the constraints that
+guarantee the stability of SEDS are derived by the Lyapunov
+theory that increases the complexity of the learning. In contrast
+to [3] and [25] which considered only motion modeling, our
+system is enhanced by an NN-based controller and the effect
+caused by the dynamic environments can be compensated by
+neural learning. This design enables the robot to perform the
+learned motions steadily and more robustly in the real world.
+
+[p2-b8 bbox=312.0,591.1,563.1,672.9]
+The remainder of this paper is organized as follows.
+Section II introduces the DMP and its relevant characteristics.
+The learning process of the motion model is introduced in
+Section III. In Section IV, the concept of RBFNN is intro-
+duced, and the controller using RBFNN is designed with the
+proof of stability. The experiments are presented in Section V.
+Section VI concludes this paper.
+
+[p2-b9 bbox=342.2,684.0,532.9,694.0]
+II. BASIC MODEL OF DISCRETE MOVEMENT
+
+[p2-b10 bbox=312.0,699.1,563.4,744.9]
+Motion skills can be classiﬁed into point-to-point and
+periodic movements in accordance with brain activation [1].
+While using DS to model motions, these two types corre-
+spond to point attractor and limit cycle attractor, respectively.
+
+=== PDF p.3 / blocks in column reading order ===
+[p3-b0 bbox=49.0,30.8,563.1,37.8]
+YANG et al.: ROBOT LEARNING SYSTEM BASED ON ADAPTIVE NEURAL CONTROL AND DMP
+779
+
+[p3-b1 bbox=49.0,171.9,300.0,197.9]
+Fig. 2.
+(a) Accelerations of the original spring-damper part in (1) and the
+modiﬁed one in (4). (b) Evolutions of the systems (1) and (4) without an
+external forcing term ( f = 0).
+
+[p3-b2 bbox=49.0,223.3,300.3,257.2]
+In this paper, we focus on point-to-point movements and
+use the discrete DMP as the basic motion model, which is
+composed of a spring-damper system and a nonlinear function.
+
+[p3-b3 bbox=49.0,259.2,300.1,316.9]
+DMP
+can
+be
+employed
+to
+model
+motions
+in
+joint
+space or Cartesian space. The motions in both spaces are
+regarded as a set of 1-D trajectories, and each trajectory is
+represented as one DMP model. For concision, we only discuss
+the modeling problem of the motions in joint space.
+
+[p3-b4 bbox=58.9,318.6,238.8,328.9]
+The DMP model is deﬁned as follows [26]:
+
+[p3-b5 bbox=82.1,336.8,300.1,365.4]
+τs ˙ξ1 = ξ2
+τs ˙ξ2 = l1(θg −ξ1) −l2ξ2 + (θg −θ0)ξ3 f (ξ3)
+(1)
+
+[p3-b6 bbox=82.2,366.7,300.1,380.2]
+τs ˙ξ3 = −α1ξ3
+(2)
+
+[p3-b7 bbox=49.0,388.9,300.1,400.3]
+where ξ1 ∈R represents the joint position and ξ2/τs ∈R and
+
+[p3-b8 bbox=49.0,398.9,300.4,483.9]
+˙ξ2/τs ∈R denote the joint velocity and the joint acceleration,
+respectively. ξ3 > 0 is regarded as a phase variable that
+is exponentially decaying. l1, l2, and α1 are the positive
+constants. θ0 is the start position, θg is the goal, and (θg −θ0)
+serves as the spatial scaling term. τs > 0 is the time constant.
+The nonlinear term f : R →R is assumed to be a continuous
+bounded function in terms of ξ3.
+
+[p3-b9 bbox=49.0,484.6,299.9,508.0]
+The system (1) is a spring-damper system perturbed by a
+nonlinear term. Generally, we choose l1 = l2
+
+[p3-b10 bbox=49.0,496.6,300.3,579.5]
+2/4 to make the
+former critically damped. The initial state of system (2) can
+be chosen as ξ0 = 1. The stability of the whole model is clear;
+the nonlinear term will converge to zero since the state ξ3 will
+converge to zero and the nonlinear function f (ξ3) is bounded.
+Then, the system (1) becomes a stable spring-damper system,
+whose state converges to the goal θg.
+
+[p3-b11 bbox=49.0,580.6,300.4,662.3]
+The large initial acceleration of the original spring-damper
+part [Fig. 2(a)] is not desirable for robots in practice. More-
+over, the large variation in the acceleration will lead to a
+complex external forcing term, which is adverse to the learning
+of the model. Therefore, we replace the goal θg in the spring-
+damper part with the state of another exponential decay
+system [27]
+
+[p3-b12 bbox=128.5,670.2,300.1,683.7]
+τs ˙ξ4 = −α2(ξ4 −θg)
+(3)
+
+[p3-b13 bbox=49.0,692.4,300.2,715.6]
+where α2 is a positive constant and the initial value of ξ4 is set
+as θ0. Consequently, the system (1) is rewritten as follows [27]:
+
+[p3-b14 bbox=81.0,722.6,300.1,751.2]
+τs ˙ξ1 = ξ2
+τs ˙ξ2 = l1(ξ4 −ξ1) −l2ξ2 + (θg −θ0)ξ3 f (ξ3).
+(4)
+
+[p3-b15 bbox=312.0,173.0,562.8,209.1]
+Fig. 3.
+(a) Actual acceleration of the spring-damper part and the expected
+acceleration to reproduce the demonstration (a sine curve). (b) Difference
+between two accelerations in (a), which is compensated by the nonlinear
+function f (ξ3).
+
+[p3-b16 bbox=312.0,235.1,563.1,280.9]
+As shown in Fig. 2(a), the acceleration of the modiﬁed system
+becomes moderate. The evolution of the system (4) with f = 0
+is shown in Fig. 2(b). Since the state ξ4 will converge to θg,
+the modiﬁed model is still stable toward the goal.
+
+[p3-b17 bbox=312.0,282.9,563.3,365.4]
+The DMP model is chosen as the basic motion model
+because of its concise formulation and excellent generaliz-
+ability. Since the DMP model is always stable toward θg,
+the motion modeled can be scaled spatially by modulating θg
+and θ0 without destabilizing the model. The spatial scaling
+term (θg −θ0) ensures that the proﬁle of the motion is
+maintained and its duration can be changed by modulating τs.
+
+[p3-b18 bbox=351.6,388.0,523.4,397.9]
+III. LEARNING OF THE MOTION MODEL
+
+[p3-b19 bbox=312.0,408.3,408.5,418.2]
+A. Problem Description
+
+[p3-b20 bbox=312.0,426.1,563.4,579.6]
+DMP assumes that the motion is generated from the
+nonlinear DS (4), whose uncertain part is the nonlinear
+function f (ξ3). Therefore, the learning problem of DMP is
+how to approximate this function, which compensates for
+the difference between the actual acceleration of the spring-
+damper part and the expected acceleration to reproduce the
+demonstrated movement (Fig. 3). Assuming that a 1-D demon-
+stration trajectory is captured and encoded as a time series
+{(θt, ˙θt, ¨θt) | t = 1, 2, . . . , T }, where θt, ˙θt, and ¨θt describe
+the position, velocity, and acceleration of the trajectory at time
+step t, respectively, and T is the duration of the demonstration,
+the expected value of f at time step t is computed using the
+following equation [26]:
+
+[p3-b22 bbox=388.7,589.6,505.8,604.2]
+s ¨θt −[l1(ξ4,t −θt) −l2τs ˙θt]
+
+[p3-b21 bbox=363.5,590.1,393.7,610.0]
+ft = τ 2
+
+[p3-b24 bbox=551.4,598.9,563.1,608.9]
+(5)
+
+[p3-b23 bbox=418.8,605.6,470.2,617.1]
+(θT −θ1)ξ3,t
+
+[p3-b25 bbox=312.0,626.2,563.3,684.4]
+where ξ3,t and ξ4,t are the values of ξ3 and ξ4 at time
+step t, respectively. Equation (5) is an inverse process of the
+reproduction. Since f (ξ3) is a function of ξ3, we can exploit
+the data set {(ξ3,t, ft) | t = 1, 2, . . . , T } to approximate the
+function.
+
+[p3-b26 bbox=312.0,686.0,563.2,708.3]
+In the original DMP model, the function f (ξ3) is deﬁned
+as [26]
+
+[p3-b28 bbox=427.7,719.2,441.8,730.5]
+Ns
+
+
+[p3-b27 bbox=393.6,730.0,425.0,741.2]
+f (ξ3) =
+
+[p3-b30 bbox=443.5,730.0,563.1,741.2]
+γiφi(ξ3)
+(6)
+
+[p3-b29 bbox=428.5,744.2,440.8,752.1]
+i=1

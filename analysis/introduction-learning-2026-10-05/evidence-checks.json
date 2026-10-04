@@ -1,0 +1,300 @@
+{
+  "scope": "Analysis source, quotation, link, input and diff integrity only; no model/test execution or effect acceptance",
+  "writing_tests": {
+    "Drafting": "not run / not evaluated",
+    "Polishing": "not run / not evaluated",
+    "combined": "not run / not evaluated",
+    "transfer": "not run / not evaluated"
+  },
+  "root1_pdf": "Not found in repository, D:/桌面, user Downloads, Desktop or Documents; final rg search included hidden files and case-insensitive filename glob; no substitute used",
+  "records": [
+    {
+      "check": "P17 PDF unchanged",
+      "result": "verified",
+      "detail": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf"
+    },
+    {
+      "check": "P17 old extraction unchanged",
+      "result": "verified",
+      "detail": "analysis/reading/P17.txt"
+    },
+    {
+      "check": "P17 full-source quotation identity",
+      "result": "verified",
+      "detail": "9 units, all paragraphs/contribution items"
+    },
+    {
+      "check": "P05 PDF unchanged",
+      "result": "verified",
+      "detail": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf"
+    },
+    {
+      "check": "P05 old extraction unchanged",
+      "result": "verified",
+      "detail": "analysis/reading/P05.txt"
+    },
+    {
+      "check": "P05 full-source quotation identity",
+      "result": "verified",
+      "detail": "12 units, all paragraphs/contribution items"
+    },
+    {
+      "check": "Fuzzy2023 PDF unchanged",
+      "result": "verified",
+      "detail": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf"
+    },
+    {
+      "check": "Fuzzy2023 extraction identity",
+      "result": "verified",
+      "detail": "analysis/introduction-learning-2026-10-05/Fuzzy2023-full-raw.txt"
+    },
+    {
+      "check": "Fuzzy2023 full-source quotation identity",
+      "result": "verified",
+      "detail": "7 units, all paragraphs/contribution items"
+    },
+    {
+      "check": "ESO2017 PDF unchanged",
+      "result": "verified",
+      "detail": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf"
+    },
+    {
+      "check": "ESO2017 extraction identity",
+      "result": "verified",
+      "detail": "analysis/introduction-learning-2026-10-05/ESO2017-full-raw.txt"
+    },
+    {
+      "check": "ESO2017 full-source quotation identity",
+      "result": "verified",
+      "detail": "12 units, all paragraphs/contribution items"
+    },
+    {
+      "check": "report quotation 1",
+      "result": "verified",
+      "detail": [
+        "P17:I05"
+      ]
+    },
+    {
+      "check": "report quotation 2",
+      "result": "verified",
+      "detail": [
+        "P17:I07"
+      ]
+    },
+    {
+      "check": "report quotation 3",
+      "result": "verified",
+      "detail": [
+        "P05:I02"
+      ]
+    },
+    {
+      "check": "report quotation 4",
+      "result": "verified",
+      "detail": [
+        "P05:I06"
+      ]
+    },
+    {
+      "check": "report quotation 5",
+      "result": "verified",
+      "detail": [
+        "P05:I07"
+      ]
+    },
+    {
+      "check": "report quotation 6",
+      "result": "verified",
+      "detail": [
+        "Fuzzy2023:I02"
+      ]
+    },
+    {
+      "check": "report quotation 7",
+      "result": "verified",
+      "detail": [
+        "Fuzzy2023:I03"
+      ]
+    },
+    {
+      "check": "report quotation 8",
+      "result": "verified",
+      "detail": [
+        "Fuzzy2023:C02"
+      ]
+    },
+    {
+      "check": "report quotation 9",
+      "result": "verified",
+      "detail": [
+        "Fuzzy2023:C03"
+      ]
+    },
+    {
+      "check": "report quotation 10",
+      "result": "verified",
+      "detail": [
+        "ESO2017:I02"
+      ]
+    },
+    {
+      "check": "report quotation 11",
+      "result": "verified",
+      "detail": [
+        "ESO2017:I05"
+      ]
+    },
+    {
+      "check": "report quotation 12",
+      "result": "verified",
+      "detail": [
+        "ESO2017:I06"
+      ]
+    },
+    {
+      "check": "report quotation 13",
+      "result": "verified",
+      "detail": [
+        "ESO2017:I07"
+      ]
+    },
+    {
+      "check": "report quotation 14",
+      "result": "verified",
+      "detail": [
+        "ESO2017:I08"
+      ]
+    },
+    {
+      "check": "report English excerpts",
+      "result": "verified",
+      "detail": "14 source-identical full paragraphs or contiguous sentence excerpts"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "P17-introduction.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "P05-introduction.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "Fuzzy2023-introduction.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "ESO2017-introduction.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../reading/P17.txt"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../reading/P05.txt"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../digests/P17.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../digests/P05.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../机器人论文正文写作证据分析.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "source-provenance.json"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "normalization-log.json"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../reading/P05.txt"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "Fuzzy2023-full-raw.txt"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-shared/core/robotics-writing-examples.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-shared/core/robotics-main-text.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-writing/static/fragments/section/intro.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-writing/references/introduction.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-polishing/static/fragments/section/intro.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-shared/core/scientific-expression.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-shared/core/nature-introduction.md"
+    },
+    {
+      "check": "report relative link exists",
+      "result": "verified",
+      "detail": "../../skill-candidate/nature-writing/manifest.yaml"
+    },
+    {
+      "check": "author core requirements unchanged this turn",
+      "result": "verified",
+      "detail": "Author working-tree edit preserved verbatim; not introduced by this analysis"
+    },
+    {
+      "check": "author experience unchanged",
+      "result": "verified",
+      "detail": "Author scientific meaning and expression preferences"
+    },
+    {
+      "check": "candidate Skills unchanged",
+      "result": "verified",
+      "detail": "Compared with evidence-reading base commit; no Skill edit"
+    },
+    {
+      "check": "Introduction visual evidence complete",
+      "result": "verified",
+      "detail": "Four first/second-page pairs plus ESO third-page continuation, all inspected"
+    }
+  ]
+}
