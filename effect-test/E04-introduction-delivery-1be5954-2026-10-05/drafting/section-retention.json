@@ -1,0 +1,25 @@
+{
+  "stage": "drafting",
+  "source_sha256": "069a8b49d9117281205569a8d9a51cb1ef70bc454bbc42c5fdf132ab79c70a57",
+  "sections": {
+    "first-introduction.en.txt": {
+      "sha256": "63dbf6df2550367f42ce7a2337b06228c50de3b5cedb78fee66cd6455ec3d59b",
+      "exact_original_substring": true,
+      "heading": "**Introduction**"
+    },
+    "first-introduction.zh.txt": {
+      "sha256": "306a979d5181815ca7eae0a677cef8ea92fb04502822d1463d91acb67d1638f3",
+      "exact_original_substring": true,
+      "heading": "**逐段中文译文**"
+    },
+    "first-references.md": {
+      "sha256": "4010bc174d102eca99966f45e74ccd8e61fe2264c2869132ef1a2027d689bef3",
+      "exact_original_substring": true,
+      "heading": "**正文使用的参考文献**"
+    }
+  },
+  "raw_handoff_sha256": "a11d73615d2ede55ae1c23315e6cdfeac9b46d3ae7dc0ddf5396f5d105a79c47",
+  "English_or_reference_wording_changed": false,
+  "translation_assessment_or_author_notes_sent_to_polishing": false,
+  "operation": "Separate exact original prose and bibliography, normalize only outer line breaks and retain bibliography heading"
+}

@@ -1,0 +1,12 @@
+{
+  "case": "E04",
+  "section": "Introduction",
+  "local_head_and_origin_main_at_current_start": "2582980ee2f3e4dcd8657bb015be63186684bf5c",
+  "worktree_clean_at_current_start": true,
+  "frozen_candidate": "1be5954bdcbd24c9d7bbc390441cb34bd9dc4f72",
+  "prior_E04_abstract": "Accepted by the user in this turn; unchanged",
+  "new_paper_transfer_evidence_scope": "E04 remains outside the declared approved learning corpus. Its Abstract has already been tested and accepted; only its Introduction is newly tested in this round. The reused runner flag does not mean the entire paper is previously untested.",
+  "prior_E02": "Combined delivery qualified; standalone Polishing still has omissions; unchanged",
+  "identity_metadata_scope": "input-identity.json reuses the original E04 source identity. Its coordinator_start_commit and origin_main_at_start fields describe that earlier abstract experiment, not this Introduction experiment. This file records the current start. Frozen stage metadata is retained without retrospective rewriting.",
+  "writer_visible": false
+}

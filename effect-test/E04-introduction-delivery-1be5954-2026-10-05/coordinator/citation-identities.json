@@ -1,0 +1,134 @@
+[
+  {
+    "id": "R1",
+    "title": "What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
+    "authors": [
+      "Ajay Mandlekar",
+      "Danfei Xu",
+      "Josiah Wong",
+      "Soroush Nasiriany",
+      "Chen Wang",
+      "Rohun Kulkarni",
+      "Li Fei-Fei",
+      "Silvio Savarese",
+      "Yuke Zhu",
+      "Roberto Martín-Martín"
+    ],
+    "venue": "CoRL 2021; PMLR 164:1678–1690，2022 年出版。",
+    "url": "https://proceedings.mlr.press/v164/mandlekar22a.html",
+    "supports": "B01：离线人类示范、历史模型与机器人操作；循环高斯混合基线的本文比较另见 S02。"
+  },
+  {
+    "id": "R2",
+    "title": "Behavior Transformers: Cloning $k$ modes with one stone",
+    "authors": [
+      "Shafiullah, Nur Muhammad Mahi",
+      "Cui, Zichen Jeff",
+      "Altanzaya, Ariuntuya",
+      "Pinto, Lerrel"
+    ],
+    "venue": "NeurIPS 2022；arXiv:2206.11251。",
+    "url": "https://arxiv.org/abs/2206.11251",
+    "supports": "B02：动作聚类、连续偏移、多模态及时间上下文。"
+  },
+  {
+    "id": "R3",
+    "title": "Implicit Behavioral Cloning",
+    "authors": [
+      "Pete Florence",
+      "Corey Lynch",
+      "Andy Zeng",
+      "Oscar A Ramirez",
+      "Ayzaan Wahid",
+      "Laura Downs",
+      "Adrian Wong",
+      "Johnny Lee",
+      "Igor Mordatch",
+      "Jonathan Tompson"
+    ],
+    "venue": "CoRL 2021; PMLR 164:158–168，2022 年出版。",
+    "url": "https://proceedings.mlr.press/v164/florence22a.html",
+    "supports": "B03：能量策略、负例对比训练、视觉高维和精密实机能力；B05 的波动是 E04 观察。"
+  },
+  {
+    "id": "R4",
+    "title": "Denoising Diffusion Probabilistic Models",
+    "authors": [
+      "Ho, Jonathan",
+      "Jain, Ajay",
+      "Abbeel, Pieter"
+    ],
+    "venue": "NeurIPS 2020；arXiv:2006.11239。",
+    "url": "https://arxiv.org/abs/2006.11239",
+    "supports": "B06：去噪扩散生成基础。"
+  },
+  {
+    "id": "R5",
+    "title": "Generative Modeling by Estimating Gradients of the Data Distribution",
+    "authors": [
+      "Song, Yang",
+      "Ermon, Stefano"
+    ],
+    "venue": "NeurIPS 2019；arXiv:1907.05600。",
+    "url": "https://arxiv.org/abs/1907.05600",
+    "supports": "B06：多噪声尺度得分学习与采样基础。"
+  },
+  {
+    "id": "R6",
+    "title": "Planning with Diffusion for Flexible Behavior Synthesis",
+    "authors": [
+      "Michael Janner",
+      "Yilun Du",
+      "Joshua Tenenbaum",
+      "Sergey Levine"
+    ],
+    "venue": "ICML 2022; PMLR 162:9902–9915。",
+    "url": "https://proceedings.mlr.press/v162/janner22a.html",
+    "supports": "B07：状态—动作轨迹扩散规划。"
+  },
+  {
+    "id": "R7",
+    "title": "Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning",
+    "authors": [
+      "Wang, Zhendong",
+      "Hunt, Jonathan J",
+      "Zhou, Mingyuan"
+    ],
+    "venue": "arXiv:2208.06193；2022 年首次公开，RSS 2023 之前版本为 v2（2022-10-03）。",
+    "url": "https://arxiv.org/abs/2208.06193",
+    "supports": "B08：离线强化学习的条件扩散动作策略。"
+  },
+  {
+    "id": "R8",
+    "title": "Goal-Conditioned Imitation Learning using Score-based Diffusion Policies",
+    "authors": [
+      "Reuss, Moritz",
+      "Li, Maximilian",
+      "Jia, Xiaogang",
+      "Lioutikov, Rudolf"
+    ],
+    "venue": "RSS 2023；arXiv:2304.02532，首次公开于 2023-04-05。",
+    "url": "https://arxiv.org/abs/2304.02532",
+    "supports": "B09：目标条件扩散模仿学习、采样及仿真验证。"
+  },
+  {
+    "id": "R9",
+    "title": "Imitating Human Behaviour with Diffusion Models",
+    "authors": [
+      "Pearce, Tim",
+      "Rashid, Tabish",
+      "Kanervisto, Anssi",
+      "Bignell, Dave",
+      "Sun, Mingfei",
+      "Georgescu, Raluca",
+      "Macua, Sergio Valcarcel",
+      "Tan, Shan Zheng",
+      "Momennejad, Ida",
+      "Hofmann, Katja",
+      "Devlin, Sam"
+    ],
+    "venue": "ICLR 2023；arXiv:2301.10677，2023 年首次公开。",
+    "url": "https://arxiv.org/abs/2301.10677",
+    "supports": "B09：多模态人类行为扩散模仿与仿真／游戏验证。"
+  }
+]

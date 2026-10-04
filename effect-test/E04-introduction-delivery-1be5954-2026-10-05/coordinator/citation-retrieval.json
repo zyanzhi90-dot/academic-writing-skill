@@ -1,0 +1,118 @@
+[
+  {
+    "id": "R1",
+    "url": "https://proceedings.mlr.press/v164/mandlekar22a.html",
+    "final_url": "https://proceedings.mlr.press/v164/mandlekar22a.html",
+    "status": 200,
+    "path": "coordinator/citation-sources/R1.html",
+    "sha256": "b331a49b8b7e82518597edf4d553e9706635ffa7c6f2d5ef6f059d81d097a535"
+  },
+  {
+    "id": "R1",
+    "url": "https://proceedings.mlr.press/v164/mandlekar22a/mandlekar22a.pdf",
+    "final_url": "https://proceedings.mlr.press/v164/mandlekar22a/mandlekar22a.pdf",
+    "status": 200,
+    "path": "coordinator/citation-sources/R1.pdf",
+    "sha256": "963aaa01b922f07c6d67848c06d1d5bd80664dd96e5e4a209b76d2e281318c66",
+    "pages": 13,
+    "extracted_path": "coordinator/citation-sources/R1.txt",
+    "text_sha256": "19f3e88008f35208761143d7038e8781ae327588e8096e629f1dfb5f0bc1697f"
+  },
+  {
+    "id": "R2",
+    "url": "https://arxiv.org/abs/2206.11251",
+    "final_url": "https://arxiv.org/abs/2206.11251",
+    "status": 200,
+    "path": "coordinator/citation-sources/R2.html",
+    "sha256": "0943d1fc7682ff778c60f4247a17fffa9b6394e1e8ac4b50daf03c927d2bfd0b"
+  },
+  {
+    "id": "R2",
+    "url": "https://arxiv.org/pdf/2206.11251v1",
+    "final_url": "https://arxiv.org/pdf/2206.11251v1",
+    "status": 200,
+    "path": "coordinator/citation-sources/R2.pdf",
+    "sha256": "9f10bbf6392ddafbc6c74f9c4e83a2f55bc50ca1ea17e9a34bf313511419a532",
+    "pages": 21,
+    "extracted_path": "coordinator/citation-sources/R2.txt",
+    "text_sha256": "e0a0bd012fb2fdf60174d7ac409fa06610e14a6a6ebe6467e2b9163cfada2760"
+  },
+  {
+    "id": "R3",
+    "url": "https://proceedings.mlr.press/v164/florence22a.html",
+    "final_url": "https://proceedings.mlr.press/v164/florence22a.html",
+    "status": 200,
+    "path": "coordinator/citation-sources/R3.html",
+    "sha256": "02f672c2d508ce9af0a4a00545aa7eb0e2f4422313d43c98600d7b6eb92fc226"
+  },
+  {
+    "id": "R3",
+    "url": "https://proceedings.mlr.press/v164/florence22a/florence22a.pdf",
+    "final_url": "https://proceedings.mlr.press/v164/florence22a/florence22a.pdf",
+    "status": 200,
+    "path": "coordinator/citation-sources/R3.pdf",
+    "sha256": "4f8da36923b4dbb65da244e9d000a3c720f5aeb8915e9369bbc23a09665253a3",
+    "pages": 11,
+    "extracted_path": "coordinator/citation-sources/R3.txt",
+    "text_sha256": "441594b51171bb192809eb7981a297baa57fdd32fb38c3c43a27a7c3671d6573"
+  },
+  {
+    "id": "R4",
+    "url": "https://arxiv.org/abs/2006.11239",
+    "final_url": "https://arxiv.org/abs/2006.11239",
+    "status": 200,
+    "path": "coordinator/citation-sources/R4.html",
+    "sha256": "16370e3d3273a8d7fc27bb779fb42c853b57231d25ecf2c76cca07eb6a80260d"
+  },
+  {
+    "id": "R5",
+    "url": "https://arxiv.org/abs/1907.05600",
+    "final_url": "https://arxiv.org/abs/1907.05600",
+    "status": 200,
+    "path": "coordinator/citation-sources/R5.html",
+    "sha256": "d501cc1c517cbe4ba7d57db497fea893c96d8b027dde12681972498e24665356"
+  },
+  {
+    "id": "R6",
+    "url": "https://proceedings.mlr.press/v162/janner22a.html",
+    "final_url": "https://proceedings.mlr.press/v162/janner22a.html",
+    "status": 200,
+    "path": "coordinator/citation-sources/R6.html",
+    "sha256": "471aa03d82f1716b2b7925cdcacf7d57eb77bd1bf56aa5d787ef65f08cc05f22"
+  },
+  {
+    "id": "R6",
+    "url": "https://proceedings.mlr.press/v162/janner22a/janner22a.pdf",
+    "final_url": "https://proceedings.mlr.press/v162/janner22a/janner22a.pdf",
+    "status": 200,
+    "path": "coordinator/citation-sources/R6.pdf",
+    "sha256": "f0982f9dcbc738dea8c72b794f647071261251a811f926ae4a5e05d618b2e1d4",
+    "pages": 14,
+    "extracted_path": "coordinator/citation-sources/R6.txt",
+    "text_sha256": "23b65ea150906c2cde9e32bca352fe08175f8bca09c91cd9e5b2546308026862"
+  },
+  {
+    "id": "R7",
+    "url": "https://arxiv.org/abs/2208.06193",
+    "final_url": "https://arxiv.org/abs/2208.06193",
+    "status": 200,
+    "path": "coordinator/citation-sources/R7.html",
+    "sha256": "b024e21e6078edd4607a12c3d5acdec6d8eb51ba86fd1c423dbcdee05a5af591"
+  },
+  {
+    "id": "R8",
+    "url": "https://arxiv.org/abs/2304.02532",
+    "final_url": "https://arxiv.org/abs/2304.02532",
+    "status": 200,
+    "path": "coordinator/citation-sources/R8.html",
+    "sha256": "b90a7088cfe71507fb5923b94fb5c5508e598f7ce67738d5b30e650d600253b2"
+  },
+  {
+    "id": "R9",
+    "url": "https://arxiv.org/abs/2301.10677",
+    "final_url": "https://arxiv.org/abs/2301.10677",
+    "status": 200,
+    "path": "coordinator/citation-sources/R9.html",
+    "sha256": "2d37026786a47c3e344ce86b4054ee2e211ff26b95e2816b24567c2a0389d675"
+  }
+]

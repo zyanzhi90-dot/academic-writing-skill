@@ -1,0 +1,34 @@
+[
+  {
+    "id": "R2",
+    "version": "2206.11251v1",
+    "url": "https://arxiv.org/abs/2206.11251v1",
+    "status": 200,
+    "path": "coordinator/citation-sources/R2-historical.html",
+    "sha256": "5273124f9016a25a9f397758371854e22e8483aebbed007862971cbf60c0b80c"
+  },
+  {
+    "id": "R7",
+    "version": "2208.06193v2",
+    "url": "https://arxiv.org/abs/2208.06193v2",
+    "status": 200,
+    "path": "coordinator/citation-sources/R7-historical.html",
+    "sha256": "2b02f4eeb69512f868954f395463af0e4bccf9ea1d9027aec5ee3cb96a5cf909"
+  },
+  {
+    "id": "R8",
+    "version": "2304.02532v1",
+    "url": "https://arxiv.org/abs/2304.02532v1",
+    "status": 200,
+    "path": "coordinator/citation-sources/R8-historical.html",
+    "sha256": "2c06149cb94ca40bb013b07753631ead2c7bc56cdfa0515cc1172f5d1627ae9c"
+  },
+  {
+    "id": "R9",
+    "version": "2301.10677v2",
+    "url": "https://arxiv.org/abs/2301.10677v2",
+    "status": 200,
+    "path": "coordinator/citation-sources/R9-historical.html",
+    "sha256": "6b80618e7f925015a1723799e5b115d5c751ec19d38a0e5752235be9696c5bd8"
+  }
+]

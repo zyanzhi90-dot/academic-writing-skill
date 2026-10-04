@@ -1,0 +1,100 @@
+{
+  "drafting": {
+    "matching_fragments_full_actual_returns": {
+      "skill-candidate/nature-writing/static/fragments/task/manuscript.md": true,
+      "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": true,
+      "skill-candidate/nature-writing/static/fragments/section/intro.md": true,
+      "skill-candidate/nature-writing/static/fragments/journal/generic.md": true,
+      "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": true,
+      "skill-candidate/nature-writing/static/fragments/language/en.md": true
+    },
+    "robotics_common_and_task_index": {
+      "range": [
+        1,
+        146
+      ],
+      "all_nonempty_lines_returned_exactly": true
+    },
+    "selected_cards": {
+      "B02": {
+        "range": [
+          296,
+          311
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      },
+      "B03": {
+        "range": [
+          312,
+          323
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      },
+      "B04": {
+        "range": [
+          324,
+          342
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      },
+      "B05": {
+        "range": [
+          343,
+          354
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      }
+    },
+    "additional_source_text_actual_returns": {},
+    "additional_original_source_text_reads_observed": false,
+    "limit": "Complete declared corpus availability is not proof of reading every PDF or of following every instruction. Cards carry original English excerpts, analysis and conditions; partial source returns remain partial."
+  },
+  "polishing": {
+    "matching_fragments_full_actual_returns": {
+      "skill-candidate/nature-polishing/static/fragments/language/en.md": true,
+      "skill-candidate/nature-polishing/static/fragments/section/intro.md": true,
+      "skill-candidate/nature-polishing/static/fragments/journal/generic.md": true,
+      "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": true
+    },
+    "robotics_common_and_task_index": {
+      "range": [
+        1,
+        146
+      ],
+      "all_nonempty_lines_returned_exactly": true
+    },
+    "selected_cards": {
+      "B01": {
+        "range": [
+          257,
+          281
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      },
+      "B02": {
+        "range": [
+          296,
+          311
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      },
+      "B03": {
+        "range": [
+          312,
+          323
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      },
+      "B05": {
+        "range": [
+          343,
+          354
+        ],
+        "all_nonempty_lines_returned_exactly": true
+      }
+    },
+    "additional_source_text_actual_returns": {},
+    "additional_original_source_text_reads_observed": false,
+    "limit": "Complete declared corpus availability is not proof of reading every PDF or of following every instruction. Cards carry original English excerpts, analysis and conditions; partial source returns remain partial."
+  }
+}
