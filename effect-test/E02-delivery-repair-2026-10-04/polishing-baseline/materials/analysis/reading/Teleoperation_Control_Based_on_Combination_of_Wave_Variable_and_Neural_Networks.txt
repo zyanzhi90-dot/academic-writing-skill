@@ -1,0 +1,1428 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017 2125
+Teleoperation Control Based on Combination
+of Wave Variable and Neural Networks
+Chenguang Yang, Senior Member, IEEE, Xingjian Wang, Zhijun Li, Senior Member, IEEE,
+Yanan Li, Member, IEEE, and Chun-Yi Su, Senior Member, IEEE
+Abstract—In this paper, a novel control scheme is developed for
+a teleoperation system, combining the radial basis function (RBF)
+neural networks (NNs) and wave variable technique to simultane-
+ously compensate for the effects caused by communication delays
+and dynamics uncertainties. The teleoperation system is set up
+with a TouchX joystick as the master device and a simulated
+Baxter robot arm as the slave robot. The haptic feedback is
+provided to the human operator to sense the interaction force
+between the slave robot and the environment when manipulat-
+ing the stylus of the joystick. To utilize the workspace of the
+telerobot as much as possible, a matching process is carried out
+between the master and the slave based on their kinematics mod-
+els. The closed loop inverse kinematics (CLIK) method and RBF
+NN approximation technique are seamlessly integrated in the con-
+trol design. To overcome the potential instability problem in the
+presence of delayed communication channels, wave variables and
+their corrections are effectively embedded into the control system,
+and Lyapunov-based analysis is performed to theoretically estab-
+lish the closed-loop stability. Comparative experiments have been
+conducted for a trajectory tracking task, under the different con-
+ditions of various communication delays. Experimental results
+show that in terms of tracking performance and force reflection,
+the proposed control approach shows superior performance over
+the conventional methods.
+Manuscript received August 3, 2016; accepted September 20, 2016. Date
+of publication October 19, 2016; date of current version July 17, 2017.
+This work was supported in part by the National Nature Science Foundation
+under Grant 61473120, Grant 61573147, and Grant 91520201, in part
+by the Guangdong Provincial Natural Science Foundation under Grant
+2014A030313266 and the International Science and Technology Collaboration
+under Grant 2015A050502017, in part by the Science and Technology
+Planning Project of Guangzhou under Grant 201607010006, and in part by
+the Fundamental Research Funds for the Central Universities under Grant
+2015ZM065. This paper was recommended by Associate Editor S. Tong.
+C. Yang is with the Key Laboratory of Autonomous Systems and
+Networked Control, College of Automation Science and Engineering, South
+China University of Technology, Guangzhou 510640, China, and with the
+Zienkiewicz Centre for Computational Engineering, Swansea University,
+Swansea, SA1 8EN, U.K. (e-mail: cyang@ieee.org).
+X. Wang and Z. Li are with the Key Laboratory of Autonomous Systems
+and Networked Control, College of Automation Science and Engineering,
+South China University of Technology, Guangzhou 510640, China (e-mail:
+xj.wang_scut@qq.com; zjli@ieee.org).
+Y. Li is with the Department of Bioengineering, Imperial College London,
+London, SW7 2AZ, U.K. (e-mail: yanan.li@imperial.ac.uk).
+C.-Y. Su is with the Key Laboratory of Autonomous Systems and
+Networked Control, College of Automation Science and Engineering,
+South China University of Technology, Guangzhou 510640, China,
+on leave from Concordia University, Montreal, QC, Canada (e-mail:
+chun-yi.su@concordia.ca).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TSMC.2016.2615061
+Index Terms—Neural networks (NNs), teleoperation control,
+time-varying delay, wave variable.
+I. INTRODUCTION
+IN THE past decades, robotic technologies have been devel-
+oped rapidly in a wide range of engineering fields. The
+telerobot operation as one of the most attractive and challeng-
+ing topic in robotics has been used in various applications
+such as telesurgery, search and rescue, 3-D game develop-
+ment, and so on [1]. A typical teleoperation system usually
+comprises five parts: 1) human operator; 2) master device;
+3) communication channels; 4) slave robot; and 5) environ-
+ment [2]. Usually, the human operator controls the motion of
+a master device, which is physically in contact with human.
+The master device generates commanding trajectories passed
+through the communication channels, which are passed to the
+slave robot that acts on the target environment and completes
+the task. The interaction force between the slave robot and the
+environment is fedback to the master, according to which the
+human operator could control the robot more effectively.
+In this paper, we use a Geomagic TouchX as the master
+device, which is designed by the SensAble Technologies Inc.
+TouchX is a haptic feedback device including both hardware
+drives and software packages (OpenHaptics toolkit) [1]. The
+TouchX arm includes three rotational joints, of which each is
+equipped with a motor to generate the feedback force. A three
+degrees of freedom (DOFs) gimbal joint stylus is installed at
+the end of the manipulator to provide the orientation motion.
+As a slave robot, there are seven revolute joints in each arm
+of Baxter, which make it easy to move in the 3-D space [3].
+In order to grasp and handle the objects, a rotational gripper
+is installed at the end-effector of each arm. The MATLAB
+Robotics Toolbox [4] is used to establish the kinematics and
+dynamics models of the Baxter robot arm, which is used as
+the slave telerobot to test the proposed method.
+Communication channels play significant roles in a teleop-
+eration system, and time delays in the channels may cause
+system unstable in the presence of force feedback [5]. Much
+effort has been made to handle the effect of time delays [6],
+especially in the bilateral teleoperation system [7], [8]. The
+notion of wave variable was proposed and it has been estab-
+lished in [9] that the wave variable could guarantee the stability
+of the communication with time delays. The influence of time-
+varying delays to the stability of a teleoperation system was
+studied in [10]. In [2], the method of integrating the corrected
+2168-2216 c
+ 2016 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+2126 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017
+Fig. 1. System framework.
+wave was investigated to remove the distortion caused by the
+transmission of wave variables. A wave variable-based control
+was proposed in [11] to handle the problem in the bilateral
+time-varying system. Based on this idea, a novel approach
+was presented for controlling the time-varying delayed
+teleoperation system with a proportional-derivative (PD)
+controller [12].
+Due to the existence of uncertainties in practical applica-
+tions [13], the research on controlling the uncertain robot
+system becomes significantly important. The adaptive con-
+trol method for robots has been studied in a considerable
+number of works [14]–[16], which could be used in the
+situations of unknown parameters and time-varying parame-
+ters in the robot model [17], [18]. Time-varying delays and
+uncertainties of the robot model have been studied together
+with adaptive control in [19] and [20]. In [21]–[23], adap-
+tive fuzzy control was used for identification of the unknown
+nonlinear control system. Fuzzy control was used for study-
+ing uncertain nonlinear systems in [24] and [25]. In [26],
+fuzzy control was adopted to improve the performance of the
+automobile cruise system. In recent years, the applications of
+neural network (NN) to the robot control system have become
+increasingly popular [27]–[31], due to the fact that the NN has
+the ability to emulate complicated nonlinearity and uncertain
+functions [32]–[34]. The radial basis function (RBF) NN is
+a highly effective method and has been extensively used for
+control design of uncertain robot systems [35]. Adaptive RBF
+NN-based control has been investigated in [36] and [37] to
+deal with the deadzone and uncertain robotic model. In [38],
+an adaptive NN method was applied to achieve control of
+the uncertain marine vessel system. In [39], a controller was
+designed for dual-arm coordination of a humanoid robot based
+on the adaptive neural control. The tracking performance of
+the adaptive NN control for a discrete-time system was stud-
+ied in [40]. In [41], the effectiveness of the NN control was
+first considered in the Prandtl-Ishlinskii hysteresis system. The
+RBF NN was investigated in [42] as a compensator to solve the
+nonlinearities problem that a standard PD controller could not
+handle. In [43], the RBF NN was used to learn the robot behav-
+ior, and in [44] the RBF NN was investigated to improve the
+behavior of the nonlinear actuator. In [45], trajectory control
+of a fruit and vegetable picking robot was studied, and in [46]
+the RBF NN was used to compensate for the deadzone of the
+nonlinear system. In [47], the RBF NN has been discussed in
+detail for compensation for the tracking error in controlling
+mobile robots. In this paper, an NN controller based on the
+PD control is applied to the slave robot with seven DOFs,
+which guarantees more accurate trajectory tracking than the
+conventional PD controller.
+The reminder of this paper is organized as follows. In
+Section II, the computational model of the master-slave tele-
+operation system is analyzed. In Section III, the PD control
+on the master and slave is first discussed, and the nonlinear
+uncertainties of the model of the slave robot are then analyzed.
+The CLIK method is used for avoiding kinematic singularities
+and numerical drifts. The RBF NN control is designed for the
+slave robot. Finally, the convergence of the tracking error and
+the stability of the teleoperation system with the time-varying
+delays are established. Comparative experiments are carried
+out in Section IV and conclusions and possible future work
+are discussed in Section V.
+Throughout this paper, the following notions are used.
+1) 0m×n stands for an m × n dimensional zero matrix.
+2) · denotes the Euclidean norm of vectors and induced
+norm of matrices.
+3) A := B means that B is defined as A.
+4) sup means the least upper bound of a partially
+ordered set.
+5) λ(·) stands for eigenvalue of a matrix.
+6) (·) stands for real part of a complex number.
+7) L2 is a function space and the functions in L2 are
+quadratically integrable. L∞ is a function space and the
+functions in L∞ are essentially bounded measurable.
+8) tr stands for trace of a matrix.
+II. MATHEMATICAL MODEL OF TELEOPERATION SYSTEM
+A. Illustration of Teleoperation System
+The teleoperation system in this paper is shown in Fig. 1.
+As we see, the human operator holds the stylus of the haptic
+device and drives the motion of the master device, which will
+be regarded as position commands. Through processing by the
+master computer, the new commands will be generated by the
+master computer and then passed to the slave computer and
+received by the slave controller. The Baxter robot will move in
+accordance with the commands from the slave controller. The
+manipulator end-effector interacts with the environment, and
+the interaction force is passed to the haptic device to be sensed
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+YANG et al.: TELEOPERATION CONTROL BASED ON COMBINATION OF WAVE VARIABLE AND NNs 2127
+Fig. 2. Structure of TouchX.
+Fig. 3. Comparison between two kinematics models of TouchX based on
+standard DH parameters and modified DH parameters.
+by the human operator, which will lead to a new movement
+and new control commands. In next five sections, we will
+analyze the mathematical models of the components of the
+teleoperation system.
+B. Kinematics and Dynamics of Master Robot Arm
+The haptic device Geomagic TouchX not only sends com-
+mands of movement to the master device but also returns the
+interaction force between the telerobot and the environment,
+and this is very useful for the operator to regulate the contact
+force [48]. The mathematical model of the master includes the
+kinematics model and the dynamics model.
+The kinematics model of TouchX is built based on its struc-
+ture, as shown in Fig. 2. With six revolute joints, three of
+them are equipped with motors, and the other three are gimbal
+joint stylus considered as an end-effector, making it flexible to
+move within the workspace. For more concrete and intuitive
+representation of its structure, the Denavit Hartenburg (DH)
+parameters are used to build the kinematics model [3].
+There are two representations for DH parameters: 1) the
+standard DH convention [49] and 2) the modified DH con-
+vention [50], and the latter representation is used for the
+kinematics modeling of the TouchX joystick in this paper.
+According to the standard DH convention, the origins of the
+coordinates relevant to joints 4 and 5 as shown in the left panel
+of Fig. 3 are the same. Consequently, the simulated robot mod-
+eled by the MATLAB Robotics Toolbox should be modified.
+Specifically, ai−1 and di are used to represent the link length
+and the link offset, respectively, where i represents the ith
+TABLE I
+DH PARAMETERS (MODIFIED CONVENTION) OF THE MASTER DEVICE
+joint of the master device. αi−1 and θi are used to represent
+the joint twist angle and joint angle, respectively. All the six
+joints of the master device are revolute, and the modified DH
+parameters of the TouchX are obtained in Table I.
+The DH parameters in Table I represent the structure charac-
+teristics of the master device, from which the kinematics model
+could be obtained. According to [3], the homogeneous trans-
+formation between two adjacent coordinates in Fig. 1 could
+be formulated using DH parameters as follows:
+i−1
+Ai(θi, di, ai, αi) =
+⎡
+⎢
+⎢
+⎣
+cθi − sθicαi sθicαi aicθi
+cθi cθicαi − cθicαi aisθi
+0 sαi cαi di
+0 0 0 1
+⎤
+⎥
+⎥
+⎦ (1)
+where “c” is short for trigonometric function “cos” and “s” is
+short for “sin”.
+Moreover, the relationship between the position of the end
+effector and the base could be calculated as follows:
+n
+X0 =0
+A1
+1
+A2 · · ·n−1
+An · Xn (2)
+where n is 6 for the master device, X = [x, y, z, 1] represents
+the position of the related joint, and iAi+1(i = 0, 1, . . . , n−1)
+represents the adjacent coordinate in (1).
+The dynamics model of the master device reveals the rela-
+tionship between the driving torque or related force and joint
+motion, and could be represented as follows:
+Mm(qm)q̈m + hm(qm, q̇m) = JT
+mFh − τm + fm (3)
+where
+hm(qm, q̇m) = Cm(qm, q̇m)q̇m + Gm(qm) (4)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+2128 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017
+Fig. 4. Structure of the Baxter robot.
+TABLE II
+DH PARAMETERS (STANDARD CONVENTION) OF THE SLAVE ROBOT
+with the subscript “m” used to indicate master. For a robot
+manipulator with n-DOF serial links and all the joints revo-
+lute, qm, q̇m, and q̈m ∈ Rn are the joint position, velocity and
+acceleration, respectively. Mm(qm)q̈m ∈ Rn×n is the inertia
+matrix. hm(qm, q̇m) represents the nonlinear coupling term of
+the centripetal force, Coriolis force, and the gravity force. fm
+represents coulomb friction, load changes, time-delayed jam-
+ming and other disturbances. Jm is the Jacobian matrix and JT
+m
+is its transpose. Fh is the force exerted by the human opera-
+tor and τm is the torque control signal, both of which will be
+applied to the master device. The terms on the left hand side
+of (3) and (4) satisfy the following properties [51].
+Property 1: The matrix Mm(qm) ∈ Rn×n is a symmetric
+positive-definite matrix.
+Property 2: The matrix Ṁm(qm) − 2Cm(qm, q̇m) is a skew-
+symmetric matrix, i.e., zT( ˙
+Mm − 2Cm)z = 0, ∀z ∈ Rn.
+Property 3: Mm(qm) and Gm(qm) are bounded, and
+Cm(qm, q̇m) satisfies that ∀qm, q̇m ∈ Rn, ∃Kcm ∈ R>0 such
+that Cm(qm, q̇m) ≤ Kcm|q̇m|2.
+C. Model of the Slave Robot
+Fig. 4 shows the structure of the Baxter robot, which is
+a dual-arm robot with 7-DOFs per arm. In this paper, the
+simulated left arm of the Baxter robot is taken as the slave
+telerobot.
+The standard DH parameters are used to describe the struc-
+ture of the left arm of the Baxter robot, as shown in Table II.
+The lengths mentioned in Fig. 4 and Table II are Ls0 = 0.27 m,
+Ls1 = 0.069 m, Ls2 = 0.364 m, Ls3 = 0.069 m, Ls4 = 0.375 m,
+Ls5 = 0.01 m, and Ls6 = 0.28 m. According to (1) and (2),
+the forward kinematics model of the Baxter robot could be
+obtained, and n used in (2) is 7.
+In order to achieve a precise tracking of the position com-
+manded by the master joystick, workspace matching between
+the master joystick and the slave telerobot is essential. The
+Monte Carlo method used in [3] was applied to approximate
+the workspace for the master and the slave. In order to make
+sure that the transformed workspace of the master device is
+Fig. 5. Workspace matching. (a) Three-dimensional envelope surface of the
+master and the slave. (b) Workspace matching in the x−y plane. (c) Workspace
+matching in the x − z plane. (d) Workspace matching in the y − z plane.
+constrained within that of the slave robot, the workspace of the
+master is scaled in a fixed proportion [30]. Fig. 5 shows the
+workspace of the master and that of the slave after the match-
+ing process. The top left panel of Fig. 5 shows the enveloped
+surface, generated as convex hull of the 3-D clouds of the
+workspaces of both master and slave after the matching pro-
+cess. Similar to the workspace transformation developed in [3]
+between the Baxter robot arm and the Omni joystick, in this
+paper, the workspace transformation between the Baxter robot
+arm and the TouchX joystick is given as
+⎡
+⎣
+xs
+ys
+zs
+⎤
+⎦ =
+⎡
+⎣
+cos δ − sin δ 0
+sin δ cos δ 0
+0 0 1
+⎤
+⎦
+×
+⎛
+⎝
+⎡
+⎣
+Sx 0 0
+0 Sy 0
+0 0 Sz
+⎤
+⎦
+⎡
+⎣
+xm
+ym
+zm
+⎤
+⎦ +
+⎡
+⎣
+Tx
+Ty
+Tz
+⎤
+⎦
+⎞
+⎠ (5)
+where [xs, ys, zs]T, [xm, ym, zm]T represent the Cartesian coor-
+dinates of the end-effectors of Baxter and TouchX joystick,
+respectively. δ is the rotation angle of z-axis for the base of
+the master device, [Sx, Sy, Sz]T and [Tx, Ty, Tz]T are the pro-
+portionality factors and offset correction terms about the x,
+y, and z axes, respectively. According to [3], the matching
+parameters of (6) are given by
+δ =
+π
+4
+⎡
+⎣
+Sx
+Sy
+Sz
+⎤
+⎦ =
+⎡
+⎣
+0.0041
+0.0040
+0.0041
+⎤
+⎦
+⎡
+⎣
+Tx
+Ty
+Tz
+⎤
+⎦ =
+⎡
+⎣
+0.701
+0.210
+0.129
+⎤
+⎦.
+The dynamics model of the telerobot could be represented
+as follows:
+Ms(qs)q̈s + hs(qs, q̇s) = τs − JT
+s Fe + fs (6)
+hs(qs, q̇s) = Cs(qs, q̇s)q̇s + Gs(qs) (7)
+where the subscript “s” is used to indicate slave. The denota-
+tions of the components on the left hand side of (6) and (7)
+are similar to those of (3) and (4). Fe is the interaction force
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+YANG et al.: TELEOPERATION CONTROL BASED ON COMBINATION OF WAVE VARIABLE AND NNs 2129
+Fig. 6. Communication with wave variables.
+between the environment and the telerobot, and τs is the
+control input to the slave.
+D. Model of the Human Operator
+Early studies have shown that the muscle property of the
+human hand could be modeled as a spring. A more complete
+mass spring damper model is proposed in [52]. In the teleop-
+eration system, the human hand holds the stylus of the master
+joystick, and gives the corresponding position and velocity
+commands. Even if the master device is subjected to the envi-
+ronmental force transmitted from the slave, the operator could
+also adjust the output of the hand to make the master track
+the desired movement of the operator. Therefore, the human
+hand could actually be regarded as controlled by an intelli-
+gent proportional-integral (PI) controller, which could adjust
+the output force of the hand according to the error between the
+actual position xm and the desired position xmd of the master
+described by
+Fh = Khp(xmd − xm) + Khi
+t
+t0
+(xmd − xm)dt (8)
+where Khp and Khi are the proportional gain and integral
+gain of the human hand, respectively. The notations of t0
+and t are the initial time instant and the current time instant,
+respectively.
+E. Model of the Environment
+In this paper, a simple mathematical model of the environ-
+ment is considered. It describes the relationship between the
+interaction force of the environment Fe and the slave robot
+position xs, that is
+Fe = Ksp(xs − xe) + Ksdẋs (9)
+where Ksp and Ksd are the parameters of the environment,
+and xe is the position of the environment. In the free space
+movement, Ksp = Ksd = 0m×n.
+F. Model of the Communication Channels
+The wave variable approach for the time-varying delayed
+communication is used in this section. In the teleoperation
+system shown in Fig. 6, the velocity ẋ and the force F of
+both master and slave flow into the communication channels,
+and are then transformed into the power variables u and v as
+follows:
+um = (bẋm + Fm)/
+√
+2b, v̂m = (bẋm − Fm)/
+√
+2b (10)
+ûs = (bẋs + Fs)/
+√
+2b, vs = (bẋs − Fs)/
+√
+2b (11)
+where b is the wave impedance [53].
+In the communication channels, the time-varying delays T1
+and T2 between the wave variables could be represented as
+follows:
+us(t) = um(t − T1(t)) (12)
+vm(t) = vs(t − T2(t)). (13)
+In Fig. 6, we see that the relationship between the wave
+variables and the power variables is as follows:
+ẋm = um + v̂m
+
+/
+√
+2b, Fm = um − v̂m
+
+/
+√
+2b (14)
+ẋs = ûs + vs
+
+/
+√
+2b, Fs = ûs − vs
+
+/
+√
+2b. (15)
+The flowing power in the communication channels could be
+calculated by the power variables and the wave variables
+P(t) = ẋT
+mFm − ẋT
+s Fs
+=
+1
+2
+uT
+mum − vT
+mvm − uT
+s us + vT
+s vs
+
+=
+1
+2
+uT
+mum − uT
+m(t − T1)um(t − T1) + vT
+s vs
+− vT
+s (t − T1)vs(t − T1)
+
+=
+d
+dt
+
+1
+2
+t
+t−T1
+uT
+mumdσ +
+1
+2
+t
+t−T2
+vT
+s vsdσ
+
+. (16)
+Under the condition of time delays, the energy E stored in the
+communication could be calculated as follows:
+E(t) =
+t
+0
+ẋT
+mFm − ẋT
+s Fs
+
+dσ
+=
+1
+2
+ t
+t−T1
+uT
+mumdσ +
+t
+t−T2
+vT
+s vsdσ
+
+(17)
+where time delays T1 and T2 are constant and the energy satis-
+fies E > 0, such that the system shown in Fig. 6 is passive [9].
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+2130 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017
+When the delays are time varying, the proof for the system
+passivity is nontrivial and far more complicated than (17). It
+will be discussed in detail later in Section III.
+To handle the time-varying delays in the communication
+of the teleoperation system, the wave correction method is
+employed [12], as shown in Fig. 6, which could be represented
+as follows:
+ûs = um(t − T1(t)) + us (18)
+v̂m = vs(t − T2(t)) + vm (19)
+where ûs and v̂m are obtained by using the corrective waves
+us and vm represented as [12]
+us(t) =
+√
+2bλ[xmf(t) + xdh − xsd(t)] (20)
+vm(t) =
+√
+2bλ[xsf(t) + xdh − xmd(t)] (21)
+where λ > 0 is designed for the convergence of position. The
+gravity factor, xdh, could be set as zero if not taken into con-
+sideration [12]. The desired positions, xmd and xsd, are given
+as follows:
+xmd =
+t
+0
+um + v̂m
+
+/
+√
+2b
+
+dσ (22)
+xsd =
+t
+0
+ûs + vm
+
+/
+√
+2b
+
+dσ. (23)
+Moreover, xmf and xsf are the fictitious positions described as
+xmf(t) =
+
+t−T1(t)
+0
+umdσ +
+t
+0
+vsdσ
+√
+2b
+
+(24)
+xsf(t) =
+
+t
+0
+umdσ +
+t−T2(t)
+0
+vsdσ
+√
+2b
+
+. (25)
+From (20) and (21), the corrective waves are proportional
+to the difference between the desired and fictitious positions,
+and the goals are to achieve
+xsd(t) − xmd(t − T1(t)) →
+1
+√
+2b
+t
+t−T1(t)−T2(t)
+vsdσ → 0
+xmd(t) − xsd(t − T2(t)) →
+1
+√
+2b
+t
+t−T1(t)−T2(t)
+umdσ → 0.
+When the waves become zero, the desired position difference
+will converge to an ideal value [12], which will be partic-
+ularly useful for trajectory and force control. After applying
+the correction method, in the next section the controller design
+and the stability analysis of the teleopration system will be
+discussed.
+III. NEURAL CONTROL DESIGN
+BASED ON WAVE VARIABLE
+A. Basic PD Control Design
+In this section, a control scheme is proposed using a torque
+control based on the nominal model and an NN controller to
+deal with the uncertainties. The control system on both the
+master and the slave sides is first designed following basic
+PD control technique. Consider the dynamics models of the
+master device (3) and of the slave robot (6). The following
+controllers are introduced for them, respectively:
+τm = Kmem + Dmėm (26)
+τs = −Kses − Dsės (27)
+where ei = qi−qid is the tracking error, qid ∈ Rn is the desired
+joint angle served as the reference command for the local PD
+controller, K ∈ Rn×n and D ∈ Rn×n are the symmetric positive
+definite matrices for the joint angle and angular velocity gains.
+The subscript “i” stands for “m” and “s”, which denote the
+master device and the slave robot, respectively.
+Define the generalized tracking error
+evs = ės + Ks1es (28)
+where Ks1 = D−1
+s Ks, then we have
+τs = −Dsevs. (29)
+Define qv = q̇d −Ks1es, and the dynamics of the slave (6) and
+(7) can be rewritten as
+Msėvs + Csevs + Gs + Msq̇v + Csqv = τs − JT
+s Fe + fs. (30)
+By substituting (29) into (30), we have
+Msėvs + Csevs + Dsevs = −JT
+s Fe + fs − Gs + Msq̇v − Csqv
+(31)
+and the uncertain nonlinear dynamics with the input z could
+be described by
+F(z) = JT
+s Fe + fs − Gs + Msq̇v − Csqv. (32)
+For trajectory tracking, if the dynamics of the robot is avail-
+able, with appropriate selection of the angular position and
+angular velocity gains K and D, the PD control could guar-
+antee the stability of the closed loop system. For uncertain
+models, the conventional PD controller may not be able to
+guarantee the global asymptotic stability [54]. As mentioned
+above, the NN is of powerful function approximation ability,
+which could be used for the identification of the uncertainties.
+As indicated by (9), the model of the human operator could
+be regarded as an intelligent PI controller, which could adjust
+the output force and position in real time. In this paper, we
+focus on the accurate position control of the slave telerobot.
+B. Task Space Position-to-Position Control
+In this paper, the CLIK method is employed for position-
+to-position control of the slave robot, which could avoid
+kinematic singularities and numerical drifts when solving
+inverse kinematics problem [3].
+The desired slave joint velocity could be described in the
+CLIK algorithm as
+qsd = KpJT
+s (q)edσ (33)
+where e = xsd − xs is the error between the desired slave
+trajectory xsd and the actual slave trajectory xs, Kp is a positive
+definite matrix adjusting the convergence rate [55] and JT
+s (q)
+is transpose of the Jacobian matrix. This method may avoid the
+problems occurring in open-loop form and the block diagram
+of the CLIK algorithm is given in Fig. 7.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+YANG et al.: TELEOPERATION CONTROL BASED ON COMBINATION OF WAVE VARIABLE AND NNs 2131
+Fig. 7. Teleoperation control using the wave correction scheme with global neural controllers.
+C. RBF Neural Networks
+RBF NN could be used to approximate the dynamics of the
+robotic model with its local generalization network. It could
+greatly accelerate the learning speed, avoid the local minimum
+problem and improve the tracking accuracy of the robot espe-
+cially for those with complicated structures and large numbers
+of DOFs [56]. The RBF NNs could be expressed as
+ϕi = exp
+
+−
+z − ci2
+σ2
+i
+
+, i = 1, 2, . . . , n (34)
+F̂(z) = ŴT
+ϕ(z) (35)
+where z ∈ Rn is the input vector and n represents the DOF
+of the slave robot, which is 7 for the left arm of the Baxter
+robot, F̂(z) ∈ Rn is the output vector, ϕ = [ϕ1, ϕ2, . . . , ϕn]T
+is the output vector of the hidden layer, Ŵ ∈ RN×n is the
+weight matrix which connects the hidden layer and the output
+layer, and N represents the hidden nodes number, ci ∈ Rn and
+σi > 0 are the center vector and width of the ith hidden node.
+From (34) the output of the hidden nodes in the RBF NNs are
+calculated by a radially symmetric function (e.g., Gaussian
+function).
+The adjustable parameters in the RBF NNs (34) and (35) are
+the weight matrix Ŵ, the center vector ci and the width σi of
+every hidden node. Usually, the values of ci and σi are chosen
+according to the knowledge of the system or by pretreatment
+training. The output of the network F̂(z) is linear with respect
+to weight matrix Ŵ, which greatly simplifies the analysis and
+learning process of the RBF NNs.
+In this paper, the RBF NNs are employed to approximate the
+uncertain nonlinear function F(z) [56], [57], and the following
+lemmas are given.
+Lemma 1: The input vector of RBF NNs z ∈ X, where X is
+a compact subset.
+Lemma 2: Given a positive constant ε0 and a continuous
+function F : z → Rn, there exists a weight matrix W∗ ∈ RN×n,
+making the output of an RBF NN with N hidden nodes F̂(z)
+satisfy
+max
+z∈X
+F̂ z, W∗
+
+− F(z) ⩽ ε (36)
+where N is determined by the precision parameter ε0 and the
+function F(z). F̂(z, W∗) is the estimate of the output F(z) with
+the ideal weight matrix W∗.
+Lemma 3: The output of an RBF NN F̂(z, Ŵ) on its
+arguments z, Ŵ is continuous.
+Therefore, (30) could be rewritten as follows:
+Msėvs = −(Cs + Ds)evs + F̂ z, W∗
+
++ η (37)
+where η = F(z) − F̂(z, W∗) and W∗ is the optimal weight
+matrix corresponding to z ∈ X, that is
+
+
+F(z) − F̂ z, W∗
+
+
+ = min sup
+z∈X
+
+
+F(z) − F̂
+
+z, Ŵ
+
+
+ (38)
+where η is bounded by η0 := supz∈X F(z) − F̂(z, W∗).
+According to the properties of the RBF NN, (36) could be
+rewritten as
+Msėvs = −(Cs + Ds)evs + W∗T
+ϕ(z). (39)
+With Lyapunov method it is easy to obtain the following
+update law:
+˙
+Ŵ = −Q−1
+ϕ(z)eT
+vs (40)
+where Q is a symmetric positive definite matrix.
+D. Controller Design
+From (31) and (32), when F(z) = 0m×n, i.e., there exist
+uncertainties in the robot model, and the PD controller (27)
+could ensure the boundedness of the tracking error, but may
+not make it convergent to zero. Therefore, the RBF NN control
+is developed based on Lemmas 1−3.
+The control torque is composed of two parts, as
+τs = τPD + τNN (41)
+where τPD is the basic PD control and according
+to (27) and (29)
+τPD = −Kses − Dsės = −Dsevs (42)
+while τNN is the NN compensation controller
+τNN = F̂(z) = ŴT
+ϕ(z). (43)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+2132 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017
+Then the closed-loop system dynamics of the slave robot can
+be written as
+Msėvs + Csevs + Dsevs = Fz − F̂z. (44)
+E. Theoretical Analysis
+We use Lyapunov function based analysis approach to rig-
+orously show the convergence of the tracking errors and the
+closed-loop stability.
+1) Convergence of the Tracking Error:
+Proof: Choose a candidate of Lyapunov function as follows:
+V1 =
+1
+2
+eT
+vsMsevs +
+1
+2
+tr 
+WT
+Q
+W
+
+. (45)
+Then, we have
+V̇1 =
+1
+2
+eT
+vsṀsevs + eT
+vsMsėvs + tr
+
+
+WT
+Q ˙
+Ŵ
+
+=
+1
+2
+eT
+vsṀsevs − eT
+vsCsevs − eT
+vsDsevs
+− tr
+
+
+WT
+
+ϕ(z)eT
+vs − QQ−1
+ϕ(z)eT
+vs
+
+= −eT
+vsDsevs < 0. (46)
+And we have
+t
+0
+V̇1dσ = V1(t) − V1(0) =
+t
+0
+−eT
+vsDsevs
+
+dσ < 0 (47)
+such that V̇1 is strictly negative definite. According to [58],
+evs ∈ L2 ∩ L∞, ėvs ∈ L∞, thus when t → ∞, evs converges to
+zero asymptotically.
+Then we choose the value of Ks1 satisfying [λi(−Ks1)] <
+0, ∀i, such that when t → ∞, es and ės converge to
+zero asymptotically and the detailed analysis could be found
+in [58].
+2) Stability of the Teleoperation System:
+The proper selection of Rvm and Rvs that satisfy
+λm(Rvm(t)) ⩾
+
+v̂m
+
+2
+− 1 − Ṫ2
+
+|vm|2
+
+/2|ẋmd|2
+(48)
+λm(Rvs(t)) ⩾
+
+ûs
+
+2
+− 1 − Ṫ1
+
+|us|2
+
+/2|ẋsd|2
+(49)
+could guarantee the stability of the overall teleoperation
+system.
+Proof: We choose another Lyapunov function candidate as
+V = Vc + Vw (50)
+where
+Vw =
+1
+2
+t
+t−T1
+uT
+mumdσ +
+1
+2
+t
+t−T2
+vT
+s vsdσ (51)
+Vc =
+1
+2
+q̇T
+mMmq̇m +
+1
+2
+eT
+mKmem +
+1
+2
+eT
+vsMsevs +
+1
+2
+tr 
+WT
+Q
+W
+
+.
+(52)
+According to [12], we have
+V̇w =
+1
+2
+
+Ṫ1|us|2
++ |δus|2
++ 2uT
+s δus + Ṫ2|vm|2
++ |δvm|2
++ 2vT
+mδvm
+
+. (53)
+Considering (47) and (48), we have
+V̇w ⩽ −ẋT
+mdR
+
+vmẋmd − ẋT
+sdR
+
+vsẋsd (54)
+where R
+
+vm = Rvm − λ(Rvm)I and R
+
+vs = Rvs − λ(Rvs)I.
+As for the controllers on both the master and the slave sides,
+assume that the operator and the environment are passive [12]
+and could be written as
+t
+0
+ẋT
+m(−Fh)dσ ⩾ Vh(t) − Vh(0)
+t
+0
+ẋT
+s Fedσ ⩾ Ve(t) − Ve(0) (55)
+where Vh and Ve stand for the bounded storage functions. And
+according to (45), we have
+V̇c = ẋT
+mFh − ẋT
+s Fe − q̇T
+mDmq̇m + V̇1. (56)
+Considering (47), (54), and (55), finally we could obtain
+V(t) − V(0) ⩽
+t
+0
+ẋT
+mFh − ẋT
+s Fe
+
+−
+t
+0
+
+ẋT
+mdR
+
+vmẋmd + ẋT
+sdR
+
+vsẋsd
+
+dσ
++
+t
+0
+V̇1 − q̇T
+mDmq̇m
+
+dσ (57)
+which guarantees boundedness of V under the condition of
+passivity of the teleoperation system.
+IV. EXPERIMENTS
+The comparative experiments are performed for the follow-
+ing purposes.
+1) To show that the RBF NN compensation is effective to
+improve the tracking performance, in comparison with
+typical PD control without compensation.
+2) To demonstrate that the wave variable technique
+enhanced master-slave teleoperation system remains sta-
+ble in the presence of various time delays.
+3) To illustrate the seamless combination of neural control
+scheme and wave variable technique for teleoperation
+system.
+A. Experiment Platform
+The experimental platform is set up with the TouchX haptic
+device and a computer connected to it, as well as the slave
+robot Baxter simulated using MATLAB Robotics Toolbox (see
+Figs. 8 and 9). The human operator moves the stylus of the
+TouchX joystick, through which the desired trajectory is sent
+to the simulated communication channels and the contact force
+between the simulated robot and the environment is regulated.
+Through the communication channels, the desired position of
+the slave robot is passed to the simulated left arm of the Baxter
+robot.
+B. Trajectory Tracking Under Different Controllers
+First the controller for the slave robot is designed as a typi-
+cal PD controller. A desired trajectory set by the master device
+(TouchX) for the slave robot (simulated Baxter robot arm)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+YANG et al.: TELEOPERATION CONTROL BASED ON COMBINATION OF WAVE VARIABLE AND NNs 2133
+Fig. 8. Experiment platform of the master-slave teleoperation system (photo
+taken at South China University of Technology).
+Fig. 9. Simulated slave robot.
+Fig. 10. Trajectory of the master device (solid) and the slave (dashed) with
+the conventional PD controller.
+is designed, which requires the human operator to move the
+stylus of the master joystick from an initial position to the
+minimum value along the x direction, then to the maximum
+value along the x direction and finally restore back to the initial
+position, for a time span of 0–3 s. Then, the human operator
+performs the same motion along the y direction for 3–6 s,
+and along the z direction for 6–9 s. The trajectory tracking
+result for the slave robot with the conventional PD controller
+is shown in Fig. 10.
+Then, the RBF NN control is added on top of the basic PD
+controller to compensate for the uncertain nonlinear dynamics.
+Fig. 11. Norm of NN weights for each joint of the slave robot during NN
+training.
+Fig. 12. Trajectory of the master device (solid) and the slave (dashed) with
+the RBF NN compensation.
+In this experiment, the first 10 s is reserved for NN training.
+It is clear that the weights for different joints converge to dif-
+ferent values, among which the values of the normed weights
+for joints S1, W0, and W2 are close to 0, for they are almost
+not affected by gravity during the movement of the robot.
+At 10–19 s the human operator repeats the process of the
+last experiment. The weights of the NN are shown in Fig. 11.
+In comparison to the tracking performance of two experiments
+shown in Figs. 10 and 12, after adding the RBF NN controller,
+the tracking performance of the slave robot is much improved.
+C. Trajectory and Force Reflection Under
+Different Communications
+Under the circumstances of time-varying delays, the system
+is very likely to become unstable and uncontrollable. In this
+section, we test the wave variables technique in the com-
+munication of the teleoperation system, and then perform
+comparison with the other set of experiment without using the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+2134 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017
+Fig. 13. Varying time delays T1 (solid) and T2 (dashed).
+Fig. 14. Trajectory of the master device (solid) and the slave (dashed) with
+time-varying delayed communication, using wave variable technique.
+wave variables. The added time delays T1 and T2 in the exper-
+iment are illustrated in Fig. 13, and the force reflection to the
+human operator in Fig. 7 is calculated by Ffb = Kfb(xs − xm).
+The human operator is required to repeat the movement
+twice of the last experiment, one with wave variables in the
+communication channels and the other without. The trajectory
+tracking performances of the two comparative experiments are
+shown in Figs. 14 and 15. In the force reflection experiment,
+a rigid workpiece similar to a wall is set up and installed
+along the x direction, as shown in Fig. 9. In the first 3 s
+both the master device and the slave robot are in free motion.
+Then the master begins to move toward the place where the
+slave will get in touch with the workpiece and the contact will
+last for about 10 s. During the contact with the workpiece,
+the slave robot almost does not move, and the environmental
+force applied on the slave robot converges to a set value, and
+the operator holds the master device with a constant force.
+Then, the operator moves the master joystick back in free
+motion, and the slave robot leaves the workpiece and tracks
+the master’s motion without the time-varying delays. The tra-
+jectories along the x direction of the master device and of
+the slave telerobot and the force reflections with time-varying
+Fig. 15. Trajectory of the master device (solid) and the slave (dashed)
+with time-varying delayed communication, without using the wave variable
+technique.
+Fig. 16. (Top) Trajectories along the x direction of the master device (solid)
+and of the slave (dashed) with time-varying delayed communication, using
+wave variable technique. (Middle) Environmental force to the slave robot.
+(Bottom) Force reflections to the master device along the x direction with
+time-varying delayed communication, using wave variable technique.
+delays and the wave variables are shown in Fig. 16. The oscil-
+lation as can be seen is due to the process of force feedback
+before and after the contact.
+V. CONCLUSION
+In this paper, a teleoperation control method has been inves-
+tigated in the presence of time-varying delays and uncertain
+robot dynamics. The RBF NN and wave variable technique
+are effectively combined to solve the problems caused by
+uncertainties and time delays. Rigorous theoretical analysis
+has been performed to establish passive property and stabil-
+ity of the teleoperation system. Comparative experiments have
+been carried out to validate the proposed method. Studies of
+teleoperation in an unknown environment will be conducted
+in the future work.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+YANG et al.: TELEOPERATION CONTROL BASED ON COMBINATION OF WAVE VARIABLE AND NNs 2135
+REFERENCES
+[1] Geomagic Touch X Haptic Device. Accessed July 1, 2016.
+[Online]. Available: http://www.geomagic.com/en/products/phantom-
+desktop/overview
+[2] L.-Y. Hu, X. P. Liu, and G.-P. Liu, “The wave-variable teleoperator
+with improved trajectory tracking,” in Proc. Int. Conf. Control Autom.,
+Xiamen, China, 2010, pp. 322–327.
+[3] C. Yang, H. Ma, and M. Fu, Advanced Technologies in Modern Robotic
+Applications. Singapore: Springer, 2016.
+[4] P. Corke, Robotics, Vision and Control (Springer Tracts in Advanced
+Robotics), vol. 73. Heidelberg, Germany: Springer, 2011.
+[5] M. Wu, Y. He, J.-H. She, and G.-P. Liu, “Delay-dependent criteria for
+robust stability of time-varying delay systems,” Automatica, vol. 40,
+no. 8, pp. 1435–1439, 2004.
+[6] J. P. Richard, “Time-delay systems: An overview of some recent
+advances and open problems,” Automatica, vol. 39, no. 10,
+pp. 1667–1694, 2003.
+[7] R. J. Anderson and M. W. Spong, “Bilateral control of teleoperators with
+time delay,” IEEE Trans. Autom. Control, vol. 34, no. 5, pp. 494–501,
+May 1989.
+[8] X. Yang, C. Hua, J. Yan, and X. Guan, “An exact stability condition
+for bilateral teleoperation with delayed communication channel,” IEEE
+Trans. Syst., Man, Cybern., Syst., vol. 46, no. 3, pp. 434–439, Mar. 2016.
+[9] J.-J. E. Slotine and W. Li, Applied Nonlinear Control. Englewood Cliffs,
+NJ, USA: Prentice-Hall, 1991.
+[10] Y. Gu, C. Zhang, and K. T. Chong, “Adaptive passive control with vary-
+ing time delay,” Simulat. Model. Pract. Theory, vol. 18, no. 1, pp. 1–8,
+2010.
+[11] M. Satler, C. A. Avizzano, A. Frisoli, P. Tripicchio, and M. Bergamasco,
+“Bilateral teleoperation under time-varying delay using wave variables,”
+in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., St. Louis, MO, USA,
+2009, pp. 4596–4602.
+[12] P. Pitakwatchara, “Control of time-varying delayed teleoperation system
+using corrective wave variables,” in Proc. IEEE/RSJ Int. Conf. Intell.
+Robots Syst. (IROS), Hamburg, Germany, 2015, pp. 4550–4555.
+[13] F. Hong, S. S. Ge, B. Ren, and T. H. Lee, “Robust adaptive control for
+a class of uncertain strict-feedback nonlinear systems,” Int. J. Robust
+Nonlin. Control, vol. 19, no. 7, pp. 746–767, 2009.
+[14] M. Chen, S. S. Ge, and B. Ren, “Adaptive tracking control of uncertain
+MIMO nonlinear systems with input constraints,” Automatica, vol. 47,
+no. 3, pp. 452–465, 2011.
+[15] W. He, S. Zhang, and S. S. Ge, “Adaptive control of a flexible crane
+system with the boundary output constraint,” IEEE Trans. Ind. Electron.,
+vol. 61, no. 8, pp. 4126–4133, Aug. 2014.
+[16] W. He et al., “Model identification and control design for a humanoid
+robot,” IEEE Trans. Syst., Man, Cybern., Syst., vol. 47, no. 1, pp. 45–57,
+Jan. 2017.
+[17] A. Smith et al., “Novel hybrid adaptive controller for manipulation in
+complex pertubation environments,” PLoS ONE, vol. 10, no. 6, 2015.
+[18] W. He and S. S. Ge, “Cooperative control of a nonuniform gantry crane
+with constrained tension,” Automatica, vol. 66, pp. 146–154, Apr. 2016.
+[19] D.-H. Zhai and Y. Xia, “Adaptive control of semi-autonomous tele-
+operation system with asymmetric time-varying delays and input
+uncertainties,” IEEE Trans. Cybern., doi: 10.1109/TCYB.2016.2573798,
+to be published.
+[20] D.-H. Zhai and Y. Xia, “Adaptive control for teleoperation system with
+varying time-delays and input saturation constraints,” IEEE Trans. Ind.
+Electron., vol. 63, no. 11, pp. 6921–6929, Nov. 2016.
+[21] Y. Li, S. Tong, and T. Li, “Adaptive fuzzy output feedback dynamic sur-
+face control of interconnected nonlinear pure-feedback systems,” IEEE
+Trans. Cybern., vol. 45, no. 1, pp. 138–149, Jan. 2015.
+[22] Y. Li, S. Sui, and S. Tong, “Adaptive fuzzy control design for stochastic
+nonlinear switched systems with arbitrary switchings and unmodeled
+dynamics,” IEEE Trans. Cybern., vol. 47, no. 2, pp. 403–414, Feb. 2017.
+[23] Y. Li and S. Tong, “Adaptive fuzzy output-feedback stabilization con-
+trol for a class of switched nonstrict-feedback nonlinear systems,” IEEE
+Trans. Cybern., vol. 47, no. 4, pp. 1007–1016, Apr. 2017.
+[24] Y. Gao and Y.-J. Liu, “Adaptive fuzzy optimal control using direct
+heuristic dynamic programming for chaotic discrete-time system,” J. Vib.
+Control, vol. 22, no. 2, pp. 595–603, 2014.
+[25] Y.-J. Liu and S. Tong, “Adaptive fuzzy control for a class of nonlinear
+discrete-time systems with backlash,” IEEE Trans. Fuzzy Syst., vol. 22,
+no. 5, pp. 1359–1365, Oct. 2014.
+[26] X. W. Chen, J. G. Zhang, and Y. J. Liu, “Research on the intelligent con-
+trol and simulation of automobile cruise system based on fuzzy system,”
+Math. Prob. Eng., vol. 2016, no. 5, 2016, Art. no. 9760653.
+[27] C. Sun, W. He, W. Ge, and C. Chang, “Adaptive neural network control
+of biped robots,” IEEE Trans. Syst., Man, Cybern., Syst., vol. 47, no. 2,
+pp. 315–326, Feb. 2017.
+[28] C. Yang, Z. Li, R. Cui, and B. Xu, “Neural network-based motion control
+of an underactuated wheeled inverted pendulum model,” IEEE Trans.
+Neural Netw. Learn. Syst., vol. 25, no. 11, pp. 2004–2016, Nov. 2014.
+[29] G.-X. Wen, C. L. P. Chen, Y.-J. Liu, and Z. Liu, “Neural-network-
+based adaptive leader-following consensus control for second-order
+non-linear multi-agent systems,” IET Control Theory Appl., vol. 9,
+no. 13, pp. 1927–1934, Aug. 2015.
+[30] C. Yang, X. Wang, L. Cheng, and H. Ma, “Neural-learning-based
+telerobot control with guaranteed performance,” IEEE Trans. Cybern.,
+doi: 10.1109/TCYB.2016.2573837, to be published.
+[31] Y. Hu et al., “Development of sensory-motor fusion-based manipulation
+and grasping control for a robotic hand-eye system,” IEEE Trans. Syst.,
+Man, Cybern., Syst., vol. 47, no. 7, pp. 1169–1180, Jul. 2017.
+[32] L. Cheng, Z.-G. Hou, M. Tan, Y. Lin, and W. Zhang, “Neural-network-
+based adaptive leader-following control for multiagent systems with
+uncertainties,” IEEE Trans. Neural Netw., vol. 21, no. 8, pp. 1351–1358,
+Aug. 2010.
+[33] C. Yang, Y. Jiang, Z. Li, W. He, and C. Y. Su, “Neural control of
+bimanual robots with guaranteed global stability and motion precision,”
+IEEE Trans. Ind. Informat., vol. 13, no. 3, pp. 1162–1171, Jun. 2017.
+[34] Z. Li, H. Xiao, C. Yang, and Y. Zhao, “Model predictive control of
+nonholonomic chained systems using general projection neural networks
+optimization,” IEEE Trans. Syst., Man, Cybern., Syst., vol. 45, no. 10,
+pp. 1313–1321, Oct. 2015.
+[35] W. He, Y. Chen, and Z. Yin, “Adaptive neural network control of an
+uncertain robot with full-state constraints,” IEEE Trans. Cybern., vol. 46,
+no. 3, pp. 620–629, Mar. 2016.
+[36] Y.-J. Liu and S. Tong, “Adaptive NN tracking control of uncertain
+nonlinear discrete-time systems with nonaffine dead-zone input,” IEEE
+Trans. Cybern., vol. 45, no. 3, pp. 497–505, Mar. 2015.
+[37] W. He, A. O. David, Z. Yin, and C. Sun, “Neural network control of a
+robotic manipulator with input deadzone and output constraint,” IEEE
+Trans. Syst., Man, Cybern., Syst., vol. 46, no. 6, pp. 759–770, Jun. 2016.
+[38] W. He, Z. Yin, and C. Sun, “Adaptive neural network control of a marine
+vessel with constraints using the asymmetric barrier Lyapunov function,”
+IEEE Trans. Cybern., vol. 47, no. 7, pp. 1641–1651, Jul. 2017.
+[39] Z. Liu, C. Chen, Y. Zhang, and C. L. P. Chen, “Adaptive neural control
+for dual-arm coordination of humanoid robot with unknown nonlin-
+earities in output mechanism,” IEEE Trans. Cybern., vol. 45, no. 3,
+pp. 507–518, Mar. 2015.
+[40] Y.-J. Liu, L. Tang, S. Tong, and C. L. P. Chen, “Adaptive NN con-
+troller design for a class of nonlinear MIMO discrete-time systems,”
+IEEE Trans. Neural Netw. Learn. Syst., vol. 26, no. 5, pp. 1007–1018,
+May 2015.
+[41] Y.-J. Liu, S. Tong, C. L. P. Chen, and D. J. Li, “Neural controller design-
+based adaptive control for nonlinear MIMO systems with unknown
+hysteresis inputs,” IEEE Trans. Cybern., vol. 46, no. 1, pp. 9–19,
+Jan. 2016.
+[42] Y. Lu, J. K. Liu, and F. C. Sun, “Actuator nonlinearities compensation
+using RBF neural networks in robot control system,” in Proc. IMACS
+Multiconf. Comput. Eng. Syst. Appl., Beijing, China, 2006, pp. 231–238.
+[43] L. Jun and T. Duckett, “Some practical aspects on incremental train-
+ing of RBF network for robot behavior learning,” in Proc. Actuator
+Nonlinearitiesworld Congr. Intell. Control Autom., Chongqing, China,
+2008, pp. 2001–2006.
+[44] J. Liu and Y. Lu, “Adaptive RBF neural network control of robot
+with actuator nonlinearities,” J. Control Theory Appl., vol. 8, no. 2,
+pp. 249–256, 2010.
+[45] L. Xue, W. Fan, and X. Wang, “Research on motion trajectory control
+of fruit and vegetable picking robot based on RBF network,” J. Agric.
+Mech. Res., no. 9, pp. 229–233, 2016.
+[46] C. H. Tsai and H. T. Chuang, “Deadzone compensation based on
+constrained RBF neural network,” J. Franklin Inst., vol. 341, no. 4,
+pp. 361–374, 2004.
+[47] F. G. Rossomando, C. Soria, and R. Carelli, “Autonomous mobile robots
+navigation using RBF neural compensator,” Control Eng. Pract., vol. 19,
+no. 3, pp. 215–222, 2011.
+[48] X. Wang, C. Yang, and Z. Li, “Development of a TouchX based tele-
+operation approach using wave variable technique,” in Proc. IEEE Int.
+Conf. Adv. Robot. Mechatronics (ICARM), Macau, China, Aug. 2016.
+[49] J. J. Craig, Adaptive Control of Mechanical Manipulators. Reading, MA,
+USA: Addison-Wesley, 1986.
+[50] C. S. G. Lee, R. C. Gonzalez, and K. S. Fu, Tutorial on Robotics.
+Los Alamitos, CA, USA: IEEE Comput. Soc. Press, 1983.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+2136 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 8, AUGUST 2017
+[51] R. N. Murray et al., A Mathematical Introduction to Robotics
+Manipulation, Boca Raton, FL, USA: CRC Press, 1994.
+[52] D. A. Lawrence, “Stability and transparency in bilateral teleoperation,”
+IEEE Trans. Robot. Autom., vol. 9, no. 5, pp. 624–637, Oct. 1993.
+[53] D. H. Zhai and Y. Xia, “Adaptive finite-time control for nonlinear tele-
+operation systems with asymmetric time-varying delays,” Int. J. Robust
+Nonlin. Control, vol. 26, no. 12, pp. 2586–2607, 2016.
+[54] R. Kelly, “Global positioning of robot manipulators via PD control plus a
+class of nonlinear integral actions,” IEEE Trans. Autom. Control, vol. 43,
+no. 7, pp. 934–938, Jul. 1998.
+[55] L. Sciavicco and B. Siciliano, “A dynamic solution to the inverse kine-
+matic problem for redundant manipulators,” in Proc. IEEE Int. Conf.
+Robot. Autom., vol. 4. Raleigh, NC, USA, 1987, pp. 1081–1087.
+[56] J. Park and I. Sandberg, “Universal approximation using radial-basis-
+function networks,” Neural Comput., vol. 3, no. 2, pp. 246–257, 1991.
+[57] C. Yang, Z. Li and J. Li, “Trajectory planning and optimized adaptive
+control for a class of wheeled inverted pendulum vehicle models,” IEEE
+Trans. Cybern., vol. 43, no. 1, pp. 24–35, Feb. 2013.
+[58] Q. Zhou, J. Xu, and T. P. Leung, “Globally stable adaptive controller of
+robot manipulators,” in Proc. IEEE Region 10 Conf. Comput. Commun.
+Control Power Eng., vol. 4. Beijing, China, 1993, pp. 90–93.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in control
+engineering from the National University of
+Singapore, Singapore, in 2010.
+He received Post-Doctoral training from
+Imperial College London, London, U.K. He is a
+Senior Lecturer with the Zienkiewicz Centre for
+Computational Engineering, Swansea University,
+Swansea, U.K. He is also with the South China
+University of Technology, Guangzhou, China. His current research interests
+include robotics, automation, and computational intelligence.
+Xingjian Wang received the B.E. degree in automa-
+tion from the South China University of Technology,
+Guangzhou, China, in 2015, where he is currently
+pursuing the M.S. degree.
+His current research interests include robotics and
+teleoperation control.
+Zhijun Li (M’07–SM’09) received the Ph.D.
+degree in mechatronics from Shanghai Jiao Tong
+University, Shanghai, China, in 2002.
+From 2003 to 2005, he was a Post-Doctoral
+Fellow with the Department of Mechanical
+Engineering and Intelligent systems, University
+of Electro-Communications, Tokyo, Japan. From
+2005 to 2006, he was a Research Fellow with
+the Department of Electrical and Computer
+Engineering, National University of Singapore,
+Singapore and Nanyang Technological University,
+Singapore. From 2007 to 2011, he was an Associate Professor with the
+Department of Automation, Shanghai Jiao Tong University. In 2008, he
+was a Visiting Scholar with Microsoft Research Asia, Beijing, China. Since
+2012, he has been a Professor with the College of Automation Science and
+Engineering, South China university of Technology, Guangzhou, China. In
+2015, he was a Visiting Professor with the Faculty Science and Technology,
+University of Macau, Macau, China, and the Department of Advanced
+Robotics, Italian Institute of Technology, Genoa, Italy. His current research
+interests include service robotics, teleoperation systems, nonlinear control,
+neural network, and optimization.
+Dr. Li has been the Chair of Technical Committee on Biomechatronics and
+Biorobotics Systems and the IEEE Systems, Man and Cybernetics Society,
+since 2016. He is serving as an Editor-at-Large of the Journal of Intelligent
+and Robotic Systems, an Associate Editor of the IEEE TRANSACTIONS ON
+NEURAL NETWORKS AND LEARNING SYSTEMS, the IEEE TRANSACTIONS
+ON SYSTEMS, MAN AND CYBERNETICS: SYSTEMS, and the IEEE
+TRANSACTIONS ON AUTOMATION SCIENCE AND ENGINEERING. He has
+been the General Chair of the 2016 IEEE Conference on Advanced Robotics
+and Mechatronics, Macau, China.
+Yanan Li (S’10–M’14) received the B.Eng. and
+M.Eng. degrees from the Harbin Institute of
+Technology, Harbin, China, in 2006 and 2008,
+respectively, and the Ph.D. degree from the NUS
+Graduate School for Integrative Sciences and
+Engineering, National University of Singapore,
+Singapore, in 2013.
+He has been a Research Scientist with the I2R,
+A*STAR, Singapore, from 2013 to 2015. He is cur-
+rently a Research Associate with the Department of
+Bioengineering, Imperial College London, London,
+U.K. His current research interests include physical human-robot interaction
+and robot control.
+Chun-Yi Su (SM’99) received the Ph.D. degree in
+control engineering from the South China University
+of Technology, Guangzhou, China, in 1990.
+He joined Concordia University, Montreal, QC,
+Canada, in 1998, after a seven-year stint with
+the University of Victoria, Victoria, BC, Canada.
+He is currently with the College of Automation
+Science and Engineering, South China University of
+Technology, on leave from Concordia University. He
+has authored or coauthored over 300 publications
+in journals, book chapters, and conference proceed-
+ings. His current research interests include application of automatic control
+theory to mechanical systems and control of systems involving hysteresis
+nonlinearities.
+Dr. Su has served as an Associate Editor of the IEEE TRANSACTIONS ON
+AUTOMATIC CONTROL, the IEEE TRANSACTIONS ON CONTROL SYSTEMS
+TECHNOLOGY, and the Journal of Control Theory and Applications. He has
+been on the Editorial Board of 18 journals, including the IFAC Journal of
+Control Engineering Practice and Mechatronics.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:18 UTC from IEEE Xplore. Restrictions apply.

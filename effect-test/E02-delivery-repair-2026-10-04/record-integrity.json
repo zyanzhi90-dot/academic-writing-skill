@@ -1,0 +1,43 @@
+{
+  "stages": {
+    "polishing-baseline": {
+      "candidate": "86d0cd1",
+      "attempts": 1,
+      "first_output_sha256": "fbffa022a7affefcb2823b5c64e554c31d27bef5fd98b0298cd50d1dbdf55960",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "duration_seconds": 210.56
+    },
+    "polishing-source-check": {
+      "candidate": "1be5954",
+      "attempts": 1,
+      "first_output_sha256": "d68b06bb1deb8f784f43cc4bc4cadb9c0ac09b4b62a10d384ec3c3cb19339cf4",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "duration_seconds": 231.65
+    },
+    "drafting-frozen": {
+      "candidate": "1be5954",
+      "attempts": 1,
+      "first_output_sha256": "9606dd4b59904e431f8eb829b88888be988a33cf17626657712724a6d454c129",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "duration_seconds": 256.88
+    },
+    "polishing-combined": {
+      "candidate": "1be5954",
+      "attempts": 1,
+      "first_output_sha256": "34b8a3473f6be30eae566662fd40e94da65e1eaf79c7f6e85447dc80b3137919",
+      "model": "gpt-6.1-sol",
+      "effort": "high",
+      "duration_seconds": 282.22
+    }
+  },
+  "all_original_author_inputs_byte_identical": true,
+  "same_draft_polishing_control_byte_identical": true,
+  "combined_handoff_byte_identical": true,
+  "standard_drafting_request_byte_identical": true,
+  "runner_snapshots_match_pre_run_hashes": true,
+  "frozen_candidate_bytes_match_git": true,
+  "effect_status": "Separate prose evaluations; no migration claim"
+}

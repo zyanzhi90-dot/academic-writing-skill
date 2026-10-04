@@ -1,0 +1,139 @@
+diff --git a/skill-candidate/nature-polishing/manifest.yaml b/skill-candidate/nature-polishing/manifest.yaml
+index dfffd92..54e3a4f 100644
+--- a/skill-candidate/nature-polishing/manifest.yaml
++++ b/skill-candidate/nature-polishing/manifest.yaml
+@@ -73,6 +73,8 @@ axes:
+ 
+ references:
+   on_demand:
++    - condition: complete abstract polishing or autonomous delivery; execute source-to-prose comparison against original author material
++      path: ../nature-shared/core/abstract-delivery.md
+     - condition: robotics is the central scientific subject of manuscript polishing or restructuring; abstract or body, overall reasoning, standalone paragraphs, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
+       path: ../nature-shared/core/robotics-writing-examples.md
+     - condition: the central subject of manuscript-body polishing or restructuring is a robot control, learning, manipulation, locomotion, or physical-interaction system, including paragraph groups, whole-manuscript reasoning, independent Related Work, and Chinese-to-English prose; exclude incidental examples, title/abstract-only, submission administration, and layout requests
+diff --git a/skill-candidate/nature-polishing/static/fragments/section/abstract.md b/skill-candidate/nature-polishing/static/fragments/section/abstract.md
+index a3b4b2d..8ae9dec 100644
+--- a/skill-candidate/nature-polishing/static/fragments/section/abstract.md
++++ b/skill-candidate/nature-polishing/static/fragments/section/abstract.md
+@@ -82,13 +82,9 @@ their conclusions. Do not invent results or close with generic validity.
+ 
+ ## Delivery check
+ 
+-Compare the complete paragraph, consecutive sentences and meaningful phrases
+-with the selected real English and author facts. Check contribution relations
+-and content necessity as well as object names, terminology, conditions, syntax
+-and collocations. Follow the actual length requirement; otherwise use the
+-selected abstracts' information load to cut excess background and detail.
+-Repair missing scientific links, unsupported claims and departures from the
+-author's established style. Preserve correct mature wording and reasonable
+-variants that express the same supported relationship; the availability of
+-another wording does not require a change. Place consequential unresolved
+-author questions outside the abstract.
++Load `../../../../nature-shared/core/abstract-delivery.md` and execute its
++source-to-prose check before delivering the abstract. Reopen the original
++scientific material after reading the draft, map both assertions and necessary
++contribution relations, and revise from that comparison. Use the existing
++section priorities and selected real English; a fluent draft or a correct
++author note does not establish that the abstract itself passes.
+diff --git a/skill-candidate/nature-shared/core/abstract-delivery.md b/skill-candidate/nature-shared/core/abstract-delivery.md
+new file mode 100644
+index 0000000..bc44de9
+--- /dev/null
++++ b/skill-candidate/nature-shared/core/abstract-delivery.md
+@@ -0,0 +1,56 @@
++# Abstract delivery: source-grounded Polishing
++
++Use this procedure for a complete abstract drafted from author material or
++submitted for unrestricted polishing. Section fragments own contribution and
++evidence selection; `scientific-expression.md` owns the expression checks.
++This file specifies how to execute those checks against the source.
++Respect a narrower author-requested edit scope.
++
++## Handoff
++
++For autonomous abstract delivery, preserve the working Drafting output, then
++run a distinct `nature-polishing` pass with that draft, the original author
++facts, requirements, and selected reference passages. Use a fresh context when
++the execution environment supports it. Do not pass the drafter's self-assessment
++as evidence of correctness or require sentence-level author feedback. Polishing
++owns the checked delivery; a working draft and a checked abstract have separate
++status. For an existing abstract, start directly with Polishing.
++
++## Source-to-prose check
++
++After reading the draft, reopen the original author scientific material. Build
++a compact internal source-to-prose map, not a checklist answered from memory:
++
++- For each scientific assertion in the draft, locate its author-source support
++  and compare the actual technical category, action, object, scope and strength.
++  An established draft term or Terminology Ledger entry is revisable when the
++  original facts show it is wrong. Preserve category-defining modifiers when
++  shortening or translating; a familiar broader name is not automatically an
++  equivalent name.
++- In the other direction, map the selected contributions from the original
++  facts into the paragraph. For each retained key design, identify the task
++  need, enabling action or information, and supported effect. Check the adjacent
++  sentences for the relation needed to explain that effect, including its
++  input/output handoff or the object of an estimation or compensation action
++  when applicable. An implementation convenience alone may not explain the
++  design's purpose. This map selects necessary relations, not every source detail.
++- Attach a model assumption or guarantee condition to the assertion it limits.
++  An author note cannot supply a condition necessary for a reader of the abstract
++  to interpret that assertion. Keep implementation requirements distinct from
++  proof assumptions; do not expand either into a proof inventory.
++- For each verification item, record the contribution it supports and what
++  would become unsupported or materially different if that item were removed.
++  Combine or remove items with the same support function, including a summary
++  followed by the same result unpacked as settings or curve directions. Retain
++  a separate finding when it supplies independent necessary evidence or a
++  consequential boundary. Preserve the source-specific scope when combining.
++
++Repair determinate mismatches and missing necessary relations using the selected
++references' actual consecutive sentences and ordinary English. Then compare the
++repaired phrases and their local context with the source-to-prose map and run
++the shared expression check. Follow the author's length requirement; otherwise
++use the selected abstracts' information load to trim excess. Preserve mature
++wording and reasonable variants. Report only genuinely unresolved scientific
++questions outside the abstract; do not defer a source-resolvable error to
++manual revision. The map is internal unless an execution record or the author
++requests it.
+diff --git a/skill-candidate/nature-writing/manifest.yaml b/skill-candidate/nature-writing/manifest.yaml
+index c155410..b5100f4 100644
+--- a/skill-candidate/nature-writing/manifest.yaml
++++ b/skill-candidate/nature-writing/manifest.yaml
+@@ -94,6 +94,10 @@ axes:
+ 
+ references:
+   on_demand:
++    - condition: complete abstract drafting or delivery; execute source-grounded delivery after preserving the working draft
++      path: ../nature-shared/core/abstract-delivery.md
++    - condition: autonomous complete abstract delivery after Drafting; a distinct Polishing pass with original author material, excluding Drafting-only requests
++      path: ../nature-polishing/SKILL.md
+     - condition: task is manuscript and robotics is the central scientific subject; abstract or body drafting, restructuring, overall reasoning, standalone paragraphs, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
+       path: ../nature-shared/core/robotics-writing-examples.md
+     - condition: task is manuscript and the central subject is a robot control, learning, manipulation, locomotion, or physical-interaction system; drafting or restructuring any body section or paragraph group, whole-manuscript reasoning, or independent Related Work, including Chinese-to-English prose; exclude incidental examples, title/abstract-only, submission-package, and layout requests
+diff --git a/skill-candidate/nature-writing/static/fragments/section/abstract.md b/skill-candidate/nature-writing/static/fragments/section/abstract.md
+index 25cb606..dd9ef26 100644
+--- a/skill-candidate/nature-writing/static/fragments/section/abstract.md
++++ b/skill-candidate/nature-writing/static/fragments/section/abstract.md
+@@ -105,13 +105,10 @@ their conclusions. Do not invent results or close with generic validity.
+ 
+ ## Delivery check
+ 
+-Compare the complete paragraph, consecutive sentences and meaningful phrases
+-with the selected real English and author facts. Check contribution relations
+-and content necessity as well as object names, terminology, conditions, syntax
+-and collocations. Follow the actual length requirement; otherwise use the
+-selected abstracts' information load to cut excess background and detail.
+-Repair missing scientific links, unsupported claims and departures from the
+-author's established style. Preserve correct mature wording and reasonable
+-variants that express the same supported relationship; the availability of
+-another wording does not require a change. Place consequential unresolved
+-author questions outside the abstract.
++Load `../../../../nature-shared/core/abstract-delivery.md` for the source-grounded
++delivery procedure. Preserve the working draft, then hand it and the original
++author material to `../../../../nature-polishing/SKILL.md` and its declared
++dependencies for a distinct Polishing pass. Do not label the working draft as
++checked delivery or replace that pass with the drafter's assurance. If the
++requested task is Drafting alone, return the working draft with that stage
++identified; do not record a Polishing result that was not run.

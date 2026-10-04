@@ -1,0 +1,2405 @@
+=== PDF PAGE 1 ===
+4520 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Learning a Flexible Neural Energy Function With a
+Unique Minimum for Globally Stable and Accurate
+Demonstration Learning
+Zhehao Jin , Weiyong Si , Andong Liu , Member, IEEE, Wen-An Zhang , Member, IEEE,
+Li Yu , Member, IEEE, and Chenguang Yang , Senior Member, IEEE
+Abstract—Learning a stable autonomous dynamic system (ADS)
+encoding human motion rules has been shown as an effective way
+for demonstration learning. However, the stability guarantee may
+sacrifice the demonstration learning accuracy. This article solves
+the issue by learning a stability certificate, represented by a neural
+energy function, on the demonstration set. We propose a polarlike
+space analysis approach to derive parameter constraints to guaran-
+tee the unique-minimum property of the neural energy function,
+which is essential for it to be a cogent stability certificate. Then,
+the neural energy function is learned to capture the demonstra-
+tion preferences via constrained optimization algorithms. With the
+learned neural energy function, a globally asymptotically stable
+ADS with predefined position constraint is further formulated. We
+also quantitatively analyze the generalization ability of the learned
+ADS by utilizing the substantial flexibility of the neural energy
+function. The effectiveness of the proposed approach is validated
+on the LASA dataset and two representative robotic experiments.
+Index Terms—Autonomous dynamic system (ADS) learning,
+demonstration learning, Lyapunov function (LF) learning, motion-
+skills transfer, optimization.
+NOMENCLATURE
+x Robot position.
+g(x) Stable ADS function expected to be learned.
+o(x) Original ADS function.
+u Corrected term in g(x).
+V (x) Neural energy function.
+D Demonstration set.
+Manuscriptreceived2June2023;accepted2August2023.Dateofpublication
+22 August 2023; date of current version 6 December 2023. This article was
+recommended for publication by Associate Editor S. L. Smith and Editor Nancy
+Amato upon evaluation of the reviewers’ comments. This work was supported
+in part by the Zhejiang Provincial Natural Science Foundation of China under
+Grant LR23F030002 and Grant LD21F030002, in part by the National Natural
+Science Foundation of China under Grant 61973275, and in part by the Chinese
+Scholarship Council under Award 202108330357. (Corresponding author:
+Andong Liu.)
+Zhehao Jin, Andong Liu, Wen-An Zhang, and Li Yu are with the Zhejiang
+Provincial United Key Laboratory of Embedded Systems, Department of
+Information Engineering, Zhejiang University of Technology, Hangzhou
+310032, China (e-mail: jzhzjut@outlook.com; lad@zjut.edu.cn; wazhg@hot
+mail.com; lyu@zjut.edu.cn).
+Weiyong Si and Chenguang Yang are with the Bristol Robotics Laboratory,
+University of the West of England, BS16 1QY Bristol, U.K. (e-mail: weiy-
+ong.si@uwe.ac.uk; cyang@ieee.org).
+This article has supplementary material provided by the au-
+thors and color versions of one or more figures available at
+https://doi.org/10.1109/TRO.2023.3303011.
+Digital Object Identifier 10.1109/TRO.2023.3303011
+M Number of samples in the demonstration set D.
+dx Dimension of the robot position.
+f(x) Feature of the neural energy function.
+dH Dimension of the feature f(x).
+z(x) Manually designed encoder.
+ak, bk Feature parameters of the neural energy function.
+ω Weight parameter of the neural energy function.
+r Length coordinate of a polarlike space element.
+θ Angle coordinate of a polarlike space element.
+h(θ) Direction vector of a polarlike space element.
+VP (r, θ) Polarlike space form of the neural energy function.
+fP (r, θ) Polarlike space form of the neural energy feature.
+zP (r, θ) Polarlike space form of the encoder.
+R+ Set containing all nonnegative real scalars.
+R++ Set containing all positive real scalars.
+Rn
+Set containing all real vectors with dimension n.
+Rn×n
++ Set containing all semipositive definite real matrices
+with size n × n.
+Rn×n
+++ Set containing all positive-definite real matrices with
+size n × n.
+I. INTRODUCTION
+WITH the development of robotic technologies, robots
+have been widely used in structured factory environ-
+ments and other unstructured environments such as homes,
+offices, hospitals, etc. Learning humanlike skills is essential
+for robots in both structured and unstructured environments,
+such as humanlike polishing [1], assembly [2], collaboration [3],
+motion [4], physical interactions [5], [6], [7], etc. Learning
+from demonstration (LfD) approaches provide effective ways
+to reliably transfer humanlike skills to robots.
+This article focuses on motion-skills transfer, which is basic
+but essential for robots. Learning a dynamic system (DS) [8]
+that encodes human motion rules is an effective approach for
+transferring motion skills. There are basically two types of
+approaches for learning DS. The first type aims to learn a
+nonautonomous DS (N-ADS) where the generated trajectory
+is time-driven. Specifically, the output of the learned N-ADS
+could be a position/velocity sequence indexed by time steps.
+The second type learns autonomous DS (ADS), where the state
+variation of the DS is determined by the current state instead of
+the time step.
+1552-3098 © 2023 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4521
+In principle, any regression algorithm can be used to establish
+an N-ADS by setting the time index and robot position (velocity)
+as the input and output, respectively. Most N-ADS learning ap-
+proaches are conducted under a statistic framework for naturally
+obtaining learning confidence. In [9], [10], [11], and [12], the
+time step and demonstration position were assumed to satisfy a
+Gaussian mixture model (GMM), and the posterior distribution
+of the position given by the time index was computed by using
+the Gaussian mixture regression (GMR) algorithm. However,
+it had been shown in [13] that the generalization capacity of
+N-ADS learned by the original GMM/GMR could be weak,
+especially for new scenarios which have not appeared in the
+demonstration set. In [13], [14], [15], task-parameterized GMM
+(TP-GMM) was presented to further enhance the generaliza-
+tion capacity by including task-related parameters in the EM
+optimization procedure. In [16], a learning approach for task
+parameters was presented to enhance the performance of the
+TP-GMM. Other popular approaches for learning N-ADS con-
+tain probabilistic movement primitives [17], [18] and kernelized
+movement primitives [19].
+A major disadvantage of N-ADS is that it is ill-suited for
+highly dynamic tasks since the motion generated by the N-
+ADS does not get feedback from the environment [20]. Unlike
+N-ADS, humans always determine their behaviors in real-time
+according to the current environmental state, which is similar
+to the ADS. Dynamic movement primitives (DMP) [21], [22]
+might be one of the most popular approaches to learn an ADS.
+The globally asymptotic stability of the ADS learned by the
+DMP is ensured by its special structure, i.e., a combination of
+a stable second-order ADS and a possibly unstable but grad-
+ually decaying nonlinear ADS. In [23] and [24], GMM/GMR
+approaches were integrated into the DMP framework to enhance
+its learning performance for multiple-demonstration tasks. Al-
+though the stability of the DMP could be ensured, its special
+structure separates each motion dimension and, thus, decreases
+the reproduction and generalization abilities [25].
+Compared with utilizing the special structure, using a stability
+certificate for the stability ensurement is more prevalent for
+the ADS learning. A commonly used certificate is called the
+contraction metric [26], which measures the difference between
+two trajectories starting from two nearby initial states. A basic
+work for integrating the contraction theorem and the stable ADS
+learning was presented in [27], where the ADS was learned by a
+neural network such that the contraction metric along the ADS
+is permanently decreasing. Sindhwani et al. [28] presented a
+nonparametric framework for contracting ADS learning. How-
+ever, simple forms of the contraction metrics used in [27] and
+[28] limit the reproduction accuracy for complex demonstration
+trajectories. In [29], [30], and [31], data-driven contraction
+metrics were integrated into the learning framework to improve
+the reproduction accuracy of the learned ADS.
+Another stability certificate is called the Lyapunov function
+(LF), which is a kind of positive-definite, continuously differen-
+tiable energy function. Compared with the contraction stability
+theorems, the Lyapunov stability theorems may attract more
+attention in the control society since it is more intuitive and
+developed [8]. It had been pointed out in [26], [28], [29] that
+the contraction metric can be viewed as a special LF. One of
+the fundamental works for combing Lyapunov theorems and
+ADS learning is called stable estimator of dynamical systems
+(SEDS) [32], where a globally asymptotically stable (GAS)
+ADS represented by GMM/GMR was learned under some
+quadratic-energy-function-related stability constraints. In [33],
+the work in [32] was further extended to the case with an unstatic
+goal position. Lemme et al. [34] presented LF constraints for a
+more general neural-parameterized ADS; however, the resulted
+optimization problem is intractable, and it was approximately
+solved with a constraints-sampling approach. In [35] and [36],
+this problem was solved by designing a special neural network
+activation function.
+However, similar to the problem faced in the contraction met-
+ric, a quadratic energy function used in the previous approaches
+limits the reproduction accuracy of the learned ADS. Learning
+data-driven energy functions consistent with the demonstration
+trajectories can dramatically improve the reproduction accuracy.
+In [37], the weight matrix of the quadratic energy function was
+optimized on the demonstration set to increase the consistency
+between the energy function and the demonstration set. In [38],
+a more flexible energy function called “weighted sum of asym-
+metric quadratic functions (WSAQF)” was learned to further
+increase the consistency, and the stable ADS was established by
+using the control Lyapunov approach. In [39], a bridge between
+learning a stable ADS and a special type of energy functions was
+built by presenting a diffeomorphic transformation, which re-
+sultedintheτ-SEDSalgorithm.Thisapproachfurtherhighlights
+the importance and value of the energy function learning. In [40],
+a fast diffeomorphic matching (FDM) approach was presented to
+mapthecomplexADStoasimplestableADS,andatransformed
+energy function was simultaneously generated. In [41] and [42],
+a sum-of-squares (SOS) energy function was presented, and
+it showed a better performance compared with the WSAQF.
+Neumann et al. [43] designed a more general neural-
+parameterized energy function, called neurally-imprinted Lya-
+punov candidates (NILC), to capture the demonstration prefer-
+ences, and both simulation and experiment results validated the
+effectiveness of the NILC. However, the positive-definite prop-
+erty of the NILC can only be approximately ensured, and thus,
+the stability of the resulted ADS cannot be ensured theoretically.
+In [44], a special neural-parameterized energy function, referred
+to as the Lyapunov neural network (LNN), was designed to
+ensure the positive-definite property. In [45], the generalization
+error result of the data-driven energy function was analyzed by
+making bounded assumptions of the true ADS.
+However, except for the WSAQF [38] and the energy function
+transformed by FDM [40], all of the above complex data-driven
+energy functions may have multiple minima. Undesired minima
+will introduce spurious attractors for the ADS. Specifically, if
+an energy function with multiple minima is used as the sta-
+bility certificate, the trajectory generated by the learned ADS
+can principally converge to an arbitrary minimum, which may
+raise safety issues. It should be noted that for a data-driven
+approach, the model flexibility always positively correlates with
+the model complexity. Consequently, the WSAQF [38] cannot
+support the ADS to produce extremely complex trajectories
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+4522 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+due to its quadraticlike form. Similarly, the FDM-transformed
+energy function in [40] does not allow the ADS to generate spiral
+trajectoriesduetothetopologicalconstraint.Itiswellknownthat
+deep neural networks are very flexible. However, ensuring the
+unique-minimum property for a general neural network could be
+very difficult. In recent years, an input-convex neural network
+(ICNN) [46] was presented to solve the unique-minimum prob-
+lem by ensuring that the neural network is convex in the input.
+However,theconvexityconstraintoftheICNNcanseverelylimit
+its performance for capturing complex demonstration prefer-
+ences. Moreover, due to the limited flexibility, both the WSAQF,
+FDM-transformed energy function and ICNN cannot capture the
+demonstrationpreferencesonabroadarea,whichcorrespondsto
+the more challenging generalization ability. These issues moti-
+vatethemainpartoftheworkinthisarticle,i.e.,tolearnaflexible
+neural energy function with the unique-minimum property.
+In this article, we present an approach to learn a GAS ADS in
+two steps. First, we learn a flexible neural energy function with
+unique-minimum, positive-definite, and continuously differen-
+tiable properties to serve as a stability certificate. Then, the stable
+ADS is learned with the guidance of the neural energy function.
+The main contributions of this article are listed as follows.
+1) A flexible neural energy function is designed to be the
+stability certificate for the ADS to be learned. Specif-
+ically, we present a polarlike space analysis approach
+to derive the neural-parameter constraints, which ensure
+the unique-minimum, positive-definite, and continuously
+differentiable properties of the neural energy function.
+2) Two neural learning approaches are presented according
+to whether the feature of the neural network is manually
+designed. We show that the learning problem can be
+formulated to a convex form when the feature is manually
+designed.
+3) A GAS ADS learning approach is presented based on
+the learned neural energy function. Unlike existing ADS
+learning approaches, we show that the learned ADS can
+handle position constraints due to the special properties of
+the neural energy function.
+4) We further quantitatively analyze the generalization abil-
+ity of the learned ADS, i.e., the behaviors of the ADS in
+areas away from the demonstration set. We show that due
+to the strong flexibility of the neural energy function, the
+learned ADS can behave reasonably in these unfamiliar
+areas.
+Validations on the LASA dataset and real robotic experiments
+are conducted to show the effectiveness of the proposed ap-
+proach (PA). We also provide a video for intuitive illustrations.
+Moreover, the source code of the PA is also provided as the
+supplementary material.
+II. PROBLEM STATEMENT
+In this work, we focus on learning robot goal-directed motion
+skills.Goal-directedmotionsrefertomotionswithstaticgoalpo-
+sitions. Most robotic tasks can be formulated as a goal-directed
+motion or a combination of different goal-directed motions. For
+example, Fig. 1 shows that a robotic picking and placing task can
+Fig. 1. Picking and placing task that can be completed by combining two
+goal-directed motions.
+Fig. 2. Original ADS learned on a 2-D demonstration set.
+be completed by combining two types of goal-directed motions
+distinguished by the red and blue colors. This work aims to en-
+code the goal-directed motion as an ADS, denoted as ẋ = g(x)
+where x is the robot position. After obtaining such an ADS,
+we can reproduce a trajectory for any given initial position by
+integrating the velocity ẋ. To be consistent with the goal-directed
+motion,wemustensurethatforanyinitialposition,thetrajectory
+reproduced by the ADS ẋ = g(x) will always converge to the
+goal position x∗
+. From a control perspective, it means that the
+ADS ẋ = g(x) needs to be GAS.
+For each goal-directed motion, we can collect a demonstration
+set D = {xt,n, ẋt,n}Tn,N
+t=1,n=1, where xt,n is the robot position at
+time step t of nth demonstration trajectory, N is the number
+of the demonstration trajectories, and Tn is the length of the
+nth demonstration trajectory. Using the demonstration set D, it
+is easy to learn an original ADS (O-ADS) ẋ = o(x) using any
+regression algorithm. However, the learned O-ADS is always not
+GAS.A2-DexampleisshowninFig.2,wherethedemonstration
+set is represented by red circles, and blues lines represent the
+reproduction trajectories. We can find that when the initial
+position is away from the set D, there might raise unexpected
+reproduction trajectories, such as trajectories converging to a
+spurious attractor or even being divergent. Moreover, even if
+the initial position is near the set D, we still cannot ensure that
+the reproduction trajectory will converge to the goal position,
+although Fig. 2 gives a positive result.
+In general, it is necessary to ensure the GAS property of
+the learned ADS for the safety concern. There are basically
+two approaches to learn a GAS ADS ẋ = g(x) utilizing the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4523
+Lyapunov stability theorems. The first one follows the control
+Lyapunov approach to add a corrected term u into the O-ADS,
+i.e., ẋ = g(x) = o(x) + u, and the corrected term u is online
+computed by solving the convex optimization problem
+min
+u
+uT
+u (1)
+subject to
+
+∂V (x)
+∂x
+T
+(o(x) + u) ≤ −ρ(x) (2)
+where V (x) and ρ(x) are positive-definite functions. Actually,
+the function V (x) is an energy function, which is referred
+to as the LF, and the constraint (2) implies that the energy
+along the ADS ẋ = g(x) always decreases. Hence, the trajectory
+generated by the ADS ẋ = g(x) will converge to a minimum of
+the energy function V (x).
+The second approach directly estimates a stable ADS
+ẋ = g(x) without using the O-ADS, which can be formulated
+as the following optimization problem:
+min
+Θ
+J(Θ) =
+N
+
+n=1
+Tn
+
+t=1
+g(xt,n, Θ) − ẋt,n2
+2 (3)
+subject to
+
+∂V (x)
+∂x
+T
+g(x, Θ) ≤ −ρ(x) ∀x ∈ Rdx
+(4)
+where Θ is the learnable parameter. Different from the optimiza-
+tion problem described in (1) and (2), the optimization problem
+described in (3) and (4) must be solved offline. Since the form
+(4) contains infinite numbers of constraints, the optimization
+problemdescribedin(3)and(4)isgenerallyintractable.Existing
+works handled this issue by utilizing the special structure of the
+ADSfunctiong(x)totransformtheinfiniteconstraintsintofinite
+Θ-related constraints. A representative approach is the SEDS
+presented in [32], where the special structure of the GMM/GMR
+is utilized.
+After checking the forms of these two approaches, we can
+find that they both introduce an energy-function-related con-
+straint (2) or (4) to ensure the convergence property. These con-
+straints imply that the trajectory reproduced by the learned ADS
+ẋ = g(x) must move from a high-energy-value area to a low-
+energy-value area. Thus, different energy functions V (x) will
+lead to totally different qualities of the learned ADS, whether
+with respect to the reproduction accuracy or the convergence
+property. A 2-D example is shown in Fig. 3, where the left
+figure shows the reproduction result when a quadratic energy
+function is used. As we can see, the reproduction trajectory
+converges to the goal position well. However, a large num-
+ber of demonstration points violate the energy-function-related
+constraint, which are highlighted by the blue crosses. Thus, a
+low reproduction accuracy will be finally obtained, which is
+reflected by the fact that the shapes of the reproduction and
+demonstration trajectories are totally different. The right figure
+ofFig.3showsthereproductionresultusingadata-drivenenergy
+function. We can see that the data-driven energy function can
+well capture the preferences of the demonstrations, which raises
+Fig. 3. Different energy function V (x)s and their corresponding reproduction
+results. The left and right figures, respectively, show the results of a simple
+quadratic energy function and a complex data-driven energy function.
+a high reproduction accuracy. However, if the data-driven energy
+function has some local minima, some spurious attractors will be
+introduced into the ADS since the trajectory cannot leave from
+these local minima due to the energy-function-related constraint.
+An example is shown in the right figure of Fig. 3, where a
+reproduction trajectory gets stuck in a local minimum. Since
+we cannot predict the positions of these local minima, directly
+using a data-driven energy function could raise safety problems
+in real robotic tasks.
+From the above discussion, a natural way to ensure both
+accuracy and GAS (convergence) properties of the learned ADS
+is to learn a data-driven energy function V (x) with a unique
+minimum located at the goal point. Let us imagine that if we
+have obtained such an energy function V (x), we can naturally
+solve the intractable optimization problem described in (3) and
+(4) by setting g(x, Θ) = −∂V (x)
+∂x . Thus, we state that learning a
+data-driven energy function with a unique minimum is the crit-
+ical issue for both the two ADS learning approaches mentioned
+previously.
+However, it is not easy to design a structure for the energy
+function V (x) if we want to simultaneously hold the unique-
+minimum property and the flexibility property. An extreme case
+is if the energy function structure is designed as a quadratic
+function, i.e., V (x) = xT
+Px where P is a positive-definite
+matrix learned on the demonstration set, the unique-minimum
+property can be easily ensured while the flexibility will be
+severely weakened. In this case, the learned energy function
+could not capture the demonstration preferences well, especially
+when the demonstration trajectories are too complex to be con-
+sistent with a quadratic function (see the left figure of Fig. 3).
+Another extreme case is that the energy function V (x) is directly
+represented by a deep neural network, which has high flexibility
+but may have various unpredictable local minima (see the right
+figure of Fig. 3).
+Compared with the flexibility, the unique-minimum property
+of the energy function is obviously more important since it
+is related to the convergence (safety) issue. Thus, one of the
+main problems considered in this article is learning an en-
+ergy function V (x) with a unique minimum while increasing
+its flexibility as much as possible. Specifically, we represent
+the energy function V (x) as a neural network and derive
+neural parameter constraints to ensure its unique-minimum
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+4524 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+property. Another part of the works in this article is to learn
+a GAS ADS with the learned neural energy function as the
+stability certificate. Different from existing works, utilizing
+some special properties of the designed neural energy func-
+tion, we can add a position constraint to the learned ADS,
+which might be valuable for some robotic tasks. Finally, we
+further quantitatively analyze the generalization ability of the
+learned ADS by utilizing the flexibility of the neural energy
+function.
+III. LEARNING A NEURAL ENERGY FUNCTION WITH A
+UNIQUE MINIMUM
+Given a demonstration set D = {xt,n, ẋt,n}t=Tn,N
+t=1,n=1, we
+present the following neural energy function to capture demon-
+stration preferences:
+⎧
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎩
+V (x) = V1(x) − V1(0) + V2(x)
+V1(x) = ωT
+f(x)
+f(x) = f1(x), . . . , fk(x), . . . , fdH
+(x)
+T
+fk(x) = (aT
+k z(x) + bk)
+z(x) = x1+
+2 x
+2xT
+T
+V2(x) = αxT
+x
+(5)
+where V1(x) is represented by a learnable neural network with
+weight parameter ω ∈ RdH
+and feature f(x) : Rdx
+→ RdH
+.
+The activation function (s) is chosen to be the well-known
+“tanh” function, i.e., (s) = es
+−e−s
+es+e−s . Function z(x) : Rdx
+→
+Rdx+1
+is a manually designed encoder, ak ∈ Rdx+1
+and bk ∈ R
+arefeatureparameters, ,α ∈ R++ arepositivescalars.Function
+V2(x) is used to ensure the radially unbounded property of the
+V (x).
+In this section, we will introduce an approach to learn the en-
+ergy function V (x) such that V (x) only has a unique minimum
+located at the origin.
+A. Deriving Constraints for the Unique-Minimum Property
+Inthissection,wewillderiveconstraintsforneuralparameters
+{ak, bk, ω}k=1,...,dH
+such that the energy function V (x) does
+not have any minimum except for the origin. Instead of deriving
+constraints in the Cartesian space, we focus on a polarlike space,
+which can simplify the deriving process. We give the following
+proposition which enables us to convert any Cartesian space
+vector into a polarlike space vector.
+Proposition 1: For any Cartesian space vector x ∈ Rdx
+, dx >
+1, there must exist an angle vector θ ∈ Rdx−1
+such that the
+following equation holds:
+x = rh(θ) (6)
+where r = x2 is the length of x, and h(θ) ∈ Rdx
+is a direction
+vector defined as
+h(θ) =
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+dx−1
+i=1 sinθi
+dx−1
+i=2 sinθicosθ1
+dx−1
+i=3 sinθicosθ2
+.
+.
+.
+sinθdx−1cosθdx−2
+cosθdx−1
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+. (7)
+Proof: We will prove the result by the mathematical induction
+approach. First, it is obvious that the result is correct in the
+case dx = 2. The resulted space (r, θ) is the well-known Polar-
+coordinates space. Then, we assume that the result is further
+correct for the case dx = k − 1, k > 3. What remains is to show
+that the result also holds for the case dx = k. Since the result is
+correct for the case dx = k − 1, we have
+x1:(k−1) = rk−1hk−1(θ) = rk−1
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+k−2
+i=1 sinθi
+k−2
+i=2 sinθicosθ1
+k−2
+i=3 sinθicosθ2
+.
+.
+.
+sinθk−2cosθk−3
+cosθk−2
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+(8)
+where x1:(k−1) represents the vector constructed by the first
+k − 1 components of x, and rk−1 = x1:(k−1)2. Then, by
+defining the kth component of x as
+xk = rcosθk−1 (9)
+we have
+rk−1 =
+
+r2 − x2
+k = r
+
+(sinθk−1)2. (10)
+Note that there must exist a θk−1 ∈ [0, π] to make (9) hold; thus,
+we have
+rk−1 = rsinθk−1. (11)
+Substituting (11) into (8), and combining (9), we have
+x = rh(θ) (12)
+for the case dx = k. 
+Given Proposition 1, we can state that a Cartesian space
+vector x must have a corresponding polarlike space vector (r, θ).
+The conversion from the Cartesian space to the polarlike space
+actually decouples the length and direction components of the
+Cartesian space vector x. Then, we can rewrite the energy
+function V (x) in the polarlike space as
+⎧
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎩
+VP (r, θ) = V1,P (r, θ) − V1,P (0, θ) + V2,P (r, θ)
+V1,P (r, θ) = ωT
+fP (r, θ)
+fP (r, θ) = f1,P (r, θ), . . . , fk,P (r, θ), . . . , fdH ,P (r, θ)
+T
+fk,P (r, θ) = (aT
+k zP (r, θ) + bk)
+zP (r, θ) = r1+
+1 h(θ)T
+T
+= r1+
+zP (θ)
+V2,P (r, θ) = αr2
+(13)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4525
+where the subscript “P” refers to the “polarlike space.”
+Proposition 2: The energy function V (x) satisfies the con-
+dition ∂V (x)
+∂x = 0, ∀x = 0 if its polarlike space form VP (r, θ)
+satisfies the condition ∂VP (r,θ)
+∂r = 0, ∀r = 0, ∀θ.
+Proof: By using the chain rule, we have
+⎧
+⎪
+⎪
+⎨
+⎪
+⎪
+⎩
+∂V (x)
+∂x = ∂VP (r,θ)
+∂r
+∂r
+∂x +
+
+∂h(θ)
+∂x
+T
+∂VP (r,θ)
+∂h(θ)
+∂r
+∂x = ∂x2
+∂x = x
+x2
+= h(θ)
+∂h(θ)
+∂x = 1
+x2
+I − xxT
+x3
+2
+.
+(14)
+Note that if x = 0, we have
+∂h(θ)
+∂x
+∂r
+∂x
+=
+
+1
+x2
+I −
+xxT
+x3
+2
+
+x
+x2
+= 0. (15)
+Thus, vector ∂r
+∂x is in the null space of the matrix ∂h(θ)
+∂x for any
+x = 0, which implies that ∂V (x)
+∂x = 0 if and only if ∂VP (r,θ)
+∂r
+∂r
+∂x =
+0 and (∂h(θ)
+∂x )T ∂VP (r,θ)
+∂h(θ) = 0.
+Thus, if we can ensure that
+∂VP (r, θ)
+∂r
+∂r
+∂x
+=
+∂VP (r, θ)
+∂r
+h(θ) = 0 (16)
+we can obtain ∂V (x)
+∂x = 0. Since
+
+
+
+
+∂r
+∂x
+
+
+
+
+2
+= h(θ)2 = 1 ∀x = 0 (17)
+we can further state that ∂VP (r,θ)
+∂r
+∂r
+∂x = 0 if and only if
+∂VP (r,θ)
+∂r = 0, ∀x = 0. Since the case ∀x = 0 is equal to the
+case ∀r = 0, ∀θ. 
+There is an intuitive explanation in the Cartesian space for
+the result proposed in Proposition 2. The condition ∂VP (r,θ)
+∂r =
+0, ∀r = 0, ∀θ implies that the gradient along any ray from the
+origin (exclude the origin since r = 0) will not vanish, which
+raises the result ∂V (x)
+∂x = 0, x = 0.
+Proposition 2 allows us to only consider the gradient with
+respect to the length part r, which is simpler since ∂VP (r,θ)
+∂r is
+just a scalar. In what follows, we can give the kernel result of
+this work, i.e., deriving constraints of the neural parameters to
+ensure that the energy function V (x) only has a unique minimum
+located at the origin.
+Proposition 3: The energy function V (x) represented by (5)
+has a unique minimum value V (0) if neural parameters satisfy
+the constraints
+⎧
+⎨
+⎩
+ak,1 > 0
+a2
+k,1 −
+dx+1
+i=2 a2
+k,i > 0 ∀k ∈ [1, . . . , dH ]
+ωk > 0
+(18)
+where ak,i is the ith component of the vector ak, and ωk is the
+kth component of the vector ω.
+Proof: From the result in Proposition 2, we know that if
+∂VP (r,θ)
+∂r = 0, ∀r = 0, ∀θ holds, we will have ∂V (x)
+∂x = 0, ∀x =
+0. We can expand VP (r, θ) in (13) as
+VP (r, θ) =
+dH
+
+k=1
+ωkfk,P (r, θ) + αr2
+− V1,P (0, θ). (19)
+Then, we can compute the gradient ∂VP (r,θ)
+∂r as follows:
+
+∂VP (r,θ)
+∂r =
+dH
+k=1 ωk
+∂fk,P (r,θ)
+∂r + 2αr
+∂fk,P (r,θ)
+∂r = r
+(1 + )(1 − 2
+k)aT
+k zP (θ)
+(20)
+where k is the abbreviation for the function (aT
+k zP (r, θ) +
+bk). Observing the form of
+∂fk,P (r,θ)
+∂r in (20) we can find that
+if aT
+k zP (θ) > 0, ∀θ holds, we will have
+∂fk,P (r,θ)
+∂r > 0 since
+1 − 2
+k > 0 always holds due to the specific form of the “tanh”
+activation function.
+We then scale the term aT
+k zP (θ) as follows:
+aT
+k zP (θ) = ak,1 + aT
+k,2:h(θ) ≥ ak,1 − ak,2:2 (21)
+where we utilize the property h(θ)2 = 1, and ak,2: ∈ Rdx
+represents the vector constructed by the last dx components of
+the vector ak. Thus, if the first and second constraints in (18)
+hold, we have
+∂fk,P (r,θ)
+∂r > 0. Then, if ωk > 0, we can state that
+∂VP (r, θ)
+∂r
+> 0 ∀r = 0, ∀θ (22)
+since α ∈ R++. Thus, V (x) does not have any minimum in
+the area x = 0. Moreover, according to (20), we can easily
+find that ∂VP (r,θ)
+∂r |r=0 = 0, ∀θ. Combining the fact that the case
+r = 0, ∀θ in the polarlike space is the same as the case x = 0
+in the Cartesian space, we can state that V (0) is the unique
+minimum value of the energy function V (x). 
+To be an effective and smooth energy function, V (x) also
+needs to be positive-definite and continuously differentiable.
+Moreover, to be a proper guidance for learning a stable ADS, the
+gradientofV (x)attheoriginshouldvanish,i.e., ∂V (x)
+∂x |x=0 = 0.
+We show that if constraints (18) hold, these properties can be
+ensured.
+Proposition 4: The energy function V (x) represented by (5)
+is positive-definite, radially unbounded, continuously differen-
+tiable, and has the property ∂V (x)
+∂x |x=0 = 0 if constraints (18)
+hold.
+Proof: In the proof of Proposition 3, we have shown that if
+constraints (18) hold, V (0) is the unique minimum value, and
+∂VP (r,θ)
+∂r > 0, ∀r = 0, ∀θ holds. Thus, we have V (x) > V (0) =
+0 for ∀x = 0, i.e., the energy function V (x) is positive definite.
+Moreover, V (x) is also radially unbounded due to the specific
+form of V2(x).
+To show the differentiability of V (x), we can directly write
+the gradient ∂V (x)
+∂x as follows:
+⎧
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎩
+∂V (x)
+∂x = ∂V1(x)
+∂x + 2αx
+∂V1(x)
+∂x =
+
+∂z(x)
+∂x
+T 
+∂f(z)
+∂z
+T
+ω
+
+∂f(z)
+∂z
+T
+= · · ·
+
+1 − 2
+k
+
+ak · · · , k ∈ [1, . . . , dH ]
+
+∂z(x)
+∂x
+T
+= (1 + )x
+2
+x
+x2
+x
+2
+xxT
+x2
+2
++ x
+2I .
+(23)
+Observing the form of ∂z(x)
+∂x in (23), it seems that ∂V (x)
+∂x cannot
+be defined at x = 0 due to the term x
+x2
+. However, we can
+find that ∂V (x)
+∂x → 0 when x → 0 due to the existence of the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+4526 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Fig. 4. Two-dimensional examples for the NEUM satisfying constraints (18).
+positive scalar . Thus, we can manually set ∂V (x)
+∂x |x=0 = 0
+without leading any mistake. As a result, ∂V (x)
+∂x is well defined
+and continuous on Rdx
+. 
+Arrive here, we can name the energy function (5) satisfying
+the constraints (18) as “NEUM,” which refers to a neural energy
+function with the unique-minimum property.
+In this section, we are committed to find a type of energy func-
+tion V (x) subject to the constraint ∂VP (r,θ)
+∂r > 0 for ∀r = 0, ∀θ,
+where VP (r, θ) is the polarlike space representation of V (x).
+There is an intuitive characteristic for such kinds of functions,
+that is, these functions are monotonically increasing along the
+rays emitted from the origin. Some 2-D examples are given in
+Fig. 4 where contours, red points, and black arrows represent
+the energy function, demonstration set, and rays, respectively.
+As we can see the energy value always increases along the
+rays. From the geometrical viewpoint, any ray emitted from the
+origin always crosses from low-energy contours to high-energy
+contours. Thus, we claim that such type of energy functions
+is very flexible since we can arbitrarily change the shapes of
+contours under the premise of guaranteeing the geometrical
+constraint.
+Another interesting point is that the well-known energy func-
+tions WSAQF [38] and ICNN [46] also fall into the investigated
+energy function type, which could be easily proved. However,
+both WSAQF and ICNN are special cases of the investigated
+energy function type, i.e., WSAQF is a quadraticlike function,
+and ICNN is a convex function. Differently, the proposed NEUM
+is the general form of the investigated energy function type since
+it has no other limitations except for the constraint ∂VP (r,θ)
+∂r > 0
+for ∀r = 0, ∀θ. Thus, the proposed NEUM is more flexible than
+the WSAQF and ICNN. This fact will also be validated on
+the LASA handwriting dataset. Moreover, one should also note
+that except for increasing the neural network’s width dH, the
+flexibility of the NEUM can also be enhanced by increasing the
+depth of the neural network, and the corresponding parameter
+constraints to ensure the property ∂VP (r,θ)
+∂r > 0 for ∀r = 0, ∀θ
+can be easily derived by using a similar polarlike space analysis
+approach.
+B. Learning the Constrained Neural Energy Function
+In this section, we develop two approaches to learn the
+NEUM, i.e., the energy function represented by (5), which
+satisfies the constraints derived in Proposition 3. In the first
+Fig. 5. Activation functions for two learning approaches.
+approach, the feature f(x) is manually designed to satisfy
+the constraints (18). The learnable parameter only remains the
+weight parameter ω. In this case, the learning problem is convex
+bydesigningaproperobjectivefunction.Inthesecondapproach,
+both feature parameters {ak, bk} and weight parameter ω are
+learned by a constrained learning algorithm. In this case, the
+learning problem is not convex, while the feature f(x) can be
+automatically fit to the demonstration set.
+The purpose is to make the NEUM V (x) be consistent with
+the demonstration preferences, that is, the demonstration trajec-
+tories evolve from high-energy-value areas to low-energy-value
+areas. Mathematically, this purpose can be described as
+
+∂V (xt,n, Θ)
+∂xt,n
+T
+ẋt,n < 0 ∀(xt,n, ẋt,n) ∈ D (24)
+where Θ is the learnable parameter of the NEUM. Note that, in
+this section, we will use V (x, Θ) instead of V (x) to denote the
+NEUM since Θ will be regarded as a variable.
+1) First Learning Approach: In this learning approach, we
+fix the feature parameters {ak, bk} and only learn the weight
+parameter ω. Thus, we have Θ = ω in this approach. We first
+determine the objective function of the learning problem. It
+seems natural to use jt,n defined as
+jt,n(ω) =
+
+∂V (xt,n, ω)
+∂xt,n
+T
+ẋt,n (25)
+to evaluate the NEUM on a pair of data (xt,n, ẋt,n). However,
+directly using jt,n(ω) as the evaluation function will introduce
+some misunderstandings for the learning algorithm. For exam-
+ple, the algorithm will try to decrease the norm of the
+∂V (xt,n,ω)
+∂xt,n
+to reduce jt,n(ω), which is obviously meaningless and may lead
+to a bad parameter ω.
+We solve this issue by nesting an activation function on
+jt,n(ω),whichresultsinthefollowingnovelevaluationfunction:
+jt,n(ω) = ζ(jt,n(ω)) (26)
+where the activation function is defined as ζ(j) = log(eβj
++ 1),
+and β ∈ R++ is a tunable parameter. Fig. 5(a) gives an intuitive
+illustration of the activation function ζ(j) and its tunable param-
+eter β. The activation function ζ(j) with large β implies that we
+do not consider the magnitude of jt,n(ω) when it is negative.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4527
+By defining J(ω) =
+
+t,n jt,n(ω), we formulate the learning
+problem as follows:
+min
+ω
+J(ω) (27)
+subject to
+1 ≤ ωk ≤ 2 ∀k ∈ [1, dH ] (28)
+where 1 and 2 are any positive scalars, ωk is the kth component
+of the weight parameter ω. We show that the above learning
+problem is convex, which means that we can search the optimal
+ω for the NEUM by using a convex optimization algorithm.
+Proposition 5: The learning problem described in (27) and
+(28) is convex if energy function V (x) is represented by (5).
+Proof: The optimization problem is convex if and only if
+both the objective function (27) and constraint functions (28)
+are convex in the parameter ω. The convexity of the constraint
+functions (28) is obvious since they are linear with the parameter
+ω. We then show that the objective function (27) is also convex
+in the parameter ω.
+We can expand j(ω) as
+j(ω) =
+
+ωT ∂f(z)
+∂z
+∂z(x)
+∂x
++ 2αxT
+
+ẋ (29)
+which is obviously affine in ω, and hence convex in ω. Moreover,
+theactivationfunctionζ(j)isconvexandmonotonicallyincreas-
+ing in j, we can then claim that j = ζ(j) is convex in ω according
+to the composition rule for preserving convexity [48]. Further-
+more, the objective function J(ω) is a nonnegative weighted
+sum of j, thus J(ω) is also convex in ω. 
+2) Second Learning Approach: In this learning approach,
+both feature parameters {ak, bk} and weight parameter ω
+will be learned. Thus, we have the learnable parameter Θ =
+{ak, bk, ω}k=[1,...,dH ]. Similar with the process in the first learn-
+ing approach, we first determine the objective function of the
+learning problem. Since, in this approach, the learning problem
+will not be convex, we have more choices for the objective
+function. Actually, what we truly care is the angle between the
+vectors ∂V (x,Θ)
+∂x and ẋ, and thus, we design j in this learning
+approach as follows:
+jt,n(Θ) =
+ẋT ∂V (xt,n,Θ)
+∂xt,n
+ẋ2
+∂V (xt,n,Θ)
+∂xt,n
+2
+. (30)
+This design eliminates the misunderstanding mentioned in the
+first learning approach since
+∂V (xt,n,Θ)
+∂xt,n
+is normalized in j.
+Moreover, we can also nest an activation function on j like what
+we do in the first learning approach to trade off the accuracy
+and generalization ability of the NEUM, which results in the
+following evaluation function:
+jt,n(Θ) = ζ(jt,n(Θ)) (31)
+where in this approach the activation function is defined as
+ζ(j) = tanh(βj) = eβj
+−e−βj
+eβj +e−βj
+, and β ∈ R++ is a tunable param-
+eter.
+Fig. 5(b) gives an intuitive illustration of the activation func-
+tion and its parameter β. The larger the β is, the more we care
+Fig. 6. Two-dimensional examples for the NEUM with different β values.
+(a). NEUM with β = 10.0. (b). NEUM with β = 1.0.
+about the sign of j, which corresponds to the accuracy property.
+On the other hand, if β is small, the algorithm will additionally
+focus on the angle between the energy function gradient ∂V (x,Θ)
+∂x
+and the velocity ẋ, which relates to the generalization ability
+of the NEUM. Some 2-D examples illustrating this point are
+shown in Fig. 6, where red points and contours represent the
+demonstration set and the learned NEUM, respectively. As we
+can see, when β takes a large value, i.e., β = 10.0 in Fig. 6(a), the
+energy function NEUM only considers the accuracy property,
+that is the demonstration trajectories always evolve from high-
+energy-value areas to low-energy-value areas. When β takes
+a small value as in Fig. 6(b), the learned NEUM additionally
+aligns its gradient with the demonstration velocities, which
+encodes the motion preferences in a broader area compared
+with the large β case. However, we should also note that when
+the demonstration trajectories are very complex, enhancing the
+generalization ability may sacrifice the accuracy property.
+By defining J(Θ) =
+
+t,n jt,n(Θ) + L2Θ2
+2, where
+L2Θ2
+2 is the L2 regularization term, we formulate the
+learning problem as follows:
+min
+Θ
+J(Θ) (32)
+subject to
+⎧
+⎨
+⎩
+ak,1 > 0 ∀k ∈ [1, . . . , dH]
+a2
+k,1 −
+dx+1
+i=2 a2
+k,i > 0 ∀k ∈ [1, . . . , dH ]
+ω 0.
+(33)
+IV. LEARNING A GAS ADS WITH PREDEFINED POSITION
+CONSTRAINT
+In this section, we first learn an original ADS ẋ = o(x) with
+a desired equilibrium point, i.e., o(0) = 0, using a modified
+Gaussian process regression (GPR) algorithm [47]. Then, we
+introduce an approach to formulate a GAS ADS by combining
+the original ADS and the NEUM learned in the previous section.
+Except for considering the global stability, we further show that
+we can add a predefined position constraint to the learned ADS,
+which may be valuable for some robotic tasks. Moreover, we
+analyze the generalization ability of the learned ADS in areas
+away from the demonstration area by utilizing the flexibility of
+the NEUM.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+4528 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+A. Learning GPR-Based Original ADS With the Desired
+Equilibrium Point
+Given the demonstration set D = {xt,n, ẋt,n}t=Tn,N
+t=1,n=1 with
+size M =
+N
+n=1 Tn, we assume that the observations ẋt,n are
+generated from a disturbed ADS as follows:
+ẋt,n = gT (x) + φt,n (34)
+where ẋ = gT (x) is the true ADS assumed to generate the
+set, and φ ∈ Rdx
+is the noise signal satisfying the Gaussian
+distribution N(0, σ2
+noI) with variance σ2
+noI. The GPR algo-
+rithm is utilized to estimate this true ADS. Since the GPR
+algorithm can only handle 1-D fitting problem, we use dx GPR
+systems to estimate the whole true ADS ẋ = gT (x), and the
+ith, i = 1, . . . , dx, system is denoted as ẋi = gT,i(x). The GPR
+algorithmassumesthatthefunctiongT,i(x)followsaGPprocess
+as gT,i(x) ∼ GP(mi(x), ki(x, x )) where mi(x) and ki(x, x )
+are mean and kernel functions, respectively. In this article, they
+are defined as
+
+mi(x) = 0
+ki(x, x ) = σ2
+ker,iexp
+
+−1
+2 (x − x )T
+Σ−1
+i (x − x )
+ (35)
+where σ2
+ker,i and Σi ∈ Rdx×dx
+++ are hyperparameters, which
+could be learned by maximizing the log-likelihood on the
+demonstration set D [47]. Given a query input x∗
+, the output
+ẋ∗
+i = gT,i(x∗
+) and outputs in the demonstration set D are as-
+sumed to follow a multivariate Gaussian distribution
+
+ẋ∗
+i
+
+ẋi
+
+∼ N
+
+m∗
+i
+
+mi
+
+,
+
+ki(x∗
+, x∗
+) 
+kT
+i (x∗
+)
+
+ki(x∗
+) Ki + σ2
+noI
+
+(36)
+where m∗
+i = mi(x∗
+), 
+ẋi ∈ RM
+is a vector constructed by stack-
+ing ith component of demonstration outputs, 
+ki(x∗
+) ∈ RM
+is
+a vector of which the jth component is ki(x∗
+, xj) and xj is
+the jth input of the demonstration set, 
+mi ∈ RM
+is a vector
+of which the jth component is mi(xj), and Ki ∈ RM×M
++ is
+a semipositive-definite matrix with Ki,ab = ki(xa, xb). Then,
+the posterior distribution pi(ẋ∗
+i |x∗
+, D) will follow a Gaussian
+distribution N(μi(x∗
+), σpos,i(x∗
+)2
+) where
+
+μi(x∗
+) = mi(x∗
+) + 
+kT
+i (x∗
+)(Ki + σ2
+noI)−1
+(
+ẋi − 
+mi)
+σpos,i(x∗
+)2
+= ki(x∗
+, x∗
+) − 
+kT
+i (x∗
+)(Ki + σ2
+noI)−1
+kT
+i (x∗
+).
+(37)
+The estimation of the true ADS can be set as ẋ = μ(x) =
+μ1(x), . . . , μdx
+(x)
+T
+, which can be used as the original ADS.
+However, we cannot ensure that the learned original ADS will
+have a desired equilibrium point. This issue can be solved
+by introducing a determined input–output pair (0, 0) into the
+demonstration set, and we denote the novel demonstration set
+as D. We can then rewrite (36) as
+⎡
+⎢
+⎣
+ẋ∗
+i
+
+ẋi
+0
+⎤
+⎥
+⎦ ∼ N
+⎛
+⎜
+⎝
+⎡
+⎢
+⎣
+m∗
+i
+
+mi
+0
+⎤
+⎥
+⎦ ,
+⎡
+⎢
+⎣
+ki(x∗
+, x∗
+) 
+kT
+i (x∗
+) ki(x∗
+, 0)
+
+ki(x∗
+) Ki + σ2
+noI 
+ki(0)
+ki(0, x∗
+) 
+kT
+i (0) ki(0, 0)
+⎤
+⎥
+⎦
+⎞
+⎟
+⎠
+(38)
+and compute the novel mean function of the posterior as
+μi(x∗
+) = mi(x∗
+) + 
+k T
+i (x∗
+)K −1
+i (
+ẋi − 
+mi) (39)
+where
+⎧
+⎪
+⎪
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎪
+⎪
+⎩
+
+k T
+i (x∗
+) = 
+kT
+i (x∗
+) ki(x∗
+, 0)
+Ki =
+
+Ki + σ2
+noI 
+ki(0)
+
+kT
+i (0) ki(0, 0)
+
+
+ẋ T
+i = 
+ẋT
+i 0 , 
+m T
+i = 
+mT
+i 0 .
+(40)
+We can then formulate the original ADS as ẋ = o(x) =
+μ1(x), . . . , μdx
+(x)
+T
+. We will show that the original ADS has
+the desired equilibrium point, i.e., o(0) = 0.
+Proposition 6: The ADS ẋ = o(x) =
+&
+μ1(x), . . . , μdx
+(x)]T
+, where μi(x) follows the form (39), satisfies o(0) = 0 if
+the mean and kernel functions of the GPR are designed as (35).
+Proof: We first show that the matrix Ki in (39) is invertible
+if the kernel function is designed as (35). For any vector s ∈
+RM+1
+, we have
+sT
+Kis ≥ σ2
+nos1:M 2
+2 ≥ 0 (41)
+where s1:M is the vector constructed by the first M components
+of s. The first inequation is obtained from the positiveness of
+the kernel function. We then show that the above two equa-
+tions cannot simultaneously hold if s = 0. The second equation
+holds implies that s1:M = 0. If s = 0, we must have sM+1 = 0.
+However, in this case, the first equation cannot hold since
+s2
+M+1ki(0, 0) > 0 if the kernel function is designed as (35).
+Thus, we claim that if the kernel function is designed as (35),
+Ki must be invertible.
+Then, if Ki is invertible, we can obtain
+
+det|Ki| = det|Ki + σ2
+noI|δ = 0
+δ = ki(0, 0) − 
+ki(0)T
+(Ki + σ2
+noI)−1
+ki(0).
+(42)
+Thus, we have δ = 0 since det|Ki + σ2
+noI| > 0 according to the
+positiveness property of the kernel function (35). Then, we can
+analytically compute K −1
+i as
+⎧
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎪
+⎩
+K −1
+i =
+
+K11 K12
+K21 K22
+
+K11 = (Ki + σ2
+noI)−1
+
+I + 1
+δ
+
+ki(0)
+kT
+i (0)(Ki + σ2
+noI)−1
+
+K12 = −1
+δ (Ki + σ2
+noI)−1
+ki(0)
+K21 = −1
+δ
+
+kT
+i (0)(Ki + σ2
+noI)−1
+K22 = 1
+δ .
+(43)
+Thus, μi(0) can be computed as
+μi(0) = mi(0) +
+
+
+kT
+i (0)K11 + ki(0, 0)K21
+
+(
+ẋi − 
+mi)
+= 
+kT
+i (0)(Ki + σ2
+noI)−1
+' () *
+τ
++
+1
+δ
+(
+kT
+i (0)(Ki + σ2
+noI)−1
+ki(0) − ki(0, 0))
+' () *
+−δ
+τ
+= τ − τ = 0 (44)
+where the second equation is obtained by substituting (43) into
+(39) and using the condition mi(x) = 0. 
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4529
+Fig. 7. 1-D example for GPR prediction with the determined point (0,0).
+Moreover, it could also be shown that the novel posterior
+variance function σ 2
+pos,i(0) = 0, which shows the prediction
+determination. A 1-D example for intuitive illustration is shown
+in Fig. 7, where blue crosses and red points represent the
+demonstration set and the determined point (0, 0), respectively.
+Red and blue lines represent the GPR prediction results with
+and without the determined point, respectively. Shadow areas
+correspond to the 95% prediction confidence interval. As we
+can see, after adding the determined point, the GPR prediction
+result will cross it with the 100% probability.
+B. Learning a GAS ADS With Predefined Position Constraint
+In this section, we introduce an approach to formulate a GAS
+ADS with a predefined position constraint by combining the
+original ADS and the energy function NEUM. The GAS ADS
+ẋ = g(x) can be obtained by introducing a correct term u into
+the original ADS as
+g(x) = o(x) + u (45)
+where u can be obtained by online solving the following
+quadratic programming (QP) problem
+min
+u
+uT
+u (46)
+subject to
+
+(a) (o(x) + u)T ∂V (x)
+∂x ⩽ −ρ(x)
+(b) (o(x) + u)T
+Px ≤ 0, xT
+Px = r2
+thres
+(47)
+where V (x) is the NEUM learned in Section III, ρ(x) is
+any positive-definite function, P is a positive-definite or
+semipositive-definite matrix, rthres ∈ R+ is a nonnegative scalar.
+The constraint (47a) is used to ensure the globally asymptotic
+stability. The left part of constraint (47b) is the time derivative
+of the term 1
+2 xT
+Px, and thus, it is a position constraint for
+the ADS. Specifically, when the condition xT
+Px = r2
+thres is
+activated, constraint (47b) will force a contraction velocity. As
+a result, when x falls into the region Rcons = {xT
+Px ⩽ r2
+thres},
+it will never leave from Rcons.
+We then show that if the constraints (18) hold, the feasibility
+of the optimization problem described in (46) and (47) can be
+ensured for ∀x ∈ Rdx
+.
+Proposition 7: The optimization problem described in (46)
+and (47) is feasible for ∀x ∈ Rdx
+if constraints (18) hold.
+Proof: We first consider the case x = 0. If constraints (18)
+hold, we have results ∂V (x)
+∂x = 0 and o(x) = 0 from Proposition
+4 and Proposition 6, respectively. Thus, u = 0 is the optimal
+solution for the optimization problem described in (46) and (47).
+We then consider the case x = 0. We show that there always
+exists a solution for the inequality system constructed by (47a)
+and (47b). Constraints (47 a) and (47 b) actually determine two
+half-spaces, and the only case at which these two half-spaces
+mighthaveanemptyintersectionsetis ∂V (x)
+∂x = −Px.However,
+it should be noted that
+xT ∂V (x)
+∂x
+= xT
+
+∂VP (r, θ)
+∂r
+∂r
+∂x
++
+
+∂h(θ)
+∂x
+T
+∂VP (r, θ)
+∂h(θ)
+
+=
+∂VP (r, θ)
+∂r
+xT ∂r
+∂x
+=
+∂VP (r, θ)
+∂r
+x2 (48)
+where the second equation is obtained by using the fact that x is
+in the null space of the matrix ∂h(θ)
+∂x . If the constraints (18) hold,
+we can get ∂VP (r,θ)
+∂r > 0, which has been proved in Proposition
+3. Thus, we have xT ∂V (x)
+∂x > 0 for ∀x = 0. On the other hand,
+since P is at least semipositive definite, we get −xT
+Px ≤ 0 for
+∀x = 0. Thus, we have ∂V (x)
+∂x = −Px for ∀x = 0. 
+In what follows, we can give the following theorem.
+Theorem 1: The ADS (45) is GAS and has a region of attrac-
+tion R = {xT
+Px ⩽ r2
+thres} if the following conditions hold.
+1) The input u is obtained by online solving the optimization
+problem described in (46) and (47).
+2) Energy function V (x) is represented by (5), and its pa-
+rameters satisfy the constraints (18).
+Proof: The result is obvious based on Proposition 7. 
+Remark 1: It should be noted that if we only consider the
+stability property, i.e., only constraint (47 a) is considered, we
+can directly give the analytical form of the input u as
+u = −
+ReLu
+
+o(x)T ∂V (x)
+∂x + ρ(x)
+
+
+
+
+∂V (x)
+∂x
+
+
+
+2
+2
+∂V (x)
+∂x
+(49)
+where the activation function ReLu(s) has the form
+ReLu(s) =
+
+s, s > 0
+0, else.
+(50)
+Remark 2: In real applications, the reproduction of the ADS
+is always achieved in a discrete manner, and thus the condi-
+tion xT
+Px = r2
+thres in the constraint (47b) may not be easily
+activated. Thus, we soften it as (1 − η)r2
+thres <= xT
+Px <=
+(1 + η)r2
+thres in real scenarios.
+C. Generalization Ability Analysis
+Besides ensuring global stability, we further want to enhance
+the generalization ability of the learned ADS ẋ = g(x). Differ-
+ent from the reproduction accuracy property, the generalization
+ability is reflected in areas away from the demonstration set. Let
+us first recall a special property of the GPR with the Gaussian
+kernel (35), i.e., the posterior mean function μi(x∗
+) of the GPR
+will approach to 0 when the query input x∗
+is away from the
+dataset. An intuitive 2-D example is shown in Fig. 8(a), where
+the lighter color indicates the smaller velocity generated by the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+4530 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Fig. 8. Intuitive 2-D example for illustrate the generalization ability of the PA.
+(a) Velocity norm generated by the original ADS. (b) NEUM with β = 1.0.
+original ADS. It shows that the area away from the demonstra-
+tion set could correspond to an extremely low-velocity norm.
+Thus, when we consider the generalization ability, we can
+assume that the output of o(x) is 0. Then, the stable ADS can be
+approximated as ẋ = g(x) ≈ u, and the optimization problem
+to compute u will be
+min
+u
+uT
+u (51)
+subject to
+uT ∂V (x)
+∂x
+⩽ −ρ(x). (52)
+Note that the position constraint (47b) will not be considered in
+this case since the position constraint will not be activated when
+x is far away from the demonstration set. Thus, we can directly
+compute the optimal u as
+u∗
+= −
+ρ(x)
+
+
+
+∂V (x)
+∂x
+
+
+
+2
+2
+∂V (x)
+∂x
+. (53)
+As a result, in areas away from the demonstration set, we have
+ẋ = g(x) ≈ −
+ρ(x)
+
+
+
+∂V (x)
+∂x
+
+
+
+2
+2
+∂V (x)
+∂x
+. (54)
+Thus, the velocity generated by the ADS will be approximately
+proportional to the negative gradient of the energy function
+NEUM. As discussed in Section III-B, when we choose a
+small β for the activation function ζ(j) in the second learning
+approach, the NEUM gradient can capture the demonstration
+preferences in broad areas, which is reflected by Figs. 6(b) and
+8(b). Furthermore, if we design function ρ(x) as
+ρ(x) =
+
+
+
+
+∂V (x)
+∂x
+
+
+
+
+2
+v(x) (55)
+where v(x) is a manually designed function, the influence of the
+amplitude part of the NEUM gradient will be eliminated, which
+results in the following approximated ADS:
+ẋ = g(x) ≈ −v(x)
+∂V (x)
+∂x
+∂V (x)
+∂x 2
+. (56)
+The form of (56) implies that in areas away from the demon-
+stration set, the direction of the velocity generated by the ADS
+will be approximately the same with the negative gradient of the
+NEUM, and the amplitude of the velocity will be a designable
+function v(x).
+V. VALIDATIONS ON THE LASA DATASET
+In this section, we validate the effectiveness of the PA on the
+LASA handwriting dataset [49], and the second NEUM learning
+approach is used. The dataset contains various demonstration
+cases, which raise different difficulties for the demonstration
+learning. For the most complex cases with names as “Bended-
+Line,” “DoubleBnededLine,” “JShape_2,” “Leaf_1,” “Leaf_2,”
+and “Snake,” the hyperparameters for the NEUM are set as
+dH = 10 and β = 1.0. For the remaining cases, we set dH = 2
+and β = 1.0. Functions ρ(x) in (47) is given by
+⎧
+⎨
+⎩
+ρ(x) =
+
+
+
+∂V (x)
+∂x
+
+
+
+2
+v(x)
+v(x) = vM
+γ
+
+1 − exp
++
+− 1
+2x2
+M
+xT
+x
+, (57)
+where xM and vM are the maximum position and velocity norms
+in the demonstration set D, respectively. γ ∈ R++ is a tunable
+parameter to determine the convergence rate.
+Learning results for the NEUM and the corresponding ADS
+reproduction results are shown in Fig. 9, where the left and right
+blocks show the NEUM learning results and ADS reproduction
+results, respectively. The red points and blue crosses represent
+the demonstration points satisfying and violating the energy-
+function-related constraint, respectively. Large black points and
+crosses are used to, respectively, indicate the initial and goal
+positions. In this part, the position constraint is not used for
+the accurate reproduction consideration, that is, rthres in (47b)
+is set as 0. We use the “trust-constr” optimization algorithm for
+NEUM learning based on the “scipy.minimize” package with
+python. The QP problem described in (46) and (47) is solved
+using the “cvxopt” package.
+Let us first observe the NEUM learning results. As expected,
+the learned NEUMs for all demonstration cases satisfy the
+unique-minimum property. More specifically, they satisfy the
+geometrical constraint mentioned in Section III-A, i.e., the
+energy function value monotonically increases along any rays
+emitted from the origin. Moreover, we can find that the learned
+NEUMs can accurately capture the demonstration preferences
+for all demonstration cases, even though we set β = 1.0 to
+highlight the importance of the generalization ability. These
+results validate that the NEUM structure is very flexible, which
+allows the NEUM to simultaneously consider the accuracy and
+generalization properties for most cases.
+To give more intuitive comparisons between the NEUM and
+other existing data-driven energy functions, we propose the
+following two metrics:
+
+E1 = 1 + 1
+T
+T
+t=0 jt(Θ)
+E2 = 1 + 1
+T
+T
+t=0 jt(Θ)
+(58)
+where T is the length for a demonstration trajectory, jt(Θ) and
+jt(Θ) are defined as (30) and (31), respectively. We set β = 10.0
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4531
+Fig. 9. Learned NEUM and reproduction results for the LASA handwriting dataset [49]. The left block shows the NEUM learning results for the LASA dataset,
+where red point and blue crosses represent the demonstration points that satisfy and violate the NEUM, respectively. The right block shows the reproduction results,
+which are represented by the black lines.
+for jt(Θ), and thus, E1 is used to measure the accuracy of an en-
+ergy function, and E2 additionally measures the generalization
+ability, i.e., the alignment between the energy function gradient
+and the demonstration velocity. The comparison results on the
+six most complex cases are shown in Fig. 10, where the upper
+and bottom figures, respectively, show the comparison results
+with respect to the metrics E1 and E2. Hyperparameter settings
+for the compared data-driven energy functions are determined
+according to their article descriptions. As we can see, the
+proposed NEUM outperforms all of the existing data-driven
+energy functions, either with respect to the metric E1 or E2.
+Moreover, we want to highlight that compared with another two
+neural energy functions NILC and ICNN, the NEUM proposed
+in this work is much more lightweight. Specifically, as guided
+in [43] and [46], the NILC and ICNN are, respectively, designed
+as a three-layer neural network with 100 hidden-layer units, and
+a four-layer neural network with 100 units for each hidden layer.
+Comparatively, the neural network in NEUM is just three-layer
+with 10 hidden-layer units. Thus, we conclude that the NEUM
+is the most flexible in these existing data-driven energy
+functions.
+Detailed learning results for these data-driven energy func-
+tions are shown in Fig. 11, where red points and blue crosses
+representdemonstrationpointsthatsatisfyandviolatetheenergy
+function, respectively. Obviously, we can find that the NEUM is
+more consistent with these demonstration cases compared with
+other data-driven energy functions. Moreover, compared with
+WSAQF and ICNN, which simultaneously have the theoreti-
+cally unique-minimum guarantee and considerable consistence
+performance, the NEUM is more flexible, which is reflected by
+the diversity of contour shapes and the size of the area affected
+by demonstrations.
+Remark 3: Note that for conducting fair comparisons, we use
+same objective functions for the NEUM, WSAQF, NILC, and
+ICNN to generate Figs. 10 and 11. The energy function labeled
+as FDM is obtained by the FDM as mentioned in [40].
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 13 ===
+4532 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Fig. 10. Quantitative comparison results between the proposed energy function NEUM, WSAQF [38], NILC [43], FDM [40], and ICNN [46] for the six most
+challenging cases in the LASA handwriting dataset using metrics E1 and E2. The upper and bottom figures show the comparison results with respect to the
+metrics E1 and E2 along with one standard deviation, respectively. Hyperparameter settings for the compared approaches are determined according to their article
+descriptions.
+Fig. 11. Learning results of the proposed energy function NEUM, WSAQF [38], NILC [43], FDM [40], and ICNN [46] for the six most challenging cases in the
+LASA handwriting dataset.
+We then compare the proposed demonstration learning ap-
+proach based on the NEUM with other existing approaches,
+using the metrics swept error area (SEA) [38] and dynamic
+time warping distance (DTWD). Note that the DTWD only
+measures the dissimilarity between the spatial shapes of the
+demonstration and reproduction trajectories while the SEA
+penalizes both spatial and temporal dissimilarities [30]. The
+comparison results are concluded in Table I, where approaches
+CLF-DM [38], τ-SEDS [39], and CDSP [31] are compared with
+the PA. To conduct fair comparisons, the optimization algo-
+rithms for the CLF-DM, τ-SEDS, and CDSP are both chosen
+as the “trust-constr” algorithm wrapped in the “scipy.minimize”
+package. Hyperparameters for these approaches are determined
+by trials and errors. Moreover, we chose β = 10 for the WSAQF
+learning in the CLF-DM approach to highlight the reproduction
+accuracy.
+As we can see in Table I, the PA achieves the best result in
+almost every case, whether with respect to the SEA or DTWD.
+For cases “BendedLine,” “DoubleBendedLine,” “JShape_2,”
+and “Leaf_2,” the performances of the PA are similar to these of
+the CLF-DM since in these cases, energy functions NEUM and
+WSAQF are both consistent with the demonstration trajectories.
+Especially, the metrics of the PA and CLF-DM are even the
+same for cases “JShape_2” and “Leaf_2” since the original ADS
+need not to be corrected under the energy functions NEUM
+and WSAQF. However, we should note that in the CLF-DM
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 14 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4533
+TABLE I
+QUANTITATIVE COMPARISONS BETWEEN THE PA, CLF-DM [38], τ-SEDS [39], AND CDSP [31] FOR THE SIX MOST CHALLENGING CASES IN THE LASA
+HANDWRITING DATASET USING METRICS SEA AND DTWD
+Fig. 12. Learning results of the PA, CLF-DM [38], τ-SEDS [39], and CDSP [31] for the six most challenging cases in the LASA handwriting dataset.
+Fig. 13. Learning results of the proposed demonstration learning approach
+with the position constraint.
+approach, the β is set as 10 to highlight the accuracy property.
+Comparatively, the β for NEUM is still set as 1.0 to simul-
+taneously consider the accuracy and generalization ability. We
+also provide the detailed learning results for these demonstration
+approaches in Fig. 12. It should be noted that the learning results
+for these compared approaches might be slightly different from
+theiroriginalarticlesduetothedifferentoptimizationalgorithms
+and initial (hyper)parameter settings.
+We then validate the position-constraint ability of the PA.
+The learning results of the PA with the position constraint
+are shown in Fig. 13, where the position constraint for each
+case is represented by the gray ellipse. The soften parameter η
+mentioned in Remark 2 is set as 0.05. As what we expect, once
+the reproduction trajectory enters the ellipse, it will never be
+able to leave the ellipse due to the position constraint (47b).
+WealsoinvestigatethegeneralizationabilityofthePA,andthe
+results are shown in Fig. 14, where the deeper background color
+indicates the larger velocity generated by the original ADS. In
+this investigation, the position constraint is not considered, and
+Fig. 14. Results of the generalization ability investigation of the proposed
+demonstration learning approach.
+function ρ(x) is given by
+
+ρ(x) =
+
+
+
+∂V (x)
+∂x
+
+
+
+2
+v(x)
+v(x) = 5.
+(59)
+As we can see, in areas away from the demonstration set, the
+velocity generated by the original ADS will approach zero.
+According to the analysis in Section IV-C, the generated tra-
+jectory will evolve along with the negative gradient of the
+NEUMwithvelocityv(x).Sincetheparameterβ intheobjective
+function (31) is set as 1.0, the gradient of NEUM can capture
+the demonstration preferences in a broad area, which results in
+the strong generalization ability.
+We finally investigate the influence of the demonstration
+trajectory number. Fig. 15(a) and (b) shows the influence of
+the NEUM learning, where Fig. 15(a) shows the comparison
+results for one-shot learning (only using the sixth demonstration
+trajectory “T6”) and full learning (all demonstration trajecto-
+ries are used) with respect to the metric E2. As we can see,
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 15 ===
+4534 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Fig. 15. Results of the PA with different demonstration trajectory numbers.
+(a) Comparative results between the one-shot NEUM learning and full NEUM
+learning with respect to the metric E2. (b) Detailed one-shot NEUM learning
+result. (c) Comparative results between the one-shot ADS learning and full ADS
+learning with respect to the metric SEA. (d) Detailed reproduction results of the
+one-shot ADS learning and full ADS learning.
+the NEUMs from one-shot learning and full learning obtain
+similar scores with respect to the metric E2, which is caused
+by the strong generalization ability of the NEUM, and the
+fact that all demonstration trajectories follow similar patterns.
+Detailed one-shot NEUM learning result is shown in Fig. 15(b),
+where red circles and blue crosses represent the demonstration
+points satisfying and violating the NEUM, respectively. As
+we can see intuitively, the NEUM from one-shot learning can
+still capture the overall demonstration preferences in a broad
+area.
+Fig. 15(c) and (d) shows the influence of the demonstration
+trajectorynumberontheADSlearning.InFig.15(c),weconduct
+the ADS learning approach for each demonstration trajectory
+and compare these learning results with the full learning result.
+An interesting point is that, for each demonstration trajectory,
+the one-shot learning result is better than the full learning result.
+This phenomenon is caused by the fact that using multiple
+demonstration trajectories will raise disturbances when learning
+the original ADS. An example is shown in Fig. 15(d), where
+the ADS is learned via the sixth demonstration trajectory “T6”
+(represented by blue solid circles). As we can see, the one-shot
+learning is more accurate compared with the full learning when
+reproducing the trajectory “T6.” The reason is that a neighbor
+demonstration trajectory “T5” dominates the full-learning ADS
+when reproducing the trajectory “T6,” However, we should also
+note that when using one demonstration trajectory, the general-
+ization ability could be limited due to the less-knowledgeable
+original ADS, which is also reflected in Fig. 15(d) when we
+want to reproduce the innermost trajectory “T1.” In this case, the
+full-learning ADS obviously gets the better reproduction result.
+Thus, as a conclusion, using fewer demonstration trajectories
+may improve the reproduction accuracy due to the reduced
+disturbances. However, the lack of demonstration trajectories
+will limit the generalization ability of the ADS, although this
+could be relieved in areas where the NEUM can well capture
+the demonstration preferences, see Fig. 14.
+VI. VALIDATIONS VIA ROBOTIC EXPERIMENTS
+In this section, we validate the PA via robotic experiments.
+The first experiment is a robotic assembly task shown in Fig. 16.
+A human tutor first demonstrates the assembly process, and
+then, the robot will mimic the human tutor to complete the
+task.
+In this experiment, the parameter settings for NEUM learning
+are given as β = 1.0, dH = 10, and L2 = 10−6
+, function ρ(x)
+is the same as (57). It should be noted that although the PA needs
+to online solve the optimization problem described in (46) and
+(47), the real-time property could be ensured due to the succinct
+QP formulation. As a result, the sampling period is set as 5 ms
+in the experiment.
+Experiment results are shown in Fig. 17, where we validate
+the PA in various cases, including task reproduction, task gen-
+eralization with and without disturbances. Fig. 17(a) and (b)
+shows the demonstration set and some isosurfaces of the learned
+energy function NEUM, respectively. Since the β is set as 1.0
+here, the NEUM tries to align its gradient with the demonstration
+trajectories, which finally results in a smooth and generalizable
+energy function. It should be noted that the learning of NEUM
+always gets better results in the higher-dimensional cases since
+the constraints (18) could be less restrictive. As a result, the
+metrics E1 and E2 in this experiment are 4.185 × 10−8
+and
+0.029, respectively, which are far smaller than these values in
+Fig. 10.
+Fig. 17(c) shows the task reproduction results. In these cases,
+the initial positions are the same as those in the demonstra-
+tion processes. As we can see, the reproduction trajectories
+represented by blue solid lines are almost coincident with the
+demonstration trajectories, which implies that the PA has high
+reproduction accuracy.
+Fig. 17(d)–(f) shows the different generalization cases of the
+PA. In Fig. 17(d), the reproduction trajectories’ initial posi-
+tions are different from those of the demonstration set. As we
+can see, all reproduction trajectories can converge to the goal
+position. Moreover, these reproduction trajectories also inherit
+the demonstration characteristic that the last motions should
+only occur in the x3 dimension. This characteristic is essential
+to ensure the successful completion of the assembly task. In
+Fig. 17(e), the goal positions of the reproduction trajectories are
+modified to be different from those of the demonstration set.
+Similar to the case in Fig. 17(d), the reproduction trajectories
+converge to their goal positions, and simultaneously inherit the
+vertical motion characteristic at their last motion stages. In
+Fig. 17(f), we further investigate the robustness of the PA for
+spatial disturbances. In this case, a human will apply disturbed
+forces on the robot during robot motions. The disturbed tra-
+jectories are represented by the black dashed lines. To allow
+human interference, the compliant low-level tracking controller
+presented in our previous work [50] is used. We can find in
+Fig. 17(f) that although the robot will deviate from the desired
+path under the disturbed forces, it could recover as soon as
+possible due to its strong generalization ability. Finally, the
+reproduction trajectories converge to the goal position with the
+inherited motion characteristic.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 16 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4535
+Fig. 16. Robotic assembly experiment.
+Fig. 17. Experiment results for the robotic assembly task. (a) Demonstration set. (b) Isosurfaces of the learned NEUM. (c) Task reproduction results with the
+same initial positions as these of the demonstrations. (d) Task generalization with different initial positions from these of the demonstrations. (e) Task generalization
+with different goal positions from these of the demonstrations. (f) Task generalization under disturbances. (g) Task reproduction with the position constraint.
+Fig. 18. Robotic ultrasound scanning experiment.
+We also investigate the position-constraint ability of the PA
+in the assembly task. The position constraint is represented by
+the cylinder in Fig. 17(g). Specifically, the position-constraint
+parameters are set as P = diag(1.0, 1.0, 0.0), rthres = 0.1 m and
+η = 0.1. As we can see, the demonstration trajectories pass
+through the cylinder, thus violating the position constraint (47b).
+Without the position constraint, the corresponding reproduction
+trajectory (represented by the blue dashed line) will also pass
+through the cylinder. However, when we add the position con-
+straint, the reproduction trajectory (represented by the blue solid
+line) will not leave the cylinder once it enters the cylinder, which
+validates the position-constraint ability of the PA.
+The second experiment is a robotic ultrasound scanning
+task shown in Fig. 18. Different from the robotic assembly
+task, here we conduct the proposed demonstration learning
+algorithm in the robot joint space, which has dimension 7.
+All of the parameter settings of the robotic ultrasound scan-
+ning task are the same as those of the robotic assembly
+experiment.
+Experiment results are shown in Fig. 19, where the first to
+seventh figures show the demonstration and reproduction trajec-
+tories in each robot joint. As we can see, all of the reproduction
+trajectories can converge to their goal positions. Moreover, al-
+though the demonstration set is very sparse in the 7-D space, the
+reproduction trajectories can still inherit the demonstration pref-
+erences well. For example, for the second and sixth joints, where
+initial positions are near the demonstration set, the reproduction
+trajectories almost coincide with the demonstration trajectories.
+For the fifth joint, although some initial positions are away
+from the demonstration set, the reproduction trajectories can
+still inherit the demonstration characteristic, i.e., first holding
+and then evolving to the goal position.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 17 ===
+4536 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Fig. 19. Experiment results for the robotic ultrasound scanning task.
+We also validate the effectiveness of the NEUM learning.
+Since we cannot plot the NEUM in the high-dimensional case,
+we instead show the metric E2 for each demonstration trajectory.
+The result is shown in the last figure of Fig. 19, where we can
+find that E2 takes a very small value for each demonstration
+trajectory. Thus, we can imagine that the learned NEUM is well
+consistent with the demonstration set. As a result, this experi-
+ment validates the effectiveness of the PA for high-dimensional
+learning cases.
+VII. CONCLUSION
+In this article, we focused on learning an ADS for globally
+stable and accurate demonstration learning. Specifically, we
+designed a flexible neural energy function, called NEUM, with
+the unique-minimum, positive-definite, and continuously differ-
+entiable properties. Then, the NEUM is used as the stability cer-
+tificate for the ADS learning. The kernel contribution is that we
+proposed a polarlike space analysis approach to derive neural-
+parameter constraints to ensure the NEUM’s unique-minimum,
+positive-definite, and continuously differentiable properties. We
+also provided a NEUM learning approach to conveniently con-
+sider the accuracy-generalization tradeoff. With the NEUM,
+the learned ADS can handle position constraints, which might
+be valuable for some robotic tasks. We further quantitatively
+analyzed the generalization ability of the ADS by utilizing the
+flexibility of the NEUM. Finally, we validated the effectiveness
+of the PA on the LASA dataset and two representative robotic
+experiments.
+REFERENCES
+[1] H. Ochoa and R. Cortesao, “Impedance control architecture for robotic-
+assisted mold polishing based on human demonstration,” IEEE Trans. Ind.
+Electron., vol. 69, no. 4, pp. 3822–3830, Apr. 2022.
+[2] Y. Ma, D. Xu, and F. Qin, “Efficient insertion control for precision
+assembly based on demonstration learning and reinforcement learning,”
+IEEE Trans. Ind. Informat., vol. 17, no. 7, pp. 4492–4502, Jul. 2021.
+[3] Y.Yang,Y.Pan,X.Zhu,M.Gao,J.Zhang,andD.Tao,“Ahuman-likedual-
+forklift collaborative mechanism for container handling,” IEEE Trans. Ind.
+Electron., vol. 68, no. 12, pp. 12871–12880, Dec. 2021.
+[4] D. V. Domitilla, M. M. Richard, and P. Pietro, “Decomposition of human
+motion into dynamics-based primitives with application to drawing tasks,”
+Automatica, vol. 39, no. 12, pp. 2085–2098, 2003.
+[5] C. Yang, G. Ganesh, S. Haddadin, S. Parusel, A. Albu-Schaeffer, and
+E. Burdet, “Human-like adaptation of force and impedance in stable and
+unstable interactions,” IEEE Trans. Robot., vol. 27, no. 5, pp. 918–930,
+Oct. 2011.
+[6] X. Yu, P. Liu, W. He, Y. Liu, Q. Chen, and L. Ding, “Human-robot variable
+impedance skills transfer learning based on dynamic movement primi-
+tives,” IEEE Robot. Autom. Lett., vol. 7, no. 3, pp. 6463–6470, Jul. 2022.
+[7] C. Yang, C. Zeng, C. Fang, W. He, and Z. Li, “A DMPs-based framework
+for robot learning and generalization of humanlike variable impedance
+skills,” IEEE/ASME Trans. Mechatron., vol. 23, no. 3, pp. 1193–1203,
+Jun. 2018.
+[8] H. K. Khalil, Nonlinear Control. London, U.K.: Pearson Press, 2015.
+[9] S. Calinon, F. Guenter, and A. Billard, “On learning, representing, and
+generalizing a task in a humanoid robot,” IEEE Trans. Syst., Man, Cybern.,
+Part B. (Cybern.), vol. 37, no. 2, pp. 286–298, Apr. 2007.
+[10] S. Calinon, F. Guenter, and A. Billard, “On learning the statistical repre-
+sentation of a task and generalizing it to various contexts,” in Proc. IEEE
+Int. Conf. Robot. Autom., 2006, pp. 2978–2983.
+[11] S. Calinon and A. Billard, “Statistical learning by imitation of competing
+constraints in joint space and task space,” Adv. Robot., vol. 23, no. 15,
+pp. 2059–2076, 2009.
+[12] M. Muhlig, M. Gienger, S. Hellbach, J. J. Steil, and C. Goerick, “Task-level
+imitation learning using variance-based movement optimization,” in Proc.
+IEEE Int. Conf. Robot. Autom., 2009, pp. 1177–1184.
+[13] S. Calinon, D. Bruno, and D. G. Caldwell, “A task-parameterized prob-
+abilistic model with minimum intervention control,” in Proc. IEEE Int.
+Conf. Robot. Autom., 2014, pp. 3339–3344.
+[14] L. Rozo, S. Calinon, D. G. Caldwell, P. Jimenez, and C. Torras, “Learning
+physical collaborative robot behaviors from human demonstrations,” IEEE
+Trans. Robot., vol. 32, no. 3, pp. 513–527, Jun. 2016.
+[15] S. Calinon, “A tutorial on task-parameterized movement learning and
+retrieval,” Intell. Serv. Robot., vol. 9, no. 1, pp. 1–29, 2016.
+[16] Y. Huang, J. Silverio, L. Rozo, and D. G. Caldwell, “Generalized task-
+parameterized skill learning,” in Proc. IEEE Int. Conf. Robot. Autom.,
+2018, pp. 5667–5474.
+[17] A. Paraschos, C. Daniel, J. Peters, and G. Neumann, “Using proba-
+bilistic movement primitives in robotics,” Auton. Robots, vol. 42, no. 3,
+pp. 529–551, 2017.
+[18] A. Paraschos, C. Daniel, J. Peters, and G. Neumann, “Probabilistic move-
+ment primitives,” in Proc. Int. Conf. Neural Inf. Process. Syst., 2013,
+pp. 2616–2624.
+[19] Y. Huang, L. Rozo, J. Silverio, and D. G. Caldwell, “Kernelized movement
+primitives,” Int. J. Robot. Res., vol. 38, no. 7, pp. 833–852, 2019.
+[20] S. M. Khansari-Zadeh, K. Kronander, and A. Billard, “Modeling robot dis-
+crete movements with state-varying stiffness and damping: A framework
+for integrated motion generation and impedance control,” in Proc. Robot.:
+Sci. Syst., 2014.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 18 ===
+JIN et al.: LEARNING NEURAL ENERGY FUNCTION WITH UNIQUE MINIMUM FOR STABLE AND ACCURATE DEMONSTRATION LEARNING 4537
+[21] A. J. Ijspeert, J. Nakanishi, H. Hoffmann, P. Pastor, and S. Schaal, “Dynam-
+ical movement primitives: Learning attractor models for motor behaviors,”
+Neural Comput., vol. 25, no. 2, pp. 328–373, 2013.
+[22] P. Pastor, H. Hoffmann, T. Asfour, and S. Schaal, “Learning and gener-
+alization of motor skills by learning from demonstration,” in Proc. IEEE
+Int. Conf. Robot. Autom., 2009, pp. 763–768.
+[23] A. Hewitt, C. Yang, Y. Li, and R. Cui, “DMP and GMR based teaching by
+demonstration for a KUKA LBR robot,” in Proc. IEEE Int. Conf. Autom.
+Comput., 2017, pp. 1–6.
+[24] C. Yang, C. Chen, W. He, R. Cui, and Z. Li, “Robot learning system
+based on adaptive neural control and dynamic movement primitives,” IEEE
+Trans. Neural Netw. Learn. Syst., vol. 30, no. 3, pp. 777–787, Mar. 2019.
+[25] E. Gribovskaya and A. Billard, “Learning nonlinear multi-variate mo-
+tion dynamics for real-time position and orientation control of robotic
+manipulators,” in Proc. IEEE-RAS Int. Conf. Humanoid Robots, 2009,
+pp. 472–477.
+[26] L. Winfried and J. E. Slotine, “On contraction analysis for non-linear
+systems,” Automatica, vol. 34, no. 6, pp. 683–696, 1998.
+[27] R. Harish and A. Dani, “Learning contracting nonlinear dynamics from
+human demonstration for robot motion planning,” in Proc. ASME Dyn.
+Syst. Control Conf., 2015, Art. no. V002T27A008.
+[28] V. Sindhwani, S. Tu, and S. M. Khansari-Zadeh, “Learning contracting
+vector fields for stable imitation learning,” 2018, arXiv:1804.04878.
+[29] S. Singh, S. M. Richards, V. Sindhwani, J. E. Slotine, and M. Pavone,
+“Learning stabilizable nonlinear dynamics with contraction-based regu-
+larization,” Int. J. Robot. Res., vol. 40, no. 10–11, pp. 1123–1150, 2021.
+[30] H. Ravichandar, I. Salehi, and A. Dani, “Learning partially contracting
+dynamical systems from demonstrations,” in Proc. 1st Annu. Conf. Robot
+Learn., 2017, pp. 369–378.
+[31] H. Ravichandar and A. Dani, “Learning position and orientation dynamics
+from demonstrations via contraction analysis,” Auton. Robots, vol. 43,
+no. 4, pp. 897–912, 2019.
+[32] S. M. Khansari-Zadeh and A. Billard, “Learning stable nonlinear dynam-
+ical systems with Gaussian mixture models,” IEEE Trans. Robot., vol. 27,
+no. 5, pp. 943–957, Oct. 2011.
+[33] S. M. Khansari-Zadeh, K. Kronander, and A. Billard, “Learning to play
+minigolf: A dynamical system-based approach,” Adv. Robot., vol. 26,
+no. 17, pp. 1967–1993, 2012.
+[34] A. Lemme, K. Neumann, F. Reinhart, and J. J. Steil, “Neurally imprinted
+stablevector fields,”in Proc.Eur.Symp.Artif.NeuralNetw.,2013,pp.327–
+332.
+[35] J. Hu, Z. Yang, Z. Wang, X. Wu, and Y. Ou, “Neural learning of stable
+dynamical systems based on extreme learning machine,” in Proc. IEEE
+Int. Conf. Robot. Autom., 2015, pp. 306–311.
+[36] J. Duan, Y. Ou, J. Hu, Z. Wang, S. Jin, and C. Xu, “Fast and stable learning
+of dynamical systems based on extreme learning machine,” IEEE Trans.
+Syst., Man, Cybern. Syst., vol. 49, no. 6, pp. 1175–1185, Jun. 2019.
+[37] C. Jin, A. Liu, S. Liu, and W. Zhang, “A robot skill learning method based
+on improved stable estimator of dynamical systems,” Acta Automatica
+Sinica, vol. 48, no. 7, pp. 1771–1781, 2022.
+[38] S. M. Khansari-Zadeh and A. Billard, “Learning control Lyapunov func-
+tion to ensure stability of dynamical system-based robot reaching mo-
+tions,” Robot. Auton. Syst., vol. 62, no. 4, pp. 752–765, 2014.
+[39] K. Neumann and J. J. Steil, “Learning robot motions with stable dynam-
+ical systems under diffeomorphic transformations,” Robot. Auton. Syst.,
+vol. 70, pp. 1–15, 2015.
+[40] P.NicolasandS.C.Philipp,“Fastdiffeomorphicmatchingtolearnglobally
+asymptotically stable nonlinear dynamical systems,” Syst. Control Lett.,
+vol. 96, pp. 51–59, 2016.
+[41] J. Umlauft, A. Lederer, and S. Hirche, “Learning stable Gaussian process
+state space models,” in Proc. Amer. Control Conf., 2017, pp. 1499–1504.
+[42] L. Pohler, J. Umlauft, and S. Hirche, “Uncertainty-based human motion
+tracking with stable Gaussian process state space models,” IFACPaper-
+sOnLine, vol. 51, no. 34, pp. 8–14, 2019.
+[43] K. Neumann, A. Lemme, and J. J. Steil, “Neural learning of stable dynam-
+ical systems based on data-driven Lyapunov candidates,” Proc. IEEE/RSJ
+Int. Conf. Intell. Robots Syst., 2013, pp. 1216–1222.
+[44] S. M. Richards, F. Berkenkamp, and A. Krause, “The Lyapunov neural
+network: Adaptive stability certification for safe learning of dynamical
+systems,” in Proc. Conf. Robot Learn., 2018, pp. 466–476.
+[45] N. M. Boffi, S. Tu, N. Matni, J. E. Slotine, and V. Sindhwani, “Learn-
+ing stability certificates from data,” in Proc. Conf. Robot Learn., 2020,
+pp. 1341–1350.
+[46] G. Manek and J. Z. Kolter, “Learning stable deep dynamics models,” in
+Proc. Int. Conf. Neural Inf. Process. Syst., 2019, pp. 11128–11136.
+[47] C. E. Rasmussen and C. K. I. Williams, Gaussian Processes for Machine
+Learning. Cambridge, MA, USA: MIT Press, 2006.
+[48] S. Boyd, S. P. Boyd, and L. Vandenberghe, Convex Optimization. Cam-
+bridge, U.K.: Cambridge Univ. Press, 2014.
+[49] S. M. Khansari-Zadeh and A. Billard, “LASA handwriting data set,” 2021.
+[Online]. Available: https://github.com/justagist/pyLASADataset
+[50] Z. Jin, D. Qin, A. Liu, W. Zhang, and L. Yu, “Model predictive variable
+impedance control of manipulators for adaptive precision-compliance
+tradeoff,” IEEE/ASME Trans. Mechatron., vol. 28, no. 2, pp. 1174–1186,
+Apr. 2023.
+Zhehao Jin received the B.Eng. degree in automa-
+tion from the Zhejiang University of Technology,
+Hangzhou, China, in 2018. He is currently working
+toward the Ph.D. degree in control theory and control
+engineering with the College of Information Engi-
+neering, Zhejiang University of Technology.
+His current research interests include demon-
+stration learning, reinforcement learning, robot-
+compliant control, and predictive control.
+Weiyong Si received the M.S. degree in aerospace
+engineering from the Beijing Institute of Technology,
+Beijing, China, in 2018. He is currently working
+toward the Ph.D. degree in robotics with Bristol
+Robotics Laboratory, University of the West of Eng-
+land, Bristol, U.K.
+His research interests include robot skill learning,
+teleoperation, and robot control.
+Andong Liu (Member, IEEE) received the B.Eng.
+degree in automation from Guangxi University, Nan-
+ning, China, in 2007, and the Ph.D. degree in control
+theory and control engineering from the Zhejiang
+University of Technology, Hangzhou, China, in 2014.
+He is currently an Associate Professor with the
+Department of Automation, College of Information
+Engineering, Zhejiang University of Technology. He
+was a Postdoctoral Research Fellow with the Depart-
+ment of Electronic Engineering, City University of
+Hong Kong, from 2016–2018. His research interests
+include model predictive control, networked control systems, and mobile robots.
+Wen-AnZhang (Member,IEEE)received theB.Eng.
+degree in automation and the Ph.D. degree in control
+theory and control engineering from the Zhejiang
+University of Technology, Hangzhou, China, in 2004
+and 2010, respectively.
+Since 2010, he has been with the Zhejiang Univer-
+sity of Technology, where he is currently a Professor
+with the Department of Automation. He was a Senior
+Research Associate with the Department of Manu-
+facturing Engineering and Engineering Management,
+City University of Hong Kong, from 2010 to 2011.
+His current research interests include networked control systems, multisensor
+information fusion estimation, and robotics.
+Dr. Zhang was awarded an Alexander von Humboldt Fellowship during
+2011–2012. He has been a Subject Editor for Optimal Control Applications
+and Methods since 2016.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 19 ===
+4538 IEEE TRANSACTIONS ON ROBOTICS, VOL. 39, NO. 6, DECEMBER 2023
+Li Yu (Member, IEEE) received the B.S. degree
+in control theory from Nankai University, Tianjin,
+China, in 1982, and the M.S. and Ph.D. degrees in
+control theory and control engineering from Zhejiang
+University, Hangzhou, China, in 1988 and 1999, re-
+spectively.
+He is currently a Professor with the College of In-
+formation Engineering, Zhejiang University of Tech-
+nology, Hangzhou. He has authored or coauthored
+three books and more than 200 journal or conference
+articles. His current research interests include wire-
+less sensor networks, networked control systems, and motion control.
+Chenguang Yang (Senior Member, IEEE) received
+the Ph.D. degree in control engineering from the
+National University of Singapore, Singapore, in 2010,
+and the postdoctoral training in human robotics with
+the Imperial College London, London, U.K, from
+2009 to 2010.
+His research interests include human–robot inter-
+action and intelligent system design.
+Dr. Yang was awarded U.K. EPSRC UKRI Inno-
+vation Fellowship and individual EU Marie Curie In-
+ternational Incoming Fellowship. As the lead author,
+he won the IEEE Transactions on Robotics Best Article Award in 2012 and
+the IEEE Transactions on Neural Networks and Learning Systems Outstanding
+Article Award in 2022. He is the Corresponding Co-Chair of IEEE Technical
+Committee on Collaborative Automation for Flexible Manufacturing (CAFM), a
+Fellow of Institute of Engineering and Technology (IET), a Fellow of Institution
+of Mechanical Engineers (IMechE), and a Fellow of British Computer Society
+(BCS).
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:52:19 UTC from IEEE Xplore. Restrictions apply.

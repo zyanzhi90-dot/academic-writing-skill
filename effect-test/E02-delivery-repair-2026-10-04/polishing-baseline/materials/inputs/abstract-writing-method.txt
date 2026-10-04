@@ -1,0 +1,13 @@
+摘要可以概括成三条规则：
+先说明为什么需要这个方法，再说明方法怎么解决这个问题，最后只保留最能证明核心贡献的证据。
+具体来说：
+1. 动机要直接服务方法：只保留能解释“为什么这样设计”的关键问题，不写泛背景。
+2. 方法写关键设计及其作用：不是罗列模块，而是说明每个关键设计解决什么、带来什么优势。
+3. 验证只留最强证据：用最少的仿真/实验结果证明核心主张，不把平台、设置、数字和分支写成实验清单。
+
+
+总之，紧凑的表达出：问题为什么需要解决 → 关键设计为什么有效 → 最强证据证明它确实有效。
+
+
+具体写法和表达可以抄：Composite-Learning-Based Adaptive Neural Control
+for Dual-Arm Robots With Relative Motion、Residual Reinforcement Learning for Robot Control、Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives的摘要

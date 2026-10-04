@@ -1,0 +1,398 @@
+{
+  "base": "e24dc05",
+  "changed_skill_files": [
+    "skill-candidate/nature-writing/manifest.yaml",
+    "skill-candidate/nature-polishing/manifest.yaml",
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+    "skill-candidate/nature-polishing/static/fragments/section/abstract.md",
+    "skill-candidate/nature-shared/core/abstract-delivery.md"
+  ],
+  "all_other_candidate_files_unchanged": [
+    "skill-candidate/nature-polishing/README.md",
+    "skill-candidate/nature-polishing/README_EN.md",
+    "skill-candidate/nature-polishing/SKILL.md",
+    "skill-candidate/nature-polishing/agents/openai.yaml",
+    "skill-candidate/nature-polishing/references/latex-layout.md",
+    "skill-candidate/nature-polishing/references/nat-comms-2025-diction.md",
+    "skill-candidate/nature-polishing/references/phrasebank-playbook.md",
+    "skill-candidate/nature-polishing/references/published-article-patterns.md",
+    "skill-candidate/nature-polishing/references/section-moves.md",
+    "skill-candidate/nature-polishing/references/style-guardrails.md",
+    "skill-candidate/nature-polishing/references/writing-strategy.md",
+    "skill-candidate/nature-polishing/static/core/failure-modes.md",
+    "skill-candidate/nature-polishing/static/core/output-format.md",
+    "skill-candidate/nature-polishing/static/core/stance.md",
+    "skill-candidate/nature-polishing/static/fragments/journal/generic.md",
+    "skill-candidate/nature-polishing/static/fragments/journal/nat-comms.md",
+    "skill-candidate/nature-polishing/static/fragments/journal/nat-mach-intell.md",
+    "skill-candidate/nature-polishing/static/fragments/journal/nature.md",
+    "skill-candidate/nature-polishing/static/fragments/language/en.md",
+    "skill-candidate/nature-polishing/static/fragments/language/zh-to-en.md",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/hypothesis.md",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/methods.md",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/research.md",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/review.md",
+    "skill-candidate/nature-polishing/static/fragments/section/conclusion.md",
+    "skill-candidate/nature-polishing/static/fragments/section/discussion.md",
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md",
+    "skill-candidate/nature-polishing/static/fragments/section/methods.md",
+    "skill-candidate/nature-polishing/static/fragments/section/related-work.md",
+    "skill-candidate/nature-polishing/static/fragments/section/results.md",
+    "skill-candidate/nature-polishing/static/fragments/section/title.md",
+    "skill-candidate/nature-shared/README.md",
+    "skill-candidate/nature-shared/README_EN.md",
+    "skill-candidate/nature-shared/SKILL.md",
+    "skill-candidate/nature-shared/agents/openai.yaml",
+    "skill-candidate/nature-shared/core/consistency-sweep.md",
+    "skill-candidate/nature-shared/core/discussion-argument-language.md",
+    "skill-candidate/nature-shared/core/ethics.md",
+    "skill-candidate/nature-shared/core/main-text-discipline.md",
+    "skill-candidate/nature-shared/core/nature-abstract.md",
+    "skill-candidate/nature-shared/core/nature-introduction.md",
+    "skill-candidate/nature-shared/core/nature-results-discussion.md",
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+    "skill-candidate/nature-shared/core/reader-workflow.md",
+    "skill-candidate/nature-shared/core/research-compliance.md",
+    "skill-candidate/nature-shared/core/robotics-main-text.md",
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+    "skill-candidate/nature-shared/core/scientific-expression.md",
+    "skill-candidate/nature-shared/core/terminology-ledger.md",
+    "skill-candidate/nature-shared/journal-formats/nat-comms.md",
+    "skill-candidate/nature-shared/journal-formats/nature-machine-intelligence.md",
+    "skill-candidate/nature-shared/journal-formats/nature.md",
+    "skill-candidate/nature-shared/manifest.yaml",
+    "skill-candidate/nature-shared/scripts/check_consistency.py",
+    "skill-candidate/nature-shared/tests/test_check_consistency.py",
+    "skill-candidate/nature-writing/README.md",
+    "skill-candidate/nature-writing/README_EN.md",
+    "skill-candidate/nature-writing/SKILL.md",
+    "skill-candidate/nature-writing/agents/openai.yaml",
+    "skill-candidate/nature-writing/references/abstract.md",
+    "skill-candidate/nature-writing/references/article-architecture.md",
+    "skill-candidate/nature-writing/references/chinese-author-workflow.md",
+    "skill-candidate/nature-writing/references/conclusion.md",
+    "skill-candidate/nature-writing/references/examples/abstract-examples.md",
+    "skill-candidate/nature-writing/references/examples/abstract/template-a.md",
+    "skill-candidate/nature-writing/references/examples/abstract/template-b.md",
+    "skill-candidate/nature-writing/references/examples/abstract/template-c.md",
+    "skill-candidate/nature-writing/references/examples/index.md",
+    "skill-candidate/nature-writing/references/examples/introduction-examples.md",
+    "skill-candidate/nature-writing/references/examples/introduction/novel-task-challenge-decomposition.md",
+    "skill-candidate/nature-writing/references/examples/introduction/pipeline-not-recommended-abstract-only.md",
+    "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md",
+    "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-2-two-contributions.md",
+    "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md",
+    "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-4-observation-driven.md",
+    "skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-1-existing-task.md",
+    "skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md",
+    "skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-3-novel-task.md",
+    "skill-candidate/nature-writing/references/examples/introduction/version-1-task-then-application.md",
+    "skill-candidate/nature-writing/references/examples/introduction/version-2-application-first.md",
+    "skill-candidate/nature-writing/references/examples/introduction/version-3-general-to-specific-setting.md",
+    "skill-candidate/nature-writing/references/examples/introduction/version-4-open-with-challenge.md",
+    "skill-candidate/nature-writing/references/examples/method-examples.md",
+    "skill-candidate/nature-writing/references/examples/method/example-of-the-three-elements.md",
+    "skill-candidate/nature-writing/references/examples/method/method-writing-common-issues-note.md",
+    "skill-candidate/nature-writing/references/examples/method/module-design-instant-ngp.md",
+    "skill-candidate/nature-writing/references/examples/method/module-motivation-patterns.md",
+    "skill-candidate/nature-writing/references/examples/method/module-triad-neural-body.md",
+    "skill-candidate/nature-writing/references/examples/method/neural-body-annotated-figure-text.md",
+    "skill-candidate/nature-writing/references/examples/method/overview-template.md",
+    "skill-candidate/nature-writing/references/examples/method/pre-writing-questions.md",
+    "skill-candidate/nature-writing/references/examples/method/section-skeleton.md",
+    "skill-candidate/nature-writing/references/experiments.md",
+    "skill-candidate/nature-writing/references/introduction.md",
+    "skill-candidate/nature-writing/references/method.md",
+    "skill-candidate/nature-writing/references/nat-comms-2025-corpus.md",
+    "skill-candidate/nature-writing/references/nature-summary-paragraph.md",
+    "skill-candidate/nature-writing/references/paper-review.md",
+    "skill-candidate/nature-writing/references/paragraph-flow.md",
+    "skill-candidate/nature-writing/references/related-work.md",
+    "skill-candidate/nature-writing/references/submission-package.md",
+    "skill-candidate/nature-writing/static/core/output-format.md",
+    "skill-candidate/nature-writing/static/core/stance.md",
+    "skill-candidate/nature-writing/static/core/workflow.md",
+    "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+    "skill-candidate/nature-writing/static/fragments/journal/nat-comms.md",
+    "skill-candidate/nature-writing/static/fragments/journal/nat-mach-intell.md",
+    "skill-candidate/nature-writing/static/fragments/journal/nature-family.md",
+    "skill-candidate/nature-writing/static/fragments/journal/nature.md",
+    "skill-candidate/nature-writing/static/fragments/language/en.md",
+    "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+    "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md",
+    "skill-candidate/nature-writing/static/fragments/paper_type/hypothesis.md",
+    "skill-candidate/nature-writing/static/fragments/paper_type/methods.md",
+    "skill-candidate/nature-writing/static/fragments/paper_type/research.md",
+    "skill-candidate/nature-writing/static/fragments/paper_type/review.md",
+    "skill-candidate/nature-writing/static/fragments/section/conclusion.md",
+    "skill-candidate/nature-writing/static/fragments/section/discussion.md",
+    "skill-candidate/nature-writing/static/fragments/section/experiments.md",
+    "skill-candidate/nature-writing/static/fragments/section/intro.md",
+    "skill-candidate/nature-writing/static/fragments/section/method.md",
+    "skill-candidate/nature-writing/static/fragments/section/related-work.md",
+    "skill-candidate/nature-writing/static/fragments/section/title.md",
+    "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+    "skill-candidate/nature-writing/static/fragments/task/submission-package.md",
+    "skill-candidate/nature-writing/templates/submission/declarations-and-reviewers.tex",
+    "skill-candidate/nature-writing/templates/submission/highlights-and-summary.tex",
+    "skill-candidate/nature-writing/templates/submission/initial-cover-letter.tex",
+    "skill-candidate/nature-writing/templates/submission/title-page.tex"
+  ],
+  "routers_workflows_examples_scientific_expression_and_guarantees_unchanged": true,
+  "utf8_actual_powershell_returns": [
+    {
+      "path": "nature-writing/manifest.yaml",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    },
+    {
+      "path": "nature-polishing/manifest.yaml",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    },
+    {
+      "path": "nature-writing/static/fragments/section/abstract.md",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    },
+    {
+      "path": "nature-polishing/static/fragments/section/abstract.md",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    },
+    {
+      "path": "nature-shared/core/abstract-delivery.md",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    }
+  ],
+  "quick_validate": [
+    {
+      "role": "nature-writing",
+      "exit_code": 0,
+      "stdout": "Skill is valid!\r\n"
+    },
+    {
+      "role": "nature-polishing",
+      "exit_code": 0,
+      "stdout": "Skill is valid!\r\n"
+    }
+  ],
+  "two_routes": [
+    {
+      "skill": "nature-writing",
+      "case": "abstract-delivery",
+      "resolved_request": {
+        "id": "abstract-delivery",
+        "sections": [
+          "abstract"
+        ],
+        "language": "zh-to-en",
+        "journal": "generic",
+        "abstract_references": [
+          "A06",
+          "A07",
+          "A08"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/zh-to-en.md",
+          "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "99f935dae9ce29da0848eca1f0d2b4fbc9eee07d0f58e0c35abfed4a85fdc572"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A07": "cb2bc59cf49d8d5c60321acb336407af10b7c90aadaa3e25961d1555bbde9314",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "90e463ff2cc34cf39b04c25f19e37b92696ec16f5a702d4964d1e94493dd3b6a"
+        }
+      ]
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-delivery",
+      "resolved_request": {
+        "id": "abstract-delivery",
+        "sections": [
+          "abstract"
+        ],
+        "language": "zh-to-en",
+        "journal": "generic",
+        "abstract_references": [
+          "A06",
+          "A07",
+          "A08"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/zh-to-en.md",
+          "sha256": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A07": "cb2bc59cf49d8d5c60321acb336407af10b7c90aadaa3e25961d1555bbde9314",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        }
+      ]
+    }
+  ],
+  "relocated_routes_identical": true,
+  "relative_delivery_links_resolve": true,
+  "changed_files_sha256": {
+    "skill-candidate/nature-writing/manifest.yaml": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2",
+    "skill-candidate/nature-polishing/manifest.yaml": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35",
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md": "99f935dae9ce29da0848eca1f0d2b4fbc9eee07d0f58e0c35abfed4a85fdc572",
+    "skill-candidate/nature-polishing/static/fragments/section/abstract.md": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc",
+    "skill-candidate/nature-shared/core/abstract-delivery.md": "e151edf22321755383a854c982abbfa5eba3d7a63ea9239bef31982aaca97219"
+  },
+  "effect_verdict": "No effect conclusion from implementation or loading"
+}
