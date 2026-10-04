@@ -1,0 +1,47 @@
+{
+  "scope": "Coordinator-only E02 scientific meaning check; not supplied to writer",
+  "source_path": "effect-test/E02-abstract-materials-2026-10-03/source/full-text.txt",
+  "source_sha256": "b616ad345f73b0eed227d89a704c9fb33212f24d5e7803436a6075b9d292ace2",
+  "logical_line_numbering": "Universal newlines decoded; empty lines omitted",
+  "checks": [
+    {
+      "id": "original_contribution_hierarchy",
+      "anchor": "With the above discussion, we highlight the contributions",
+      "nonempty_logical_line_range": [
+        140,
+        155
+      ],
+      "excerpt": "or the machine learning approaches.\nWith the above discussion, we highlight the contributions\nof this paper as follows.\n1) Physical robot–environment interaction is investigated,\nwhere the environment is described as a time-varying\nsystem in the state-space form.\n2) Impedance learning is proposed to iteratively adjust the\nimpedance parameters of the robot arm, such that the\ndesired impedance model is obtained despite unknown\nenvironments.\n3) Adaptive control is developed for the position control in\nthe two-loop control framework, and trajectory tracking\nis achieved without using the regressor.\nThe rest of this paper is organized as follows. In Section II,\nthe system overview of a robot interacting with unknown\nenvironments is given, and the control objective is discussed."
+    },
+    {
+      "id": "feedback_learning_advantage",
+      "anchor": "Remark 3:",
+      "nonempty_logical_line_range": [
+        468,
+        480
+      ],
+      "excerpt": ". (19)\nRemark 3: It is found that the above learning law has a\nsimple formulation, which is developed based on the sen-\nsory feedback from the environment instead of modeling the\nenvironment. The sensory feedback includes the position and\nvelocity errors eq(t) and ėq(t), which are, respectively, used\nto update Gd(t) and Cd(t). It may also include the force error\ne f (t) = fd(t) − f (t), which is introduced by the defined\ncost function \u0006(t). However, learning rates βC and βG are\nopen parameters, which are difficult to tune in sophisticated\ntasks [44]. Further investigations on this issue are needed in\npractical implementations.\nRemark 4: As the gradient of reinforcement ∂\u0006k(t)/∂ f k(t)"
+    },
+    {
+      "id": "avoid_internal_model_gradient_estimation",
+      "anchor": "Remark 4:",
+      "nonempty_logical_line_range": [
+        480,
+        499
+      ],
+      "excerpt": "Remark 4: As the gradient of reinforcement ∂\u0006k(t)/∂ f k(t)\nis difficult to obtain in the presence of unknown environ-\nments, various estimation methods have been proposed in the\nliterature. In [23], ∂\u0006k(t)/∂ f k(t) is estimated based on an\ninternal model, which is identified from the data collection\nof input f k(t) and output \u0006k(t). Suppose that the internal\nmodel is obtained as ˆ\n\u0006k(t) = ϕT f k(t), then the gradient of\nreinforcement is estimated as ∂ ˆ\n\u0006k(t)/∂ f k(t) = ϕT . In this\npaper, however, we employ the betterment scheme, as stated\nin Lemma 1. Under the betterment scheme, a time series of\ninput signal to a plant is iteratively updated using an error\nsignal between the output signal and the target signal such\nthat the output signal at the next iteration approaches the target\nsignal [21]. As a result, the estimation process is avoided.\nIV. POSITION CONTROL\nAs Md , Cd, and Gd have been obtained through the outer-\nloop impedance learning, the virtual desired trajectory qr is\nobtained according to the impedance model (5). Position"
+    },
+    {
+      "id": "inner_loop_guarantee",
+      "anchor": "Theorem 1:",
+      "nonempty_logical_line_range": [
+        616,
+        640
+      ],
+      "excerpt": "The updating law for k̂(t) is developed as\n˙\nk̂(t) = S−1\nȳ(t) (29)\nwhere S is a positive definite matrix and ȳ(t) =\n[y1(t)sgn(y1(t)), . . . , yn(t)sgn(yn(t))]T . Note that after k̂(t)\nis obtained from (29), K̂(t) in (27) is obtained as K̂(t) =\ndiag(k̂(t)).\nConsidering (3) and the control input (27), the closed-loop\nsystem dynamics are obtained as\nM(q(t))q̈(t) + C(q(t), q̇(t))q̇(t) + G(q(t))\n−KpSinvec(e(t)) − Kdė(t) + K̂(t)sgnvec(y(t)) = 0. (30)\nTheorem 1: Given the dynamics (3), with the developed\ncontrol (27) and updating law (29), position control of the\nrobot arm is achieved, i.e., limt→∞ e(t) = 0. In addition, all\nthe signals in the closed-loop system (30) are bounded.\nProof: See Appendix B.\nRemark 5: In [35], τ(t) = KpSinvec(e(t)) + Kdė(t) +\nY(q̈r(t), q̇r (t), qr (t))θ̂(t)+ f (t) with the updating law θ̂(t) =\n−S−1Y T (q̈r(t), q̇r (t), qr (t))y(t). θ̂(t) is the estimate of θ ∈\nRnθ , θ is a vector of the physical parameters of the robot arm,\nnθ is a positive integer denoting the number of these parame-\nters, and Y(q̈(t), q̇(t), q(t)) ∈ Rn×nθ is the regression matrix.\nIt employs the linear-in-parameter property, which causes a\ndifficulty especially when the robot has a high DOF, because"
+    }
+  ],
+  "target_original_abstract_read_for_this_check": false,
+  "writer_received_this_record": false,
+  "independent_theorem_reproof": false
+}

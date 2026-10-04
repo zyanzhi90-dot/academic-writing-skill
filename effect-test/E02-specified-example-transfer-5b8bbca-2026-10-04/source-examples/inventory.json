@@ -1,0 +1,18 @@
+[
+  {
+    "id": "A06",
+    "source": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+    "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+    "full_text_sha256": "9be7ed4d6f53dacf9757d8902aec6e0b85dd299254b5697b84c3d16d5b4ddd98",
+    "pages": 11,
+    "method": "pdftotext -raw -enc UTF-8; page markers; no prose editing"
+  },
+  {
+    "id": "A07",
+    "source": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+    "pdf_sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+    "full_text_sha256": "0645afde2c9128ec5a77548e96d69bcb0e54e047f993f7583cfcc9f05ec53636",
+    "pages": 12,
+    "method": "pdftotext -raw -enc UTF-8; page markers; no prose editing"
+  }
+]

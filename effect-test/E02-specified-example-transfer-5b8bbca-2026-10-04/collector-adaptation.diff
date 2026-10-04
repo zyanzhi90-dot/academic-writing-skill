@@ -1,0 +1,33 @@
+--- existing-E02/collect_loading.py
++++ new-record/collect_loading.py
+@@ -12,6 +12,12 @@
+ events = [json.loads(line) for line in (dest / "events.jsonl").read_text(encoding="utf-8").splitlines()]
+ commands, mismatches, unmatched_numbered, types = [], [], [], {}
+ example_reads = []
++
++def physical_lines(value):
++    """PowerShell line numbering uses newline boundaries, not PDF math control characters."""
++    parts = value.split("\n")
++    return parts[:-1] if value.endswith("\n") else parts
++
+ for event in events:
+     if event.get("type") != "item.completed":
+         continue
+@@ -47,7 +53,7 @@
+         for name, read_fragment in operations:
+             if name.endswith(".pdf"):
+                 continue
+-            source_lines = (material / name).read_text(encoding="utf-8").splitlines()
++            source_lines = physical_lines((material / name).read_text(encoding="utf-8"))
+             skip = re.search(r"-Skip\s+(\d+)", read_fragment, re.I) if len(paths) == 1 else None
+             first = re.search(r"-First\s+(\d+)", read_fragment, re.I) if len(paths) == 1 else None
+             total = re.search(r"-TotalCount\s+(\d+)", read_fragment, re.I) if len(paths) == 1 else None
+@@ -75,7 +81,7 @@
+             ranges[-1][1] = number
+         else:
+             ranges.append([number, number])
+-    sources = {name: (material / name).read_text(encoding="utf-8").splitlines()
++    sources = {name: physical_lines((material / name).read_text(encoding="utf-8"))
+                for name in paths if not name.endswith(".pdf")}
+     if numbered and not sources:
+         unmatched_numbered.append(item.get("id"))

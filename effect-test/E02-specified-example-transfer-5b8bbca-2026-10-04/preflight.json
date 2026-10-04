@@ -1,0 +1,26 @@
+{
+  "local_and_remote_head": "c7e13316949ce4268195dd186ac53eca2dfba52b",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "run_kind": "specified-example-transfer-route-validation",
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "candidate_copies_byte_identical_to_git_objects": true,
+  "original_facts_experience_core_requirements_byte_preserved": true,
+  "writer_input_names": [
+    "author-request.txt",
+    "core-requirements.txt",
+    "personal-experience.txt",
+    "scientific-facts.md",
+    "task.md"
+  ],
+  "complete_reference_ids": [
+    "A06",
+    "A07"
+  ],
+  "example_analysis_contains_no_E02_scientific_content_or_mainline": true,
+  "old_draft_prewritten_mainline_target_original_and_old_evaluations_excluded": true,
+  "materials_file_count": 110,
+  "independent_invocations_before_run": 0
+}

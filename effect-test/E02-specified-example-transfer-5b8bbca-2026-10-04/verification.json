@@ -1,0 +1,120 @@
+{
+  "observed_at_utc": "2026-10-04T03:58:48.759626+00:00",
+  "record_kind": "指定范例迁移路线验证",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "preparation_commit": "c7e13316949ce4268195dd186ac53eca2dfba52b",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "resolved_backend_model_not_independently_reported": true,
+  "thread_started_count": 1,
+  "turn_started_count": 1,
+  "turn_completed_count": 0,
+  "turn_failed_count": 0,
+  "original_process_exit_code": null,
+  "original_exit_code_reason": "No run-meta.json or terminal turn event retained; exit code cannot be reconstructed",
+  "complete_first_output_exists": false,
+  "original_run_meta_exists": false,
+  "status": "Incomplete single invocation; transport errors precede missing final output",
+  "error_events": [
+    {
+      "type": "error",
+      "message": "Reconnecting... 2/5 (stream disconnected before completion: 由于目标计算机积极拒绝，无法连接。 (os error 10061))"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 3/5 (stream disconnected before completion: 由于目标计算机积极拒绝，无法连接。 (os error 10061))"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 4/5 (stream disconnected before completion: IO error: 远程主机强迫关闭了一个现有的连接。 (os error 10054))"
+    },
+    {
+      "type": "error",
+      "message": "Reconnecting... 5/5 (stream disconnected before completion: 由于目标计算机积极拒绝，无法连接。 (os error 10061))"
+    },
+    {
+      "type": "item.completed",
+      "item": {
+        "id": "item_43",
+        "type": "error",
+        "message": "Falling back from WebSockets to HTTPS transport. stream disconnected before completion: 由于目标计算机积极拒绝，无法连接。 (os error 10061)"
+      }
+    }
+  ],
+  "candidate_files_checked": 100,
+  "candidate_mismatches": [],
+  "materials_inventory_matches": true,
+  "runtime_inventory_matches": true,
+  "input_mismatches": [],
+  "example_analysis_matches": true,
+  "examples": [
+    {
+      "id": "A06",
+      "original_pdf_matches": true,
+      "record_pdf_matches": true,
+      "record_text_matches": true
+    },
+    {
+      "id": "A07",
+      "original_pdf_matches": true,
+      "record_pdf_matches": true,
+      "record_text_matches": true
+    }
+  ],
+  "actual_read_coverage": [
+    {
+      "id": "A06",
+      "scientific_text_through_conclusion": [
+        1,
+        1050
+      ],
+      "command_ids": [
+        "item_26",
+        "item_29",
+        "item_31",
+        "item_34",
+        "item_36",
+        "item_38"
+      ],
+      "unreturned_nonblank_lines": [],
+      "complete_scientific_text_returned": true
+    },
+    {
+      "id": "A07",
+      "scientific_text_through_conclusion": [
+        1,
+        1242
+      ],
+      "command_ids": [
+        "item_28",
+        "item_30",
+        "item_32",
+        "item_33",
+        "item_35",
+        "item_39",
+        "item_40"
+      ],
+      "unreturned_nonblank_lines": [],
+      "complete_scientific_text_returned": true
+    }
+  ],
+  "runner_matches_frozen_hash": true,
+  "helper_matches_frozen_hash": true,
+  "protected_project_files_checked": 3462,
+  "protected_project_changes": [],
+  "installed_skill_changes": [],
+  "raw_record_sha256": {
+    "events.jsonl": "e6c7f8979c5b385b39218c1e5a4e63539ac40d980df8ecb99bfd2148f88626a0",
+    "stderr.txt": "a37576f7ec60b553a29a4f9721e29da7e833019aeb567aec588686d003f41bbf",
+    "execution-command.json": "d5ae39cb48347ab2b45b3364ec724a6661081d9e884d9b59e6efafb731ca7fbc",
+    "execution-prompt.txt": "b5a62fbdbf35ef5c78a3205b1f15636335707beef040399a6e3f69b64cfc53e6",
+    "frozen-run.json": "cbe0cd11713edc5855016c7f0f6b052db3e5ee873f66b76b17c9b942b1e79477"
+  },
+  "new_writer_invocations_during_record_recovery": 0,
+  "feedback_added_to_writer": false,
+  "old_draft_used": false,
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "prose_quality_verdict": "Not assessable: no complete first English abstract or translation",
+  "evidence_limit": "Material return and unchanged bytes can be checked. Progress self-reports do not establish final prose, phrase-level adaptation, comprehension, backend resolution or OS-level isolation."
+}

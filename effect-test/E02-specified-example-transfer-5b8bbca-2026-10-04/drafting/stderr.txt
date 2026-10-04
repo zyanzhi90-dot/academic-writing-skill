@@ -1,0 +1,5 @@
+Reading additional input from stdin...
+2026-10-03T17:19:53.868480Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: 由于目标计算机积极拒绝，无法连接。 (os error 10061), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-03T17:19:56.309316Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: 由于目标计算机积极拒绝，无法连接。 (os error 10061), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-03T17:21:32.114462Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: 由于目标计算机积极拒绝，无法连接。 (os error 10061), url: wss://chatgpt.com/backend-api/codex/responses
+2026-10-03T17:21:37.066175Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: IO error: 由于目标计算机积极拒绝，无法连接。 (os error 10061), url: wss://chatgpt.com/backend-api/codex/responses

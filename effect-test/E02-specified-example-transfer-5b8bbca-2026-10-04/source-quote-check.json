@@ -1,0 +1,91 @@
+{
+  "scope": "Exact full-sentence quotations after joining layout line breaks and line-end split words",
+  "checks": [
+    {
+      "example": "A06",
+      "sentence": 1,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 2,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 3,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 4,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 5,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 6,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 7,
+      "matches_source": true
+    },
+    {
+      "example": "A06",
+      "sentence": 8,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 1,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 2,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 3,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 4,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 5,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 6,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 7,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 8,
+      "matches_source": true
+    },
+    {
+      "example": "A07",
+      "sentence": 9,
+      "matches_source": true
+    }
+  ],
+  "potential_credential_files": []
+}
