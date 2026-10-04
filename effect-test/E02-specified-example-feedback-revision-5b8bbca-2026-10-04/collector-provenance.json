@@ -1,0 +1,5 @@
+{
+  "source": "effect-test/E02-specified-example-transfer-5b8bbca-2026-10-04/collect_loading.py",
+  "source_sha256": "936415d6a4f15fbe373292bd1430a4b9d8cefaa62b066b34e582b5522a3b0cba",
+  "only_context_change": "__file__ resolves RECORD to new feedback record; auditor source unchanged"
+}

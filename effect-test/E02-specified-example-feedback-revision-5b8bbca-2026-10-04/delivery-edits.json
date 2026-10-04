@@ -1,0 +1,24 @@
+{
+  "scope": "Two coordinator delivery edits after one model revision; no second model invocation",
+  "source": "drafting/first-output.md",
+  "source_sha256": "044a822f21a9b8353b05dbca2574e8d66fb8c48b3824f8c1e3ed366ff4589576",
+  "delivery": "反馈修订稿.md",
+  "delivery_sha256": "19cecdfd5126e1d506fe6027f8d0413d61dc5363016d7a6334183fbdef64eaec",
+  "edits": [
+    {
+      "before": "proportional–derivative (PD)-like control",
+      "after": "PD-like control",
+      "reason": "Use the control category explicitly requested by the author and used in E02 §IV.A. The expanded name with (PD)-like makes the category needlessly awkward; no later standalone PD abbreviation requires this expansion."
+    },
+    {
+      "before": "类比例—微分控制加入了自适应补偿，以补偿机器人不确定动力学的影响",
+      "after": "类比例—微分控制通过自适应补偿应对机器人不确定动力学的影响",
+      "reason": "Remove the consecutive repetition of 补偿 while retaining the same control category, compensation mechanism, scientific object and purpose as the English sentence."
+    }
+  ],
+  "added_rationale": "Final delivery-check bullet only",
+  "raw_model_output_unchanged": true,
+  "run_kind": "人工反馈修订",
+  "autonomous_pass": false,
+  "transfer_pass": false
+}

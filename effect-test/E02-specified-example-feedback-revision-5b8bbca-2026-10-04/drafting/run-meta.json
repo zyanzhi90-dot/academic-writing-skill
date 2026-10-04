@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "duration_seconds": 265.62,
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "run_kind": "人工反馈修订",
+  "revision_invocation": 1,
+  "first_output_exists": true,
+  "no_output_editing_or_selection": true,
+  "autonomous_pass": false,
+  "transfer_pass": false
+}

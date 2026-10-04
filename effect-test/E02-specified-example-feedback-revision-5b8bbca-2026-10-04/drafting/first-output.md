@@ -1,0 +1,16 @@
+**English abstract**
+
+This paper proposes an impedance learning and adaptive position control scheme for rigid manipulators interacting with unknown, time-varying environments. Gradient following and iterative improvement are integrated to adjust the desired damping and stiffness over repeated interactions according to a task-dependent interaction error cost. For an environment represented by a linear time-varying model, the iterative improvement scheme uses output errors and their rates of change to update the impedance without identifying an internal model of the environment. An adaptive position controller is designed for the manipulator to track the virtual reference trajectory generated from the learned impedance. In this controller, proportional–derivative (PD)-like control is augmented with adaptive compensation for the effects of uncertain robot dynamics, without requiring a robot dynamics regressor or prior numerical bounds on the robot dynamics. The inner-loop stability analysis shows that the manipulator asymptotically tracks the virtual reference trajectory and the closed-loop signals remain bounded if the reference velocity and acceleration are bounded and the control and adaptation parameters are suitably chosen. Numerical simulations and human–robot interaction experiments on the Nancy robot demonstrate that the impedance learning scheme adjusts the trade-off between tracking accuracy and compliance according to the task weights.
+
+**中文译文**
+
+本文提出一种阻抗学习与自适应位置控制方案，用于刚性机械臂与未知时变环境的交互。该方案结合梯度跟随与迭代改进，根据与任务相关的交互误差代价，在重复交互中调整期望阻尼和刚度。对于以线性时变模型表示的环境，迭代改进方案利用输出误差及其变化率更新阻抗，无需辨识环境的内部模型。所设计的自适应位置控制器使机械臂跟踪由所学阻抗生成的虚拟参考轨迹。在该控制器中，类比例—微分控制加入了自适应补偿，以补偿机器人不确定动力学的影响，无需机器人动力学回归矩阵，也无需预先给定机器人动力学界限的具体数值。内环稳定性分析表明，若参考速度和加速度有界，且控制与自适应参数选取适当，则机械臂渐近跟踪虚拟参考轨迹，闭环信号保持有界。数值仿真和 Nancy 机器人的人机交互实验表明，阻抗学习方案能够根据任务权重调整跟踪精度与柔顺性之间的取舍。
+
+**修改依据**
+
+本稿属于**人工反馈修订**，不计作现有 Skill 自主写作通过证据。
+
+- **保留 S1、S2、S4：** 原句已准确交代研究对象、任务代价驱动的阻抗学习，以及学习输出—虚拟参考—位置控制的衔接。继续沿用 A06 摘要 S5–S7 的输出交接及 `is designed … to track …`、`In this controller`，保留 `rigid` 对机械臂动力学范围的限定。
+- **压缩 S3：** 省去质量—阻尼—弹簧的逐项模型名称，保留线性时变范围及输出误差、误差变化率，解释免环境模型辨识的依据。S2–S3 延续 A07 摘要 S5–S6 的“设计—信息—作用”关系，不因都涉及更新而合并。
+- **纠正 S5、整理 S6：** 将普通 PD control 改为 PD-like control，明确补偿对象是机器人不确定动力学的影响，对应 A06 的 `compensate for the effect`。理论句参照 A06 正文的有界结论与 `if the input signals … are bounded` 条件句，并结合 A07 Theorem 1 的条件—结论关系，保留内环渐近跟踪、信号有界及必要参数条件。
+- **修正 S7：** 沿用 A07 的证据主体—`demonstrate`—结论句法，将 `favors trajectory accuracy or compliance` 改为按任务权重调整跟踪精度—柔顺性取舍，并整理人机交互实验称谓；不展开全部权重曲线，也不增加全局最优或全部实验代价下降的主张。

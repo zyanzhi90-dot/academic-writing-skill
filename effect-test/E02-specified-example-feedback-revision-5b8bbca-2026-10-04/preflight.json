@@ -1,0 +1,17 @@
+{
+  "observed_at_utc": "2026-10-04T04:43:45.225201+00:00",
+  "run_kind": "人工反馈修订",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "single_revision_invocation": true,
+  "candidate_byte_identical_to_git": true,
+  "draft_and_scientific_inputs_byte_preserved": true,
+  "material_file_count": 111,
+  "runner_sha256": "9d8552f4c2f49cba4e35cc8ed99059417594188b335f2cf16f4aaf364b4e0dfd",
+  "cli_sha256": "52f75c649bebb8001102a1dd129c1ea6d02b0940321e6d7e82ee0526753bd58a",
+  "cli_version": "codex-cli 0.159.2",
+  "prompt_sha256": "bb71cc2a43309b3cc427fa1365bee7f632f1e589ab0d0fb31da52be13e52f3cf",
+  "autonomous_pass": false,
+  "transfer_pass": false
+}

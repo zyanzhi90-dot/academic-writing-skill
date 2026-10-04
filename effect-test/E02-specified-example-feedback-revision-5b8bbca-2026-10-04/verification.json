@@ -1,0 +1,70 @@
+{
+  "run_kind": "人工反馈修订",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "thread_ids": [
+    "01a10539-a513-76e3-a135-b147f28456e7"
+  ],
+  "turn_started_count": 1,
+  "turn_completed_count": 1,
+  "exit_code": 0,
+  "first_output_matches_final_event": true,
+  "input_changes": [],
+  "protected_project_changes": [],
+  "installed_skill_changes": [],
+  "runtime_unchanged": true,
+  "scientific_source_coverage": [
+    {
+      "id": "A06",
+      "scientific_text_range": [
+        1,
+        1050
+      ],
+      "unreturned_nonblank_lines": []
+    },
+    {
+      "id": "A07",
+      "scientific_text_range": [
+        1,
+        1242
+      ],
+      "unreturned_nonblank_lines": []
+    }
+  ],
+  "text_mismatches": [],
+  "unmapped_numbered_returns": [],
+  "actual_complete_example_cards": [
+    "A06",
+    "A07"
+  ],
+  "raw_records_sha256": {
+    "first-output.md": "044a822f21a9b8353b05dbca2574e8d66fb8c48b3824f8c1e3ed366ff4589576",
+    "events.jsonl": "593875acd0b10d394c97d6cbcd71f9ed9373f273895d05ce8d462736b6d3b1bd",
+    "stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "execution-command.json": "0b3b859404590dee08f320c95e14dd14d3ef4f2ae03f8ee192a1306ef5296e19",
+    "execution-prompt.txt": "bb71cc2a43309b3cc427fa1365bee7f632f1e589ab0d0fb31da52be13e52f3cf",
+    "run-meta.json": "8d341fe1dfc57aa2b585d2a758461b87ff8b4eb893209e1e19f382ec9e0324a0"
+  },
+  "runner_hash_matches_preflight": true,
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "evidence_limit": "Unchanged inputs and source text returns can be verified; no OS-level isolation, independent backend resolution or autonomous-pass inference claimed.",
+  "sections": [
+    {
+      "file": "abstract.en.txt",
+      "sha256": "49ee8e123ef02cd1709d1631bd368fabb569b2fd988d8f3b5803655c154bca36",
+      "exact_output_substring_except_terminal_newline": true
+    },
+    {
+      "file": "abstract.zh.txt",
+      "sha256": "00898f5f6adbf7c960f05669c237340d54eb1b7214a87d160dc992ea49ce9f4a",
+      "exact_output_substring_except_terminal_newline": true
+    },
+    {
+      "file": "change-rationale.txt",
+      "sha256": "3c36065518384483e0eebf79d5a429ceaa488dc033e199f4aa271150107dde73",
+      "exact_output_substring_except_terminal_newline": true
+    }
+  ]
+}
