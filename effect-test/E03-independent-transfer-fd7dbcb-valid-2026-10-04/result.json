@@ -1,0 +1,20 @@
+{
+  "run_kind": "E03-independent-transfer",
+  "execution_valid": true,
+  "frozen_candidate_commit": "fd7dbcb7f8c6bc5d40e2396c2aa9f3571cbb3eee",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "attempts_this_authorized_valid_test": 1,
+  "original_invalid_record_preserved": true,
+  "correct_original_facts_reused": true,
+  "first_output_preserved": true,
+  "first_output_sha256": "923b4a5b5a6dc9a4b9397ef0e1ca417888af15a65843178c1c9ff1ca0ea60e7b",
+  "english_words": 199,
+  "english_sentences": 9,
+  "coordination_verdict": "Pass recommended within this single abstract task; independent owner acceptance pending",
+  "mandatory_human_revision": "None identified",
+  "optional_author_style_revision": "May shorten or omit the separately scoped sim-to-real evidence according to emphasis; no revision performed",
+  "new_example_added_only_after_first_output": true,
+  "new_example_effect_pass_claimed": false,
+  "skill_installed": false
+}

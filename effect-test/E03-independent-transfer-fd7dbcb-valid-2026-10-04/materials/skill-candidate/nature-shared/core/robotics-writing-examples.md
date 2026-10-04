@@ -121,8 +121,6 @@ the manuscript. Do not write descriptions of the supplied notes into prose.
 
 以 A06（*Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives*）作为默认摘要语言风格锚点：借鉴明确的主语—动作—对象、普通学术搭配和连续句的对象交接，不要求当前研究也有两个组件。A07（*Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion*）新增为核心模仿对象，提供反复命名科学对象、设计—作用推进、分析及验证的实际英文。A02（*Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance*）、A04（*Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities*）和 A05（*Human-Like Adaptation of Force and Impedance in Stable and Unstable Interactions*）仍是主要参考。根据当前科学内容选择、组合，并与 A06 的主要语言习惯协调；不需要每次读完五篇或复刻一个全段。A01、A03 按需补充合适的局部英文，不作为默认整体语言模型。
 
-A08（*Residual Reinforcement Learning for Robot Control*）按需补充已有方法互补、任务分工到信号组合的摘要写法；其正文 B14 说明耦合优化和比较结果如何接作用解释。不改变 A06 默认锚点或上述主要参考分工。
-
 摘要的信息取舍、方法优势、长度及验证表达由当前 `section/abstract.md` 承担，通用句法和对象清晰度由两端共同加载的 `scientific-expression.md` 承担。本文件提供实际英文和取舍，供两层规则按需适配，不另维护一套摘要或通用规范。
 
 ## Source conventions
@@ -134,12 +132,12 @@ A cards use the author's current abstract selections and retained local illustra
 | 当前任务 | 优先卡片 | 主要层级与选择条件 |
 |---|---|---|
 | 整体思路与证据分工 | B01、B13 | 全文／Section：双组件与构造依赖；与作者已有思路核对，不强制相同章序 |
-| 摘要 | A06 默认语言锚点；A07 核心对象／验证实现；A02、A04、A05 主要参考；A01、A03、A08 按需补充 | Paragraph 至 Phrase／Word，并核对全文承诺；按本文贡献选择具体英文及信息取舍，不强制同一结构 |
+| 摘要 | A06 默认语言锚点；A07 核心对象／验证实现；A02、A04、A05 主要参考；A01、A03 按需补充 | Paragraph 至 Phrase／Word，并核对全文承诺；按本文贡献选择具体英文及信息取舍，不强制同一结构 |
 | 引言／文献段落组 | B02、B03 | Section／Paragraph／连续句：按观测信息、控制动作及耦合问题组织 |
-| 方法段／公式前后 | B04、B06、B07；组合控制按需 B14 | Paragraph／连续句／Sentence：目的到输入输出、新条件到修正、目标到公式解释 |
+| 方法段／公式前后 | B04、B06、B07 | Paragraph／连续句／Sentence：目的到输入输出、新条件到修正、目标到公式解释 |
 | 科学决策的理由 | B05 | Paragraph 至 Phrase／Word：已有可行路线、实际限制、方法选择 |
 | 条件保证／判据 | B08、B09 | Section／连续句／Sentence：前提与结论、上下界及修正判据的范围 |
-| 比较结果 | B10、B12；作用解释按需 B14 | Paragraph 至 Phrase／Word：指标、对照、统计地位、消融控制与解释范围 |
+| 比较结果 | B10、B12 | Paragraph 至 Phrase／Word：指标、对照、统计地位、消融控制与解释范围 |
 | Discussion／Conclusion | B11 | 全文／Section／Paragraph／Sentence：综合、已知研究限制与结论回收 |
 
 Use the common instructions above during generation and before delivery; select relevant cards rather than reading all examples.
@@ -237,20 +235,6 @@ Use the common instructions above during generation and before delivery; select 
 **可迁移实现。** 可直接借鉴方法／对象开篇、`is divided into …`、`is developed for …`、`is employed … to …`、`is based on … such that …` 及分析／验证的普通句法，把科学内容全部替换为作者自己的。写下一句前确定当前动作属于哪个系统、方法、学习过程或分析，必要时重复其名称；不能只用 learned 等状态修饰代替对象类别。摘要验证默认优选本段的 `Numerical simulation results demonstrate …` 和 A04 的 `Experimental studies are also carried out to …`，分别适配实际观察结论与研究目的；前者的结果不能由后者的目的推出。按证据命名结果对象和支持的性质，不统一套成 validity 结尾。
 
 **取舍与变体。** 模仿其信息推进和普通英文，不把双臂分解、NN、历史数据、激励条件或 Lyapunov 分析迁入其他研究。原文的分系统冒号、长目的从句及多项并列不是必学形式；按通用核心拆解过载信息，保留条件的作用域。多个设计无需照抄本段的逐项篇幅，本文贡献及摘要目的决定取舍。`novel`、`inevitable`、`improve the convergence` 和 `validity` 需对应本稿自己的对象及支持；估计收敛、运动跟踪和闭环稳定不能互换。理论分析与数值模拟不自动成为实机实验，主动／被动及更具体的验证陈述均可保留。
-
-### A08｜互补方法：从已有能力与难点到任务分工和信号组合
-
-**功能／定位。** [RRL2019] *Residual Reinforcement Learning for Robot Control*，ICRA 2019，pp.6023–6029，DOI `10.1109/ICRA.2019.8794127`。采用本地出版版 PDF p.1／6023 的完整 Abstract，下接 §I；与作者 arXiv:1812.03201v2 的摘要经版面断词、连字及换行规范化后相同。正文页码以下均指出版版；核验文本为 `../../../analysis/reading/RRL2019.txt`，版本依据见 `../../../analysis/RRL2019-example-addition-2026-10-04/source-basis.md`。按需补充，不替换 A06 的默认语言锚点。
-
-> Conventional feedback control methods can solve various types of robot control problems very efficiently by capturing the structure with explicit models, such as rigid body equations of motion. However, many control problems in modern manufacturing deal with contacts and friction, which are difficult to capture with first-order physical modeling. Hence, applying control design methodologies to these kinds of problems often results in brittle and inaccurate controllers, which have to be manually tuned for deployment. Reinforcement learning (RL) methods have been demonstrated to be capable of learning continuous robot controllers from interactions with the environment, even for problems that include friction and contacts. In this paper, we study how we can solve difficult control problems in the real world by decomposing them into a part that is solved efficiently by conventional feedback control methods, and the residual which is solved with RL. The final control policy is a superposition of both control signals. We demonstrate our approach by training an agent to successfully perform a real-world block assembly task involving contacts and unstable objects.
-
-**贡献与内容选择。** §I（p.1／6023）、§III.A–B（p.3／6025）及 §VIII（p.6／6028）把主要贡献落实为固定反馈控制与可学习残差相加的控制方法：已有控制结构处理机器人几何目标，交互学习修正接触、摩擦及物体动力学。机器人与物体耦合，式(5)的组合输入仍须针对完整任务回报优化，不能把两项职责当作互不影响的优化问题。TD3、阻抗控制、神经网络和经验回放是已有工具；样本效率、错位适应及仿真到实机是该方法的支持，不另拆成多项基础算法发明。§VII（p.6／6028）明确有同期独立的 residual policy learning 工作，本文重心在真实接触任务训练，不能据标题宣称首创一切残差学习。
-
-**整段与连续句。** S1 的 `by capturing the structure with explicit models`先给常规控制的能力与依据；S2 `However … contacts and friction, which are difficult to capture …`保持同一控制问题，指出何种任务成分超出简单建模。S3 的 `Hence`只把这个难点接到 `these kinds of problems`下的控制器性能和部署调节，并非所有反馈控制均不可靠。S4 用 `have been demonstrated to be capable of learning … from interactions …, even for …`引入已有 RL 的互补能力，仍回接接触／摩擦。因而 S5 `by decomposing them into …`提出本文的职责安排时，两部分已有选择理由；不是先列工具再自称融合创新。S6 的 `The final control policy is a superposition of both control signals`把概念分工落实为相加输入，`both`有明确的两个先行对象，不能替换成前一模块输出交给后一模块的串联关系。S7 `We demonstrate our approach by training an agent to …`接真实任务证据，`involving contacts and unstable objects`回到前述难点；`unstable`修饰物体，不是闭环控制器。
-
-**支持与取舍。** 摘要为解释互补设计保留常规控制能力、接触难点、已有 RL 能力及组合关系，未展开 TD3、回放、奖励公式或调参步骤；也未列全部实验。§VI（pp.4–6／6026–6028）以样本／最终表现、错位插入、控制噪声及固定侧块迁移支持作用。出版摘要只说明成功任务，不报告具体对照数字；本文有关键比较时可以用准确结果替换这一概括。§III.A 的指数稳定论述限于忽略学习残差且子空间可稳定化的基准误差系统，不是完整学习闭环定理；实机噪声只测偏置，千步迁移只适用于固定侧块。不能从 `demonstrate`推出无条件稳定、安全或普适成功。
-
-**可迁移实现与变体。** 当作者确有已有方法互补关系，可从整段的“能力依据—任务难点—另一能力—职责安排—具体组合—验证”及这些连续句法出发，替换作者自己的对象、动作、作用和证据。`by`须分别承担真实机制、设计方式或验证方式，`which`须指向正确对象；配合 B14 核查分工是否仍受耦合约束。若读者已知背景，可直接提出方法，保留必要作用和组合关系；不把前三句设为配额。`very efficiently`、`brittle and inaccurate`和`have been demonstrated`各需作者材料支撑；不为模仿制造既有工作的缺陷或引用。成熟表达适用时直接沿用，原文背景铺垫及泛称成功并非必须照搬的长度或结尾。
 
 ## 正文：全文与章节组织
 
@@ -466,21 +450,9 @@ p.7 §V.A 首两句：
 
 **取舍与变体。** P19 significant and useful 不能替代具体范围，`cannot be easily generalized`需要本稿作者支持。P04 parlays／reap benefits 比本项目要求的朴素表达更修辞化，不列入推荐搭配；该文的明确 demonstrated 边界可学。独立 Discussion、实验内局部讨论、直接 Conclusion 均可能合理，按本文确需的解释选择。
 
-### B14｜组合控制：职责分工接耦合优化，比较结果接作用解释
-
-**功能／定位。** [RRL2019] 出版版 §III.A（PDF p.3／6025），式(5)及基准误差动态讨论之后的完整相邻三句；§VI.A（p.4／6026）首段前三句。前一处接控制组合为何仍需整体优化，后一处接所比较设计怎样减少从零学习的负担；不是同一连续段落。与 A08 共用原件和核验文本。
-
-> The residual controller πθ(sm, so) can now be used to maximize the reward term g(so) in (4). Since the control sequence (5) enters (1) through the dynamics of sm and sm is in fact the control input to the dynamics of so, we cannot simply use the a-priori hand-engineered feedback controller to achieve zero error of sm and independently achieve the control objective on so. Through the coupling of states we need to perform an overall optimization of (5), whereby the hand-engineered feedback controller provides internal structures and eases the optimization related to the reward term f(sm).
-
-> First, we compare residual RL and pure RL without a hand-engineered controller on the insertion task. Fig. 2 shows in simulation and real-world that residual RL achieves a better final performance and requires less samples than RL alone, both in simulation and on physical hardware. Unlike residual RL, the pure RL approach needs to learn the structure of the position control problem from scratch, which explains the difference in sample efficiency.
-
-**组织与句法。** 方法段先以 `The residual controller … can now be used to …`接前文职责；第二句 `Since …, we cannot … independently …`立即说明机器人状态 sm 与物体状态 so 的耦合为什么使独立完成两目标的直观理解失效。第三句 `Through the coupling of states … overall optimization …, whereby …`把该约束接到具体优化对象，同时保留基准结构仍能简化学习的作用。不能只摘第一句说学习仅优化物体奖励，也不能把 `overall`删成两个分别最优的控制器。比较段的 `we compare … on the insertion task`先确定对象与任务，`Fig. 2 shows … better … less … than …`报告两个实际指标，`Unlike … from scratch, which explains …`再将样本区别接到已有位置控制结构的作用；解释承接所测结果，不是另报未经比较的总体优越性。
-
-**可迁移实现与范围。** 作者确有耦合设计时，可借 `Since …`、`Through …, whereby …`或拆开的成熟用途句法，明确什么相互作用决定了哪项设计、该设计保留了什么优势。比较有支持的作用解释时，可沿用这组三句的比较对象—结果—作用关系；把变量、图号、任务、指标及原因全部换成作者事实。原文 `less samples`的可数名词搭配在新文用 `fewer samples`；`in simulation and real-world`及重复的两类平台表述也按准确、自然的当前句意整理，原引文保留。只有实测结果才用 `shows`，结构作用不能由普通相关性推成唯一因果；不迁入本文的指数稳定条件、千步数量或未经保证的安全性。读者已经知道比较设置时可省开头，条件较多时可拆句，不要求复刻原句长。
-
 ## 选择范例时的边界
 
-本组22张任务卡保留多类正文实现，摘要以作者认可的五篇为主要参考并按需补充局部写法；不对整篇论文作统一优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或术语问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
+本组20张任务卡保留多类正文实现，摘要以作者认可的五篇为主要参考并按需补充局部写法；不对整篇论文作统一优劣评分，也不把某卡片视为最佳答案。部分原文有宽泛自评、长信息串或术语问题，卡片已明确取舍。理论和实验内容仅为写作关系定位，未复算公式、统计或推广性能；“可回查、能指导表达”仍不等于实际 Drafting／Polishing 已提高能力。没有适配作者当前任务的卡片时，保留成熟通用规则，说明证据不足，不硬套相似词句。
 
 [P01]: <../../../文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf>
 [P05]: <../../../文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf>
@@ -496,4 +468,3 @@ p.7 §V.A 首两句：
 [P19]: <../../../effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf>
 [Fuzzy2023]: <../../../文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf>
 [ESO2017]: <../../../文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf>
-[RRL2019]: <../../../文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf>

@@ -1,0 +1,9 @@
+{
+  "accepted_head": "15efa72f28fa0f550a14afc0e92f4a49528f4a25",
+  "frozen_candidate_commit": "fd7dbcb7f8c6bc5d40e2396c2aa9f3571cbb3eee",
+  "run_kind": "E03-independent-transfer",
+  "original_invalid_record_preserved": "effect-test/E03-independent-transfer-fd7dbcb-2026-10-04",
+  "new_model_invocation_authorized": true,
+  "skill_changes_before_first_output": false,
+  "skill_installation": false
+}

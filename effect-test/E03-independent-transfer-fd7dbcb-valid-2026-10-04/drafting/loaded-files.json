@@ -1,0 +1,221 @@
+{
+  "loaded_or_searched_files": [
+    {
+      "path": "inputs/task.md",
+      "sha256": "c7600365fd5367cdcd8886b5ae63713d7b362c8512a92db1bdb4b23afe0f0623",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/scientific-facts.md",
+      "sha256": "247c1bcb6ec104de9cf0907ecbad2d38db50c6a1b29a0b49255c7d62710d8d5c",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/personal-experience.txt",
+      "sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "inputs/core-requirements.txt",
+      "sha256": "077e7fce1500dbea375434c65b90f441f0cee946a56179c60ada6b7cc4485ca9",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/SKILL.md",
+      "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9",
+      "command_ids": [
+        "item_1"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/manifest.yaml",
+      "sha256": "6568c379e8bd23f02ec9cb8cf0d14db8ad02261911bbf8e91f3e8d55cf56b24d",
+      "command_ids": [
+        "item_2"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+      "sha256": "bce1d2d6a8405d54acb05a55cc89f2ddc16cb4881dcf844b342e4accc59fad5a",
+      "command_ids": [
+        "item_2",
+        "item_6",
+        "item_8",
+        "item_10"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/scientific-expression.md",
+      "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
+      "command_ids": [
+        "item_3"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/stance.md",
+      "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
+      "command_ids": [
+        "item_3"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/workflow.md",
+      "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef",
+      "command_ids": [
+        "item_3"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/core/output-format.md",
+      "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
+      "command_ids": [
+        "item_3"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/reader-workflow.md",
+      "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "command_ids": [
+        "item_4"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/paper-type-taxonomy.md",
+      "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "command_ids": [
+        "item_4"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/ethics.md",
+      "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "command_ids": [
+        "item_4"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-shared/core/terminology-ledger.md",
+      "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "command_ids": [
+        "item_4"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/task/manuscript.md",
+      "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md",
+      "sha256": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/section/abstract.md",
+      "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md",
+      "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/language/en.md",
+      "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/static/fragments/journal/generic.md",
+      "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
+      "command_ids": [
+        "item_7"
+      ]
+    },
+    {
+      "path": "skill-candidate/nature-writing/references/abstract.md",
+      "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407",
+      "command_ids": [
+        "item_9"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "id": "item_1",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\inputs\\\\task.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\inputs\\\\scientific-facts.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\inputs\\\\personal-experience.txt','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\inputs\\\\core-requirements.txt','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\SKILL.md'); foreach (\"'$path in $paths) { $lines = @(Get-Content -LiteralPath $path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$path + '\"' | lines=' + \"'$lines.Count); for ($i=0; $i -lt [Math]::Min($lines.Count,240); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 15688
+    },
+    {
+      "id": "item_2",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$specs = @(@{Path='\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\manifest.yaml';Start=1;End=260},@{Path='C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md';Start=1;End=144}); foreach (\"'$spec in $specs) { $lines = @(Get-Content -LiteralPath $spec.Path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$spec.Path + '\"' | lines=' + \"'$lines.Count); for ($i=$spec.Start-1; $i -lt [Math]::Min($lines.Count,$spec.End); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 21567
+    },
+    {
+      "id": "item_3",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\scientific-expression.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\stance.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\workflow.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\core\\\\output-format.md'); foreach (\"'$path in $paths) { $lines = @(Get-Content -LiteralPath $path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$path + '\"' | lines=' + \"'$lines.Count); for ($i=0; $i -lt [Math]::Min($lines.Count,300); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 19653
+    },
+    {
+      "id": "item_4",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\reader-workflow.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\paper-type-taxonomy.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\ethics.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\terminology-ledger.md'); foreach (\"'$path in $paths) { $lines = @(Get-Content -LiteralPath $path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$path + '\"' | lines=' + \"'$lines.Count); for ($i=0; $i -lt [Math]::Min($lines.Count,260); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 12415
+    },
+    {
+      "id": "item_6",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$path = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$lines = @(Get-Content -LiteralPath $path -Encoding UTF8); for ($i=144; $i -lt [Math]::Min($lines.Count,470); $i++) { if ($lines[$i] -match '\"'\"'^#{2,4} .*A0[1-7]'\"') { Write-Output ('{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 254
+    },
+    {
+      "id": "item_7",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$paths = @('\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\task\\\\manuscript.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\paper_type\\\\algorithmic.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\section\\\\abstract.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\zh-to-en.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\language\\\\en.md','C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\static\\\\fragments\\\\journal\\\\generic.md'); foreach (\"'$path in $paths) { $lines = @(Get-Content -LiteralPath $path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$path + '\"' | lines=' + \"'$lines.Count); for ($i=0; $i -lt [Math]::Min($lines.Count,260); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 15430
+    },
+    {
+      "id": "item_8",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$path = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$lines = @(Get-Content -LiteralPath $path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$path + '\"' | range=207-222'); for (\"'$i=206; $i -lt [Math]::Min($lines.Count,222); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) }'",
+      "exit_code": 0,
+      "output_characters": 3182
+    },
+    {
+      "id": "item_9",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$path = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-writing\\\\references\\\\abstract.md'; \"'$lines = @(Get-Content -LiteralPath $path -Encoding UTF8); Write-Output ('\"'FILE: ' + \"'$path + '\"' | lines=' + \"'$lines.Count); for ($i=0; $i -lt [Math]::Min($lines.Count,240); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) }'",
+      "exit_code": 0,
+      "output_characters": 5780
+    },
+    {
+      "id": "item_10",
+      "command": "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command '$path = '\"'C:\\\\Users\\\\user2\\\\AppData\\\\Local\\\\Temp\\\\e03-independent-abstract-transfer-cxvrnlad\\\\materials\\\\skill-candidate\\\\nature-shared\\\\core\\\\robotics-writing-examples.md'; \"'$lines = @(Get-Content -LiteralPath $path -Encoding UTF8); foreach ($range in @(@{Start=195;End=206},@{Start=223;End=239})) { Write-Output ('\"'FILE: ' + \"'$path + '\"' | range=' + \"'$range.Start + '\"'-' + \"'$range.End); for ($i=$range.Start-1; $i -lt [Math]::Min($lines.Count,$range.End); $i++) { Write-Output ('\"'{0}: {1}' -f (\"'$i+1),$lines[$i]) } }'",
+      "exit_code": 0,
+      "output_characters": 5743
+    }
+  ],
+  "unresolved_read_commands": [],
+  "outside_materials_explicit_reads": [],
+  "evidence_limit": "Explicit file paths in completed commands; raw events preserve outputs and selected ranges. A search or range read is not asserted to be a complete-file read.",
+  "evaluation": "Not performed"
+}

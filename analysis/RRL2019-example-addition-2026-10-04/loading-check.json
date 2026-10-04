@@ -1,0 +1,1910 @@
+{
+  "scope": "Example addition after the frozen fd7dbcb first output; no writing generation",
+  "current_cards": 22,
+  "all_20_existing_cards_preserved": true,
+  "A06_anchor_and_main_reference_roles_preserved": true,
+  "modified_candidate_files": [
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+  ],
+  "new_quotes": [
+    {
+      "card": "A08",
+      "sha256": "3062cc6ce05f9a9a83252263ff68028bfbeb15f4d617303739590260e0f85a69",
+      "publisher_text_match": true
+    },
+    {
+      "card": "B14",
+      "sha256": "296e092e5408f6aa922fefa8653dd3944f6f07dd58ee38c212461f45c93e3ae5",
+      "publisher_text_match": true
+    },
+    {
+      "card": "B14",
+      "sha256": "63f241928c9b25614a7510344dee7066d3f85d6e77c3fa748ae15b16e6cc475e",
+      "publisher_text_match": true
+    }
+  ],
+  "source_links_resolved": 15,
+  "declared_paths": {
+    "nature-writing": 54,
+    "nature-polishing": 43,
+    "nature-shared": 18
+  },
+  "strict_utf8_and_actual_powershell_contents_match": true,
+  "candidate_only_relocation_reads": true,
+  "cases": [
+    {
+      "skill": "nature-writing",
+      "case": "abstract-added-supplement",
+      "resolved_request": {
+        "id": "abstract-added-supplement",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "paper_type": "algorithmic"
+      },
+      "resolved_paper_type": "algorithmic",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/algorithmic.md",
+          "sha256": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "environment": "project"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "abstract-zh-to-en",
+      "resolved_request": {
+        "id": "abstract-zh-to-en",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "language": "zh-to-en"
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/zh-to-en.md",
+          "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "environment": "project"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "mixed-abstract-body",
+      "resolved_request": {
+        "id": "mixed-abstract-body",
+        "sections": [
+          "abstract",
+          "method"
+        ],
+        "abstract_references": [
+          "A08"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "A06",
+        "A08",
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/method.md",
+          "sha256": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "project"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "body-coupled-control",
+      "resolved_request": {
+        "id": "body-coupled-control",
+        "sections": [
+          "method"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/method.md",
+          "sha256": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "project"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "nonrobotics-abstract",
+      "resolved_request": {
+        "id": "nonrobotics-abstract",
+        "sections": [
+          "abstract"
+        ],
+        "robotics": false
+      },
+      "resolved_paper_type": "research",
+      "examples": false,
+      "body_module": false,
+      "selected_cards": [],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "environment": "project"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-added-supplement",
+      "resolved_request": {
+        "id": "abstract-added-supplement",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "paper_type": "algorithmic"
+      },
+      "resolved_paper_type": "algorithmic",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/algorithmic.md",
+          "sha256": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        }
+      ],
+      "environment": "project"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-zh-to-en",
+      "resolved_request": {
+        "id": "abstract-zh-to-en",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "language": "zh-to-en"
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/zh-to-en.md",
+          "sha256": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        }
+      ],
+      "environment": "project"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "mixed-abstract-body",
+      "resolved_request": {
+        "id": "mixed-abstract-body",
+        "sections": [
+          "abstract",
+          "methods"
+        ],
+        "abstract_references": [
+          "A08"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "A06",
+        "A08",
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/methods.md",
+          "sha256": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "project"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "body-coupled-control",
+      "resolved_request": {
+        "id": "body-coupled-control",
+        "sections": [
+          "methods"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/methods.md",
+          "sha256": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "project"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "nonrobotics-abstract",
+      "resolved_request": {
+        "id": "nonrobotics-abstract",
+        "sections": [
+          "abstract"
+        ],
+        "robotics": false
+      },
+      "resolved_paper_type": "research",
+      "examples": false,
+      "body_module": false,
+      "selected_cards": [],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        }
+      ],
+      "environment": "project"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "abstract-added-supplement",
+      "resolved_request": {
+        "id": "abstract-added-supplement",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "paper_type": "algorithmic"
+      },
+      "resolved_paper_type": "algorithmic",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/algorithmic.md",
+          "sha256": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "abstract-zh-to-en",
+      "resolved_request": {
+        "id": "abstract-zh-to-en",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "language": "zh-to-en"
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/zh-to-en.md",
+          "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "mixed-abstract-body",
+      "resolved_request": {
+        "id": "mixed-abstract-body",
+        "sections": [
+          "abstract",
+          "method"
+        ],
+        "abstract_references": [
+          "A08"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "A06",
+        "A08",
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/method.md",
+          "sha256": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "body-coupled-control",
+      "resolved_request": {
+        "id": "body-coupled-control",
+        "sections": [
+          "method"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/method.md",
+          "sha256": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-writing",
+      "case": "nonrobotics-abstract",
+      "resolved_request": {
+        "id": "nonrobotics-abstract",
+        "sections": [
+          "abstract"
+        ],
+        "robotics": false
+      },
+      "resolved_paper_type": "research",
+      "examples": false,
+      "body_module": false,
+      "selected_cards": [],
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "d9024b90fa21d38cb20a392a689502dfea7057c052b1049f1313b50ed917110d"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "e8b6c09d413bc9f9b30fc92ecdb0decd0d15d6207dfda4688544104f64273d6a"
+        },
+        {
+          "path": "nature-writing/references/abstract.md",
+          "sha256": "dd4efa6cc3ebf39536fde7e0c546f0d8b58881937911a88d34454283986f0407"
+        }
+      ],
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-added-supplement",
+      "resolved_request": {
+        "id": "abstract-added-supplement",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "paper_type": "algorithmic"
+      },
+      "resolved_paper_type": "algorithmic",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/algorithmic.md",
+          "sha256": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        }
+      ],
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "abstract-zh-to-en",
+      "resolved_request": {
+        "id": "abstract-zh-to-en",
+        "sections": [
+          "abstract"
+        ],
+        "abstract_references": [
+          "A08"
+        ],
+        "language": "zh-to-en"
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": false,
+      "selected_cards": [
+        "A06",
+        "A08"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/zh-to-en.md",
+          "sha256": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd"
+          }
+        }
+      ],
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "mixed-abstract-body",
+      "resolved_request": {
+        "id": "mixed-abstract-body",
+        "sections": [
+          "abstract",
+          "methods"
+        ],
+        "abstract_references": [
+          "A08"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "A06",
+        "A08",
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/methods.md",
+          "sha256": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "A06": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5",
+            "A08": "25927de6221d850a0764b52b489298d0182bfdebbd23e377f1fa98aceb6dfecd",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "body-coupled-control",
+      "resolved_request": {
+        "id": "body-coupled-control",
+        "sections": [
+          "methods"
+        ]
+      },
+      "resolved_paper_type": "research",
+      "examples": true,
+      "body_module": true,
+      "selected_cards": [
+        "B04"
+      ],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/methods.md",
+          "sha256": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+          "selected_fragment_sha256": {
+            "common_and_task_index": "74c0db68eaf917deb24aa8a56b60ee82841e0be85dbc0009831121f3fce86ae9",
+            "B04": "dcc9dd78882ba2fc50890c1d48ba517d5ea8aa40de16363950ac9085f32c7a88"
+          }
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        }
+      ],
+      "supplementary_body_card": {
+        "card": "B14",
+        "sha256": "579d7348d08037a12f755410047d8c70b200b7fb28b5f658a55e6a0c5629b18a"
+      },
+      "environment": "moved-candidate-only"
+    },
+    {
+      "skill": "nature-polishing",
+      "case": "nonrobotics-abstract",
+      "resolved_request": {
+        "id": "nonrobotics-abstract",
+        "sections": [
+          "abstract"
+        ],
+        "robotics": false
+      },
+      "resolved_paper_type": "research",
+      "examples": false,
+      "body_module": false,
+      "selected_cards": [],
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "a820aea0d0e361bc74a3b76f8acad7e4578cc479fe5a39e2a32d6dc37a5a4f07"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "37b950e96e5bb9dca39d88ffed6ae15cc6e054d24c8f38294f10426819dadc17"
+        }
+      ],
+      "environment": "moved-candidate-only"
+    }
+  ],
+  "new_example_effect_pass_claimed": false,
+  "candidate_example_sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77"
+}

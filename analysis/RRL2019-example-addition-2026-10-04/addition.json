@@ -1,0 +1,15 @@
+{
+  "test_candidate_before_addition": "fd7dbcb7f8c6bc5d40e2396c2aa9f3571cbb3eee",
+  "test_record": "effect-test/E03-independent-transfer-fd7dbcb-valid-2026-10-04",
+  "new_cards": [
+    "A08",
+    "B14"
+  ],
+  "candidate_changed_paths": [
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md"
+  ],
+  "new_example_sha256": "457d7325491d67869d835078c1628bec1192a6e14f31ac25ae601b5e0326dd77",
+  "actual_first_output_sha256": "923b4a5b5a6dc9a4b9397ef0e1ca417888af15a65843178c1c9ff1ca0ea60e7b",
+  "addition_effect_not_tested": true,
+  "first_output_already_saved_before_addition": true
+}

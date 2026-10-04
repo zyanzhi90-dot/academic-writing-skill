@@ -1,0 +1,390 @@
+{
+  "declared_run_kind": "E03-independent-transfer",
+  "actual_writer_case": "E03",
+  "eligible_as_E03_transfer": true,
+  "single_cli_invocation": true,
+  "no_feedback_rerun_selection_or_output_edit": true,
+  "first_output_sha256": "923b4a5b5a6dc9a4b9397ef0e1ca417888af15a65843178c1c9ff1ca0ea60e7b",
+  "english_byte_offsets": [
+    22,
+    1397
+  ],
+  "chinese_byte_offsets": [
+    1417,
+    2554
+  ],
+  "derived_text_is_exact_byte_slice_without_added_newline": true,
+  "english_word_count": 199,
+  "english_sentences": [
+    "This paper proposes residual reinforcement learning for robotic manipulation involving contact, friction and movable objects.",
+    "The control input is the sum of the outputs of a fixed feedback controller and a residual policy learned from robot and object states.",
+    "The feedback controller guides robot motion towards geometric goals, and the residual policy learns corrections for contact, friction and object dynamics.",
+    "Reinforcement learning optimizes the residual policy to maximize the expected return for the full task under the combined control.",
+    "The method is evaluated in simulation and on a seven-degree-of-freedom Sawyer arm by inserting a grasped block between two upright blocks while keeping them upright and in their target positions.",
+    "The results demonstrate that the residual method requires fewer interaction samples and achieves better final performance than reinforcement learning using the same underlying algorithm without a baseline controller.",
+    "In real-robot tests with initially misaligned blocks, the residual method achieves 15 successful insertions in 20 trials, compared with 2 in 20 for the hand-designed controller.",
+    "In a separate simulation-to-real experiment with the two outer blocks fixed, a policy trained in simulation is used as the fixed baseline.",
+    "The residual policy learns to complete insertion in fewer than 1,000 real-robot interaction steps."
+  ],
+  "actual_returned_content_coverage": {
+    "inputs/task.md": {
+      "command_ids": [
+        "item_1"
+      ],
+      "nonempty_source_lines": 2,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "inputs/scientific-facts.md": {
+      "command_ids": [
+        "item_1"
+      ],
+      "nonempty_source_lines": 20,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "inputs/personal-experience.txt": {
+      "command_ids": [
+        "item_1"
+      ],
+      "nonempty_source_lines": 5,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "inputs/core-requirements.txt": {
+      "command_ids": [
+        "item_1"
+      ],
+      "nonempty_source_lines": 1,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/SKILL.md": {
+      "command_ids": [
+        "item_1"
+      ],
+      "nonempty_source_lines": 131,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/manifest.yaml": {
+      "command_ids": [
+        "item_2"
+      ],
+      "nonempty_source_lines": 137,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+      "command_ids": [
+        "item_2",
+        "item_6",
+        "item_8",
+        "item_10"
+      ],
+      "nonempty_source_lines": 295,
+      "mismatched_or_missing_line_numbers": [
+        145,
+        149,
+        151,
+        153,
+        155,
+        157,
+        161,
+        163,
+        165,
+        167,
+        169,
+        173,
+        175,
+        177,
+        179,
+        181,
+        185,
+        187,
+        189,
+        191,
+        193,
+        241,
+        243,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        254,
+        256,
+        258,
+        260,
+        262,
+        264,
+        266,
+        268,
+        270,
+        272,
+        274,
+        276,
+        278,
+        280,
+        282,
+        284,
+        286,
+        288,
+        290,
+        292,
+        294,
+        296,
+        298,
+        300,
+        302,
+        304,
+        306,
+        308,
+        310,
+        312,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        321,
+        323,
+        325,
+        327,
+        329,
+        331,
+        333,
+        335,
+        337,
+        339,
+        341,
+        343,
+        345,
+        347,
+        349,
+        351,
+        353,
+        355,
+        357,
+        359,
+        361,
+        363,
+        365,
+        367,
+        369,
+        371,
+        373,
+        375,
+        377,
+        379,
+        381,
+        383,
+        385,
+        387,
+        389,
+        391,
+        393,
+        395,
+        397,
+        399,
+        401,
+        403,
+        405,
+        407,
+        409,
+        411,
+        413,
+        415,
+        417,
+        419,
+        421,
+        423,
+        425,
+        427,
+        429,
+        431,
+        433,
+        435,
+        437,
+        439,
+        441,
+        443,
+        445,
+        447,
+        449,
+        451,
+        453,
+        455,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470
+      ],
+      "whole_nonempty_contents_returned_verbatim": false
+    },
+    "skill-candidate/nature-shared/core/scientific-expression.md": {
+      "command_ids": [
+        "item_3"
+      ],
+      "nonempty_source_lines": 80,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/core/stance.md": {
+      "command_ids": [
+        "item_3"
+      ],
+      "nonempty_source_lines": 28,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/core/workflow.md": {
+      "command_ids": [
+        "item_3"
+      ],
+      "nonempty_source_lines": 96,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/core/output-format.md": {
+      "command_ids": [
+        "item_3"
+      ],
+      "nonempty_source_lines": 30,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/reader-workflow.md": {
+      "command_ids": [
+        "item_4"
+      ],
+      "nonempty_source_lines": 14,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md": {
+      "command_ids": [
+        "item_4"
+      ],
+      "nonempty_source_lines": 29,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/ethics.md": {
+      "command_ids": [
+        "item_4"
+      ],
+      "nonempty_source_lines": 69,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-shared/core/terminology-ledger.md": {
+      "command_ids": [
+        "item_4"
+      ],
+      "nonempty_source_lines": 51,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/task/manuscript.md": {
+      "command_ids": [
+        "item_7"
+      ],
+      "nonempty_source_lines": 7,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": {
+      "command_ids": [
+        "item_7"
+      ],
+      "nonempty_source_lines": 19,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/section/abstract.md": {
+      "command_ids": [
+        "item_7"
+      ],
+      "nonempty_source_lines": 91,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": {
+      "command_ids": [
+        "item_7"
+      ],
+      "nonempty_source_lines": 30,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/language/en.md": {
+      "command_ids": [
+        "item_7"
+      ],
+      "nonempty_source_lines": 21,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/static/fragments/journal/generic.md": {
+      "command_ids": [
+        "item_7"
+      ],
+      "nonempty_source_lines": 12,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    },
+    "skill-candidate/nature-writing/references/abstract.md": {
+      "command_ids": [
+        "item_9"
+      ],
+      "nonempty_source_lines": 84,
+      "mismatched_or_missing_line_numbers": [],
+      "whole_nonempty_contents_returned_verbatim": true
+    }
+  },
+  "actual_example_cards": {
+    "A05": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        195,
+        206
+      ]
+    },
+    "A06": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        207,
+        222
+      ]
+    },
+    "A07": {
+      "full_real_english_and_analysis_returned_verbatim": true,
+      "line_range": [
+        223,
+        238
+      ]
+    }
+  },
+  "core_requirements_whole_line_returned": true,
+  "outside_materials_explicit_reads": [],
+  "remaining_unresolved_commands": [],
+  "effect_verdict": "Valid first E03 invocation; effect judged separately in evaluation.md.",
+  "input_identity_evidence": "coordinator/intended-input-identity.json",
+  "correct_facts_byte_identical": true,
+  "new_example_not_in_frozen_candidate": true
+}

@@ -1,0 +1,37 @@
+{
+  "local_pdf": "文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf",
+  "local_pdf_sha256": "885f62e07ee4bd37fb0e08bdaa6068fd5e4e473d11e0be239ba8bdd2d8c393db",
+  "local_pages": 7,
+  "local_metadata": {
+    "format": "PDF 1.5",
+    "title": "Residual Reinforcement Learning for Robot Control",
+    "author": "Tobias Johannink, Shikhar Bahl, Ashvin Nair, Jianlan Luo, Avinash Kumar, Matthias Loskyll, Juan Aparicio Ojea, Eugen Solowjow, Sergey Levine",
+    "subject": "2019 International Conference on Robotics and Automation (ICRA), May 20-24, 2019, Palais des congres de Montreal, Montreal, Canada",
+    "keywords": "Deep Learning in Robotics and Automation; Learning and Adaptive Systems; AI-Based Methods",
+    "creator": "The PaperPlaza Conference/Journal Management System",
+    "producer": "Acrobat Distiller 9.0.0 (Windows)",
+    "creationDate": "D:20190806062245+05'30'",
+    "modDate": "D:20190807084156-04'00'",
+    "trapped": "",
+    "encryption": null
+  },
+  "archived_v2_pdf": "effect-test/E03-independent-transfer-fd7dbcb-2026-10-04/coordinator/source/target.pdf",
+  "archived_v2_sha256": "c6279120f9e0a799a9d7a943a5624a5738250e588f99c5fc8a9fac28e2039641",
+  "v2_pages": 8,
+  "v2_metadata": {
+    "format": "PDF 1.4",
+    "title": "",
+    "author": "",
+    "subject": "",
+    "keywords": "",
+    "creator": "LaTeX with hyperref package",
+    "producer": "pdfTeX-1.40.17",
+    "creationDate": "D:20181220010847Z",
+    "modDate": "D:20181220010847Z",
+    "trapped": "",
+    "encryption": null
+  },
+  "byte_identical": false,
+  "local_sha256_before_changes": "885f62e07ee4bd37fb0e08bdaa6068fd5e4e473d11e0be239ba8bdd2d8c393db",
+  "first_output_saved_before_source_work": true
+}
