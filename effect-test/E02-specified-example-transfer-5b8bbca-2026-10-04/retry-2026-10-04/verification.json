@@ -1,0 +1,63 @@
+{
+  "record_kind": "指定范例迁移路线验证：失败模型调用的授权重试",
+  "candidate_commit": "5b8bbca46a436f4a3b73cb2cf3bc73984e16471d",
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "prior_failed_model_invocations": 1,
+  "authorized_retry_model_invocations": 1,
+  "retry_thread_ids": [
+    "01a10517-1100-77e3-a69f-e224111558a8"
+  ],
+  "retry_turn_started_count": 1,
+  "retry_turn_completed_count": 1,
+  "retry_exit_code": 0,
+  "first_output_matches_final_event": true,
+  "first_output_retained_sha256": "9f8fd6e4c86bbde14c04c58d568b2d88d7a5d262350ceb932e32de504b415c0f",
+  "original_prompt_byte_identical": true,
+  "only_changed_command_position": [
+    34
+  ],
+  "only_output_path_changed": true,
+  "old_raw_record_changes": [],
+  "materials_unchanged": true,
+  "runtime_unchanged": true,
+  "protected_project_changes": [],
+  "installed_skill_changes": [],
+  "loading_text_mismatches": [],
+  "unmapped_numbered_returns": [],
+  "source_text_coverage": [
+    {
+      "id": "A06",
+      "required_scientific_range": [
+        1,
+        1050
+      ],
+      "unreturned_nonblank_lines": []
+    },
+    {
+      "id": "A07",
+      "required_scientific_range": [
+        1,
+        1242
+      ],
+      "unreturned_nonblank_lines": []
+    }
+  ],
+  "complete_example_cards_returned": [
+    "A06",
+    "A07"
+  ],
+  "autonomous_pass": false,
+  "transfer_pass": false,
+  "feedback_to_writer": false,
+  "alternate_output_selection": false,
+  "retry_raw_record_sha256": {
+    "first-output.md": "9f8fd6e4c86bbde14c04c58d568b2d88d7a5d262350ceb932e32de504b415c0f",
+    "events.jsonl": "14399441ab6f62fbabd79a02a0c9f654105dc9dc54d06f2c205199d7951287ce",
+    "stderr.txt": "1aa26269eb1cc57f86b235a03cda53c004edb5b1e9fc99d4da4f00843293d721",
+    "execution-command.json": "8a6c5d1ea47303c185a686fceb47ccd917f76c45f7468b37b948e670f2414bee",
+    "execution-prompt.txt": "b5a62fbdbf35ef5c78a3205b1f15636335707beef040399a6e3f69b64cfc53e6",
+    "run-meta.json": "223683f267848bb9f6f7b5e95565c60f18a9a37e6cdde981a6f41763a40f891a"
+  },
+  "evidence_limit": "Actual command returns and unchanged bytes; no OS-level isolation or independent backend model resolution claimed. Prose is evaluated separately."
+}

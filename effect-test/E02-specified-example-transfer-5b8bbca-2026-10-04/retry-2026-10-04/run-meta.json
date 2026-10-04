@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "timed_out": false,
+  "duration_seconds": 319.06,
+  "model_requested": "gpt-6.1-sol",
+  "reasoning_effort_requested": "high",
+  "retry_invocation": 1,
+  "total_model_invocations_in_record": 2,
+  "first_output_exists": true,
+  "evaluation": "Not performed by runner; first complete output retained without editing"
+}

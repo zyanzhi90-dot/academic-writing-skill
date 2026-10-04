@@ -1,0 +1,21 @@
+{
+  "source": "first-output.md",
+  "source_sha256": "9f8fd6e4c86bbde14c04c58d568b2d88d7a5d262350ceb932e32de504b415c0f",
+  "sections": [
+    {
+      "file": "abstract.en.txt",
+      "sha256": "7533a575ebbe58c7d18326f9a623c25727674b9227f6c01884224e8eec3809e0",
+      "exact_output_substring_except_final_newline": true
+    },
+    {
+      "file": "abstract.zh.txt",
+      "sha256": "d5cb896136a46c52d2438affc26ec0ad6184b9660a8818782b407e7021ab1b81",
+      "exact_output_substring_except_final_newline": true
+    },
+    {
+      "file": "transfer-rationale.txt",
+      "sha256": "c5de2fa674c51668dd9be26b22e3c44c2cdd6b6124afc60e74354b0d75a872c3",
+      "exact_output_substring_except_final_newline": true
+    }
+  ]
+}
