@@ -1,0 +1,20 @@
+--- E04 prior runner
++++ E04 frozen 3081815 runner
+@@ -49,7 +49,7 @@
+         p.parent.mkdir(parents=True, exist_ok=True)
+         p.write_bytes(git('show', commit + ':' + name))
+         candidate[name] = digest(p)
+-    previous_stage = ROOT / 'effect-test/E04-independent-delivery-1be5954-2026-10-04/drafting'
++    previous_stage = ROOT / 'effect-test/E04-introduction-delivery-1be5954-2026-10-05/drafting'
+     previous = json.loads((previous_stage / 'frozen-run.json').read_text(encoding='utf-8'))
+     reused = {}
+     for name, expected in previous['materials_sha256'].items():
+@@ -135,7 +135,7 @@
+     save(dest / 'execution-command.json', command)
+     save(dest / 'frozen-run.json', {
+         'candidate_commit': commit, 'stage': stage, 'role': role, 'model': MODEL, 'reasoning_effort': EFFORT,
+-        'attempt': 1, 'new_paper_transfer_evidence': True, 'case': 'E04', 'section': 'Introduction', 'materials_sha256': inventory(materials),
++        'attempt': 1, 'new_paper_transfer_evidence': False, 'known_case_comparison': True, 'case': 'E04', 'section': 'Introduction', 'materials_sha256': inventory(materials),
+         'candidate_sha256': candidate, 'reused_sources': reused, 'required_input_actual_returns': returned, 'input_identity': identity,
+         'runtime': str(runtime), 'prompt_sha256': digest(dest / 'execution-prompt.txt'),
+         'runner_sha256': digest(Path(__file__)), 'cli_sha256': digest(Path(command[0])),

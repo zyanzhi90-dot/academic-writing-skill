@@ -1,0 +1,34 @@
+{
+  "candidate_commit": "3081815176c8e3fc130db8832b8a13677f591cdd",
+  "source_record": "effect-test/E04-introduction-delivery-1be5954-2026-10-05",
+  "input_copies": {
+    "scientific-facts.md": {
+      "source_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "copy_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "byte_identical": true
+    },
+    "background-facts.md": {
+      "source_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "copy_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "byte_identical": true
+    },
+    "citation-facts.md": {
+      "source_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "copy_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "byte_identical": true
+    },
+    "accepted-abstract.en.txt": {
+      "source_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "copy_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "byte_identical": true
+    }
+  },
+  "runner_source_sha256": "e10d96cdca9a9016cd476137cadc88a47374292b624e4e399efb95e57d580306",
+  "runner_sha256": "21dde5c94e537a46f8ad23e67a527412f2240a2a5a886d7ac8a1a3a09e3bcd9e",
+  "scope": "Only this new effect-test record; no Skill edits or installation",
+  "mainline_or_repair_supplied": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "one_invocation_per_stage": true,
+  "historical_records_changed": false
+}

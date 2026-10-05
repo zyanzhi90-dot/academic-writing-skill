@@ -1,0 +1,12 @@
+{
+  "startup_model_sessions": 0,
+  "first_output_absent": true,
+  "same_material_hashes": true,
+  "same_prompt_except_new_absolute_runtime_path": true,
+  "same_isolation_and_model_settings": true,
+  "transport": "stdin only",
+  "commandline_utf16_code_units": 15362,
+  "runner_sha256": "2ee94d9c83dc2396eed8d24e8609e098053feb898ecac8823317882dfb2085e0",
+  "initial_provenance_describes_initial_runner": true,
+  "verification_assertion_correction": "Archived command keeps its original output path; only the runtime path is normalized for comparison. No model or prose affected."
+}

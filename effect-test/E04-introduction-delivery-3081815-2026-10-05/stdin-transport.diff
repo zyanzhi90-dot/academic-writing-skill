@@ -1,0 +1,21 @@
+--- Initial runner
++++ stdin prompt transport runner
+@@ -119,7 +119,7 @@
+     assert command[0] and Path(command[0]).suffix == '.exe'
+     command[command.index('-C') + 1] = str(runtime)
+     command[command.index('-o') + 1] = str(dest / 'first-output.md')
+-    command[-1] = prompt
++    command[-1] = '-'  # Same retained prompt travels through stdin to avoid Windows command-line limits.
+     # Retain all prior isolation settings, additionally disable currently discoverable skills.
+     installed = []
+     for user in ('user', 'user2'):
+@@ -156,7 +156,8 @@
+     started = time.time()
+     with (dest / 'events.jsonl').open('xb') as out, (dest / 'stderr.txt').open('xb') as err:
+         try:
+-            code = subprocess.run(cmd, stdin=subprocess.DEVNULL, stdout=out, stderr=err, cwd=runtime,
++            transport = {'input': (dest / 'execution-prompt.txt').read_bytes()} if cmd[-1] == '-' else {'stdin': subprocess.DEVNULL}
++            code = subprocess.run(cmd, **transport, stdout=out, stderr=err, cwd=runtime,
+                                   env={**os.environ, 'PYTHONUTF8': '1'}, timeout=1800).returncode
+         except subprocess.TimeoutExpired:
+             code = 124

@@ -1,0 +1,21 @@
+{
+  "stage": "drafting",
+  "case": "E04",
+  "section": "Introduction",
+  "identity_verified": true,
+  "all_normal_input_hashes_verified": {
+    "scientific-facts.md": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+    "background-facts.md": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+    "citation-facts.md": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+    "accepted-abstract.en.txt": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+    "core-requirements.txt": "00bed9205a4dd66db7410ca114b48e11d3664eb0b88eb5c016305eae593b8920",
+    "personal-experience.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "task.md": "1c614b103d0eb6b3ed4a23ad4f94671b751d851713f169c9a94d6a07179485a7"
+  },
+  "candidate_git_bytes_verified": true,
+  "actual_complete_returns_verified": true,
+  "target_original_excluded": true,
+  "accepted_abstract_supplied_unchanged": true,
+  "attempt": 1,
+  "no_coordinator_evaluation_supplied": true
+}

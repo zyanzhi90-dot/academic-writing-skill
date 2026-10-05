@@ -1,0 +1,11 @@
+{
+  "case": "E04",
+  "section": "Introduction",
+  "local_head_and_origin_main_at_current_start": "3081815176c8e3fc130db8832b8a13677f591cdd",
+  "worktree_clean_before_new_records": true,
+  "frozen_candidate": "3081815176c8e3fc130db8832b8a13677f591cdd",
+  "prior_abstract": "Author-accepted; reused byte-exact",
+  "validation_scope": "Known-case comparison only; no migration, reliable omission detection or stability pass",
+  "historical_conclusions": "Preserved; compare only after both first outputs retained",
+  "writer_visible": false
+}

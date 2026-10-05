@@ -1,0 +1,9 @@
+{
+  "failure": "CreateProcess WinError 206: command line too long",
+  "commandline_utf16_code_units": 33989,
+  "events_bytes": 0,
+  "stderr_bytes": 0,
+  "model_sessions": 0,
+  "first_output_exists": false,
+  "recovery": "Identical prompt via stdin; no feedback or model-output retry"
+}

@@ -1,0 +1,35 @@
+Behavior cloning provides a supervised approach to learning robot manipulation policies from demonstrations and has produced effective policies on physical robots [1,3]. Demonstrations can contain several valid ways to complete a task, requiring the policy to represent a multimodal action distribution. Precise manipulation also requires accurate, temporally consistent actions. A policy that represents multiple valid actions at each step may still switch between incompatible choices during execution. The central challenge is therefore to learn an expressive action distribution while generating a coherent sequence of actions.
+
+Recurrent Gaussian mixture policies use observation history and represent alternative actions with multiple Gaussian components [1]. Behavior Transformers combine action clustering with continuous offsets and predict actions from observation sequences [2]. Both methods incorporate temporal context and can represent multimodal continuous actions, although the number of mixture components or action clusters is set during model design. Conditioning on past observations, however, does not by itself amount to jointly generating future actions. In our controlled pushing example, the explicit policies tested favour one route around an object or switch between valid routes during stepwise prediction. This example motivates joint action-sequence prediction to maintain a coherent choice over time.
+
+Implicit behavior cloning uses an energy function of observations and actions to represent multimodal action distributions [3]. It has supported high-dimensional actions, visual input and precise physical manipulation [3]. Its contrastive training objective uses demonstration actions and negative samples, with the negative samples approximating the conditional normalization term. In our comparisons, the implicit behavior cloning baseline exhibits fluctuations in training and evaluation. We associate these fluctuations with the negative sampling used in energy-based training. This observation motivates learning the distribution gradient directly to avoid this normalization estimate.
+
+We propose Diffusion Policy, an observation-conditioned policy that jointly generates future actions through iterative denoising. The method builds on denoising diffusion models [4] and score-based generative modeling [5]. A network learns the score gradient of the conditional action distribution by predicting noise added to demonstration actions. At inference, iterative denoising transforms Gaussian noise into an action sequence. The diffusion representation accommodates multimodal, high-dimensional outputs and supports joint prediction of temporally correlated actions without specifying a fixed number of action modes. The noise-prediction objective avoids the negative sampling used to approximate the normalization term in contrastive energy-based training.
+
+Diffusion has already been applied to sequential decision-making. Diffuser jointly models states and actions to generate trajectory plans with reward guidance or constraints [6]. Conditional diffusion policies have also been trained with a Q-value objective for offline reinforcement learning [7]. Concurrent work studies goal-conditioned diffusion imitation in simulated robot tasks [8] and multimodal human behavior in simulated robot and game environments [9]. Our study focuses on learning observation-conditioned action sequences through supervised behavior cloning and on the visual conditioning and execution requirements of physical robot manipulation.
+
+Manipulation performance also depends on how the generated actions are executed. We combine action-sequence prediction with receding-horizon execution. The policy predicts a longer sequence from recent observations, executes a shorter segment and then replans from new observations. This design balances temporal consistency with responsiveness.
+
+For visual manipulation, encoded image features condition action denoising. The policy generates actions without jointly denoising images or predicting future visual states. The image encoder can be trained end to end with the policy. Each prediction cycle encodes the images once and reuses the features at every denoising step. This reuse reduces inference computation. Iterative sampling still requires more computation than simpler policies.
+
+We evaluate Diffusion Policy on eight tasks across four simulation benchmarks and on four physical manipulation tasks using UR5 and Franka robots. The simulation comparisons include recurrent Gaussian mixture policies, Behavior Transformers and implicit behavior cloning, using each method’s best-performing action space. We also compare temporal convolutional and diffusion Transformer denoising networks to examine task-dependent performance. The physical tasks comprise T-shaped object pushing, cup flipping, sauce pouring and periodic sauce spreading. Controlled examples, execution-window ablations and training curves examine mode consistency, responsiveness and training behavior, while the physical trials test precise visual manipulation.
+
+**正文实际使用的参考文献**
+
+[1] Mandlekar, A., et al. What Matters in Learning from Offline Human Demonstrations for Robot Manipulation. *Proceedings of CoRL 2021*, PMLR **164**, 1678–1690 (2022).
+
+[2] Shafiullah, N. M. M., Cui, Z. J., Altanzaya, A. & Pinto, L. Behavior Transformers: Cloning *k* modes with one stone. *NeurIPS* (2022). arXiv:2206.11251.
+
+[3] Florence, P., et al. Implicit Behavioral Cloning. *Proceedings of CoRL 2021*, PMLR **164**, 158–168 (2022).
+
+[4] Ho, J., Jain, A. & Abbeel, P. Denoising Diffusion Probabilistic Models. *NeurIPS* (2020). arXiv:2006.11239.
+
+[5] Song, Y. & Ermon, S. Generative Modeling by Estimating Gradients of the Data Distribution. *NeurIPS* (2019). arXiv:1907.05600.
+
+[6] Janner, M., Du, Y., Tenenbaum, J. & Levine, S. Planning with Diffusion for Flexible Behavior Synthesis. *Proceedings of ICML*, PMLR **162**, 9902–9915 (2022).
+
+[7] Wang, Z., Hunt, J. J. & Zhou, M. Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning. arXiv:2208.06193 (2022), version 2, 3 October 2022.
+
+[8] Reuss, M., Li, M., Jia, X. & Lioutikov, R. Goal-Conditioned Imitation Learning using Score-based Diffusion Policies. *RSS* (2023). arXiv:2304.02532.
+
+[9] Pearce, T., et al. Imitating Human Behaviour with Diffusion Models. *ICLR* (2023). arXiv:2301.10677.
