@@ -1,0 +1,27 @@
+--- E04 established isolated runner
++++ E04 frozen 253dae3 runner
+@@ -71,6 +71,7 @@
+         'accepted-abstract.en.txt': RECORD / 'accepted-abstract.en.txt',
+         'personal-experience.txt': ROOT / '我自己的经验和做法.txt',
+         'core-requirements.txt': ROOT / '核心要求.txt',
++        'introduction-method.txt': ROOT / '引言写作方法.txt',
+     }
+     for name, source in input_sources.items():
+         (inputs / name).write_bytes(source.read_bytes())
+@@ -91,7 +92,7 @@
+     runtime = Path(tempfile.mkdtemp(prefix=stage + '-')) / 'materials'
+     shutil.copytree(materials, runtime)
+     required = tuple('inputs/' + name for name in ('task.md', 'scientific-facts.md', 'personal-experience.txt',
+-                                                  'core-requirements.txt', 'background-facts.md', 'citation-facts.md', 'accepted-abstract.en.txt'))
++                                                  'core-requirements.txt', 'introduction-method.txt', 'background-facts.md', 'citation-facts.md', 'accepted-abstract.en.txt'))
+     if draft is not None:
+         required += ('inputs/current-draft.md',)
+     reader = runpy.run_path(str(ROOT / 'effect-test/E03-independent-transfer-fd7dbcb-valid-2026-10-04/execute_once.py'))
+@@ -130,6 +131,7 @@
+     previous_disabled = next(x for x in command if x.startswith('skills.config='))
+     command[command.index(previous_disabled)] = 'skills.config=[' + ','.join(
+         '{path=' + json.dumps(p) + ',enabled=false}' for p in sorted(set(installed))) + ']'
++    assert len(subprocess.list2cmdline(command).encode('utf-16-le')) // 2 < 32767, 'Windows command line limit'
+     (dest / 'execution-prompt.txt').write_text(prompt, encoding='utf-8')
+     (dest / 'runner-snapshot.py').write_bytes(Path(__file__).read_bytes())
+     save(dest / 'execution-command.json', command)

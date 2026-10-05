@@ -1,0 +1,65 @@
+**Introduction**
+
+Robot manipulation policies learned from demonstrations must generate precise actions while preserving the multiple valid ways in which a task can be completed. Behavior cloning has produced effective policies for visual manipulation and precise contact tasks through supervised learning [1,3]. However, a policy that predicts individual actions step by step can switch between valid action modes during execution. The problem is therefore to represent these modes and generate temporally consistent actions that can respond to new observations.
+
+Probabilistic policies represent the variability of demonstrated actions. Recurrent Gaussian mixture policies use observation history and multiple Gaussian components to model multimodal action distributions [1]. Behavior Transformers predict an action category and a continuous offset from historical observations, combining discrete action clusters with continuous corrections [2]. Both approaches support multimodal actions and temporal context, although the numbers of mixture components or action categories must be specified. Observation history informs the prediction of an action, but does not itself provide joint prediction of future actions. In our controlled pushing example, the compared explicit policies exhibit mode bias or switch between valid routes around an object. This observation motivates joint action-sequence prediction that preserves a mode during execution.
+
+Implicit behavioral cloning provides an alternative representation through an observation–action energy function [3]. The policy searches for low-energy actions during inference and can represent multiple valid actions for the same observation. This approach has demonstrated visual manipulation, high-dimensional actions and precise real-robot operation. Its contrastive training uses demonstrated actions and negative samples to approximate the normalization term of the conditional action distribution. In our experiments, the implicit behavioral cloning baseline exhibits fluctuations during training and evaluation. These observations motivate an expressive action representation that avoids this normalization estimate and the associated negative sampling.
+
+Diffusion models learn to generate samples through iterative denoising and score estimation [4,5]. Their ability to represent multimodal distributions and generate high-dimensional samples provides a basis for modeling action sequences. Diffusion has already been used to generate joint state–action trajectories for planning [6] and to represent action policies in offline reinforcement learning [7]. Concurrent studies also investigate goal-conditioned diffusion imitation learning [8] and the imitation of multimodal human behavior in simulated robotic and game environments [9]. We propose Diffusion Policy to learn an observation-conditioned action distribution directly from demonstrations for robot manipulation. The design combines diffusion action generation with temporal consistency, visual conditioning and feedback during physical execution.
+
+Diffusion Policy is trained to predict the noise added to demonstrated actions, thereby learning the score gradient of the observation-conditioned action distribution. Direct score learning avoids the negative sampling used to estimate the normalization term in the implicit behavioral cloning baseline. During inference, the policy starts from Gaussian noise and iteratively denoises a sequence of future actions. The diffusion representation accommodates multiple action modes without prescribing a fixed number of mixture components or action categories. Its capacity for high-dimensional generation allows temporally correlated actions to be predicted jointly.
+
+Manipulation performance also depends on how the predicted action sequence is executed. A long execution window delays the use of new observations, whereas a very short window can compromise temporal consistency. We integrate action-sequence prediction with receding-horizon execution to balance these requirements. At each prediction cycle, the policy uses a recent history of observations to predict a longer action sequence and executes a shorter segment. The policy then acquires new observations and predicts another sequence. Joint prediction preserves temporal relationships among actions, while repeated prediction allows execution to respond to updated observations.
+
+Repeated denoising introduces a computational requirement for visual conditioning. We encode image observations once per prediction cycle and use the resulting features to condition every denoising step. The denoising network generates actions without jointly generating image observations or inferring future visual states. The visual encoder can be trained jointly with the policy. Feature reuse reduces the computation required by repeated denoising and helps support real-time inference.
+
+The denoising network must also capture changes in the action sequence accurately. We consider a temporal convolutional network and a time-series diffusion Transformer as alternative architectures. Temporal convolution can favor low-frequency signals and smooth rapid action changes. The Transformer is designed to mitigate this tendency, particularly for tasks involving rapidly changing actions or velocity control. The architecture comparison examines this trade-off alongside ease of use and sensitivity to hyperparameters.
+
+We evaluate Diffusion Policy on eight simulation tasks from four benchmarks and four real-robot tasks. The simulation study compares recurrent Gaussian mixture policies, Behavior Transformers and implicit behavioral cloning using each method’s best-performing action space. We examine multimodal behavior, training stability and the effect of the execution window alongside task performance. Real-robot experiments test precise T-shaped object pushing, cup flipping, sauce pouring and periodic sauce spreading to assess the policy across different manipulation requirements.
+
+**逐段中文译文**
+
+**第1段。** 从示范中学习的机器人操作策略必须生成精确动作，同时保留完成同一任务的多种有效方式。行为克隆通过监督学习，已经在视觉操作和精密接触任务中获得了有效策略 [1,3]。然而，逐步预测单个动作的策略可能在执行过程中切换有效动作模式。因此，研究问题是如何表示这些模式，并生成既具有时间一致性、又能响应新观测的动作。
+
+**第2段。** 概率策略能够表示示范动作中的变化。循环高斯混合策略利用观测历史和多个高斯分量，对多模态动作分布进行建模 [1]。行为 Transformer 根据历史观测预测动作类别和连续偏移，将离散动作簇与连续修正相结合 [2]。两类方法均支持多模态动作和时间上下文，但需要指定混合分量或动作类别的数量。观测历史为动作预测提供信息，但其本身并不实现未来动作的联合预测。在我们的受控推物示例中，所比较的显式策略表现出模式偏置，或者在绕过物体的有效路线之间切换。这一观察促使我们采用联合动作序列预测，以在执行过程中保持一种模式。
+
+**第3段。** 隐式行为克隆通过观测—动作能量函数提供了另一种表示方式 [3]。该策略在推理时寻找低能量动作，能够表示同一观测对应的多个有效动作。这种方法已经展示了视觉操作、高维动作和精密实机操作能力。其对比训练利用示范动作和负样本，近似条件动作分布的归一化项。在我们的实验中，隐式行为克隆基线在训练和评价过程中出现波动。这些观察促使我们采用一种表达能力较强的动作表示，以避免这一归一化估计及其相关的负采样。
+
+**第4段。** 扩散模型通过迭代去噪和得分估计学习生成样本 [4,5]。其表示多模态分布和生成高维样本的能力，为动作序列建模提供了基础。扩散方法此前已用于生成状态—动作联合轨迹以进行规划 [6]，也已用于表示离线强化学习中的动作策略 [7]。同期研究还探索了目标条件扩散模仿学习 [8]，以及在仿真机器人和游戏环境中模仿多模态人类行为 [9]。我们提出扩散策略，直接从示范中学习用于机器人操作的观测条件动作分布。该设计将扩散动作生成与时间一致性、视觉条件及物理执行过程中的反馈相结合。
+
+**第5段。** 扩散策略通过预测加入示范动作的噪声进行训练，从而学习观测条件动作分布的得分梯度。直接学习得分，避免了隐式行为克隆基线为估计归一化项而采用的负采样。在推理时，策略从高斯噪声出发，迭代去噪生成一段未来动作序列。扩散表示能够容纳多个动作模式，无须预先指定固定数量的混合分量或动作类别。其高维生成能力使具有时间关联的动作能够得到联合预测。
+
+**第6段。** 操作性能还取决于预测动作序列的执行方式。较长的执行窗口会推迟新观测的使用，而过短的窗口可能损害时间一致性。我们将动作序列预测与滚动时域执行相结合，以平衡这两项要求。在每轮预测中，策略根据最近一段观测预测较长的动作序列，并执行其中较短的一段。随后，策略获取新观测，再次预测动作序列。联合预测保留动作之间的时间关系，而重复预测使执行过程能够响应更新后的观测。
+
+**第7段。** 重复去噪为视觉条件的使用带来了计算需求。我们在每轮预测中只对图像观测编码一次，并利用所得特征为每次去噪提供条件。去噪网络生成动作，无须联合生成图像观测或推断未来视觉状态。视觉编码器可以与策略联合训练。特征复用减少了重复去噪所需的计算量，有助于实现实时推理。
+
+**第8段。** 去噪网络还必须准确捕捉动作序列中的变化。我们考虑时间卷积网络和时间序列扩散 Transformer 两种替代架构。时间卷积可能偏向低频信号，并平滑快速变化的动作。Transformer 的设计旨在减轻这一倾向，尤其针对动作快速变化或采用速度控制的任务。架构比较将考察这一权衡，以及使用便利性和对超参数的敏感性。
+
+**第9段。** 我们在四个基准中的八类仿真任务和四项真实机器人任务上评价扩散策略。仿真研究采用各方法表现最佳的动作空间，与循环高斯混合策略、行为 Transformer 和隐式行为克隆进行比较。除任务性能外，我们还考察多模态行为、训练稳定性以及执行窗口的影响。真实机器人实验测试精密的 T 形物体推动、翻杯、浇酱和周期性抹酱，以评价策略在不同操作要求下的表现。
+
+**正文实际使用的参考文献**
+
+[1] Mandlekar, A. et al. What Matters in Learning from Offline Human Demonstrations for Robot Manipulation. CoRL 2021, *Proceedings of Machine Learning Research* **164**, 1678–1690 (2022).
+
+[2] Shafiullah, N. M. M., Cui, Z. J., Altanzaya, A. & Pinto, L. Behavior Transformers: Cloning \(k\) modes with one stone. *NeurIPS* (2022). arXiv:2206.11251.
+
+[3] Florence, P. et al. Implicit Behavioral Cloning. CoRL 2021, *Proceedings of Machine Learning Research* **164**, 158–168 (2022).
+
+[4] Ho, J., Jain, A. & Abbeel, P. Denoising Diffusion Probabilistic Models. *NeurIPS* (2020). arXiv:2006.11239.
+
+[5] Song, Y. & Ermon, S. Generative Modeling by Estimating Gradients of the Data Distribution. *NeurIPS* (2019). arXiv:1907.05600.
+
+[6] Janner, M., Du, Y., Tenenbaum, J. & Levine, S. Planning with Diffusion for Flexible Behavior Synthesis. *Proceedings of Machine Learning Research* **162**, 9902–9915 (2022).
+
+[7] Wang, Z., Hunt, J. J. & Zhou, M. Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning. arXiv:2208.06193 (2022).
+
+[8] Reuss, M., Li, M., Jia, X. & Lioutikov, R. Goal-Conditioned Imitation Learning using Score-based Diffusion Policies. *Robotics: Science and Systems* (2023). arXiv:2304.02532.
+
+[9] Pearce, T. et al. Imitating Human Behaviour with Diffusion Models. *ICLR* (2023). arXiv:2301.10677.
+
+**作者说明（Revision notes）**
+
+- 整节逻辑作了调整：先建立动作表示的需求，再推进到联合生成、反馈执行、视觉计算及架构选择；结尾交代对应的验证路径。
+- 主要参照 B15／P17 的 I03–I07，借鉴其承认已有能力、设计动作紧接作用、生成结果接执行责任的连续展开；补充采用 B16／P05 的 I02–I03 中限定前作比较范围的写法。范例科学内容未进入本稿事实或科学引用。
+- 模式偏置、模式切换和训练波动均限定为本研究的观察。引言未重复摘要中的 46.9% 和实机成功率；这些数字及其计算、评价条件应在结果部分展开。

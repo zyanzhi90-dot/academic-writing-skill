@@ -1,0 +1,1445 @@
+{
+  "stages": {
+    "drafting": {
+      "skill-candidate/nature-shared/core/robotics-introduction-examples.md": {
+        "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+        "cards": {
+          "B15": {
+            "range": [
+              54,
+              194
+            ],
+            "returned_nonempty_lines": [
+              54,
+              56,
+              58,
+              59,
+              60,
+              61,
+              63,
+              65,
+              66,
+              67,
+              68,
+              69,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              83,
+              85,
+              87,
+              88,
+              89,
+              90,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              101,
+              103,
+              105,
+              107,
+              108,
+              109,
+              110,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              129,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              148,
+              150,
+              152,
+              154,
+              155,
+              156,
+              157,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              185,
+              187,
+              189,
+              190,
+              191,
+              192,
+              193
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              85,
+              103,
+              105,
+              131,
+              150,
+              152,
+              187
+            ],
+            "paragraph_sections": [
+              {
+                "heading": "**应用需要如何落到问题，I01 全段，p.1 左→右。**",
+                "range": [
+                  83,
+                  100
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  85
+                ]
+              },
+              {
+                "heading": "**多示教选择及可继承的表征能力，I03–I04 两个完整连续段，p.1 右→p.2 左。**",
+                "range": [
+                  101,
+                  128
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  103,
+                  105
+                ]
+              },
+              {
+                "heading": "**具体设计接修改作用，I05 全段，p.2 左，上接 I04、下接执行问题 I06。**",
+                "range": [
+                  129,
+                  147
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  131
+                ]
+              },
+              {
+                "heading": "**学习结果到执行条件，I06–I07 两个完整连续段，p.2 左→右。**",
+                "range": [
+                  148,
+                  184
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  150,
+                  152
+                ]
+              },
+              {
+                "heading": "**综合收束，I08 全段，p.2 右。**",
+                "range": [
+                  185,
+                  194
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  187
+                ]
+              }
+            ]
+          },
+          "B16": {
+            "range": [
+              195,
+              311
+            ],
+            "returned_nonempty_lines": [
+              195,
+              197,
+              199,
+              200,
+              201,
+              202,
+              204,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              225,
+              227,
+              229,
+              230,
+              231,
+              232,
+              234,
+              236,
+              238,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              249,
+              250,
+              251,
+              252,
+              253,
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              262,
+              264,
+              266,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281,
+              282,
+              283,
+              284,
+              285,
+              286,
+              287,
+              288,
+              289,
+              290,
+              291,
+              292,
+              294,
+              296,
+              298,
+              300,
+              302,
+              303,
+              304,
+              305,
+              306,
+              307,
+              308,
+              309,
+              310
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              227,
+              236,
+              238,
+              264,
+              266,
+              296,
+              298,
+              300
+            ],
+            "paragraph_sections": [
+              {
+                "heading": "**优势与控制挑战并列，I01 全段，p.1 左→右。**",
+                "range": [
+                  225,
+                  233
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  227
+                ]
+              },
+              {
+                "heading": "**前作能力—共同条件—当前任务差异，I02–I03 两个完整连续段，p.1 右。**",
+                "range": [
+                  234,
+                  261
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  236,
+                  238
+                ]
+              },
+              {
+                "heading": "**保留前作局部能力再说改进，I06–I07 两个完整连续段，p.2 左→右。**",
+                "range": [
+                  262,
+                  293
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  264,
+                  266
+                ]
+              },
+              {
+                "heading": "**贡献列表的三项不同责任，C01–C03，p.2 右。**",
+                "range": [
+                  294,
+                  311
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  296,
+                  298,
+                  300
+                ]
+              }
+            ]
+          },
+          "B17": {
+            "range": [
+              312,
+              401
+            ],
+            "returned_nonempty_lines": [
+              312,
+              314
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": [
+              {
+                "heading": "**约束与收敛时间分别为何必要，I02–I03 两个完整连续段，p.1 右→p.2 左。**",
+                "range": [
+                  337,
+                  376
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**从设计到证明，再到假设改变，C02–C03，p.2 左。**",
+                "range": [
+                  377,
+                  401
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              }
+            ]
+          },
+          "B18": {
+            "range": [
+              402,
+              531
+            ],
+            "returned_nonempty_lines": [
+              402,
+              404
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": [
+              {
+                "heading": "**问题物理来源，I02 全段，p.1 右。**",
+                "range": [
+                  434,
+                  450
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**补偿为何必要，I05 尾部四个连续句，p.2 左；前文已介绍 SMC／ISMC 能力及抖振代价。**",
+                "range": [
+                  451,
+                  458
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**估计到控制使用及状态估计能力，I06 全段，p.2 左；下接 I07 当前测量条件。**",
+                "range": [
+                  459,
+                  478
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**实际可测量信息到设计需求，I07 开头六个连续句，p.2 右；后文继续状态估计研究及仿真／实验分类。**",
+                "range": [
+                  479,
+                  502
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**设计、保证与实现收束，I08 全段，p.2 右。**",
+                "range": [
+                  503,
+                  531
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              }
+            ]
+          }
+        }
+      },
+      "skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+        "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+        "cards": {
+          "A01": {
+            "range": [
+              159,
+              170
+            ],
+            "returned_nonempty_lines": [
+              159,
+              161,
+              163,
+              165,
+              167,
+              169
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              163
+            ],
+            "paragraph_sections": []
+          },
+          "A02": {
+            "range": [
+              171,
+              182
+            ],
+            "returned_nonempty_lines": [
+              171,
+              173,
+              175,
+              177,
+              179,
+              181
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              175
+            ],
+            "paragraph_sections": []
+          },
+          "A03": {
+            "range": [
+              183,
+              194
+            ],
+            "returned_nonempty_lines": [
+              183,
+              185,
+              187,
+              189,
+              191,
+              193
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              187
+            ],
+            "paragraph_sections": []
+          },
+          "A04": {
+            "range": [
+              195,
+              206
+            ],
+            "returned_nonempty_lines": [
+              195,
+              197,
+              199
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [
+              199
+            ],
+            "paragraph_sections": []
+          },
+          "A05": {
+            "range": [
+              207,
+              218
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "A06": {
+            "range": [
+              219,
+              234
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "A07": {
+            "range": [
+              235,
+              250
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "A08": {
+            "range": [
+              251,
+              264
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B01": {
+            "range": [
+              267,
+              291
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B13": {
+            "range": [
+              292,
+              303
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B02": {
+            "range": [
+              306,
+              321
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B03": {
+            "range": [
+              322,
+              333
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B04": {
+            "range": [
+              334,
+              352
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B05": {
+            "range": [
+              353,
+              364
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B06": {
+            "range": [
+              365,
+              376
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B07": {
+            "range": [
+              377,
+              392
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B08": {
+            "range": [
+              395,
+              406
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B09": {
+            "range": [
+              407,
+              426
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B10": {
+            "range": [
+              427,
+              440
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B12": {
+            "range": [
+              441,
+              456
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B11": {
+            "range": [
+              457,
+              478
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B14": {
+            "range": [
+              479,
+              490
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          }
+        }
+      }
+    },
+    "polishing": {
+      "skill-candidate/nature-shared/core/robotics-introduction-examples.md": {
+        "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+        "cards": {
+          "B15": {
+            "range": [
+              54,
+              194
+            ],
+            "returned_nonempty_lines": [
+              54,
+              56,
+              58,
+              59,
+              60,
+              61,
+              63,
+              65,
+              66,
+              67,
+              68,
+              69,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              83,
+              85,
+              87,
+              88,
+              89,
+              90,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              101,
+              103,
+              105,
+              107,
+              108,
+              109,
+              110,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              129,
+              131,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              148,
+              150,
+              152,
+              154,
+              155,
+              156,
+              157,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              185,
+              187,
+              189,
+              190,
+              191,
+              192,
+              193
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              85,
+              103,
+              105,
+              131,
+              150,
+              152,
+              187
+            ],
+            "paragraph_sections": [
+              {
+                "heading": "**应用需要如何落到问题，I01 全段，p.1 左→右。**",
+                "range": [
+                  83,
+                  100
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  85
+                ]
+              },
+              {
+                "heading": "**多示教选择及可继承的表征能力，I03–I04 两个完整连续段，p.1 右→p.2 左。**",
+                "range": [
+                  101,
+                  128
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  103,
+                  105
+                ]
+              },
+              {
+                "heading": "**具体设计接修改作用，I05 全段，p.2 左，上接 I04、下接执行问题 I06。**",
+                "range": [
+                  129,
+                  147
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  131
+                ]
+              },
+              {
+                "heading": "**学习结果到执行条件，I06–I07 两个完整连续段，p.2 左→右。**",
+                "range": [
+                  148,
+                  184
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  150,
+                  152
+                ]
+              },
+              {
+                "heading": "**综合收束，I08 全段，p.2 右。**",
+                "range": [
+                  185,
+                  194
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  187
+                ]
+              }
+            ]
+          },
+          "B16": {
+            "range": [
+              195,
+              311
+            ],
+            "returned_nonempty_lines": [
+              195,
+              197,
+              199,
+              200,
+              201,
+              202,
+              204,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              225,
+              227,
+              229,
+              230,
+              231,
+              232,
+              234,
+              236,
+              238,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              249,
+              250,
+              251,
+              252,
+              253,
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              262,
+              264,
+              266,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281,
+              282,
+              283,
+              284,
+              285,
+              286,
+              287,
+              288,
+              289,
+              290
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [
+              227,
+              236,
+              238,
+              264,
+              266
+            ],
+            "paragraph_sections": [
+              {
+                "heading": "**优势与控制挑战并列，I01 全段，p.1 左→右。**",
+                "range": [
+                  225,
+                  233
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  227
+                ]
+              },
+              {
+                "heading": "**前作能力—共同条件—当前任务差异，I02–I03 两个完整连续段，p.1 右。**",
+                "range": [
+                  234,
+                  261
+                ],
+                "all_nonempty_lines_returned_exactly": true,
+                "English_quote_lines_returned": [
+                  236,
+                  238
+                ]
+              },
+              {
+                "heading": "**保留前作局部能力再说改进，I06–I07 两个完整连续段，p.2 左→右。**",
+                "range": [
+                  262,
+                  293
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": [
+                  264,
+                  266
+                ]
+              },
+              {
+                "heading": "**贡献列表的三项不同责任，C01–C03，p.2 右。**",
+                "range": [
+                  294,
+                  311
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              }
+            ]
+          },
+          "B17": {
+            "range": [
+              312,
+              401
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": [
+              {
+                "heading": "**约束与收敛时间分别为何必要，I02–I03 两个完整连续段，p.1 右→p.2 左。**",
+                "range": [
+                  337,
+                  376
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**从设计到证明，再到假设改变，C02–C03，p.2 左。**",
+                "range": [
+                  377,
+                  401
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              }
+            ]
+          },
+          "B18": {
+            "range": [
+              402,
+              531
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": [
+              {
+                "heading": "**问题物理来源，I02 全段，p.1 右。**",
+                "range": [
+                  434,
+                  450
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**补偿为何必要，I05 尾部四个连续句，p.2 左；前文已介绍 SMC／ISMC 能力及抖振代价。**",
+                "range": [
+                  451,
+                  458
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**估计到控制使用及状态估计能力，I06 全段，p.2 左；下接 I07 当前测量条件。**",
+                "range": [
+                  459,
+                  478
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**实际可测量信息到设计需求，I07 开头六个连续句，p.2 右；后文继续状态估计研究及仿真／实验分类。**",
+                "range": [
+                  479,
+                  502
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              },
+              {
+                "heading": "**设计、保证与实现收束，I08 全段，p.2 右。**",
+                "range": [
+                  503,
+                  531
+                ],
+                "all_nonempty_lines_returned_exactly": false,
+                "English_quote_lines_returned": []
+              }
+            ]
+          }
+        }
+      },
+      "skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+        "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+        "cards": {
+          "A01": {
+            "range": [
+              159,
+              170
+            ],
+            "returned_nonempty_lines": [
+              159,
+              161,
+              163,
+              165,
+              167,
+              169
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              163
+            ],
+            "paragraph_sections": []
+          },
+          "A02": {
+            "range": [
+              171,
+              182
+            ],
+            "returned_nonempty_lines": [
+              171,
+              173,
+              175,
+              177,
+              179,
+              181
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              175
+            ],
+            "paragraph_sections": []
+          },
+          "A03": {
+            "range": [
+              183,
+              194
+            ],
+            "returned_nonempty_lines": [
+              183,
+              185,
+              187,
+              189,
+              191,
+              193
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "source_quote_lines_returned": [
+              187
+            ],
+            "paragraph_sections": []
+          },
+          "A04": {
+            "range": [
+              195,
+              206
+            ],
+            "returned_nonempty_lines": [
+              195,
+              197,
+              199
+            ],
+            "any_nonempty_returned": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [
+              199
+            ],
+            "paragraph_sections": []
+          },
+          "A05": {
+            "range": [
+              207,
+              218
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "A06": {
+            "range": [
+              219,
+              234
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "A07": {
+            "range": [
+              235,
+              250
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "A08": {
+            "range": [
+              251,
+              264
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B01": {
+            "range": [
+              267,
+              291
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B13": {
+            "range": [
+              292,
+              303
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B02": {
+            "range": [
+              306,
+              321
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B03": {
+            "range": [
+              322,
+              333
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B04": {
+            "range": [
+              334,
+              352
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B05": {
+            "range": [
+              353,
+              364
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B06": {
+            "range": [
+              365,
+              376
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B07": {
+            "range": [
+              377,
+              392
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B08": {
+            "range": [
+              395,
+              406
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B09": {
+            "range": [
+              407,
+              426
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B10": {
+            "range": [
+              427,
+              440
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B12": {
+            "range": [
+              441,
+              456
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B11": {
+            "range": [
+              457,
+              478
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          },
+          "B14": {
+            "range": [
+              479,
+              490
+            ],
+            "returned_nonempty_lines": [],
+            "any_nonempty_returned": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "source_quote_lines_returned": [],
+            "paragraph_sections": []
+          }
+        }
+      }
+    }
+  },
+  "limit": "Exact returned lines establish access only; snippets and headings are not full-card reading or proof of correct use."
+}

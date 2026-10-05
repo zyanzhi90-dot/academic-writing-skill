@@ -1,0 +1,58 @@
+{
+  "scope": "E04 known-case Introduction delivery, evaluated only after both first outputs and final delivery were preserved",
+  "frozen_candidate": "253dae364a603c477fd7d9d5c3cae89c98274927",
+  "drafting": {
+    "scientific_fidelity": "No definite scientific error found in the selected English claims",
+    "section_and_sentence_progression": "Scientific line and adoption reasons established; no section rewrite required",
+    "mature_English": "Direct subjects, actions and objects; recognizable adaptation of B15 and B16",
+    "necessary_human_prose_revision_found": 0,
+    "optional_improvements": ["P07 can name avoidance of repeated visual encoding more explicitly", "Some P01/P02 and P04/P05 requirements can be compressed"]
+  },
+  "polishing": {
+    "scientific_fidelity": "Selected English claims remain faithful; P08 Chinese changes completed-study description into future work",
+    "section_and_sentence_progression": "Preserves nine-paragraph scientific line, moves proposal to P04 and training responsibility earlier within P05",
+    "mature_English": "Shorter English remains explicit and coherent; no definite mandatory English revision found",
+    "English_required_revision_found": 0,
+    "Chinese_required_local_revision_found": 1,
+    "necessary_issue": {
+      "location": "Chinese P08 final sentence",
+      "original_English": "The architecture comparison examines this trade-off alongside ease of use and sensitivity to hyperparameters.",
+      "original_Chinese": "架构比较将考察这一权衡，以及使用便利性和对超参数的敏感性。",
+      "basis": "F06 reports a completed comparison; English describes that comparison in present tense and contains no future marker",
+      "required_action": "Remove the future-work implication while preserving the English meaning",
+      "burden": "One local Chinese clause; no English, paragraph-order, citation or scientific-material reconstruction",
+      "coordinator_applied_edit": false
+    },
+    "optional_improvements": ["P07 could identify the saved visual-encoding computation more explicitly", "A qualitative outcome at P09 is optional under this request"]
+  },
+  "final_delivery": {
+    "source": "polishing/first-output.md, copied without prose edits",
+    "English": "No definite mandatory revision found in this one delivered Introduction",
+    "Chinese": "One local temporal-status revision needed",
+    "zero_necessary_human_revision_pass": false,
+    "required_local_prose_revisions_found": 1,
+    "global_or_structural_rewrite_needed": false
+  },
+  "selection_boundaries": {
+    "performance_numbers_and_all_facts_required": false,
+    "qualitative_result_closure_required": false,
+    "fixed_paragraph_count_or_structure_required": false,
+    "omitted_training_improvement_and_architecture_result_details": "Acceptable Introduction selection, not evidence that the source facts were checked or reliably retained",
+    "intro_science_imported_from_robot_control_examples": "No imported RBFNN, impedance, force-estimation or control-stability claims found"
+  },
+  "reading_discipline": {
+    "material_directory_outside_explicit_reads": 0,
+    "required_core_returned": true,
+    "drafting": "B15 and B16 complete; B17/B18 only heading/locator snippets",
+    "polishing": "B15 complete; B16 through line 290, including the task-matched I02-I03 group",
+    "incidental_reads": "Both stages returned A01-A03 complete and A04 partial while reading the common index too broadly",
+    "implication": "Selection range redundancy remains; actual access is not proof of attention or correct hidden checks"
+  },
+  "feedback_reruns": 0,
+  "coordinator_English_or_Chinese_edits": 0,
+  "migration_pass_added": false,
+  "reliable_omission_detection_pass_added": false,
+  "stability_pass_added": false,
+  "historical_conclusions_revised": false,
+  "causal_attribution_to_new_learning_layer": "Not established by this single sequential known-case run"
+}

@@ -1,0 +1,36 @@
+{
+  "candidate_commit": "253dae364a603c477fd7d9d5c3cae89c98274927",
+  "source_record": "effect-test/E04-introduction-delivery-1be5954-2026-10-05",
+  "execution_mechanism_source": "effect-test/E04-introduction-delivery-3081815-2026-10-05",
+  "input_copies": {
+    "scientific-facts.md": {
+      "source_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "copy_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "byte_identical": true
+    },
+    "background-facts.md": {
+      "source_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "copy_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "byte_identical": true
+    },
+    "citation-facts.md": {
+      "source_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "copy_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "byte_identical": true
+    },
+    "accepted-abstract.en.txt": {
+      "source_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "copy_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "byte_identical": true
+    }
+  },
+  "runner_source_sha256": "2ee94d9c83dc2396eed8d24e8609e098053feb898ecac8823317882dfb2085e0",
+  "runner_sha256": "2fa328fcd8a07343e211c9cf8948ad62bf19f11cab170d3ea75f207ab34ed4c7",
+  "changes": "Add current author Introduction requirement input and pre-launch Windows length guard; retain stdin and isolation settings.",
+  "mainline_or_repair_supplied": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "one_invocation_per_stage": true,
+  "historical_records_changed": false,
+  "scope": "Only new effect-test records; no Skill edits or installation"
+}
