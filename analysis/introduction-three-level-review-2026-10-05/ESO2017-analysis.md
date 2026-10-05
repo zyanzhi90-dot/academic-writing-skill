@@ -19,7 +19,7 @@ I／C 是定位号；S 是本段句号。英文完整段落按源文顺序保留
 | [I03](#i03) | 承认已有不确定性／扰动控制，并用多句解释部分方案的机制与验证。 | 按 I02 两种未知项回查方法；I04 对刚列的 NN／模糊路线提出调参问题，而不是否认其近似能力。 |
 | [I04](#i04) | 一整段承认近似能力，同时指出实用学习参数调整困难。 | 单句独立桥段：从 I03 的 NN／模糊方案切换到 I05 的扰动抑制路线，不是所有段都要长篇文献。 |
 | [I05](#i05) | SMC／ISMC 的跟踪能力、抖振代价及为何需要扰动补偿器。 | 由 I04 的实用限制转向另一可用路线；末句 compensator 接 I06 的估计后补偿，形成具体设计责任。 |
-| [I06](#i06) | 先定义估计—补偿信息链，再比较扰动观察器的估计对象与整定折中。 | 接 I05 的补偿器需求；末句说明 observer bandwidth 也有性能折中，为 I07 当前传感条件下的状态估计铺垫。 |
+| [I06](#i06) | 先定义估计—补偿信息链，再比较扰动观察器的估计对象与整定折中。 | 接 I05 的补偿器需求；已有观察器同时估计未知项和不可测状态的能力接到 I07 当前速度不可直接测量的条件。段末带宽折中限定观察器整定。 |
 | [I07](#i07) | 真实传感条件推出速度状态估计与输出反馈责任，并回查相应前作。 | 先宣布平台和拟采用路线，但随后继续解释设计为何需要；无直接速度测量把 I06 的 observer 能力接到当前任务，I08 才汇总 MIMO-ESO。 |
 | [I08](#i08) | 把减抖、扰动／状态估计、自适应界估计、控制分析及平台实现连成当前方案。 | 回应 I02 未知项、I05 减抖、I07 不可测速度；随后贡献把观察器、控制律和实机比较分列。 |
 | [C01](#c01) | 观察器责任：未测速度和未知外扰估计。 | 同时回应 I07 的信息缺失和 I02 的物理扰动。 |
@@ -132,7 +132,7 @@ I／C 是定位号；S 是本段句号。英文完整段落按源文顺序保留
 
 > Another approach dealing with the unknown disturbance is to design an observer to estimate the unknown external disturbance of a robot, followed by the control design to compensate for the estimated disturbance. Such disturbance observers include sliding mode observer [12], [29], high-gain observer [30], [31], and extended state observer (ESO) [13], [32]. In [12], a sliding mode controller based on a sliding mode observer is proposed for a reusable launch vehicle. The observer is presented to estimate the unknown external disturbances and to reduce the control gain. In [30], a high-gain observer-based output feedback motion control that considers the unmodeled dynamics, measurement errors, model parameter variations, and unknown external environmental disturbances for observation class ROVs is presented. In [32], a backstepping control based on an ESO is proposed to handle mismatched disturbance of hydraulic systems. The designed observer estimates not only the model uncertainties but also the unmeasured states. In [13], by using an ESO, a backstepping control for a hydraulic system is presented to suppress large unknown external disturbances. The bandwidth of the observer is chosen in accordance with two conflicting aspects, the maximal load capability and the dynamic performance of system.
 
-接 I05 的补偿器需求；末句说明 observer bandwidth 也有性能折中，为 I07 当前传感条件下的状态估计铺垫。
+接 I05 的补偿器需求；已有观察器同时估计未知项和不可测状态的能力接到 I07 当前速度不可直接测量的条件。段末带宽折中限定观察器整定。
 
 | 句号 | 该句的科学动作、与相邻句的关系、真实英文实现 |
 |---|---|

@@ -116,12 +116,12 @@
   },
   "P05": {
     "I01": {
-      "task": "双臂的任务优势与新增控制复杂度共同构成应用动机。",
-      "paragraph_handoff": "双臂任务优势→应用→运动／路径复杂性→控制研究，I02 才具体看已有控制怎么处理对象。",
+      "task": "并列交代双臂的任务优势与协调控制／规划复杂性，共同构成应用动机。",
+      "paragraph_handoff": "优势引出应用；协调运动控制／路径规划的复杂性另行引出控制研究。I02 再具体看已有控制怎么处理对象。",
       "sentences": [
         "以研究对象及应用优势开篇。`coordination control of dual-arm robots has received increasing attention due to ...` 后列 payload／workspace／flexibility，attention 有技术原因。",
         "把上一优势接到应用。`Thus, the dual-arm robots have been involved in ... such as ...` 的应用举例不等于本文验证范围。",
-        "从使用优势转向控制成本。`controlling ... is challenging due to ... complexity in motion control and path planning` 明确为什么不能停在机器人应用罗列。",
+        "另行说明控制挑战的原因。`controlling ... is challenging due to ... complexity in motion control and path planning` 将控制困难归于协调运动控制与规划复杂性，与前述载荷／空间优势并列。",
         "以已有控制研究接到下一段。`advanced control technologies have been extensively studied for ...` 给文献展开入口，不假设所有前作失效。"
       ]
     },
@@ -378,7 +378,7 @@
     },
     "I06": {
       "task": "先定义估计—补偿信息链，再比较扰动观察器的估计对象与整定折中。",
-      "paragraph_handoff": "接 I05 的补偿器需求；末句说明 observer bandwidth 也有性能折中，为 I07 当前传感条件下的状态估计铺垫。",
+      "paragraph_handoff": "接 I05 的补偿器需求；已有观察器同时估计未知项和不可测状态的能力接到 I07 当前速度不可直接测量的条件。段末带宽折中限定观察器整定。",
       "sentences": [
         "段首不是纯报术语，而是给动作顺序。`design an observer to estimate ... , followed by ... compensate for the estimated disturbance` 将估计输出明确交给控制输入。",
         "`Such disturbance observers include ...` 给上一角色的可用类型，sliding mode／high-gain／ESO 不是无目的目录。",

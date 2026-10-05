@@ -1,0 +1,3917 @@
+{
+  "base_commit": "033fb2f77ba3df5a0da916963c600e80bd018f19",
+  "scope": "candidate integrity and explicit file-read audit only",
+  "candidate_changed_files": [
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md"
+  ],
+  "candidate_files_preserved": 135,
+  "source_checks": {
+    "P17": {
+      "pdf": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "original_units_preserved": 9
+    },
+    "P05": {
+      "pdf": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "pdf_sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "original_units_preserved": 12
+    },
+    "Fuzzy2023": {
+      "pdf": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "pdf_sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "original_units_preserved": 7
+    },
+    "ESO2017": {
+      "pdf": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "pdf_sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "original_units_preserved": 12
+    }
+  },
+  "quotes": [
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I01",
+      "sentences": [
+        1,
+        6
+      ],
+      "blocks": [
+        "p1-b8",
+        "p1-b16"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "RECENTLY, robots have been widely applied in various fields, especially in manufacturing. Adaptable robots are required due to the increasingly fast updates of the manufactured products. Hence, it is necessary to develop methods for enhancing robot learning. Robot learning from demonstration (LfD) is a valuable technique to simplify the strategy of robot learning [1], [2]. The human tutor shows the way to complete a task and then the robot learns, via motion modeling, to reproduce the skill. Therefore, it is essential to consider how to model motions effectively.",
+      "sha256": "0abeb858ac67fa7e44e9ecdc387cd0b87ced4eb506f133eb569385ec32bd0fa3"
+    },
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I03",
+      "sentences": [
+        1,
+        6
+      ],
+      "blocks": [
+        "p1-b18"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "DMPs have been often employed to solve robot learning problems because of their flexibility. In [7], DMPs were modified to model fast movement inherent in hitting motion. Another study used reinforcement learning to combine DMP sequences so that the robot could perform more complex tasks [8]. While both these studies employed multiple DMPs to compose a complete action, another study [9] used multiple DMPs to model style-adaptive trajectory, where the style of the generated motion could be changed by modulating the weight parameters that were coupled with the goals. As mentioned in [10], optimal demonstration is difficult to obtain and multiple demonstrations can encode the ideal trajectory implicitly. Therefore, we consider integrating multiple demonstrations into one DMP model in this paper.",
+      "sha256": "3ae697a55b2258aaa7bfe9cc255136ec8618c45597a3da8ff368e97aa6b6cdc4"
+    },
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I04",
+      "sentences": [
+        1,
+        8
+      ],
+      "blocks": [
+        "p1-b19",
+        "p2-b2"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "Probabilistic approaches have shown good performance in motion encoding [11]–[13]. The inherent variability of the demonstrations can be extracted, and thus, more features of the demonstrations can be preserved. In [14], an LfD framework using a Gaussian mixture model (GMM) and a Bernoulli mixture model was used to extract the features from multiple demonstrations. A new motion was generated through Gaussian mixture regression (GMR). In contrast with the above-mentioned methods, GMM combined with GMR can provide additional motion information for robots when learning from multiple demonstrations. In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling, where an unknown function was modeled using GMR. DS-GMR is another method that combines the DS with the statistical learning approach [15]. Both methods exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods.",
+      "sha256": "3af3d4e7a24d18a7903ecaa2c45f15dfef0cb913317b8ecb61db70e454e508a4"
+    },
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I05",
+      "sentences": [
+        1,
+        5
+      ],
+      "blocks": [
+        "p2-b3"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our proposed system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR. This modification enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features. The original DMP was learned using the locally weighted regression (LWR) [16], and the locally weighted projection regression [17] was employed to optimize the bandwidth of each kernel of LWR. Despite the added complexity of the learning procedure, these methods enable the DMP to learn from only one demonstration. Reservoir computing [18] is another method used to approximate the nonlinear function, but its computing efficiency is less than that of GMR.",
+      "sha256": "33c89177ac9abb72ae3858e0d4e72a378b99d420aeb3bab2d1de57c392ff4f15"
+    },
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I06",
+      "sentences": [
+        1,
+        10
+      ],
+      "blocks": [
+        "p2-b4",
+        "p2-b5"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "The imitation performance of robots also depends on the accuracy of the trajectory tracking controller that involves the robot dynamics. Generally, a model-based control performs better if the model is accurate enough [19]. However, an accurate dynamic model of a manipulator cannot be obtained in advance due to some uncertainties, e.g., unknown payload. The approximation-based controllers have been designed to overcome such uncertainties. They utilize function approximation tools to learn the nonlinear characteristics of the robot dynamics. NNs have been widely used in controller design because of their approximation ability [20]–[22]. In [23], the backpropagation NN (BPNN) was utilized to approximate the unknown nonlinear function in the model of the vibration suppression device, while in [24], the radial basis function NN (RBFNN) was utilized to approximate the unknown nonlinearity of the telerobot system. Compared to BPNN, the learning procedure of RBFNN is based on local approximation; thus, RBFNN can avoid getting stuck in the local optimum and has a faster convergence rate. Besides, the number of hidden layer units of RBFNN can be adaptively adjusted during the training phase, making NN more flexible and adaptive. Therefore, RBFNN is more appropriate for the design of real-time control.",
+      "sha256": "948159f9a4334b13be8853b2a9be85826bb251841719dced808c8379dc8e9b31"
+    },
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I07",
+      "sentences": [
+        1,
+        5
+      ],
+      "blocks": [
+        "p2-b6"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics. The stability of the controller is guaranteed by the Lyapunov stability theory. As shown in Fig. 1, the robot learning system consists of the motion generation component and the trajectory tracking component. The former utilizes the motion model based on DMP to learn and generalize motion skills; these, in turn, are represented as a set of trajectories in joint space. The latter employs the adaptive controller to track the trajectories generated from the former, and RBFNN is incorporated to compensate for the uncertain dynamics.",
+      "sha256": "e9dc86ea0d02e07b086285f123067ad0361f65265575f2cc3608650228831b03"
+    },
+    {
+      "card": "B15",
+      "paper": "P17",
+      "unit": "I08",
+      "sentences": [
+        1,
+        5
+      ],
+      "blocks": [
+        "p2-b7"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "Here, we present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived by the Lyapunov theory that increases the complexity of the learning. In contrast to [3] and [25] which considered only motion modeling, our system is enhanced by an NN-based controller and the effect caused by the dynamic environments can be compensated by neural learning. This design enables the robot to perform the learned motions steadily and more robustly in the real world.",
+      "sha256": "e207a6037edea537cc6b4b9b62e6aaae8e6090c47ffc721dde60eede0f0de893"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "I01",
+      "sentences": [
+        1,
+        4
+      ],
+      "blocks": [
+        "p1-b8",
+        "p1-b15"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "RECENTLY, coordination control of dual-arm robots has received increasing attention due to its superiority compared with traditional single-arm robot systems, including stronger payload capability, larger workspace, and more flexibility. Thus, the dual-arm robots have been involved in many high technology applications, such as intelligent assembly, out-space repairing, and elderly people assistance [1]–[3]. However, controlling the dual-arm robots is challenging due to the increase of complexity in motion control and path planning. Therefore, advanced control technologies have been extensively studied for dual-arm robots in past decades [4]–[11].",
+      "sha256": "5c99f7470142cd643ae9adf25736f87956715375ee16fe5181d6c8f41f33e9af"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "I02",
+      "sentences": [
+        1,
+        5
+      ],
+      "blocks": [
+        "p1-b16"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "An adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot, where an implicit force control scheme was employed to simultaneously regulate the force and position [9]. In [10], a decentralized control structure for multiple mobile manipulators was developed, where the internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage. In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot. Note that the abovementioned controllers were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurred between the arms and the objects. However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface, where sliding movements usually happened between the robotic arm and the object [12]–[14].",
+      "sha256": "55265f0cf89b746165546b9b5d8ad6aa4252b8bb463985cca618410978c1470e"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "I03",
+      "sentences": [
+        1,
+        5
+      ],
+      "blocks": [
+        "p1-b17"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In this respect, the coordination control of dual-arm robots with relative motion deserves further investigation. The relative motion is also known as the asymmetric bimanual task. In [15], a relative impedance controller was developed by using a relative Jacobian method such that the dual-arm system can be treated as a single-arm robotic system. In [16], a brain-actuated control architecture was proposed for dual-arm robots to perform the asymmetric bimanual task, where electroencephalogram signals and visual stimulation were employed to send control command through a brain–machine interface. In these works, however, the controllers were designed under the assumption that the robot dynamics are fully available, while the stability analysis of the contact force between the robotic arm and the object was not given.",
+      "sha256": "257ba0ab3c8aa26e65129ec0e8b53614fb155656b7fa84e072fcf2b51c391dc5"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "I06",
+      "sentences": [
+        1,
+        8
+      ],
+      "blocks": [
+        "p2-b3"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In our recent work [39], a filtered operation was presented to control the robotic arm with finite-time convergence under a linear-in-parameter (LIP) robotic dynamic model. Nevertheless, the guaranteed convergence of the NN weights is more difficult. It is well known that the persistent excitation (PE) condition is important to guarantee the estimation convergence [40]. However, in practice, it is very stringent to ensure the PE condition of neural networks due to the sparse characteristics of the NN regressor vector. Recent research of neural networks in [41] presented a partial persistent excitation (PPE) condition instead of the traditional PE condition. It has been proven that, for the radial basis function neural network (RBFNN) defined in a regular lattice, neural nodes could be partially activated for any recurrent NN inputs trajectory remained in this local region [41]. In the subsequent work [42], this idea was employed for the control design of nonlinear strict-feedback systems to guarantee the system stability and accurate NN approximation. However, the NN inputs still need to satisfy the condition of recurrent trajectory, and a small input excitation strength may lead to slow learning speed.",
+      "sha256": "a156ec3eab2e74c17cc924f42151437d218bf8703c82259f37afc565b198277b"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "I07",
+      "sentences": [
+        1,
+        7
+      ],
+      "blocks": [
+        "p2-b4",
+        "p2-b6"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "The work in [43] indicates that parameter convergence can be improved if certain information of the estimation error can be integrated into the adaptation. In [44], a novel parameter estimation law was proposed for a robotic system with unknown dynamics by using a sliding mode technique and a finite-time estimator. In [45], the estimation error was integrated into the adaptation scheme of a class of nonlinear systems to achieve the convergence of NN weights. Motivated by the abovementioned idea, in this article, we develop a composite learning controller for the dual-arm robot to perform bimanual relative motion tasks. To the best of our knowledge, few studies have investigated the learning control in the frame of the dual-arm robot systems subject to relative motion and unknown dynamics. Moreover, different from the work in [46], a PPE condition is also introduced in the estimation scheme to achieve a relaxation of the requirement of the PE condition. In comparison to the method in [45], the estimation error of the NN weights is properly expressed and employed to enhance the approximation of the neural network.",
+      "sha256": "8d585173042d9d9b8767149403b7d3d864ad58a1e83263657011d2bdc41fad53"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "C01",
+      "sentences": [
+        1,
+        1
+      ],
+      "blocks": [
+        "p2-b8"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "1) A novel neural control framework is developed for dual-arm robot systems to perform asymmetric bimanual tasks with no prior knowledge of the dynamics.",
+      "sha256": "c3f79bae569c23ae43ebb6676d05a4e88103d147fda4bdd008eca107dbec26b3"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "C02",
+      "sentences": [
+        1,
+        1
+      ],
+      "blocks": [
+        "p2-b8"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "2) A novel composite learning algorithm is designed for NN weights adaptation such that information of the estimate errors could be appropriately integrated into the adaptation law to improve the estimation performance.",
+      "sha256": "d85bec6eec519dd56371ba7ce629a20d09ee18aa2af4e15ff69b07f5224a52e5"
+    },
+    {
+      "card": "B16",
+      "paper": "P05",
+      "unit": "C03",
+      "sentences": [
+        1,
+        1
+      ],
+      "blocks": [
+        "p2-b8"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "3) A partial persistent condition is introduced for the adaptation of NN weights such that the requirement of conventional PE condition can be greatly relaxed.",
+      "sha256": "9070e8b06c8a5e4ecc8d7cc2ec062b68db33100785c5e9cca0e5baa9b7d1d2dc"
+    },
+    {
+      "card": "B17",
+      "paper": "Fuzzy2023",
+      "unit": "I02",
+      "sentences": [
+        1,
+        6
+      ],
+      "blocks": [
+        "p1-b14"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In practice, the undesirable transient performance may lead to the system instability, even the system safety problems sometimes. Recently, the barrier Lyapunov functions (BLFs) have been widely used to achieve the state and output constraints in the nonlinear control problems [12]–[16]. In [12], with the exponential-type BLF, a practical event-triggered prescribed-time controller has been proposed for a class of space teleoperation systems. In [14], a new command filtered fuzzy controller has been proposed for a class of unknown nonlinear systems to handle full-state constraints and finite-time convergence simultaneously. In [16], an adaptive fuzzy leader-following tracking control scheme has been proposed for heterogeneous nonlinear multiagent systems with finite-time output constraints. In this article, a novel symmetric BLF is designed to guarantee the desired transient performance of the robot system.",
+      "sha256": "8004723467e8807df0a83f3f848a2f090949c966a7802c4de3119faee989309f"
+    },
+    {
+      "card": "B17",
+      "paper": "Fuzzy2023",
+      "unit": "I03",
+      "sentences": [
+        1,
+        8
+      ],
+      "blocks": [
+        "p1-b15",
+        "p2-b1"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In many industrial systems, the system states are required to achieve fast convergence speed for better control performance. There have been some proposed research works focused on the convergence time of the systems [17]–[19]. In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence. In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties. Nevertheless, for the existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions, which are sometimes unavailable. To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22]. In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems. In [21], an adaptive event-based fixed-time control scheme has been proposed for the active vehicle suspension systems, and the predefined constraints can be guaranteed.",
+      "sha256": "92750ffe5b925a456ed00ef16af75a52b9d394b895e024679bd65228f5063849"
+    },
+    {
+      "card": "B17",
+      "paper": "Fuzzy2023",
+      "unit": "I01",
+      "sentences": [
+        7,
+        7
+      ],
+      "blocks": [
+        "p1-b7",
+        "p1-b13"
+      ],
+      "complete_paragraph": false,
+      "verbatim_contiguous_sentences": true,
+      "text": "In [8], an adaptive fuzzy control scheme has been proposed for robotic systems to achieve fixed-time convergence and user-defined performance simultaneously.",
+      "sha256": "caa076118eb861eb5f8cdeac6fefab06962a3f45ee83c4fb853aafc37a17d028"
+    },
+    {
+      "card": "B17",
+      "paper": "Fuzzy2023",
+      "unit": "I01",
+      "sentences": [
+        11,
+        11
+      ],
+      "blocks": [
+        "p1-b7",
+        "p1-b13"
+      ],
+      "complete_paragraph": false,
+      "verbatim_contiguous_sentences": true,
+      "text": "Moreover, the desired transient performance and convergence time are rarely discussed simultaneously in most of the existing fuzzy control schemes.",
+      "sha256": "4fa7da4eb97852e53bc410e775b517978a8a31df4618f9354bb403103458a782"
+    },
+    {
+      "card": "B17",
+      "paper": "Fuzzy2023",
+      "unit": "C02",
+      "sentences": [
+        1,
+        2
+      ],
+      "blocks": [
+        "p2-b3"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "2) A novel adaptive law is proposed such that the boundedness of all the closed-loop signals can be proved. Then, the assumption that the weight estimation is bounded in recent fixed-time control research [23]–[25] can be relaxed.",
+      "sha256": "6b364f86baa945e70b266adc8595098c066e399f5717cc0f939b36d52cecedf2"
+    },
+    {
+      "card": "B17",
+      "paper": "Fuzzy2023",
+      "unit": "C03",
+      "sentences": [
+        1,
+        1
+      ],
+      "blocks": [
+        "p2-b3"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "3) The tracking performance of the robot system can achieve practical fixed-time convergence regardless of the initial conditions.",
+      "sha256": "e5aa0ae9db956bc163c38209f4527c1f380fd9260a44470af047a7adccfb8762"
+    },
+    {
+      "card": "B18",
+      "paper": "ESO2017",
+      "unit": "I02",
+      "sentences": [
+        1,
+        5
+      ],
+      "blocks": [
+        "p1-b18"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In practice, there are a number of technical challenges in the control of an underwater robot, such as the unknown external disturbances and model uncertainties. The unknown disturbances in practical oceanic environments include waves, tides, currents, and upward or downward streams. For control design of ROVs, the external force caused by the cable that connects with the depot ship should also be considered. The model uncertainties of an underwater robot are usually caused by the inaccurate hydrodynamic coefficients, which are calculated through the computational fluid dynamics (CFD) methods or towing tank experimental data analysis. During the process of performing a task, different attitude of the robot will also cause the variation of the hydrodynamic coefficient.",
+      "sha256": "15a757d543cb9ade9c6c843245165ad1c1c4f843879b865e00ab4059250aec2b"
+    },
+    {
+      "card": "B18",
+      "paper": "ESO2017",
+      "unit": "I05",
+      "sentences": [
+        10,
+        13
+      ],
+      "blocks": [
+        "p2-b2"
+      ],
+      "complete_paragraph": false,
+      "verbatim_contiguous_sentences": true,
+      "text": "To reduce the chattering, several methods, such as the high-order sliding-mode controller [24], [25], disturbance compensation method [26], [27], and terminal sliding controller [28] have been proposed. In [26], a free chattering SMC is presented via an adaptive term, which continuously compensates for the unknown system dynamics of an ROV. In practice, sometimes, the upper bound of the uncertainties may be large and the SMC without a compensator will cause serious chattering. Therefore, it is necessary to design a compensator for the external disturbance to reduce chattering.",
+      "sha256": "98bc3cbc846749157cc747e3d2631804bd1b2d8e839f01111e67e33d737a2845"
+    },
+    {
+      "card": "B18",
+      "paper": "ESO2017",
+      "unit": "I06",
+      "sentences": [
+        1,
+        9
+      ],
+      "blocks": [
+        "p2-b3"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "Another approach dealing with the unknown disturbance is to design an observer to estimate the unknown external disturbance of a robot, followed by the control design to compensate for the estimated disturbance. Such disturbance observers include sliding mode observer [12], [29], high-gain observer [30], [31], and extended state observer (ESO) [13], [32]. In [12], a sliding mode controller based on a sliding mode observer is proposed for a reusable launch vehicle. The observer is presented to estimate the unknown external disturbances and to reduce the control gain. In [30], a high-gain observer-based output feedback motion control that considers the unmodeled dynamics, measurement errors, model parameter variations, and unknown external environmental disturbances for observation class ROVs is presented. In [32], a backstepping control based on an ESO is proposed to handle mismatched disturbance of hydraulic systems. The designed observer estimates not only the model uncertainties but also the unmeasured states. In [13], by using an ESO, a backstepping control for a hydraulic system is presented to suppress large unknown external disturbances. The bandwidth of the observer is chosen in accordance with two conflicting aspects, the maximal load capability and the dynamic performance of system.",
+      "sha256": "5412be0fafa0142226bfe6ad123cfa21f653bea35db65443df3897d36ea313bc"
+    },
+    {
+      "card": "B18",
+      "paper": "ESO2017",
+      "unit": "I07",
+      "sentences": [
+        1,
+        6
+      ],
+      "blocks": [
+        "p2-b4"
+      ],
+      "complete_paragraph": false,
+      "verbatim_contiguous_sentences": true,
+      "text": "In this paper, we design an adaptive sliding mode-based controller for a general type of underwater robots, and experiment is carried on a test bed for underwater object grasping. Onboard sensors, including a depth sensor and an inertial measurement unit (IMU), are equipped to measure the depth and attitude of the robot. The position of the underwater robot is measured by an external vision positioning system (VPS), and some white lightings are equipped on the robot, which can be captured by the VPS to calculate the position of the robot. In such a case, there is no direct measurement of velocity of the robot. Then output feedback is required for our work as the direct differential of the position information may degrade the control performance. In such case, observes are always used to estimate the unmeasured states of the robot [5], [33].",
+      "sha256": "c4a15cb14c6586c1f02c14f19fe6f34bf0b4e86f52d6c2c32d775755fa52ff8b"
+    },
+    {
+      "card": "B18",
+      "paper": "ESO2017",
+      "unit": "I08",
+      "sentences": [
+        1,
+        7
+      ],
+      "blocks": [
+        "p2-b5"
+      ],
+      "complete_paragraph": true,
+      "verbatim_contiguous_sentences": true,
+      "text": "In this paper, a disturbance compensation approach is utilized to eliminate the chattering based on multiple-input and multiple-output extend-state-observer (MIMO-ESO) with a simple structure. Motivated by the ESO model [32] and the high-gain observer [39], a MIMO-ESO is proposed to estimate the unknown disturbances and the unmeasured states. The bounds of the uncertainties are also estimated using the adaptive control technique. The Lyapunov analysis is involved to design the final control law. The proposed controller in this paper includes two parts, namely the equivalent controller and the switch controller, which guarantees the trajectory tracking error converge to zero theoretically. The proposed controller is successfully implemented on an underwater robot propelled by six thrusters. The main contributions can be summarized as follows.",
+      "sha256": "e5ad0a518d8705fa26966c8c1eca6fbfe3edcf283476698af79220e770bee01f"
+    }
+  ],
+  "sentence_tables": [
+    {
+      "card": "B15",
+      "unit": "I01",
+      "sentence": 1,
+      "analysis": "`robots have been widely applied in ...` 命名应用对象，范围从 fields 落到 manufacturing。"
+    },
+    {
+      "card": "B15",
+      "unit": "I01",
+      "sentence": 2,
+      "analysis": "`Adaptable robots are required due to ...` 以所需机器人属性为主语，把产品更新接到适应性要求。"
+    },
+    {
+      "card": "B15",
+      "unit": "I01",
+      "sentence": 3,
+      "analysis": "`it is necessary to develop methods for enhancing robot learning` 从要求推出学习方法的责任；Hence 依赖前句理由。"
+    },
+    {
+      "card": "B15",
+      "unit": "I01",
+      "sentence": 4,
+      "analysis": "`Robot learning from demonstration ... is a valuable technique to simplify ...` 命名当前工具及其用途。"
+    },
+    {
+      "card": "B15",
+      "unit": "I01",
+      "sentence": 5,
+      "analysis": "`The human tutor shows ... then the robot learns ... to reproduce the skill` 换主体以交接示教信息；motion modeling 明确中间过程。"
+    },
+    {
+      "card": "B15",
+      "unit": "I01",
+      "sentence": 6,
+      "analysis": "`it is essential to consider how to model motions effectively` 从该过程收束为建模问题，下一段才比较可用表示。"
+    },
+    {
+      "card": "B15",
+      "unit": "I03",
+      "sentence": 1,
+      "analysis": "`DMPs have been often employed to solve ... because of their flexibility` 用技术主体开段，先给被采用的能力理由。"
+    },
+    {
+      "card": "B15",
+      "unit": "I03",
+      "sentence": 2,
+      "analysis": "`In [7], DMPs were modified to model ...` 动作 modified 及目的 model fast movement 明确，不只说 used。"
+    },
+    {
+      "card": "B15",
+      "unit": "I03",
+      "sentence": 3,
+      "analysis": "`Another study used reinforcement learning to combine DMP sequences so that ...` 研究为主语，组合为机制，复杂任务为用途；与上句换一个有区别的应用。"
+    },
+    {
+      "card": "B15",
+      "unit": "I03",
+      "sentence": 4,
+      "analysis": "`While both these studies employed multiple DMPs ... another study ... used ...` 归纳两项共同表示，再给风格调节例子；where 从句解释权重与 goals 的作用。"
+    },
+    {
+      "card": "B15",
+      "unit": "I03",
+      "sentence": 5,
+      "analysis": "`optimal demonstration is difficult to obtain and multiple demonstrations can encode ...` 从用途转向示教选择，困难与可用信息共同提供理由。"
+    },
+    {
+      "card": "B15",
+      "unit": "I03",
+      "sentence": 6,
+      "analysis": "`we consider integrating multiple demonstrations into one DMP model` 将这些信息交给当前表示设计，下一段需解释如何保留它们。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 1,
+      "analysis": "`Probabilistic approaches have shown good performance in motion encoding` 接前段待保留的信息，亮出可用方法。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 2,
+      "analysis": "`variability ... can be extracted ... features ... can be preserved` 同一批示教的变异信息经提取后保留；thus 连接具体信息作用。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 3,
+      "analysis": "`an LfD framework using ... was used to extract ...` 给多示教特征提取的方法实现。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 4,
+      "analysis": "`A new motion was generated through ... GMR` 接上句同一框架，继续解释生成，不另开无关文献。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 5,
+      "analysis": "`GMM combined with GMR can provide additional motion information ... when learning from multiple demonstrations` 按信息能力比较，保留使用条件。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 6,
+      "analysis": "`a learning approach named ... was proposed for motion modeling, where ... was modeled using GMR` 命名 SEDS，再给内部未知函数建模动作。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 7,
+      "analysis": "`DS-GMR is another method that combines ...` 引入同类组合，不把组合思想当作本文首次。"
+    },
+    {
+      "card": "B15",
+      "unit": "I04",
+      "sentence": 8,
+      "analysis": "`Both methods exploit ... as well as ...` 综合两类已有能力，交给下一段当前实现；段末可以承认可继承能力。"
+    },
+    {
+      "card": "B15",
+      "unit": "I05",
+      "sentence": 1,
+      "analysis": "`we integrate DMP and GMM into ...` 接 I04 两类能力；where 内 `the nonlinear function ... is modeled with ...` 与 `its estimate is retrieved through ...` 分列表示对象和估计信息。"
+    },
+    {
+      "card": "B15",
+      "unit": "I05",
+      "sentence": 2,
+      "analysis": "`This modification enables the robot to extract ... and to generate ...` 主语接同一修改，机器人提取特征再生成综合特征的运动，作用紧跟机制。"
+    },
+    {
+      "card": "B15",
+      "unit": "I05",
+      "sentence": 3,
+      "analysis": "`The original DMP was learned using ...` 与 `... was employed to optimize the bandwidth ...` 回到所比较的原方案，分别给学习与核带宽优化。"
+    },
+    {
+      "card": "B15",
+      "unit": "I05",
+      "sentence": 4,
+      "analysis": "`these methods enable the DMP to learn from only one demonstration` 把所列学习方式共同归纳，Despite 接复杂度代价，only 限定示教数。"
+    },
+    {
+      "card": "B15",
+      "unit": "I05",
+      "sentence": 5,
+      "analysis": "`Reservoir computing ... is another method used to approximate ... but its computing efficiency is less than that of GMR` 保留近似同一函数的能力，只比较计算效率。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 1,
+      "analysis": "`The imitation performance ... also depends on the accuracy of ...` 重复整体任务效果，用 also depends on 加入执行责任，接回 I05 生成。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 2,
+      "analysis": "`a model-based control performs better if the model is accurate enough` 先承认准确模型的能力，if 保留其成立条件。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 3,
+      "analysis": "`an accurate dynamic model ... cannot be obtained in advance due to ... unknown payload` 对同一模型说明不可预知的具体原因，建立替代路线的依据。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 4,
+      "analysis": "`The approximation-based controllers have been designed to overcome such uncertainties` 提供已有替代路线，尚未直接跳到 RBFNN。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 5,
+      "analysis": "`They utilize function approximation tools to learn the nonlinear characteristics ...` 续讲这些控制器的机制；作者表达直接命名控制器类别。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 6,
+      "analysis": "`NNs have been widely used in controller design because of their approximation ability` 从函数近似工具选到 NN，以能力说明选用理由。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 7,
+      "analysis": "`BPNN was utilized to approximate ... while ... RBFNN was utilized to approximate ...` 两例均保留模型非线性与系统对象，while 在这里并列方法应用。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 8,
+      "analysis": "`the learning procedure of RBFNN is based on local approximation` 后接源文关于局部最优／收敛的判断；比较建立在指定学习机制上。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 9,
+      "analysis": "`the number of hidden layer units ... can be adaptively adjusted during ...` 再给结构可调的能力，不把 Besides 当无对象的优点堆叠。"
+    },
+    {
+      "card": "B15",
+      "unit": "I06",
+      "sentence": 10,
+      "analysis": "`RBFNN is more appropriate for the design of real-time control` 汇总本段选择理由，交给 I07 的具体控制责任；此判断需作者证据支持。"
+    },
+    {
+      "card": "B15",
+      "unit": "I07",
+      "sentence": 1,
+      "analysis": "`an NN-based controller is designed to guarantee ... in joint space` 先给控制责任，where 内 `RBFNN is employed to approximate ...` 说明动力学近似。"
+    },
+    {
+      "card": "B15",
+      "unit": "I07",
+      "sentence": 2,
+      "analysis": "`The stability of the controller is guaranteed by ...` 接同一控制器的分析保证，与生成能力分开；按作者真实证明调整。"
+    },
+    {
+      "card": "B15",
+      "unit": "I07",
+      "sentence": 3,
+      "analysis": "`the robot learning system consists of ... and ...` 在两项责任已解释后给组成。"
+    },
+    {
+      "card": "B15",
+      "unit": "I07",
+      "sentence": 4,
+      "analysis": "`The former utilizes the motion model ... to learn and generalize ...` 并接 `are represented as a set of trajectories in joint space`，交出具体轨迹。"
+    },
+    {
+      "card": "B15",
+      "unit": "I07",
+      "sentence": 5,
+      "analysis": "`The latter employs the adaptive controller to track the trajectories generated from the former` 接同一轨迹，`RBFNN is incorporated to compensate for ...` 给近似器的执行作用。"
+    },
+    {
+      "card": "B16",
+      "unit": "I02",
+      "sentence": 1,
+      "analysis": "`An adaptive decentralized control scheme was proposed to address the object handling problem ...` 命名方案与任务；where 内 force control `was employed to simultaneously regulate the force and position` 给具体能力。"
+    },
+    {
+      "card": "B16",
+      "unit": "I02",
+      "sentence": 2,
+      "analysis": "`a decentralized control structure ... was developed` 后接 `the internal forces were constrained by employing ...`，换到内力约束，以模型说明机制。"
+    },
+    {
+      "card": "B16",
+      "unit": "I02",
+      "sentence": 3,
+      "analysis": "`the loading problem ... was addressed by analyzing the grasp space ...` 再给载荷问题的分析途径；前三句各有动作与对象。"
+    },
+    {
+      "card": "B16",
+      "unit": "I02",
+      "sentence": 4,
+      "analysis": "`the abovementioned controllers were developed under the assumption that ... such that ...` 归纳这三项的紧持条件及无相对运动关系。"
+    },
+    {
+      "card": "B16",
+      "unit": "I02",
+      "sentence": 5,
+      "analysis": "`the robot end-effectors need to operate along the object's surface` 以末端执行器为主语，应用解释沿表面滑动为何必要，交给 I03。"
+    },
+    {
+      "card": "B16",
+      "unit": "I03",
+      "sentence": 1,
+      "analysis": "`the coordination control ... with relative motion deserves further investigation` 接前段改变的条件，亮出本段对象。"
+    },
+    {
+      "card": "B16",
+      "unit": "I03",
+      "sentence": 2,
+      "analysis": "`The relative motion is also known as the asymmetric bimanual task` 建立文献术语对应。"
+    },
+    {
+      "card": "B16",
+      "unit": "I03",
+      "sentence": 3,
+      "analysis": "`a relative impedance controller was developed by using a relative Jacobian method such that ...` 给方法和降为单臂处理的建模作用。"
+    },
+    {
+      "card": "B16",
+      "unit": "I03",
+      "sentence": 4,
+      "analysis": "`a brain-actuated control architecture was proposed ... to perform ...` 后续 EEG／visual stimulation 通过 interface 送命令，说明另一实现。"
+    },
+    {
+      "card": "B16",
+      "unit": "I03",
+      "sentence": 5,
+      "analysis": "`In these works ... under the assumption that ... fully available, while ... analysis ... was not given` 对这两项分别限定动力学先验和接触力分析，交给下一段模型信息问题。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 1,
+      "analysis": "`a filtered operation was presented to control ... with finite-time convergence under ... LIP ...` 先承认前作在指定模型下的能力。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 2,
+      "analysis": "`the guaranteed convergence of the NN weights is more difficult` 将对象改为 NN 权重，接 I05 的估计责任。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 3,
+      "analysis": "`the ... PE condition is important to guarantee the estimation convergence` 给权重估计所需条件。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 4,
+      "analysis": "`it is very stringent to ensure ... due to the sparse characteristics of the NN regressor vector` 用稀疏回归解释严格性，不止报一个限制标签。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 5,
+      "analysis": "`Recent research ... presented a ... PPE condition` 先承认已有条件进展。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 6,
+      "analysis": "`It has been proven that, for ... defined in a regular lattice, neural nodes could be partially activated ...` 给局部结果及 recurrent 输入范围，保留 for 条件。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 7,
+      "analysis": "`In the subsequent work ... this idea was employed ... to guarantee ...` 同一思想继续用于稳定性及准确近似；idea 的所指是前述 PPE。"
+    },
+    {
+      "card": "B16",
+      "unit": "I06",
+      "sentence": 8,
+      "analysis": "`the NN inputs still need to satisfy ... recurrent trajectory` 后接 `a small input excitation strength may lead to slow learning speed`，将剩余条件与可能代价分开，交给 I07 信息更新路线。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 1,
+      "analysis": "`The work in [43] indicates that parameter convergence can be improved if ... estimation error ... integrated into ... adaptation` 研究结论作主语，if 给信息使用条件。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 2,
+      "analysis": "`a ... parameter estimation law was proposed ... by using ...` 给未知动力学系统的估计实现。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 3,
+      "analysis": "`the estimation error was integrated into the adaptation scheme ... to achieve ... NN weights` 以误差信息为主语，明确进入更新及学习对象。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 4,
+      "analysis": "`we develop a composite learning controller ... to perform bimanual relative motion tasks` 把前述思想用于作者任务；源文 Motivated 起句按作者要求调整。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 5,
+      "analysis": "`few studies have investigated ... subject to relative motion and unknown dynamics` 限定当前任务与信息条件交集，不制造普遍空白。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 6,
+      "analysis": "`a PPE condition is also introduced in the estimation scheme to achieve a relaxation ...` 针对 [46] 改变激励要求，introduced in 命名引入位置。"
+    },
+    {
+      "card": "B16",
+      "unit": "I07",
+      "sentence": 7,
+      "analysis": "`the estimation error of the NN weights is properly expressed and employed to enhance ...` 针对 [45] 改变信息表示及使用，expressed／employed 不是同一动作。"
+    },
+    {
+      "card": "B17",
+      "unit": "I02",
+      "sentence": 1,
+      "analysis": "`the undesirable transient performance may lead to ...` 段首亮出不良瞬态的可能安全后果，建立约束责任。"
+    },
+    {
+      "card": "B17",
+      "unit": "I02",
+      "sentence": 2,
+      "analysis": "`the ... BLFs have been widely used to achieve the state and output constraints ...` 引入工具及约束对象。"
+    },
+    {
+      "card": "B17",
+      "unit": "I02",
+      "sentence": 3,
+      "analysis": "`with the exponential-type BLF, a ... controller has been proposed for ...` 给 prescribed-time 方案和空间遥操作对象。"
+    },
+    {
+      "card": "B17",
+      "unit": "I02",
+      "sentence": 4,
+      "analysis": "`a ... fuzzy controller has been proposed ... to handle full-state constraints and finite-time convergence simultaneously` 明确保留前作的联合能力。"
+    },
+    {
+      "card": "B17",
+      "unit": "I02",
+      "sentence": 5,
+      "analysis": "`an adaptive fuzzy ... scheme has been proposed for ... with finite-time output constraints` 再给输出约束与系统类型。"
+    },
+    {
+      "card": "B17",
+      "unit": "I02",
+      "sentence": 6,
+      "analysis": "`a ... symmetric BLF is designed to guarantee the desired transient performance ...` 当前工具为主语，设计紧接作用，下一段解释另一时间责任。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 1,
+      "analysis": "`the system states are required to achieve fast convergence speed for better control performance` 用状态与速度要求开段，接整体控制目标。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 2,
+      "analysis": "`research works focused on the convergence time ...` 将该要求交给具体时间研究。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 3,
+      "analysis": "`an adaptive observer-based fuzzy controller has been proposed ... to achieve finite-time convergence` 给可用 finite-time 方法及 strict-feedback 对象。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 4,
+      "analysis": "`an adaptive finite-time sliding-mode control scheme has been proposed ... with some matched uncertainties` 补另一方法，保留不确定性类型。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 5,
+      "analysis": "`the convergence time ... is always related to the initial conditions, which are sometimes unavailable` 明确转向理由；依赖初值与初值信息不可得是两个相接事实。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 6,
+      "analysis": "`the fixed-time control schemes have been proposed and applied ...` 因此前作引入 fixed-time，尚不是宣布本文独有。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 7,
+      "analysis": "`a ... fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed ...` 承认已有工具组合及 nonstrict-feedback 条件。"
+    },
+    {
+      "card": "B17",
+      "unit": "I03",
+      "sentence": 8,
+      "analysis": "`an ... fixed-time control scheme has been proposed ... and the predefined constraints can be guaranteed` 承认已有约束保证，以能力收尾再转当前方案范围。"
+    },
+    {
+      "card": "B18",
+      "unit": "I02",
+      "sentence": 1,
+      "analysis": "`there are ... technical challenges ... such as ... disturbances and model uncertainties` 段首命名两类对象。"
+    },
+    {
+      "card": "B18",
+      "unit": "I02",
+      "sentence": 2,
+      "analysis": "`The unknown disturbances ... include ...` 接第一类对象，以海况具体展开。"
+    },
+    {
+      "card": "B18",
+      "unit": "I02",
+      "sentence": 3,
+      "analysis": "`the external force caused by the cable ... should also be considered` 同属外扰，再给 ROV 系缆来源及应考虑的力。"
+    },
+    {
+      "card": "B18",
+      "unit": "I02",
+      "sentence": 4,
+      "analysis": "`The model uncertainties ... are usually caused by ... coefficients, which are calculated through ...` 换到第二类对象，参数误差及获取方式各有作用。"
+    },
+    {
+      "card": "B18",
+      "unit": "I02",
+      "sentence": 5,
+      "analysis": "`different attitude ... will also cause the variation of the hydrodynamic coefficient` 将静态获取误差接到任务中的参数变化，下一段才比较应对方法。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 1,
+      "analysis": "`design an observer to estimate ... followed by the control design to compensate for the estimated disturbance` 从 I05 补偿需求进入估计—补偿路线；估计信息交给控制。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 2,
+      "analysis": "`Such disturbance observers include ...` 按该角色列可用类型。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 3,
+      "analysis": "`a sliding mode controller based on a sliding mode observer is proposed for ...` 给方案与 launch vehicle 对象。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 4,
+      "analysis": "`The observer is presented to estimate ... and to reduce the control gain` 续讲上句同一观察器，估计与减小增益各有对象。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 5,
+      "analysis": "`a high-gain observer-based output feedback motion control that considers ... is presented` 换到 ROV，列明所考虑未知项和测量误差，限定方法范围。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 6,
+      "analysis": "`a backstepping control based on an ESO is proposed to handle mismatched disturbance ...` 给另一个系统及扰动类别。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 7,
+      "analysis": "`The designed observer estimates not only the model uncertainties but also the unmeasured states` 续讲 S06 观察器，两类估计责任为 I07 的速度估计提供已有能力。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 8,
+      "analysis": "`by using an ESO, a backstepping control ... is presented to suppress large unknown external disturbances` 另给大扰动处理能力，承认已有结果。"
+    },
+    {
+      "card": "B18",
+      "unit": "I06",
+      "sentence": 9,
+      "analysis": "`The bandwidth ... is chosen in accordance with two conflicting aspects ...` 接这一观察器的整定取舍，比较负载能力与动态性能；下一段的速度估计需要由实际测量条件确定。"
+    },
+    {
+      "card": "B18",
+      "unit": "I07",
+      "sentence": 1,
+      "analysis": "`we design an adaptive sliding mode-based controller for ...` 给当前设计与平台范围，随后仍解释信息条件。"
+    },
+    {
+      "card": "B18",
+      "unit": "I07",
+      "sentence": 2,
+      "analysis": "`Onboard sensors ... are equipped to measure the depth and attitude ...` 列实际传感输出。"
+    },
+    {
+      "card": "B18",
+      "unit": "I07",
+      "sentence": 3,
+      "analysis": "`The position ... is measured by ... VPS` 补位置来源，后续灯光说明该装置如何取得位置。"
+    },
+    {
+      "card": "B18",
+      "unit": "I07",
+      "sentence": 4,
+      "analysis": "`there is no direct measurement of velocity ...` 在前两句可测信息下指出缺失量，In such a case 的所指具体。"
+    },
+    {
+      "card": "B18",
+      "unit": "I07",
+      "sentence": 5,
+      "analysis": "`output feedback is required ... as the direct differential ... may degrade ...` 从位置微分的可能代价说明输出反馈理由。"
+    },
+    {
+      "card": "B18",
+      "unit": "I07",
+      "sentence": 6,
+      "analysis": "`... used to estimate the unmeasured states ...` 将状态缺失交给观察器，接回 I06 S07 的已有能力；后文继续比较 velocity observer 研究。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 1,
+      "analysis": "`a disturbance compensation approach is utilized to ... based on ... MIMO-ESO` 回应 I05 补偿／减抖责任。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 2,
+      "analysis": "`a MIMO-ESO is proposed to estimate the unknown disturbances and the unmeasured states` 命名观察器两类输出，承接 I02／I07；源文 Motivated 开头按作者要求调整。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 3,
+      "analysis": "`The bounds of the uncertainties are also estimated using ...` 界作主语，另给自适应估计责任，also 的关系是增加估计对象。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 4,
+      "analysis": "`The Lyapunov analysis is involved to design the final control law` 引入控制律设计的分析依据。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 5,
+      "analysis": "`The proposed controller ... includes two parts ...` 接组成并给源文理论跟踪结论，按作者真实条件及结论调整。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 6,
+      "analysis": "`The proposed controller is successfully implemented on ...` 继续同一控制器，以平台实现收束，理论结论与实现分别承担证据责任。"
+    },
+    {
+      "card": "B18",
+      "unit": "I08",
+      "sentence": 7,
+      "analysis": "`The main contributions can be summarized as follows` 从已解释的责任转入贡献列表，不再次引出无关方法。"
+    }
+  ],
+  "on_demand_subsection_read_evidence": [
+    {
+      "card": "B15",
+      "target": "I05",
+      "heading": "**具体设计接修改作用，I05 全段，p.2 左，上接 I04、下接执行问题 I06。**",
+      "characters": 1885,
+      "sha256": "ec7211a2767c7e418532ac8324ace16e5cf363b84a5d9cd5afcd00064712f0ac",
+      "complete_English_context_and_sentence_analysis_read": true
+    },
+    {
+      "card": "B16",
+      "target": "I02–I03",
+      "heading": "**前作能力—共同条件—当前任务差异，I02–I03 两个完整连续段，p.1 右。**",
+      "characters": 3664,
+      "sha256": "a856da188518102c032442bf4dd463839540e446d5d01cbd105ca42565305155",
+      "complete_English_context_and_sentence_analysis_read": true
+    },
+    {
+      "card": "B17",
+      "target": "I02–I03",
+      "heading": "**约束与收敛时间分别为何必要，I02–I03 两个完整连续段，p.1 右→p.2 左。**",
+      "characters": 4804,
+      "sha256": "43d036fdc0a7c0f4a39ee3162b147dfd1cc149791353cdeaea950a55b590b39f",
+      "complete_English_context_and_sentence_analysis_read": true
+    },
+    {
+      "card": "B18",
+      "target": "I06",
+      "heading": "**估计到控制使用及状态估计能力，I06 全段，p.2 左；下接 I07 当前测量条件。**",
+      "characters": 2654,
+      "sha256": "fe6190b08a83ce01cf84475ae63faa541cbff41e98e1abe4a0aa324ef541700a",
+      "complete_English_context_and_sentence_analysis_read": true
+    }
+  ],
+  "report_contiguous_quotes": [
+    {
+      "paper": "P17",
+      "unit": "I03",
+      "sentences": [
+        5,
+        6
+      ]
+    },
+    {
+      "paper": "ESO2017",
+      "unit": "I03",
+      "sentences": [
+        2,
+        4
+      ]
+    },
+    {
+      "paper": "P05",
+      "unit": "I02",
+      "sentences": [
+        4,
+        5
+      ]
+    },
+    {
+      "paper": "P05",
+      "unit": "I06",
+      "sentences": [
+        5,
+        8
+      ]
+    },
+    {
+      "paper": "P17",
+      "unit": "I05",
+      "sentences": [
+        1,
+        2
+      ]
+    },
+    {
+      "paper": "P17",
+      "unit": "I06",
+      "sentences": [
+        1,
+        3
+      ]
+    },
+    {
+      "paper": "ESO2017",
+      "unit": "I07",
+      "sentences": [
+        4,
+        6
+      ]
+    },
+    {
+      "paper": "P17",
+      "unit": "I03",
+      "sentences": [
+        2,
+        4
+      ]
+    },
+    {
+      "paper": "P05",
+      "unit": "I07",
+      "sentences": [
+        1,
+        3
+      ]
+    },
+    {
+      "paper": "P05",
+      "unit": "I07",
+      "sentences": [
+        6,
+        7
+      ]
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I02",
+      "sentences": [
+        6,
+        6
+      ]
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C02",
+      "sentences": [
+        1,
+        2
+      ]
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C03",
+      "sentences": [
+        1,
+        1
+      ]
+    }
+  ],
+  "author_input_hashes": {
+    "核心要求.txt": "c71b340b38da2dc83c1211384206910e2ec2706cb72a5cb713d3c722ecffaf26",
+    "我自己的经验和做法.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "引言写作方法.txt": "289820755f5665df639002fe286bf5dade033720f45a656a50974bcd9b041604"
+  },
+  "read_routes": [
+    {
+      "environment": "project",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-default",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-task-learning-zh",
+        "section": "intro",
+        "language": "zh-to-en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B16"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "zh-to-en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/zh-to-en.md",
+          "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B16": {
+              "characters": 11507,
+              "sha256": "d899cf148fbae32f48e572c6130c1ad6074b2468f3fd242467e179f14262c007"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-joint-performance",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B17"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B17": {
+              "characters": 7042,
+              "sha256": "2ff513cf2ca39274ae769be8a3384c60a12e2def553c0e4ee0f3573eaad3f5bf"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-sensor-compensation",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B18"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B18": {
+              "characters": 10623,
+              "sha256": "260f751259cfb71c7efc37d2bf5af1046a2450c10ecb39315a3907707f884572"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-abstract-exclusion",
+        "section": "abstract",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "A06"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "abstract",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "99f935dae9ce29da0848eca1f0d2b4fbc9eee07d0f58e0c35abfed4a85fdc572"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            },
+            "A06": {
+              "characters": 2912,
+              "sha256": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-writing",
+      "case": {
+        "id": "nonrobotics-intro-exclusion",
+        "section": "intro",
+        "language": "en",
+        "robotics": false,
+        "cards": []
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-default",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-task-learning-zh",
+        "section": "intro",
+        "language": "zh-to-en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B16"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "zh-to-en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/zh-to-en.md",
+          "sha256": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B16": {
+              "characters": 11507,
+              "sha256": "d899cf148fbae32f48e572c6130c1ad6074b2468f3fd242467e179f14262c007"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-joint-performance",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B17"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B17": {
+              "characters": 7042,
+              "sha256": "2ff513cf2ca39274ae769be8a3384c60a12e2def553c0e4ee0f3573eaad3f5bf"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-sensor-compensation",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B18"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B18": {
+              "characters": 10623,
+              "sha256": "260f751259cfb71c7efc37d2bf5af1046a2450c10ecb39315a3907707f884572"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-abstract-exclusion",
+        "section": "abstract",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "A06"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "abstract",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            },
+            "A06": {
+              "characters": 2912,
+              "sha256": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "environment": "project",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "nonrobotics-intro-exclusion",
+        "section": "intro",
+        "language": "en",
+        "robotics": false,
+        "cards": []
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-default",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-task-learning-zh",
+        "section": "intro",
+        "language": "zh-to-en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B16"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "zh-to-en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/zh-to-en.md",
+          "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B16": {
+              "characters": 11507,
+              "sha256": "d899cf148fbae32f48e572c6130c1ad6074b2468f3fd242467e179f14262c007"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-joint-performance",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B17"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B17": {
+              "characters": 7042,
+              "sha256": "2ff513cf2ca39274ae769be8a3384c60a12e2def553c0e4ee0f3573eaad3f5bf"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-intro-sensor-compensation",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B18"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B18": {
+              "characters": 10623,
+              "sha256": "260f751259cfb71c7efc37d2bf5af1046a2450c10ecb39315a3907707f884572"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-writing",
+      "case": {
+        "id": "robotics-abstract-exclusion",
+        "section": "abstract",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "A06"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "abstract",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/abstract.md",
+          "sha256": "99f935dae9ce29da0848eca1f0d2b4fbc9eee07d0f58e0c35abfed4a85fdc572"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            },
+            "A06": {
+              "characters": 2912,
+              "sha256": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-writing",
+      "case": {
+        "id": "nonrobotics-intro-exclusion",
+        "section": "intro",
+        "language": "en",
+        "robotics": false,
+        "cards": []
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic",
+        "task": "manuscript"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-writing/SKILL.md",
+          "sha256": "c6e4ed769008a4c99a8acb8e5ed4152136b06753a6ac657fa0342ca454acf2d9"
+        },
+        {
+          "path": "nature-writing/manifest.yaml",
+          "sha256": "52214ce8571d36789848a0895628c3cd8868c89c87632e1143db603ebf6a39c2"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-writing/static/core/stance.md",
+          "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e"
+        },
+        {
+          "path": "nature-writing/static/core/workflow.md",
+          "sha256": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef"
+        },
+        {
+          "path": "nature-writing/static/core/output-format.md",
+          "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe"
+        },
+        {
+          "path": "nature-writing/static/fragments/paper_type/research.md",
+          "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27"
+        },
+        {
+          "path": "nature-writing/static/fragments/section/intro.md",
+          "sha256": "1d4166103fa727b93ece677e170d3ac5a1465614a90779dc993119b2845b40a0"
+        },
+        {
+          "path": "nature-writing/static/fragments/language/en.md",
+          "sha256": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a"
+        },
+        {
+          "path": "nature-writing/static/fragments/journal/generic.md",
+          "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe"
+        },
+        {
+          "path": "nature-writing/static/fragments/task/manuscript.md",
+          "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf"
+        },
+        {
+          "path": "nature-writing/references/introduction.md",
+          "sha256": "85a9f08d1d0bbd085d8d2c7656e0d3c28749c9af398559ea2d8e0de3aa60a78a"
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-default",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-task-learning-zh",
+        "section": "intro",
+        "language": "zh-to-en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B16"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "zh-to-en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/zh-to-en.md",
+          "sha256": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B16": {
+              "characters": 11507,
+              "sha256": "d899cf148fbae32f48e572c6130c1ad6074b2468f3fd242467e179f14262c007"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B17",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-joint-performance",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B17"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B17": {
+              "characters": 7042,
+              "sha256": "2ff513cf2ca39274ae769be8a3384c60a12e2def553c0e4ee0f3573eaad3f5bf"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B18"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-intro-sensor-compensation",
+        "section": "intro",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "B15",
+          "B18"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            }
+          },
+          "follows_index_link": "robotics-introduction-examples.md#selection"
+        },
+        {
+          "path": "nature-shared/core/robotics-main-text.md",
+          "sha256": "27175415fa72e7ad3b3690340f767477aefe60983fdbf77ebe889d52e0ec0b7b"
+        },
+        {
+          "path": "nature-shared/core/robotics-introduction-examples.md",
+          "sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+          "selected_text": {
+            "selection_and_source_notes": {
+              "characters": 2347,
+              "sha256": "ed656cf0fb44027213e540c88f3f83fd8616b45c445712defdb59da0e7101bdf"
+            },
+            "B15": {
+              "characters": 13618,
+              "sha256": "9caf83494207e93b615fcde7b6e21e10093686cfbc4ee50fa5da806c3cba41d3"
+            },
+            "B18": {
+              "characters": 10623,
+              "sha256": "260f751259cfb71c7efc37d2bf5af1046a2450c10ecb39315a3907707f884572"
+            }
+          },
+          "unselected_cards_not_in_selected_text": [
+            "B16",
+            "B17"
+          ]
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "robotics-abstract-exclusion",
+        "section": "abstract",
+        "language": "en",
+        "robotics": true,
+        "cards": [
+          "A06"
+        ]
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "abstract",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/abstract.md",
+          "sha256": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        },
+        {
+          "path": "nature-shared/core/robotics-writing-examples.md",
+          "sha256": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+          "selected_text": {
+            "common_and_task_index": {
+              "characters": 10687,
+              "sha256": "645ea5b8151a637e793c428a8f39ec3111d46f1082aa072f16fb06f549f5beb8"
+            },
+            "A06": {
+              "characters": 2912,
+              "sha256": "b71ecec78ff27bdfb860ad3d23dc0c5b9a304708dd3ab6e6cfbb3b1137167cf5"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "environment": "relocated-candidate-only",
+      "skill": "nature-polishing",
+      "case": {
+        "id": "nonrobotics-intro-exclusion",
+        "section": "intro",
+        "language": "en",
+        "robotics": false,
+        "cards": []
+      },
+      "resolved_axes": {
+        "paper_type": "research",
+        "section": "intro",
+        "language": "en",
+        "journal": "generic"
+      },
+      "mode": "explicitly resolved file-read audit, no model invocation",
+      "files_read": [
+        {
+          "path": "nature-polishing/SKILL.md",
+          "sha256": "fbbb19f5b95a63e13875748fc02d4903895630718bf2f71db0c985cd1ea16bfa"
+        },
+        {
+          "path": "nature-polishing/manifest.yaml",
+          "sha256": "4f0d30006d0568285824bcb098e561da98ac62844f0a1f2fbb1da1fd6f7b8c35"
+        },
+        {
+          "path": "nature-shared/core/reader-workflow.md",
+          "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d"
+        },
+        {
+          "path": "nature-shared/core/paper-type-taxonomy.md",
+          "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1"
+        },
+        {
+          "path": "nature-shared/core/ethics.md",
+          "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7"
+        },
+        {
+          "path": "nature-shared/core/terminology-ledger.md",
+          "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232"
+        },
+        {
+          "path": "nature-shared/core/scientific-expression.md",
+          "sha256": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+        },
+        {
+          "path": "nature-polishing/static/core/stance.md",
+          "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649"
+        },
+        {
+          "path": "nature-polishing/static/core/failure-modes.md",
+          "sha256": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260"
+        },
+        {
+          "path": "nature-polishing/static/core/output-format.md",
+          "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca"
+        },
+        {
+          "path": "nature-polishing/static/fragments/paper_type/research.md",
+          "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db"
+        },
+        {
+          "path": "nature-polishing/static/fragments/section/intro.md",
+          "sha256": "b6a4cb417f712c98786c64822cda8eda98137bc491d8f659140816574340d22e"
+        },
+        {
+          "path": "nature-polishing/static/fragments/language/en.md",
+          "sha256": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c"
+        },
+        {
+          "path": "nature-polishing/static/fragments/journal/generic.md",
+          "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5"
+        }
+      ]
+    }
+  ],
+  "powershell_UTF8_reads": [
+    {
+      "path": "nature-shared/core/robotics-introduction-examples.md",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    },
+    {
+      "path": "nature-shared/core/robotics-writing-examples.md",
+      "method": "PowerShell Get-Content -Raw -Encoding UTF8; UTF-8 console output",
+      "returned_lines_equal_utf8_source": true
+    }
+  ],
+  "package_validation": [
+    {
+      "package": "nature-writing",
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": "",
+      "scope": "frontmatter/naming, not behavioral or effect validation"
+    },
+    {
+      "package": "nature-polishing",
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": "",
+      "scope": "frontmatter/naming, not behavioral or effect validation"
+    },
+    {
+      "package": "nature-shared",
+      "exit_code": 0,
+      "stdout": "Skill is valid!\n",
+      "stderr": "",
+      "scope": "frontmatter/naming, not behavioral or effect validation"
+    }
+  ],
+  "required_analysis_or_PDF_dependencies": false,
+  "historical_evidence_records_preserved": true,
+  "installation_or_model_or_effect_test_run": false,
+  "limit": "Explicit file reads do not prove autonomous routing, example use, writing quality, transfer, omission detection or stability.",
+  "current_files_sha256": {
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+    "analysis/introduction-three-level-review-2026-10-05/ESO2017-analysis.md": "836942ba8cdc333d59393a1570f88cec281b640420705b4ef5a82d6144388d5b",
+    "analysis/introduction-three-level-review-2026-10-05/P05-analysis.md": "edb80d8e5aa747280018ce9caa77a6813d51736942eb185041fa0fea297d318f",
+    "analysis/introduction-three-level-review-2026-10-05/analysis-notes.json": "e54de8ecbbde53752df8a1b4e5517e03c930a84ae7dd840c85b0e0cb34b46673",
+    "analysis/introduction-three-level-review-2026-10-05/build_analysis.py": "e6be752bf8f0d85c59742608888e8e492072759a97efe2a826841382de59cb27",
+    "analysis/introduction-three-level-review-2026-10-05/report.md": "90af42e3549a4c45ed599b006c322b76712369241727522875bae3dd5dfaf9ef",
+    "analysis/introduction-three-level-candidate-update-2026-10-05/check_update.py": "c00759d37b9c317aa70d3ab579bcff25d36728ebc6aa1f999ed06b896771cdba"
+  }
+}

@@ -98,10 +98,10 @@ add('P17','I09','按方法依赖给出论文安排。','DMP 基础→学习→RB
 `Section VI concludes this paper` 完成 roadmap；引言没有强制以实验提升数字结束。
 ''')
 
-add('P05','I01','双臂的任务优势与新增控制复杂度共同构成应用动机。','双臂任务优势→应用→运动／路径复杂性→控制研究，I02 才具体看已有控制怎么处理对象。', '''
+add('P05','I01','并列交代双臂的任务优势与协调控制／规划复杂性，共同构成应用动机。','优势引出应用；协调运动控制／路径规划的复杂性另行引出控制研究。I02 再具体看已有控制怎么处理对象。', '''
 以研究对象及应用优势开篇。`coordination control of dual-arm robots has received increasing attention due to ...` 后列 payload／workspace／flexibility，attention 有技术原因。
 把上一优势接到应用。`Thus, the dual-arm robots have been involved in ... such as ...` 的应用举例不等于本文验证范围。
-从使用优势转向控制成本。`controlling ... is challenging due to ... complexity in motion control and path planning` 明确为什么不能停在机器人应用罗列。
+另行说明控制挑战的原因。`controlling ... is challenging due to ... complexity in motion control and path planning` 将控制困难归于协调运动控制与规划复杂性，与前述载荷／空间优势并列。
 以已有控制研究接到下一段。`advanced control technologies have been extensively studied for ...` 给文献展开入口，不假设所有前作失效。
 ''')
 add('P05','I02','从前作控制能力中提取紧持物体／无相对运动的共同条件，再用真实任务改变该条件。','I01 的控制问题具体化为物体操作；段末工具沿物面滑动，为 I03 的 relative motion 提供物理含义。', '''
@@ -261,7 +261,7 @@ add('ESO2017','I05','SMC／ISMC 的跟踪能力、抖振代价及为何需要扰
 给当前选择补偿器的条件性理由。`upper bound ... may be large` 接 `SMC without a compensator ... serious chattering`，不是任意 SMC 必定严重抖振。
 将论述收成待设计对象。`Therefore, it is necessary to design a compensator ... to reduce chattering` 交给下一段观察器提供补偿信息。
 ''')
-add('ESO2017','I06','先定义估计—补偿信息链，再比较扰动观察器的估计对象与整定折中。','接 I05 的补偿器需求；末句说明 observer bandwidth 也有性能折中，为 I07 当前传感条件下的状态估计铺垫。', '''
+add('ESO2017','I06','先定义估计—补偿信息链，再比较扰动观察器的估计对象与整定折中。','接 I05 的补偿器需求；已有观察器同时估计未知项和不可测状态的能力接到 I07 当前速度不可直接测量的条件。段末带宽折中限定观察器整定。', '''
 段首不是纯报术语，而是给动作顺序。`design an observer to estimate ... , followed by ... compensate for the estimated disturbance` 将估计输出明确交给控制输入。
 `Such disturbance observers include ...` 给上一角色的可用类型，sliding mode／high-gain／ESO 不是无目的目录。
 文献方案给 launch vehicle 的 observer-based SMC。`controller based on ... observer is proposed for ...` 保留对象所属领域。
@@ -316,7 +316,7 @@ add('ESO2017','I09','按模型、观察器、ISMC 和实机证据安排文章。
 
 CHAINS = {
  'P17':'产品更新要求机器人适应 → 人示教经运动建模重现技能 → DS／DMP 提供稳定、可扩展运动表示 → 最优示范难得，多示范中有可保留的运动信息 → DMP 的非线性函数用 GMM 建模、GMR 检索估计，综合多示范生成运动 → 重现效果还取决于跟踪，未知载荷使动力学难预先获得 → RBFNN 近似动力学，控制器跟踪前一组件生成的关节轨迹 → 生成与跟踪共同承担真实执行。',
- 'P05':'双臂协作的载荷／空间优势带来运动控制复杂性 → 紧持物体的前作不对应工具沿物面滑动的相对运动任务 → 该任务已有控制仍依赖已知动力学，且缺接触力分析 → 抓取物动力学难预知，NN 用于补偿 → 跟踪误差收敛与 NN 权重估计收敛不是同一责任 → NN 稀疏回归使 PE 严格，PPE 有局部重复输入能力但仍有输入／学习速度要求 → 将估计误差信息接入复合学习更新，在相对运动及未知动力学条件下设计控制，并以 PPE 放松激励要求 → 分别汇总任务框架、学习信息、条件放松及仿真分析。',
+ 'P05':'双臂协作具有载荷／空间优势，协调运动控制与路径规划也更复杂 → 紧持物体的前作不对应工具沿物面滑动的相对运动任务 → 该任务已有控制仍依赖已知动力学，且缺接触力分析 → 抓取物动力学难预知，NN 用于补偿 → 跟踪误差收敛与 NN 权重估计收敛不是同一责任 → NN 稀疏回归使 PE 严格，PPE 有局部重复输入能力但仍有输入／学习速度要求 → 将估计误差信息接入复合学习更新，在相对运动及未知动力学条件下设计控制，并以 PPE 放松激励要求 → 分别汇总任务框架、学习信息、条件放松及仿真分析。',
  'Fuzzy2023':'时变参数与外扰形成未知非线性 → NN／FLS 能近似并用于控制，已有工作已涉及固定时间与用户性能 → 本文选择同时关注瞬态约束和收敛时间 → 不良瞬态有风险，BLF 可处理约束，设计 symmetric BLF → 快速收敛另有需要，finite-time 时间与初值相关，转向 fixed-time 并承认已有约束组合 → 在 FLS＋BLF 的机器人跟踪设置中，分别设计输出约束工具、证明闭环信号有界的自适应律、建立不依赖初值的 practical fixed-time 跟踪 → 贡献包括从权重估计有界假定转向有界性证明。计算量及拓扑优化只是一条未来工作支线。',
  'ESO2017':'海洋探测的数据质量与轨迹／定点精度要求 → 海流等外扰、系缆力、流体参数误差及姿态变化妨碍控制 → NN／模糊自适应有近似能力但实际调参困难 → SMC／ISMC 能抑制扰动和改善跟踪，抖振造成能耗和平滑性代价 → 扰动补偿需要估计信息，观察器先估计再供控制补偿 → 当前深度／姿态／位置可测而速度不可直接测，直接微分又有代价 → MIMO-ESO 同时估计扰动和未测速度，自适应方法估计未知项的界 → ESO-based ISMC 由分析设计跟踪控制，并在六推进器平台做实机对照。'
 }

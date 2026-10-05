@@ -8,13 +8,13 @@ I／C 是定位号；S 是本段句号。英文完整段落按源文顺序保留
 
 ## 完整科学主线
 
-双臂协作的载荷／空间优势带来运动控制复杂性 → 紧持物体的前作不对应工具沿物面滑动的相对运动任务 → 该任务已有控制仍依赖已知动力学，且缺接触力分析 → 抓取物动力学难预知，NN 用于补偿 → 跟踪误差收敛与 NN 权重估计收敛不是同一责任 → NN 稀疏回归使 PE 严格，PPE 有局部重复输入能力但仍有输入／学习速度要求 → 将估计误差信息接入复合学习更新，在相对运动及未知动力学条件下设计控制，并以 PPE 放松激励要求 → 分别汇总任务框架、学习信息、条件放松及仿真分析。
+双臂协作具有载荷／空间优势，协调运动控制与路径规划也更复杂 → 紧持物体的前作不对应工具沿物面滑动的相对运动任务 → 该任务已有控制仍依赖已知动力学，且缺接触力分析 → 抓取物动力学难预知，NN 用于补偿 → 跟踪误差收敛与 NN 权重估计收敛不是同一责任 → NN 稀疏回归使 PE 严格，PPE 有局部重复输入能力但仍有输入／学习速度要求 → 将估计误差信息接入复合学习更新，在相对运动及未知动力学条件下设计控制，并以 PPE 放松激励要求 → 分别汇总任务框架、学习信息、条件放松及仿真分析。
 
 ## 各段任务与段间交接
 
 | 原段 | 科学任务 | 承接和交出什么 |
 |---|---|---|
-| [I01](#i01) | 双臂的任务优势与新增控制复杂度共同构成应用动机。 | 双臂任务优势→应用→运动／路径复杂性→控制研究，I02 才具体看已有控制怎么处理对象。 |
+| [I01](#i01) | 并列交代双臂的任务优势与协调控制／规划复杂性，共同构成应用动机。 | 优势引出应用；协调运动控制／路径规划的复杂性另行引出控制研究。I02 再具体看已有控制怎么处理对象。 |
 | [I02](#i02) | 从前作控制能力中提取紧持物体／无相对运动的共同条件，再用真实任务改变该条件。 | I01 的控制问题具体化为物体操作；段末工具沿物面滑动，为 I03 的 relative motion 提供物理含义。 |
 | [I03](#i03) | 在相对运动任务内再次承认已有工作，再定位动力学先验和接触力分析。 | 任务条件已从 I02 推出；本段不是说没人研究相对运动，而是明确已有相对运动控制仍有什么假定。I04 接 dynamics fully available。 |
 | [I04](#i04) | 用抓取物动力学未知的实际原因解释为何需要 NN 补偿。 | 接 I03 的动力学先验；段末把不确定性补偿落到 NN，I05 才检查已有 NN 控制解决了什么、还需学到什么。 |
@@ -31,19 +31,19 @@ I／C 是定位号；S 是本段句号。英文完整段落按源文顺序保留
 
 <a id="i01"></a>
 
-### I01：双臂的任务优势与新增控制复杂度共同构成应用动机。
+### I01：并列交代双臂的任务优势与协调控制／规划复杂性，共同构成应用动机。
 
 来源块：p1-b8, p1-b15。
 
 > RECENTLY, coordination control of dual-arm robots has received increasing attention due to its superiority compared with traditional single-arm robot systems, including stronger payload capability, larger workspace, and more flexibility. Thus, the dual-arm robots have been involved in many high technology applications, such as intelligent assembly, out-space repairing, and elderly people assistance [1]–[3]. However, controlling the dual-arm robots is challenging due to the increase of complexity in motion control and path planning. Therefore, advanced control technologies have been extensively studied for dual-arm robots in past decades [4]–[11].
 
-双臂任务优势→应用→运动／路径复杂性→控制研究，I02 才具体看已有控制怎么处理对象。
+优势引出应用；协调运动控制／路径规划的复杂性另行引出控制研究。I02 再具体看已有控制怎么处理对象。
 
 | 句号 | 该句的科学动作、与相邻句的关系、真实英文实现 |
 |---|---|
 | S01 | 以研究对象及应用优势开篇。`coordination control of dual-arm robots has received increasing attention due to ...` 后列 payload／workspace／flexibility，attention 有技术原因。 |
 | S02 | 把上一优势接到应用。`Thus, the dual-arm robots have been involved in ... such as ...` 的应用举例不等于本文验证范围。 |
-| S03 | 从使用优势转向控制成本。`controlling ... is challenging due to ... complexity in motion control and path planning` 明确为什么不能停在机器人应用罗列。 |
+| S03 | 另行说明控制挑战的原因。`controlling ... is challenging due to ... complexity in motion control and path planning` 将控制困难归于协调运动控制与规划复杂性，与前述载荷／空间优势并列。 |
 | S04 | 以已有控制研究接到下一段。`advanced control technologies have been extensively studied for ...` 给文献展开入口，不假设所有前作失效。 |
 
 <a id="i02"></a>
