@@ -1,0 +1,579 @@
+=== PDF p.1 / blocks in column reading order ===
+[p1-b0 bbox=49.0,30.9,563.1,37.8]
+1010
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 33, NO. 3, MARCH 2022
+
+[p1-b1 bbox=49.0,59.2,563.1,83.1]
+Composite-Learning-Based Adaptive Neural Control
+
+[p1-b2 bbox=90.1,87.2,521.8,111.1]
+for Dual-Arm Robots With Relative Motion
+
+[p1-b3 bbox=55.9,118.1,556.2,129.1]
+Yiming Jiang
+, Member, IEEE, Yaonan Wang
+, Zhiqiang Miao
+, Member, IEEE, Jing Na
+, Member, IEEE,
+
+[p1-b4 bbox=130.7,135.2,481.3,146.3]
+Zhijia Zhao
+, Member, IEEE, and Chenguang Yang
+, Senior Member, IEEE
+
+[p1-b5 bbox=49.0,164.0,300.2,352.3]
+Abstract—This article presents an adaptive control method
+for dual-arm robot systems to perform bimanual tasks under
+modeling uncertainties. Different from the traditional symmetric
+bimanual robot control, we study the dual-arm robot control
+with relative motions between robotic arms and a grasped object.
+The robot system is ﬁrst divided into two subsystems: a settled
+manipulator system and a tool-used manipulator system. Then,
+a command ﬁltered control technique is developed for trajectory
+tracking and contact force control. In addition, to deal with
+the inevitable dynamic uncertainties, a radial basis function
+neural network (RBFNN) is employed for the robot, with a novel
+composite learning law to update the NN weights. The composite
+learning is mainly based on an integration of the historic data
+of NN regression such that information of the estimate error
+can be utilized to improve the convergence. Moreover, a partial
+persistent excitation condition is employed to ensure estimation
+convergence. The stability analysis is performed by using the
+Lyapunov theorem. Numerical simulation results demonstrate the
+validity of the proposed control and learning algorithm.
+
+[p1-b6 bbox=49.0,358.8,300.0,377.7]
+Index
+Terms—Adaptive
+robot
+control,
+bimanual
+robot,
+composite learning, neural network, relative motion.
+
+[p1-b7 bbox=49.0,389.1,213.2,432.0]
+I. INTRODUCTION
+R
+
+[p1-b8 bbox=49.0,404.5,300.3,462.4]
+ECENTLY, coordination control of dual-arm robots
+has received increasing attention due to its superiority
+compared with traditional single-arm robot systems, includ-
+ing stronger payload capability, larger workspace, and more
+ﬂexibility. Thus, the dual-arm robots have been involved
+
+[p1-b9 bbox=49.0,473.6,300.1,589.1]
+Manuscript received November 13, 2019; revised June 13, 2020; accepted
+November 2, 2020. Date of publication December 23, 2020; date of current
+version March 1, 2022. This work was supported in part by the National
+Natural Science Foundation of China under Grant 62003136, Grant 61733004,
+Grant 61803109, Grant 61903135, Grant 61922037, and Grant 62073131;
+in part by the Science Technology Project of Hunan Province under Grant
+2017XK2102, Grant 2018GK2022, and Grant 2018JJ3079; in part by the
+Special Funding Support for the Construction of Innovative Provinces in
+Hunan Province under Grant 2019GK1010; in part by the Natural Science
+Foundation of Hunan Province under Grant 2020JJ5090; and in part by
+the Fellowship of the China Postdoctoral Science Foundation under Grant
+2020M672486 and Grant 2020M682554. (Corresponding author: Yaonan
+Wang.)
+
+[p1-b10 bbox=49.0,590.3,299.9,625.1]
+Yiming Jiang, Yaonan Wang, and Zhiqiang Miao are with the National
+Engineering Laboratory for Robot Visual Perception and Control, Hunan
+University, Changsha 410082, China (e-mail: ymjiang@hnu.edu.cn; yaonan@
+hnu.edu.cn; miaozhiqiang@hnu.edu.cn).
+
+[p1-b11 bbox=49.0,626.0,299.9,652.0]
+Jing Na is with the Faculty of Mechanical and Electrical Engineering,
+Kunming University of Science and Technology, Kunming 650093, China
+(e-mail: najing25@163.com).
+
+[p1-b12 bbox=49.0,653.0,300.0,696.9]
+Zhijia Zhao is with the School of Mechanical and Electrical Engineering,
+Guangzhou University, Guangzhou 510006, China (e-mail: zhjzhaoscut@
+163.com).
+Chenguang Yang is with the Bristol Robotics Laboratory, University of the
+West of England, Bristol BS16 1QY, U.K. (e-mail: cyang@ieee.org).
+
+[p1-b13 bbox=49.0,697.8,299.9,714.7]
+Color versions of one or more ﬁgures in this article are available at
+https://doi.org/10.1109/TNNLS.2020.3037795.
+
+[p1-b14 bbox=55.7,715.8,238.2,723.7]
+Digital Object Identiﬁer 10.1109/TNNLS.2020.3037795
+
+[p1-b19 bbox=124.0,733.3,487.8,750.3]
+2162-237X © 2020 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+
+[p1-b20 bbox=16.9,762.6,595.1,772.2]
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+[p1-b15 bbox=312.0,163.3,563.3,244.9]
+in many high technology applications, such as intelligent
+assembly, out-space repairing, and elderly people assistance
+[1]–[3]. However, controlling the dual-arm robots is chal-
+lenging due to the increase of complexity in motion control
+and path planning. Therefore, advanced control technologies
+have been extensively studied for dual-arm robots in past
+decades [4]–[11].
+
+[p1-b16 bbox=312.0,247.0,563.3,448.2]
+An adaptive decentralized control scheme was proposed to
+address the object handling problem of a cooperative robot,
+where an implicit force control scheme was employed to
+simultaneously regulate the force and position [9]. In [10],
+a decentralized control structure for multiple mobile manipula-
+tors was developed, where the internal forces were constrained
+by employing an augmented object model for the multiple
+systems with a virtual linkage. In [11], the loading problem for
+multiple manipulators was addressed by analyzing the grasp
+space of the robot. Note that the abovementioned controllers
+were developed under the assumption that the object is ﬁrmly
+held by the robotic arms such that no relative motion occurred
+between the arms and the objects. However, in practical appli-
+cations, such as polishing, grinding, and welding, the robot
+end-effectors need to operate along the object’s surface, where
+sliding movements usually happened between the robotic arm
+and the object [12]–[14].
+
+[p1-b17 bbox=312.0,450.3,563.3,615.6]
+In this respect, the coordination control of dual-arm robots
+with relative motion deserves further investigation. The rela-
+tive motion is also known as the asymmetric bimanual task. In
+[15], a relative impedance controller was developed by using
+a relative Jacobian method such that the dual-arm system can
+be treated as a single-arm robotic system. In [16], a brain-
+actuated control architecture was proposed for dual-arm robots
+to perform the asymmetric bimanual task, where electroen-
+cephalogram signals and visual stimulation were employed
+to send control command through a brain–machine interface.
+In these works, however, the controllers were designed under
+the assumption that the robot dynamics are fully available,
+while the stability analysis of the contact force between the
+robotic arm and the object was not given.
+
+[p1-b18 bbox=312.0,617.5,563.3,723.1]
+The dynamic model of the robot system is of great impor-
+tance in the controller design [17]–[22], but it is often unavail-
+able in practice. For example, in carrying tasks, the dynamics
+of the grasped object is hard to obtain in advance. Without
+a precise dynamics model, the model-based control method
+became invalid and may cause degeneration of the control
+performance. Hence, advanced control strategies have been
+presented to compensate for the model uncertainties. Neural
+network (NN) is well known by its advantages in alleviating
+
+=== PDF p.2 / blocks in column reading order ===
+[p2-b0 bbox=49.0,30.8,563.1,37.8]
+JIANG et al.: COMPOSITE-LEARNING-BASED ADAPTIVE NEURAL CONTROL FOR DUAL-ARM ROBOTS WITH RELATIVE MOTION
+1011
+
+[p2-b1 bbox=49.0,58.5,300.3,104.3]
+modeling difﬁculties of nonlinear systems due to the powerful
+approximation ability [23]. Thus, NN control synthesizes
+have been widely implemented in developing controllers for
+nonlinear robotic systems [24]–[32].
+
+[p2-b2 bbox=49.0,106.3,300.6,343.5]
+A fuzzy neural network control approach was presented for
+pure-feedback stochastic systems by using a semi-Nussbaum
+function [33]. In [34], an adaptive NN control strategy was
+proposed for an uncertain robot to ensure the state not
+to violate the prescribed constraints. Recently, a sensorless
+admittance controller was designed to solve the unknown
+environments’ interaction by using the NN technique [35].
+Signiﬁcant works have been done in [36]–[38] to make a
+complex topic understandable about modeling and control
+of ﬂapping-wing ﬂying robots to the average reader. While
+the NN controllers have been successfully developed in the
+abovementioned work, a major limitation for existing adaptive
+NN control schemes lies in that only convergence of the
+tracking errors can be achieved, instead of the convergence
+of NN weights to their ideal values. Without the convergence
+of NN weights, the NN compensation can be hardly accom-
+plished, and the system performance may be degraded and,
+eventually, became unstable. In this respect, developing a novel
+control scheme with guaranteed NN convergence is of great
+signiﬁcance.
+
+[p2-b3 bbox=49.0,345.4,300.6,582.5]
+In our recent work [39], a ﬁltered operation was presented
+to control the robotic arm with ﬁnite-time convergence under
+a linear-in-parameter (LIP) robotic dynamic model. Neverthe-
+less, the guaranteed convergence of the NN weights is more
+difﬁcult. It is well known that the persistent excitation (PE)
+condition is important to guarantee the estimation convergence
+[40]. However, in practice, it is very stringent to ensure the PE
+condition of neural networks due to the sparse characteristics
+of the NN regressor vector. Recent research of neural networks
+in [41] presented a partial persistent excitation (PPE) condition
+instead of the traditional PE condition. It has been proven that,
+for the radial basis function neural network (RBFNN) deﬁned
+in a regular lattice, neural nodes could be partially activated
+for any recurrent NN inputs trajectory remained in this local
+region [41]. In the subsequent work [42], this idea was
+employed for the control design of nonlinear strict-feedback
+systems to guarantee the system stability and accurate NN
+approximation. However, the NN inputs still need to satisfy the
+condition of recurrent trajectory, and a small input excitation
+strength may lead to slow learning speed.
+
+[p2-b4 bbox=49.0,584.5,300.6,749.9]
+The work in [43] indicates that parameter convergence
+can be improved if certain information of the estimation
+error can be integrated into the adaptation. In [44], a novel
+parameter estimation law was proposed for a robotic system
+with unknown dynamics by using a sliding mode technique
+and a ﬁnite-time estimator. In [45], the estimation error was
+integrated into the adaptation scheme of a class of nonlinear
+systems to achieve the convergence of NN weights. Motivated
+by the abovementioned idea, in this article, we develop a com-
+posite learning controller for the dual-arm robot to perform
+bimanual relative motion tasks. To the best of our knowledge,
+few studies have investigated the learning control in the frame
+of the dual-arm robot systems subject to relative motion and
+unknown dynamics. Moreover, different from the work in [46],
+
+[p2-b14 bbox=16.9,762.6,595.1,772.2]
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+[p2-b5 bbox=312.0,186.0,562.3,193.9]
+Fig. 1.
+Overlook of the two-robotic-arm coordination with relative motion.
+
+[p2-b6 bbox=312.0,204.4,563.3,262.2]
+a PPE condition is also introduced in the estimation scheme to
+achieve a relaxation of the requirement of the PE condition. In
+comparison to the method in [45], the estimation error of the
+NN weights is properly expressed and employed to enhance
+the approximation of the neural network.
+
+[p2-b7 bbox=312.0,264.1,563.3,310.0]
+The objective of this article is to develop a control
+framework for dual-arm robot tracking control under rela-
+tive motion. The main contributions of this article can be
+summarized as follows.
+
+[p2-b8 bbox=312.0,310.9,563.3,523.1]
+1) A novel neural control framework is developed for
+dual-arm robot systems to perform asymmetric bimanual
+tasks with no prior knowledge of the dynamics.
+2) A novel composite learning algorithm is designed for
+NN weights adaptation such that information of the
+estimate errors could be appropriately integrated into the
+adaptation law to improve the estimation performance.
+3) A partial persistent condition is introduced for the
+adaptation of NN weights such that the requirement of
+conventional PE condition can be greatly relaxed.
+In the following sections, the system modeling and control
+design procedures are detailed. Section II discusses the system
+modeling of the dual-arm robot in addition to some preliminar-
+ies. Section III presents the design of the composite learning
+control algorithm by utilizing a command ﬁltered backstep-
+ping technique with stability analysis. Section IV demon-
+strates the simulation results. A brief conclusion is given in
+Section V.
+
+[p2-b9 bbox=381.6,530.4,493.3,540.4]
+II. SYSTEM DESCRIPTION
+
+[p2-b10 bbox=312.0,545.4,410.9,555.4]
+A. Kinematics Modeling
+
+[p2-b11 bbox=312.0,560.7,563.4,618.4]
+The system studied in this article is shown in Fig. 1,
+where a rigid object is tightly caught by a settled manipulator
+(SM), while a tool-used manipulator (TM) holds an implement
+to follow a given trajectory on the surface of the object.
+As depicted in Fig. 1, the world coordinate is described by
+
+[p2-b12 bbox=312.0,620.3,563.2,726.0]
+OXY Z. Besides, three coordinates are attached to the settled
+manipulator end-effector (SME) (Os XsYs Zs), the tool-used
+manipulator end-effector (TME) (Ot XtYt Zt), and the grasped
+object (OoXoYoZo), respectively. The SME carries an object to
+track the desired trajectory during the manipulation task. The
+TME follows a trajectory ρ(pto) = 0 deﬁned on a manifold of
+the object surface, and relative motion is, therefore, generated
+between the object and robotic end-effector. Table I presents
+some notations used in this article.
+
+[p2-b13 bbox=312.0,728.1,563.1,749.9]
+To facilitate the modeling procedure, the following assump-
+tions are adopted.
+
+=== PDF p.3 / blocks in column reading order ===
+[p3-b0 bbox=49.0,30.9,563.1,37.8]
+1012
+IEEE TRANSACTIONS ON NEURAL NETWORKS AND LEARNING SYSTEMS, VOL. 33, NO. 3, MARCH 2022
+
+[p3-b1 bbox=159.2,58.3,189.7,66.3]
+TABLE I
+
+[p3-b2 bbox=88.4,70.3,259.0,78.3]
+NOMENCLATURE OF THE COORDINATION SYSTEM
+
+[p3-b3 bbox=49.0,361.0,300.3,394.9]
+Assumption 1: The
+object
+is
+ﬁrmly
+caught
+by
+the
+end-effector of the SM, and no sliding movement has occurred
+between SME and the object.
+
+[p3-b4 bbox=49.0,396.9,300.1,418.8]
+Assumption 2: The TME is always in contact with the
+object surface.
+
+[p3-b5 bbox=49.0,420.8,300.3,454.7]
+Assumption 3: The inverse kinematics of the dual-arm
+robot are fully available, and singularity points are properly
+avoided.
+
+[p3-b6 bbox=49.0,456.7,300.3,478.7]
+In terms of the notations in Table I, the kinematics of the
+dual-arm coordination system can be described as follows [47]:
+
+[p3-b7 bbox=135.2,486.1,300.1,512.4]
+rt = ro + Ro(θo)rto
+(1)
+rs = ro + Ro(θo)rso
+(2)
+
+[p3-b8 bbox=133.2,516.0,300.1,542.3]
+Rt = Ro(θo)Rto(θto)
+(3)
+Rs = Ro(θo)
+(4)
+
+[p3-b9 bbox=49.0,548.8,300.3,618.9]
+where θo is the rotation angle of the object’s CoM, θto is the
+rotation from the object’s CoM to the TME, and Ro(θo) ∈
+Rlr ×lr and Rto(θto) ∈Rlr ×lr are the rotation matrices of θo
+and θto, respectively, with lr being the dimension of rotation.
+Then, Rt and Rs represent the rotation matrices of the SME
+and TME, respectively.
+
+[p3-b10 bbox=58.9,620.8,284.0,630.7]
+Taking the derivative of (1) with respect to time yields
+
+[p3-b11 bbox=98.2,638.3,300.1,664.6]
+˙rt = ˙ro + Ro(θo)˙rto −E(Ro(θo)rto)φo
+(5)
+˙rs = ˙ro −E(Ro(θo)rso)φo
+(6)
+
+[p3-b12 bbox=96.5,668.2,300.1,694.5]
+φt = φo + Ro(θo)φto
+(7)
+φs = φo
+(8)
+
+[p3-b13 bbox=49.0,701.2,63.4,711.1]
+and
+
+[p3-b18 bbox=218.3,707.2,225.5,717.1]
+⎤
+
+[p3-b15 bbox=150.5,707.2,157.7,717.1]
+⎡
+
+[p3-b17 bbox=159.5,715.1,216.1,750.6]
+0
+−a3 a2
+a3
+0
+−a1
+−a2 a1
+0
+
+[p3-b19 bbox=218.3,725.1,300.1,737.4]
+⎦
+(9)
+
+[p3-b16 bbox=150.5,725.1,157.7,735.0]
+⎣
+
+[p3-b14 bbox=117.4,727.1,147.7,737.3]
+E(a) =
+
+[p3-b65 bbox=16.9,762.6,595.1,772.2]
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:46 UTC from IEEE Xplore.  Restrictions apply. 
+
+[p3-b20 bbox=312.0,54.9,563.3,105.4]
+for any given vector a = [a1, a2, a3]T , where φo, φto, and φso
+are the vectors of angular velocities. Note that, in the above
+derivation, due to the factor that the workpiece is tightly caught
+by the TME, φso = 0 and ˙φso = 0 are omitted in (5)–(8).
+
+[p3-b21 bbox=322.0,106.3,554.0,116.3]
+Equations (5)–(8) can be rewritten in a compact form as
+
+[p3-b22 bbox=399.1,121.0,563.1,132.4]
+vt = Dtvo + Rvvto
+(10)
+
+[p3-b23 bbox=398.6,136.0,563.2,147.4]
+vs = Dsvo
+(11)
+
+[p3-b30 bbox=312.0,150.9,563.0,176.2]
+o ]T , vto =
+[˙r T
+
+[p3-b26 bbox=385.2,150.9,441.0,166.7]
+t ]T , vs = [˙r T
+
+[p3-b28 bbox=452.0,150.9,508.4,166.7]
+s ]T , vo = [˙r T
+
+[p3-b24 bbox=312.0,153.1,374.2,165.5]
+where vt = [˙r T
+
+[p3-b25 bbox=369.4,153.1,389.7,166.3]
+t
+φT
+
+[p3-b27 bbox=436.2,153.1,456.5,166.7]
+s φT
+
+[p3-b29 bbox=503.5,153.1,523.8,166.7]
+o φT
+
+[p3-b32 bbox=335.0,162.7,371.0,178.3]
+to]T , and
+
+[p3-b31 bbox=319.2,164.9,339.5,178.7]
+to φT
+
+[p3-b34 bbox=410.6,172.3,475.0,203.2]
+ Ro(θo)
+0
+0
+Ro(θo)
+
+[p3-b35 bbox=476.6,172.3,482.1,182.3]
+
+
+[p3-b33 bbox=387.0,186.4,407.9,197.8]
+Rv =
+
+[p3-b36 bbox=546.4,186.7,563.1,196.7]
+(12)
+
+[p3-b38 bbox=404.6,208.6,480.8,227.5]
+ I −E(Ro(θo)rto)
+
+[p3-b40 bbox=482.5,208.6,488.0,218.5]
+
+
+[p3-b37 bbox=381.0,222.5,401.9,233.9]
+Dt =
+
+[p3-b41 bbox=546.5,222.9,563.2,232.8]
+(13)
+
+[p3-b39 bbox=412.0,228.6,452.0,238.7]
+0
+I
+
+[p3-b43 bbox=404.6,244.7,481.3,263.6]
+ I −E(Ro(θo)rso)
+
+[p3-b45 bbox=483.0,244.7,488.4,254.7]
+
+
+[p3-b42 bbox=380.4,258.7,401.9,270.1]
+Ds =
+
+[p3-b46 bbox=546.4,259.1,563.1,269.1]
+(14)
+
+[p3-b44 bbox=412.0,264.9,452.2,274.9]
+0
+I
+
+[p3-b47 bbox=312.0,281.2,563.0,327.1]
+with I being an unit matrix with proper dimension. Note that
+the TME follows a reference trajectory ρ(pto) = 0 on the
+rigid object surface, and the constraint force ft vertical to
+object surface can be expressed as follows [48]:
+
+[p3-b48 bbox=398.5,331.9,563.2,343.3]
+ft = ηtξ
+(15)
+
+[p3-b49 bbox=396.5,344.2,475.7,363.6]
+ηt = Rv(∂ρ/∂pto)T
+
+[p3-b50 bbox=420.5,352.6,563.2,370.3]
+||(∂ρ/∂pto)T ||
+(16)
+
+[p3-b51 bbox=312.0,374.0,563.2,420.3]
+where ηt is a vector representing the direction of the con-
+straint force and ξ is a Lagrange multiplier that denotes the
+force magnitude. Then, through the transformation matrix Dt,
+the contact force applied on the object can be obtained as
+
+[p3-b52 bbox=384.4,423.4,425.0,436.3]
+fo = −DT
+
+[p3-b53 bbox=420.6,423.4,468.4,437.9]
+t ft = −DT
+
+[p3-b54 bbox=464.0,424.9,563.2,437.7]
+t ηtξ.
+(17)
+
+[p3-b55 bbox=312.0,449.1,405.8,459.0]
+B. Dynamics Modeling
+
+[p3-b56 bbox=312.0,464.2,563.3,545.9]
+In order to build the dynamic model of the dual-arm robot
+system, we ﬁrst build the dynamic model of the SME and the
+TME, respectively. Remind in Assumption 1 that the object
+is rigidly caught by the SME, and no motion is generated
+between the SME and object. Hence, the object and the SME
+can be treated as a lump dynamic system, and its dynamics is
+obtained by using the Lagrange–Euler method as follows:
+
+[p3-b57 bbox=330.1,549.2,511.7,562.1]
+Ms(qs)¨qs + Cs(qs, ˙qs)˙qs + Gs(qs) = τs + J T
+
+[p3-b58 bbox=506.3,550.7,563.2,563.3]
+s (qs) fo
+(18)
+
+[p3-b59 bbox=312.0,569.0,563.2,626.9]
+where Ms is the inertia matrix of the arm-object system, Cs is
+the Coriolis/centrifugal force matrix, Gs is the gravity vector,
+τs is the torque of the joints, and Js is the Jacobian matrix.
+On the other hand, the dynamics of TME can be described as
+follows:
+
+[p3-b60 bbox=333.7,630.1,509.7,643.1]
+Mt(qt)¨qt + Ct(qt, ˙qt)˙qt + Gt(qt) = τt + J T
+
+[p3-b61 bbox=504.2,631.7,563.2,644.3]
+t (qt) ft
+(19)
+
+[p3-b62 bbox=312.0,650.0,563.2,707.9]
+where Mt, Ct, and Gt are the matrices of inertia, Corio-
+lis/centrifugal force, and the vector of the gravitational force,
+respectively, τt is the joints torque of TM, ft is the contact
+force deﬁned in (15), and Jt is the corresponding Jacobian
+matrix.
+
+[p3-b63 bbox=312.0,709.9,563.1,731.8]
+Combining the dynamics of robot systems (17)–(19), we can
+obtain the robot dynamics of the dual-arm robot system as
+
+[p3-b64 bbox=344.3,735.5,563.1,750.6]
+M(q)¨q + C(q, ˙q)˙q + G(q) = τ + J T (q)ηtξ
+(20)

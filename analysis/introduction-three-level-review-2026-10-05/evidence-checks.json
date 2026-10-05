@@ -1,0 +1,1252 @@
+{
+  "scope": "Source-grounded Introduction learning summary only; no Skill changes, installations or effect tests",
+  "base_commit": "860ec148cf04e66f8b7d06af0855433bc3e96cfd",
+  "source_checks": {
+    "P17": {
+      "pdf": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "freshly_extracted_page_blocks": true,
+      "same_verified_original_after_layout_normalization": true,
+      "visual_pages_inspected": [
+        1,
+        2
+      ],
+      "units": [
+        {
+          "unit": "I01",
+          "blocks": [
+            "p1-b8",
+            "p1-b16"
+          ],
+          "sentences": 6,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I02",
+          "blocks": [
+            "p1-b17"
+          ],
+          "sentences": 8,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I03",
+          "blocks": [
+            "p1-b18"
+          ],
+          "sentences": 6,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I04",
+          "blocks": [
+            "p1-b19",
+            "p2-b2"
+          ],
+          "sentences": 8,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I05",
+          "blocks": [
+            "p2-b3"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I06",
+          "blocks": [
+            "p2-b4",
+            "p2-b5"
+          ],
+          "sentences": 10,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I07",
+          "blocks": [
+            "p2-b6"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I08",
+          "blocks": [
+            "p2-b7"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I09",
+          "blocks": [
+            "p2-b8"
+          ],
+          "sentences": 6,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        }
+      ]
+    },
+    "P05": {
+      "pdf": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "freshly_extracted_page_blocks": true,
+      "same_verified_original_after_layout_normalization": true,
+      "visual_pages_inspected": [
+        1,
+        2
+      ],
+      "units": [
+        {
+          "unit": "I01",
+          "blocks": [
+            "p1-b8",
+            "p1-b15"
+          ],
+          "sentences": 4,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I02",
+          "blocks": [
+            "p1-b16"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I03",
+          "blocks": [
+            "p1-b17"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I04",
+          "blocks": [
+            "p1-b18",
+            "p2-b1"
+          ],
+          "sentences": 6,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I05",
+          "blocks": [
+            "p2-b2"
+          ],
+          "sentences": 7,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I06",
+          "blocks": [
+            "p2-b3"
+          ],
+          "sentences": 8,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I07",
+          "blocks": [
+            "p2-b4",
+            "p2-b6"
+          ],
+          "sentences": 7,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I08",
+          "blocks": [
+            "p2-b7"
+          ],
+          "sentences": 2,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C01",
+          "blocks": [
+            "p2-b8"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C02",
+          "blocks": [
+            "p2-b8"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C03",
+          "blocks": [
+            "p2-b8"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I09",
+          "blocks": [
+            "p2-b8"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        }
+      ]
+    },
+    "Fuzzy2023": {
+      "pdf": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "freshly_extracted_page_blocks": true,
+      "same_verified_original_after_layout_normalization": true,
+      "visual_pages_inspected": [
+        1,
+        2
+      ],
+      "units": [
+        {
+          "unit": "I01",
+          "blocks": [
+            "p1-b7",
+            "p1-b13"
+          ],
+          "sentences": 11,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I02",
+          "blocks": [
+            "p1-b14"
+          ],
+          "sentences": 6,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I03",
+          "blocks": [
+            "p1-b15",
+            "p2-b1"
+          ],
+          "sentences": 8,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I04",
+          "blocks": [
+            "p2-b2"
+          ],
+          "sentences": 2,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C01",
+          "blocks": [
+            "p2-b3"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C02",
+          "blocks": [
+            "p2-b3"
+          ],
+          "sentences": 2,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C03",
+          "blocks": [
+            "p2-b3"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        }
+      ]
+    },
+    "ESO2017": {
+      "pdf": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "freshly_extracted_page_blocks": true,
+      "same_verified_original_after_layout_normalization": true,
+      "visual_pages_inspected": [
+        1,
+        2,
+        3
+      ],
+      "units": [
+        {
+          "unit": "I01",
+          "blocks": [
+            "p1-b10",
+            "p1-b17"
+          ],
+          "sentences": 2,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I02",
+          "blocks": [
+            "p1-b18"
+          ],
+          "sentences": 5,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I03",
+          "blocks": [
+            "p1-b19"
+          ],
+          "sentences": 9,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I04",
+          "blocks": [
+            "p2-b1"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I05",
+          "blocks": [
+            "p2-b2"
+          ],
+          "sentences": 13,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I06",
+          "blocks": [
+            "p2-b3"
+          ],
+          "sentences": 9,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I07",
+          "blocks": [
+            "p2-b4"
+          ],
+          "sentences": 15,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I08",
+          "blocks": [
+            "p2-b5"
+          ],
+          "sentences": 7,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C01",
+          "blocks": [
+            "p2-b6"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C02",
+          "blocks": [
+            "p3-b2"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "C03",
+          "blocks": [
+            "p3-b2"
+          ],
+          "sentences": 1,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        },
+        {
+          "unit": "I09",
+          "blocks": [
+            "p3-b2"
+          ],
+          "sentences": 4,
+          "full_source_paragraph_preserved": true,
+          "sentence_analysis_count_matches": true
+        }
+      ]
+    }
+  },
+  "annotated_units": 40,
+  "annotated_sentences": 210,
+  "report_contiguous_quote_checks": [
+    {
+      "paper": "P17",
+      "unit": "I03",
+      "sentences": [
+        5,
+        6
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "ESO2017",
+      "unit": "I03",
+      "sentences": [
+        2,
+        4
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P05",
+      "unit": "I02",
+      "sentences": [
+        4,
+        5
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P05",
+      "unit": "I06",
+      "sentences": [
+        5,
+        8
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I05",
+      "sentences": [
+        1,
+        2
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I06",
+      "sentences": [
+        1,
+        3
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "ESO2017",
+      "unit": "I07",
+      "sentences": [
+        4,
+        6
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I03",
+      "sentences": [
+        2,
+        4
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P05",
+      "unit": "I07",
+      "sentences": [
+        1,
+        3
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "P05",
+      "unit": "I07",
+      "sentences": [
+        6,
+        7
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I02",
+      "sentences": [
+        6,
+        6
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C02",
+      "sentences": [
+        1,
+        2
+      ],
+      "verbatim_contiguous_source_sentences": true
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C03",
+      "sentences": [
+        1,
+        1
+      ],
+      "verbatim_contiguous_source_sentences": true
+    }
+  ],
+  "local_links": [
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "ESO2017-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "report.md",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i01",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i02",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i03",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i04",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i05",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i06",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i07",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i08",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#c01",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#c02",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#c03",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-analysis.md",
+      "target": "#i09",
+      "resolves": true
+    },
+    {
+      "file": "ESO2017-introduction.md",
+      "target": "../../文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "Fuzzy2023-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "report.md",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#i01",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#i02",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#i03",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#i04",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#c01",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#c02",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-analysis.md",
+      "target": "#c03",
+      "resolves": true
+    },
+    {
+      "file": "Fuzzy2023-introduction.md",
+      "target": "../../文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "P05-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "report.md",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i01",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i02",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i03",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i04",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i05",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i06",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i07",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i08",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#c01",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#c02",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#c03",
+      "resolves": true
+    },
+    {
+      "file": "P05-analysis.md",
+      "target": "#i09",
+      "resolves": true
+    },
+    {
+      "file": "P05-introduction.md",
+      "target": "../../文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "P17-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "report.md",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i01",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i02",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i03",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i04",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i05",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i06",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i07",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i08",
+      "resolves": true
+    },
+    {
+      "file": "P17-analysis.md",
+      "target": "#i09",
+      "resolves": true
+    },
+    {
+      "file": "P17-introduction.md",
+      "target": "../../文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-introduction.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "source-provenance.json",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "curated-introductions.json",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "normalization-log.json",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i08",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i01",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i01",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i08",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i01",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i08",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#c01",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#c02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P05-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#c02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i04",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i03",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i05",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i06",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i07",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "P17-analysis.md#i02",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "Fuzzy2023-analysis.md#i01",
+      "resolves": true
+    },
+    {
+      "file": "report.md",
+      "target": "ESO2017-analysis.md#i03",
+      "resolves": true
+    }
+  ],
+  "author_input_hashes": {
+    "核心要求.txt": "c71b340b38da2dc83c1211384206910e2ec2706cb72a5cb713d3c722ecffaf26",
+    "我自己的经验和做法.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "引言写作方法.txt": "289820755f5665df639002fe286bf5dade033720f45a656a50974bcd9b041604"
+  },
+  "prior_source_segmentation_reused": true,
+  "fresh_pdf_extraction_and_visual_recheck": true,
+  "historical_analysis_not_used_as_conclusions": true,
+  "Skill_effect_tests_and_historical_records_unchanged": true,
+  "author_changes_present_at_start_preserved": [
+    "引言写作方法.txt",
+    "核心要求.txt"
+  ],
+  "credential_pattern_findings": [],
+  "limit": "Quote, layout and scope integrity do not prove semantic analysis quality, corpus representativeness or generated writing effects.",
+  "files_sha256": {
+    ".gitattributes": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+    "analysis-notes.json": "b763ee3c520a7c5becffdaf71c867b233888b9bc9e3d042682ffb252bcb6d424",
+    "build_analysis.py": "b962b283ea483eeffbdbed28c56106e0739e25be0a6e53805852a9f9b4570bc9",
+    "curate_introductions.py": "cf716aa92a2d603bc4106b45434b68710fc87934b326f62570fefa3a7e1087b5",
+    "curated-introductions.json": "727db044eb5c5fe20a9f368843c615f3c0a6a1169d1432763994d896c90d0706",
+    "ESO2017-analysis.md": "0c32536dcaa660c260ab0f0558184fe047dfe66cfb1ccdec574476ff577b520f",
+    "ESO2017-full-raw.txt": "e769124409196c46fbb197563b2a8b2beafbdf100968b1c6f0a1549a78c6805d",
+    "ESO2017-introduction.md": "c1794d46b7b3c67952a83c30ebde053f5e0c38d71dddc35b694e6cbae191c962",
+    "ESO2017-page-blocks.json": "0a4739a28f66c2a1be79b8fc2082f1b799b89d966277e47a5acda7114b5b6210",
+    "ESO2017-page-blocks.txt": "2a2c53796e3870eb213be7ac9a1907cdd9af6742840be7ec5e57167799537b19",
+    "Fuzzy2023-analysis.md": "5483811990945e798e1c89bbd6ccb15a7381fe87efe1083c09757ac065b03f52",
+    "Fuzzy2023-full-raw.txt": "d8deb02c04658c8345e862b36faa7a1bf5d3ab2674c3a812aa59870a499e776d",
+    "Fuzzy2023-introduction.md": "b08bb26380c0f68c5b3d364c80d5411692d190383e9b90128d8c987176be9d7d",
+    "Fuzzy2023-page-blocks.json": "e2f0d1fc94d0315ed58a17703f484114f02122e505ba07d6325a38bcd831aeec",
+    "Fuzzy2023-page-blocks.txt": "fea62cbfec748d2f0c9d712b9e010626e0ea43afbbdbd8fad233fdccb1533940",
+    "normalization-log.json": "9aa8bcb6c91a4074fc80a3d9f43cbb6c9660a4a4b691bcfeb2b7734710751a13",
+    "P05-analysis.md": "d32d29e75c6a9dd887020e0f0ba4046c9c079abc94f7ddbb6b13bc2e1cbaeeb7",
+    "P05-introduction.md": "f1f34a2a272584f6d1d6f105d6cb7a4f8dab036bbe6bbd2ae46425bebd228229",
+    "P05-page-blocks.json": "74dce66b224e28c35682ffb5de863a3171a3fed42e9ca0a440ba23c3ab95b3f2",
+    "P05-page-blocks.txt": "f4b1337b3fb0a31b6d0c11a10c120c3d7bc66fa4cf95beaac1acd7f584e1d400",
+    "P17-analysis.md": "9add75cc623e794f24ea1a2434892f7f21cc599d75f6552230709fb319a63e84",
+    "P17-introduction.md": "44e38875621ebd5deff607a3f55c5ea57a582e09cb0b7d5f492a6edb9d5ac24e",
+    "P17-page-blocks.json": "2a8ca4c7eab5ca376c85092c5dfa5641bde3862321352c2b9f4b499245910829",
+    "P17-page-blocks.txt": "9b4c5203008ca259c7de1a9f64b785c677371ebb3a03ff564bf76fd5e8acce93",
+    "page-previews/ESO2017-p1.png": "2b3d9530e3a83125b069c3d6f3ccf3418090effaf7afe2db4b2984029180b837",
+    "page-previews/ESO2017-p2.png": "49d936629bc2a01897846962149bc3ff3a6db81c39327ea029cb85c516cadf3f",
+    "page-previews/ESO2017-p3.png": "d73f2946333bc811e3b8429aba4998a872ca9a6191a47087f105e4005a31c652",
+    "page-previews/Fuzzy2023-p1.png": "107688b292e786888a8f905ff7fd57c9a4d37a3edc1be836ca405b3d0bd0dc97",
+    "page-previews/Fuzzy2023-p2.png": "ef7cfc2b605a3e61f782a699be5bcc4250edab1ab252e9fd183bb09816d96954",
+    "page-previews/P05-p1.png": "eeb0384ccafa32d39da4e989360ff144e8220476bca276a5503823067105a9cd",
+    "page-previews/P05-p2.png": "7342b3623b91a1c7a9c9d16c0ccc0f901293bb0d96a65509930d0ab739d9886d",
+    "page-previews/P17-p1.png": "faf67c13ec07caa400135f2bcb9e80cc826e7593a45096b8359e0c5d830a5e87",
+    "page-previews/P17-p2.png": "66ec551a4ce631e20ee84cc47c428e2be2aa35fd1ef6c7ce33df1506f955971c",
+    "read_sources.py": "569bb3a61eda5a8614090642592b98132af52606248161db590859cb6fc3291f",
+    "report.md": "46ddf6cbfb493dcb747f597f4b8a1d4655ab9d41bb0c56d855c1a902e548a45a",
+    "source-provenance.json": "38374053d3bd8d36af3b6c3f1f0fe82d5950ef5b395c90f447ad07128295bbb9",
+    "source-sentences.json": "53fd358b226761c1e4636eeffb43ad2b93dced293fd0f9a8195a7728c2d156e4",
+    "verify_evidence.py": "7ee2bcd4fc0e47fa51d40397a4cb3a0f11e1fba102de3826f51e37fe18bfce15"
+  }
+}

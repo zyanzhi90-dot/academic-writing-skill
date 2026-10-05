@@ -1,0 +1,667 @@
+[
+  {
+    "paper": "P17",
+    "unit": "I02",
+    "source": "solu-\ntion",
+    "normalized": "solution",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I02",
+    "source": "perturba-\ntions",
+    "normalized": "perturbations",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I02",
+    "source": "con-\ntrast",
+    "normalized": "contrast",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I02",
+    "source": "func-\ntion",
+    "normalized": "function",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I03",
+    "source": "multi-\nple",
+    "normalized": "multiple",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I04",
+    "source": "learn-\ning",
+    "normalized": "learning",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I04",
+    "source": "sys-\ntems",
+    "normalized": "systems",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I05",
+    "source": "regres-\nsion",
+    "normalized": "regression",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I05",
+    "source": "regres-\nsion",
+    "normalized": "regression",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I06",
+    "source": "accu-\nrate",
+    "normalized": "accurate",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I06",
+    "source": "over-\ncome",
+    "normalized": "overcome",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I06",
+    "source": "dynam-\nics",
+    "normalized": "dynamics",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I06",
+    "source": "backprop-\nagation",
+    "normalized": "backpropagation",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I07",
+    "source": "guaran-\ntee",
+    "normalized": "guarantee",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I08",
+    "source": "gen-\neration",
+    "normalized": "generation",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P17",
+    "unit": "I09",
+    "source": "intro-\nduced",
+    "normalized": "introduced",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I01",
+    "source": "includ-\ning",
+    "normalized": "including",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I01",
+    "source": "chal-\nlenging",
+    "normalized": "challenging",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I02",
+    "source": "manipula-\ntors",
+    "normalized": "manipulators",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I02",
+    "source": "appli-\ncations",
+    "normalized": "applications",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I03",
+    "source": "rela-\ntive",
+    "normalized": "relative",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I03",
+    "source": "brain-\nactuated",
+    "normalized": "brain-actuated",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "P05",
+    "unit": "I03",
+    "source": "electroen-\ncephalogram",
+    "normalized": "electroencephalogram",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I04",
+    "source": "impor-\ntance",
+    "normalized": "importance",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I04",
+    "source": "unavail-\nable",
+    "normalized": "unavailable",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I05",
+    "source": "accom-\nplished",
+    "normalized": "accomplished",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I06",
+    "source": "Neverthe-\nless",
+    "normalized": "Nevertheless",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I07",
+    "source": "com-\nposite",
+    "normalized": "composite",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I08",
+    "source": "rela-\ntive",
+    "normalized": "relative",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I09",
+    "source": "preliminar-\nies",
+    "normalized": "preliminaries",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I09",
+    "source": "backstep-\nping",
+    "normalized": "backstepping",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "P05",
+    "unit": "I09",
+    "source": "demon-\nstrates",
+    "normalized": "demonstrates",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I01",
+    "source": "adap-\ntive",
+    "normalized": "adaptive",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I01",
+    "source": "ma-\nnipulator",
+    "normalized": "manipulator",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I01",
+    "source": "calcu-\nlation",
+    "normalized": "calculation",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I02",
+    "source": "some-\ntimes",
+    "normalized": "sometimes",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I02",
+    "source": "prescribed-\ntime",
+    "normalized": "prescribed-time",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I02",
+    "source": "teleoper-\nation",
+    "normalized": "teleoperation",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I02",
+    "source": "simul-\ntaneously",
+    "normalized": "simultaneously",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I03",
+    "source": "con-\nvergence",
+    "normalized": "convergence",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I03",
+    "source": "adap-\ntive",
+    "normalized": "adaptive",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I04",
+    "source": "fixed-\ntime",
+    "normalized": "fixed-time",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "C01",
+    "source": "viola-\ntion",
+    "normalized": "violation",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "C02",
+    "source": "bounded-\nness",
+    "normalized": "boundedness",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I01",
+    "source": "underwa-\nter",
+    "normalized": "underwater",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I01",
+    "source": "ex-\npand",
+    "normalized": "expand",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I01",
+    "source": "un-\nderwater",
+    "normalized": "underwater",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I02",
+    "source": "exter-\nnal",
+    "normalized": "external",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I02",
+    "source": "distur-\nbances",
+    "normalized": "disturbances",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I02",
+    "source": "uncer-\ntainties",
+    "normalized": "uncertainties",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I02",
+    "source": "inac-\ncurate",
+    "normalized": "inaccurate",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "con-\nstraints",
+    "normalized": "constraints",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "esti-\nmated",
+    "normalized": "estimated",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "net-\nworks",
+    "normalized": "networks",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "un-\nknown",
+    "normalized": "unknown",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "computa-\ntional",
+    "normalized": "computational",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "consid-\nering",
+    "normalized": "considering",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I03",
+    "source": "mul-\ntiple",
+    "normalized": "multiple",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I04",
+    "source": "dis-\nturbances",
+    "normalized": "disturbances",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "ESO-\nbased",
+    "normalized": "ESO-based",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "sur-\nfaces",
+    "normalized": "surfaces",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "con-\ntrol",
+    "normalized": "control",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "inte-\ngral",
+    "normalized": "integral",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "error-\nintegral",
+    "normalized": "error-integral",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "time-\ndelay",
+    "normalized": "time-delay",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "chat-\ntering",
+    "normalized": "chattering",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "chat-\ntering",
+    "normalized": "chattering",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "dy-\nnamics",
+    "normalized": "dynamics",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I05",
+    "source": "compen-\nsator",
+    "normalized": "compensator",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I06",
+    "source": "distur-\nbance",
+    "normalized": "disturbance",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I06",
+    "source": "in-\nclude",
+    "normalized": "include",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I06",
+    "source": "pre-\nsented",
+    "normalized": "presented",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I06",
+    "source": "out-\nput",
+    "normalized": "output",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I06",
+    "source": "dy-\nnamics",
+    "normalized": "dynamics",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "con-\ntroller",
+    "normalized": "controller",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "On-\nboard",
+    "normalized": "Onboard",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "mea-\nsurement",
+    "normalized": "measurement",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "lo-\ncal",
+    "normalized": "local",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "prob-\nlem",
+    "normalized": "problem",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "esti-\nmation",
+    "normalized": "estimation",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "hu-\nman",
+    "normalized": "human",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "track-\ning",
+    "normalized": "tracking",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "un-\nknown",
+    "normalized": "unknown",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I07",
+    "source": "con-\ntrollers",
+    "normalized": "controllers",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I08",
+    "source": "multiple-\noutput",
+    "normalized": "multiple-output",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I08",
+    "source": "struc-\nture",
+    "normalized": "structure",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I08",
+    "source": "un-\nknown",
+    "normalized": "unknown",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I08",
+    "source": "fi-\nnal",
+    "normalized": "final",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I08",
+    "source": "con-\ntroller",
+    "normalized": "controller",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "C01",
+    "source": "dis-\nturbances",
+    "normalized": "disturbances",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "C02",
+    "source": "ESO-\nbased",
+    "normalized": "ESO-based",
+    "operation": "retain compound hyphen"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "C03",
+    "source": "dif-\nference",
+    "normalized": "difference",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "C03",
+    "source": "perfor-\nmance",
+    "normalized": "performance",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I09",
+    "source": "prob-\nlem",
+    "normalized": "problem",
+    "operation": "remove layout word break"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I09",
+    "source": "esti-\nmate",
+    "normalized": "estimate",
+    "operation": "remove layout word break"
+  }
+]

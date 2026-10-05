@@ -1,0 +1,95 @@
+{
+  "P17": {
+    "reused_extraction": "analysis/reading/P17.txt",
+    "reused_sha256": "9be7ed4d6f53dacf9757d8902aec6e0b85dd299254b5697b84c3d16d5b4ddd98",
+    "fresh_raw_extraction_identical_after_EOL_normalization": true,
+    "pdf": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+    "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+    "pages": 11,
+    "metadata": {
+      "format": "PDF 1.4",
+      "title": "Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives",
+      "author": "",
+      "subject": "IEEE Transactions on Neural Networks and Learning Systems;2019;30;3;10.1109/TNNLS.2018.2852711",
+      "keywords": "",
+      "creator": "Aspose Ltd.",
+      "producer": "Aspose.Pdf for .NET 8.3.0; modified using iText® 7.1.1 ©2000-2018 iText Group NV (AGPL-version)",
+      "creationDate": "D:20190214175901+05'30'",
+      "modDate": "D:20190220062316-05'00'",
+      "trapped": "",
+      "encryption": null
+    },
+    "evidence_limit": "Page blocks are evidence for paragraph and column verification; footnotes and captions are excluded only in the separately curated Introduction."
+  },
+  "P05": {
+    "reused_extraction": "analysis/reading/P05.txt",
+    "reused_sha256": "0645afde2c9128ec5a77548e96d69bcb0e54e047f993f7583cfcc9f05ec53636",
+    "fresh_raw_extraction_identical_after_EOL_normalization": true,
+    "pdf": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+    "pdf_sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+    "pages": 12,
+    "metadata": {
+      "format": "PDF 1.4",
+      "title": "Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion",
+      "author": "",
+      "subject": "IEEE Transactions on Neural Networks and Learning Systems;2022;33;3;10.1109/TNNLS.2020.3037795",
+      "keywords": "",
+      "creator": "Aspose Ltd.",
+      "producer": "Aspose.Pdf for .NET 8.3.0; modified using iText® 7.1.1 ©2000-2018 iText Group NV (AGPL-version)",
+      "creationDate": "D:20220215215822+05'30'",
+      "modDate": "D:20220227142742-05'00'",
+      "trapped": "",
+      "encryption": null
+    },
+    "evidence_limit": "Page blocks are evidence for paragraph and column verification; footnotes and captions are excluded only in the separately curated Introduction."
+  },
+  "Fuzzy2023": {
+    "new_raw_extraction": "analysis/introduction-three-level-review-2026-10-05/Fuzzy2023-full-raw.txt",
+    "raw_sha256": "d8deb02c04658c8345e862b36faa7a1bf5d3ab2674c3a812aa59870a499e776d",
+    "pdf": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+    "pdf_sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+    "pages": 11,
+    "metadata": {
+      "format": "PDF 1.4",
+      "title": "untitled",
+      "author": "",
+      "subject": "",
+      "keywords": "",
+      "creator": "",
+      "producer": "Acrobat Distiller 11.0 (Windows)",
+      "creationDate": "D:20230222163033+05'30'",
+      "modDate": "D:20260713192358-04'00'",
+      "trapped": "",
+      "encryption": null
+    },
+    "evidence_limit": "Page blocks are evidence for paragraph and column verification; footnotes and captions are excluded only in the separately curated Introduction."
+  },
+  "ESO2017": {
+    "new_raw_extraction": "analysis/introduction-three-level-review-2026-10-05/ESO2017-full-raw.txt",
+    "raw_sha256": "e769124409196c46fbb197563b2a8b2beafbdf100968b1c6f0a1549a78c6805d",
+    "pdf": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+    "pdf_sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+    "pages": 11,
+    "metadata": {
+      "format": "PDF 1.4",
+      "title": "untitled",
+      "author": "",
+      "subject": "",
+      "keywords": "",
+      "creator": "",
+      "producer": "Acrobat Distiller 10.1.10 (Windows)",
+      "creationDate": "D:20170620095036+05'30'",
+      "modDate": "D:20200603101627-04'00'",
+      "trapped": "",
+      "encryption": null
+    },
+    "evidence_limit": "Page blocks are evidence for paragraph and column verification; footnotes and captions are excluded only in the separately curated Introduction."
+  },
+  "session": {
+    "base_commit": "860ec148cf04e66f8b7d06af0855433bc3e96cfd",
+    "status_at_evidence_capture": " M \"\\346\\240\\270\\345\\277\\203\\350\\246\\201\\346\\261\\202.txt\"\n?? analysis/introduction-three-level-review-2026-10-05/\n?? \"\\345\\274\\225\\350\\250\\200\\345\\206\\231\\344\\275\\234\\346\\226\\271\\346\\263\\225.txt\"\n",
+    "core_requirements_sha256": "c71b340b38da2dc83c1211384206910e2ec2706cb72a5cb713d3c722ecffaf26",
+    "author_experience_sha256": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "task": "Introduction evidence analysis only; no Skill edit or model test"
+  }
+}

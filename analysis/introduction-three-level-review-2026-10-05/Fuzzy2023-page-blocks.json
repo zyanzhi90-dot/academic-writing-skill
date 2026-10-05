@@ -1,0 +1,2183 @@
+[
+  {
+    "pdf_page": 1,
+    "width": 594.0,
+    "height": 792.0,
+    "blocks": [
+      {
+        "id": 0,
+        "bbox": [
+          37.90800094604492,
+          33.50128936767578,
+          551.9822998046875,
+          40.47509002685547
+        ],
+        "text": "IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023\n1041\n"
+      },
+      {
+        "id": 1,
+        "bbox": [
+          40.994998931884766,
+          60.42897033691406,
+          548.9501342773438,
+          84.33926391601562
+        ],
+        "text": "Fixed-Time Fuzzy Control of Uncertain Robots With\n"
+      },
+      {
+        "id": 2,
+        "bbox": [
+          128.05239868164062,
+          88.32984924316406,
+          461.8735656738281,
+          112.24014282226562
+        ],
+        "text": "Guaranteed Transient Performance\n"
+      },
+      {
+        "id": 3,
+        "bbox": [
+          70.7490005493164,
+          121.0152587890625,
+          519.1326293945312,
+          145.03640747070312
+        ],
+        "text": "Chengzhi Zhu\n, Student Member, IEEE, Chenguang Yang\n, Senior Member, IEEE, Yiming Jiang\n,\nand Hui Zhang\n, Member, IEEE\n"
+      },
+      {
+        "id": 4,
+        "bbox": [
+          37.90842819213867,
+          177.4287872314453,
+          288.9981689453125,
+          295.9932861328125
+        ],
+        "text": "Abstract—In this article, an adaptive ﬁxed-time fuzzy control\nscheme is proposed for an uncertain robot manipulator with user-\ndeﬁned performance. A novel symmetrical barrier Lyapunov func-\ntion is designed based on the error conversion mechanism and\nthe performance function such that the tracking errors will not\nviolate the prescribed output constraints. A novel adaptive law is\nconstructed and incorporated into the ﬁxed-time controller design\nsuch that all the closed-loop signals can be bounded and achieve\npractical ﬁxed-time convergence regardless of the initial conditions.\nFinally, the feasibility and superiority of the proposed scheme are\ndemonstrated based on simulation and experimental studies using\na Baxter robot.\n"
+      },
+      {
+        "id": 5,
+        "bbox": [
+          37.90842819213867,
+          303.96533203125,
+          288.96490478515625,
+          322.8951721191406
+        ],
+        "text": "Index\nTerms—Adaptive\nfuzzy\ncontrol,\nbarrier\nLyapunov\nfunction (BLF), ﬁxed-time convergence, robot manipulator.\n"
+      },
+      {
+        "id": 6,
+        "bbox": [
+          37.90800094604492,
+          344.3034362792969,
+          199.33624267578125,
+          389.8506774902344
+        ],
+        "text": "I. INTRODUCTION\nF\n"
+      },
+      {
+        "id": 7,
+        "bbox": [
+          37.90802001953125,
+          361.24151611328125,
+          288.9963684082031,
+          490.7613220214844
+        ],
+        "text": "OR the robot dynamic systems, uncertain nonlinear terms\nusually exist due to the time-varying model parameters and\nthe external disturbance during operation. Combined with adap-\ntive control techniques, the neural network (NN) [1]–[5] and\nthe fuzzy logic system (FLS) [6]–[8] have been widely applied\nto handle the tracking control problem for the uncertain robot\nsystems because of their universal approximation capability.\nIn [4], an NN control scheme has been proposed for a robot ma-\nnipulator to achieve trajectory tracking with output constraints\nand input saturation. In [5], an admittance adaptation method\nhas been proposed for robot–environment interaction, and the\n"
+      },
+      {
+        "id": 8,
+        "bbox": [
+          37.90790939331055,
+          510.1999816894531,
+          289.0113830566406,
+          616.7193603515625
+        ],
+        "text": "Manuscript received 28 January 2022; revised 6 June 2022; accepted 22 July\n2022. Date of publication 27 July 2022; date of current version 1 March 2023.\nThis work was supported in part by the National Key R&D Program of China\nunder Grant 2021ZD0114503, in part by the National Natural Science Founda-\ntion of China under Grant U20A20200, Grant 62133005, and Major Research\nGrant 92148204, in part by the Guangdong Basic and Applied Basic Research\nFoundation under Grant 2019B1515120076 and Grant 2020B1515120054, in\npart by the Industrial Key Technologies R&D Program of Foshan under Grant\n2020001006308 and Grant 2020001006496, in part by the Hunan Science Fund\nfor Distinguished Young Scholars under Grant 2021JJ10025, and in part by\nthe Changsha Municipal Natural Science Foundation under Grant kq2014060.\n(Corresponding author: Chenguang Yang.)\n"
+      },
+      {
+        "id": 9,
+        "bbox": [
+          37.90790939331055,
+          617.7940063476562,
+          288.9938659667969,
+          652.6647338867188
+        ],
+        "text": "Chengzhi Zhu and Chenguang Yang are with the Key Laboratory of Au-\ntonomous Systems and Networked Control, College of Automation Science and\nEngineering, South China University of Technology, Guangzhou 510640, China\n(e-mail: chengzhi.zhu@qq.com; cyang@ieee.org).\n"
+      },
+      {
+        "id": 10,
+        "bbox": [
+          37.90790939331055,
+          653.6586303710938,
+          288.99627685546875,
+          688.5294189453125
+        ],
+        "text": "Yiming Jiang and Hui Zhang are with the School of Robotics and the Visual\nPerception and Control Technology National Engineering Laboratory, Hunan\nUniversity, Changsha 410082, China (e-mail: ymjiang@hnu.edu.cn; zhanghui-\nhby@126.com).\n"
+      },
+      {
+        "id": 11,
+        "bbox": [
+          37.90790939331055,
+          689.5320434570312,
+          288.97247314453125,
+          706.4661254882812
+        ],
+        "text": "Color versions of one or more ﬁgures in this article are available at\nhttps://doi.org/10.1109/TFUZZ.2022.3194373.\n"
+      },
+      {
+        "id": 12,
+        "bbox": [
+          45.88199996948242,
+          707.4600219726562,
+          225.21559143066406,
+          715.4301147460938
+        ],
+        "text": "Digital Object Identiﬁer 10.1109/TFUZZ.2022.3194373\n"
+      },
+      {
+        "id": 13,
+        "bbox": [
+          300.92401123046875,
+          177.26356506347656,
+          551.9996948242188,
+          438.2836608886719
+        ],
+        "text": "guaranteed trajectory tracking can be achieved by an NN-based\ncontroller. In [9], a number of advanced NN control algorithms\nhave been introduced in detail for nonlinear systems, including\nrobots. In [7], an adaptive robust fuzzy control scheme has been\nproposed for the uncertain two-degree-of-freedom (DOF) lower\nlimb exoskeleton robot system to enhance the rehabilitation\ntraining. In [8], an adaptive fuzzy control scheme has been\nproposed for robotic systems to achieve ﬁxed-time convergence\nand user-deﬁned performance simultaneously. In [10], a novel\nadaptive controller based on active inference has been proposed\nfor the robot to handle large model uncertainties and a large\nnumber DOFs, which enable to deal with the robot uncertainty,\nbesides the NN and the FLS. It should be noted that large calcu-\nlation is always required because of the weight iterative process\nin traditional fuzzy control schemes. In our previous work [11],\na topology optimization method has been proposed to reduce\nthe data amount for calculation and storage in wireless sensor\nnetworks, which is exciting because it may enlighten optimizing\nthe FLS structure to reduce the computational complexity in our\nfuture work. Moreover, the desired transient performance and\nconvergence time are rarely discussed simultaneously in most\nof the existing fuzzy control schemes.\n"
+      },
+      {
+        "id": 14,
+        "bbox": [
+          300.92401123046875,
+          440.2821350097656,
+          552.0122680664062,
+          617.6104125976562
+        ],
+        "text": "In practice, the undesirable transient performance may lead\nto the system instability, even the system safety problems some-\ntimes. Recently, the barrier Lyapunov functions (BLFs) have\nbeen widely used to achieve the state and output constraints\nin the nonlinear control problems [12]–[16]. In [12], with the\nexponential-type BLF, a practical event-triggered prescribed-\ntime controller has been proposed for a class of space teleoper-\nation systems. In [14], a new command ﬁltered fuzzy controller\nhas been proposed for a class of unknown nonlinear systems to\nhandle full-state constraints and ﬁnite-time convergence simul-\ntaneously. In [16], an adaptive fuzzy leader-following tracking\ncontrol scheme has been proposed for heterogeneous nonlinear\nmultiagent systems with ﬁnite-time output constraints. In this\narticle, a novel symmetric BLF is designed to guarantee the\ndesired transient performance of the robot system.\n"
+      },
+      {
+        "id": 15,
+        "bbox": [
+          300.92401123046875,
+          619.6089477539062,
+          551.99072265625,
+          713.25439453125
+        ],
+        "text": "In many industrial systems, the system states are required to\nachieve fast convergence speed for better control performance.\nThere have been some proposed research works focused on the\nconvergence time of the systems [17]–[19]. In [17], an adaptive\nobserver-based fuzzy controller has been proposed for a class\nof strict-feedback nonlinear systems to achieve ﬁnite-time con-\nvergence. In [18], an adaptive ﬁnite-time sliding-mode control\nscheme has been proposed for a class of nonlinear systems\n"
+      },
+      {
+        "id": 16,
+        "bbox": [
+          118.62899780273438,
+          727.387939453125,
+          471.2702331542969,
+          744.3219604492188
+        ],
+        "text": "1063-6706 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.\nSee https://www.ieee.org/publications/rights/index.html for more information.\n"
+      },
+      {
+        "id": 17,
+        "bbox": [
+          12.596980094909668,
+          762.5669555664062,
+          581.4032592773438,
+          772.1849975585938
+        ],
+        "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore.  Restrictions apply. \n"
+      }
+    ]
+  },
+  {
+    "pdf_page": 2,
+    "width": 594.0,
+    "height": 792.0,
+    "blocks": [
+      {
+        "id": 0,
+        "bbox": [
+          42.119998931884766,
+          33.50128936767578,
+          556.1881713867188,
+          40.47509002685547
+        ],
+        "text": "1042\nIEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023\n"
+      },
+      {
+        "id": 1,
+        "bbox": [
+          42.119998931884766,
+          65.29450988769531,
+          293.17657470703125,
+          194.81430053710938
+        ],
+        "text": "with some matched uncertainties. Nevertheless, for the existing\nﬁnite-time control schemes, the convergence time of the systems\nis always related to the initial conditions, which are sometimes\nunavailable. To improve the control performance, the ﬁxed-time\ncontrol schemes have been proposed and applied in the nonlinear\ncontrol community [20]–[22]. In [20], a novel ﬁxed-time adap-\ntive fuzzy control scheme combined with the BLF technique\nhas been proposed for uncertain nonstrict-feedback nonlinear\nsystems. In [21], an adaptive event-based ﬁxed-time control\nscheme has been proposed for the active vehicle suspension\nsystems, and the predeﬁned constraints can be guaranteed.\n"
+      },
+      {
+        "id": 2,
+        "bbox": [
+          42.119998931884766,
+          196.80384826660156,
+          293.1873779296875,
+          242.63180541992188
+        ],
+        "text": "Motivated by the above research works, the problem of ﬁxed-\ntime tracking control is discussed for uncertain robot systems\nbased on the FLS and the BLF technique in this article. The\nmajor contributions of our work can be listed as follows.\n"
+      },
+      {
+        "id": 3,
+        "bbox": [
+          52.08259963989258,
+          244.62135314941406,
+          293.19537353515625,
+          362.1800231933594
+        ],
+        "text": "1) A novel symmetric BLF is designed to avoid the viola-\ntion of the output constraints; thus, the desired transient\nperformance of the robot system can be guaranteed.\n2) A novel adaptive law is proposed such that the bounded-\nness of all the closed-loop signals can be proved. Then, the\nassumption that the weight estimation is bounded in recent\nﬁxed-time control research [23]–[25] can be relaxed.\n3) The tracking performance of the robot system can achieve\npractical ﬁxed-time convergence regardless of the initial\nconditions.\n"
+      },
+      {
+        "id": 4,
+        "bbox": [
+          68.8855209350586,
+          376.6405334472656,
+          266.3974304199219,
+          386.6063232421875
+        ],
+        "text": "II. PROBLEM FORMULATION AND PRELIMINARIES\n"
+      },
+      {
+        "id": 5,
+        "bbox": [
+          42.119998931884766,
+          394.4676208496094,
+          141.83766174316406,
+          404.4302062988281
+        ],
+        "text": "A. Problem Formulation\n"
+      },
+      {
+        "id": 6,
+        "bbox": [
+          42.11899948120117,
+          411.1383361816406,
+          293.1606140136719,
+          433.4296569824219
+        ],
+        "text": "The following dynamic equation of an n-DOF robot is con-\nsidered:\n"
+      },
+      {
+        "id": 7,
+        "bbox": [
+          83.14997100830078,
+          444.4293518066406,
+          293.1827087402344,
+          455.47686767578125
+        ],
+        "text": "M(q)¨q + C(q, ˙q) ˙q + G(q) + τd(q, ˙q) = τ\n(1)\n"
+      },
+      {
+        "id": 8,
+        "bbox": [
+          42.119998931884766,
+          462.7164306640625,
+          293.1816711425781,
+          536.066162109375
+        ],
+        "text": "where q, ˙q, ¨q ∈Rn are expressed as the vectors of position,\nvelocity, and acceleration, respectively. M(q), C(q, ˙q) ∈Rn×n,\nand G(q) ∈Rn mean the unknown inertia matrix, centripetal\nCoriolis torque matrix, and gravitational vector, respectively.\nτ ∈Rn and τd(q, ˙q) ∈Rn are the input torque and the unknown\ndisturbance related to the system signals, respectively.\n"
+      },
+      {
+        "id": 9,
+        "bbox": [
+          42.119998931884766,
+          538.0556640625,
+          293.1984558105469,
+          607.796875
+        ],
+        "text": "The objective of our work is to make the output errors in\n(1) converge to a predeﬁned neighborhood around zero with\nguaranteed transient performance in ﬁxed time regardless of the\ninitial conditions. Meanwhile, all the closed-loop signals can be\nbounded during the operation. The controller design strategy is\ndemonstrated in Fig. 1.\n"
+      },
+      {
+        "id": 10,
+        "bbox": [
+          42.119998931884766,
+          622.15966796875,
+          110.59793853759766,
+          632.1222534179688
+        ],
+        "text": "B. Preliminaries\n"
+      },
+      {
+        "id": 11,
+        "bbox": [
+          42.119998931884766,
+          638.8223876953125,
+          293.1854553222656,
+          673.0658569335938
+        ],
+        "text": "Property1(See [8]):ThematrixM(q)in(1)issymmetricand\npositive deﬁnite. The term ˙M(q) −2C(q, ˙q) is skew symmetric\nand satisﬁes that δT ( ˙M(q) −2C(q, ˙q))δ = 0 ∀δ ∈Rn.\n"
+      },
+      {
+        "id": 12,
+        "bbox": [
+          42.12036895751953,
+          671.4443969726562,
+          293.1788635253906,
+          708.9291381835938
+        ],
+        "text": "Assumption 1: The reference trajectory vector qd ∈Rn and\nits ﬁrst-order derivative ˙qd ∈Rn are considered continuous and\nbounded.\n"
+      },
+      {
+        "id": 13,
+        "bbox": [
+          42.12036895751953,
+          710.56005859375,
+          293.1639404296875,
+          732.8423461914062
+        ],
+        "text": "Lemma 1 (See [26]): For a general system ˙x(t) = g(x), when\nthe Lyapunov function V (x) satisﬁes the following inequality:\n"
+      },
+      {
+        "id": 14,
+        "bbox": [
+          42.12036895751953,
+          731.9437255859375,
+          293.1773986816406,
+          745.9204711914062
+        ],
+        "text": "˙V (x) ≤−μ1 V η1(x) −μ2 V η2(x) + ρ, where μ1, μ2, and ρ\n"
+      },
+      {
+        "id": 15,
+        "bbox": [
+          305.135986328125,
+          208.3669891357422,
+          502.3832092285156,
+          216.3370819091797
+        ],
+        "text": "Fig. 1.\nFramework for the ﬁxed-time fuzzy robot controller.\n"
+      },
+      {
+        "id": 16,
+        "bbox": [
+          305.1357116699219,
+          236.60194396972656,
+          556.1866455078125,
+          270.8451232910156
+        ],
+        "text": "denote positive constants and the parameters η1 ∈(0, 1) and\nη2 ∈(1, ∞), the system is practically ﬁxed-time stable. And\nthe residual set of the system can be represented as\n"
+      },
+      {
+        "id": 17,
+        "bbox": [
+          344.04266357421875,
+          282.83489990234375,
+          366.2109375,
+          294.2915344238281
+        ],
+        "text": "Ω1 =\n"
+      },
+      {
+        "id": 18,
+        "bbox": [
+          368.9905090332031,
+          271.7744140625,
+          375.6256103515625,
+          281.7370300292969
+        ],
+        "text": "\u0002\n"
+      },
+      {
+        "id": 19,
+        "bbox": [
+          375.632568359375,
+          282.83489990234375,
+          420.89764404296875,
+          293.1651306152344
+        ],
+        "text": "x|V ≤min\n"
+      },
+      {
+        "id": 20,
+        "bbox": [
+          422.55841064453125,
+          271.7744140625,
+          428.5060729980469,
+          281.7370300292969
+        ],
+        "text": "\u0003\n"
+      },
+      {
+        "id": 21,
+        "bbox": [
+          428.51605224609375,
+          279.09979248046875,
+          513.2216186523438,
+          293.6937561035156
+        ],
+        "text": "[ρ/(μ1(1 −θ))]1/η1 ,\n"
+      },
+      {
+        "id": 22,
+        "bbox": [
+          424.404052734375,
+          296.6858215332031,
+          517.2767333984375,
+          318.59674072265625
+        ],
+        "text": "[ρ/(μ2(1 −θ))]1/η2\u0004\u0005\n"
+      },
+      {
+        "id": 23,
+        "bbox": [
+          305.1363830566406,
+          330.3902893066406,
+          556.1907958984375,
+          377.7124328613281
+        ],
+        "text": "where θ ∈(0, 1). And the convergence time of the system can\nbe derived as T ≤Tmax =\n1\nμ1θ(1−η1) +\n1\nμ2θ(η2−1).\nLemma 2 (See [27]): The following inequalities hold for any\nxr ∈R and y ∈R+:\n"
+      },
+      {
+        "id": 24,
+        "bbox": [
+          352.52099609375,
+          384.7649841308594,
+          366.906982421875,
+          395.13653564453125
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 25,
+        "bbox": [
+          352.7099914550781,
+          408.6699523925781,
+          366.71337890625,
+          415.83184814453125
+        ],
+        "text": "r=1\n"
+      },
+      {
+        "id": 26,
+        "bbox": [
+          368.5679931640625,
+          390.5289001464844,
+          399.51092529296875,
+          405.6888427734375
+        ],
+        "text": "|xr|y ≥\n"
+      },
+      {
+        "id": 27,
+        "bbox": [
+          402.28155517578125,
+          377.6048583984375,
+          424.5519714355469,
+          395.13653564453125
+        ],
+        "text": "\u0007 n\n\u0006\n"
+      },
+      {
+        "id": 28,
+        "bbox": [
+          410.364013671875,
+          408.6699523925781,
+          424.36737060546875,
+          415.83184814453125
+        ],
+        "text": "r=1\n"
+      },
+      {
+        "id": 29,
+        "bbox": [
+          426.22198486328125,
+          394.64190673828125,
+          441.8516540527344,
+          405.6888427734375
+        ],
+        "text": "|xr|\n"
+      },
+      {
+        "id": 30,
+        "bbox": [
+          441.8546447753906,
+          377.6048583984375,
+          453.78582763671875,
+          389.4527587890625
+        ],
+        "text": "\by\n"
+      },
+      {
+        "id": 31,
+        "bbox": [
+          456.20098876953125,
+          394.64190673828125,
+          556.1975708007812,
+          404.9721374511719
+        ],
+        "text": ",\n0 < y ≤1\n(2)\n"
+      },
+      {
+        "id": 32,
+        "bbox": [
+          348.6780090332031,
+          422.1150817871094,
+          363.0639953613281,
+          432.4864196777344
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 33,
+        "bbox": [
+          348.8760070800781,
+          446.0198669433594,
+          362.8793640136719,
+          453.1817626953125
+        ],
+        "text": "r=1\n"
+      },
+      {
+        "id": 34,
+        "bbox": [
+          364.7340087890625,
+          427.8788146972656,
+          417.8590393066406,
+          443.0388488769531
+        ],
+        "text": "|xr|y ≥n1−y\n"
+      },
+      {
+        "id": 35,
+        "bbox": [
+          420.27301025390625,
+          414.95489501953125,
+          442.5429992675781,
+          432.4864196777344
+        ],
+        "text": "\u0007 n\n\u0006\n"
+      },
+      {
+        "id": 36,
+        "bbox": [
+          428.3550109863281,
+          446.0198669433594,
+          442.3583679199219,
+          453.1817626953125
+        ],
+        "text": "r=1\n"
+      },
+      {
+        "id": 37,
+        "bbox": [
+          444.2040100097656,
+          431.9918212890625,
+          459.8426513671875,
+          443.0388488769531
+        ],
+        "text": "|xr|\n"
+      },
+      {
+        "id": 38,
+        "bbox": [
+          459.84564208984375,
+          414.95477294921875,
+          471.77685546875,
+          426.8027648925781
+        ],
+        "text": "\by\n"
+      },
+      {
+        "id": 39,
+        "bbox": [
+          474.1830139160156,
+          431.9918212890625,
+          556.188232421875,
+          442.3220520019531
+        ],
+        "text": ",\ny > 1.\n(3)\n"
+      },
+      {
+        "id": 40,
+        "bbox": [
+          305.1365966796875,
+          460.1856994628906,
+          556.1923217773438,
+          482.2102966308594
+        ],
+        "text": "Lemma 3 (See [28]): The following inequality holds for any\na, b ∈R and ϵ ∈R+:\n"
+      },
+      {
+        "id": 41,
+        "bbox": [
+          371.55560302734375,
+          489.9390563964844,
+          407.66729736328125,
+          507.6814270019531
+        ],
+        "text": "ab ≤ϵh1\n"
+      },
+      {
+        "id": 42,
+        "bbox": [
+          397.0169982910156,
+          504.5499267578125,
+          406.7270812988281,
+          515.40869140625
+        ],
+        "text": "h1\n"
+      },
+      {
+        "id": 43,
+        "bbox": [
+          411.5249938964844,
+          490.9781188964844,
+          556.1884155273438,
+          515.40869140625
+        ],
+        "text": "|a|h1 +\n1\nh2ϵh2 |b|h2\n(4)\n"
+      },
+      {
+        "id": 44,
+        "bbox": [
+          305.1362609863281,
+          522.216796875,
+          556.1339111328125,
+          545.6344604492188
+        ],
+        "text": "where h1, h2 ∈(1, ∞) are both positive constants, which satisfy\nthat (h1 −1)(h2 −1) = 1.\n"
+      },
+      {
+        "id": 45,
+        "bbox": [
+          305.136474609375,
+          546.3966674804688,
+          556.2039794921875,
+          616.2384643554688
+        ],
+        "text": "Fuzzy Logic System (See [8]): As described in [8], an FLS is\napplied to approximate the unknown function f(Z) : Rk →R\nin this article, where Z ∈ΩC ⊂Rk is the FLS input vector and k\nis the dimension of the FLS input. The fuzzy IF–THEN inference\nrules of the knowledge base in the FLS can be described as\nfollows:\n"
+      },
+      {
+        "id": 46,
+        "bbox": [
+          315.0993957519531,
+          616.8209838867188,
+          386.8355407714844,
+          629.6840209960938
+        ],
+        "text": "Rule l: If Z1 is Al\n"
+      },
+      {
+        "id": 47,
+        "bbox": [
+          305.135986328125,
+          616.8209838867188,
+          556.1851806640625,
+          665.707763671875
+        ],
+        "text": "1, Z2 is Al\n2,..., Zk is Al\nk,\nthen ψ is Bl, l = 1, 2, . . ., N0\nwhere Z = [Z1, Z2, . . ., Zk]T ∈Rk and ψ are the input and\noutput of the FLS, respectively. μAl\n"
+      },
+      {
+        "id": 48,
+        "bbox": [
+          450.6210021972656,
+          653.7247924804688,
+          556.1885375976562,
+          667.3981323242188
+        ],
+        "text": "j(Zj) and μBl(ψ) can be\n"
+      },
+      {
+        "id": 49,
+        "bbox": [
+          305.136962890625,
+          667.8150634765625,
+          554.5054931640625,
+          679.1842041015625
+        ],
+        "text": "represented as the membership functions of the fuzzy sets Al\n"
+      },
+      {
+        "id": 50,
+        "bbox": [
+          305.135986328125,
+          674.0252075195312,
+          556.1878662109375,
+          704.537109375
+        ],
+        "text": "j\nand Bl, respectively. N0 is the number of the fuzzy rules. Then,\nwe represent the FLS as follows:\n"
+      },
+      {
+        "id": 51,
+        "bbox": [
+          371.12353515625,
+          724.2581176757812,
+          388.47637939453125,
+          734.220703125
+        ],
+        "text": "ψ =\n"
+      },
+      {
+        "id": 52,
+        "bbox": [
+          392.4444885253906,
+          707.2210693359375,
+          412.66229248046875,
+          719.93115234375
+        ],
+        "text": "\tN0\n"
+      },
+      {
+        "id": 53,
+        "bbox": [
+          402.96600341796875,
+          714.6998291015625,
+          426.4895324707031,
+          727.4973754882812
+        ],
+        "text": "l=1 ωl\n"
+      },
+      {
+        "id": 54,
+        "bbox": [
+          428.68798828125,
+          707.2208251953125,
+          442.3350830078125,
+          719.473876953125
+        ],
+        "text": "\nk\n"
+      },
+      {
+        "id": 55,
+        "bbox": [
+          438.10198974609375,
+          714.6998291015625,
+          468.42901611328125,
+          727.4974975585938
+        ],
+        "text": "j=1 μAl\n"
+      },
+      {
+        "id": 56,
+        "bbox": [
+          397.9079895019531,
+          714.6998291015625,
+          489.00146484375,
+          738.0122680664062
+        ],
+        "text": "j(Zj)\n\tN0\n"
+      },
+      {
+        "id": 57,
+        "bbox": [
+          408.4289855957031,
+          738.0069580078125,
+          421.07318115234375,
+          745.1688842773438
+        ],
+        "text": "l=1\n"
+      },
+      {
+        "id": 58,
+        "bbox": [
+          423.2340087890625,
+          725.3109130859375,
+          436.8721008300781,
+          737.5548095703125
+        ],
+        "text": "\nk\n"
+      },
+      {
+        "id": 59,
+        "bbox": [
+          432.6390075683594,
+          732.7808837890625,
+          462.97503662109375,
+          745.578369140625
+        ],
+        "text": "j=1 μAl\n"
+      },
+      {
+        "id": 60,
+        "bbox": [
+          460.5840148925781,
+          732.7808837890625,
+          483.5384826660156,
+          746.4452514648438
+        ],
+        "text": "j(Zj)\n"
+      },
+      {
+        "id": 61,
+        "bbox": [
+          544.5713500976562,
+          724.6255493164062,
+          556.1857299804688,
+          734.588134765625
+        ],
+        "text": "(5)\n"
+      },
+      {
+        "id": 62,
+        "bbox": [
+          12.596980094909668,
+          762.5669555664062,
+          581.4032592773438,
+          772.1849975585938
+        ],
+        "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore.  Restrictions apply. \n"
+      }
+    ]
+  },
+  {
+    "pdf_page": 3,
+    "width": 594.0,
+    "height": 792.0,
+    "blocks": [
+      {
+        "id": 0,
+        "bbox": [
+          37.90800094604492,
+          33.50128936767578,
+          552.0206909179688,
+          40.47509002685547
+        ],
+        "text": "ZHU et al.: FIXED-TIME FUZZY CONTROL OF UNCERTAIN ROBOTS WITH GUARANTEED TRANSIENT PERFORMANCE\n1043\n"
+      },
+      {
+        "id": 1,
+        "bbox": [
+          37.90800094604492,
+          65.22389221191406,
+          288.9486999511719,
+          89.16789245605469
+        ],
+        "text": "where ωl is the point that achieves μBl(ωl) = 1. The member-\nship function μAl\n"
+      },
+      {
+        "id": 2,
+        "bbox": [
+          103.22100067138672,
+          77.18495178222656,
+          288.9434509277344,
+          90.84922790527344
+        ],
+        "text": "j(Zj) is selected as a general Gaussian function\n"
+      },
+      {
+        "id": 3,
+        "bbox": [
+          97.83889770507812,
+          107.91059875488281,
+          112.22702026367188,
+          119.89384460449219
+        ],
+        "text": "μAl\n"
+      },
+      {
+        "id": 4,
+        "bbox": [
+          109.83599853515625,
+          107.91090393066406,
+          160.3122100830078,
+          121.58421325683594
+        ],
+        "text": "j(Zj) = exp\n"
+      },
+      {
+        "id": 5,
+        "bbox": [
+          161.98094177246094,
+          90.87385559082031,
+          167.7891387939453,
+          100.83645629882812
+        ],
+        "text": "\u000b\n"
+      },
+      {
+        "id": 6,
+        "bbox": [
+          167.79510498046875,
+          99.04205322265625,
+          212.36154174804688,
+          117.87350463867188
+        ],
+        "text": "−(Zj −σl\n"
+      },
+      {
+        "id": 7,
+        "bbox": [
+          209.48414611816406,
+          98.85394287109375,
+          221.51609802246094,
+          112.22605895996094
+        ],
+        "text": "j)2\n"
+      },
+      {
+        "id": 8,
+        "bbox": [
+          193.1580047607422,
+          114.24298095703125,
+          204.20755004882812,
+          125.05551147460938
+        ],
+        "text": "ϖl\n"
+      },
+      {
+        "id": 9,
+        "bbox": [
+          201.4110565185547,
+          120.444091796875,
+          204.70269775390625,
+          127.41789245605469
+        ],
+        "text": "j\n"
+      },
+      {
+        "id": 10,
+        "bbox": [
+          223.21800231933594,
+          90.87391662597656,
+          229.0261993408203,
+          100.83651733398438
+        ],
+        "text": "\f\n"
+      },
+      {
+        "id": 11,
+        "bbox": [
+          277.352783203125,
+          108.27857971191406,
+          288.9691467285156,
+          118.24118041992188
+        ],
+        "text": "(6)\n"
+      },
+      {
+        "id": 12,
+        "bbox": [
+          37.908660888671875,
+          135.41107177734375,
+          72.37554168701172,
+          146.78005981445312
+        ],
+        "text": "where σl\n"
+      },
+      {
+        "id": 13,
+        "bbox": [
+          69.49815368652344,
+          135.41107177734375,
+          102.25553894042969,
+          149.37228393554688
+        ],
+        "text": "j and ϖl\n"
+      },
+      {
+        "id": 14,
+        "bbox": [
+          37.90871810913086,
+          136.81752014160156,
+          288.9005126953125,
+          158.73226928710938
+        ],
+        "text": "j represent the center and the width, respectively.\nDeﬁne the fuzzy basic function as\n"
+      },
+      {
+        "id": 15,
+        "bbox": [
+          99.18070220947266,
+          177.37294006347656,
+          134.1192626953125,
+          188.41978454589844
+        ],
+        "text": "Sl(Z) =\n"
+      },
+      {
+        "id": 16,
+        "bbox": [
+          150.7498321533203,
+          160.34486389160156,
+          164.3970947265625,
+          172.58885192871094
+        ],
+        "text": "\nk\n"
+      },
+      {
+        "id": 17,
+        "bbox": [
+          160.16400146484375,
+          167.8148956298828,
+          190.49102783203125,
+          180.62161254882812
+        ],
+        "text": "j=1 μAl\n"
+      },
+      {
+        "id": 18,
+        "bbox": [
+          138.08700561523438,
+          167.8148956298828,
+          211.06349182128906,
+          191.1272430419922
+        ],
+        "text": "j(Zj)\n\tN0\n"
+      },
+      {
+        "id": 19,
+        "bbox": [
+          148.60800170898438,
+          191.1309814453125,
+          161.252197265625,
+          198.2928924560547
+        ],
+        "text": "l=1\n"
+      },
+      {
+        "id": 20,
+        "bbox": [
+          163.41299438476562,
+          178.42579650878906,
+          177.05108642578125,
+          190.66978454589844
+        ],
+        "text": "\nk\n"
+      },
+      {
+        "id": 21,
+        "bbox": [
+          172.8179931640625,
+          185.8959503173828,
+          203.15402221679688,
+          198.70248413085938
+        ],
+        "text": "j=1 μAl\n"
+      },
+      {
+        "id": 22,
+        "bbox": [
+          200.76300048828125,
+          185.8959503173828,
+          223.71749877929688,
+          199.56907653808594
+        ],
+        "text": "j(Zj)\n"
+      },
+      {
+        "id": 23,
+        "bbox": [
+          224.9279327392578,
+          177.37294006347656,
+          288.9675598144531,
+          187.70315551757812
+        ],
+        "text": ".\n(7)\n"
+      },
+      {
+        "id": 24,
+        "bbox": [
+          37.909141540527344,
+          203.9589385986328,
+          288.96966552734375,
+          241.82022094726562
+        ],
+        "text": "Then, (5) can be rewritten as ψ = W T S(Z), where W =\n[ω1, ω2, . . ., ωN0]T and S(Z) = [S1(Z), S2(Z), . . ., SN0(Z)]T ,\nrespectively.\n"
+      },
+      {
+        "id": 25,
+        "bbox": [
+          37.908138275146484,
+          243.44215393066406,
+          288.9437561035156,
+          266.4408264160156
+        ],
+        "text": "Lemma 4 (See [29]): For a continuous function f(Z) deﬁned\non a compact set ΩC, there exists an FLS such that\n"
+      },
+      {
+        "id": 26,
+        "bbox": [
+          103.21199798583984,
+          273.9791259765625,
+          124.42737579345703,
+          292.3591613769531
+        ],
+        "text": "sup\nZ∈ΩC\n"
+      },
+      {
+        "id": 27,
+        "bbox": [
+          126.927001953125,
+          265.5189208984375,
+          202.6396484375,
+          283.9415283203125
+        ],
+        "text": "\r\rf(Z) −W T S(Z)\n"
+      },
+      {
+        "id": 28,
+        "bbox": [
+          202.6436309814453,
+          265.5186767578125,
+          288.96954345703125,
+          284.3081359863281
+        ],
+        "text": "\r\r ≤ς\n(8)\n"
+      },
+      {
+        "id": 29,
+        "bbox": [
+          37.90904998779297,
+          298.6104431152344,
+          118.13288879394531,
+          308.940673828125
+        ],
+        "text": "for any given ς > 0.\n"
+      },
+      {
+        "id": 30,
+        "bbox": [
+          47.87165069580078,
+          310.56256103515625,
+          288.9586486816406,
+          320.8927917480469
+        ],
+        "text": "In terms of Lemma 4, the function f(Z) can be formulated as\n"
+      },
+      {
+        "id": 31,
+        "bbox": [
+          69.21851348876953,
+          325.0359191894531,
+          288.9693603515625,
+          340.6054382324219
+        ],
+        "text": "f(Z) = W ∗T S(Z) + ε(Z)\n∀Z ∈ΩC ∈Rk\n(9)\n"
+      },
+      {
+        "id": 32,
+        "bbox": [
+          37.908878326416016,
+          345.5365295410156,
+          288.9673767089844,
+          394.6458435058594
+        ],
+        "text": "where W ∗, S(Z) ∈RN0 are the optimal weight vector and\nthe regression vector, respectively. And |ε(Z)| ≤¯ε denotes the\napproximation error of the FLS and is bounded by some positive\nconstant ¯ε for all Z ∈ΩC.\n"
+      },
+      {
+        "id": 33,
+        "bbox": [
+          118.56578826904297,
+          408.5273132324219,
+          208.2928009033203,
+          418.49005126953125
+        ],
+        "text": "III. CONTROL DESIGN\n"
+      },
+      {
+        "id": 34,
+        "bbox": [
+          37.90840148925781,
+          425.46551513671875,
+          288.9469299316406,
+          447.3892517089844
+        ],
+        "text": "The tracking error signals are deﬁned below before proceed-\ning to the control design:\n"
+      },
+      {
+        "id": 35,
+        "bbox": [
+          110.59253692626953,
+          455.6439208984375,
+          288.9665832519531,
+          466.69085693359375
+        ],
+        "text": "e = q −qd,\nz = ˙q −α\n(10)\n"
+      },
+      {
+        "id": 36,
+        "bbox": [
+          37.907039642333984,
+          470.61090087890625,
+          288.96844482421875,
+          509.5895080566406
+        ],
+        "text": "where e = [e1, e2, . . ., en]T ∈Rn and z = [z1, z2, . . ., zn]T ∈\nRn are the position tracking error and the velocity tracking\nerror vectors of the robot manipulator, respectively. q, qd ∈Rn\n"
+      },
+      {
+        "id": 37,
+        "bbox": [
+          37.90800094604492,
+          510.09381103515625,
+          288.9571838378906,
+          544.3282470703125
+        ],
+        "text": "denote the actual and desired trajectory, respectively. And α =\n[α1, α2, . . ., αn]T ∈Rn is the virtual controller to be speciﬁed\nlater.\n"
+      },
+      {
+        "id": 38,
+        "bbox": [
+          37.90874099731445,
+          546.3267211914062,
+          288.9781188964844,
+          568.241455078125
+        ],
+        "text": "Inspired by Chen et al. [30], a series of smoothly decreasing\nfunctions are deﬁned as follows to constrain the tracking errors:\n"
+      },
+      {
+        "id": 39,
+        "bbox": [
+          60.6693000793457,
+          572.3829345703125,
+          288.9594421386719,
+          587.952392578125
+        ],
+        "text": "βi = (ϱ0i −ϱ∞i)e−ϑit + ϱ∞i,\ni = 1, 2, . . ., n\n(11)\n"
+      },
+      {
+        "id": 40,
+        "bbox": [
+          37.90827178955078,
+          595.080810546875,
+          288.9913330078125,
+          677.14111328125
+        ],
+        "text": "where ϱ0i, ϱ∞i, ϑi (i = 1, 2, . . ., n) are all properly designed\npositive constants. It can be noted that when the tracking error\nei is constrained in the range −βi < ei < βi, the designed\nparameters ϱ0i, ϱ∞i, and ϑi can specify the tracking transient\nresponse of the system, i.e., the exponential term ϑi regulates\nthe convergence rate, and ϱ0i and ϱ∞i can deﬁne the maximum\novershoot and the steady error, respectively.\n"
+      },
+      {
+        "id": 41,
+        "bbox": [
+          37.90827178955078,
+          679.1396484375,
+          288.97369384765625,
+          713.0064697265625
+        ],
+        "text": "Inspired by Yang et al. [31], a coordinate transformation of\nthe tracking error vector e is applied and a novel symmetric BLF\nis designed as follows:\n"
+      },
+      {
+        "id": 42,
+        "bbox": [
+          65.07029724121094,
+          724.2039184570312,
+          166.0059356689453,
+          740.02978515625
+        ],
+        "text": "ϕ = [ϕ1, ϕ2, . . ., ϕn]T =\n"
+      },
+      {
+        "id": 43,
+        "bbox": [
+          168.78550720214844,
+          714.942626953125,
+          184.33709716796875,
+          733.1096801757812
+        ],
+        "text": "\u000e e1\n"
+      },
+      {
+        "id": 44,
+        "bbox": [
+          175.23899841308594,
+          735.8228759765625,
+          184.84109497070312,
+          746.6817016601562
+        ],
+        "text": "β1\n"
+      },
+      {
+        "id": 45,
+        "bbox": [
+          186.53399658203125,
+          722.2511596679688,
+          201.25709533691406,
+          738.9454956054688
+        ],
+        "text": ", e2\n"
+      },
+      {
+        "id": 46,
+        "bbox": [
+          192.15899658203125,
+          735.8228759765625,
+          201.76109313964844,
+          746.6817016601562
+        ],
+        "text": "β2\n"
+      },
+      {
+        "id": 47,
+        "bbox": [
+          203.46299743652344,
+          722.2511596679688,
+          235.18850708007812,
+          738.9454956054688
+        ],
+        "text": ", . . ., en\n"
+      },
+      {
+        "id": 48,
+        "bbox": [
+          225.13499450683594,
+          735.8228759765625,
+          235.6925048828125,
+          746.8698120117188
+        ],
+        "text": "βn\n"
+      },
+      {
+        "id": 49,
+        "bbox": [
+          237.38400268554688,
+          714.9429321289062,
+          247.34934997558594,
+          726.7817993164062
+        ],
+        "text": "\u000fT\n"
+      },
+      {
+        "id": 50,
+        "bbox": [
+          272.3219909667969,
+          729.3505249023438,
+          288.9943542480469,
+          739.3131103515625
+        ],
+        "text": "(12)\n"
+      },
+      {
+        "id": 51,
+        "bbox": [
+          324.3148193359375,
+          74.20594787597656,
+          345.1059265136719,
+          85.66244506835938
+        ],
+        "text": "V1 =\n"
+      },
+      {
+        "id": 52,
+        "bbox": [
+          347.885986328125,
+          64.32904052734375,
+          362.27197265625,
+          74.70040893554688
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 53,
+        "bbox": [
+          348.6239929199219,
+          88.350830078125,
+          361.5296936035156,
+          95.51274108886719
+        ],
+        "text": "i=1\n"
+      },
+      {
+        "id": 54,
+        "bbox": [
+          365.1300048828125,
+          67.46479797363281,
+          370.1112976074219,
+          90.99954223632812
+        ],
+        "text": "1\n2\n"
+      },
+      {
+        "id": 55,
+        "bbox": [
+          372.96856689453125,
+          60.15729904174805,
+          400.56207275390625,
+          77.42745971679688
+        ],
+        "text": "\u0010\nϕ2\n"
+      },
+      {
+        "id": 56,
+        "bbox": [
+          381.49200439453125,
+          72.63623046875,
+          409.1390686035156,
+          93.37095642089844
+        ],
+        "text": "i\n1 −ϕ2\ni\n"
+      },
+      {
+        "id": 57,
+        "bbox": [
+          410.8320007324219,
+          60.15693283081055,
+          418.16448974609375,
+          70.11953735351562
+        ],
+        "text": "\u0011\n"
+      },
+      {
+        "id": 58,
+        "bbox": [
+          535.3824462890625,
+          74.57380676269531,
+          551.9741821289062,
+          84.53640747070312
+        ],
+        "text": "(13)\n"
+      },
+      {
+        "id": 59,
+        "bbox": [
+          300.9244689941406,
+          97.11842346191406,
+          551.9750366210938,
+          124.14511108398438
+        ],
+        "text": "where ϕi is deﬁned as the ith element of the vector ϕ ∈Rn and\nthe initial value of ei satisﬁes that −ϱ0i < ei(0) < ϱ0i.\n"
+      },
+      {
+        "id": 60,
+        "bbox": [
+          300.9249267578125,
+          124.64961242675781,
+          551.9435424804688,
+          146.56436157226562
+        ],
+        "text": "Taking the derivative of (13) with respect to time combined\nwith (12), we can obtain\n"
+      },
+      {
+        "id": 61,
+        "bbox": [
+          372.2760925292969,
+          158.5453643798828,
+          393.0669250488281,
+          172.52139282226562
+        ],
+        "text": "˙V1 =\n"
+      },
+      {
+        "id": 62,
+        "bbox": [
+          395.8380126953125,
+          151.18804931640625,
+          410.2239990234375,
+          161.55953979492188
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 63,
+        "bbox": [
+          396.5849914550781,
+          175.2098388671875,
+          409.4906921386719,
+          182.3717498779297
+        ],
+        "text": "i=1\n"
+      },
+      {
+        "id": 64,
+        "bbox": [
+          413.09100341796875,
+          151.69593811035156,
+          476.6534729003906,
+          165.78054809570312
+        ],
+        "text": "ϕi(˙eiβi −ei ˙βi)\n"
+      },
+      {
+        "id": 65,
+        "bbox": [
+          419.3819885253906,
+          166.85797119140625,
+          429.5060729980469,
+          177.85855102539062
+        ],
+        "text": "β2\n"
+      },
+      {
+        "id": 66,
+        "bbox": [
+          425.0156555175781,
+          166.85797119140625,
+          461.528076171875,
+          180.63967895507812
+        ],
+        "text": "i (1 −ϕ2\n"
+      },
+      {
+        "id": 67,
+        "bbox": [
+          457.55999755859375,
+          161.0648956298828,
+          551.9837646484375,
+          180.63967895507812
+        ],
+        "text": "i )2\n.\n(14)\n"
+      },
+      {
+        "id": 68,
+        "bbox": [
+          300.9252014160156,
+          187.37916564941406,
+          379.1307067871094,
+          197.34176635742188
+        ],
+        "text": "From (10), we have\n"
+      },
+      {
+        "id": 69,
+        "bbox": [
+          364.9239501953125,
+          204.5706329345703,
+          551.974365234375,
+          216.02743530273438
+        ],
+        "text": "˙ei = ˙qi −˙qdi = zi + αi −˙qdi.\n(15)\n"
+      },
+      {
+        "id": 70,
+        "bbox": [
+          300.9248046875,
+          222.50660705566406,
+          442.7925109863281,
+          232.46920776367188
+        ],
+        "text": "Substituting (15) into (14), we have\n"
+      },
+      {
+        "id": 71,
+        "bbox": [
+          346.3024597167969,
+          244.8367462158203,
+          367.0929260253906,
+          258.8134460449219
+        ],
+        "text": "˙V1 =\n"
+      },
+      {
+        "id": 72,
+        "bbox": [
+          369.864013671875,
+          237.48004150390625,
+          384.25,
+          247.85140991210938
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 73,
+        "bbox": [
+          370.6109924316406,
+          261.5018310546875,
+          383.5166931152344,
+          268.6637268066406
+        ],
+        "text": "i=1\n"
+      },
+      {
+        "id": 74,
+        "bbox": [
+          387.11700439453125,
+          237.98768615722656,
+          502.1360778808594,
+          252.07254028320312
+        ],
+        "text": "ϕizi + ϕiαi −ϕi ˙qdi −˙βiϕ2\n"
+      },
+      {
+        "id": 75,
+        "bbox": [
+          420.218994140625,
+          245.7872314453125,
+          500.98541259765625,
+          265.2348327636719
+        ],
+        "text": "i\nβi(1 −ϕ2\n"
+      },
+      {
+        "id": 76,
+        "bbox": [
+          456.7139892578125,
+          247.35694885253906,
+          551.9743041992188,
+          266.9225158691406
+        ],
+        "text": "i )2\n.\n(16)\n"
+      },
+      {
+        "id": 77,
+        "bbox": [
+          300.9247131347656,
+          273.3034973144531,
+          513.184326171875,
+          285.1280517578125
+        ],
+        "text": "Then, the virtual controller αi is designed as follows:\n"
+      },
+      {
+        "id": 78,
+        "bbox": [
+          302.88671875,
+          289.5038146972656,
+          412.820068359375,
+          303.597412109375
+        ],
+        "text": "αi = ˙qdi + ϕi ˙βi −k1iβiϕ3\n"
+      },
+      {
+        "id": 79,
+        "bbox": [
+          408.85198974609375,
+          287.72943115234375,
+          539.360107421875,
+          304.560546875
+        ],
+        "text": "i −k2iβi |ϕi|0.5 sgn(ϕi)(1 −ϕ2\n"
+      },
+      {
+        "id": 80,
+        "bbox": [
+          535.3920288085938,
+          292.1408996582031,
+          543.73046875,
+          304.560546875
+        ],
+        "text": "i )\n"
+      },
+      {
+        "id": 81,
+        "bbox": [
+          300.9247131347656,
+          289.2589416503906,
+          551.9822387695312,
+          338.33624267578125
+        ],
+        "text": "5\n4\n(17)\nwhere sgn(·) represents the signum function and k1i and k2i are\nboth positive constants.\n"
+      },
+      {
+        "id": 82,
+        "bbox": [
+          310.8873291015625,
+          340.32574462890625,
+          452.7560119628906,
+          350.2883605957031
+        ],
+        "text": "Substituting (17) into (16), we have\n"
+      },
+      {
+        "id": 83,
+        "bbox": [
+          302.67913818359375,
+          363.844482421875,
+          323.4699401855469,
+          377.8205261230469
+        ],
+        "text": "˙V1 =\n"
+      },
+      {
+        "id": 84,
+        "bbox": [
+          326.2409973144531,
+          356.487060546875,
+          340.6269836425781,
+          366.867431640625
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 85,
+        "bbox": [
+          326.9880065917969,
+          380.50897216796875,
+          339.8937072753906,
+          387.6708679199219
+        ],
+        "text": "i=1\n"
+      },
+      {
+        "id": 86,
+        "bbox": [
+          342.2969970703125,
+          349.3268127441406,
+          348.1051940917969,
+          359.2894287109375
+        ],
+        "text": "\u000b\n"
+      },
+      {
+        "id": 87,
+        "bbox": [
+          349.29901123046875,
+          359.6228942871094,
+          389.7710876464844,
+          384.2418518066406
+        ],
+        "text": "ϕizi\nβi(1 −ϕ2\n"
+      },
+      {
+        "id": 88,
+        "bbox": [
+          385.8030090332031,
+          358.9925842285156,
+          430.12890625,
+          385.9386901855469
+        ],
+        "text": "i )2 −4k1i\n"
+      },
+      {
+        "id": 89,
+        "bbox": [
+          432.2969970703125,
+          350.919921875,
+          442.02508544921875,
+          364.4337463378906
+        ],
+        "text": "\u0012 1\n"
+      },
+      {
+        "id": 90,
+        "bbox": [
+          438.0570068359375,
+          357.765869140625,
+          453.716064453125,
+          371.795654296875
+        ],
+        "text": "2ϕ2\ni\n"
+      },
+      {
+        "id": 91,
+        "bbox": [
+          454.2120056152344,
+          350.919921875,
+          462.7520751953125,
+          362.57965087890625
+        ],
+        "text": "\u00132\n"
+      },
+      {
+        "id": 92,
+        "bbox": [
+          418.0320129394531,
+          372.1569519042969,
+          449.549072265625,
+          383.15740966796875
+        ],
+        "text": "(1 −ϕ2\n"
+      },
+      {
+        "id": 93,
+        "bbox": [
+          445.58099365234375,
+          359.6228942871094,
+          510.5036315917969,
+          385.9386901855469
+        ],
+        "text": "i )2\n−k2i |ϕi|\n"
+      },
+      {
+        "id": 94,
+        "bbox": [
+          511.7130126953125,
+          356.0839538574219,
+          515.1002807617188,
+          366.213134765625
+        ],
+        "text": "3\n2\n"
+      },
+      {
+        "id": 95,
+        "bbox": [
+          477.8190002441406,
+          373.65997314453125,
+          509.3360900878906,
+          384.66943359375
+        ],
+        "text": "(1 −ϕ2\n"
+      },
+      {
+        "id": 96,
+        "bbox": [
+          505.3680114746094,
+          374.7068176269531,
+          513.697509765625,
+          387.4416809082031
+        ],
+        "text": "i )\n"
+      },
+      {
+        "id": 97,
+        "bbox": [
+          514.8989868164062,
+          372.4639587402344,
+          518.2952880859375,
+          382.5932312011719
+        ],
+        "text": "3\n4\n"
+      },
+      {
+        "id": 98,
+        "bbox": [
+          521.1810302734375,
+          349.3268127441406,
+          526.9891967773438,
+          359.2894287109375
+        ],
+        "text": "\f\n"
+      },
+      {
+        "id": 99,
+        "bbox": [
+          314.06451416015625,
+          406.5121154785156,
+          321.8054504394531,
+          416.4747314453125
+        ],
+        "text": "=\n"
+      },
+      {
+        "id": 100,
+        "bbox": [
+          322.9200134277344,
+          396.6359558105469,
+          337.3059997558594,
+          407.0075378417969
+        ],
+        "text": "n\n\u0006\n"
+      },
+      {
+        "id": 101,
+        "bbox": [
+          323.6669921875,
+          420.657958984375,
+          336.57269287109375,
+          427.8198547363281
+        ],
+        "text": "i=1\n"
+      },
+      {
+        "id": 102,
+        "bbox": [
+          338.97601318359375,
+          386.0919189453125,
+          347.82281494140625,
+          405.01885986328125
+        ],
+        "text": "⎧\n⎨\n"
+      },
+      {
+        "id": 103,
+        "bbox": [
+          338.97601318359375,
+          406.5129089355469,
+          386.2088928222656,
+          422.9555358886719
+        ],
+        "text": "⎩φi −4k1i\n"
+      },
+      {
+        "id": 104,
+        "bbox": [
+          388.37701416015625,
+          392.4638977050781,
+          420.25408935546875,
+          409.7341003417969
+        ],
+        "text": "\u000e\nϕ2\n"
+      },
+      {
+        "id": 105,
+        "bbox": [
+          394.8299865722656,
+          404.9432373046875,
+          435.6944885253906,
+          426.08758544921875
+        ],
+        "text": "i\n2(1 −ϕ2\ni )\n"
+      },
+      {
+        "id": 106,
+        "bbox": [
+          436.8959655761719,
+          392.46417236328125,
+          446.1200866699219,
+          403.71875
+        ],
+        "text": "\u000f2\n"
+      },
+      {
+        "id": 107,
+        "bbox": [
+          447.1830139160156,
+          399.772216796875,
+          473.29290771484375,
+          422.59173583984375
+        ],
+        "text": "−k2i\n\u0012 1\n"
+      },
+      {
+        "id": 108,
+        "bbox": [
+          462.43798828125,
+          409.0779113769531,
+          476.7513122558594,
+          429.9536437988281
+        ],
+        "text": "2\n\u0013 3\n"
+      },
+      {
+        "id": 109,
+        "bbox": [
+          473.364013671875,
+          417.7608642578125,
+          476.7513122558594,
+          422.7421569824219
+        ],
+        "text": "4\n"
+      },
+      {
+        "id": 110,
+        "bbox": [
+          481.3110046386719,
+          392.4638977050781,
+          513.1881103515625,
+          409.7341003417969
+        ],
+        "text": "\u000e\nϕ2\n"
+      },
+      {
+        "id": 111,
+        "bbox": [
+          487.7640075683594,
+          404.9432373046875,
+          528.6283569335938,
+          426.08758544921875
+        ],
+        "text": "i\n2(1 −ϕ2\ni )\n"
+      },
+      {
+        "id": 112,
+        "bbox": [
+          529.8298950195312,
+          392.46417236328125,
+          539.6702880859375,
+          402.4267883300781
+        ],
+        "text": "\u000f 3\n"
+      },
+      {
+        "id": 113,
+        "bbox": [
+          536.2830200195312,
+          386.0919189453125,
+          550.2147827148438,
+          405.73223876953125
+        ],
+        "text": "4\n⎫\n⎬\n"
+      },
+      {
+        "id": 114,
+        "bbox": [
+          541.3679809570312,
+          412.992919921875,
+          550.2147827148438,
+          422.9555358886719
+        ],
+        "text": "⎭\n"
+      },
+      {
+        "id": 115,
+        "bbox": [
+          535.3834838867188,
+          431.68475341796875,
+          551.9752197265625,
+          441.6473693847656
+        ],
+        "text": "(18)\n"
+      },
+      {
+        "id": 116,
+        "bbox": [
+          300.9256286621094,
+          447.0900573730469,
+          384.34503173828125,
+          461.9208679199219
+        ],
+        "text": "where φi =\neizi\n(β2\n"
+      },
+      {
+        "id": 117,
+        "bbox": [
+          359.11785888671875,
+          453.9498596191406,
+          375.9512939453125,
+          464.0006103515625
+        ],
+        "text": "i −e2\n"
+      },
+      {
+        "id": 118,
+        "bbox": [
+          372.5639953613281,
+          453.9498596191406,
+          400.7012939453125,
+          464.0006103515625
+        ],
+        "text": "i )(1−ϕ2\n"
+      },
+      {
+        "id": 119,
+        "bbox": [
+          310.8872375488281,
+          449.0184326171875,
+          544.6993408203125,
+          472.56207275390625
+        ],
+        "text": "i ).\nThen, a positive candidate Lyapunov function is deﬁned as\n"
+      },
+      {
+        "id": 120,
+        "bbox": [
+          386.1716003417969,
+          476.71319580078125,
+          438.3674011230469,
+          494.9105224609375
+        ],
+        "text": "V2 = V1 + 1\n"
+      },
+      {
+        "id": 121,
+        "bbox": [
+          433.385986328125,
+          479.3408203125,
+          551.974609375,
+          500.2474365234375
+        ],
+        "text": "2zT Mz\n(19)\n"
+      },
+      {
+        "id": 122,
+        "bbox": [
+          300.925048828125,
+          504.36041259765625,
+          501.5728759765625,
+          514.6906127929688
+        ],
+        "text": "where M denotes the abbreviation of M(q) in (1).\n"
+      },
+      {
+        "id": 123,
+        "bbox": [
+          300.925048828125,
+          516.6891479492188,
+          551.9725952148438,
+          538.6038818359375
+        ],
+        "text": "Taking the derivative of (19) combined with (1) and (10), we\ncan obtain\n"
+      },
+      {
+        "id": 124,
+        "bbox": [
+          311.7972412109375,
+          541.297119140625,
+          496.0827331542969,
+          559.4945068359375
+        ],
+        "text": "˙V2 = ˙V1 + zT (τ −C ˙q −G −τd −M ˙α) + 1\n"
+      },
+      {
+        "id": 125,
+        "bbox": [
+          491.1029968261719,
+          543.9248046875,
+          551.9743041992188,
+          564.8313598632812
+        ],
+        "text": "2zT ˙Mz\n(20)\n"
+      },
+      {
+        "id": 126,
+        "bbox": [
+          300.9248352050781,
+          568.94384765625,
+          551.9773559570312,
+          591.9527587890625
+        ],
+        "text": "where C, G, and τd are the abbreviation of C(q, ˙q), G(q), and\nτd(q, ˙q) in (1), respectively.\n"
+      },
+      {
+        "id": 127,
+        "bbox": [
+          310.88739013671875,
+          593.2256469726562,
+          500.7130432128906,
+          603.188232421875
+        ],
+        "text": "According to Property 1, we can rewrite (20) as\n"
+      },
+      {
+        "id": 128,
+        "bbox": [
+          341.2982177734375,
+          606.3038330078125,
+          551.9747314453125,
+          621.8734741210938
+        ],
+        "text": "˙V2 = ˙V1 + zT (τ −Cα −G −τd −M ˙α).\n(21)\n"
+      },
+      {
+        "id": 129,
+        "bbox": [
+          300.9251403808594,
+          628.3524780273438,
+          551.9736938476562,
+          650.2672119140625
+        ],
+        "text": "We deﬁne the unknown vector, which will be approximated\nby the FLSs as\n"
+      },
+      {
+        "id": 130,
+        "bbox": [
+          362.0257568359375,
+          657.4959106445312,
+          552.0007934570312,
+          668.952392578125
+        ],
+        "text": "F(Z) = −Cα −G −τd −M ˙α\n(22)\n"
+      },
+      {
+        "id": 131,
+        "bbox": [
+          300.92425537109375,
+          671.4459228515625,
+          551.9757080078125,
+          709.2982177734375
+        ],
+        "text": "where Z = [qT , ˙qT , αT , ˙αT ]T ∈R4n is the FLS input vec-\ntor and F(Z) = [F1(Z), F2(Z), . . ., Fn(Z)]T ∈Rn is the n-\ndimensional unknown function vector.\n"
+      },
+      {
+        "id": 132,
+        "bbox": [
+          310.88775634765625,
+          711.2967529296875,
+          475.5359191894531,
+          721.2593383789062
+        ],
+        "text": "Substituting (22) into (21), we can obtain\n"
+      },
+      {
+        "id": 133,
+        "bbox": [
+          371.6018371582031,
+          727.6688232421875,
+          551.9735107421875,
+          743.2384643554688
+        ],
+        "text": "˙V2 = ˙V1 + zT [τ + F(Z)] .\n(23)\n"
+      },
+      {
+        "id": 134,
+        "bbox": [
+          12.596980094909668,
+          762.5669555664062,
+          581.4032592773438,
+          772.1849975585938
+        ],
+        "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore.  Restrictions apply. \n"
+      }
+    ]
+  }
+]
