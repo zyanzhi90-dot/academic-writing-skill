@@ -1,0 +1,640 @@
+{
+  "scope": "Positive whole-section learning draft with verbatim verified evidence; no sentence-level analysis or Skill change",
+  "base_commit": "f888234eaa832bc4a1293cf13763c7530436a297",
+  "anchor": "P17",
+  "prior_audit_directory": "analysis/introduction-section-review-2026-10-06",
+  "prior_audit_files_sha256": {
+    "analysis/introduction-section-review-2026-10-06/assemble_introductions.py": "4cd4ce92dcffa339707690f8b9095232f953cf1462584e872a79ac5b234a78f4",
+    "analysis/introduction-section-review-2026-10-06/curated-introductions.json": "a09d78d14f65741b595d42233a07c60050dc9e198d99c8205c42e22ae97b1123",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-block-reading.txt": "a7a8793b50fcf625837dcfbab694588e2caae8d6750785202345b4cea969886d",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-introduction.md": "91ed46385fc41fbb3a0f6bdd727cd203824ae453e623986fa540e8ad1fd2a308",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-p1.png": "1480f6edb54f765d6ffe0ee822b98c73bca2f4556a24864e77d2b1db615a378b",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-p2.png": "3b96642624f3595f35d532cae623eec1bd8db8110bb6b6c175f8cc822d4efec7",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-p3.png": "153e930fa6120d0910b718c2b60e79d935b2cc4b247301893a9fabba19afce42",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-page-blocks.json": "b6f392b1996590c664cc7d57fd7040a6a297d2f6f5c5b0d91fd6df34578b5541",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-raw-pages.txt": "ba4cbb7eea3bc934700d15ada39a34292ca0b6a8bcc8ef0da0f8a618e885e63a",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-block-reading.txt": "5079848307e89bae2fded9226b2da3ac3f01f4d93a30af9c7708b7ba409a1737",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-introduction.md": "d722fec9b7c2f9d7be3e3fe76fbd6fe792f151fb2f1ab5a5e0681ad2cdbb5e98",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-p1.png": "a9b3e8d4ab9d0ee70337f8368c2a49c4254902218b09473e8a25bf25d3ec074b",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-p2.png": "bfc884cc6add570425c30d7fc487be4e0a5e2b0befd227a35281b98626e595f2",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-page-blocks.json": "08ddd8df2611754873829c4d24148d7969ebe8a9251cfc35fe2adfc6302d2333",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-raw-pages.txt": "f7c7042f5805d09978b6e0d5a3c859b55a3842d1489e4d8532fa292a6f3bce29",
+    "analysis/introduction-section-review-2026-10-06/layout-normalization.json": "15e7b36922c238f2520480720f55e9727739f74eab696239140aa2fb18a29a76",
+    "analysis/introduction-section-review-2026-10-06/P05-block-reading.txt": "8b3837baca0a4a6f7fa1648df92222745e68ce52087cb1f86dc5e7bccdade813",
+    "analysis/introduction-section-review-2026-10-06/P05-introduction.md": "d18cf47f6cc2032bca7a0e7505d2accd73130450aa4b59275aeba8fa0d5f0c1e",
+    "analysis/introduction-section-review-2026-10-06/P05-p1.png": "d012916b63b412b20da7fc3efee38caa5b2d4fd5c7ae2f72ad2c02c90cf3c186",
+    "analysis/introduction-section-review-2026-10-06/P05-p2.png": "197315eee1fd5266251239d6d4748a59c20d15e900b5af80588ae3ada0506035",
+    "analysis/introduction-section-review-2026-10-06/P05-page-blocks.json": "93139aa9d3f19f0cb0b9e98c12bc2f86b1a93a2d7948314de07fc061ed039896",
+    "analysis/introduction-section-review-2026-10-06/P05-raw-pages.txt": "194ab7727d5c6a4c657b82aa0cd58e0f86cbbe96de4193f1fe4312dd897b949c",
+    "analysis/introduction-section-review-2026-10-06/P17-block-reading.txt": "f919326794260b7a5c83cb39e873b215683c68b036996437ccd4fdcb23f79bda",
+    "analysis/introduction-section-review-2026-10-06/P17-introduction.md": "32e53d55a544714454e1b9a7e83a641f7b4312af9e6872e817a281d480fbd653",
+    "analysis/introduction-section-review-2026-10-06/P17-p1.png": "e5fc6c875b5e191ba9847ae25585df9c9ae6263a8b55c8fe27681df5deaeb321",
+    "analysis/introduction-section-review-2026-10-06/P17-p2.png": "274c3656c3c74aa10dce214e12283eb20c70c0fecf7742b72da267659ed2a426",
+    "analysis/introduction-section-review-2026-10-06/P17-page-blocks.json": "98786f049c93394674e5a1dcd10de846472315f85de032ad77c0f30c79779f74",
+    "analysis/introduction-section-review-2026-10-06/P17-raw-pages.txt": "5cb41d82a96fa6d5db3094e7b5626ac81bf3ee166a26a175d4aac820b15e3524",
+    "analysis/introduction-section-review-2026-10-06/read_sources.py": "b125f52ae47fc98b09bda7523a38cdefd3751d72cc4c5f8520605880551e129e",
+    "analysis/introduction-section-review-2026-10-06/report.md": "b5a58c2b1949d8109c0fd326b613868f3fd15fee37420356cadfb49355e4531d",
+    "analysis/introduction-section-review-2026-10-06/run-record.md": "a1ac17d7b5f3d0562c5752b6e63b5ef92ca7a0e99d0047f25549eff423ada72b",
+    "analysis/introduction-section-review-2026-10-06/source-audit.json": "71e033dcebd136d48583e20db5a5a9d34e05dc6ab88b491f288351738919709f",
+    "analysis/introduction-section-review-2026-10-06/source-provenance.json": "da6248739e256d96a86228ae445c37433cceae56028899d532dbbc89ba4bf4d8"
+  },
+  "pdfs": [
+    {
+      "paper": "P17",
+      "pdf": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "original_audit_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "paper": "P05",
+      "pdf": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "pdf_sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "original_audit_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "paper": "Fuzzy2023",
+      "pdf": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "pdf_sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "original_audit_pages": [
+        1,
+        2
+      ]
+    },
+    {
+      "paper": "ESO2017",
+      "pdf": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "pdf_sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "original_audit_pages": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "author_inputs_present_at_start": [
+    "我自己的经验和做法.txt",
+    "核心要求.txt"
+  ],
+  "author_inputs_sha256": {
+    "引言写作方法.txt": "289820755f5665df639002fe286bf5dade033720f45a656a50974bcd9b041604",
+    "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e"
+  },
+  "selected_units": [
+    {
+      "paper": "P17",
+      "unit": "I01",
+      "source_spans": [
+        {
+          "block": "p1-b8",
+          "pdf_page": 1,
+          "printed_page": 777,
+          "column": "左",
+          "bbox": [
+            48.96034240722656,
+            419.53753662109375,
+            300.2729187011719,
+            501.2607116699219
+          ]
+        },
+        {
+          "block": "p1-b16",
+          "pdf_page": 1,
+          "printed_page": 777,
+          "column": "右",
+          "bbox": [
+            312.0,
+            191.1775665283203,
+            563.2386474609375,
+            225.02047729492188
+          ]
+        }
+      ],
+      "original_text_sha256": "0abeb858ac67fa7e44e9ecdc387cd0b87ced4eb506f133eb569385ec32bd0fa3"
+    },
+    {
+      "paper": "ESO2017",
+      "unit": "I01",
+      "source_spans": [
+        {
+          "block": "p1-b10",
+          "pdf_page": 1,
+          "printed_page": 6785,
+          "column": "左",
+          "bbox": [
+            37.908485412597656,
+            486.134521484375,
+            288.97686767578125,
+            531.96240234375
+          ]
+        },
+        {
+          "block": "p1-b17",
+          "pdf_page": 1,
+          "printed_page": 6785,
+          "column": "右",
+          "bbox": [
+            300.92401123046875,
+            233.61256408691406,
+            551.9647216796875,
+            291.3927001953125
+          ]
+        }
+      ],
+      "original_text_sha256": "9b5289e80a8e31189a90be9e17b040a82ca2cda4317a5ff09d23b748abd65850"
+    },
+    {
+      "paper": "P17",
+      "unit": "I02",
+      "source_spans": [
+        {
+          "block": "p1-b17",
+          "pdf_page": 1,
+          "printed_page": 777,
+          "column": "右",
+          "bbox": [
+            312.0,
+            227.0578155517578,
+            563.4981689453125,
+            440.3021240234375
+          ]
+        }
+      ],
+      "original_text_sha256": "a89427418e0f01d2876c5f8ab75c3c18ada27b3be1c33f31655919a1681c05b7"
+    },
+    {
+      "paper": "P17",
+      "unit": "I03",
+      "source_spans": [
+        {
+          "block": "p1-b18",
+          "pdf_page": 1,
+          "printed_page": 777,
+          "column": "右",
+          "bbox": [
+            312.0,
+            442.21990966796875,
+            563.439208984375,
+            607.5840454101562
+          ]
+        }
+      ],
+      "original_text_sha256": "3ae697a55b2258aaa7bfe9cc255136ec8618c45597a3da8ff368e97aa6b6cdc4"
+    },
+    {
+      "paper": "P17",
+      "unit": "I04",
+      "source_spans": [
+        {
+          "block": "p1-b19",
+          "pdf_page": 1,
+          "printed_page": 777,
+          "column": "右",
+          "bbox": [
+            312.0,
+            609.6213989257812,
+            563.2182006835938,
+            727.2249755859375
+          ]
+        },
+        {
+          "block": "p2-b2",
+          "pdf_page": 2,
+          "printed_page": 778,
+          "column": "左",
+          "bbox": [
+            48.959999084472656,
+            256.4573974609375,
+            300.2745666503906,
+            350.06097412109375
+          ]
+        }
+      ],
+      "original_text_sha256": "3af3d4e7a24d18a7903ecaa2c45f15dfef0cb913317b8ecb61db70e454e508a4"
+    },
+    {
+      "paper": "P05",
+      "unit": "I02",
+      "source_spans": [
+        {
+          "block": "p1-b16",
+          "pdf_page": 1,
+          "printed_page": 1010,
+          "column": "右",
+          "bbox": [
+            311.9990234375,
+            246.97828674316406,
+            563.335693359375,
+            448.22265625
+          ]
+        }
+      ],
+      "original_text_sha256": "55265f0cf89b746165546b9b5d8ad6aa4252b8bb463985cca618410978c1470e"
+    },
+    {
+      "paper": "P05",
+      "unit": "I03",
+      "source_spans": [
+        {
+          "block": "p1-b17",
+          "pdf_page": 1,
+          "printed_page": 1010,
+          "column": "右",
+          "bbox": [
+            311.9990234375,
+            450.2599792480469,
+            563.2506713867188,
+            615.6241455078125
+          ]
+        }
+      ],
+      "original_text_sha256": "257ba0ab3c8aa26e65129ec0e8b53614fb155656b7fa84e072fcf2b51c391dc5"
+    },
+    {
+      "paper": "P05",
+      "unit": "I04",
+      "source_spans": [
+        {
+          "block": "p1-b18",
+          "pdf_page": 1,
+          "printed_page": 1010,
+          "column": "右",
+          "bbox": [
+            311.9990234375,
+            617.5419921875,
+            563.2996215820312,
+            723.1455078125
+          ]
+        },
+        {
+          "block": "p2-b1",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "左",
+          "bbox": [
+            48.959991455078125,
+            58.45741271972656,
+            300.3482666015625,
+            104.30026245117188
+          ]
+        }
+      ],
+      "original_text_sha256": "f059aa4221c7e88fd465018c3da063d2943a6355887b35d46a65065d60e1ea8d"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I02",
+      "source_spans": [
+        {
+          "block": "p1-b14",
+          "pdf_page": 1,
+          "printed_page": 1041,
+          "column": "右",
+          "bbox": [
+            300.92401123046875,
+            440.2821350097656,
+            552.0122680664062,
+            617.6104125976562
+          ]
+        }
+      ],
+      "original_text_sha256": "8004723467e8807df0a83f3f848a2f090949c966a7802c4de3119faee989309f"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I03",
+      "source_spans": [
+        {
+          "block": "p1-b15",
+          "pdf_page": 1,
+          "printed_page": 1041,
+          "column": "右",
+          "bbox": [
+            300.92401123046875,
+            619.6089477539062,
+            551.99072265625,
+            713.25439453125
+          ]
+        },
+        {
+          "block": "p2-b1",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            42.119998931884766,
+            65.29450988769531,
+            293.17657470703125,
+            194.81430053710938
+          ]
+        }
+      ],
+      "original_text_sha256": "92750ffe5b925a456ed00ef16af75a52b9d394b895e024679bd65228f5063849"
+    },
+    {
+      "paper": "P17",
+      "unit": "I05",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 778,
+          "column": "左",
+          "bbox": [
+            48.959999084472656,
+            352.0982971191406,
+            300.39312744140625,
+            529.4623413085938
+          ]
+        }
+      ],
+      "original_text_sha256": "33c89177ac9abb72ae3858e0d4e72a378b99d420aeb3bab2d1de57c392ff4f15"
+    },
+    {
+      "paper": "P05",
+      "unit": "I06",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "左",
+          "bbox": [
+            48.959991455078125,
+            345.3799133300781,
+            300.6002502441406,
+            582.504638671875
+          ]
+        }
+      ],
+      "original_text_sha256": "a156ec3eab2e74c17cc924f42151437d218bf8703c82259f37afc565b198277b"
+    },
+    {
+      "paper": "P05",
+      "unit": "I07",
+      "source_spans": [
+        {
+          "block": "p2-b4",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "左",
+          "bbox": [
+            48.959991455078125,
+            584.5419921875,
+            300.572509765625,
+            749.9061889648438
+          ]
+        },
+        {
+          "block": "p2-b6",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "右",
+          "bbox": [
+            312.0,
+            204.3775177001953,
+            563.2888793945312,
+            262.2203063964844
+          ]
+        }
+      ],
+      "original_text_sha256": "8d585173042d9d9b8767149403b7d3d864ad58a1e83263657011d2bdc41fad53"
+    },
+    {
+      "paper": "P17",
+      "unit": "I06",
+      "source_spans": [
+        {
+          "block": "p2-b4",
+          "pdf_page": 2,
+          "printed_page": 778,
+          "column": "左",
+          "bbox": [
+            48.959999084472656,
+            531.3801879882812,
+            300.42608642578125,
+            744.6246337890625
+          ]
+        },
+        {
+          "block": "p2-b5",
+          "pdf_page": 2,
+          "printed_page": 778,
+          "column": "右",
+          "bbox": [
+            311.99853515625,
+            256.46429443359375,
+            563.1266479492188,
+            302.30718994140625
+          ]
+        }
+      ],
+      "original_text_sha256": "948159f9a4334b13be8853b2a9be85826bb251841719dced808c8379dc8e9b31"
+    },
+    {
+      "paper": "P17",
+      "unit": "I07",
+      "source_spans": [
+        {
+          "block": "p2-b6",
+          "pdf_page": 2,
+          "printed_page": 778,
+          "column": "右",
+          "bbox": [
+            311.99853515625,
+            304.2249755859375,
+            563.3594360351562,
+            457.7087097167969
+          ]
+        }
+      ],
+      "original_text_sha256": "e9dc86ea0d02e07b086285f123067ad0361f65265575f2cc3608650228831b03"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I04",
+      "source_spans": [
+        {
+          "block": "p2-b2",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            42.119998931884766,
+            196.80384826660156,
+            293.1873779296875,
+            242.63180541992188
+          ]
+        }
+      ],
+      "original_text_sha256": "47a75658a189879fc316520f75d994967f99d18f100613fd2cdc0e3fc27a0094"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C1",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ]
+        }
+      ],
+      "original_text_sha256": "e6a593a144f5e4caa775f8970e6f597943ba1e08491c6fb4fc060229d11d4352"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C2",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ]
+        }
+      ],
+      "original_text_sha256": "6b364f86baa945e70b266adc8595098c066e399f5717cc0f939b36d52cecedf2"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C3",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ]
+        }
+      ],
+      "original_text_sha256": "e5aa0ae9db956bc163c38209f4527c1f380fd9260a44470af047a7adccfb8762"
+    },
+    {
+      "paper": "P17",
+      "unit": "I08",
+      "source_spans": [
+        {
+          "block": "p2-b7",
+          "pdf_page": 2,
+          "printed_page": 778,
+          "column": "右",
+          "bbox": [
+            311.99853515625,
+            459.74603271484375,
+            563.3491821289062,
+            589.2299194335938
+          ]
+        }
+      ],
+      "original_text_sha256": "e207a6037edea537cc6b4b9b62e6aaae8e6090c47ffc721dde60eede0f0de893"
+    },
+    {
+      "paper": "P05",
+      "unit": "I08",
+      "source_spans": [
+        {
+          "block": "p2-b7",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "右",
+          "bbox": [
+            312.0,
+            264.1380615234375,
+            563.2704467773438,
+            309.98095703125
+          ]
+        }
+      ],
+      "original_text_sha256": "e20c0a973f46155473307f51e9ad5514917ba4a852027c7a002c283a901f18a1"
+    },
+    {
+      "paper": "P05",
+      "unit": "C1",
+      "source_spans": [
+        {
+          "block": "p2-b8",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "右",
+          "bbox": [
+            312.0,
+            310.9383544921875,
+            563.3126831054688,
+            523.102783203125
+          ]
+        }
+      ],
+      "original_text_sha256": "c3f79bae569c23ae43ebb6676d05a4e88103d147fda4bdd008eca107dbec26b3"
+    },
+    {
+      "paper": "P05",
+      "unit": "C2",
+      "source_spans": [
+        {
+          "block": "p2-b8",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "右",
+          "bbox": [
+            312.0,
+            310.9383544921875,
+            563.3126831054688,
+            523.102783203125
+          ]
+        }
+      ],
+      "original_text_sha256": "d85bec6eec519dd56371ba7ce629a20d09ee18aa2af4e15ff69b07f5224a52e5"
+    },
+    {
+      "paper": "P05",
+      "unit": "C3",
+      "source_spans": [
+        {
+          "block": "p2-b8",
+          "pdf_page": 2,
+          "printed_page": 1011,
+          "column": "右",
+          "bbox": [
+            312.0,
+            310.9383544921875,
+            563.3126831054688,
+            523.102783203125
+          ]
+        }
+      ],
+      "original_text_sha256": "9070e8b06c8a5e4ecc8d7cc2ec062b68db33100785c5e9cca0e5baa9b7d1d2dc"
+    }
+  ],
+  "learning_draft_sha256": "2dd20bba8ab61ed06637e50241d3029b4110d4d92ef353acc6c4f8c06bf0111c",
+  "evidence_check": "All 24 selected units are complete paragraphs or complete contribution items, preserved once verbatim from curated-introductions.json; consecutive group membership retains source order.",
+  "final_source_check": {
+    "original_audit_unchanged": true,
+    "current_author_inputs_preserved": true,
+    "all_selected_english_preserved_once": true,
+    "all_source_links_exist": true,
+    "organizing_tasks": 7
+  }
+}
