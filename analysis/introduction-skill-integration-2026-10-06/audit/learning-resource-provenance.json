@@ -1,0 +1,38 @@
+{
+  "baseline": "177d720dcae4131f653c9dee3194e781f824946c",
+  "previous_runtime_reference_sha256": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3",
+  "resources": [
+    {
+      "level": "section",
+      "accepted_source": "analysis/introduction-section-learning-draft-2026-10-06/learning-draft.md",
+      "accepted_source_sha256": "025b56664b69e81273476f87d99c36ba35d0dbdccd069568a57e2ecd98e891e7",
+      "runtime_path": "skill-candidate/nature-shared/core/robotics-introduction-section.md",
+      "runtime_sha256": "461eceaecbc1491f42bc12a5e041fd7920beeda969267399473412ceeca55721",
+      "english_blocks": 24,
+      "all_english_blocks_preserved_exactly": true,
+      "changes": "Local learning links, stable retrieval anchors, audit lookup separation only."
+    },
+    {
+      "level": "paragraph",
+      "accepted_source": "analysis/introduction-paragraph-learning-2026-10-06/learning-draft.md",
+      "accepted_source_sha256": "a384c6f3376c6078b56a481ca5d55091981f039346119c8d31a5d7ced79f00e5",
+      "runtime_path": "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md",
+      "runtime_sha256": "ec8ce4618b32967a807ac92c8ef34212bf82f4fba446b180cb47e7eb937dca64",
+      "english_blocks": 9,
+      "all_english_blocks_preserved_exactly": true,
+      "changes": "Local learning links, stable retrieval anchors, audit lookup separation only."
+    },
+    {
+      "level": "expression",
+      "accepted_source": "analysis/introduction-expression-learning-2026-10-06/learning-draft.md",
+      "accepted_source_sha256": "3f48f0c054c50ffe72255257132c8bb01564ee8634056364434fdc295b396519",
+      "runtime_path": "skill-candidate/nature-shared/core/robotics-introduction-expression.md",
+      "runtime_sha256": "8b28f733604d2a7a8ce1a3a0fae6448ac8f226b7e4d056f2c32175555aa109ce",
+      "english_blocks": 32,
+      "all_english_blocks_preserved_exactly": true,
+      "changes": "Local learning links, stable retrieval anchors, audit lookup separation only."
+    }
+  ],
+  "publication_and_adaptation_audit": "analysis/introduction-default-learning-cleanup-2026-10-06/audit/adaptation-map.json",
+  "publication_audit_is_not_a_runtime_dependency": true
+}

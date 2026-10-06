@@ -26,9 +26,12 @@ sequence, paragraph count, gap at each paragraph end, or result-reporting quota.
 The author's facts, scientific relations, expression requirements, and target
 venue govern their use. For robotics, follow the common example index to
 task-selected Introduction passages; retain its P17 expression anchor and use
-supplemental realizations where the author's content calls for them. Source
-wording and older example snippets remain evidence, not exceptions to
-`scientific-expression.md`.
+the shared `robotics-introduction-examples.md` section, paragraph and expression
+material for default organization and English. That material governs field-value
+opening, prior capabilities and conditions, design reasons and effects, and the
+necessity of method and study-experiment information. Select deeper general
+guidance here only for a remaining author-supported need. Apply
+`scientific-expression.md` throughout.
 
 ## Introduction Logic Map
 

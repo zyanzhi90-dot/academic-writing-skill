@@ -1,5 +1,21 @@
 # Section: Introduction (writing)
 
+## Robotics-centred Introduction
+
+Use the existing shared robotics example index to read
+`../nature-shared/core/robotics-introduction-examples.md` from the skill root,
+its Selection, and task-matched section, paragraph and expression material.
+Determine the author's scientific line and paragraph tasks before drafting, then
+draft along that line using the selected complete English and analysis. This
+shared domain guidance governs architecture, field-value opening, literature
+capabilities and continuations, design reasons and effects, and the necessity of
+method and study-experiment information. Apply it during generation and final
+review, with the existing workflow and `scientific-expression.md`.
+
+The general arrangements below remain available for other subjects and
+author-supported venue framing. For robotics, organize by the shared scientific
+tasks and current author content.
+
 ## Default funnel
 
 `important problem -> specific phenomenon or difficulty -> what prior work establishes -> exact unresolved gap -> research question or hypothesis -> present study`

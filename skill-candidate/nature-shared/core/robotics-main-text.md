@@ -61,6 +61,11 @@ PDF page numbers count from the first PDF page, not the printed journal page.
 
 ## Introduction and Related Work
 
+- For Introduction, use `robotics-introduction-examples.md` through the common
+  robotics index. Its section, paragraph and expression material realizes the
+  author's scientific line, field-value opening, literature capabilities,
+  design reasons and effects, and conceptual content selection. Drafting and
+  Polishing use the same material within their existing workflows.
 - Choose a comparison axis that matters to the present decision: measured
   signal, controlled object, interaction partner, contact or terrain condition,
   guarantee, or generalization regime. A **group of paragraphs** performing
@@ -75,9 +80,11 @@ PDF page numbers count from the first PDF page, not the printed journal page.
   pp.1–4 §I.A–B groups models and criteria by assumptions before explaining
   why a leg-and-thruster robot needs a different test. P01 pp.1–2 §I moves
   from motion-only teaching to stiffness transfer and then generalization.
-- The contribution should answer the particular unresolved condition and say
-  what design and evaluation address it. A continuous closing paragraph and a
-  contribution list are both possible; choose by the paper and venue. Do not
+- For Introduction, the contribution should answer the particular unresolved
+  condition and say what design addresses it and what supported role or guarantee
+  follows. For independent Related Work, retain the connection to what design
+  and evaluation address the unresolved condition. A continuous closing paragraph
+  and a contribution list are both possible; choose by the paper and venue. Do not
   turn an author's missing method into the gap or dismiss prior methods without
   their actual scope. A separate Related Work section is optional: P19 §II
   uses one, whereas P11 places two literature lines inside §I.

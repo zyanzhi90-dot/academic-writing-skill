@@ -17,8 +17,14 @@ core:
       path: core/scientific-expression.md
     - condition: nature-writing or nature-polishing handles a robotics-centred abstract or body, overall reasoning, standalone paragraph, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
       path: core/robotics-writing-examples.md
-    - condition: selected through the common robotics example index for Introduction drafting, restructuring, polishing, or feedback; read selection notes and task-matched B15-B18 passages, with P17 as the default expression anchor
+    - condition: selected through the common robotics example index for Introduction drafting, restructuring, polishing, or feedback; read Selection and task-matched positive section, paragraph and expression learning, with P17 as the default anchor
       path: core/robotics-introduction-examples.md
+    - condition: selected by the robotics Introduction index to determine field-value-to-problem progression, paragraph tasks, prior abilities and conditions, design reasons and roles, interfaces or contribution closure
+      path: core/robotics-introduction-section.md
+    - condition: selected by the robotics Introduction index for complete paragraphs and sentence-by-sentence scientific progression matching the author's current task
+      path: core/robotics-introduction-paragraphs.md
+    - condition: selected by the robotics Introduction index for concrete continuous English, subject-action-object relations, literature continuations, design-effect expressions and ordinary collocations
+      path: core/robotics-introduction-expression.md
     - condition: nature-writing or nature-polishing requests shared robotics manuscript-body decisions for a robotics-centred body section or paragraph group, whole-manuscript reasoning, Related Work, or Chinese-to-English; not incidental examples, title/abstract-only, submission administration, or layout
       path: core/robotics-main-text.md
     - condition: shared ethics, safety, authorship, disclosure, or non-invention guardrails are needed

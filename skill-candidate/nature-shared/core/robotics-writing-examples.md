@@ -131,13 +131,18 @@ A08（*Residual Reinforcement Learning for Robot Control*）按需补充已有�
 [引言范例的选择说明与索引](robotics-introduction-examples.md#selection)，
 以 B15／P17／A06 的适用段落及具体英文为默认表达锚点，再按任务关系选择
 B16／P05／A07、B17／Fuzzy2023 或 B18／ESO2017 补充。
-该参考包含整节推进、连续英文、来源及迁移边界，可脱离项目报告使用。
-不用每次读完四张卡；B02／B03 仍供观测信息、控制动作及耦合问题的文献段按需使用。
-沿用本文件的主参考协调、六层学习及共用表达检查，不另设引言工作流。
+该索引连接已验收的整节、段落与表达学习材料：先根据作者科学内容确定主线与
+段落任务，再按当前关系读取完整英文、连续句分析与具体表达，逐段选择、组合
+和调整；Polishing 用同一材料复核科学推进与英文实现。
+引言材料中的英文明确标为原文选取或基于原文的适配，保留页码与来源身份。
+三个层级按需进入，可脱离项目报告使用。沿用本文件的主参考协调、既有工作流
+及共用表达检查；方法概念与本研究实验信息的取舍由该引言索引共同指导两端。
+按标题定位本文件的共用说明、引言选择与任务索引，再定位选中学习节的完整
+边界，读取其英文、上下文和分析表，使实际读取对应当前引言任务。
 
 ## Source conventions
 
-A cards use the author's current abstract selections and retained local illustrations. B cards in this file retain the earlier body evidence and source IDs; task-linked Introduction cards state their own source scope. PDF pages count from the first file page; cards give sections, paragraph opening words, and ranges. Source links identify current PDFs or an unchanged archived PDF where a retained source has left the active corpus; an archive link does not make that paper a current main abstract reference. Existing extracted texts are optional under `../../../analysis/reading/Pxx.txt`; named additions are located by their PDF links. Quotations only join layout line breaks and repair end-of-line hyphenation and ligatures. An ellipsis marks an omission; text on either side is not evidence of consecutive-sentence progression. Source grammar and evidence-strength issues remain in selection notes. Abstracts, body, captions, equations, and cross-section links are distinguished.
+A cards use the author's current abstract selections and retained local illustrations. B cards in this file retain the earlier body evidence and source IDs; task-linked Introduction learning identifies original selections and explicitly marked adaptations separately. PDF pages count from the first file page; cards give sections, paragraph opening words, and ranges. Source links identify current PDFs or an unchanged archived PDF where a retained source has left the active corpus; an archive link does not make that paper a current main abstract reference. Existing extracted texts are optional under `../../../analysis/reading/Pxx.txt`; named additions are located by their PDF links. For A cards and body cards in this file, quotations only join layout line breaks and repair end-of-line hyphenation and ligatures. An ellipsis marks an omission; text on either side is not evidence of consecutive-sentence progression. Source grammar and evidence-strength issues remain in selection notes. Abstracts, body, captions, equations, and cross-section links are distinguished.
 
 ## 任务索引与六层覆盖
 
@@ -145,7 +150,7 @@ A cards use the author's current abstract selections and retained local illustra
 |---|---|---|
 | 整体思路与证据分工 | B01、B13 | 全文／Section：双组件与构造依赖；与作者已有思路核对，不强制相同章序 |
 | 摘要 | A06 默认语言锚点；A07 核心对象／验证实现；A02、A04、A05 主要参考；A01、A03、A08 按需补充 | Paragraph 至 Phrase／Word，并核对全文承诺；按本文贡献选择具体英文及信息取舍，不强制同一结构 |
-| 引言／文献段落组 | [B15 默认表达锚点；B16–B18 按需补充](robotics-introduction-examples.md#selection)；B02、B03 按需 | 整节推进至 Phrase／Word：按作者任务、信息条件、性能目标或组件依赖选取实际英文，不固定段数或收束形式 |
+| 引言／文献段落组 | [B15 默认表达锚点；B16–B18 按需补充](robotics-introduction-examples.md#selection) | 整节任务、完整段落、连续句与具体表达：按作者任务、信息条件、性能目标或组件依赖选读正向实例，生成与复核使用同一材料 |
 | 方法段／公式前后 | B04、B06、B07；组合控制按需 B14 | Paragraph／连续句／Sentence：目的到输入输出、新条件到修正、目标到公式解释 |
 | 科学决策的理由 | B05 | Paragraph 至 Phrase／Word：已有可行路线、实际限制、方法选择 |
 | 条件保证／判据 | B08、B09 | Section／连续句／Sentence：前提与结论、上下界及修正判据的范围 |
