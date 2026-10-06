@@ -1,0 +1,199 @@
+{
+  "scope": "Source and document consistency checks; no Skill/effect execution",
+  "base_commit": "9b0d80f9d5236d5144ef9524b5512bfe87685571",
+  "anchor": "P17",
+  "groups": [
+    {
+      "group": "E01",
+      "sentences": 3,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E02",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E03",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E04",
+      "sentences": 3,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E05",
+      "sentences": 6,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E06",
+      "sentences": 5,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E07",
+      "sentences": 3,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E08",
+      "sentences": 3,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E09",
+      "sentences": 5,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E10",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E11",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E12",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E13",
+      "sentences": 4,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E14",
+      "sentences": 5,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E15",
+      "sentences": 4,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E16",
+      "sentences": 6,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E17",
+      "sentences": 6,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E18",
+      "sentences": 4,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E19",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E20",
+      "sentences": 3,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E21",
+      "sentences": 2,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E22",
+      "sentences": 3,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E23",
+      "sentences": 5,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E24",
+      "sentences": 5,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E25",
+      "sentences": 5,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    },
+    {
+      "group": "E26",
+      "sentences": 4,
+      "selected_originals_preserved_once": true,
+      "sentence_analysis_rows_match": true,
+      "full_source_context_and_spans_match": true
+    }
+  ],
+  "complete_english_sentences": 96,
+  "nonoverlapping_sentence_selection": true,
+  "verbatim_evidence_blocks": 32,
+  "literal_In_reference_occurrences_in_evidence": 18,
+  "source_links_checked": 35,
+  "author_and_accepted_learning_input_hashes_match": true,
+  "four_pdfs_and_nine_page_renders_unchanged": true,
+  "existing_project_files_unchanged": true,
+  "encoding_and_placeholder_checks_pass": true,
+  "learning_draft_sha256": "fe7b9856cdfc4155a666a6f8aa474be559a687d42cb95e24f768c34ef3ab8ef6"
+}
