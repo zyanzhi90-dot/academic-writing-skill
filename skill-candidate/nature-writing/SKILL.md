@@ -75,7 +75,8 @@ Nature-style corpus guidance for the section being drafted:
 
 - Results or Discussion →
   `../nature-shared/core/nature-results-discussion.md`
-- Introduction or whole-manuscript narrative →
+- Introduction or whole-manuscript narrative outside the robotics-centred
+  Introduction scope →
   `../nature-shared/core/nature-introduction.md`
 - Abstract → `../nature-shared/core/nature-abstract.md`
 
@@ -123,8 +124,11 @@ If essential evidence or boundary is missing, write a placeholder and list it un
 
 The files under `references/` are deep references and the example library, not defaults. Open them on demand per the `references.on_demand` table in the manifest. Typical triggers:
 
-- The user asks for a concrete example or template → `references/examples/index.md`.
+- The user asks for a concrete example or template → `references/examples/index.md`;
+  robotics-centred Introduction examples use the shared robotics Introduction index.
 - A section's draft has structural problems that the section fragment alone does not explain → the matching `references/<section>.md`.
+  Robotics-centred Introduction structure uses the shared robotics Introduction
+  index and its selected learning passages.
 - The user needs a broad-audience `Nature` abstract opening or asks about a `summary paragraph` → `references/nature-summary-paragraph.md`.
 - The user asks "does this paragraph flow?" → `references/paragraph-flow.md`.
 - The user asks for a self-review or rejection-risk audit → `references/paper-review.md`.
@@ -144,7 +148,7 @@ The files under `references/` are deep references and the example library, not d
   language, claim-specific limitations, non-redundant literature positioning,
   or uncertainty-driven future work →
   `../nature-shared/core/discussion-argument-language.md`.
-- Any Nature / Nature Portfolio target needs an Introduction funnel, exact gap,
+- A non-robotics Nature / Nature Portfolio Introduction needs a funnel, exact gap,
   literature logic, question-first novelty, study roadmap, or alignment with
   Results → `../nature-shared/core/nature-introduction.md`.
 - Any Nature / Nature Portfolio target needs abstract evidence-chain,

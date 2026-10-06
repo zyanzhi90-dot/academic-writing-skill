@@ -69,11 +69,13 @@ guidance:
 
 - Results or Discussion →
   `../nature-shared/core/nature-results-discussion.md`
-- Introduction or whole-manuscript narrative →
+- Introduction or whole-manuscript narrative outside the robotics-centred
+  Introduction scope →
   `../nature-shared/core/nature-introduction.md`
 - Abstract → `../nature-shared/core/nature-abstract.md`
 
-Preserve claim escalation, the fast question funnel, Introduction–Results
+Within those loaded files' scopes, preserve claim escalation, the fast question
+funnel, Introduction–Results
 alignment, discovery-centred abstract compression, evidence-bound local
 interpretation, and cross-Results synthesis. These defaults were initially
 distilled from published NMI papers; treat them as corpus-derived guidance, not

@@ -50,6 +50,13 @@ conditions need explanation, and why each design follows. Give each paragraph
 a concrete scientific task and an incoming and outgoing relationship. Paragraph
 count, design placement and sentence order follow those dependencies.
 
+Match the selected example's scientific level as well as its topic. In P17 I01,
+the application of robots establishes field value, the need for adaptability
+leads to learning, and LfD supplies a route to motion modeling. Adapt those
+distinct responsibilities to the author's objects before choosing an opening;
+the value of a learning route serves the later narrowing move. E01–E03 and the
+complete I01 paragraphs show the corresponding field-to-problem relationships.
+
 Then draft along that line, paragraph by paragraph. Start each paragraph's
 English from the matching complete paragraph and continuous sentences above.
 Select, combine and adjust their subject–verb constructions, clause relations
@@ -66,6 +73,12 @@ role, effect or guarantee, as in E19, E22 and E23. Let contributions recover the
 needs already developed. Deliver the requested complete Introduction in the
 requesting skill's format.
 
+During sentence adaptation, assign the author's scientific subject, action and
+object to every clause, including coordinated literature clauses. A citation
+locates the evidence for a named method, model or study. Keep that scientific
+identity when combining references or continuing the same work, using the
+complete E05–E13 examples and their subject–action–object analysis.
+
 ## Use during Polishing
 
 Use the same resources and original author material to assess the draft's
@@ -75,6 +88,10 @@ specific capabilities under the relevant conditions, core designs have adequate
 adoption reasons, and their roles connect to the contribution. Reconstruct or
 adjust the affected relationships from author evidence where needed.
 
+Judge the draft's paragraph openings against the scientific responsibilities
+of the selected examples, including openings retained verbatim. Use P17 I01
+and E01–E03 to distinguish field value from the subsequent learning route.
+
 Compare the affected prose with the selected complete examples and concrete
 English. Check the realized subjects, actions, objects, reference continuations,
 comparators, conditions, design–effect links and named input/output handoffs.
@@ -83,6 +100,13 @@ actual scientific, structural or expression problems within the requested scope.
 Apply `scientific-expression.md` to the resulting phrases, sentences and adjacent
 paragraphs before delivery. The same organization and expression material serves
 both generation and review.
+
+Assess retained wording and each replacement in its resulting continuous
+sentences. Select a suitable example construction with an explicit scientific
+subject and finite verb before rewriting, and preserve its action and object
+through shortening or clause combination. Review the realized wording under
+the author's expression requirements, including new paragraph openings and
+coordinated clauses, as part of the existing phrase-to-context check.
 
 ## Conceptual scope and information selection
 

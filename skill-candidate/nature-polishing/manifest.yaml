@@ -85,15 +85,15 @@ references:
       path: ../nature-shared/core/nature-results-discussion.md
     - condition: polishing, restructuring, or auditing any scientific Discussion; repairing its reverse-funnel movement or function sequence; distinguishing interpretation from Results replay; calibrating modal verbs or hedging; making limitations claim-specific; or converting generic future work into uncertainty-resolving next tests
       path: ../nature-shared/core/discussion-argument-language.md
-    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is polishing or restructuring the Introduction or whole-manuscript narrative; building a fast problem funnel, exact knowledge gap, literature tension, question-first novelty, compact study roadmap, or Introduction–Results alignment
+    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is polishing or restructuring the Introduction or whole-manuscript narrative outside the robotics-centred Introduction scope; building a fast problem funnel, exact knowledge gap, literature tension, question-first novelty, compact study roadmap, or Introduction–Results alignment
       path: ../nature-shared/core/nature-introduction.md
     - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is polishing or restructuring the abstract; compressing the manuscript into a discovery-centred evidence chain; selecting one main claim, one or two decisive supports, optional core numbers, or a bounded field-level payoff
       path: ../nature-shared/core/nature-abstract.md
-    - condition: needs Nature/Nature Communications article-level patterns for abstracts, intros, Results openings, Discussion, conclusions, titles
+    - condition: needs Nature/Nature Communications article-level patterns for abstracts, non-robotics intros, Results openings, Discussion, conclusions, titles
       path: references/published-article-patterns.md
     - condition: empirical 2025 Nat Commun diction calibration — observed connector frequencies and evidence-faithful hedge/booster/tense choices, not compulsory vocabulary
       path: references/nat-comms-2025-diction.md
-    - condition: needs section-specific move orders or phrase patterns
+    - condition: needs section-specific move orders or phrase patterns outside the robotics-centred Introduction scope; robotics-centred Introduction uses the shared robotics Introduction index
       path: references/section-moves.md
     - condition: needs hedging, transition, evidence, limitation, future-work phrases
       path: references/phrasebank-playbook.md

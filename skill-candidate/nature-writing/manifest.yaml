@@ -108,19 +108,19 @@ references:
       path: ../nature-shared/core/nature-results-discussion.md
     - condition: drafting, restructuring, or auditing any scientific Discussion; choosing the opening anchor and reverse-funnel movement; positioning findings against prior work; calibrating modal verbs or hedging; writing claim-specific limitations; or deriving future work from a named uncertainty
       path: ../nature-shared/core/discussion-argument-language.md
-    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is drafting or restructuring the Introduction or whole-manuscript narrative; building a fast problem funnel, exact knowledge gap, literature tension, question-first novelty, compact study roadmap, or Introduction–Results alignment
+    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is drafting or restructuring the Introduction or whole-manuscript narrative outside the robotics-centred Introduction scope; building a fast problem funnel, exact knowledge gap, literature tension, question-first novelty, compact study roadmap, or Introduction–Results alignment
       path: ../nature-shared/core/nature-introduction.md
     - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is drafting or restructuring the abstract; compressing the manuscript into a discovery-centred evidence chain; selecting one main claim, one or two decisive supports, optional core numbers, or a bounded field-level payoff
       path: ../nature-shared/core/nature-abstract.md
-    - condition: needs section-level structure, argument order, or published-article patterns
+    - condition: needs section-level structure, argument order, or published-article patterns outside the robotics-centred Introduction scope
       path: references/article-architecture.md
     - condition: genre-aware 2025 Nat Commun empirical structure, quantified connector/diction preferences, or research/review/perspective/comment/benchmark differences
       path: references/nat-comms-2025-corpus.md
     - condition: drafting/revising abstract; especially challenge-contribution forms
       path: references/abstract.md
-    - condition: drafting/revising a Nature-family broad-audience summary paragraph or introduction opening
+    - condition: drafting/revising a Nature-family broad-audience summary paragraph or non-robotics introduction opening
       path: references/nature-summary-paragraph.md
-    - condition: general Introduction task or contribution framing when deeper guidance is needed; robotics-centred Introduction uses the shared robotics Introduction index and its task-selected learning material
+    - condition: non-robotics Introduction task or contribution framing when deeper guidance is needed; robotics-centred Introduction uses only the shared robotics Introduction index and its task-selected learning material
       path: references/introduction.md
     - condition: rebuilding related work as topic synthesis
       path: references/related-work.md
@@ -144,5 +144,5 @@ references:
       path: ../nature-shared/core/research-compliance.md
     - condition: deeper Chinese-author repair patterns beyond the language fragment
       path: references/chinese-author-workflow.md
-    - condition: user wants concrete abstract/introduction/method examples
+    - condition: user wants concrete abstract/introduction/method examples; robotics-centred Introduction uses the shared robotics Introduction index instead
       path: references/examples/index.md

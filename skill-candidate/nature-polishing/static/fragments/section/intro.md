@@ -12,46 +12,17 @@ opening, literature capabilities and continuations, design reasons and effects,
 and the necessity of method information. Preserve accurate
 content and apply `scientific-expression.md` before delivery.
 
-The general funnel and diagnosis below remain available for other subjects and
-author-supported venue framing. For robotics, review the author's scientific
-dependencies and the shared tasks.
+## Select the applicable Introduction material
 
-The Introduction should:
+For a robotics-centred Introduction, use the shared domain material above.
+For other scientific subjects, read [general Introduction guidance](intro-general.md).
+That reference preserves the general funnel, variants and section diagnosis.
 
-- tell the reader why the work matters
-- explain what gap it fills
-- explain why that gap matters
-- state what is already known
-- state what remains unresolved
-- state what question the paper asks
-- indicate how the study addresses it
+## Compatible scientific guidance
 
-Use a converging funnel:
-
-`important problem -> specific phenomenon or difficulty -> what prior work establishes -> exact unknown -> research question or hypothesis -> study route`
-
-Make literature serve the known–unknown transition rather than catalogue the
-field. Let novelty emerge from the question and the design capable of answering
-it, not from adjectives.
-
-For a robotics-centred Introduction, inspect the relevant **group of
-paragraphs** for a meaningful comparison axis, prior capability, operating
-conditions, remaining gap, and its consequence for the study's design. One
-paragraph may perform only part of the comparison. Do not add a limitation or
-transition at every paragraph end merely to make the funnel look uniform;
-use the shared robotics body reference for the domain checks.
-
-Do not summarize the Results section here. Do not summarize the Conclusion here.
-
-## Common failure modes
-
-- Opening paragraph reads as a textbook rather than a positioning move.
-- The gap is implied but never explicitly named.
-- The transition from "what is known" to "what this paper does" is missing.
-- Methods are previewed in detail; keep that for Methods.
-- The gap is defined as the absence of the author's method rather than a
-  scientific unknown.
-- The relevant background group does not converge on a question answered in
-  Results, or its technical comparison axis is unclear.
-- The closing paragraph lists contributions but does not preview the study's
-  question–answer route.
+Citations establish relevant capabilities and conditions. Make the relationship
+from established knowledge to the author's design explicit. Name a supported
+unknown, condition or mechanism when it motivates that design. A paragraph
+group may develop these relationships across several paragraphs; an individual
+paragraph can establish a capability or condition without a gap at its end.
+Preserve author facts, technical conditions and contribution boundaries.
