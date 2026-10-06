@@ -4,7 +4,7 @@
 
 整节围绕一条清楚的科学主线安排内容，让读者随着研究需要理解核心设计为什么值得采用。P17 的具体主线是：制造应用需要机器人适应产品更新 → 示教学习需要有效运动建模 → DMP 提供稳定运动表示，而最优示教难以获得，需要利用多次示教中的运动信息 → GMM／GMR 支持多示教特征提取与合成 → 生成的运动还需要在未知动力学下准确执行 → RBFNN 自适应控制承担轨迹跟踪与不确定性补偿 → 多示教运动生成和可靠执行共同构成学习框架的贡献。借鉴其中任务之间的依赖关系，实际段数、段落长度和设计出现位置随作者科学内容安排。
 
-以下七项是整节组织任务。每项给出默认组织方法、它怎样推动科学主线，以及紧接的真实英文证据与具体借鉴关系。各项可按当前研究的依赖关系组合；段落可建立需要、提供能力、限定条件、提出设计或收束贡献，段末由相邻内容的科学关系决定。英文保留已核验的出版原文，I／C 编号沿用来源底稿，仅作定位。本稿分析段落在整节中的安排与衔接。
+以下六项是整节组织任务。每项给出默认组织方法、它怎样推动科学主线，以及紧接的真实英文证据与具体借鉴关系。各项可按当前研究的依赖关系组合；段落可建立需要、提供能力、限定条件、提出设计或收束贡献，段末由相邻内容的科学关系决定。英文保留已核验的出版原文，I／C 编号沿用来源底稿，仅作定位。本稿分析段落在整节中的安排与衔接。
 
 ## 1. 先说明领域价值，再落到具体研究问题
 
@@ -60,7 +60,7 @@
 
 实际组织时，让段落沿作者研究的对象和需求递进。上一段明确留下的任务可以成为下一段的讨论入口；已有能力已经支持后续选择时，以能力完成承接即可。所选文献与比较维度围绕当前推进任务安排。
 
-## 3. 用已有方法的相关能力和成立条件产生设计需要
+## 3. 用已有方法的能力、条件和限制推出设计需要
 
 介绍已有方法时，交代它解决了什么问题、具备什么与当前研究有关的能力，并保留这些能力所依赖的任务或信息条件。把条件与作者当前研究的需要联系起来，说明需要补足哪一项能力。由具体对象、能力和条件推进，设计采用理由就能落在明确的科学关系上。
 
@@ -138,9 +138,9 @@
 
 实际写作围绕作者的核心设计安排足够的理由：明确每项设计为何采用、作用于什么对象、怎样与其余设计共同支持研究目标。设计的出现位置随这些理由的完成而定。
 
-## 5. 展开到理解设计职责所需的概念层面
+## 5. 沿科学主线连接多个设计
 
-引言交代读者理解研究需要与贡献所需的概念关系：设计处理哪个问题，各部分输入输出怎样联系，所采用方法承担什么职责，以及有哪些有依据的性能保证。技术具体性服务于设计必要性与作用说明，内部算法步骤、公式构造和证明程序留在 Method。
+引言交代读者理解研究需要与贡献所需的概念关系：设计处理哪个问题，各部分输入输出怎样联系，所采用方法承担什么职责，以及有哪些有依据的性能保证。技术具体性服务于设计必要性与作用说明。
 
 多部分系统应把各部分放回同一个研究目标，明确前一部分的产物为什么需要后一部分处理。这样，概念层面的框架说明本身也能推动科学主线。
 
@@ -158,47 +158,11 @@
 
 > In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics. The stability of the controller is guaranteed by the Lyapunov stability theory. As shown in Fig. 1, the robot learning system consists of the motion generation component and the trajectory tracking component. The former utilizes the motion model based on DMP to learn and generalize motion skills; these, in turn, are represented as a set of trajectories in joint space. The latter employs the adaptive controller to track the trajectories generated from the former, and RBFNN is incorporated to compensate for the uncertain dynamics.
 
-具体借鉴关系：I06 从机器人模仿性能还依赖轨迹跟踪进入动力学不确定性与逼近控制，完成控制设计的采用理由；I07 给出 RBFNN 控制职责与稳定性依据，再说明运动生成输出关节空间轨迹、跟踪控制接收这些轨迹并补偿不确定动力学。展开停在“问题—职责—部件联系—保证”，足以让读者理解为什么完整学习系统需要控制部分。
+具体借鉴关系：I06 从机器人模仿性能还依赖轨迹跟踪进入动力学不确定性与逼近控制，完成控制设计的采用理由；I07 给出 RBFNN 控制职责与稳定性依据，再说明运动生成输出关节空间轨迹、跟踪控制接收这些轨迹并补偿不确定动力学。以“问题—职责—部件联系—保证”连接各部分，足以让读者理解为什么完整学习系统需要控制部分。
 
 实际组织时，依据作者系统的真实关系说明各部分怎样共同完成研究目的。可以明确建模或补偿对象、轨迹或状态的传递关系及保证的范围，以必要的概念信息连接设计与贡献。
 
-## 6. 引言集中于研究目标、设计和贡献，默认不展开本研究实验
-
-引言的内容围绕研究需要、已有方法的相关能力与条件、本文设计及贡献安排。当前研究的实验设置、任务清单和结果默认留在实验部分；引言保留理解科学问题所需的条件，以及理解设计职责和贡献所需的信息。
-
-整体目标确定后，可直接以设计职责和性能保证收束科学论述。贡献可以明确当前研究承诺达到的约束、收敛或有界性目标；相关范围和条件按作者已有证据表述。
-
-**Fuzzy2023 的目标与贡献段落组：联合控制目标由设计与理论性质展开。**
-
-**Fuzzy2023 I04**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#i04).
-
-`Motivated by the above research works, the problem of fixed-time...`
-
-> Motivated by the above research works, the problem of fixed-time tracking control is discussed for uncertain robot systems based on the FLS and the BLF technique in this article. The major contributions of our work can be listed as follows.
-
-**Fuzzy2023 C1**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#c1).
-
-`1) A novel symmetric BLF is designed to avoid the...`
-
-> 1) A novel symmetric BLF is designed to avoid the violation of the output constraints; thus, the desired transient performance of the robot system can be guaranteed.
-
-**Fuzzy2023 C2**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#c2).
-
-`2) A novel adaptive law is proposed such that the...`
-
-> 2) A novel adaptive law is proposed such that the boundedness of all the closed-loop signals can be proved. Then, the assumption that the weight estimation is bounded in recent fixed-time control research [23]–[25] can be relaxed.
-
-**Fuzzy2023 C3**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#c3).
-
-`3) The tracking performance of the robot system can achieve...`
-
-> 3) The tracking performance of the robot system can achieve practical fixed-time convergence regardless of the initial conditions.
-
-具体借鉴关系：整体目标落在不确定机器人的固定时间跟踪与 FLS／BLF 技术，随后以输出约束和瞬态性能、自适应律与闭环有界性、实用固定时间收敛说明设计职责和保证。这组结尾把读者的关注留在本文的科学对象与贡献层面。
-
-实际写作依据作者研究组织设计与贡献说明，将验证这些贡献的实验配置、比较任务、评价细节和结果展开安排在实验部分。引言完成研究必要性与设计意义的论证。
-
-## 7. 结尾贡献回收前文已经建立的需要
+## 6. 结尾贡献回收前文已经建立的需要
 
 结尾把本文设计与贡献对应到前文的研究需要，使读者看清这一工作完成了哪些职责，以及这些职责怎样共同支持总体目标。贡献既可由连贯段落说明，也可按内容列项；其内容和组合方式由作者研究决定。
 
@@ -241,5 +205,33 @@
 > 3) A partial persistent condition is introduced for the adaptation of NN weights such that the requirement of conventional PE condition can be greatly relaxed.
 
 具体借鉴关系：第一项贡献对应相对运动任务与未知动力学条件，第二项对应估计误差信息参与权值学习，第三项对应激励条件。结尾把前文的任务、学习与条件三类讨论回收到同一个双臂跟踪控制目标。实际写作按作者已有论证组织贡献，逐项说明设计怎样回应前文的科学需要。
+
+**Fuzzy2023 的目标与贡献段落组：联合控制目标由设计与理论性质展开。**
+
+**Fuzzy2023 I04**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#i04).
+
+`Motivated by the above research works, the problem of fixed-time...`
+
+> Motivated by the above research works, the problem of fixed-time tracking control is discussed for uncertain robot systems based on the FLS and the BLF technique in this article. The major contributions of our work can be listed as follows.
+
+**Fuzzy2023 C1**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#c1).
+
+`1) A novel symmetric BLF is designed to avoid the...`
+
+> 1) A novel symmetric BLF is designed to avoid the violation of the output constraints; thus, the desired transient performance of the robot system can be guaranteed.
+
+**Fuzzy2023 C2**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#c2).
+
+`2) A novel adaptive law is proposed such that the...`
+
+> 2) A novel adaptive law is proposed such that the boundedness of all the closed-loop signals can be proved. Then, the assumption that the weight estimation is bounded in recent fixed-time control research [23]–[25] can be relaxed.
+
+**Fuzzy2023 C3**; PDF p.2 / 刊页 1042 / 左栏; [原文定位](../introduction-section-review-2026-10-06/Fuzzy2023-introduction.md#c3).
+
+`3) The tracking performance of the robot system can achieve...`
+
+> 3) The tracking performance of the robot system can achieve practical fixed-time convergence regardless of the initial conditions.
+
+具体借鉴关系：整体目标落在不确定机器人的固定时间跟踪与 FLS／BLF 技术，随后以输出约束和瞬态性能、自适应律与闭环有界性、实用固定时间收敛说明设计职责和保证。这组结尾把读者的关注留在本文的科学对象与贡献层面。
 
 整节完成后，应能沿作者自己的科学对象读出一条连续关系：领域价值与实际需要建立研究问题，相关方法能力和条件支持核心设计的采用理由，设计的职责与作用最终形成清楚的贡献。P17 维持主要组织风格，其他主范例按当前任务需要补充；科学事实、条件、比较范围和保证始终来自作者研究。
