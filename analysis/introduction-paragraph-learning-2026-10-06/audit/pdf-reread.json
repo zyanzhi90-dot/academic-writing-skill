@@ -1,0 +1,500 @@
+{
+  "base_commit": "7777a9d6af77a237bc9c8139713ab72b58692da2",
+  "scope": "Fresh read of complete publication Introductions; paragraph and continuous-sentence study",
+  "text_engine": "PyMuPDF 1.28.2",
+  "author_inputs_sha256": {
+    "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+    "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "引言写作方法.txt": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83"
+  },
+  "source_locator": "analysis/introduction-section-review-2026-10-06/curated-introductions.json",
+  "source_locator_sha256": "a09d78d14f65741b595d42233a07c60050dc9e198d99c8205c42e22ae97b1123",
+  "papers": {
+    "P17": {
+      "pdf": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "reopened_pages": [
+        1,
+        2
+      ],
+      "introduction_units": 9,
+      "raw_intro_blocks": {
+        "p1-b8": {
+          "page": 1,
+          "bbox": [
+            48.96034240722656,
+            419.53753662109375,
+            300.2729187011719,
+            501.2607116699219
+          ],
+          "text": "ECENTLY, robots have been widely applied in various\nﬁelds, especially in manufacturing. Adaptable robots\nare required due to the increasingly fast updates of the\nmanufactured products. Hence, it is necessary to develop\nmethods for enhancing robot learning. Robot learning from\ndemonstration (LfD) is a valuable technique to simplify the\nstrategy of robot learning [1], [2]. The human tutor shows the\n"
+        },
+        "p1-b16": {
+          "page": 1,
+          "bbox": [
+            312.0,
+            191.1775665283203,
+            563.2386474609375,
+            225.02047729492188
+          ],
+          "text": "way to complete a task and then the robot learns, via motion\nmodeling, to reproduce the skill. Therefore, it is essential to\nconsider how to model motions effectively.\n"
+        },
+        "p1-b17": {
+          "page": 1,
+          "bbox": [
+            312.0,
+            227.0578155517578,
+            563.4981689453125,
+            440.3021240234375
+          ],
+          "text": "The dynamic system (DS) is a powerful tool for motion\nmodeling\n[3].\nCompared\nto\nthe\nconventional\nmethods,\ne.g., interpolation techniques, DS offers a ﬂexible solu-\ntion to model stable and extensible trajectories. In addition,\nthe motion encoded with the DS is robust to perturba-\ntions. An approach based on DS was used to learn human\nmotions [4], where the unknown mapping of the DS was\napproximated using a neural network (NN) called extreme\nlearning machine [5]. The learned model showed adequate\nstability and generalization. However, this DS-based method\nrequired considerable demonstration data for training. In con-\ntrast, the dynamic movement primitive (DMP), which is based\non a nonlinear DS [6], only requires one demonstration to\nmodel motion; here, the DMP models the movement trajectory\nas a spring-damper system integrated with an unknown func-\ntion to be learned. The inherent property of the spring-damper\nsystem enhances the stability and robustness (to perturbations)\nof the generated motion.\n"
+        },
+        "p1-b18": {
+          "page": 1,
+          "bbox": [
+            312.0,
+            442.21990966796875,
+            563.439208984375,
+            607.5840454101562
+          ],
+          "text": "DMPs have been often employed to solve robot learning\nproblems because of their ﬂexibility. In [7], DMPs were\nmodiﬁed to model fast movement inherent in hitting motion.\nAnother study used reinforcement learning to combine DMP\nsequences so that the robot could perform more complex\ntasks [8]. While both these studies employed multiple DMPs\nto compose a complete action, another study [9] used multiple\nDMPs to model style-adaptive trajectory, where the style of the\ngenerated motion could be changed by modulating the weight\nparameters that were coupled with the goals. As mentioned\nin [10], optimal demonstration is difﬁcult to obtain and multi-\nple demonstrations can encode the ideal trajectory implicitly.\nTherefore, we consider integrating multiple demonstrations\ninto one DMP model in this paper.\n"
+        },
+        "p1-b19": {
+          "page": 1,
+          "bbox": [
+            312.0,
+            609.6213989257812,
+            563.2182006835938,
+            727.2249755859375
+          ],
+          "text": "Probabilistic approaches have shown good performance in\nmotion encoding [11]–[13]. The inherent variability of the\ndemonstrations can be extracted, and thus, more features\nof the demonstrations can be preserved. In [14], an LfD\nframework using a Gaussian mixture model (GMM) and a\nBernoulli mixture model was used to extract the features\nfrom multiple demonstrations. A new motion was generated\nthrough Gaussian mixture regression (GMR). In contrast with\nthe above-mentioned methods, GMM combined with GMR\ncan provide additional motion information for robots when\n"
+        },
+        "p2-b2": {
+          "page": 2,
+          "bbox": [
+            48.959999084472656,
+            256.4573974609375,
+            300.2745666503906,
+            350.06097412109375
+          ],
+          "text": "learning from multiple demonstrations. In [3], a learn-\ning approach named stable estimator of dynamical sys-\ntems (SEDS) was proposed for motion modeling, where an\nunknown function was modeled using GMR. DS-GMR is\nanother method that combines the DS with the statistical\nlearning approach [15]. Both methods exploit the robustness\nand generalization capability of the DS as well as the excellent\nlearning performance of the probabilistic methods.\n"
+        },
+        "p2-b3": {
+          "page": 2,
+          "bbox": [
+            48.959999084472656,
+            352.0982971191406,
+            300.39312744140625,
+            529.4623413085938
+          ],
+          "text": "To take advantage of the performance of the DS and\nthe probabilistic approach, we integrate DMP and GMM\ninto our proposed system, where the nonlinear function of\nDMP is modeled with GMM and its estimate is retrieved\nthrough GMR. This modiﬁcation enables the robot to extract\nmore features of the motions from multiple demonstrations\nand to generate motions that synthesize these features. The\noriginal DMP was learned using the locally weighted regres-\nsion (LWR) [16], and the locally weighted projection regres-\nsion [17] was employed to optimize the bandwidth of each\nkernel of LWR. Despite the added complexity of the learning\nprocedure, these methods enable the DMP to learn from\nonly one demonstration. Reservoir computing [18] is another\nmethod used to approximate the nonlinear function, but its\ncomputing efﬁciency is less than that of GMR.\n"
+        },
+        "p2-b4": {
+          "page": 2,
+          "bbox": [
+            48.959999084472656,
+            531.3801879882812,
+            300.42608642578125,
+            744.6246337890625
+          ],
+          "text": "The imitation performance of robots also depends on the\naccuracy of the trajectory tracking controller that involves the\nrobot dynamics. Generally, a model-based control performs\nbetter if the model is accurate enough [19]. However, an accu-\nrate dynamic model of a manipulator cannot be obtained in\nadvance due to some uncertainties, e.g., unknown payload. The\napproximation-based controllers have been designed to over-\ncome such uncertainties. They utilize function approximation\ntools to learn the nonlinear characteristics of the robot dynam-\nics. NNs have been widely used in controller design because\nof their approximation ability [20]–[22]. In [23], the backprop-\nagation NN (BPNN) was utilized to approximate the unknown\nnonlinear function in the model of the vibration suppression\ndevice, while in [24], the radial basis function NN (RBFNN)\nwas utilized to approximate the unknown nonlinearity of the\ntelerobot system. Compared to BPNN, the learning procedure\nof RBFNN is based on local approximation; thus, RBFNN\ncan avoid getting stuck in the local optimum and has a faster\n"
+        },
+        "p2-b5": {
+          "page": 2,
+          "bbox": [
+            311.99853515625,
+            256.46429443359375,
+            563.1266479492188,
+            302.30718994140625
+          ],
+          "text": "convergence rate. Besides, the number of hidden layer units of\nRBFNN can be adaptively adjusted during the training phase,\nmaking NN more ﬂexible and adaptive. Therefore, RBFNN is\nmore appropriate for the design of real-time control.\n"
+        },
+        "p2-b6": {
+          "page": 2,
+          "bbox": [
+            311.99853515625,
+            304.2249755859375,
+            563.3594360351562,
+            457.7087097167969
+          ],
+          "text": "In this paper, an NN-based controller is designed to guaran-\ntee the tracking performance of the manipulator in joint space,\nwhere RBFNN is employed to approximate the nonlinear\nfunctions of the robot dynamics. The stability of the controller\nis guaranteed by the Lyapunov stability theory. As shown\nin Fig. 1, the robot learning system consists of the motion\ngeneration component and the trajectory tracking component.\nThe former utilizes the motion model based on DMP to learn\nand generalize motion skills; these, in turn, are represented\nas a set of trajectories in joint space. The latter employs the\nadaptive controller to track the trajectories generated from the\nformer, and RBFNN is incorporated to compensate for the\nuncertain dynamics.\n"
+        },
+        "p2-b7": {
+          "page": 2,
+          "bbox": [
+            311.99853515625,
+            459.74603271484375,
+            563.3491821289062,
+            589.2299194335938
+          ],
+          "text": "Here, we present a novel and complete robot learning\nframework that considers the performance of both motion gen-\neration and trajectory tracking. The SEDS presented in [3] is\nsimilar to our DMP-based model. However, the constraints that\nguarantee the stability of SEDS are derived by the Lyapunov\ntheory that increases the complexity of the learning. In contrast\nto [3] and [25] which considered only motion modeling, our\nsystem is enhanced by an NN-based controller and the effect\ncaused by the dynamic environments can be compensated by\nneural learning. This design enables the robot to perform the\nlearned motions steadily and more robustly in the real world.\n"
+        },
+        "p2-b8": {
+          "page": 2,
+          "bbox": [
+            311.99853515625,
+            591.147705078125,
+            563.1409301757812,
+            672.8709106445312
+          ],
+          "text": "The remainder of this paper is organized as follows.\nSection II introduces the DMP and its relevant characteristics.\nThe learning process of the motion model is introduced in\nSection III. In Section IV, the concept of RBFNN is intro-\nduced, and the controller using RBFNN is designed with the\nproof of stability. The experiments are presented in Section V.\nSection VI concludes this paper.\n"
+        }
+      },
+      "all_intro_blocks_match_verified_source": true,
+      "reused_page_renders": {
+        "P17-p1.png": "e5fc6c875b5e191ba9847ae25585df9c9ae6263a8b55c8fe27681df5deaeb321",
+        "P17-p2.png": "274c3656c3c74aa10dce214e12283eb20c70c0fecf7742b72da267659ed2a426"
+      }
+    },
+    "P05": {
+      "pdf": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "pdf_sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "reopened_pages": [
+        1,
+        2
+      ],
+      "introduction_units": 12,
+      "raw_intro_blocks": {
+        "p1-b8": {
+          "page": 1,
+          "bbox": [
+            48.96034240722656,
+            404.53753662109375,
+            300.2868957519531,
+            462.38037109375
+          ],
+          "text": "ECENTLY, coordination control of dual-arm robots\nhas received increasing attention due to its superiority\ncompared with traditional single-arm robot systems, includ-\ning stronger payload capability, larger workspace, and more\nﬂexibility. Thus, the dual-arm robots have been involved\n"
+        },
+        "p1-b15": {
+          "page": 1,
+          "bbox": [
+            312.0,
+            163.33741760253906,
+            563.302734375,
+            244.94094848632812
+          ],
+          "text": "in many high technology applications, such as intelligent\nassembly, out-space repairing, and elderly people assistance\n[1]–[3]. However, controlling the dual-arm robots is chal-\nlenging due to the increase of complexity in motion control\nand path planning. Therefore, advanced control technologies\nhave been extensively studied for dual-arm robots in past\ndecades [4]–[11].\n"
+        },
+        "p1-b16": {
+          "page": 1,
+          "bbox": [
+            311.9990234375,
+            246.97828674316406,
+            563.335693359375,
+            448.22265625
+          ],
+          "text": "An adaptive decentralized control scheme was proposed to\naddress the object handling problem of a cooperative robot,\nwhere an implicit force control scheme was employed to\nsimultaneously regulate the force and position [9]. In [10],\na decentralized control structure for multiple mobile manipula-\ntors was developed, where the internal forces were constrained\nby employing an augmented object model for the multiple\nsystems with a virtual linkage. In [11], the loading problem for\nmultiple manipulators was addressed by analyzing the grasp\nspace of the robot. Note that the abovementioned controllers\nwere developed under the assumption that the object is ﬁrmly\nheld by the robotic arms such that no relative motion occurred\nbetween the arms and the objects. However, in practical appli-\ncations, such as polishing, grinding, and welding, the robot\nend-effectors need to operate along the object’s surface, where\nsliding movements usually happened between the robotic arm\nand the object [12]–[14].\n"
+        },
+        "p1-b17": {
+          "page": 1,
+          "bbox": [
+            311.9990234375,
+            450.2599792480469,
+            563.2506713867188,
+            615.6241455078125
+          ],
+          "text": "In this respect, the coordination control of dual-arm robots\nwith relative motion deserves further investigation. The rela-\ntive motion is also known as the asymmetric bimanual task. In\n[15], a relative impedance controller was developed by using\na relative Jacobian method such that the dual-arm system can\nbe treated as a single-arm robotic system. In [16], a brain-\nactuated control architecture was proposed for dual-arm robots\nto perform the asymmetric bimanual task, where electroen-\ncephalogram signals and visual stimulation were employed\nto send control command through a brain–machine interface.\nIn these works, however, the controllers were designed under\nthe assumption that the robot dynamics are fully available,\nwhile the stability analysis of the contact force between the\nrobotic arm and the object was not given.\n"
+        },
+        "p1-b18": {
+          "page": 1,
+          "bbox": [
+            311.9990234375,
+            617.5419921875,
+            563.2996215820312,
+            723.1455078125
+          ],
+          "text": "The dynamic model of the robot system is of great impor-\ntance in the controller design [17]–[22], but it is often unavail-\nable in practice. For example, in carrying tasks, the dynamics\nof the grasped object is hard to obtain in advance. Without\na precise dynamics model, the model-based control method\nbecame invalid and may cause degeneration of the control\nperformance. Hence, advanced control strategies have been\npresented to compensate for the model uncertainties. Neural\nnetwork (NN) is well known by its advantages in alleviating\n"
+        },
+        "p2-b1": {
+          "page": 2,
+          "bbox": [
+            48.959991455078125,
+            58.45741271972656,
+            300.3482666015625,
+            104.30026245117188
+          ],
+          "text": "modeling difﬁculties of nonlinear systems due to the powerful\napproximation ability [23]. Thus, NN control synthesizes\nhave been widely implemented in developing controllers for\nnonlinear robotic systems [24]–[32].\n"
+        },
+        "p2-b2": {
+          "page": 2,
+          "bbox": [
+            48.959991455078125,
+            106.33760070800781,
+            300.60833740234375,
+            343.4621276855469
+          ],
+          "text": "A fuzzy neural network control approach was presented for\npure-feedback stochastic systems by using a semi-Nussbaum\nfunction [33]. In [34], an adaptive NN control strategy was\nproposed for an uncertain robot to ensure the state not\nto violate the prescribed constraints. Recently, a sensorless\nadmittance controller was designed to solve the unknown\nenvironments’ interaction by using the NN technique [35].\nSigniﬁcant works have been done in [36]–[38] to make a\ncomplex topic understandable about modeling and control\nof ﬂapping-wing ﬂying robots to the average reader. While\nthe NN controllers have been successfully developed in the\nabovementioned work, a major limitation for existing adaptive\nNN control schemes lies in that only convergence of the\ntracking errors can be achieved, instead of the convergence\nof NN weights to their ideal values. Without the convergence\nof NN weights, the NN compensation can be hardly accom-\nplished, and the system performance may be degraded and,\neventually, became unstable. In this respect, developing a novel\ncontrol scheme with guaranteed NN convergence is of great\nsigniﬁcance.\n"
+        },
+        "p2-b3": {
+          "page": 2,
+          "bbox": [
+            48.959991455078125,
+            345.3799133300781,
+            300.6002502441406,
+            582.504638671875
+          ],
+          "text": "In our recent work [39], a ﬁltered operation was presented\nto control the robotic arm with ﬁnite-time convergence under\na linear-in-parameter (LIP) robotic dynamic model. Neverthe-\nless, the guaranteed convergence of the NN weights is more\ndifﬁcult. It is well known that the persistent excitation (PE)\ncondition is important to guarantee the estimation convergence\n[40]. However, in practice, it is very stringent to ensure the PE\ncondition of neural networks due to the sparse characteristics\nof the NN regressor vector. Recent research of neural networks\nin [41] presented a partial persistent excitation (PPE) condition\ninstead of the traditional PE condition. It has been proven that,\nfor the radial basis function neural network (RBFNN) deﬁned\nin a regular lattice, neural nodes could be partially activated\nfor any recurrent NN inputs trajectory remained in this local\nregion [41]. In the subsequent work [42], this idea was\nemployed for the control design of nonlinear strict-feedback\nsystems to guarantee the system stability and accurate NN\napproximation. However, the NN inputs still need to satisfy the\ncondition of recurrent trajectory, and a small input excitation\nstrength may lead to slow learning speed.\n"
+        },
+        "p2-b4": {
+          "page": 2,
+          "bbox": [
+            48.959991455078125,
+            584.5419921875,
+            300.572509765625,
+            749.9061889648438
+          ],
+          "text": "The work in [43] indicates that parameter convergence\ncan be improved if certain information of the estimation\nerror can be integrated into the adaptation. In [44], a novel\nparameter estimation law was proposed for a robotic system\nwith unknown dynamics by using a sliding mode technique\nand a ﬁnite-time estimator. In [45], the estimation error was\nintegrated into the adaptation scheme of a class of nonlinear\nsystems to achieve the convergence of NN weights. Motivated\nby the abovementioned idea, in this article, we develop a com-\nposite learning controller for the dual-arm robot to perform\nbimanual relative motion tasks. To the best of our knowledge,\nfew studies have investigated the learning control in the frame\nof the dual-arm robot systems subject to relative motion and\nunknown dynamics. Moreover, different from the work in [46],\n"
+        },
+        "p2-b6": {
+          "page": 2,
+          "bbox": [
+            312.0,
+            204.3775177001953,
+            563.2888793945312,
+            262.2203063964844
+          ],
+          "text": "a PPE condition is also introduced in the estimation scheme to\nachieve a relaxation of the requirement of the PE condition. In\ncomparison to the method in [45], the estimation error of the\nNN weights is properly expressed and employed to enhance\nthe approximation of the neural network.\n"
+        },
+        "p2-b7": {
+          "page": 2,
+          "bbox": [
+            312.0,
+            264.1380615234375,
+            563.2704467773438,
+            309.98095703125
+          ],
+          "text": "The objective of this article is to develop a control\nframework for dual-arm robot tracking control under rela-\ntive motion. The main contributions of this article can be\nsummarized as follows.\n"
+        },
+        "p2-b8": {
+          "page": 2,
+          "bbox": [
+            312.0,
+            310.9383544921875,
+            563.3126831054688,
+            523.102783203125
+          ],
+          "text": "1) A novel neural control framework is developed for\ndual-arm robot systems to perform asymmetric bimanual\ntasks with no prior knowledge of the dynamics.\n2) A novel composite learning algorithm is designed for\nNN weights adaptation such that information of the\nestimate errors could be appropriately integrated into the\nadaptation law to improve the estimation performance.\n3) A partial persistent condition is introduced for the\nadaptation of NN weights such that the requirement of\nconventional PE condition can be greatly relaxed.\nIn the following sections, the system modeling and control\ndesign procedures are detailed. Section II discusses the system\nmodeling of the dual-arm robot in addition to some preliminar-\nies. Section III presents the design of the composite learning\ncontrol algorithm by utilizing a command ﬁltered backstep-\nping technique with stability analysis. Section IV demon-\nstrates the simulation results. A brief conclusion is given in\nSection V.\n"
+        }
+      },
+      "all_intro_blocks_match_verified_source": true,
+      "reused_page_renders": {
+        "P05-p1.png": "d012916b63b412b20da7fc3efee38caa5b2d4fd5c7ae2f72ad2c02c90cf3c186",
+        "P05-p2.png": "197315eee1fd5266251239d6d4748a59c20d15e900b5af80588ae3ada0506035"
+      }
+    },
+    "Fuzzy2023": {
+      "pdf": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "pdf_sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "reopened_pages": [
+        1,
+        2
+      ],
+      "introduction_units": 7,
+      "raw_intro_blocks": {
+        "p1-b7": {
+          "page": 1,
+          "bbox": [
+            37.90802001953125,
+            361.24151611328125,
+            288.9963684082031,
+            490.7613220214844
+          ],
+          "text": "OR the robot dynamic systems, uncertain nonlinear terms\nusually exist due to the time-varying model parameters and\nthe external disturbance during operation. Combined with adap-\ntive control techniques, the neural network (NN) [1]–[5] and\nthe fuzzy logic system (FLS) [6]–[8] have been widely applied\nto handle the tracking control problem for the uncertain robot\nsystems because of their universal approximation capability.\nIn [4], an NN control scheme has been proposed for a robot ma-\nnipulator to achieve trajectory tracking with output constraints\nand input saturation. In [5], an admittance adaptation method\nhas been proposed for robot–environment interaction, and the\n"
+        },
+        "p1-b13": {
+          "page": 1,
+          "bbox": [
+            300.92401123046875,
+            177.26356506347656,
+            551.9996948242188,
+            438.2836608886719
+          ],
+          "text": "guaranteed trajectory tracking can be achieved by an NN-based\ncontroller. In [9], a number of advanced NN control algorithms\nhave been introduced in detail for nonlinear systems, including\nrobots. In [7], an adaptive robust fuzzy control scheme has been\nproposed for the uncertain two-degree-of-freedom (DOF) lower\nlimb exoskeleton robot system to enhance the rehabilitation\ntraining. In [8], an adaptive fuzzy control scheme has been\nproposed for robotic systems to achieve ﬁxed-time convergence\nand user-deﬁned performance simultaneously. In [10], a novel\nadaptive controller based on active inference has been proposed\nfor the robot to handle large model uncertainties and a large\nnumber DOFs, which enable to deal with the robot uncertainty,\nbesides the NN and the FLS. It should be noted that large calcu-\nlation is always required because of the weight iterative process\nin traditional fuzzy control schemes. In our previous work [11],\na topology optimization method has been proposed to reduce\nthe data amount for calculation and storage in wireless sensor\nnetworks, which is exciting because it may enlighten optimizing\nthe FLS structure to reduce the computational complexity in our\nfuture work. Moreover, the desired transient performance and\nconvergence time are rarely discussed simultaneously in most\nof the existing fuzzy control schemes.\n"
+        },
+        "p1-b14": {
+          "page": 1,
+          "bbox": [
+            300.92401123046875,
+            440.2821350097656,
+            552.0122680664062,
+            617.6104125976562
+          ],
+          "text": "In practice, the undesirable transient performance may lead\nto the system instability, even the system safety problems some-\ntimes. Recently, the barrier Lyapunov functions (BLFs) have\nbeen widely used to achieve the state and output constraints\nin the nonlinear control problems [12]–[16]. In [12], with the\nexponential-type BLF, a practical event-triggered prescribed-\ntime controller has been proposed for a class of space teleoper-\nation systems. In [14], a new command ﬁltered fuzzy controller\nhas been proposed for a class of unknown nonlinear systems to\nhandle full-state constraints and ﬁnite-time convergence simul-\ntaneously. In [16], an adaptive fuzzy leader-following tracking\ncontrol scheme has been proposed for heterogeneous nonlinear\nmultiagent systems with ﬁnite-time output constraints. In this\narticle, a novel symmetric BLF is designed to guarantee the\ndesired transient performance of the robot system.\n"
+        },
+        "p1-b15": {
+          "page": 1,
+          "bbox": [
+            300.92401123046875,
+            619.6089477539062,
+            551.99072265625,
+            713.25439453125
+          ],
+          "text": "In many industrial systems, the system states are required to\nachieve fast convergence speed for better control performance.\nThere have been some proposed research works focused on the\nconvergence time of the systems [17]–[19]. In [17], an adaptive\nobserver-based fuzzy controller has been proposed for a class\nof strict-feedback nonlinear systems to achieve ﬁnite-time con-\nvergence. In [18], an adaptive ﬁnite-time sliding-mode control\nscheme has been proposed for a class of nonlinear systems\n"
+        },
+        "p2-b1": {
+          "page": 2,
+          "bbox": [
+            42.119998931884766,
+            65.29450988769531,
+            293.17657470703125,
+            194.81430053710938
+          ],
+          "text": "with some matched uncertainties. Nevertheless, for the existing\nﬁnite-time control schemes, the convergence time of the systems\nis always related to the initial conditions, which are sometimes\nunavailable. To improve the control performance, the ﬁxed-time\ncontrol schemes have been proposed and applied in the nonlinear\ncontrol community [20]–[22]. In [20], a novel ﬁxed-time adap-\ntive fuzzy control scheme combined with the BLF technique\nhas been proposed for uncertain nonstrict-feedback nonlinear\nsystems. In [21], an adaptive event-based ﬁxed-time control\nscheme has been proposed for the active vehicle suspension\nsystems, and the predeﬁned constraints can be guaranteed.\n"
+        },
+        "p2-b2": {
+          "page": 2,
+          "bbox": [
+            42.119998931884766,
+            196.80384826660156,
+            293.1873779296875,
+            242.63180541992188
+          ],
+          "text": "Motivated by the above research works, the problem of ﬁxed-\ntime tracking control is discussed for uncertain robot systems\nbased on the FLS and the BLF technique in this article. The\nmajor contributions of our work can be listed as follows.\n"
+        },
+        "p2-b3": {
+          "page": 2,
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ],
+          "text": "1) A novel symmetric BLF is designed to avoid the viola-\ntion of the output constraints; thus, the desired transient\nperformance of the robot system can be guaranteed.\n2) A novel adaptive law is proposed such that the bounded-\nness of all the closed-loop signals can be proved. Then, the\nassumption that the weight estimation is bounded in recent\nﬁxed-time control research [23]–[25] can be relaxed.\n3) The tracking performance of the robot system can achieve\npractical ﬁxed-time convergence regardless of the initial\nconditions.\n"
+        }
+      },
+      "all_intro_blocks_match_verified_source": true,
+      "reused_page_renders": {
+        "Fuzzy2023-p1.png": "a9b3e8d4ab9d0ee70337f8368c2a49c4254902218b09473e8a25bf25d3ec074b",
+        "Fuzzy2023-p2.png": "bfc884cc6add570425c30d7fc487be4e0a5e2b0befd227a35281b98626e595f2"
+      }
+    },
+    "ESO2017": {
+      "pdf": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "pdf_sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "reopened_pages": [
+        1,
+        2,
+        3
+      ],
+      "introduction_units": 12,
+      "raw_intro_blocks": {
+        "p1-b10": {
+          "page": 1,
+          "bbox": [
+            37.908485412597656,
+            486.134521484375,
+            288.97686767578125,
+            531.96240234375
+          ],
+          "text": "NDERWATER robots, including autonomous underwa-\nter vehicles (AUVs), remote operated vehicles (ROVs),\nand underwater gliders, have been increasingly employed to ex-\npand the abilities of human in marine resources exploration and\n"
+        },
+        "p1-b17": {
+          "page": 1,
+          "bbox": [
+            300.92401123046875,
+            233.61256408691406,
+            551.9647216796875,
+            291.3927001953125
+          ],
+          "text": "marine scientiﬁc research. To exploit the full potential beneﬁts\nprovided by underwater robots, high-precision controller for un-\nderwater robots is required, such that the quality of the collected\ndata can be guaranteed, and high precision in trajectory tracking\nor station keeping of the robot can be secured [1]–[6].\n"
+        },
+        "p1-b18": {
+          "page": 1,
+          "bbox": [
+            300.92401123046875,
+            293.39117431640625,
+            551.99755859375,
+            446.8150939941406
+          ],
+          "text": "In practice, there are a number of technical challenges in\nthe control of an underwater robot, such as the unknown exter-\nnal disturbances and model uncertainties. The unknown distur-\nbances in practical oceanic environments include waves, tides,\ncurrents, and upward or downward streams. For control design\nof ROVs, the external force caused by the cable that connects\nwith the depot ship should also be considered. The model uncer-\ntainties of an underwater robot are usually caused by the inac-\ncurate hydrodynamic coefﬁcients, which are calculated through\nthe computational ﬂuid dynamics (CFD) methods or towing tank\nexperimental data analysis. During the process of performing a\ntask, different attitude of the robot will also cause the variation\nof the hydrodynamic coefﬁcient.\n"
+        },
+        "p1-b19": {
+          "page": 1,
+          "bbox": [
+            300.92401123046875,
+            448.8045959472656,
+            552.000732421875,
+            709.8336181640625
+          ],
+          "text": "Several methods, such as adaptive control [1], [7], [8], robust\ncontrol [9]–[11], and disturbance observer-based control [12],\n[13], have been introduced to address the technical challenges\nof model uncertainties and unknown external disturbances. In\n[1], a robust adaptive controller considering the velocity con-\nstraints is proposed for an ROV. The model parameters are esti-\nmated online and a Barrier Lyapunov function is applied in the\nLyapunov synthesis. Finally, the results are validated thought\nsimulation. Since fuzzy logic systems (FLS) and neural net-\nworks (NN) are capable to approximate nonlinearities, the NN\nand fuzzy approximation-based adaptive controllers have been\nwidely applied to the plants with model uncertainties and un-\nknown disturbances [7], [8], [14]. In [7], an adaptive controller\ncombining NN approximation with dynamics surface control\nis presented for trajectory tracking of an AUV. The computa-\ntional load is reduced by introducing an NN learning method\nusing minimal number of learning parameters. In [15], consid-\nering the unknown parameters, an adaptive fuzzy sliding mode\ncontrol (SMC) is presented to steer a low-speed underactuated\nunderwater vehicle and an experiment has justiﬁed the method.\nIn [16], the NN-based controller is extended to control the mul-\ntiple underwater robots and simulation results have been shown.\n"
+        },
+        "p2-b1": {
+          "page": 2,
+          "bbox": [
+            42.119998931884766,
+            65.29450988769531,
+            293.1845397949219,
+            111.12252807617188
+          ],
+          "text": "Although the NN and fuzzy-based adaptive controllers have the\nadvantages on the approximation of the uncertainties and dis-\nturbances, it is still a challenging task to adjust its learning\nparameters in real applications.\n"
+        },
+        "p2-b2": {
+          "page": 2,
+          "bbox": [
+            42.119998931884766,
+            113.11207580566406,
+            293.19537353515625,
+            481.7373046875
+          ],
+          "text": "As an effective tool to suppress disturbances for complex\nsystems, SMC has attracted obvious attentions for the control\nplant with disturbances [10], [17]–[21]. In [22], a novel ESO-\nbased adaptive control has been proposed for power converters\nto reject the load connected to the dc-link capacitor and the\nuncertain parameters. The experiment based on a real power\nconverter prototype validate the control performance. In [9],\na sliding mode tracking controller, which uses two sliding sur-\nfaces for surge tracking errors and lateral motion tracking errors,\nis applied to autonomous surface vessels. To address the con-\ntrol technical challenges for the switched stochastic systems, a\nnovel dissipativity-based SMC is proposed in [17]. In [10], inte-\ngral sliding mode controllers (ISMC) are proposed for trajectory\ntracking of ROVs. Because of the effect of the additional error-\nintegral term, the ISMC has a more accurate trajectory tracking\nperformance than the conventional SMC. To overcome the time-\ndelay for the AUV control, an ISMC is introduced to overcome\nthe problem that data acquisition rate could not be maintained\nsufﬁciently [23]. The major shortcoming of SMC is the chat-\ntering problem, which not only causes energy losses but also\nreduces the trajectory tracking smoothness. To reduce the chat-\ntering, several methods, such as the high-order sliding-mode\ncontroller [24], [25], disturbance compensation method [26],\n[27], and terminal sliding controller [28] have been proposed.\nIn [26], a free chattering SMC is presented via an adaptive term,\nwhich continuously compensates for the unknown system dy-\nnamics of an ROV. In practice, sometimes, the upper bound of\nthe uncertainties may be large and the SMC without a compen-\nsator will cause serious chattering. Therefore, it is necessary\nto design a compensator for the external disturbance to reduce\nchattering.\n"
+        },
+        "p2-b3": {
+          "page": 2,
+          "bbox": [
+            42.119998931884766,
+            483.726806640625,
+            293.2093811035156,
+            744.755859375
+          ],
+          "text": "Another approach dealing with the unknown disturbance is\nto design an observer to estimate the unknown external distur-\nbance of a robot, followed by the control design to compensate\nfor the estimated disturbance. Such disturbance observers in-\nclude sliding mode observer [12], [29], high-gain observer [30],\n[31], and extended state observer (ESO) [13], [32]. In [12], a\nsliding mode controller based on a sliding mode observer is\nproposed for a reusable launch vehicle. The observer is pre-\nsented to estimate the unknown external disturbances and to\nreduce the control gain. In [30], a high-gain observer-based out-\nput feedback motion control that considers the unmodeled dy-\nnamics, measurement errors, model parameter variations, and\nunknown external environmental disturbances for observation\nclass ROVs is presented. In [32], a backstepping control based\non an ESO is proposed to handle mismatched disturbance of\nhydraulic systems. The designed observer estimates not only\nthe model uncertainties but also the unmeasured states. In [13],\nby using an ESO, a backstepping control for a hydraulic system\nis presented to suppress large unknown external disturbances.\nThe bandwidth of the observer is chosen in accordance with\ntwo conﬂicting aspects, the maximal load capability and the\ndynamic performance of system.\n"
+        },
+        "p2-b4": {
+          "page": 2,
+          "bbox": [
+            305.1356201171875,
+            65.30360412597656,
+            556.2133178710938,
+            541.52490234375
+          ],
+          "text": "In this paper, we design an adaptive sliding mode-based con-\ntroller for a general type of underwater robots, and experiment\nis carried on a test bed for underwater object grasping. On-\nboard sensors, including a depth sensor and an inertial mea-\nsurement unit (IMU), are equipped to measure the depth and\nattitude of the robot. The position of the underwater robot\nis measured by an external vision positioning system (VPS),\nand some white lightings are equipped on the robot, which\ncan be captured by the VPS to calculate the position of the\nrobot. In such a case, there is no direct measurement of velocity\nof the robot. Then output feedback is required for our work as\nthe direct differential of the position information may degrade\nthe control performance. In such case, observes are always used\nto estimate the unmeasured states of the robot [5], [33]. A lo-\ncal recurrent NN-based adaptive terminal sliding mode state\nobserver is presented to estimate the unmeasured velocity of\nan ROV in [5], which considers the uncertain dynamic model,\nthe unmeasured states, and inaccurate thrust model. In [34], an\nNN-based adaptive observer is presented to address the prob-\nlem of estimating the unavailable measurements of underwater\nvehicles’ velocities. In [35], a terminal sliding mode observer\nof an AUV is introduced to estimate the velocity, and the esti-\nmation error is guaranteed to converge to zero in a ﬁnite time.\nIn [36], an adaptive backstepping control is introduced for hu-\nman upper limbs in the presence of disturbances, unmodeled\ndynamics, and uncertainties. In [37], an output feedback track-\ning controller is designed to address the problem of steering a\nquadrotor with unknown disturbances and model uncertainties.\nThe unmeasurable linear and angular velocities are estimated\nby a series of nonmodel-based ﬁlters. In [38], an attitude and\nspeed controller is designed based on an adaptive second-order\nSMC for an unmanned aerial vehicle (UAV), and an extended\nobserver is applied to estimate the unmeasured states and un-\nknown external disturbances. In [39], a high-gain observer is\nimplemented to estimate the full states of the electro-hydraulic\nsystem. It is noted that in the literature mentioned above, con-\ntrollers designed for underwater robots in [1], [3], [4], [7], [8],\n[16], [18], [26], and [28] are veriﬁed by simulations, and other\ncontrollers in [6], [10], [15], [23], and [24] are veriﬁed by\nexperiments.\n"
+        },
+        "p2-b5": {
+          "page": 2,
+          "bbox": [
+            305.1356201171875,
+            543.5144653320312,
+            556.2201538085938,
+            708.8995971679688
+          ],
+          "text": "In this paper, a disturbance compensation approach is utilized\nto eliminate the chattering based on multiple-input and multiple-\noutput extend-state-observer (MIMO-ESO) with a simple struc-\nture. Motivated by the ESO model [32] and the high-gain\nobserver [39], a MIMO-ESO is proposed to estimate the un-\nknown disturbances and the unmeasured states. The bounds of\nthe uncertainties are also estimated using the adaptive control\ntechnique. The Lyapunov analysis is involved to design the ﬁ-\nnal control law. The proposed controller in this paper includes\ntwo parts, namely the equivalent controller and the switch con-\ntroller, which guarantees the trajectory tracking error converge\nto zero theoretically. The proposed controller is successfully\nimplemented on an underwater robot propelled by six thrusters.\nThe main contributions can be summarized as follows.\n"
+        },
+        "p2-b6": {
+          "page": 2,
+          "bbox": [
+            319.0762939453125,
+            710.8890991210938,
+            556.2053833007812,
+            744.7649536132812
+          ],
+          "text": "1) A novel adaptive MIMO-ESO is developed to estimate\nthe unmeasured velocity and the unknown external dis-\nturbances of the underwater robot.\n"
+        },
+        "p3-b2": {
+          "page": 3,
+          "bbox": [
+            37.90837097167969,
+            238.76942443847656,
+            288.98175048828125,
+            404.1455078125
+          ],
+          "text": "2) Based on Lyapunov analysis, an adaptive MIMO-ESO-\nbased ISMC is designed to ensure that the trajectory\ntracking error converge to zero.\n3) Comparative studies with the conventional potential dif-\nference (PD) control are carried out experimentally on\nan underwater robot to demonstrate the superior perfor-\nmance of the proposed control.\nThe remainder of this paper is organized as follows:\nSection II presents the robot model and formulates the prob-\nlem. In Section III, the adaptive MIMO-ESO is derived to esti-\nmate the unknown disturbances and the unmeasured velocities.\nIn Section IV, the ISMC is proposed. Experimental results are\nshown in Section V, followed by the conclusion of this paper in\nSection VI.\n"
+        }
+      },
+      "all_intro_blocks_match_verified_source": true,
+      "reused_page_renders": {
+        "ESO2017-p1.png": "1480f6edb54f765d6ffe0ee822b98c73bca2f4556a24864e77d2b1db615a378b",
+        "ESO2017-p2.png": "3b96642624f3595f35d532cae623eec1bd8db8110bb6b6c175f8cc822d4efec7",
+        "ESO2017-p3.png": "153e930fa6120d0910b718c2b60e79d935b2cc4b247301893a9fabba19afce42"
+      }
+    }
+  }
+}

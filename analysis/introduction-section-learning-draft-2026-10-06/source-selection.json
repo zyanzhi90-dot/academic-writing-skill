@@ -457,82 +457,6 @@
       "original_text_sha256": "e9dc86ea0d02e07b086285f123067ad0361f65265575f2cc3608650228831b03"
     },
     {
-      "paper": "Fuzzy2023",
-      "unit": "I04",
-      "source_spans": [
-        {
-          "block": "p2-b2",
-          "pdf_page": 2,
-          "printed_page": 1042,
-          "column": "左",
-          "bbox": [
-            42.119998931884766,
-            196.80384826660156,
-            293.1873779296875,
-            242.63180541992188
-          ]
-        }
-      ],
-      "original_text_sha256": "47a75658a189879fc316520f75d994967f99d18f100613fd2cdc0e3fc27a0094"
-    },
-    {
-      "paper": "Fuzzy2023",
-      "unit": "C1",
-      "source_spans": [
-        {
-          "block": "p2-b3",
-          "pdf_page": 2,
-          "printed_page": 1042,
-          "column": "左",
-          "bbox": [
-            52.08259963989258,
-            244.62135314941406,
-            293.19537353515625,
-            362.1800231933594
-          ]
-        }
-      ],
-      "original_text_sha256": "e6a593a144f5e4caa775f8970e6f597943ba1e08491c6fb4fc060229d11d4352"
-    },
-    {
-      "paper": "Fuzzy2023",
-      "unit": "C2",
-      "source_spans": [
-        {
-          "block": "p2-b3",
-          "pdf_page": 2,
-          "printed_page": 1042,
-          "column": "左",
-          "bbox": [
-            52.08259963989258,
-            244.62135314941406,
-            293.19537353515625,
-            362.1800231933594
-          ]
-        }
-      ],
-      "original_text_sha256": "6b364f86baa945e70b266adc8595098c066e399f5717cc0f939b36d52cecedf2"
-    },
-    {
-      "paper": "Fuzzy2023",
-      "unit": "C3",
-      "source_spans": [
-        {
-          "block": "p2-b3",
-          "pdf_page": 2,
-          "printed_page": 1042,
-          "column": "左",
-          "bbox": [
-            52.08259963989258,
-            244.62135314941406,
-            293.19537353515625,
-            362.1800231933594
-          ]
-        }
-      ],
-      "original_text_sha256": "e5aa0ae9db956bc163c38209f4527c1f380fd9260a44470af047a7adccfb8762"
-    },
-    {
       "paper": "P17",
       "unit": "I08",
       "source_spans": [
@@ -626,15 +550,100 @@
         }
       ],
       "original_text_sha256": "9070e8b06c8a5e4ecc8d7cc2ec062b68db33100785c5e9cca0e5baa9b7d1d2dc"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I04",
+      "source_spans": [
+        {
+          "block": "p2-b2",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            42.119998931884766,
+            196.80384826660156,
+            293.1873779296875,
+            242.63180541992188
+          ]
+        }
+      ],
+      "original_text_sha256": "47a75658a189879fc316520f75d994967f99d18f100613fd2cdc0e3fc27a0094"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C1",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ]
+        }
+      ],
+      "original_text_sha256": "e6a593a144f5e4caa775f8970e6f597943ba1e08491c6fb4fc060229d11d4352"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C2",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ]
+        }
+      ],
+      "original_text_sha256": "6b364f86baa945e70b266adc8595098c066e399f5717cc0f939b36d52cecedf2"
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "C3",
+      "source_spans": [
+        {
+          "block": "p2-b3",
+          "pdf_page": 2,
+          "printed_page": 1042,
+          "column": "左",
+          "bbox": [
+            52.08259963989258,
+            244.62135314941406,
+            293.19537353515625,
+            362.1800231933594
+          ]
+        }
+      ],
+      "original_text_sha256": "e5aa0ae9db956bc163c38209f4527c1f380fd9260a44470af047a7adccfb8762"
     }
   ],
-  "learning_draft_sha256": "2dd20bba8ab61ed06637e50241d3029b4110d4d92ef353acc6c4f8c06bf0111c",
+  "learning_draft_sha256": "70c21e825f7aaf6e84683e8f96126e9bcfa39008508684efccec730a6656ee91",
   "evidence_check": "All 24 selected units are complete paragraphs or complete contribution items, preserved once verbatim from curated-introductions.json; consecutive group membership retains source order.",
   "final_source_check": {
     "original_audit_unchanged": true,
     "current_author_inputs_preserved": true,
     "all_selected_english_preserved_once": true,
     "all_source_links_exist": true,
-    "organizing_tasks": 7
-  }
+    "organizing_tasks": 6
+  },
+  "learning_draft_version_commit": "3b7b90014eba87fdcc706dc1bdf8eeea7e15ad9e",
+  "organizing_task_titles": [
+    "先说明领域价值，再落到具体研究问题",
+    "让每段承担清楚任务，并为相邻段落提供推进对象",
+    "用已有方法的能力、条件和限制推出设计需要",
+    "理由充分后引出核心设计，并说明具体作用",
+    "沿科学主线连接多个设计",
+    "结尾贡献回收前文已经建立的需要"
+  ]
 }

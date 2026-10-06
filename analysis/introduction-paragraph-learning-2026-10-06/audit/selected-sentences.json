@@ -1,0 +1,298 @@
+[
+  {
+    "paper": "P17",
+    "unit": "I01",
+    "source_spans": [
+      {
+        "block": "p1-b8",
+        "pdf_page": 1,
+        "printed_page": 777,
+        "column": "左",
+        "bbox": [
+          48.96034240722656,
+          419.53753662109375,
+          300.2729187011719,
+          501.2607116699219
+        ]
+      },
+      {
+        "block": "p1-b16",
+        "pdf_page": 1,
+        "printed_page": 777,
+        "column": "右",
+        "bbox": [
+          312.0,
+          191.1775665283203,
+          563.2386474609375,
+          225.02047729492188
+        ]
+      }
+    ],
+    "text": "RECENTLY, robots have been widely applied in various fields, especially in manufacturing. Adaptable robots are required due to the increasingly fast updates of the manufactured products. Hence, it is necessary to develop methods for enhancing robot learning. Robot learning from demonstration (LfD) is a valuable technique to simplify the strategy of robot learning [1], [2]. The human tutor shows the way to complete a task and then the robot learns, via motion modeling, to reproduce the skill. Therefore, it is essential to consider how to model motions effectively.",
+    "sentences": [
+      "RECENTLY, robots have been widely applied in various fields, especially in manufacturing.",
+      "Adaptable robots are required due to the increasingly fast updates of the manufactured products.",
+      "Hence, it is necessary to develop methods for enhancing robot learning.",
+      "Robot learning from demonstration (LfD) is a valuable technique to simplify the strategy of robot learning [1], [2].",
+      "The human tutor shows the way to complete a task and then the robot learns, via motion modeling, to reproduce the skill.",
+      "Therefore, it is essential to consider how to model motions effectively."
+    ],
+    "text_sha256": "0abeb858ac67fa7e44e9ecdc387cd0b87ced4eb506f133eb569385ec32bd0fa3"
+  },
+  {
+    "paper": "ESO2017",
+    "unit": "I01",
+    "source_spans": [
+      {
+        "block": "p1-b10",
+        "pdf_page": 1,
+        "printed_page": 6785,
+        "column": "左",
+        "bbox": [
+          37.908485412597656,
+          486.134521484375,
+          288.97686767578125,
+          531.96240234375
+        ]
+      },
+      {
+        "block": "p1-b17",
+        "pdf_page": 1,
+        "printed_page": 6785,
+        "column": "右",
+        "bbox": [
+          300.92401123046875,
+          233.61256408691406,
+          551.9647216796875,
+          291.3927001953125
+        ]
+      }
+    ],
+    "text": "UNDERWATER robots, including autonomous underwater vehicles (AUVs), remote operated vehicles (ROVs), and underwater gliders, have been increasingly employed to expand the abilities of human in marine resources exploration and marine scientific research. To exploit the full potential benefits provided by underwater robots, high-precision controller for underwater robots is required, such that the quality of the collected data can be guaranteed, and high precision in trajectory tracking or station keeping of the robot can be secured [1]–[6].",
+    "sentences": [
+      "UNDERWATER robots, including autonomous underwater vehicles (AUVs), remote operated vehicles (ROVs), and underwater gliders, have been increasingly employed to expand the abilities of human in marine resources exploration and marine scientific research.",
+      "To exploit the full potential benefits provided by underwater robots, high-precision controller for underwater robots is required, such that the quality of the collected data can be guaranteed, and high precision in trajectory tracking or station keeping of the robot can be secured [1]–[6]."
+    ],
+    "text_sha256": "9b5289e80a8e31189a90be9e17b040a82ca2cda4317a5ff09d23b748abd65850"
+  },
+  {
+    "paper": "P05",
+    "unit": "I02",
+    "source_spans": [
+      {
+        "block": "p1-b16",
+        "pdf_page": 1,
+        "printed_page": 1010,
+        "column": "右",
+        "bbox": [
+          311.9990234375,
+          246.97828674316406,
+          563.335693359375,
+          448.22265625
+        ]
+      }
+    ],
+    "text": "An adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot, where an implicit force control scheme was employed to simultaneously regulate the force and position [9]. In [10], a decentralized control structure for multiple mobile manipulators was developed, where the internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage. In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot. Note that the abovementioned controllers were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurred between the arms and the objects. However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface, where sliding movements usually happened between the robotic arm and the object [12]–[14].",
+    "sentences": [
+      "An adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot, where an implicit force control scheme was employed to simultaneously regulate the force and position [9].",
+      "In [10], a decentralized control structure for multiple mobile manipulators was developed, where the internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage.",
+      "In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot.",
+      "Note that the abovementioned controllers were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurred between the arms and the objects.",
+      "However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface, where sliding movements usually happened between the robotic arm and the object [12]–[14]."
+    ],
+    "text_sha256": "55265f0cf89b746165546b9b5d8ad6aa4252b8bb463985cca618410978c1470e"
+  },
+  {
+    "paper": "P17",
+    "unit": "I04",
+    "source_spans": [
+      {
+        "block": "p1-b19",
+        "pdf_page": 1,
+        "printed_page": 777,
+        "column": "右",
+        "bbox": [
+          312.0,
+          609.6213989257812,
+          563.2182006835938,
+          727.2249755859375
+        ]
+      },
+      {
+        "block": "p2-b2",
+        "pdf_page": 2,
+        "printed_page": 778,
+        "column": "左",
+        "bbox": [
+          48.959999084472656,
+          256.4573974609375,
+          300.2745666503906,
+          350.06097412109375
+        ]
+      }
+    ],
+    "text": "Probabilistic approaches have shown good performance in motion encoding [11]–[13]. The inherent variability of the demonstrations can be extracted, and thus, more features of the demonstrations can be preserved. In [14], an LfD framework using a Gaussian mixture model (GMM) and a Bernoulli mixture model was used to extract the features from multiple demonstrations. A new motion was generated through Gaussian mixture regression (GMR). In contrast with the above-mentioned methods, GMM combined with GMR can provide additional motion information for robots when learning from multiple demonstrations. In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling, where an unknown function was modeled using GMR. DS-GMR is another method that combines the DS with the statistical learning approach [15]. Both methods exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods.",
+    "sentences": [
+      "Probabilistic approaches have shown good performance in motion encoding [11]–[13].",
+      "The inherent variability of the demonstrations can be extracted, and thus, more features of the demonstrations can be preserved.",
+      "In [14], an LfD framework using a Gaussian mixture model (GMM) and a Bernoulli mixture model was used to extract the features from multiple demonstrations.",
+      "A new motion was generated through Gaussian mixture regression (GMR).",
+      "In contrast with the above-mentioned methods, GMM combined with GMR can provide additional motion information for robots when learning from multiple demonstrations.",
+      "In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling, where an unknown function was modeled using GMR.",
+      "DS-GMR is another method that combines the DS with the statistical learning approach [15].",
+      "Both methods exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods."
+    ],
+    "text_sha256": "3af3d4e7a24d18a7903ecaa2c45f15dfef0cb913317b8ecb61db70e454e508a4"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I02",
+    "source_spans": [
+      {
+        "block": "p1-b14",
+        "pdf_page": 1,
+        "printed_page": 1041,
+        "column": "右",
+        "bbox": [
+          300.92401123046875,
+          440.2821350097656,
+          552.0122680664062,
+          617.6104125976562
+        ]
+      }
+    ],
+    "text": "In practice, the undesirable transient performance may lead to the system instability, even the system safety problems sometimes. Recently, the barrier Lyapunov functions (BLFs) have been widely used to achieve the state and output constraints in the nonlinear control problems [12]–[16]. In [12], with the exponential-type BLF, a practical event-triggered prescribed-time controller has been proposed for a class of space teleoperation systems. In [14], a new command filtered fuzzy controller has been proposed for a class of unknown nonlinear systems to handle full-state constraints and finite-time convergence simultaneously. In [16], an adaptive fuzzy leader-following tracking control scheme has been proposed for heterogeneous nonlinear multiagent systems with finite-time output constraints. In this article, a novel symmetric BLF is designed to guarantee the desired transient performance of the robot system.",
+    "sentences": [
+      "In practice, the undesirable transient performance may lead to the system instability, even the system safety problems sometimes.",
+      "Recently, the barrier Lyapunov functions (BLFs) have been widely used to achieve the state and output constraints in the nonlinear control problems [12]–[16].",
+      "In [12], with the exponential-type BLF, a practical event-triggered prescribed-time controller has been proposed for a class of space teleoperation systems.",
+      "In [14], a new command filtered fuzzy controller has been proposed for a class of unknown nonlinear systems to handle full-state constraints and finite-time convergence simultaneously.",
+      "In [16], an adaptive fuzzy leader-following tracking control scheme has been proposed for heterogeneous nonlinear multiagent systems with finite-time output constraints.",
+      "In this article, a novel symmetric BLF is designed to guarantee the desired transient performance of the robot system."
+    ],
+    "text_sha256": "8004723467e8807df0a83f3f848a2f090949c966a7802c4de3119faee989309f"
+  },
+  {
+    "paper": "Fuzzy2023",
+    "unit": "I03",
+    "source_spans": [
+      {
+        "block": "p1-b15",
+        "pdf_page": 1,
+        "printed_page": 1041,
+        "column": "右",
+        "bbox": [
+          300.92401123046875,
+          619.6089477539062,
+          551.99072265625,
+          713.25439453125
+        ]
+      },
+      {
+        "block": "p2-b1",
+        "pdf_page": 2,
+        "printed_page": 1042,
+        "column": "左",
+        "bbox": [
+          42.119998931884766,
+          65.29450988769531,
+          293.17657470703125,
+          194.81430053710938
+        ]
+      }
+    ],
+    "text": "In many industrial systems, the system states are required to achieve fast convergence speed for better control performance. There have been some proposed research works focused on the convergence time of the systems [17]–[19]. In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence. In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties. Nevertheless, for the existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions, which are sometimes unavailable. To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22]. In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems. In [21], an adaptive event-based fixed-time control scheme has been proposed for the active vehicle suspension systems, and the predefined constraints can be guaranteed.",
+    "sentences": [
+      "In many industrial systems, the system states are required to achieve fast convergence speed for better control performance.",
+      "There have been some proposed research works focused on the convergence time of the systems [17]–[19].",
+      "In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence.",
+      "In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties.",
+      "Nevertheless, for the existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions, which are sometimes unavailable.",
+      "To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22].",
+      "In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems.",
+      "In [21], an adaptive event-based fixed-time control scheme has been proposed for the active vehicle suspension systems, and the predefined constraints can be guaranteed."
+    ],
+    "text_sha256": "92750ffe5b925a456ed00ef16af75a52b9d394b895e024679bd65228f5063849"
+  },
+  {
+    "paper": "P17",
+    "unit": "I05",
+    "source_spans": [
+      {
+        "block": "p2-b3",
+        "pdf_page": 2,
+        "printed_page": 778,
+        "column": "左",
+        "bbox": [
+          48.959999084472656,
+          352.0982971191406,
+          300.39312744140625,
+          529.4623413085938
+        ]
+      }
+    ],
+    "text": "To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our proposed system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR. This modification enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features. The original DMP was learned using the locally weighted regression (LWR) [16], and the locally weighted projection regression [17] was employed to optimize the bandwidth of each kernel of LWR. Despite the added complexity of the learning procedure, these methods enable the DMP to learn from only one demonstration. Reservoir computing [18] is another method used to approximate the nonlinear function, but its computing efficiency is less than that of GMR.",
+    "sentences": [
+      "To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our proposed system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR.",
+      "This modification enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features.",
+      "The original DMP was learned using the locally weighted regression (LWR) [16], and the locally weighted projection regression [17] was employed to optimize the bandwidth of each kernel of LWR.",
+      "Despite the added complexity of the learning procedure, these methods enable the DMP to learn from only one demonstration.",
+      "Reservoir computing [18] is another method used to approximate the nonlinear function, but its computing efficiency is less than that of GMR."
+    ],
+    "text_sha256": "33c89177ac9abb72ae3858e0d4e72a378b99d420aeb3bab2d1de57c392ff4f15"
+  },
+  {
+    "paper": "P17",
+    "unit": "I07",
+    "source_spans": [
+      {
+        "block": "p2-b6",
+        "pdf_page": 2,
+        "printed_page": 778,
+        "column": "右",
+        "bbox": [
+          311.99853515625,
+          304.2249755859375,
+          563.3594360351562,
+          457.7087097167969
+        ]
+      }
+    ],
+    "text": "In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics. The stability of the controller is guaranteed by the Lyapunov stability theory. As shown in Fig. 1, the robot learning system consists of the motion generation component and the trajectory tracking component. The former utilizes the motion model based on DMP to learn and generalize motion skills; these, in turn, are represented as a set of trajectories in joint space. The latter employs the adaptive controller to track the trajectories generated from the former, and RBFNN is incorporated to compensate for the uncertain dynamics.",
+    "sentences": [
+      "In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics.",
+      "The stability of the controller is guaranteed by the Lyapunov stability theory.",
+      "As shown in Fig. 1, the robot learning system consists of the motion generation component and the trajectory tracking component.",
+      "The former utilizes the motion model based on DMP to learn and generalize motion skills; these, in turn, are represented as a set of trajectories in joint space.",
+      "The latter employs the adaptive controller to track the trajectories generated from the former, and RBFNN is incorporated to compensate for the uncertain dynamics."
+    ],
+    "text_sha256": "e9dc86ea0d02e07b086285f123067ad0361f65265575f2cc3608650228831b03"
+  },
+  {
+    "paper": "P17",
+    "unit": "I08",
+    "source_spans": [
+      {
+        "block": "p2-b7",
+        "pdf_page": 2,
+        "printed_page": 778,
+        "column": "右",
+        "bbox": [
+          311.99853515625,
+          459.74603271484375,
+          563.3491821289062,
+          589.2299194335938
+        ]
+      }
+    ],
+    "text": "Here, we present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived by the Lyapunov theory that increases the complexity of the learning. In contrast to [3] and [25] which considered only motion modeling, our system is enhanced by an NN-based controller and the effect caused by the dynamic environments can be compensated by neural learning. This design enables the robot to perform the learned motions steadily and more robustly in the real world.",
+    "sentences": [
+      "Here, we present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking.",
+      "The SEDS presented in [3] is similar to our DMP-based model.",
+      "However, the constraints that guarantee the stability of SEDS are derived by the Lyapunov theory that increases the complexity of the learning.",
+      "In contrast to [3] and [25] which considered only motion modeling, our system is enhanced by an NN-based controller and the effect caused by the dynamic environments can be compensated by neural learning.",
+      "This design enables the robot to perform the learned motions steadily and more robustly in the real world."
+    ],
+    "text_sha256": "e207a6037edea537cc6b4b9b62e6aaae8e6090c47ffc721dde60eede0f0de893"
+  }
+]

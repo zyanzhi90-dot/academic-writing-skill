@@ -1,0 +1,95 @@
+{
+  "scope": "Source and document consistency checks only; no Skill execution or effect test",
+  "selected_paragraphs": [
+    {
+      "paper": "P17",
+      "unit": "I01",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 6,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "ESO2017",
+      "unit": "I01",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 2,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "P05",
+      "unit": "I02",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 5,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I04",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 8,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I02",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 6,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "Fuzzy2023",
+      "unit": "I03",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 8,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I05",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 5,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I07",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 5,
+      "all_relationship_columns_present": true
+    },
+    {
+      "paper": "P17",
+      "unit": "I08",
+      "complete_original_preserved_once": true,
+      "source_spans_match": true,
+      "sentence_rows": 5,
+      "all_relationship_columns_present": true
+    }
+  ],
+  "total_complete_paragraphs": 9,
+  "total_sentences": 50,
+  "source_links_checked": 11,
+  "current_author_hashes_match": true,
+  "four_pdf_hashes_unchanged": true,
+  "previous_section_learning_draft_unchanged": true,
+  "previous_source_audit_unchanged": true,
+  "section_tasks": [
+    "先说明领域价值，再落到具体研究问题",
+    "让每段承担清楚任务，并为相邻段落提供推进对象",
+    "用已有方法的能力、条件和限制推出设计需要",
+    "理由充分后引出核心设计，并说明具体作用",
+    "沿科学主线连接多个设计",
+    "结尾贡献回收前文已经建立的需要"
+  ],
+  "section_evidence_units": 24,
+  "section_evidence_in_current_appearance_order": true,
+  "section_learning_draft_hash_matches_record": true
+}
