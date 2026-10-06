@@ -1792,13 +1792,13 @@
       "byte_exact": true
     },
     "verification.json": {
-      "git_blob": "752f85fa1b10e76d5dc1b5ff9e91c128ba498d23",
-      "sha256": "54abc4cbb92aa3876292873b59793e091b0b688bac341497b53ec51c68754256",
+      "git_blob": "33ffc6880bdccaeca34d9301947bf7bd681af3e2",
+      "sha256": "7ff2c33afeeb259c07e6636135b83f826d86b8fef8d124433f0eb658832d76b7",
       "byte_exact": true
     },
     "verify_git_bytes.py": {
-      "git_blob": "ad9a0822dca55180b5ac7c33906de23f172370ec",
-      "sha256": "602021582db63c4de641c8c245e3166b854ad3099c11df62a01e15f2327f06ec",
+      "git_blob": "83724675cdda59dee28ff1daf7c18c21c7a80de8",
+      "sha256": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2",
       "byte_exact": true
     },
     "verify_records.py": {
@@ -1818,5 +1818,5 @@
     }
   },
   "scope": "E04 records only; record-level -text prevents inherited line-ending conversions; PDFs are binary",
-  "exclusions": "This audit file, created after the inspected staging snapshot; final post-commit hash check covers all files"
+  "exclusions": "This derived audit file is updated after the inspected staging snapshot; final post-commit byte comparison covers all files"
 }

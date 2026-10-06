@@ -18,6 +18,8 @@ assert entries
 process=subprocess.Popen(['git','cat-file','--batch'],cwd=ROOT,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
 checks={}
 for name,oid in entries:
+    if name==prefix+'git-byte-verification.json':
+        continue
     process.stdin.write((oid+'\n').encode())
     process.stdin.flush()
     header=process.stdout.readline().decode().split()
@@ -32,9 +34,8 @@ for name,oid in entries:
 process.stdin.close()
 assert process.wait()==0
 target=RECORD/'git-byte-verification.json'
-assert not target.exists()
 target.write_text(json.dumps({'all_staged_record_blobs_byte_exact':True,'checked_files':checks,
     'scope':'E04 records only; record-level -text prevents inherited line-ending conversions; PDFs are binary',
-    'exclusions':'This audit file, created after the inspected staging snapshot; final post-commit hash check covers all files'},
+    'exclusions':'This derived audit file is updated after the inspected staging snapshot; final post-commit byte comparison covers all files'},
     ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('All',len(checks),'staged record blobs match original file bytes exactly')

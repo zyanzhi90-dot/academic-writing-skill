@@ -266,7 +266,6 @@
     "drafting/stderr.txt": "e6f9aa19a4e70ae72cd059d7f08729939c79f854a633eb499fd9b649642fef6d",
     "drafting-task.md": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
     "execute_once.py": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
-    "git-byte-verification.json": "038bb048038c4c3231fe9cae044a9b30efe6e22f4c37f27e82bd2d163fd09597",
     "index_outputs.py": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200",
     "loading-summary.json": "a04bc68eafc59a2ea45f702820ee2d73336a98fe2f4a6ab27857b0b3f886dff1",
     "polishing/audit.json": "97f67b20bb2df19b8767c1e94cafccf020cdc2fb67844b8a25263b5ccfd22753",
@@ -423,11 +422,12 @@
     "save_delivery.py": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844",
     "scientific-facts.md": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
     "summarize_loading.py": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6",
-    "verify_git_bytes.py": "602021582db63c4de641c8c245e3166b854ad3099c11df62a01e15f2327f06ec",
+    "verify_git_bytes.py": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2",
     "verify_records.py": "5ce997a4504e457df5a7951b1149923e0264ab5174fb7ef0507d62804cbdfb93",
     "verify_stage.py": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868",
     "报告.md": "93240c22010204ed8009612687afd9e9b358daf477b6e610059d8a4607033bf8"
   },
   "sync_status": "Pre-sync verification; verify branch clean and local/live remote equality after sync.ps1",
-  "git_evidence_byte_retention": "Record-local * -text; staged blob audit and final all-file raw byte comparison"
+  "git_evidence_byte_retention": "Record-local * -text; staged blob audit and final all-file raw byte comparison",
+  "inventory_exclusions": "This inventory and the subsequent staged-blob audit, to avoid mutual hash dependencies; final raw-byte comparison covers every record file."
 }
