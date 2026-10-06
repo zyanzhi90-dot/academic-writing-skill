@@ -1,0 +1,893 @@
+[
+  {
+    "id": "p1-b0",
+    "page": 1,
+    "bbox": [
+      37.90800094604492,
+      33.50128936767578,
+      551.9822998046875,
+      40.47509002685547
+    ],
+    "text": "IEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023\n1041\n"
+  },
+  {
+    "id": "p1-b1",
+    "page": 1,
+    "bbox": [
+      40.994998931884766,
+      60.42897033691406,
+      548.9501342773438,
+      84.33926391601562
+    ],
+    "text": "Fixed-Time Fuzzy Control of Uncertain Robots With\n"
+  },
+  {
+    "id": "p1-b2",
+    "page": 1,
+    "bbox": [
+      128.05239868164062,
+      88.32984924316406,
+      461.8735656738281,
+      112.24014282226562
+    ],
+    "text": "Guaranteed Transient Performance\n"
+  },
+  {
+    "id": "p1-b3",
+    "page": 1,
+    "bbox": [
+      70.7490005493164,
+      121.0152587890625,
+      519.1326293945312,
+      145.03640747070312
+    ],
+    "text": "Chengzhi Zhu\n, Student Member, IEEE, Chenguang Yang\n, Senior Member, IEEE, Yiming Jiang\n,\nand Hui Zhang\n, Member, IEEE\n"
+  },
+  {
+    "id": "p1-b4",
+    "page": 1,
+    "bbox": [
+      37.90842819213867,
+      177.4287872314453,
+      288.9981689453125,
+      295.9932861328125
+    ],
+    "text": "Abstract—In this article, an adaptive ﬁxed-time fuzzy control\nscheme is proposed for an uncertain robot manipulator with user-\ndeﬁned performance. A novel symmetrical barrier Lyapunov func-\ntion is designed based on the error conversion mechanism and\nthe performance function such that the tracking errors will not\nviolate the prescribed output constraints. A novel adaptive law is\nconstructed and incorporated into the ﬁxed-time controller design\nsuch that all the closed-loop signals can be bounded and achieve\npractical ﬁxed-time convergence regardless of the initial conditions.\nFinally, the feasibility and superiority of the proposed scheme are\ndemonstrated based on simulation and experimental studies using\na Baxter robot.\n"
+  },
+  {
+    "id": "p1-b5",
+    "page": 1,
+    "bbox": [
+      37.90842819213867,
+      303.96533203125,
+      288.96490478515625,
+      322.8951721191406
+    ],
+    "text": "Index\nTerms—Adaptive\nfuzzy\ncontrol,\nbarrier\nLyapunov\nfunction (BLF), ﬁxed-time convergence, robot manipulator.\n"
+  },
+  {
+    "id": "p1-b6",
+    "page": 1,
+    "bbox": [
+      37.90800094604492,
+      344.3034362792969,
+      199.33624267578125,
+      389.8506774902344
+    ],
+    "text": "I. INTRODUCTION\nF\n"
+  },
+  {
+    "id": "p1-b7",
+    "page": 1,
+    "bbox": [
+      37.90802001953125,
+      361.24151611328125,
+      288.9963684082031,
+      490.7613220214844
+    ],
+    "text": "OR the robot dynamic systems, uncertain nonlinear terms\nusually exist due to the time-varying model parameters and\nthe external disturbance during operation. Combined with adap-\ntive control techniques, the neural network (NN) [1]–[5] and\nthe fuzzy logic system (FLS) [6]–[8] have been widely applied\nto handle the tracking control problem for the uncertain robot\nsystems because of their universal approximation capability.\nIn [4], an NN control scheme has been proposed for a robot ma-\nnipulator to achieve trajectory tracking with output constraints\nand input saturation. In [5], an admittance adaptation method\nhas been proposed for robot–environment interaction, and the\n"
+  },
+  {
+    "id": "p1-b8",
+    "page": 1,
+    "bbox": [
+      37.90790939331055,
+      510.1999816894531,
+      289.0113830566406,
+      616.7193603515625
+    ],
+    "text": "Manuscript received 28 January 2022; revised 6 June 2022; accepted 22 July\n2022. Date of publication 27 July 2022; date of current version 1 March 2023.\nThis work was supported in part by the National Key R&D Program of China\nunder Grant 2021ZD0114503, in part by the National Natural Science Founda-\ntion of China under Grant U20A20200, Grant 62133005, and Major Research\nGrant 92148204, in part by the Guangdong Basic and Applied Basic Research\nFoundation under Grant 2019B1515120076 and Grant 2020B1515120054, in\npart by the Industrial Key Technologies R&D Program of Foshan under Grant\n2020001006308 and Grant 2020001006496, in part by the Hunan Science Fund\nfor Distinguished Young Scholars under Grant 2021JJ10025, and in part by\nthe Changsha Municipal Natural Science Foundation under Grant kq2014060.\n(Corresponding author: Chenguang Yang.)\n"
+  },
+  {
+    "id": "p1-b9",
+    "page": 1,
+    "bbox": [
+      37.90790939331055,
+      617.7940063476562,
+      288.9938659667969,
+      652.6647338867188
+    ],
+    "text": "Chengzhi Zhu and Chenguang Yang are with the Key Laboratory of Au-\ntonomous Systems and Networked Control, College of Automation Science and\nEngineering, South China University of Technology, Guangzhou 510640, China\n(e-mail: chengzhi.zhu@qq.com; cyang@ieee.org).\n"
+  },
+  {
+    "id": "p1-b10",
+    "page": 1,
+    "bbox": [
+      37.90790939331055,
+      653.6586303710938,
+      288.99627685546875,
+      688.5294189453125
+    ],
+    "text": "Yiming Jiang and Hui Zhang are with the School of Robotics and the Visual\nPerception and Control Technology National Engineering Laboratory, Hunan\nUniversity, Changsha 410082, China (e-mail: ymjiang@hnu.edu.cn; zhanghui-\nhby@126.com).\n"
+  },
+  {
+    "id": "p1-b11",
+    "page": 1,
+    "bbox": [
+      37.90790939331055,
+      689.5320434570312,
+      288.97247314453125,
+      706.4661254882812
+    ],
+    "text": "Color versions of one or more ﬁgures in this article are available at\nhttps://doi.org/10.1109/TFUZZ.2022.3194373.\n"
+  },
+  {
+    "id": "p1-b12",
+    "page": 1,
+    "bbox": [
+      45.88199996948242,
+      707.4600219726562,
+      225.21559143066406,
+      715.4301147460938
+    ],
+    "text": "Digital Object Identiﬁer 10.1109/TFUZZ.2022.3194373\n"
+  },
+  {
+    "id": "p1-b13",
+    "page": 1,
+    "bbox": [
+      300.92401123046875,
+      177.26356506347656,
+      551.9996948242188,
+      438.2836608886719
+    ],
+    "text": "guaranteed trajectory tracking can be achieved by an NN-based\ncontroller. In [9], a number of advanced NN control algorithms\nhave been introduced in detail for nonlinear systems, including\nrobots. In [7], an adaptive robust fuzzy control scheme has been\nproposed for the uncertain two-degree-of-freedom (DOF) lower\nlimb exoskeleton robot system to enhance the rehabilitation\ntraining. In [8], an adaptive fuzzy control scheme has been\nproposed for robotic systems to achieve ﬁxed-time convergence\nand user-deﬁned performance simultaneously. In [10], a novel\nadaptive controller based on active inference has been proposed\nfor the robot to handle large model uncertainties and a large\nnumber DOFs, which enable to deal with the robot uncertainty,\nbesides the NN and the FLS. It should be noted that large calcu-\nlation is always required because of the weight iterative process\nin traditional fuzzy control schemes. In our previous work [11],\na topology optimization method has been proposed to reduce\nthe data amount for calculation and storage in wireless sensor\nnetworks, which is exciting because it may enlighten optimizing\nthe FLS structure to reduce the computational complexity in our\nfuture work. Moreover, the desired transient performance and\nconvergence time are rarely discussed simultaneously in most\nof the existing fuzzy control schemes.\n"
+  },
+  {
+    "id": "p1-b14",
+    "page": 1,
+    "bbox": [
+      300.92401123046875,
+      440.2821350097656,
+      552.0122680664062,
+      617.6104125976562
+    ],
+    "text": "In practice, the undesirable transient performance may lead\nto the system instability, even the system safety problems some-\ntimes. Recently, the barrier Lyapunov functions (BLFs) have\nbeen widely used to achieve the state and output constraints\nin the nonlinear control problems [12]–[16]. In [12], with the\nexponential-type BLF, a practical event-triggered prescribed-\ntime controller has been proposed for a class of space teleoper-\nation systems. In [14], a new command ﬁltered fuzzy controller\nhas been proposed for a class of unknown nonlinear systems to\nhandle full-state constraints and ﬁnite-time convergence simul-\ntaneously. In [16], an adaptive fuzzy leader-following tracking\ncontrol scheme has been proposed for heterogeneous nonlinear\nmultiagent systems with ﬁnite-time output constraints. In this\narticle, a novel symmetric BLF is designed to guarantee the\ndesired transient performance of the robot system.\n"
+  },
+  {
+    "id": "p1-b15",
+    "page": 1,
+    "bbox": [
+      300.92401123046875,
+      619.6089477539062,
+      551.99072265625,
+      713.25439453125
+    ],
+    "text": "In many industrial systems, the system states are required to\nachieve fast convergence speed for better control performance.\nThere have been some proposed research works focused on the\nconvergence time of the systems [17]–[19]. In [17], an adaptive\nobserver-based fuzzy controller has been proposed for a class\nof strict-feedback nonlinear systems to achieve ﬁnite-time con-\nvergence. In [18], an adaptive ﬁnite-time sliding-mode control\nscheme has been proposed for a class of nonlinear systems\n"
+  },
+  {
+    "id": "p1-b16",
+    "page": 1,
+    "bbox": [
+      118.62899780273438,
+      727.387939453125,
+      471.2702331542969,
+      744.3219604492188
+    ],
+    "text": "1063-6706 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.\nSee https://www.ieee.org/publications/rights/index.html for more information.\n"
+  },
+  {
+    "id": "p1-b17",
+    "page": 1,
+    "bbox": [
+      12.596980094909668,
+      762.5669555664062,
+      581.4032592773438,
+      772.1849975585938
+    ],
+    "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore.  Restrictions apply. \n"
+  },
+  {
+    "id": "p2-b0",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      33.50128936767578,
+      556.1881713867188,
+      40.47509002685547
+    ],
+    "text": "1042\nIEEE TRANSACTIONS ON FUZZY SYSTEMS, VOL. 31, NO. 3, MARCH 2023\n"
+  },
+  {
+    "id": "p2-b1",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      65.29450988769531,
+      293.17657470703125,
+      194.81430053710938
+    ],
+    "text": "with some matched uncertainties. Nevertheless, for the existing\nﬁnite-time control schemes, the convergence time of the systems\nis always related to the initial conditions, which are sometimes\nunavailable. To improve the control performance, the ﬁxed-time\ncontrol schemes have been proposed and applied in the nonlinear\ncontrol community [20]–[22]. In [20], a novel ﬁxed-time adap-\ntive fuzzy control scheme combined with the BLF technique\nhas been proposed for uncertain nonstrict-feedback nonlinear\nsystems. In [21], an adaptive event-based ﬁxed-time control\nscheme has been proposed for the active vehicle suspension\nsystems, and the predeﬁned constraints can be guaranteed.\n"
+  },
+  {
+    "id": "p2-b2",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      196.80384826660156,
+      293.1873779296875,
+      242.63180541992188
+    ],
+    "text": "Motivated by the above research works, the problem of ﬁxed-\ntime tracking control is discussed for uncertain robot systems\nbased on the FLS and the BLF technique in this article. The\nmajor contributions of our work can be listed as follows.\n"
+  },
+  {
+    "id": "p2-b3",
+    "page": 2,
+    "bbox": [
+      52.08259963989258,
+      244.62135314941406,
+      293.19537353515625,
+      362.1800231933594
+    ],
+    "text": "1) A novel symmetric BLF is designed to avoid the viola-\ntion of the output constraints; thus, the desired transient\nperformance of the robot system can be guaranteed.\n2) A novel adaptive law is proposed such that the bounded-\nness of all the closed-loop signals can be proved. Then, the\nassumption that the weight estimation is bounded in recent\nﬁxed-time control research [23]–[25] can be relaxed.\n3) The tracking performance of the robot system can achieve\npractical ﬁxed-time convergence regardless of the initial\nconditions.\n"
+  },
+  {
+    "id": "p2-b4",
+    "page": 2,
+    "bbox": [
+      68.8855209350586,
+      376.6405334472656,
+      266.3974304199219,
+      386.6063232421875
+    ],
+    "text": "II. PROBLEM FORMULATION AND PRELIMINARIES\n"
+  },
+  {
+    "id": "p2-b5",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      394.4676208496094,
+      141.83766174316406,
+      404.4302062988281
+    ],
+    "text": "A. Problem Formulation\n"
+  },
+  {
+    "id": "p2-b6",
+    "page": 2,
+    "bbox": [
+      42.11899948120117,
+      411.1383361816406,
+      293.1606140136719,
+      433.4296569824219
+    ],
+    "text": "The following dynamic equation of an n-DOF robot is con-\nsidered:\n"
+  },
+  {
+    "id": "p2-b7",
+    "page": 2,
+    "bbox": [
+      83.14997100830078,
+      444.4293518066406,
+      293.1827087402344,
+      455.47686767578125
+    ],
+    "text": "M(q)¨q + C(q, ˙q) ˙q + G(q) + τd(q, ˙q) = τ\n(1)\n"
+  },
+  {
+    "id": "p2-b8",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      462.7164306640625,
+      293.1816711425781,
+      536.066162109375
+    ],
+    "text": "where q, ˙q, ¨q ∈Rn are expressed as the vectors of position,\nvelocity, and acceleration, respectively. M(q), C(q, ˙q) ∈Rn×n,\nand G(q) ∈Rn mean the unknown inertia matrix, centripetal\nCoriolis torque matrix, and gravitational vector, respectively.\nτ ∈Rn and τd(q, ˙q) ∈Rn are the input torque and the unknown\ndisturbance related to the system signals, respectively.\n"
+  },
+  {
+    "id": "p2-b9",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      538.0556640625,
+      293.1984558105469,
+      607.796875
+    ],
+    "text": "The objective of our work is to make the output errors in\n(1) converge to a predeﬁned neighborhood around zero with\nguaranteed transient performance in ﬁxed time regardless of the\ninitial conditions. Meanwhile, all the closed-loop signals can be\nbounded during the operation. The controller design strategy is\ndemonstrated in Fig. 1.\n"
+  },
+  {
+    "id": "p2-b10",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      622.15966796875,
+      110.59793853759766,
+      632.1222534179688
+    ],
+    "text": "B. Preliminaries\n"
+  },
+  {
+    "id": "p2-b11",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      638.8223876953125,
+      293.1854553222656,
+      673.0658569335938
+    ],
+    "text": "Property1(See [8]):ThematrixM(q)in(1)issymmetricand\npositive deﬁnite. The term ˙M(q) −2C(q, ˙q) is skew symmetric\nand satisﬁes that δT ( ˙M(q) −2C(q, ˙q))δ = 0 ∀δ ∈Rn.\n"
+  },
+  {
+    "id": "p2-b12",
+    "page": 2,
+    "bbox": [
+      42.12036895751953,
+      671.4443969726562,
+      293.1788635253906,
+      708.9291381835938
+    ],
+    "text": "Assumption 1: The reference trajectory vector qd ∈Rn and\nits ﬁrst-order derivative ˙qd ∈Rn are considered continuous and\nbounded.\n"
+  },
+  {
+    "id": "p2-b13",
+    "page": 2,
+    "bbox": [
+      42.12036895751953,
+      710.56005859375,
+      293.1639404296875,
+      732.8423461914062
+    ],
+    "text": "Lemma 1 (See [26]): For a general system ˙x(t) = g(x), when\nthe Lyapunov function V (x) satisﬁes the following inequality:\n"
+  },
+  {
+    "id": "p2-b14",
+    "page": 2,
+    "bbox": [
+      42.12036895751953,
+      731.9437255859375,
+      293.1773986816406,
+      745.9204711914062
+    ],
+    "text": "˙V (x) ≤−μ1 V η1(x) −μ2 V η2(x) + ρ, where μ1, μ2, and ρ\n"
+  },
+  {
+    "id": "p2-b15",
+    "page": 2,
+    "bbox": [
+      305.135986328125,
+      208.3669891357422,
+      502.3832092285156,
+      216.3370819091797
+    ],
+    "text": "Fig. 1.\nFramework for the ﬁxed-time fuzzy robot controller.\n"
+  },
+  {
+    "id": "p2-b16",
+    "page": 2,
+    "bbox": [
+      305.1357116699219,
+      236.60194396972656,
+      556.1866455078125,
+      270.8451232910156
+    ],
+    "text": "denote positive constants and the parameters η1 ∈(0, 1) and\nη2 ∈(1, ∞), the system is practically ﬁxed-time stable. And\nthe residual set of the system can be represented as\n"
+  },
+  {
+    "id": "p2-b17",
+    "page": 2,
+    "bbox": [
+      344.04266357421875,
+      282.83489990234375,
+      366.2109375,
+      294.2915344238281
+    ],
+    "text": "Ω1 =\n"
+  },
+  {
+    "id": "p2-b18",
+    "page": 2,
+    "bbox": [
+      368.9905090332031,
+      271.7744140625,
+      375.6256103515625,
+      281.7370300292969
+    ],
+    "text": "\u0002\n"
+  },
+  {
+    "id": "p2-b19",
+    "page": 2,
+    "bbox": [
+      375.632568359375,
+      282.83489990234375,
+      420.89764404296875,
+      293.1651306152344
+    ],
+    "text": "x|V ≤min\n"
+  },
+  {
+    "id": "p2-b20",
+    "page": 2,
+    "bbox": [
+      422.55841064453125,
+      271.7744140625,
+      428.5060729980469,
+      281.7370300292969
+    ],
+    "text": "\u0003\n"
+  },
+  {
+    "id": "p2-b21",
+    "page": 2,
+    "bbox": [
+      428.51605224609375,
+      279.09979248046875,
+      513.2216186523438,
+      293.6937561035156
+    ],
+    "text": "[ρ/(μ1(1 −θ))]1/η1 ,\n"
+  },
+  {
+    "id": "p2-b22",
+    "page": 2,
+    "bbox": [
+      424.404052734375,
+      296.6858215332031,
+      517.2767333984375,
+      318.59674072265625
+    ],
+    "text": "[ρ/(μ2(1 −θ))]1/η2\u0004\u0005\n"
+  },
+  {
+    "id": "p2-b23",
+    "page": 2,
+    "bbox": [
+      305.1363830566406,
+      330.3902893066406,
+      556.1907958984375,
+      377.7124328613281
+    ],
+    "text": "where θ ∈(0, 1). And the convergence time of the system can\nbe derived as T ≤Tmax =\n1\nμ1θ(1−η1) +\n1\nμ2θ(η2−1).\nLemma 2 (See [27]): The following inequalities hold for any\nxr ∈R and y ∈R+:\n"
+  },
+  {
+    "id": "p2-b24",
+    "page": 2,
+    "bbox": [
+      352.52099609375,
+      384.7649841308594,
+      366.906982421875,
+      395.13653564453125
+    ],
+    "text": "n\n\u0006\n"
+  },
+  {
+    "id": "p2-b25",
+    "page": 2,
+    "bbox": [
+      352.7099914550781,
+      408.6699523925781,
+      366.71337890625,
+      415.83184814453125
+    ],
+    "text": "r=1\n"
+  },
+  {
+    "id": "p2-b26",
+    "page": 2,
+    "bbox": [
+      368.5679931640625,
+      390.5289001464844,
+      399.51092529296875,
+      405.6888427734375
+    ],
+    "text": "|xr|y ≥\n"
+  },
+  {
+    "id": "p2-b27",
+    "page": 2,
+    "bbox": [
+      402.28155517578125,
+      377.6048583984375,
+      424.5519714355469,
+      395.13653564453125
+    ],
+    "text": "\u0007 n\n\u0006\n"
+  },
+  {
+    "id": "p2-b28",
+    "page": 2,
+    "bbox": [
+      410.364013671875,
+      408.6699523925781,
+      424.36737060546875,
+      415.83184814453125
+    ],
+    "text": "r=1\n"
+  },
+  {
+    "id": "p2-b29",
+    "page": 2,
+    "bbox": [
+      426.22198486328125,
+      394.64190673828125,
+      441.8516540527344,
+      405.6888427734375
+    ],
+    "text": "|xr|\n"
+  },
+  {
+    "id": "p2-b30",
+    "page": 2,
+    "bbox": [
+      441.8546447753906,
+      377.6048583984375,
+      453.78582763671875,
+      389.4527587890625
+    ],
+    "text": "\by\n"
+  },
+  {
+    "id": "p2-b31",
+    "page": 2,
+    "bbox": [
+      456.20098876953125,
+      394.64190673828125,
+      556.1975708007812,
+      404.9721374511719
+    ],
+    "text": ",\n0 < y ≤1\n(2)\n"
+  },
+  {
+    "id": "p2-b32",
+    "page": 2,
+    "bbox": [
+      348.6780090332031,
+      422.1150817871094,
+      363.0639953613281,
+      432.4864196777344
+    ],
+    "text": "n\n\u0006\n"
+  },
+  {
+    "id": "p2-b33",
+    "page": 2,
+    "bbox": [
+      348.8760070800781,
+      446.0198669433594,
+      362.8793640136719,
+      453.1817626953125
+    ],
+    "text": "r=1\n"
+  },
+  {
+    "id": "p2-b34",
+    "page": 2,
+    "bbox": [
+      364.7340087890625,
+      427.8788146972656,
+      417.8590393066406,
+      443.0388488769531
+    ],
+    "text": "|xr|y ≥n1−y\n"
+  },
+  {
+    "id": "p2-b35",
+    "page": 2,
+    "bbox": [
+      420.27301025390625,
+      414.95489501953125,
+      442.5429992675781,
+      432.4864196777344
+    ],
+    "text": "\u0007 n\n\u0006\n"
+  },
+  {
+    "id": "p2-b36",
+    "page": 2,
+    "bbox": [
+      428.3550109863281,
+      446.0198669433594,
+      442.3583679199219,
+      453.1817626953125
+    ],
+    "text": "r=1\n"
+  },
+  {
+    "id": "p2-b37",
+    "page": 2,
+    "bbox": [
+      444.2040100097656,
+      431.9918212890625,
+      459.8426513671875,
+      443.0388488769531
+    ],
+    "text": "|xr|\n"
+  },
+  {
+    "id": "p2-b38",
+    "page": 2,
+    "bbox": [
+      459.84564208984375,
+      414.95477294921875,
+      471.77685546875,
+      426.8027648925781
+    ],
+    "text": "\by\n"
+  },
+  {
+    "id": "p2-b39",
+    "page": 2,
+    "bbox": [
+      474.1830139160156,
+      431.9918212890625,
+      556.188232421875,
+      442.3220520019531
+    ],
+    "text": ",\ny > 1.\n(3)\n"
+  },
+  {
+    "id": "p2-b40",
+    "page": 2,
+    "bbox": [
+      305.1365966796875,
+      460.1856994628906,
+      556.1923217773438,
+      482.2102966308594
+    ],
+    "text": "Lemma 3 (See [28]): The following inequality holds for any\na, b ∈R and ϵ ∈R+:\n"
+  },
+  {
+    "id": "p2-b41",
+    "page": 2,
+    "bbox": [
+      371.55560302734375,
+      489.9390563964844,
+      407.66729736328125,
+      507.6814270019531
+    ],
+    "text": "ab ≤ϵh1\n"
+  },
+  {
+    "id": "p2-b42",
+    "page": 2,
+    "bbox": [
+      397.0169982910156,
+      504.5499267578125,
+      406.7270812988281,
+      515.40869140625
+    ],
+    "text": "h1\n"
+  },
+  {
+    "id": "p2-b43",
+    "page": 2,
+    "bbox": [
+      411.5249938964844,
+      490.9781188964844,
+      556.1884155273438,
+      515.40869140625
+    ],
+    "text": "|a|h1 +\n1\nh2ϵh2 |b|h2\n(4)\n"
+  },
+  {
+    "id": "p2-b44",
+    "page": 2,
+    "bbox": [
+      305.1362609863281,
+      522.216796875,
+      556.1339111328125,
+      545.6344604492188
+    ],
+    "text": "where h1, h2 ∈(1, ∞) are both positive constants, which satisfy\nthat (h1 −1)(h2 −1) = 1.\n"
+  },
+  {
+    "id": "p2-b45",
+    "page": 2,
+    "bbox": [
+      305.136474609375,
+      546.3966674804688,
+      556.2039794921875,
+      616.2384643554688
+    ],
+    "text": "Fuzzy Logic System (See [8]): As described in [8], an FLS is\napplied to approximate the unknown function f(Z) : Rk →R\nin this article, where Z ∈ΩC ⊂Rk is the FLS input vector and k\nis the dimension of the FLS input. The fuzzy IF–THEN inference\nrules of the knowledge base in the FLS can be described as\nfollows:\n"
+  },
+  {
+    "id": "p2-b46",
+    "page": 2,
+    "bbox": [
+      315.0993957519531,
+      616.8209838867188,
+      386.8355407714844,
+      629.6840209960938
+    ],
+    "text": "Rule l: If Z1 is Al\n"
+  },
+  {
+    "id": "p2-b47",
+    "page": 2,
+    "bbox": [
+      305.135986328125,
+      616.8209838867188,
+      556.1851806640625,
+      665.707763671875
+    ],
+    "text": "1, Z2 is Al\n2,..., Zk is Al\nk,\nthen ψ is Bl, l = 1, 2, . . ., N0\nwhere Z = [Z1, Z2, . . ., Zk]T ∈Rk and ψ are the input and\noutput of the FLS, respectively. μAl\n"
+  },
+  {
+    "id": "p2-b48",
+    "page": 2,
+    "bbox": [
+      450.6210021972656,
+      653.7247924804688,
+      556.1885375976562,
+      667.3981323242188
+    ],
+    "text": "j(Zj) and μBl(ψ) can be\n"
+  },
+  {
+    "id": "p2-b49",
+    "page": 2,
+    "bbox": [
+      305.136962890625,
+      667.8150634765625,
+      554.5054931640625,
+      679.1842041015625
+    ],
+    "text": "represented as the membership functions of the fuzzy sets Al\n"
+  },
+  {
+    "id": "p2-b50",
+    "page": 2,
+    "bbox": [
+      305.135986328125,
+      674.0252075195312,
+      556.1878662109375,
+      704.537109375
+    ],
+    "text": "j\nand Bl, respectively. N0 is the number of the fuzzy rules. Then,\nwe represent the FLS as follows:\n"
+  },
+  {
+    "id": "p2-b51",
+    "page": 2,
+    "bbox": [
+      371.12353515625,
+      724.2581176757812,
+      388.47637939453125,
+      734.220703125
+    ],
+    "text": "ψ =\n"
+  },
+  {
+    "id": "p2-b52",
+    "page": 2,
+    "bbox": [
+      392.4444885253906,
+      707.2210693359375,
+      412.66229248046875,
+      719.93115234375
+    ],
+    "text": "\tN0\n"
+  },
+  {
+    "id": "p2-b53",
+    "page": 2,
+    "bbox": [
+      402.96600341796875,
+      714.6998291015625,
+      426.4895324707031,
+      727.4973754882812
+    ],
+    "text": "l=1 ωl\n"
+  },
+  {
+    "id": "p2-b54",
+    "page": 2,
+    "bbox": [
+      428.68798828125,
+      707.2208251953125,
+      442.3350830078125,
+      719.473876953125
+    ],
+    "text": "\nk\n"
+  },
+  {
+    "id": "p2-b55",
+    "page": 2,
+    "bbox": [
+      438.10198974609375,
+      714.6998291015625,
+      468.42901611328125,
+      727.4974975585938
+    ],
+    "text": "j=1 μAl\n"
+  },
+  {
+    "id": "p2-b56",
+    "page": 2,
+    "bbox": [
+      397.9079895019531,
+      714.6998291015625,
+      489.00146484375,
+      738.0122680664062
+    ],
+    "text": "j(Zj)\n\tN0\n"
+  },
+  {
+    "id": "p2-b57",
+    "page": 2,
+    "bbox": [
+      408.4289855957031,
+      738.0069580078125,
+      421.07318115234375,
+      745.1688842773438
+    ],
+    "text": "l=1\n"
+  },
+  {
+    "id": "p2-b58",
+    "page": 2,
+    "bbox": [
+      423.2340087890625,
+      725.3109130859375,
+      436.8721008300781,
+      737.5548095703125
+    ],
+    "text": "\nk\n"
+  },
+  {
+    "id": "p2-b59",
+    "page": 2,
+    "bbox": [
+      432.6390075683594,
+      732.7808837890625,
+      462.97503662109375,
+      745.578369140625
+    ],
+    "text": "j=1 μAl\n"
+  },
+  {
+    "id": "p2-b60",
+    "page": 2,
+    "bbox": [
+      460.5840148925781,
+      732.7808837890625,
+      483.5384826660156,
+      746.4452514648438
+    ],
+    "text": "j(Zj)\n"
+  },
+  {
+    "id": "p2-b61",
+    "page": 2,
+    "bbox": [
+      544.5713500976562,
+      724.6255493164062,
+      556.1857299804688,
+      734.588134765625
+    ],
+    "text": "(5)\n"
+  },
+  {
+    "id": "p2-b62",
+    "page": 2,
+    "bbox": [
+      12.596980094909668,
+      762.5669555664062,
+      581.4032592773438,
+      772.1849975585938
+    ],
+    "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:03 UTC from IEEE Xplore.  Restrictions apply. \n"
+  }
+]

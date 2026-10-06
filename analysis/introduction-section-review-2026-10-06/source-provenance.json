@@ -1,0 +1,135 @@
+{
+  "scope": "Fresh PDF Introduction reading for section-level analysis only",
+  "base_commit": "623b055879967c7e8bc6528b213b00f96baaee0d",
+  "index_route": [
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md"
+  ],
+  "index_sha256": {
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md": "54af2825bf7e10c2e0769e8edcf2577350d70ab2c22e72278044cee3e2f8c97d",
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md": "e95ccac73528b0511a52a2281ed9f28477c9089538b6e9173d43b5ef7db003f3"
+  },
+  "author_inputs_sha256": {
+    "核心要求.txt": "09ce1439b7019d01f7132c221d2e14408b109d72c9421aa679cc30d593809c94",
+    "我自己的经验和做法.txt": "b9018b7fe2c3065cd8fb0e97eb2557adcba32fb40bde215b4aed4f38903a53b0",
+    "引言写作方法.txt": "289820755f5665df639002fe286bf5dade033720f45a656a50974bcd9b041604"
+  },
+  "author_change_present_at_start": [
+    "核心要求.txt"
+  ],
+  "render_engine": "D:\\texlive\\2024\\bin\\windows\\pdftoppm.EXE",
+  "render_dpi": 140,
+  "papers": {
+    "P17": {
+      "pdf": "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "pdf_sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "document_pages": 11,
+      "read_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "format": "PDF 1.4",
+        "title": "Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives",
+        "author": "",
+        "subject": "IEEE Transactions on Neural Networks and Learning Systems;2019;30;3;10.1109/TNNLS.2018.2852711",
+        "keywords": "",
+        "creator": "Aspose Ltd.",
+        "producer": "Aspose.Pdf for .NET 8.3.0; modified using iText® 7.1.1 ©2000-2018 iText Group NV (AGPL-version)",
+        "creationDate": "D:20190214175901+05'30'",
+        "modDate": "D:20190220062316-05'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "block_count": 32,
+      "renders": [
+        "P17-p1.png",
+        "P17-p2.png"
+      ]
+    },
+    "P05": {
+      "pdf": "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "pdf_sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "document_pages": 12,
+      "read_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "format": "PDF 1.4",
+        "title": "Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion",
+        "author": "",
+        "subject": "IEEE Transactions on Neural Networks and Learning Systems;2022;33;3;10.1109/TNNLS.2020.3037795",
+        "keywords": "",
+        "creator": "Aspose Ltd.",
+        "producer": "Aspose.Pdf for .NET 8.3.0; modified using iText® 7.1.1 ©2000-2018 iText Group NV (AGPL-version)",
+        "creationDate": "D:20220215215822+05'30'",
+        "modDate": "D:20220227142742-05'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "block_count": 36,
+      "renders": [
+        "P05-p1.png",
+        "P05-p2.png"
+      ]
+    },
+    "Fuzzy2023": {
+      "pdf": "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "pdf_sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "document_pages": 11,
+      "read_pages": [
+        1,
+        2
+      ],
+      "metadata": {
+        "format": "PDF 1.4",
+        "title": "untitled",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "",
+        "producer": "Acrobat Distiller 11.0 (Windows)",
+        "creationDate": "D:20230222163033+05'30'",
+        "modDate": "D:20260713192358-04'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "block_count": 81,
+      "renders": [
+        "Fuzzy2023-p1.png",
+        "Fuzzy2023-p2.png"
+      ]
+    },
+    "ESO2017": {
+      "pdf": "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "pdf_sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "document_pages": 11,
+      "read_pages": [
+        1,
+        2,
+        3
+      ],
+      "metadata": {
+        "format": "PDF 1.4",
+        "title": "untitled",
+        "author": "",
+        "subject": "",
+        "keywords": "",
+        "creator": "",
+        "producer": "Acrobat Distiller 10.1.10 (Windows)",
+        "creationDate": "D:20170620095036+05'30'",
+        "modDate": "D:20200603101627-04'00'",
+        "trapped": "",
+        "encryption": null
+      },
+      "block_count": 60,
+      "renders": [
+        "ESO2017-p1.png",
+        "ESO2017-p2.png",
+        "ESO2017-p3.png"
+      ]
+    }
+  },
+  "limit": "Raw pages also contain non-Introduction matter; the separately identified paragraph units exclude it."
+}

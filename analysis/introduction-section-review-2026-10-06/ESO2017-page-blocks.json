@@ -1,0 +1,662 @@
+[
+  {
+    "id": "p1-b0",
+    "page": 1,
+    "bbox": [
+      92.00700378417969,
+      33.526702880859375,
+      552.3043823242188,
+      40.50050354003906
+    ],
+    "text": "IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017\n6785\n"
+  },
+  {
+    "id": "p1-b1",
+    "page": 1,
+    "bbox": [
+      40.625999450683594,
+      60.11536407470703,
+      549.26025390625,
+      84.02566528320312
+    ],
+    "text": "Extended State Observer-Based Integral Sliding\n"
+  },
+  {
+    "id": "p1-b2",
+    "page": 1,
+    "bbox": [
+      62.271995544433594,
+      88.01630401611328,
+      527.6238403320312,
+      111.92660522460938
+    ],
+    "text": "Mode Control for an Underwater Robot With\n"
+  },
+  {
+    "id": "p1-b3",
+    "page": 1,
+    "bbox": [
+      148.9516143798828,
+      115.90766143798828,
+      440.9107971191406,
+      139.81796264648438
+    ],
+    "text": "Unknown Disturbances and\n"
+  },
+  {
+    "id": "p1-b4",
+    "page": 1,
+    "bbox": [
+      167.3936309814453,
+      143.7990264892578,
+      422.4997253417969,
+      167.70932006835938
+    ],
+    "text": "Uncertain Nonlinearities\n"
+  },
+  {
+    "id": "p1-b5",
+    "page": 1,
+    "bbox": [
+      88.5510025024414,
+      178.0875244140625,
+      501.3278503417969,
+      189.04641723632812
+    ],
+    "text": "Rongxin Cui, Member, IEEE, Lepeng Chen, Chenguang Yang, Senior Member, IEEE,\n"
+  },
+  {
+    "id": "p1-b6",
+    "page": 1,
+    "bbox": [
+      220.60794067382812,
+      191.03875732421875,
+      369.2697448730469,
+      201.99765014648438
+    ],
+    "text": "and Mou Chen, Member, IEEE\n"
+  },
+  {
+    "id": "p1-b7",
+    "page": 1,
+    "bbox": [
+      37.90843200683594,
+      233.76010131835938,
+      289.00262451171875,
+      422.0461730957031
+    ],
+    "text": "Abstract—This paper develops a novel integral slid-\ning mode controller (ISMC) for a general type of under-\nwater robots based on multiple-input and multiple-output\nextended-state-observer (MIMO-ESO). The difﬁculties as-\nsociated with the unmeasured velocities, unknown distur-\nbances, and uncertain hydrodynamics of the robot have\nbeen successfully solved in the control design. An adap-\ntive MIMO-ESO is designed not only to estimate the unmea-\nsurable linear and angular velocities, but also to estimate\nthe unknown external disturbances. An ISMC is then de-\nsigned using Lyapunov synthesis, and an adaptive gain up-\ndate algorithm is introduced to estimate the upper bound\nof the uncertainties. Rigorous theoretical analysis is per-\nformed to show that the proposed control method is able\nto achieve asymptotical tracking performance for the un-\nderwater robot. Experimental studies are also carried out\nto validate the effectiveness of the proposed control, and\nto show that the proposed approach performs better than a\nconventional potential difference (PD) control approach.\n"
+  },
+  {
+    "id": "p1-b8",
+    "page": 1,
+    "bbox": [
+      37.90843200683594,
+      430.0181884765625,
+      288.9864807128906,
+      458.9096984863281
+    ],
+    "text": "Index Terms—Extended state observer (ESO), integral\nsliding mode controller (ISMC), underwater robot, under-\nwater vehicle.\n"
+  },
+  {
+    "id": "p1-b9",
+    "page": 1,
+    "bbox": [
+      37.90800094604492,
+      469.0658874511719,
+      199.68228149414062,
+      514.8336791992188
+    ],
+    "text": "I. INTRODUCTION\nU\n"
+  },
+  {
+    "id": "p1-b10",
+    "page": 1,
+    "bbox": [
+      37.908485412597656,
+      486.134521484375,
+      288.97686767578125,
+      531.96240234375
+    ],
+    "text": "NDERWATER robots, including autonomous underwa-\nter vehicles (AUVs), remote operated vehicles (ROVs),\nand underwater gliders, have been increasingly employed to ex-\npand the abilities of human in marine resources exploration and\n"
+  },
+  {
+    "id": "p1-b11",
+    "page": 1,
+    "bbox": [
+      37.90791320800781,
+      548.9483642578125,
+      288.9811096191406,
+      601.755859375
+    ],
+    "text": "Manuscript received October 29, 2016; revised January 26, 2017 and\nFebruary 18, 2017; accepted March 23, 2017. Date of publication April\n17, 2017; date of current version July 10, 2017. This work was sup-\nported by the National Natural Science Foundation of China under Grant\n61472325, Grant 61633002, and Grant 51209174. (Corresponding au-\nthor: Rongxin Cui.)\n"
+  },
+  {
+    "id": "p1-b12",
+    "page": 1,
+    "bbox": [
+      37.90791320800781,
+      602.749755859375,
+      288.9787902832031,
+      628.6477661132812
+    ],
+    "text": "R. Cui and L. Chen are with the School of Marine Science and Technol-\nogy, Northwestern Polytechnical University, Xi’an 710072, China (e-mail:\nrongxin.cui@gmail.com; chenlepeng_nwpu@163.com).\n"
+  },
+  {
+    "id": "p1-b13",
+    "page": 1,
+    "bbox": [
+      37.90791320800781,
+      629.650390625,
+      288.9764099121094,
+      655.5484619140625
+    ],
+    "text": "C. Yang is with the Zienkiewicz Centre for Computational Engineer-\ning, Swansea University, Swansea, SA1 8EN,\nU.K. (e-mail: cyang@\ntheiet.org).\n"
+  },
+  {
+    "id": "p1-b14",
+    "page": 1,
+    "bbox": [
+      37.90791320800781,
+      656.5510864257812,
+      288.9843444824219,
+      682.4491577148438
+    ],
+    "text": "M. Chen is with the College of Automation Engineering, Nanjing Uni-\nversity of Aeronautics and Astronautics, Nanjing 210016, China (e-mail:\nchenmou@nuaa.edu.cn).\n"
+  },
+  {
+    "id": "p1-b15",
+    "page": 1,
+    "bbox": [
+      37.90791320800781,
+      683.4429931640625,
+      288.95086669921875,
+      700.3858642578125
+    ],
+    "text": "Color versions of one or more of the ﬁgures in this paper are available\nonline at http://ieeexplore.ieee.org.\n"
+  },
+  {
+    "id": "p1-b16",
+    "page": 1,
+    "bbox": [
+      45.881996154785156,
+      701.3797607421875,
+      224.81869506835938,
+      709.349853515625
+    ],
+    "text": "Digital Object Identiﬁer 10.1109/TIE.2017.2694410\n"
+  },
+  {
+    "id": "p1-b17",
+    "page": 1,
+    "bbox": [
+      300.92401123046875,
+      233.61256408691406,
+      551.9647216796875,
+      291.3927001953125
+    ],
+    "text": "marine scientiﬁc research. To exploit the full potential beneﬁts\nprovided by underwater robots, high-precision controller for un-\nderwater robots is required, such that the quality of the collected\ndata can be guaranteed, and high precision in trajectory tracking\nor station keeping of the robot can be secured [1]–[6].\n"
+  },
+  {
+    "id": "p1-b18",
+    "page": 1,
+    "bbox": [
+      300.92401123046875,
+      293.39117431640625,
+      551.99755859375,
+      446.8150939941406
+    ],
+    "text": "In practice, there are a number of technical challenges in\nthe control of an underwater robot, such as the unknown exter-\nnal disturbances and model uncertainties. The unknown distur-\nbances in practical oceanic environments include waves, tides,\ncurrents, and upward or downward streams. For control design\nof ROVs, the external force caused by the cable that connects\nwith the depot ship should also be considered. The model uncer-\ntainties of an underwater robot are usually caused by the inac-\ncurate hydrodynamic coefﬁcients, which are calculated through\nthe computational ﬂuid dynamics (CFD) methods or towing tank\nexperimental data analysis. During the process of performing a\ntask, different attitude of the robot will also cause the variation\nof the hydrodynamic coefﬁcient.\n"
+  },
+  {
+    "id": "p1-b19",
+    "page": 1,
+    "bbox": [
+      300.92401123046875,
+      448.8045959472656,
+      552.000732421875,
+      709.8336181640625
+    ],
+    "text": "Several methods, such as adaptive control [1], [7], [8], robust\ncontrol [9]–[11], and disturbance observer-based control [12],\n[13], have been introduced to address the technical challenges\nof model uncertainties and unknown external disturbances. In\n[1], a robust adaptive controller considering the velocity con-\nstraints is proposed for an ROV. The model parameters are esti-\nmated online and a Barrier Lyapunov function is applied in the\nLyapunov synthesis. Finally, the results are validated thought\nsimulation. Since fuzzy logic systems (FLS) and neural net-\nworks (NN) are capable to approximate nonlinearities, the NN\nand fuzzy approximation-based adaptive controllers have been\nwidely applied to the plants with model uncertainties and un-\nknown disturbances [7], [8], [14]. In [7], an adaptive controller\ncombining NN approximation with dynamics surface control\nis presented for trajectory tracking of an AUV. The computa-\ntional load is reduced by introducing an NN learning method\nusing minimal number of learning parameters. In [15], consid-\nering the unknown parameters, an adaptive fuzzy sliding mode\ncontrol (SMC) is presented to steer a low-speed underactuated\nunderwater vehicle and an experiment has justiﬁed the method.\nIn [16], the NN-based controller is extended to control the mul-\ntiple underwater robots and simulation results have been shown.\n"
+  },
+  {
+    "id": "p1-b20",
+    "page": 1,
+    "bbox": [
+      102.1500015258789,
+      727.2833862304688,
+      487.7497253417969,
+      744.2175903320312
+    ],
+    "text": "0278-0046 © 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.\nSee http://www.ieee.org/publications standards/publications/rights/index.html for more information.\n"
+  },
+  {
+    "id": "p1-b21",
+    "page": 1,
+    "bbox": [
+      12.596980094909668,
+      762.5669555664062,
+      581.4032592773438,
+      772.1849975585938
+    ],
+    "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore.  Restrictions apply. \n"
+  },
+  {
+    "id": "p2-b0",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      33.427703857421875,
+      556.2491455078125,
+      40.40150451660156
+    ],
+    "text": "6786\nIEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 64, NO. 8, AUGUST 2017\n"
+  },
+  {
+    "id": "p2-b1",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      65.29450988769531,
+      293.1845397949219,
+      111.12252807617188
+    ],
+    "text": "Although the NN and fuzzy-based adaptive controllers have the\nadvantages on the approximation of the uncertainties and dis-\nturbances, it is still a challenging task to adjust its learning\nparameters in real applications.\n"
+  },
+  {
+    "id": "p2-b2",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      113.11207580566406,
+      293.19537353515625,
+      481.7373046875
+    ],
+    "text": "As an effective tool to suppress disturbances for complex\nsystems, SMC has attracted obvious attentions for the control\nplant with disturbances [10], [17]–[21]. In [22], a novel ESO-\nbased adaptive control has been proposed for power converters\nto reject the load connected to the dc-link capacitor and the\nuncertain parameters. The experiment based on a real power\nconverter prototype validate the control performance. In [9],\na sliding mode tracking controller, which uses two sliding sur-\nfaces for surge tracking errors and lateral motion tracking errors,\nis applied to autonomous surface vessels. To address the con-\ntrol technical challenges for the switched stochastic systems, a\nnovel dissipativity-based SMC is proposed in [17]. In [10], inte-\ngral sliding mode controllers (ISMC) are proposed for trajectory\ntracking of ROVs. Because of the effect of the additional error-\nintegral term, the ISMC has a more accurate trajectory tracking\nperformance than the conventional SMC. To overcome the time-\ndelay for the AUV control, an ISMC is introduced to overcome\nthe problem that data acquisition rate could not be maintained\nsufﬁciently [23]. The major shortcoming of SMC is the chat-\ntering problem, which not only causes energy losses but also\nreduces the trajectory tracking smoothness. To reduce the chat-\ntering, several methods, such as the high-order sliding-mode\ncontroller [24], [25], disturbance compensation method [26],\n[27], and terminal sliding controller [28] have been proposed.\nIn [26], a free chattering SMC is presented via an adaptive term,\nwhich continuously compensates for the unknown system dy-\nnamics of an ROV. In practice, sometimes, the upper bound of\nthe uncertainties may be large and the SMC without a compen-\nsator will cause serious chattering. Therefore, it is necessary\nto design a compensator for the external disturbance to reduce\nchattering.\n"
+  },
+  {
+    "id": "p2-b3",
+    "page": 2,
+    "bbox": [
+      42.119998931884766,
+      483.726806640625,
+      293.2093811035156,
+      744.755859375
+    ],
+    "text": "Another approach dealing with the unknown disturbance is\nto design an observer to estimate the unknown external distur-\nbance of a robot, followed by the control design to compensate\nfor the estimated disturbance. Such disturbance observers in-\nclude sliding mode observer [12], [29], high-gain observer [30],\n[31], and extended state observer (ESO) [13], [32]. In [12], a\nsliding mode controller based on a sliding mode observer is\nproposed for a reusable launch vehicle. The observer is pre-\nsented to estimate the unknown external disturbances and to\nreduce the control gain. In [30], a high-gain observer-based out-\nput feedback motion control that considers the unmodeled dy-\nnamics, measurement errors, model parameter variations, and\nunknown external environmental disturbances for observation\nclass ROVs is presented. In [32], a backstepping control based\non an ESO is proposed to handle mismatched disturbance of\nhydraulic systems. The designed observer estimates not only\nthe model uncertainties but also the unmeasured states. In [13],\nby using an ESO, a backstepping control for a hydraulic system\nis presented to suppress large unknown external disturbances.\nThe bandwidth of the observer is chosen in accordance with\ntwo conﬂicting aspects, the maximal load capability and the\ndynamic performance of system.\n"
+  },
+  {
+    "id": "p2-b4",
+    "page": 2,
+    "bbox": [
+      305.1356201171875,
+      65.30360412597656,
+      556.2133178710938,
+      541.52490234375
+    ],
+    "text": "In this paper, we design an adaptive sliding mode-based con-\ntroller for a general type of underwater robots, and experiment\nis carried on a test bed for underwater object grasping. On-\nboard sensors, including a depth sensor and an inertial mea-\nsurement unit (IMU), are equipped to measure the depth and\nattitude of the robot. The position of the underwater robot\nis measured by an external vision positioning system (VPS),\nand some white lightings are equipped on the robot, which\ncan be captured by the VPS to calculate the position of the\nrobot. In such a case, there is no direct measurement of velocity\nof the robot. Then output feedback is required for our work as\nthe direct differential of the position information may degrade\nthe control performance. In such case, observes are always used\nto estimate the unmeasured states of the robot [5], [33]. A lo-\ncal recurrent NN-based adaptive terminal sliding mode state\nobserver is presented to estimate the unmeasured velocity of\nan ROV in [5], which considers the uncertain dynamic model,\nthe unmeasured states, and inaccurate thrust model. In [34], an\nNN-based adaptive observer is presented to address the prob-\nlem of estimating the unavailable measurements of underwater\nvehicles’ velocities. In [35], a terminal sliding mode observer\nof an AUV is introduced to estimate the velocity, and the esti-\nmation error is guaranteed to converge to zero in a ﬁnite time.\nIn [36], an adaptive backstepping control is introduced for hu-\nman upper limbs in the presence of disturbances, unmodeled\ndynamics, and uncertainties. In [37], an output feedback track-\ning controller is designed to address the problem of steering a\nquadrotor with unknown disturbances and model uncertainties.\nThe unmeasurable linear and angular velocities are estimated\nby a series of nonmodel-based ﬁlters. In [38], an attitude and\nspeed controller is designed based on an adaptive second-order\nSMC for an unmanned aerial vehicle (UAV), and an extended\nobserver is applied to estimate the unmeasured states and un-\nknown external disturbances. In [39], a high-gain observer is\nimplemented to estimate the full states of the electro-hydraulic\nsystem. It is noted that in the literature mentioned above, con-\ntrollers designed for underwater robots in [1], [3], [4], [7], [8],\n[16], [18], [26], and [28] are veriﬁed by simulations, and other\ncontrollers in [6], [10], [15], [23], and [24] are veriﬁed by\nexperiments.\n"
+  },
+  {
+    "id": "p2-b5",
+    "page": 2,
+    "bbox": [
+      305.1356201171875,
+      543.5144653320312,
+      556.2201538085938,
+      708.8995971679688
+    ],
+    "text": "In this paper, a disturbance compensation approach is utilized\nto eliminate the chattering based on multiple-input and multiple-\noutput extend-state-observer (MIMO-ESO) with a simple struc-\nture. Motivated by the ESO model [32] and the high-gain\nobserver [39], a MIMO-ESO is proposed to estimate the un-\nknown disturbances and the unmeasured states. The bounds of\nthe uncertainties are also estimated using the adaptive control\ntechnique. The Lyapunov analysis is involved to design the ﬁ-\nnal control law. The proposed controller in this paper includes\ntwo parts, namely the equivalent controller and the switch con-\ntroller, which guarantees the trajectory tracking error converge\nto zero theoretically. The proposed controller is successfully\nimplemented on an underwater robot propelled by six thrusters.\nThe main contributions can be summarized as follows.\n"
+  },
+  {
+    "id": "p2-b6",
+    "page": 2,
+    "bbox": [
+      319.0762939453125,
+      710.8890991210938,
+      556.2053833007812,
+      744.7649536132812
+    ],
+    "text": "1) A novel adaptive MIMO-ESO is developed to estimate\nthe unmeasured velocity and the unknown external dis-\nturbances of the underwater robot.\n"
+  },
+  {
+    "id": "p2-b7",
+    "page": 2,
+    "bbox": [
+      12.596980094909668,
+      762.5669555664062,
+      581.4032592773438,
+      772.1849975585938
+    ],
+    "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore.  Restrictions apply. \n"
+  },
+  {
+    "id": "p3-b0",
+    "page": 3,
+    "bbox": [
+      37.90800094604492,
+      33.427703857421875,
+      552.0502319335938,
+      40.40150451660156
+    ],
+    "text": "CUI et al.: EXTENDED STATE OBSERVER-BASED INTEGRAL SLIDING MODE CONTROL FOR AN UNDERWATER ROBOT\n6787\n"
+  },
+  {
+    "id": "p3-b1",
+    "page": 3,
+    "bbox": [
+      37.90800094604492,
+      203.8074951171875,
+      252.99716186523438,
+      211.77760314941406
+    ],
+    "text": "Fig. 1.\nNavigation and body frames of an underwater robot.\n"
+  },
+  {
+    "id": "p3-b2",
+    "page": 3,
+    "bbox": [
+      37.90837097167969,
+      238.76942443847656,
+      288.98175048828125,
+      404.1455078125
+    ],
+    "text": "2) Based on Lyapunov analysis, an adaptive MIMO-ESO-\nbased ISMC is designed to ensure that the trajectory\ntracking error converge to zero.\n3) Comparative studies with the conventional potential dif-\nference (PD) control are carried out experimentally on\nan underwater robot to demonstrate the superior perfor-\nmance of the proposed control.\nThe remainder of this paper is organized as follows:\nSection II presents the robot model and formulates the prob-\nlem. In Section III, the adaptive MIMO-ESO is derived to esti-\nmate the unknown disturbances and the unmeasured velocities.\nIn Section IV, the ISMC is proposed. Experimental results are\nshown in Section V, followed by the conclusion of this paper in\nSection VI.\n"
+  },
+  {
+    "id": "p3-b3",
+    "page": 3,
+    "bbox": [
+      105.9569091796875,
+      418.2698669433594,
+      220.922607421875,
+      428.2339172363281
+    ],
+    "text": "II. PROBLEM FORMULATION\n"
+  },
+  {
+    "id": "p3-b4",
+    "page": 3,
+    "bbox": [
+      37.90839767456055,
+      435.3384094238281,
+      288.98333740234375,
+      517.0313720703125
+    ],
+    "text": "Following the underwater modeling methods in [40], two\nframes, i.e., the navigation frame and the body frame are deﬁned,\nas shown in Fig. 1. The linear velocity ν1 = [u, v, w]⊤and the\nangular velocity ν2 = [p, q, r]⊤are deﬁned in the body frame.\nThe position η1 = [x, y, z]⊤and orientations η2 = [φ, θ, ψ]⊤are\ndeﬁned in the navigation frame. The nonlinear dynamics of the\nrobot with respect to the body frame is described as\n"
+  },
+  {
+    "id": "p3-b5",
+    "page": 3,
+    "bbox": [
+      80.31661224365234,
+      522.951171875,
+      288.96832275390625,
+      535.2738647460938
+    ],
+    "text": "M ˙ν + C(ν)ν + D(ν)ν + G(η) = F + d\n(1)\n"
+  },
+  {
+    "id": "p3-b6",
+    "page": 3,
+    "bbox": [
+      37.907806396484375,
+      541.1936645507812,
+      96.8746109008789,
+      553.516357421875
+    ],
+    "text": "where ν = [ν⊤\n"
+  },
+  {
+    "id": "p3-b7",
+    "page": 3,
+    "bbox": [
+      37.90837097167969,
+      541.1943969726562,
+      288.96490478515625,
+      577.42138671875
+    ],
+    "text": "1 , ν⊤\n2 ]⊤, η = [η⊤\n1 , η⊤\n2 ]⊤, d is the unknown external\ndisturbance, and F is the force and moment acting on the robot.\nDetailed deﬁnition of other symbols can be found in [40].\n"
+  },
+  {
+    "id": "p3-b8",
+    "page": 3,
+    "bbox": [
+      37.907318115234375,
+      579.4198608398438,
+      288.9718322753906,
+      744.7948608398438
+    ],
+    "text": "In practical applications, we may not be able to obtain the\naccurate hydrodynamics coefﬁcients used in the model, thus we\ndivide the matrices in (1) into two parts, namely the nominal\nvalue part and the bias part that describes the difference be-\ntween the real value and the nominal value, i.e., M = M ∗+\nΔM, G(η) = G∗(η) + ΔG(η), C(ν) = C∗(ν) + ΔC(ν), and\nD(ν) = D∗(ν) + ΔD(ν), where (·)∗denotes the nominal value\nthat can be obtained from the CFD computation or the tower\ntank experiment analysis. These nominal values are available\nfor control design. Δ(·) denotes the difference between the real\nvalue and the nominal value. In this paper, we consider an un-\nderwater robot that equips six thrusters. The moment and force\nacting on the robot by the thrusters is deﬁned as F = LU, where\nU is a vector describing the force generated by the thrusters, L\n"
+  },
+  {
+    "id": "p3-b9",
+    "page": 3,
+    "bbox": [
+      300.9229431152344,
+      65.29774475097656,
+      551.98974609375,
+      87.21249389648438
+    ],
+    "text": "is the force allocation matrix, which is related to the center of\nbuoyancy and the center of gravity of the robot.\n"
+  },
+  {
+    "id": "p3-b10",
+    "page": 3,
+    "bbox": [
+      300.9229431152344,
+      89.21101379394531,
+      551.9715576171875,
+      111.12576293945312
+    ],
+    "text": "Now, the model of the underwater robot studied in this paper\ncan be rewritten as\n"
+  },
+  {
+    "id": "p3-b11",
+    "page": 3,
+    "bbox": [
+      308.537353515625,
+      119.22038269042969,
+      551.9763793945312,
+      132.32908630371094
+    ],
+    "text": "M ∗˙ν + C∗(ν)ν + D∗(ν)ν + G∗(η) = LU + dsum(η, ν) (2)\n"
+  },
+  {
+    "id": "p3-b12",
+    "page": 3,
+    "bbox": [
+      300.92401123046875,
+      139.6412811279297,
+      551.9855346679688,
+      176.66307067871094
+    ],
+    "text": "where dsum(η, ν) is the lumped disturbance, which includes un-\ncertain hydrodynamics and unknown external disturbance. It is\ndeﬁned as dsum(η, ν) = d + dun, where\n"
+  },
+  {
+    "id": "p3-b13",
+    "page": 3,
+    "bbox": [
+      327.07861328125,
+      183.9753875732422,
+      551.9755249023438,
+      197.70999145507812
+    ],
+    "text": "dun = −ΔM ˙ν −ΔG(η) −ΔC(ν)ν −ΔD(ν)ν.\n(3)\n"
+  },
+  {
+    "id": "p3-b14",
+    "page": 3,
+    "bbox": [
+      310.8865966796875,
+      206.75685119628906,
+      481.5938415527344,
+      216.71945190429688
+    ],
+    "text": "The kinematics of the robot is described as\n"
+  },
+  {
+    "id": "p3-b15",
+    "page": 3,
+    "bbox": [
+      404.61175537109375,
+      224.8180389404297,
+      551.9756469726562,
+      237.14077758789062
+    ],
+    "text": "˙η = J(η)ν\n(4)\n"
+  },
+  {
+    "id": "p3-b16",
+    "page": 3,
+    "bbox": [
+      300.9230651855469,
+      245.23936462402344,
+      551.99169921875,
+      305.3873596191406
+    ],
+    "text": "where J(η) is the transformation matrix that relates between\nspeed in the body and navigation frames. We assume that during\nthe motion of the underwater robot, θ̸ = 90◦, i.e., J is invertible.\nThus, the model of the robot in the navigation frame can be\nwritten as\n"
+  },
+  {
+    "id": "p3-b17",
+    "page": 3,
+    "bbox": [
+      314.109619140625,
+      313.48541259765625,
+      551.9749755859375,
+      325.8081359863281
+    ],
+    "text": "¨η + Cη(η, ν) ˙η + Dη(η, ν) ˙η + Gη(η) = MηLU + H\n(5)\n"
+  },
+  {
+    "id": "p3-b18",
+    "page": 3,
+    "bbox": [
+      300.92401123046875,
+      333.3428955078125,
+      551.9766845703125,
+      372.6161193847656
+    ],
+    "text": "where\nCη = JM ∗−1C∗J−1 −˙JJ−1,\nDη = JM ∗−1D∗J−1,\nGη = JM ∗−1G∗, Mη = JM ∗−1, H = Hd + Hun = Mηdsum\nHd = Mηd, Hun = Mηdun.\n"
+  },
+  {
+    "id": "p3-b19",
+    "page": 3,
+    "bbox": [
+      300.92474365234375,
+      370.8335266113281,
+      551.9852294921875,
+      419.0212707519531
+    ],
+    "text": "Assumption 1: The unknown external disturbance term d(t)\nand the ﬁrst time derivative ˙d(t) are bounded. Moveover, Hd(t)\nand ˙Hd(t) are bounded as well. The upper bound of ˙Hd(t) is\nunknown for the control design.\n"
+  },
+  {
+    "id": "p3-b20",
+    "page": 3,
+    "bbox": [
+      300.9226989746094,
+      418.6506652832031,
+      551.9772338867188,
+      454.8865966796875
+    ],
+    "text": "The uncertain items in the robot’s model, ΔM, ΔG, ΔC,\nand ΔD are related to the states of the robot. In practice, we can\nalso have the following assumption.\n"
+  },
+  {
+    "id": "p3-b21",
+    "page": 3,
+    "bbox": [
+      300.92071533203125,
+      454.5159912109375,
+      551.9868774414062,
+      502.7032470703125
+    ],
+    "text": "Assumption 2: ΔM, ΔG, ΔC, and ΔD are bounded. Then,\nwe assume that dun and Hun(t) are also bounded, satisfying\n∥Hun(t)∥≤ρ1 ∈R+, where ρ1 is the unknown upper bound\nand ∥· ∥is the Euclidean norm.\n"
+  },
+  {
+    "id": "p3-b22",
+    "page": 3,
+    "bbox": [
+      300.92425537109375,
+      504.70172119140625,
+      551.9880981445312,
+      610.8357543945312
+    ],
+    "text": "In this paper, the underwater robot is equipped with an IMU,\nwhich is used to measure the orientations of η2. Position of the\nrobot η1 is measured by an external VPS. There is no sensor\navailable to measure the velocity of the robot directly. Thus,\nin this paper, we design a proper control input U(t) using the\nIMU and VPS measurements, to control the trajectory of the\nunderwater robot η(t) following the reference trajectory ηr(t),\ni.e., the trajectory tracking error of the robot limt→∞e(t) =\nlimt→∞(η(t) −ηr(t)) = 0.\n"
+  },
+  {
+    "id": "p3-b23",
+    "page": 3,
+    "bbox": [
+      368.66827392578125,
+      626.6106567382812,
+      484.24395751953125,
+      636.5733642578125
+    ],
+    "text": "III. ADAPTIVE ESO DESIGN\n"
+  },
+  {
+    "id": "p3-b24",
+    "page": 3,
+    "bbox": [
+      300.9244079589844,
+      643.679443359375,
+      552.0001831054688,
+      691.0010986328125
+    ],
+    "text": "In this section, motivated by the adaptive sliding mode ob-\nserver [41] and the ESO [32], we design an adaptive MIMO-\nESO. Beside the velocity estimation, the unknown external dis-\nturbance Hd is estimated simultaneously.\n"
+  },
+  {
+    "id": "p3-b25",
+    "page": 3,
+    "bbox": [
+      300.9239807128906,
+      705.8106689453125,
+      370.61334228515625,
+      715.7733154296875
+    ],
+    "text": "A. ESO Design\n"
+  },
+  {
+    "id": "p3-b26",
+    "page": 3,
+    "bbox": [
+      310.8865661621094,
+      720.5196533203125,
+      548.7105712890625,
+      732.8423461914062
+    ],
+    "text": "The extended state vector X can be deﬁned as X = [x⊤\n"
+  },
+  {
+    "id": "p3-b27",
+    "page": 3,
+    "bbox": [
+      300.92510986328125,
+      720.519287109375,
+      551.985595703125,
+      742.4340209960938
+    ],
+    "text": "1 ,\nx⊤\n"
+  },
+  {
+    "id": "p3-b28",
+    "page": 3,
+    "bbox": [
+      306.6210021972656,
+      732.471435546875,
+      551.9697875976562,
+      747.5377197265625
+    ],
+    "text": "2 , x⊤\n3 ]⊤= [η⊤, ˙η⊤, H⊤\nd ]⊤. The unknown external disturbance\n"
+  },
+  {
+    "id": "p3-b29",
+    "page": 3,
+    "bbox": [
+      12.596980094909668,
+      762.5669555664062,
+      581.4032592773438,
+      772.1849975585938
+    ],
+    "text": "Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:35:01 UTC from IEEE Xplore.  Restrictions apply. \n"
+  }
+]

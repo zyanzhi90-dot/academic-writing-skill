@@ -1,0 +1,52 @@
+{
+  "purpose": "Source coverage and unchanged-input bookkeeping; no Skill or effect test",
+  "papers": {
+    "P17": {
+      "whole_selected_text_preserved": true,
+      "paragraphs": 9,
+      "contribution_items": 0,
+      "pdf_sha256_unchanged": true,
+      "rendered_pages_visually_read": [
+        1,
+        2
+      ]
+    },
+    "P05": {
+      "whole_selected_text_preserved": true,
+      "paragraphs": 9,
+      "contribution_items": 3,
+      "pdf_sha256_unchanged": true,
+      "rendered_pages_visually_read": [
+        1,
+        2
+      ]
+    },
+    "Fuzzy2023": {
+      "whole_selected_text_preserved": true,
+      "paragraphs": 4,
+      "contribution_items": 3,
+      "pdf_sha256_unchanged": true,
+      "rendered_pages_visually_read": [
+        1,
+        2
+      ]
+    },
+    "ESO2017": {
+      "whole_selected_text_preserved": true,
+      "paragraphs": 9,
+      "contribution_items": 3,
+      "pdf_sha256_unchanged": true,
+      "rendered_pages_visually_read": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "current_author_inputs_and_index_unchanged_since_read": true,
+  "tracked_diff_before_sync": [
+    "核心要求.txt"
+  ],
+  "new_files_confined_to": "analysis/introduction-section-review-2026-10-06",
+  "total_source_units": 40
+}
