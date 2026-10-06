@@ -1,0 +1,118 @@
+{
+  "baseline": "bf8b4444da73916c70df3a3180b10b5286cb0d7f",
+  "live_remote_confirmed_before_changes": "bf8b4444da73916c70df3a3180b10b5286cb0d7f",
+  "author_and_expression_inputs_sha256": {
+    "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+    "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "引言写作方法.txt": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83",
+    "skill-candidate/nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+  },
+  "unchanged_publication_and_historical_audit_files_sha256": {
+    "analysis/introduction-section-review-2026-10-06/assemble_introductions.py": "4cd4ce92dcffa339707690f8b9095232f953cf1462584e872a79ac5b234a78f4",
+    "analysis/introduction-section-review-2026-10-06/curated-introductions.json": "a09d78d14f65741b595d42233a07c60050dc9e198d99c8205c42e22ae97b1123",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-block-reading.txt": "a7a8793b50fcf625837dcfbab694588e2caae8d6750785202345b4cea969886d",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-introduction.md": "91ed46385fc41fbb3a0f6bdd727cd203824ae453e623986fa540e8ad1fd2a308",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-p1.png": "1480f6edb54f765d6ffe0ee822b98c73bca2f4556a24864e77d2b1db615a378b",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-p2.png": "3b96642624f3595f35d532cae623eec1bd8db8110bb6b6c175f8cc822d4efec7",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-p3.png": "153e930fa6120d0910b718c2b60e79d935b2cc4b247301893a9fabba19afce42",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-page-blocks.json": "b6f392b1996590c664cc7d57fd7040a6a297d2f6f5c5b0d91fd6df34578b5541",
+    "analysis/introduction-section-review-2026-10-06/ESO2017-raw-pages.txt": "ba4cbb7eea3bc934700d15ada39a34292ca0b6a8bcc8ef0da0f8a618e885e63a",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-block-reading.txt": "5079848307e89bae2fded9226b2da3ac3f01f4d93a30af9c7708b7ba409a1737",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-introduction.md": "d722fec9b7c2f9d7be3e3fe76fbd6fe792f151fb2f1ab5a5e0681ad2cdbb5e98",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-p1.png": "a9b3e8d4ab9d0ee70337f8368c2a49c4254902218b09473e8a25bf25d3ec074b",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-p2.png": "bfc884cc6add570425c30d7fc487be4e0a5e2b0befd227a35281b98626e595f2",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-page-blocks.json": "08ddd8df2611754873829c4d24148d7969ebe8a9251cfc35fe2adfc6302d2333",
+    "analysis/introduction-section-review-2026-10-06/Fuzzy2023-raw-pages.txt": "f7c7042f5805d09978b6e0d5a3c859b55a3842d1489e4d8532fa292a6f3bce29",
+    "analysis/introduction-section-review-2026-10-06/layout-normalization.json": "15e7b36922c238f2520480720f55e9727739f74eab696239140aa2fb18a29a76",
+    "analysis/introduction-section-review-2026-10-06/P05-block-reading.txt": "8b3837baca0a4a6f7fa1648df92222745e68ce52087cb1f86dc5e7bccdade813",
+    "analysis/introduction-section-review-2026-10-06/P05-introduction.md": "d18cf47f6cc2032bca7a0e7505d2accd73130450aa4b59275aeba8fa0d5f0c1e",
+    "analysis/introduction-section-review-2026-10-06/P05-p1.png": "d012916b63b412b20da7fc3efee38caa5b2d4fd5c7ae2f72ad2c02c90cf3c186",
+    "analysis/introduction-section-review-2026-10-06/P05-p2.png": "197315eee1fd5266251239d6d4748a59c20d15e900b5af80588ae3ada0506035",
+    "analysis/introduction-section-review-2026-10-06/P05-page-blocks.json": "93139aa9d3f19f0cb0b9e98c12bc2f86b1a93a2d7948314de07fc061ed039896",
+    "analysis/introduction-section-review-2026-10-06/P05-raw-pages.txt": "194ab7727d5c6a4c657b82aa0cd58e0f86cbbe96de4193f1fe4312dd897b949c",
+    "analysis/introduction-section-review-2026-10-06/P17-block-reading.txt": "f919326794260b7a5c83cb39e873b215683c68b036996437ccd4fdcb23f79bda",
+    "analysis/introduction-section-review-2026-10-06/P17-introduction.md": "32e53d55a544714454e1b9a7e83a641f7b4312af9e6872e817a281d480fbd653",
+    "analysis/introduction-section-review-2026-10-06/P17-p1.png": "e5fc6c875b5e191ba9847ae25585df9c9ae6263a8b55c8fe27681df5deaeb321",
+    "analysis/introduction-section-review-2026-10-06/P17-p2.png": "274c3656c3c74aa10dce214e12283eb20c70c0fecf7742b72da267659ed2a426",
+    "analysis/introduction-section-review-2026-10-06/P17-page-blocks.json": "98786f049c93394674e5a1dcd10de846472315f85de032ad77c0f30c79779f74",
+    "analysis/introduction-section-review-2026-10-06/P17-raw-pages.txt": "5cb41d82a96fa6d5db3094e7b5626ac81bf3ee166a26a175d4aac820b15e3524",
+    "analysis/introduction-section-review-2026-10-06/read_sources.py": "b125f52ae47fc98b09bda7523a38cdefd3751d72cc4c5f8520605880551e129e",
+    "analysis/introduction-section-review-2026-10-06/report.md": "b5a58c2b1949d8109c0fd326b613868f3fd15fee37420356cadfb49355e4531d",
+    "analysis/introduction-section-review-2026-10-06/run-record.md": "a1ac17d7b5f3d0562c5752b6e63b5ef92ca7a0e99d0047f25549eff423ada72b",
+    "analysis/introduction-section-review-2026-10-06/source-audit.json": "71e033dcebd136d48583e20db5a5a9d34e05dc6ab88b491f288351738919709f",
+    "analysis/introduction-section-review-2026-10-06/source-provenance.json": "da6248739e256d96a86228ae445c37433cceae56028899d532dbbc89ba4bf4d8",
+    "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+    "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+    "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+    "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+    "analysis/introduction-expression-learning-2026-10-06/audit/pdf-reread.json": "ba84ee0e67f01a1e245790bccc9c345c47c3ba2be45756a6d878963501679f6b",
+    "analysis/introduction-expression-learning-2026-10-06/audit/preference-repair-record.md": "13a8ad1bc5793743a94ac7938dc198e494e6b16c72bfae5e91db5628b28f850e",
+    "analysis/introduction-expression-learning-2026-10-06/audit/preference-repair-verification.json": "5278f2f7699a590b91fd210392762468ecea084e9cb228f00c8eae84f147ff5e",
+    "analysis/introduction-expression-learning-2026-10-06/audit/read-sources.py": "c24826e650b25c6464ff9110771cdff9cfa3311a651953aeceef6e858fc03a1e",
+    "analysis/introduction-expression-learning-2026-10-06/audit/run-record.md": "ed5d110880d1a15f382c45455de228eb03504ba4aa9dab4773c18753584d9e50",
+    "analysis/introduction-expression-learning-2026-10-06/audit/selected-expressions.json": "2172a6ba9a32b80252d3803c7e7ef60184793a2baf16e8a6a3902645de2a7ba2",
+    "analysis/introduction-expression-learning-2026-10-06/audit/selection-notes.md": "5fc954420877eca6c43176b1a0627133889035523c22822f5f6f8e18589cc02e",
+    "analysis/introduction-expression-learning-2026-10-06/audit/source-verification.json": "ad67f6f31989bd94a5ece2ae74f446f8065434c9b9ca0f9e666f7c1a5d0376ab",
+    "analysis/introduction-paragraph-learning-2026-10-06/audit/pdf-reread.json": "e37af17f2487c898787e172eb39cf9fa481c1d5f5907134470627084388ce25c",
+    "analysis/introduction-paragraph-learning-2026-10-06/audit/read-pdfs.py": "f172c298bb81f46af55699c9a4413f8a738675409bac37e0e751d3df98a24dcb",
+    "analysis/introduction-paragraph-learning-2026-10-06/audit/run-record.md": "6d83edc1abde0f97ac6c0a5eec63620fc493565f8c2c706a51520539ec0405d8",
+    "analysis/introduction-paragraph-learning-2026-10-06/audit/selected-sentences.json": "fe2fa8fa52575f37be1bc6cac29571165bd5bf71654e74d1c6e51b813b16db1e",
+    "analysis/introduction-paragraph-learning-2026-10-06/audit/source-verification.json": "4ef47fec2144be76cc308157c3af456962c955f652950f17c86b5928c31723eb",
+    "analysis/introduction-section-learning-draft-2026-10-06/source-selection.json": "174d532ee2d7ffd422f0d13bc3e34c78693a12371c3334835c635cae6f6b2267",
+    "analysis/introduction-section-learning-draft-2026-10-06/run-record.md": "0beca4416093c6374e48ac3b848ad87b2687f4d43497e4d09d15cb46f5347088"
+  },
+  "learning_drafts": {
+    "section": {
+      "blocks": 24,
+      "example_sentences": 136,
+      "adapted_blocks": 22,
+      "sha256": "025b56664b69e81273476f87d99c36ba35d0dbdccd069568a57e2ecd98e891e7",
+      "baseline_text_sha256": "04556980e6b117feb746f27335ce44bbc2700ca91c6853c0faba921af0218185"
+    },
+    "paragraph": {
+      "blocks": 9,
+      "example_sentences": 64,
+      "adapted_blocks": 9,
+      "sha256": "a384c6f3376c6078b56a481ca5d55091981f039346119c8d31a5d7ced79f00e5",
+      "baseline_text_sha256": "286741ca61e99dc996fa615dfa3264ff09a7d44d5e3cfc344401d271979d9980"
+    },
+    "expression": {
+      "blocks": 32,
+      "example_sentences": 119,
+      "adapted_blocks": 29,
+      "sha256": "3f48f0c054c50ffe72255257132c8bb01564ee8634056364434fdc295b396519",
+      "baseline_text_sha256": "fa0ab7fe9a4036ed3c394174504ea4bd71b5c5fa18451a1a6bad10b5abe55339"
+    }
+  },
+  "source_sentence_positions": 122,
+  "adapted_or_audit_only_positions": 79,
+  "audit_only_positions": [
+    {
+      "paper": "P05",
+      "unit": "I07",
+      "source_sentence": "S5"
+    }
+  ],
+  "checks": {
+    "all_65_learning_blocks_match_source_map": true,
+    "source_positions_and_spans_match_verified_introductions": true,
+    "all_adapted_blocks_explicitly_labelled": true,
+    "publication_reference_numbers_preserved": true,
+    "nine_complete_paragraph_examples_each_have_a_row_per_sentence": true,
+    "current_example_indices_and_calls_checked": true,
+    "six_section_tasks_and_26_expression_groups_retained": true,
+    "excluded_openings_punctuation_and_underspecified_references_checked_in_examples_and_inline_english": true,
+    "protected_inputs_and_historical_records_match_baseline": true,
+    "only_three_existing_learning_files_modified": true,
+    "git_diff_check": true
+  },
+  "manual_review": [
+    "Scientific conditions, comparators and modality",
+    "Same-reference continuations and design-to-effect relations",
+    "DMP nonlinear function, GMM model and GMR estimate",
+    "Motion skills and joint-space trajectory interface",
+    "Practical fixed-time property and all closed-loop signal boundedness",
+    "Observer motivation remains distinct from technical dependence"
+  ],
+  "scope": "Document-source and local adaptation checks only. No Skill/E04 change, installation or effect test."
+}
