@@ -4,7 +4,7 @@
 
 材料按科学关系组织，覆盖领域价值、段首对象、文献能力及续句、条件与比较、设计及作用、设计接口和贡献收束。每组保留真实连续句和必要上下文，逐句拆出主语、谓语、对象，以及实现关系的句式、介词和具体用词。原文中的 S 编号对应所属 I／C 单元的句位；引文数字仍是各篇原文的文献编号。
 
-“可模仿表达”中的 `〈…〉` 标记分析所得的作者内容位置，不是出版原句。使用时填入作者或被引用研究的真实内容，并按数、时态、条件和证据强度调整。句式是一组可以直接参照的成熟实现，调用顺序与组合方式由当前科学关系决定。来源差异及选取审计另存于 [audit/](audit/run-record.md)。
+“可模仿表达”中的 `〈…〉` 标记分析所得的作者内容位置，不是出版原句。方法、模型、控制器、观察器和量的占位填写准确的科学名称，必要时重复名称；较短指代保留对象的技术身份与作用。使用时按数、时态、条件和证据强度调整，用具有明确主语和限定动词的完整句子连接条件、作用及输入输出。句式是一组可以直接参照的成熟实现，调用顺序与组合方式由当前科学关系决定。来源差异及选取审计另存于 [audit/](audit/preference-repair-record.md)。
 
 ## 1. 领域价值怎样写成首句，并接入研究需要
 
@@ -71,7 +71,7 @@ P17 I01 已建立运动建模问题，I02 段首直接介绍 DS，并具体说�
 | 原文句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I02-S1 | `The dynamic system (DS)`—`is`—`a powerful tool for motion modeling`。 | `is a ... tool for + 名词／-ing` 直接确立本段方法与研究任务。完整术语后给缩写，后续句可以持续使用 DS。 |
-| I02-S2 | `DS`—`offers`—`a flexible solution to model stable and extensible trajectories`。 | `Compared to` 先给参照；`offers a ... solution to + 动词` 写方法提供的具体能力。`stable and extensible` 修饰同一对象 `trajectories`。 |
+| I02-S2 | `DS`—`offers`—`a flexible solution to model stable and extensible trajectories`。 | 以 DS 作主语，用 `offers a ... solution to + 动词` 写具体能力。比较可用 `In comparison to` 交代传统方法这一参照；`stable and extensible` 修饰同一对象 `trajectories`。 |
 | I02-S3 | `the motion encoded with the DS`—`is robust`—`to perturbations`。 | `In addition` 增加并列能力；主语从方法切换到它编码的运动。`encoded with` 指定表示手段，`robust to` 指定抗扰对象。 |
 
 **可模仿表达及作者对应。** `〈方法〉 is a 〈有依据的能力修饰〉 tool for 〈本段任务〉.`；`〈方法〉 offers a 〈相关属性〉 solution to 〈具体任务〉.`；`In addition, 〈由该方法产生或表示的对象〉 is robust to 〈扰动或变化〉.` 将“方法有效”落实为作者当前论证需要的能力和对象。
@@ -89,11 +89,11 @@ P17 已说明运动生成设计；I06 段首用模仿性能对跟踪精度的依
 | I06-S1 | `The imitation performance of robots`—`also depends on`—跟踪控制器的精度。 | `performance of` 明确系统目标；`also depends on` 把下一项责任接回同一目标。`that involves ...` 说明该控制器涉及机器人动力学。 |
 | I06-S2 | `a model-based control`—`performs better`—`if the model is accurate enough`。 | `Generally` 说明概括语境；`if` 将性能放在模型精度条件下，`accurate enough` 指达到相关需要的精度。 |
 | I06-S3 | `an accurate dynamic model of a manipulator`—`cannot be obtained`—`in advance`，原因是不确定性。 | `However` 接真实条件差别；`obtained in advance` 写信息可得性，`due to` 接原因，`e.g.` 给未知负载这一具体例子。 |
-| I06-S4 | `The approximation-based controllers`—`have been designed`—`to overcome such uncertainties`。 | 主语切到应对该问题的方法类；`such uncertainties` 回指上句已定义的不确定性，`overcome` 接问题对象。 |
-| I06-S5 | `They`—`utilize`—函数逼近工具，`to learn` 动力学非线性特征。 | `They` 接控制器；`utilize A to B` 把所用工具和它承担的动作写清；`characteristics of` 限定学习对象。 |
+| I06-S4 | `The approximation-based controllers`—`have been designed`—`to overcome such uncertainties`。 | 主语明确为具体逼近控制器，`overcome` 接上句已经命名的动力学不确定性，使控制职责与问题对象连续。 |
+| I06-S5 | `They`—`utilize`—函数逼近工具，`to learn` 动力学非线性特征。 | 续句重复具体逼近控制器名称；`utilize A to B` 把函数逼近工具和它承担的动作写清，`characteristics of` 限定机器人动力学中的学习对象。 |
 | I06-S6 | `NNs`—`have been widely used`—`in controller design`，因为逼近能力。 | 从方法类进入具体工具；`used in` 接使用环节，`because of` 接选择理由，`approximation ability` 与 S5 的函数逼近对象对应。 |
 
-**可模仿表达及作者对应。** `〈整体性能〉 also depends on 〈另一环节的具体能力〉.`；`〈已有方法〉 performs better if 〈成立条件〉.`；`〈所需信息〉 cannot be obtained in advance due to 〈真实原因〉.`；`〈相应方法〉 have been designed to overcome such 〈前句问题〉. They utilize 〈工具〉 to 〈处理对象的动作〉.` 作者明确自己的依赖关系、信息条件和工具职责，`also`、`such`、`They` 都有清楚的承接对象。
+**可模仿表达及作者对应。** `〈整体性能的准确名称〉 also depends on 〈具体轨迹跟踪控制器及其精度〉.`；`〈模型控制方法的准确名称〉 performs better if the 〈动力学模型的准确名称〉 is accurate enough.`；`The 〈所需动力学模型的准确名称〉 cannot be obtained in advance due to 〈不确定性的具体名称〉.`；`The 〈逼近控制器的准确名称〉 has been designed to overcome 〈同一动力学不确定性的具体名称〉. The 〈同一逼近控制器名称〉 utilizes 〈函数逼近工具的准确名称〉 to learn 〈动力学非线性特征的具体名称〉.` 作者明确性能依赖哪项控制精度、哪个动力学模型在何种条件下可用，以及具体控制器怎样处理同一不确定性。
 
 ## 3. 文献句与同一文献续句怎样写出真实能力
 
@@ -115,10 +115,10 @@ P17 已说明 DMP 的表示能力，I03 讨论 DMP 的具体学习用途，再�
 | I03-S2 | `DMPs`—`were modified`—`to model fast movement inherent in hitting motion`。 | `In [7],` 精确定位文献；`modified to model` 区分改动动作与建模目标；`inherent in` 把快速运动限定在击打动作中。 |
 | I03-S3 | `Another study`—`used`—`reinforcement learning`，`to combine DMP sequences`。 | 工作作主语的主动变体；`used A to B` 写工具与操作，`so that the robot could perform ...` 紧接具体能力。[8] 位于本句末。 |
 | I03-S4 | `both these studies`—`employed`—多个 DMP；`another study [9]`—`used`—多个 DMP 表示可调风格轨迹。 | `While` 将前两项工作的共同使用方式与另一工作对照；`where` 继续说明风格怎样改变；`by modulating` 写改变手段，`coupled with` 写参数与目标的联系。 |
-| I03-S5 | `optimal demonstration`—`is difficult to obtain`；`multiple demonstrations`—`can encode`—理想轨迹。 | `As mentioned in [10]` 引用已有判断；并列 `and` 把信息难得与替代信息能力一起提出，`implicitly` 指信息编码方式。 |
+| I03-S5 | `optimal demonstration`—`is difficult to obtain`；`multiple demonstrations`—`can encode`—理想轨迹。 | 用 `The work in [10] indicates that ...` 引用已有判断，明确最优示教的可得性与多次示教编码理想轨迹的能力；`implicitly` 指信息编码方式。 |
 | I03-S6 | `we`—`consider integrating`—多次示教进入一个 DMP。 | `Therefore` 根据上句真实信息关系推出方向；`consider + -ing` 接研究选择，`integrate A into B` 明确整合对象和承载模型。 |
 
-**可模仿表达及作者对应。** `In [xx], 〈方法〉 was modified to 〈具体任务〉.`；`Another study used 〈工具〉 to 〈操作〉 so that 〈研究对象〉 could 〈获得的能力〉 [xx].`；`While 〈前述工作〉 employed 〈共同方法〉 to 〈任务A〉, another study [xx] used 〈方法〉 to 〈任务B〉, where 〈机制或调节关系〉.`；`As mentioned in [xx], 〈已有判断〉. Therefore, we consider 〈由该判断支持的研究选择，-ing〉.` 每个引文对应作者实际读到的那项工作，每个连接词对应这里已建立的共同点、对照点或推论。
+**可模仿表达及作者对应。** `In [xx], 〈方法〉 was modified to 〈具体任务〉.`；`Another study used 〈工具〉 to 〈操作〉 so that 〈研究对象〉 could 〈获得的能力〉 [xx].`；`While 〈前述工作〉 employed 〈共同方法〉 to 〈任务A〉, another study [xx] used 〈方法〉 to 〈任务B〉, where 〈机制或调节关系〉.`；`The work in [xx] indicates that 〈已有判断〉. Therefore, we consider 〈由该判断支持的研究选择，-ing〉.` 每个引文对应作者实际读到的那项工作，每个连接词对应这里已建立的共同点、对照点或推论。
 
 ### E06｜方法和输入写在文献句中，生成输出由下一句承接
 
@@ -150,9 +150,9 @@ P17 I03 已提出多示教信息整合需要；I04 先给概率编码能力，�
 | --- | --- | --- |
 | I04-S6 | `a learning approach named SEDS`—`was proposed`—`for motion modeling`；`an unknown function`—`was modeled`—`using GMR`。 | `In [3],` 后给方法名称与用途；`named` 命名，`for + -ing` 写任务；`where` 中让函数作主语，明确 GMR 的具体职责。 |
 | I04-S7 | `DS-GMR`—`is another method`—`that combines the DS with the statistical learning approach`。 | `another method that ...` 引入同类工作；`combine A with B` 写组合双方，文献 [15] 紧随该方法能力。 |
-| I04-S8 | `Both methods`—`exploit`—DS 的鲁棒性／泛化能力及概率方法的学习能力。 | `Both methods` 明确回指 SEDS 与 DS-GMR；`exploit` 的对象是可利用的能力，`as well as` 连接第二类能力。 |
+| I04-S8 | `Both methods`—`exploit`—DS 的鲁棒性／泛化能力及概率方法的学习能力。 | 以 SEDS 与 DS-GMR 的具体名称共同作主语；`exploit` 的对象是可利用的能力，`as well as` 连接第二类能力。 |
 
-**可模仿表达及作者对应。** `In [xx], a 〈方法类别〉 named 〈方法名〉 was proposed for 〈任务〉, where 〈处理对象〉 was 〈动作〉 using 〈工具〉.`；`〈方法B〉 is another method that combines 〈A〉 with 〈B〉 [xx]. Both methods exploit 〈能力A〉 as well as 〈能力B〉.` 作者的两个相关工作确实共享这些能力时，用这组表达把采用组合设计的依据说具体。
+**可模仿表达及作者对应。** `In [xx], a 〈方法类别〉 named 〈方法名〉 was proposed for 〈任务〉, where 〈处理对象〉 was 〈动作〉 using 〈工具〉.`；`〈方法B〉 is another method that combines 〈A〉 with 〈B〉 [xx]. Both 〈方法A的准确名称〉 and 〈方法B的准确名称〉 exploit 〈能力A〉 as well as 〈能力B〉.` 作者的两个相关工作确实共享这些能力时，用这组表达把采用组合设计的依据说具体。
 
 ### E08｜以控制结构、被约束的量或被处理的问题作主语
 
@@ -216,7 +216,7 @@ ESO I06 讨论观察器估计未知扰动并支持补偿的能力；这两句说
 | I06-S3 | `a sliding mode controller based on a sliding mode observer`—`is proposed`—`for a reusable launch vehicle`。 | `In [12], ... based on ... is proposed for ...` 给文献、控制器基础与应用系统。 |
 | I06-S4 | `The observer`—`is presented`—`to estimate` 未知外扰并 `to reduce` 控制增益。 | 定冠词 `The` 明确接上句观察器；两个平行 `to` 分别写估计对象与控制作用，`unknown external disturbances` 与 `control gain` 各有明确动作。 |
 
-**可模仿表达及作者对应。** `In [xx], a 〈方法〉 based on 〈工具〉 is proposed for 〈系统〉. The 〈同一工具〉 is presented to 〈直接职责〉 and to 〈相应作用〉.` 被估计的量及减小的指标均采用真实工作内容，续句仍属于同一文献。
+**可模仿表达及作者对应。** `In [xx], a 〈方法〉 based on 〈工具〉 is proposed for 〈系统〉. The 〈同一观察器的准确名称〉 is presented to 〈直接职责〉 and to 〈相应作用〉.` 被估计的量及减小的指标均采用真实工作内容，续句仍属于同一文献。
 
 ### E12｜同一文献：方法及问题 → 估计范围的扩充
 
@@ -231,7 +231,7 @@ ESO I06 用 [32] 说明 ESO 的扰动与状态估计能力。这组能力能支�
 | I06-S6 | `a backstepping control based on an ESO`—`is proposed`—`to handle mismatched disturbance of hydraulic systems`。 | `In [32],` 后给方法，`based on` 指基础工具；`handle` 的对象是特定系统的非匹配扰动。 |
 | I06-S7 | `The designed observer`—`estimates`—`not only the model uncertainties but also the unmeasured states`。 | 续句从控制方法聚焦到观察器；主动 `estimates` 直接给职责。`not only A but also B` 连接两个同层估计对象。 |
 
-**可模仿表达及作者对应。** `In [xx], a 〈方法〉 based on 〈工具〉 is proposed to handle 〈系统问题〉. The designed 〈工具〉 estimates not only 〈对象A〉 but also 〈对象B〉.` 两个对象分别取作者引用工作或当前设计实际估计的量，借此交代估计范围和后续设计所需能力。
+**可模仿表达及作者对应。** `In [xx], a 〈方法〉 based on 〈工具〉 is proposed to handle 〈系统问题〉. The 〈同一观察器的准确名称〉 estimates not only 〈对象A〉 but also 〈对象B〉.` 两个对象分别取作者引用工作或当前设计实际估计的量，借此交代估计范围和后续设计所需能力。
 
 ### E13｜文献结论 → 信息利用的实现 → 当前设计
 
@@ -246,9 +246,9 @@ P05 已建立权值收敛与激励条件问题，I07 用估计误差信息进入
 | I07-S1 | `The work in [43]`—`indicates`—参数收敛可在误差信息进入自适应时改善。 | `The work in [xx] indicates that ...` 用工作作主语；`if` 保留改善条件。`information of` 指估计误差相关信息，`integrated into` 明确进入的自适应环节。 |
 | I07-S2 | `a novel parameter estimation law`—`was proposed`—用于未知动力学机器人，利用滑模及有限时间估计器。 | `In [44], ... was proposed for ... by using A and B` 一句给方法、系统条件及所用技术；`with unknown dynamics` 限定问题范围。 |
 | I07-S3 | `the estimation error`—`was integrated`—`into the adaptation scheme`，`to achieve` 权值收敛。 | `In [45],` 后让被利用的信息作主语；`integrated into` 说明信息去向，`to achieve` 直接交代利用它的目标。 |
-| I07-S4 | `we`—`develop`—复合学习控制器，供双臂机器人完成相对运动任务。 | `Motivated by the abovementioned idea` 连接已论证的信息利用理由；`we develop A for B to C` 写作者动作、设计、系统及任务。 |
+| I07-S4 | `we`—`develop`—复合学习控制器，供双臂机器人完成相对运动任务。 | `We therefore develop` 接前句已建立的信息利用能力；`develop A for B to C` 写作者动作、具体控制器、系统及任务。 |
 
-**可模仿表达及作者对应。** `The work in [xx] indicates that 〈能力或性质〉 can be improved if 〈必要条件〉.`；`In [xx], 〈信息〉 was integrated into 〈设计环节〉 to achieve 〈具体目标〉.`；`Motivated by the abovementioned idea, in this paper, we develop 〈设计〉 for 〈系统〉 to 〈任务〉.` 作者的文献结论、信息类型与设计理由相互对应时，直接参照这种连续表达。
+**可模仿表达及作者对应。** `The work in [xx] indicates that 〈能力或性质〉 can be improved if 〈必要条件〉.`；`In [xx], 〈信息〉 was integrated into 〈设计环节〉 to achieve 〈具体目标〉.`；`We therefore develop 〈复合学习控制器的准确名称〉 for 〈系统〉 to 〈任务〉.` 前句具体的信息利用能力为设计提供理由，作者直接写出相应控制器及任务，保留文献结论、信息类型与设计之间的联系。
 
 ## 4. 比较和限制怎样写清能力、条件及设计需要
 
@@ -267,10 +267,10 @@ P05 已建立权值收敛与激励条件问题，I07 用估计误差信息进入
 | I02-S4 | `An approach based on DS`—`was used`—学习人类运动；`the unknown mapping`—`was approximated`—通过 NN。 | `based on` 写方法基础，`used to learn` 写任务；`where` 中明确逼近对象，`using ... called ...` 给工具类别及名称。[4] 与 [5] 各对应原文的工作和工具。 |
 | I02-S5 | `The learned model`—`showed`—`adequate stability and generalization`。 | `The learned model` 接同一文献产物；`showed` 接能力名词，`adequate` 表达该语境下的满足程度。 |
 | I02-S6 | `this DS-based method`—`required`—`considerable demonstration data for training`。 | `However` 从已承认的能力进入所需数据；`this` 回指同一方法，`required A for B` 给信息量和使用目的，`considerable` 修饰数据量。 |
-| I02-S7 | `the DMP`—`only requires`—一次示教以建模；同句 `the DMP`—`models`—运动轨迹为弹簧阻尼系统。 | `In contrast` 继续同一数据维度；`which is based on` 给方法基础。分号后的 `here` 交代模型含义；`model A as B` 与 `integrated with` 分别写表示对象和组成。 |
+| I02-S7 | `the DMP`—`only requires`—一次示教以建模；同句 `the DMP`—`models`—运动轨迹为弹簧阻尼系统。 | `In contrast` 继续同一数据维度。后续句以 DMP 作主语交代动力学表示，`model A as B` 与 `integrated with` 分别写运动轨迹、弹簧阻尼表示及未知函数组成。 |
 | I02-S8 | `The inherent property of the spring-damper system`—`enhances`—所生成运动的稳定性与鲁棒性。 | 主语落到该表示的内在性质；`enhance A of B` 把作用落到生成运动，`robustness (to perturbations)` 明确鲁棒性对象。 |
 
-**可模仿表达及作者对应。** `The learned 〈模型〉 showed 〈相关能力〉. However, this 〈方法〉 required 〈具体资源〉 for 〈用途〉. In contrast, 〈另一方法〉 requires 〈对应资源〉 to 〈同一任务〉.` 解释表示时可参照 `〈方法〉 models 〈对象〉 as 〈表示〉 integrated with 〈组成〉. The inherent property of 〈表示〉 enhances 〈对应性能〉.` 用作者引用的真实工作支持能力、资源量与性能关系。
+**可模仿表达及作者对应。** `The 〈已学习运动模型的准确技术名称〉 showed 〈相关能力〉. However, 〈该运动模型学习方法的准确名称〉 required 〈具体资源〉 for 〈用途〉. In contrast, 〈另一运动建模方法的准确名称〉 requires 〈对应资源〉 to 〈同一任务〉.` 解释表示时可参照 `〈运动建模方法的准确名称〉 models 〈运动轨迹的具体名称〉 as 〈动力学表示的准确名称〉 integrated with 〈组成的准确名称〉. The inherent property of the 〈同一动力学表示名称〉 enhances 〈对应运动性能〉.` 用作者引用的真实工作支持能力、资源量与性能关系，分别明确运动模型、学习方法和动力学表示的身份。
 
 ### E15｜共同假设 → 实际动作需要 → 下一段研究对象
 
@@ -291,7 +291,7 @@ E08 已写出三项协作控制能力；接续句给牢固抓持条件及表面�
 | I03-S1 | `the coordination control of dual-arm robots with relative motion`—`deserves`—`further investigation`。 | `In this respect` 承接刚建立的滑动需要；主语中 `with relative motion` 精确限定研究问题，`deserves further investigation` 直接建立研究需要。 |
 | I03-S2 | `The relative motion`—`is also known as`—`the asymmetric bimanual task`。 | 重复上一句对象并给领域命名，`known as` 对应术语身份，使后续文献讨论有明确称谓。 |
 
-**可模仿表达及作者对应。** `The abovementioned 〈方法〉 were developed under the assumption that 〈共同条件〉.`；`However, in practical applications, such as 〈真实任务〉, 〈对象〉 need to 〈实际动作〉, where 〈相关关系〉.`；`In this respect, 〈刚建立的具体问题〉 deserves further investigation.` 作者将所举文献的共同条件与当前任务逐项对应，下一段主语直接接收由此确定的研究对象。
+**可模仿表达及作者对应。** `〈文献中各控制器的准确名称〉 were developed under the assumption that 〈共同条件〉.`；`However, in practical applications, such as 〈真实任务〉, 〈对象〉 need to 〈实际动作〉, where 〈相关关系〉.`；`In this respect, 〈刚建立的具体问题〉 deserves further investigation.` 作者将所举文献的共同条件与当前任务逐项对应，下一段主语直接接收由此确定的研究对象。
 
 ### E16｜时间能力 → 初始条件依赖 → 新方向及其联合能力
 
@@ -323,11 +323,11 @@ E17 已从逼近控制进入 NN；这组用两项文献及 RBFNN 的相关能力
 | 原文句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I06-S7 | `the BPNN`／`the RBFNN`—分别 `was utilized`—逼近各自系统中的未知非线性。 | `In [23], A was utilized to ..., while in [24], B was utilized to ...` 保持相同句式比较两项工作，系统与逼近对象各自明确。 |
-| I06-S8 | `the learning procedure of RBFNN`—`is based on`—局部逼近；`RBFNN`—`can avoid ... and has ...`。 | `Compared to` 给参照对象，分号后的 `thus` 把机制接到论文所述能力；`local approximation`、`local optimum`、`convergence rate` 分别指机制、优化状态及速度指标。 |
+| I06-S8 | `the learning procedure of RBFNN`—`is based on`—局部逼近；`RBFNN`—`can avoid ... and has ...`。 | 先在与 BPNN 的比较中说明 RBFNN 学习的局部逼近基础，再以 RBFNN 作主语说明该基础支持的能力。`local approximation`、`local optimum`、`convergence rate` 分别指机制、优化状态及速度指标。 |
 | I06-S9 | `the number of hidden layer units`—`can be adaptively adjusted`—训练期间。 | `Besides` 补另一相关能力；`number of` 精确给可调量，`during` 给阶段，`making ...` 紧接这一调节的作用。 |
 | I06-S10 | `RBFNN`—`is more appropriate`—`for the design of real-time control`。 | `Therefore` 综合刚才的能力；`appropriate for` 写相对当前任务的适用性，把比较收束到工具采用理由。 |
 
-**可模仿表达及作者对应。** `In [xx], 〈工具A〉 was utilized to 〈任务A〉, while in [yy], 〈工具B〉 was utilized to 〈任务B〉.`；`Compared to 〈参照对象〉, 〈机制〉 is based on 〈科学基础〉; thus, 〈有依据的作用〉.`；`Besides, 〈可调量〉 can be adaptively adjusted during 〈相关阶段〉, making 〈对象〉 〈对应属性〉.`；`Therefore, 〈方法〉 is more appropriate for 〈当前任务〉.` 作者据自己的证据确定机制、作用和适用条件。
+**可模仿表达及作者对应。** `In [xx], 〈工具A〉 was utilized to 〈任务A〉, while in [yy], 〈工具B〉 was utilized to 〈任务B〉.`；`In comparison to 〈参照方法的准确名称〉, the learning procedure of 〈方法的准确名称〉 is based on 〈具体科学基础〉. Thus, 〈同一方法的准确名称〉 〈有依据的作用谓语及对象〉.`；`Besides, the 〈可调量的准确名称〉 in the 〈方法的准确名称〉 can be adaptively adjusted during 〈相关阶段〉. The adaptive adjustment of the 〈同一可调量名称〉 makes the 〈同一方法名称〉 〈对应属性〉.`；`Therefore, 〈方法〉 is more appropriate for 〈当前任务〉.` 作者据自己的证据确定机制、作用和适用条件，保留比较对象及机制与能力、调节与作用的连接。
 
 ### E20｜学习途径 → 所能利用的信息 → 效率维度
 
@@ -343,11 +343,11 @@ P17 I05 前两句已给当前多示教组合设计及作用，见 E19；以下�
 | I05-S4 | `these methods`—`enable`—DMP 从一次示教学得。 | `Despite + 名词短语` 先说明已付出的复杂性；`enable A to B` 给能力，`from only one demonstration` 保留示教信息量维度。 |
 | I05-S5 | `Reservoir computing`—`is another method used to approximate`—非线性函数；`its computing efficiency`—`is less than`—GMR 的对应效率。 | `another method used to` 补一条相关路线；`but` 引入同一任务下的效率比较。`that of` 回指 `computing efficiency`，比较双方保持同一指标。 |
 
-**可模仿表达及作者对应。** `〈模型〉 was learned using 〈工具〉 [xx], and 〈另一工具〉 was employed to optimize 〈对象〉 [yy].`；`Despite 〈已付出的代价〉, these methods enable 〈对象〉 to 〈能力范围〉.`；`〈方法〉 is another method used to 〈同一任务〉, but its 〈指标〉 is less than that of 〈参照方法〉.` 作者的比较维度由研究需要与实际文献共同确定。
+**可模仿表达及作者对应。** `〈模型〉 was learned using 〈工具〉 [xx], and 〈另一工具〉 was employed to optimize 〈对象〉 [yy].`；`Despite 〈已付出的代价〉, 〈学习方法A的准确名称〉 and 〈学习方法B的准确名称〉 enable 〈运动模型的准确名称〉 to 〈能力范围〉.`；`〈方法〉 is another method used to 〈同一任务〉, but its 〈具体指标名称〉 is less than that of 〈参照方法〉.` 作者的比较维度由研究需要与实际文献共同确定。
 
 ## 5. 设计怎样出现，并紧接具体作用
 
-理由已经建立后，用 `we integrate/develop/present ...` 或设计作主语的 `is designed/proposed/employed ...` 明确作者采取了什么。紧接它处理的对象、发挥的作用或保证的性质。P17 的 `To take advantage of ... , we integrate ... . This modification enables ...` 是组合设计与作用连续表达的主要参照。
+理由已经建立后，用 `we integrate/develop/present ...` 或设计作主语的 `is designed/proposed/employed ...` 明确作者采取了什么。紧接它处理的对象、发挥的作用或保证的性质。组合设计沿用 P17 的作者动作与作用关系，作用句以整合后的具体运动模型名称作主语，明确哪项设计使什么成为可能。
 
 ### E19｜理由 → 作者动作与组成职责 → 具体作用
 
@@ -360,9 +360,9 @@ P17 I05 前两句已给当前多示教组合设计及作用，见 E19；以下�
 | 原文句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I05-S1 | `we`—`integrate`—`DMP and GMM into our proposed system`；`the nonlinear function`—`is modeled`；`its estimate`—`is retrieved`。 | `To take advantage of` 先接前文能力；主动句明确作者动作。`integrate A and B into C` 写整合双方与系统；`where` 补 GMM／GMR 各自职责，`modeled with`、`retrieved through` 区分建模与取得估计。 |
-| I05-S2 | `This modification`—`enables`—机器人提取更多运动特征并生成合成这些特征的运动。 | 指示词加具体名词回指刚才的设计改变；`enables A to B and to C` 连接两项作用。`extract ... from` 给输入来源，`motions that synthesize these features` 使产物接住同一批特征。 |
+| I05-S2 | `This modification`—`enables`—机器人提取更多运动特征并生成合成这些特征的运动。 | 以整合 DMP 与 GMM／GMR 的运动模型名称接 `enables A to B and to C`，连接两项作用。`extract ... from` 给输入来源，`motions that synthesize these features` 使产物接住同一批特征。 |
 
-**可模仿表达及作者对应。** `To take advantage of 〈前文已说明的能力〉, we integrate 〈A〉 and 〈B〉 into 〈作者系统〉, where 〈对象A〉 is modeled with 〈工具A〉 and 〈其输出〉 is retrieved through 〈工具B〉. This modification enables 〈研究对象〉 to 〈作用A〉 and to 〈接续作用B〉.` 作者对应“为什么组合、各自处理什么、组合使什么成为可能”；作用句持续使用同一输入和产物。需要较短实现时，按同一真实关系选择所需分句。
+**可模仿表达及作者对应。** `To take advantage of 〈前文已说明的能力〉, we integrate 〈方法A的准确名称〉 and 〈方法B的准确名称〉 into 〈作者系统的准确名称〉. The 〈待建模非线性函数的准确名称〉 is modeled with 〈建模工具的准确名称〉. The estimate of the 〈同一非线性函数名称〉 is retrieved through 〈回归工具的准确名称〉. The 〈整合后的运动模型的准确名称〉 enables 〈研究对象〉 to 〈作用A〉 and to 〈接续作用B〉.` 作者对应“为什么组合、各自处理什么、组合使什么成为可能”，持续说明同一函数及其估计、输入信息和生成产物。
 
 ### E21｜新增设计 → 放宽条件；所用信息 → 改善能力
 
@@ -390,18 +390,18 @@ ESO 的前文已建立扰动补偿和未测状态估计需要；I08 开头给 MI
 | 原文句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I08-S1 | `a disturbance compensation approach`—`is utilized`—处理抖振，基础是 MIMO-ESO。 | `In this paper` 明确当前工作；`utilized to` 接设计目的，`based on` 给基础工具，`with a simple structure` 限定工具属性。 |
-| I08-S2 | `a MIMO-ESO`—`is proposed`—估计未知扰动与未测状态。 | `Motivated by 〈方法A〉 and 〈方法B〉` 指定已有依据；`proposed to estimate A and B` 将两个估计对象直接写出。 |
+| I08-S2 | `a MIMO-ESO`—`is proposed`—估计未知扰动与未测状态。 | 先以 ESO 模型和高增益观察器的准确名称作主语说明设计启发，再以 MIMO-ESO 作主语接 `proposed to estimate A and B`，写出未知扰动与未测状态这两个估计对象。 |
 | I08-S3 | `The bounds of the uncertainties`—`are also estimated`—`using the adaptive control technique`。 | 从观察器切换到补充估计量；`bounds of` 保留估计的是界，`also` 加另一职责，`using` 给采用的手段。 |
 
-**可模仿表达及作者对应。** `In this paper, a 〈设计〉 is utilized to 〈有依据的目的〉 based on 〈基础工具的准确名称〉.`；`Motivated by 〈已有方法A〉 [xx] and 〈已有方法B〉 [yy], a 〈作者设计〉 is proposed to estimate 〈对象A〉 and 〈对象B〉. The 〈补充量〉 are also estimated using 〈相应技术〉.` 作者按自己真正需要估计的状态、扰动或界填写，并使目的动词与实际证据强度一致。
+**可模仿表达及作者对应。** `In this paper, a 〈设计〉 is utilized to 〈有依据的目的〉 based on 〈基础工具的准确名称〉.`；`The 〈已有方法A的准确名称〉 [xx] and the 〈已有方法B的准确名称〉 [yy] motivate the design of the 〈作者观察器的准确名称〉. The 〈同一观察器名称〉 is proposed to estimate 〈对象A〉 and 〈对象B〉. The 〈补充量〉 are also estimated using 〈相应技术〉.` 作者按自己真正需要估计的状态、扰动或界填写，明确已有方法的启发关系及当前观察器的估计职责，并使目的动词与实际证据强度一致。
 
 ### 设计句与作用句的直接调用
 
-E13 的 `we develop ... for ... to ...` 对应已建立的信息利用理由；E09 的 `is designed to guarantee ...` 将设计与单项性能职责写在一句；E19 以 `This modification enables ...` 紧接组合设计的作用；E22 以被估计的量作后续主语继续说明职责。选择这些实现时，先明确作者的动作、功能对象与作用，再按需要组合“设计句＋作用句”或单句中的设计与作用。
+E13 的 `we develop ... for ... to ...` 对应已建立的信息利用理由；E09 的 `is designed to guarantee ...` 将设计与单项性能职责写在一句；E19 以整合后的运动模型名称接 `enables ...`，紧接组合设计的作用；E22 以具体观察器及被估计的量作后续主语继续说明职责。选择这些实现时，先明确作者的动作、功能对象与作用，再按需要组合“设计句＋作用句”或单句中的设计与作用。
 
 ## 6. 多个设计怎样通过主语和输入输出连接
 
-让组成、职责、产物和接收者在英文中明确对应。P17 先给跟踪设计与稳定性，再用 `consists of`、`The former`、`The latter` 连接运动生成与执行；后一部分直接接收前一部分生成的同一轨迹。
+让组成、职责、产物和接收者在英文中明确对应。先给跟踪设计与稳定性，再用 `consists of` 明确系统组成。后续句直接写运动生成模块、运动模型、关节空间轨迹、轨迹跟踪模块及自适应控制器的具体名称，使跟踪控制接收运动生成产生的同一轨迹。
 
 ### E23｜控制职责 → 保证 → 系统组成 → 前一部分输出 → 后一部分接收
 
@@ -415,15 +415,15 @@ E17–E18 已建立轨迹执行与 NN 选择理由；I07 给当前控制器，�
 | --- | --- | --- |
 | I07-S1 | `an NN-based controller`—`is designed`—保证关节空间跟踪性能；`RBFNN`—`is employed`—逼近动力学非线性函数。 | `In this paper` 接当前设计；`designed to guarantee` 写控制职责，`in joint space` 给空间范围，`where ... employed to approximate` 指明工具处理的对象。 |
 | I07-S2 | `The stability of the controller`—`is guaranteed`—`by the Lyapunov stability theory`。 | 从控制器转向其性质；`stability of` 与上句设计对应，`guaranteed by` 给理论依据。 |
-| I07-S3 | `the robot learning system`—`consists of`—运动生成和轨迹跟踪两部分。 | `As shown in Fig. 1` 在存在对应框架图时定位；`consists of A and B` 明确组成及后文指代顺序。 |
-| I07-S4 | `The former`—`utilizes`—DMP 模型，以学习和泛化技能；`these`—`are represented`—为关节空间轨迹。 | `The former` 回指运动生成；`utilize A to B` 写职责，分号后 `these, in turn` 接技能产物，`represented as` 明确交给后续部分的表示。 |
-| I07-S5 | `The latter`—`employs`—自适应控制器跟踪前一部分生成的轨迹；`RBFNN`—`is incorporated`—补偿不确定动力学。 | `The latter` 回指跟踪部分；`trajectories generated from the former` 精确接收 S4 输出，`incorporated to compensate for` 说明补偿工具与问题对象。 |
+| I07-S3 | `the robot learning system`—`consists of`—运动生成和轨迹跟踪两部分。 | 以系统名称作主语，`consists of A and B` 明确两个具体模块的组成关系，后文按模块名称连接职责。对应框架图可在组成句中附后定位。 |
+| I07-S4 | `The former`—`utilizes`—DMP 模型，以学习和泛化技能；`these`—`are represented`—为关节空间轨迹。 | 运动生成模块利用 DMP 模型学习与泛化运动技能。后续句以这些运动技能的具体名称承接，用 `represented as` 交代关节空间轨迹表示，使职责与输出保持明确对应。 |
+| I07-S5 | `The latter`—`employs`—自适应控制器跟踪前一部分生成的轨迹；`RBFNN`—`is incorporated`—补偿不确定动力学。 | 轨迹跟踪模块接收运动生成模块产生的同一关节空间轨迹；`employs ... to track` 写跟踪职责，`incorporated to compensate for` 写 RBFNN 与不确定动力学之间的补偿关系。 |
 
-**可模仿表达及作者对应。** `〈系统〉 consists of 〈部分A〉 and 〈部分B〉. The former utilizes 〈工具〉 to 〈职责〉; these, in turn, are represented as 〈输出表示〉. The latter employs 〈工具〉 to 〈处理前者同一输出〉, and 〈补充工具〉 is incorporated to compensate for 〈真实不确定性〉.` 理论性质可接 `The 〈性质〉 of the 〈设计〉 is guaranteed by 〈依据〉.` 作者明确组成、代词指向和实际传递对象，用这些表达维持设计之间的科学连接。
+**可模仿表达及作者对应。** `〈系统〉 consists of 〈运动生成模块的准确名称〉 and 〈轨迹跟踪模块的准确名称〉. The 〈同一运动生成模块名称〉 utilizes the 〈运动模型的准确名称〉 to learn and generalize 〈运动技能的具体名称〉. The 〈同一运动技能名称〉 are represented as 〈关节空间轨迹的具体名称〉. The 〈轨迹跟踪模块的同一名称〉 employs the 〈自适应控制器的准确名称〉 to track the 〈同一关节空间轨迹名称〉 generated by the 〈运动生成模块的同一名称〉. The 〈逼近工具的准确名称〉 is incorporated into the 〈同一自适应控制器名称〉 to compensate for 〈不确定动力学的具体名称〉.` 理论性质可接 `The 〈性质〉 of the 〈设计的准确名称〉 is guaranteed by 〈依据〉.` 作者保持模块、模型、技能、轨迹与控制器的身份明确，逐句连接学习、表示、生成、跟踪及补偿。
 
 ## 7. 过渡和贡献怎样用具体对象收束
 
-过渡表达承接已经明确的科学信息：E05 的 `As mentioned ... Therefore ...` 接信息需要，E15 的 `In this respect` 接相对运动问题，E17 的 `also depends on` 接执行责任，E19 的 `To take advantage of` 接两类能力，E23 的 `in turn` 接技能表示。贡献段继续用这些已建立的对象与职责说清总体作用。
+过渡表达承接已经明确的科学信息：E05 先用 `The work in [xx] indicates that ...` 写信息依据，再用 `Therefore` 接研究选择；E15 的 `In this respect` 接相对运动问题，E17 的 `also depends on` 接执行责任，E19 的 `To take advantage of` 接两类能力，E23 用具体运动技能和关节空间轨迹名称连接技能与表示。贡献段继续用这些已建立的对象与职责说清总体作用。
 
 ### E24｜总体框架 → 指定模型比较 → 增补职责 → 实际作用
 
@@ -435,13 +435,13 @@ P17 前文已把多示教运动生成和未知动力学下的执行连接起来�
 
 | 原文句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I08-S1 | `we`—`present`—机器人学习框架；框架 `considers` 运动生成和跟踪两项性能。 | `Here, we present` 直接给总体工作；`framework that considers ... both A and B` 明确覆盖的责任范围。修饰语的程度对应作者框架的实际范围与贡献。 |
+| I08-S1 | `we`—`present`—机器人学习框架；框架 `considers` 运动生成和跟踪两项性能。 | `We present` 直接给总体工作；`framework that considers ... both A and B` 明确覆盖的责任范围。修饰语的程度对应作者框架的实际范围与贡献。 |
 | I08-S2 | `The SEDS presented in [3]`—`is similar`—`to our DMP-based model`。 | `presented in [xx]` 定位方法；`similar to` 明确所比对象，使后续条件讨论围绕同一模型。 |
 | I08-S3 | `the constraints that guarantee the stability of SEDS`—`are derived`—通过 Lyapunov 理论，并增加学习复杂性。 | `However` 进入该对象的条件；定语从句明确约束的作用，`derived by` 指推导依据，`increases the complexity of` 说明论文所述学习代价。 |
 | I08-S4 | `our system`—`is enhanced`—`by an NN-based controller`；环境影响—`can be compensated`—通过神经学习。 | `In contrast to [3] and [25] which considered only ...` 保留指定工作的比较范围；`enhanced by` 写增加的设计，`compensated by` 写补偿作用的来源。 |
-| I08-S5 | `This design`—`enables`—机器人稳定、稳健地执行学得运动。 | 指示名词接刚说明的总体设计；`enables A to perform B` 把设计落到对象与任务，`steadily`、`more robustly` 修饰执行方式，`in the real world` 给作用场景。 |
+| I08-S5 | `This design`—`enables`—机器人稳定、稳健地执行学得运动。 | 以同一机器人学习框架名称接 `enables A to perform B`，把设计落到对象与任务；`steadily`、`more robustly` 修饰执行方式，`in the real world` 给作用场景。 |
 
-**可模仿表达及作者对应。** `Here, we present a 〈框架〉 that considers the performance of both 〈责任A〉 and 〈责任B〉.`；`In contrast to [xx] and [yy] which considered 〈真实比较范围〉, our system is enhanced by 〈增补设计〉 and 〈相应影响〉 can be compensated by 〈学习或控制机制〉. This design enables 〈对象〉 to perform 〈原研究任务〉 〈有依据的执行方式〉.` 作者的贡献通过覆盖范围、设计职责和最终作用回收前文。
+**可模仿表达及作者对应。** `We present a 〈框架的准确名称〉 that considers the performance of both 〈责任A〉 and 〈责任B〉.`；`In contrast to [xx] and [yy] which considered 〈真实比较范围〉, the 〈系统的准确名称〉 is enhanced by the 〈增补控制器的准确名称〉. The 〈相应环境影响的具体名称〉 can be compensated by 〈学习或控制机制的准确名称〉. The 〈同一学习框架名称〉 enables 〈对象〉 to perform 〈原研究任务〉 〈有依据的执行方式〉.` 作者的贡献通过覆盖范围、设计职责和最终作用回收前文，保留指定工作的比较范围及补偿与运动执行之间的联系。
 
 ### E25｜研究目标 → 贡献引导 → 各项设计及作用
 
@@ -491,12 +491,12 @@ Fuzzy 的前文已经建立瞬态约束和收敛时间两项需要，这组贡�
 
 | 原文句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| C1-S1 | `A novel symmetric BLF`—`is designed`—避免输出约束被违反；期望瞬态性能—`can be guaranteed`。 | `designed to` 接直接职责；分号后 `thus` 接保证，`violation of` 精确给需避免的约束行为。 |
+| C1-S1 | `A novel symmetric BLF`—`is designed`—避免输出约束被违反；期望瞬态性能—`can be guaranteed`。 | `designed to` 接直接职责，后续完整句用 `Thus` 接相应性能保证；`violation of` 精确给需避免的约束行为。 |
 | C2-S1 | `A novel adaptive law`—`is proposed`；全部闭环信号的有界性—`can be proved`。 | `proposed such that` 连接设计与性质，`boundedness of all the closed-loop signals` 完整说明证明对象及范围。 |
 | C2-S2 | `the assumption that the weight estimation is bounded`—`can be relaxed`。 | `Then` 接已证明有界性后的假设改善；`assumption that` 具体写假设内容，`in ... research [xx]` 保留文献范围。 |
 | C3-S1 | `The tracking performance of the robot system`—`can achieve`—`practical fixed-time convergence regardless of the initial conditions`。 | 性能作主语；`practical` 保留收敛性质范围，`regardless of` 写初始条件独立性，回应前文的时间性能需要。 |
 
-**可模仿表达及作者对应。** `A 〈设计〉 is designed to 〈直接职责〉; thus, 〈对应性能〉 can be guaranteed.`；`A 〈自适应律〉 is proposed such that the boundedness of 〈精确的信号范围〉 can be proved. Then, the assumption that 〈被证明所支持的假设〉 in 〈指定工作〉 can be relaxed.` 收敛作用句保留作者真实的性质名称、限定词与条件关系，表达设计与理论贡献的连续联系。
+**可模仿表达及作者对应。** `A 〈设计的准确名称〉 is designed to 〈直接职责及对象〉. Thus, the 〈对应性能的准确名称〉 of the 〈系统的准确名称〉 can be guaranteed.`；`A 〈自适应律〉 is proposed such that the boundedness of 〈精确的信号范围〉 can be proved. Then, the assumption that 〈被证明所支持的假设〉 in 〈指定工作〉 can be relaxed.` 收敛作用句保留作者真实的性质名称、限定词与条件关系，表达设计与理论贡献的连续联系。
 
 ## 按作者科学内容选择、组合和调整
 
@@ -504,4 +504,4 @@ Fuzzy 的前文已经建立瞬态约束和收敛时间两项需要，这组贡�
 
 主语选择跟随当前科学重点：方法作主语写采用与能力，信息或问题作主语写处理对象，输出作主语写生成结果，性能作主语写作用或保证，`we` 作主语写作者设计动作。动作与对象一起选择，例如 `extract features from demonstrations`、`approximate nonlinear functions`、`compensate for uncertain dynamics`、`relax a requirement` 都在相应连续句中给出了具体搭配与适用关系。
 
-承接词与指代服务于真实信息关系：`The observer` 接刚介绍的观察器，`Both methods` 接两个明确方法，`This modification/design` 接刚说明的改变或设计，`The former/The latter` 接已列出的两部分。作者填入自己的科学内容后，继续保持对象、方法、信息、条件、输入输出和作用之间的准确对应，使成熟英文直接承载作者的研究。
+承接句优先重复准确的科学名称：同一观察器名称接其估计职责，两个具体方法名称接共同能力，整合后的运动模型名称接其作用，运动生成模块与轨迹跟踪模块名称接各自职责和同一轨迹。较短表达在保留技术身份与作用清晰时使用，例如同句中的 `its computing efficiency` 与 `that of GMR` 已明确比较的是计算效率。作者填入自己的科学内容后，继续保持对象、方法、信息、条件、输入输出和作用之间的准确对应，使成熟英文直接承载作者的研究。

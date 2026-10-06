@@ -1,0 +1,111 @@
+{
+  "scope": "Author-preference repair of expression defaults only; no Skill/effect execution",
+  "base_commit": "ceac33728b6f900773ee31c0a18a8a3e3fd3738c",
+  "inputs_sha256": {
+    "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+    "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "引言写作方法.txt": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83",
+    "skill-candidate/nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e"
+  },
+  "original_source_evidence_files_unchanged": true,
+  "all_32_published_evidence_blocks_unchanged": true,
+  "all_96_source_subject_action_object_entries_unchanged": true,
+  "all_group_scientific_contexts_unchanged": true,
+  "all_source_locations_unchanged": true,
+  "accepted_section_and_paragraph_guides_unchanged": true,
+  "four_publication_pdf_hashes_match": true,
+  "changed_default_groups": [
+    "E17",
+    "E05",
+    "E07",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E18",
+    "E20",
+    "E19",
+    "E22",
+    "E23",
+    "E24",
+    "E26"
+  ],
+  "changed_realization_cells": [
+    {
+      "group": "E04",
+      "sentence": "I02-S2"
+    },
+    {
+      "group": "E17",
+      "sentence": "I06-S4"
+    },
+    {
+      "group": "E17",
+      "sentence": "I06-S5"
+    },
+    {
+      "group": "E05",
+      "sentence": "I03-S5"
+    },
+    {
+      "group": "E07",
+      "sentence": "I04-S8"
+    },
+    {
+      "group": "E13",
+      "sentence": "I07-S4"
+    },
+    {
+      "group": "E14",
+      "sentence": "I02-S7"
+    },
+    {
+      "group": "E18",
+      "sentence": "I06-S8"
+    },
+    {
+      "group": "E19",
+      "sentence": "I05-S2"
+    },
+    {
+      "group": "E22",
+      "sentence": "I08-S2"
+    },
+    {
+      "group": "E23",
+      "sentence": "I07-S3"
+    },
+    {
+      "group": "E23",
+      "sentence": "I07-S4"
+    },
+    {
+      "group": "E23",
+      "sentence": "I07-S5"
+    },
+    {
+      "group": "E24",
+      "sentence": "I08-S1"
+    },
+    {
+      "group": "E24",
+      "sentence": "I08-S5"
+    },
+    {
+      "group": "E26",
+      "sentence": "C1-S1"
+    }
+  ],
+  "all_26_default_groups_reviewed": true,
+  "default_english_has_no_Here_semicolon_or_participial_openings_checked": true,
+  "default_generic_references_replaced_or_technically_explicit": true,
+  "source_links_checked": 35,
+  "current_guide_sha256": "8f2db7b62b49526c2db0259a425ee271cec1cbc8feaa30633e080afde53ef202",
+  "relation_review": "Comparators, model-accuracy conditions, excitation/information relations, guarantees and motion-model-to-joint-trajectory-to-tracking interfaces retained; original science unchanged",
+  "changed_tracked_files": [
+    "analysis/introduction-expression-learning-2026-10-06/learning-draft.md"
+  ],
+  "verification_kind": "Document/source consistency; not writing performance or effect validation",
+  "baseline_guide_git_blob_sha256": "67b92c809b28ab3d1c56e7892523f7642588957fb4617127b8bf357f09b15300"
+}
