@@ -9,7 +9,7 @@ material used by Writing. Against original author material, first assess the
 scientific line, paragraph tasks and sentence links, then repair affected English
 from the complete examples. This shared domain guidance governs the field-value
 opening, literature capabilities and continuations, design reasons and effects,
-and the necessity of method and study-experiment information. Preserve accurate
+and the necessity of method information. Preserve accurate
 content and apply `scientific-expression.md` before delivery.
 
 The general funnel and diagnosis below remain available for other subjects and

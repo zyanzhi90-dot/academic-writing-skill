@@ -93,12 +93,8 @@ An Introduction can explain a model's role or a component's output when that
 relation establishes why the design is needed.
 
 Organize the default Introduction around research needs, relevant literature
-abilities and conditions, current designs and contributions. Place this study's
-experimental tasks, settings, baseline lists and results in Experiments/Results.
-Retain study-specific empirical information in Introduction only when it performs
-a necessary scientific argument function, with its task and evidence scope
-attached. Apply this necessity decision both while drafting and while reviewing
-an existing draft. Select author information by its contribution to the
+abilities and conditions, current designs and contributions.
+Select author information by its contribution to the
 Introduction's scientific argument.
 
 ## B15

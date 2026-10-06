@@ -29,7 +29,7 @@ task-selected Introduction passages; retain its P17 expression anchor and use
 the shared `robotics-introduction-examples.md` section, paragraph and expression
 material for default organization and English. That material governs field-value
 opening, prior capabilities and conditions, design reasons and effects, and the
-necessity of method and study-experiment information. Select deeper general
+necessity of method information. Select deeper general
 guidance here only for a remaining author-supported need. Apply
 `scientific-expression.md` throughout.
 

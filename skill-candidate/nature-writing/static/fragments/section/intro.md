@@ -9,7 +9,7 @@ Determine the author's scientific line and paragraph tasks before drafting, then
 draft along that line using the selected complete English and analysis. This
 shared domain guidance governs architecture, field-value opening, literature
 capabilities and continuations, design reasons and effects, and the necessity of
-method and study-experiment information. Apply it during generation and final
+method information. Apply it during generation and final
 review, with the existing workflow and `scientific-expression.md`.
 
 The general arrangements below remain available for other subjects and
