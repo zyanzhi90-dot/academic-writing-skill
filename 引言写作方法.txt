@@ -1,1 +1,10 @@
 每一段都服务于下一段，把所有核心设计按“为什么需要它”自然推出来。
+先确定整节 Introduction 的科学主线和各段任务，再沿同一主线逐段完成整节。整体上让读者自然理解：
+研究为什么重要 → 已有方法能做什么 → 当前任务还存在什么具体问题或条件 → 为什么需要本文各项设计 → 各设计分别起什么作用 → 最终形成什么贡献。
+第一段通常先说明大领域的重要性、应用价值或研究必要性，再逐步收窄到具体科学问题。后续各段段首直接亮出本段的科学对象、问题、路线或责任。
+文献先写真实能力。具体说明已有工作采用了什么方法、处理了什么问题、具有什么与当前论证相关的能力，再根据当前任务需要说明相应条件、限制或未解决关系。优先学习范例中的成熟写法，如 In [xx], ... was proposed/developed/employed to ...，以及同一文献后续句对机制和作用的继续说明。
+本文设计在其需要已经建立后自然出现。直接说明提出什么设计、为什么采用、解决什么问题、承担什么作用或形成什么优势。多个设计之间存在依赖、分工或接口时，把这种关系说明清楚。
+Introduction 中的方法只展开到足以解释设计理由和贡献。算法步骤、公式推导、控制律细节和实现参数留给 Method。当前默认不展开本研究实验任务、设置、baseline 和结果；只有这些信息确实承担 Introduction 的科学论证任务时才保留必要部分。
+分段由科学论证任务决定，不固定段数，不按“一模块一段”，也不要求每段都设置 gap。相邻段之间要保持对象和问题的自然交接，使后一段是前一段科学推进的结果。
+具体英文直接学习优秀范例的真实写法。重点模仿完整段落推进、连续句关系、段首、文献句、比较/限制句、设计句、作用句，以及真实主语、动词、句式、搭配和具体用词，再把其中的科学内容全部换成自己的。
+主要参考以 Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives 为默认表达锚点，并结合 Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion、Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance 和 Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities 中适合当前科学关系的真实写法。
