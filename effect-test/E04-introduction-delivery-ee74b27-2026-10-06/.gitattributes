@@ -1,0 +1,2 @@
+# Preserve original run-evidence bytes, including line endings.
+* -text

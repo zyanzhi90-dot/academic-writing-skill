@@ -64,6 +64,7 @@
   "report_links_resolve": true,
   "credential_pattern_scan_findings": [],
   "files_sha256": {
+    ".gitattributes": "03b04d7adcff0b1e229113f0c311780430c641acf67a4e326e58440b14249921",
     "accepted-abstract.en.txt": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
     "background-facts.md": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
     "citation-facts.md": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
@@ -265,6 +266,7 @@
     "drafting/stderr.txt": "e6f9aa19a4e70ae72cd059d7f08729939c79f854a633eb499fd9b649642fef6d",
     "drafting-task.md": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
     "execute_once.py": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+    "git-byte-verification.json": "038bb048038c4c3231fe9cae044a9b30efe6e22f4c37f27e82bd2d163fd09597",
     "index_outputs.py": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200",
     "loading-summary.json": "a04bc68eafc59a2ea45f702820ee2d73336a98fe2f4a6ab27857b0b3f886dff1",
     "polishing/audit.json": "97f67b20bb2df19b8767c1e94cafccf020cdc2fb67844b8a25263b5ccfd22753",
@@ -415,15 +417,17 @@
     "preflight.py": "035aefaf6be53589e5744d2577909855c996421dd6d33f1d4eb359f2c826bcc0",
     "prepare_runner.py": "4d8746987d6aa5ac4d871a0b84cee9205ff2dabd70f469078e84374b31d8868f",
     "retain_sections.py": "08e528b8dc835f71d07db0fec43ca39f86623ab77ffae5b843a829f2b56904b7",
-    "run-record.md": "38fb4dc2173ce230cce96ef8444e0b98a9b5d5c76c95a3940fb917318eaef050",
+    "run-record.md": "5fdff42bdfe410bce4da17234799e1e6d67cff602496d5f1558af5ee86899af6",
     "runner-adaptation.diff": "567b58c8a95362a5ea3f22dd4363ddd30e953c391fab4063a92fe8410a53c2f5",
     "runner-provenance.json": "2d5c152984357091ee12929ab1cf7a0efe3a9fedea121e5796c4b47462e4c9d2",
     "save_delivery.py": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844",
     "scientific-facts.md": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
     "summarize_loading.py": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6",
+    "verify_git_bytes.py": "602021582db63c4de641c8c245e3166b854ad3099c11df62a01e15f2327f06ec",
     "verify_records.py": "5ce997a4504e457df5a7951b1149923e0264ab5174fb7ef0507d62804cbdfb93",
     "verify_stage.py": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868",
-    "报告.md": "bd0905cf3e78c9373e5a12b01eb0f971c25f840a907aca6e92c571dcbac14e8d"
+    "报告.md": "93240c22010204ed8009612687afd9e9b358daf477b6e610059d8a4607033bf8"
   },
-  "sync_status": "Pre-sync verification; verify branch clean and local/live remote equality after sync.ps1"
+  "sync_status": "Pre-sync verification; verify branch clean and local/live remote equality after sync.ps1",
+  "git_evidence_byte_retention": "Record-local * -text; staged blob audit and final all-file raw byte comparison"
 }

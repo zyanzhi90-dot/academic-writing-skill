@@ -17,7 +17,7 @@
 11. `summarize_loading.py`：基于冻结文件与实际编号行逐行对应；区分全单元、英文块和分析表的覆盖，不推断采用正确。单元边界按锚点和任务标题界定。派生摘要的边界计算调整没有改动原事件或模型输出。
 12. `index_outputs.py`：保存原句定位及少量表面观察；不由句式数量或标点检查推出效果。
 13. 两份完整英文、中文、引用与实际返回的正向例子事后核验，报告分别判断科学、推进和表达；结果为执行完成、两阶段效果均未达标。没有反馈或修稿。
-14. `verify_records.py` 和 `git diff --check`：提交前记录一致性、范围、链接与凭据模式核对；随后用项目 `./sync.ps1` 提交同步，并核对本地干净、HEAD／origin/main／实时远端一致。
+14. `verify_records.py` 和 `git diff --check`：提交前记录一致性、范围、链接与凭据模式核对。新目录沿用旧记录的 `* -text` 属性；`verify_git_bytes.py` 逐个比较 Git 暂存 blob 与原保存文件的字节，保留原始换行及哈希。用项目 `./sync.ps1` 提交同步后，再核对所有存档文件字节、本地干净、HEAD／origin/main／实时远端一致。
 
 原模型请求和命令分别为各阶段 `execution-prompt.txt`、`execution-command.json`；候选、CLI、执行器和输入哈希在 `frozen-run.json`。完整输入的实际 PowerShell 返回位于 `execution-read-before-invocation.*`。CLI 0.160.0 在已有安装位置运行，未安装或更新软件；旧位置失效是在调用前发现，不是另一次模型启动。
 
