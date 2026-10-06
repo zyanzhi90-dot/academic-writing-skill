@@ -1,0 +1,57 @@
+--- E04 253dae3 isolated runner
++++ E04 ee74b27 isolated runner
+@@ -49,7 +49,7 @@
+         p.parent.mkdir(parents=True, exist_ok=True)
+         p.write_bytes(git('show', commit + ':' + name))
+         candidate[name] = digest(p)
+-    previous_stage = ROOT / 'effect-test/E04-introduction-delivery-1be5954-2026-10-05/drafting'
++    previous_stage = ROOT / 'effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting'
+     previous = json.loads((previous_stage / 'frozen-run.json').read_text(encoding='utf-8'))
+     reused = {}
+     for name, expected in previous['materials_sha256'].items():
+@@ -72,6 +72,7 @@
+         'personal-experience.txt': ROOT / '我自己的经验和做法.txt',
+         'core-requirements.txt': ROOT / '核心要求.txt',
+         'introduction-method.txt': ROOT / '引言写作方法.txt',
++        'current-author-adjustment.txt': RECORD / 'current-author-adjustment.txt',
+     }
+     for name, source in input_sources.items():
+         (inputs / name).write_bytes(source.read_bytes())
+@@ -92,7 +93,7 @@
+     runtime = Path(tempfile.mkdtemp(prefix=stage + '-')) / 'materials'
+     shutil.copytree(materials, runtime)
+     required = tuple('inputs/' + name for name in ('task.md', 'scientific-facts.md', 'personal-experience.txt',
+-                                                  'core-requirements.txt', 'introduction-method.txt', 'background-facts.md', 'citation-facts.md', 'accepted-abstract.en.txt'))
++                                                  'core-requirements.txt', 'introduction-method.txt', 'current-author-adjustment.txt', 'background-facts.md', 'citation-facts.md', 'accepted-abstract.en.txt'))
+     if draft is not None:
+         required += ('inputs/current-draft.md',)
+     reader = runpy.run_path(str(ROOT / 'effect-test/E03-independent-transfer-fd7dbcb-valid-2026-10-04/execute_once.py'))
+@@ -105,6 +106,8 @@
+         "Read its router, manifest, required core, matching fragments, robotics common instructions and task index, "
+         "then only selected cards with their real English, analysis and selection notes. Declared reference PDFs and "
+         "verified analysis/reading texts are available on demand. Reference science does not add author facts. "
++        "The current-author-adjustment.txt is the latest author requirement and takes priority over conflicting older author text. "
++        "Use the frozen candidate positive learning for imitation; publication sources are only optional source lookups. "
+         "Only the material directory is permitted input. Do not read installed skills, the source project, "
+         "target original paper/introduction, source locators, historical revisions, feedback, diagnoses, evaluations or "
+         "execution records. Do not browse or change files. This invocation performs only the " + role +
+@@ -117,7 +120,9 @@
+     for name in required:
+         prompt += '\n<original-input path=' + json.dumps(name) + '>\n' + (runtime / name).read_text(encoding='utf-8') + '\n</original-input>\n'
+     command = json.loads((PRIOR / 'drafting/execution-command.json').read_text(encoding='utf-8'))
+-    assert command[0] and Path(command[0]).suffix == '.exe'
++    historical_cli = command[0]
++    command[0] = 'C:/Users/user2/AppData/Roaming/npm/node_modules/@openai/codex-win32-x64/vendor/x86_64-pc-windows-msvc/bin/codex.exe'
++    assert Path(command[0]).is_file() and Path(command[0]).suffix == '.exe'
+     command[command.index('-C') + 1] = str(runtime)
+     command[command.index('-o') + 1] = str(dest / 'first-output.md')
+     command[-1] = '-'  # Same retained prompt travels through stdin to avoid Windows command-line limits.
+@@ -142,6 +147,8 @@
+         'runtime': str(runtime), 'prompt_sha256': digest(dest / 'execution-prompt.txt'),
+         'runner_sha256': digest(Path(__file__)), 'cli_sha256': digest(Path(command[0])),
+         'cli_version': subprocess.check_output([command[0], '--version']).decode().strip(),
++        'historical_cli_path': historical_cli,
++        'cli_location_adjustment': 'Same installed Codex CLI, current npm vendor location; no install or executor logic change.',
+         'isolation': 'Material-only external directory and disabled automatic context; explicit read audit, no OS read sandbox claimed.',
+     })
+     print('Prepared once:', stage, commit)

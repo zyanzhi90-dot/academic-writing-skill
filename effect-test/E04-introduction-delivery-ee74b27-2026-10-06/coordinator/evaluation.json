@@ -1,0 +1,46 @@
+{
+  "candidate_commit": "ee74b27dffa59ba79b5f14cf18687f60e0d866c5",
+  "case": "E04",
+  "section": "Introduction",
+  "evaluation_timing": "After both complete first outputs and exact final delivery had been saved",
+  "evaluator": "Coordinator manual full-text review against original author inputs and actually returned positive examples",
+  "drafting": {
+    "execution_completed": true,
+    "effect_pass": false,
+    "science_citation_and_translation": "Faithful for the selected author content; no copied example science or invented prior incapability identified",
+    "whole_section_progression": "Specific problem-to-design progression is present, but P01-S01 starts at the demonstration-learning route rather than establishing the broader field value first",
+    "mature_English_realization": "Concrete In [xx] literature sentences, same-reference continuations, design roles and execution handoff are present; opening function is misplaced",
+    "author_expression": "Mostly aligned; P04-S02 uses reference [5] as the learning agent instead of naming its scientific object",
+    "blocking_evidence": ["P01-S01"],
+    "additional_review_evidence": ["P04-S02", "P07"],
+    "positive_evidence": ["P02-S04", "P02-S05", "P03-S02", "P03-S04", "P05-S03", "P06-S01", "P06-S03", "P06-S05", "P08-S04", "P08-S05"]
+  },
+  "polishing": {
+    "execution_completed": true,
+    "effect_pass": false,
+    "science_citation_and_translation": "Faithful for the selected author content, with task-limited training and architecture claims and correct real-robot attribution",
+    "whole_section_progression": "Visual-processing and temporal-network responsibilities are clearer, but the identical P01-S01 leaves the field-value opening unresolved",
+    "mature_English_realization": "Literature ability and design-effect realization remain, without full alignment of opening responsibility and author expression requirements",
+    "author_expression": "P03-S06 newly introduces a gerund sentence opening; P04-S02 retains the citation-as-agent wording",
+    "blocking_evidence": ["P01-S01", "P03-S06"],
+    "additional_review_evidence": ["P04-S02"],
+    "positive_evidence": ["P02-S04", "P02-S05", "P03-S04", "P05-S04", "P05-S07", "P06-S03", "P06-S05", "P07-S02", "P07-S03", "P08-S04", "P08-S05", "P09-S04", "P09-S05", "P09-S06"]
+  },
+  "example_evidence": {
+    "field_value_and_route_order": "P17 I01-A1-A4; ESO2017 I01; complete paragraph units actually returned in both stages",
+    "literature_continuations": "P17 I04; P05 I02; complete units actually returned in both stages",
+    "additional_execution_responsibility": "P17 I06 / expression E17; actual returned English and analysis",
+    "design_and_role": "P17 I05 / E19; full Writing unit and Polishing English/analysis with partial surrounding context",
+    "input_output_handoff": "P17 I07; complete paragraph units actually returned in both stages",
+    "contribution_recovery": "P17 I08; complete paragraph units actually returned in both stages",
+    "expression_rule": "scientific-expression.md; completely returned in both stages"
+  },
+  "final_delivery": {"source": "polishing/first-output.md", "effect_pass": false, "manual_prose_edits": 0},
+  "withdrawn_experiment_rule": "Not used as an exclusion criterion; original author file retained and latest explicit adjustment supplied identically. No replacement rule added.",
+  "limits": [
+    "Available materials, exact returned lines and correct output adoption are distinct",
+    "No fixed paragraph count, sentence order or requirement to cite every reference or cover every fact",
+    "No rerun, feedback, result selection or coordinator prose edits",
+    "Known case only; no transfer, reliable omission detection or stability pass inferred"
+  ]
+}

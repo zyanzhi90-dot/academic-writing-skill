@@ -1,0 +1,46 @@
+{
+  "candidate_commit": "ee74b27dffa59ba79b5f14cf18687f60e0d866c5",
+  "source_record": "effect-test/E04-introduction-delivery-253dae3-2026-10-05",
+  "runner_source_sha256": "2fa328fcd8a07343e211c9cf8948ad62bf19f11cab170d3ea75f207ab34ed4c7",
+  "runner_sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+  "input_copies": {
+    "scientific-facts.md": {
+      "source_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "copy_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "byte_identical": true
+    },
+    "background-facts.md": {
+      "source_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "copy_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "byte_identical": true
+    },
+    "citation-facts.md": {
+      "source_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "copy_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "byte_identical": true
+    },
+    "accepted-abstract.en.txt": {
+      "source_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "copy_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "byte_identical": true
+    },
+    "drafting-task.md": {
+      "source_sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "copy_sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "byte_identical": true
+    },
+    "polishing-task.md": {
+      "source_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+      "copy_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+      "byte_identical": true
+    }
+  },
+  "changes": "Reuse 253dae3 materials; preserve three current raw author files and separately supply the explicit latest author override; locate existing CLI at current npm vendor path. Same isolation flags, stdin transport and single-invocation guards.",
+  "mainline_order_or_repair_supplied": false,
+  "evaluation_checklist_supplied": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "one_invocation_per_stage": true,
+  "historical_records_changed": false,
+  "scope": "Only this new effect-test record; no Skill change or installation"
+}

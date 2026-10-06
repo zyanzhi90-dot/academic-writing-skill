@@ -1,0 +1,1163 @@
+=== PDF PAGE 1 ===
+232 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+Complementary Stability and Loop Shaping for
+Improved Human–Robot Interaction
+Stephen P. Buerger and Neville Hogan
+Abstract—Robots intended for high-force interaction with hu-
+mans face particular challenges to achieve performance and sta-
+bility. They require low and tunable endpoint impedance as well
+as high force capacity, and demand actuators with low intrinsic
+impedance, the ability to exhibit high impedance (relative to the
+human subject), and a high ratio of force to weight. Force-feedback
+control can be used to improve actuator performance, but causes
+well-known interaction stability problems. This paper presents a
+novel method to design actuator controllers for physically interac-
+tive machines. A loop-shaping design method is developed from a
+study of fundamental differences between interaction control and
+the more common servo problem. This approach addresses the in-
+teraction problem by redefining stability and performance, using
+a computational approach to search parameter spaces and dis-
+playing variations in performance as control parameters are ad-
+justed. A measure of complementary stability is introduced, and
+the coupled stability problem is transformed to a robust stability
+problem using limited knowledge of the environment dynamics (in
+this case, the human). Design examples show that this new measure
+improves performance beyond the current best-practice stability
+constraint (passivity). The controller was implemented on an inter-
+active robot, verifying stability and performance. Testing showed
+that the new controller out-performed a state-of-the-art controller
+on the same system.
+Index Terms—Actuators, control systems, force control, haptics,
+man–machine systems, robots.
+I. INTRODUCTION AND BACKGROUND
+INTIMATE physical interaction and cooperation with hu-
+mans is an exciting and challenging frontier of robotics.
+Robotic therapy is a rapidly emerging application which
+has already proven effective even in limited forms [1], [2].
+Robots capable of safe, controllable physical interaction enable
+this application, as well as haptic devices [3], teleoperated
+master–slave systems [4], [5], and advanced applications such
+Manuscript received January 20, 2006; revised August 22, 2006. This paper
+was recommended for publication by Associate Editor P. Rocco and Editor K.
+Lynch upon evaluation of the reviewers’ comments. This work was supported
+in part by a National Defense Science and Engineering Graduate Fellowship, in
+part by the Burke Medical Research Institute, in part by the National Institutes
+of Health under Grant R01-HD37397, and in part by the Spinal Cord Injury
+Board of New York State.
+S. P. Buerger is with the Intelligent Systems, Robotics and Cybernetics
+Group, Sandia National Laboratories, Albuquerque, NM 87185 USA (e-mail:
+sbuerge@sandia.gov).
+N. Hogan is with the Department of Mechanical Engineering and the Depart-
+ment of Brain and Cognitive Sciences, Massachusetts Institute of Technology,
+Cambridge, MA 02139 USA (e-mail: neville@mit.edu).
+Digital Object Identifier 10.1109/TRO.2007.892229
+as fully programmable exercise machines and cooperative as-
+sembly systems. However, in developing therapy robot modules
+to treat more functions and limbs [6], [7], we have observed
+that actuator technology is the most prominent limiting factor.
+Sensor technology [8] has improved dramatically in recent
+decades (partly enabled by microelectromechanical systems
+(MEMS) technology), computational capacity continues to
+grow following Moore’s Law [9], but advances in actuator
+technology have lagged behind. This limitation is particularly
+acute as we consider high-force haptics, machines capable of
+generating forces up to a human’s body weight while providing
+a gentle, compliant behavior. This requires actuators with
+low and tunable endpoint mechanical impedance as well as
+high force density (the ratio of force capacity to weight), but
+available technologies (e.g., electromagnetic, hydraulic, pneu-
+matic) generally excel in at most one of these capacities. In this
+paper, we consider the design of feedback-control strategies to
+improve and/or sculpt actuator behavior. We expose challenges
+of the interaction control problem that have hampered design
+of effective controllers, and propose a novel design method
+to shape controller dynamics for improved performance and
+stability.
+We define physical interaction between a controlled system
+and another object to occur when the static or dynamic prop-
+erties of the system formed by coupling the two together differ
+significantly from those of the controlled system in isolation.
+Interacting systems often exchange significant energy, but en-
+ergy transfer is not necessary to create interaction; for example,
+a robot pushing on a completely rigid wall transfers no net en-
+ergy, but is dynamically quite different from the same robot in
+isolation. Interaction can alter both performance and stability of
+the controlled system; that is, a system that is stable and satisfies
+performance objectives in isolation may be unstable or perform
+inadequately when coupled to another system [10].
+Although interaction control has been investigated for several
+decades, the available design tools remain substantially more
+cumbersome and less effective than those used for classical
+servo design. Most controllers for interacting systems either
+regulate force directly or regulate static and dynamic behavior
+at the interaction port, the location of interaction. Whitney
+first introduced control based on measured force signals in
+the late 1970s [11]. Work on direct force control spans a wide
+range of possible forms, including proportional [12], pure
+integral (I) [13], [14], proportional-integral (PI) [15], propor-
+tional-derivative [16], model-based control [15], and controllers
+with interior motion-control loops [17]. However, a widely
+accepted framework to determine the tuning of gains or the
+placement of controller poles and zeros is lacking. Most prior
+1552-3098/$25.00 © 2007 IEEE
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+BUERGER AND HOGAN: COMPLEMENTARY STABILITY AND LOOP SHAPING FOR IMPROVED HUMAN–ROBOT INTERACTION 233
+literature in force control argues the merits of one controller
+form or another without providing a systematic framework to
+guide controller design.
+A generally more robust approach to interaction control reg-
+ulates dynamic behavior at the interaction port. While conven-
+tional motion and force control regulate variables that depend on
+both interacting systems, this approach regulates properties that
+depend solely on the controlled system, independent of the en-
+vironment. One such property is mechanical impedance,1 which
+determines an output force (torque) time function from an input
+velocity (angular velocity) time function at the same port. Early
+work on impedance control [18] assumed that it was possible
+to achieve arbitrary impedance, and it was postulated that sta-
+bility could be guaranteed by making a robot emulate a physical
+system that was itself known to be stable in performing the task
+(e.g., a damped spring). The impedance could also be sculpted
+to achieve task performance, for example, maximizing energy
+transfer [18] or representing “virtual objects” [3], [10].
+Unfortunately, it proved to be impossible to achieve truly
+arbitrary impedance on any real robotic device, regardless of
+sensor, actuator, or control implementations. In practice, when
+a controller attempts to emulate dynamics that differ signifi-
+cantly from the intrinsic hardware dynamics, an increased risk
+of coupled or contact instability arises [19]. This has been ex-
+plained using the concept of passivity (defined in [20]). Col-
+gate proved that when two stable systems with passive port
+functions are physically coupled together, stability is guaran-
+teed [20]. Because many physical objects are passive (including
+all combinations of inertias, dampers, springs, and constraints),
+a stable robot with passive port impedance can couple stably
+to an extremely large and useful set of environments, making
+passivity a desirable property. However, Colgate showed that
+if endpoint force feedback is used to reduce apparent endpoint
+inertia by more than 50% below its physical value, the system
+becomes nonpassive. This limitation results from dynamics (re-
+gardless of characteristic frequency) between the force sensor
+and the actuator, holds regardless of implementation, and se-
+verely limits the performance of force controllers and most ad-
+vanced impedance controllers [21]. Discrete control, time de-
+lays, actuator and sensor limitations, and unmodeled dynamics
+can also compromise passivity, making the implementation of
+passive control on real systems extraordinarily challenging.
+Recognizing the fundamental limit on apparent inertia
+reduction, Newman introduced natural admittance control
+(NAC), an approach that permits reduction of apparent friction
+independent from inertia, facilitating the design of theoretically
+passive friction-rejecting interaction controllers [22]. In theory,
+passivity (and therefore, coupled stability) is ensured if the
+target inertia is kept above half the physical value, and per-
+formance is manipulated by adjusting other target impedance
+parameters. Because NAC provides a means of addressing
+both stability and performance in a joint framework, it offers
+a significant improvement on earlier methods. Yet NAC falls
+well short of classical tools for servo control design (e.g., root
+1Impedance is generally denoted by the operator Z, and its inverse, the me-
+chanical admittance, by the operator Y. Both are examples of port functions,
+which define behavior at ports of interaction by providing a relationship between
+input and output energy variables.
+Fig. 1. Block diagram representation of a typical servo-controlled system.
+H(s) is a scalar-valued complex transfer function of the Laplace variable sthat
+represents the open-loop input–output plant dynamics. G (s) is a controller
+transfer function. A reference command r is compared with the measured
+output x, and the error is input to the controller. The controller output userves
+as the input to the plant.
+locus, frequency response design) in the accurate and simul-
+taneous analysis of the effect of control parameters on both
+stability and performance. Potential threats to stability such
+as noncollocation, time delay, etc., cannot easily be included;
+the target inertia is the only measure of passivity or stability
+and the only parameter that can be intelligently designed for
+stability margin.
+We argue that deficiencies of the tools available for control
+design are a significant factor limiting the development of
+physically interactive robotic technology. This paper articulates
+fundamental differences between the interaction problem and
+the more common servo control problem as the source of the
+design difficulties, introduces a method to approximate clas-
+sical loop-shaping design for interacting systems, and provides
+a method to incorporate limited knowledge of the environ-
+ment to improve performance. Section II exposes structural
+differences between servo and interaction control, and makes
+the fundamental point that even when analysis is restricted to
+single-input, single-output (SISO) systems and even when the
+robot and environment are both exactly modeled, servo control
+design procedures do not translate directly to the interaction
+problem. In Section III, a procedure is introduced that provides
+one way to approximate loop-shaping design for interacting
+systems. Section IV introduces a stability measure for use with
+the new design method that applies knowledge of the environ-
+ment dynamics to improve performance. Section V describes
+the validation on robotic hardware of a controller designed with
+the new procedure, and compares it with a natural admittance
+controller. Conclusions are presented in Section VI.
+II. CLASSICAL AND INTERACTION CONTROL
+Key differences between servo and interaction control require
+that the two problems be treated with different tools. The dif-
+ferences are most easily demonstrated using scalar functions.
+SISO controller design, covered in detail in many textbooks
+(e.g., [23]), consists of shaping controller dynamics to achieve
+suitable performance and stability margin. Given a realistic rep-
+resentation (often a mathematical model) of sensors, actuators,
+and system dynamics, including the primary source(s) of insta-
+bility, familiar tools such as Bode, Nyquist, or root locus anal-
+ysis can be applied. Given the linear SISO servo system shown
+in block diagram form in Fig. 1, two key features can be high-
+lighted that enable design with these tools. The first is that al-
+though closed-loop stability and performance determine actual
+system behavior, both can be predicted and characterized using
+the open-loop transfer function (OLTF) . Bode, Nyquist,
+and root locus all provide ways to translate properties of the
+OLTF to the closed-loop system, such that manipulation of the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+234 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+Fig. 2. Block diagram representation of a robot coupled to an environment.
+Because the robot is represented by an impedance Z , the environment is rep-
+resented by an admittance (Y ).
+former produces predictable effects on the latter. The second key
+feature is that the controller appears as a direct multiplier of
+the plant in the OLTF, such that changes to the controller pre-
+dictably change the open-loop magnitude and phase, and there-
+fore, stability and performance. In SISO loop-shaping design,
+performance, stability, and controller complexity are traded off
+by placing controller poles and zeros and tuning the loop gain.
+Here we show that these two features are absent from the inter-
+action problem, and that controller design is therefore hindered.
+A. Limits of Input–Output Formulation
+A first impulse to model an interacting closed-loop system
+might be to add an “environment” block to the right of Fig. 1,
+such that the output serves as the input to the environ-
+ment. However this would imply an assumption that contact
+with the environment does not affect the controlled system’s
+input–output behavior, which directly contradicts the definition
+of physical interaction provided in Section I. Instead, it is
+necessary to incorporate any environment dynamics into the
+model used to derive Fig. 1, generally embedding them in the
+plant (an example is carried out in [24]). With this approach,
+it is possible in theory to derive a stable controller. However,
+the result would only be valid for a single, precisely modeled
+environment, and it would be rare to find an environment that
+could be characterized as accurately and confidently as nec-
+essary. With uncertainty in the parameters or particularly the
+structure of the environment, this approach is even less viable
+[24]. Direct application of servo techniques to this input–output
+model of interaction is of little value.
+B. Stability and Performance
+Input–output block diagram analysis is cumbersome for
+interaction problems because loading requires independent
+derivation of a full set of state equations for each environment.
+Port functions provide a superior means of representing coupled
+physical systems in block diagram form, because they are based
+on conjugate power variables, such that their connection implies
+no assumption about loading [25]. Fig. 2 shows a block dia-
+gram model of two coupled single-degree-of-freedom (DOF)
+systems, a robot and an environment, represented by their port
+functions. The block diagram representation resembles Fig. 1
+in its equivalence to a unity negative feedback system, with the
+OLTF (or ). The system can be analyzed by applying
+classical SISO tools to this function. However, the use of these
+methods for design is inhibited by several factors.
+Because Fig. 2 provides an exact feedback representation of
+the interacting system, stability is determined by the poles of
+the closed-loop system, or the roots of . Nyquist
+plots of can be used to evaluate stability, and can also be
+cautiously used to determine some measure of the “distance to
+instability” or the stability margin, though this measure does not
+translate directly to a scaled controller gain in this case, and must
+be interpreted carefully, as shown in below.
+Performance, on the other hand, requires alternative measures
+to those used for servo systems. For the system in Fig. 1, per-
+formance is measured by the relationship between the input
+variable and the output variable , whether or not a control
+loop is closed. Those measures do not apply to the system in
+Fig. 2, partly because the model features no relevant input and
+output. Further, while measures of interactive performance may
+vary with system and task, they are best determined by the be-
+havior of the controlled robot alone. When a robot is expected
+to manage interaction with several different or uncertain envi-
+ronments, to specify performance based on behavior of the cou-
+pled system (e.g., natural frequencies, damping) can be imprac-
+tical; for instance, it is unrealistic (and probably undesirable)
+to expect comparable dynamic behavior when a robot moves in
+free space as when it pushes against a rigid constraint, yet both
+tasks may be needed for some applications. For human-interac-
+tive robots, the robot port behavior, colloquially termed “feel,”
+is usually the best way to represent desired performance [24].
+Haptic devices, for example, depend on their ability to emulate
+appropriate static and dynamic properties to render virtual ob-
+jects; these properties are quantified by the port function. Thus,
+quite aside from any stability benefit, the desire to directly reg-
+ulate port behavior is an important motivation for impedance
+control.
+In terms of the notation of Fig. 2, if performance is measured
+on the basis of robot behavior alone (and we argue that it usu-
+ally should be), then it is related to but not to ; it is com-
+pletely independent of the environment. Performance depends
+exclusively on the portion of the OLTF related to the robot, and
+performance measures should reflect this. The robot dynamics
+play a critical role in determining both interaction stability and
+performance, while the environment dynamics are equally crit-
+ical to stability but irrelevant to performance. Controller design
+must consider two quantities: the OLTF , which determines
+stability, and the robot impedance , which exclusively deter-
+mines performance. This is the first major difference between
+servo and interaction control.
+C. Control and Port Functions
+A second major difference between the servo and interaction
+control transfer function structures hampers predictable manip-
+ulation of closed-loop dynamics through the interaction con-
+troller. Unlike in the system of Fig. 1, the controller does not
+appear as a multiplier in the OLTF; in fact, no controller ap-
+pears directly in the interaction problem as formulated in Fig. 2.
+The effect of any controller (if there is one) is embedded in ,
+which also includes the model of the physical robot. If the robot
+hardware is assumed to be a generic “black box” system, with an
+actuator driving one side and an interaction port at the other, this
+can be represented with a “two-port” (a system with two power
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+BUERGER AND HOGAN: COMPLEMENTARY STABILITY AND LOOP SHAPING FOR IMPROVED HUMAN–ROBOT INTERACTION 235
+Fig. 3. Generic two-port. The force and velocity at the actuator side, F and
+v , respectively, and at the environment side, F and v , are shown. In between
+are arbitrary dynamics. Such a model can be used for any SISO robot.
+interfaces that can be connected to other systems), as shown in
+Fig. 3.
+If the robot model is assumed linear, the two-port can be de-
+fined by a matrix of transfer functions relating the velocity and
+force at each port to each other
+(1)
+Each of the entries are transfer functions. Here the actuator
+is assumed to be a force source, and the environment interface
+is in impedance causality. If the port variables , , and are
+fed back and multiplied by compensator transfer functions ,
+, and , respectively, the resulting control law is
+(2)
+If this is applied to (1), the output impedance at port 2 is
+(3)
+This shows the relationship between the compensators
+and the port function. None of the individual compensators
+(and no combination of them) appears multiplicatively in the
+port impedance . No controller enters linearly into either
+the OLTF (the quantity that determines stability), or
+(which determines performance), and there is no straightfor-
+ward way to manipulate the magnitude and phase of either
+through the controller. A change to the magnitude and phase of
+, for instance, transforms the magnitude and phase of in a
+complicated way that depends on each of the transfer functions
+as well as on and .
+With specific model parameters, stability can be checked
+using a Nyquist plot, but the contour cannot be reshaped in a
+straightforward way by altering the compensators. That is why
+servo tools are ineffective for interaction controller design. This
+limitation persists even with the assumption of a complete and
+exact model of the environment ; it is fundamental to analysis
+with port functions, which are required to represent interaction
+in block diagrams. This feature also impacts the interpretation
+of stability margins: while a significant distance of a coupled
+system’s Nyquist plot from the 1 point may offer some coarse
+indication of stability robustness, this information cannot be
+translated directly into controller gain or phase, because these
+quantities may be related in a highly nonlinear way to the port
+function. Thus, even as an analysis tool, the Nyquist plot has
+limited value for interactive systems.
+Summarizing, in general, SISO tools cannot effectively be ap-
+plied to design interaction controllers for stability and perfor-
+mance. The elegance that gives these methods their utility for
+servo design is lost for interactive design. This is true even for
+simple SISO robot models, and even in the unlikely case when
+the environment is well modeled.
+III. COMPUTATIONAL LOOP SHAPING
+Because classical SISO tools cannot be applied directly to de-
+sign interaction controllers, alternative methods to facilitate the
+tradeoff of stability and performance are needed. This section
+introduces one approach, modeled on loop shaping, that lever-
+ages computing power to explore a large set of possible combi-
+nations of control parameters. Because there is no obvious way
+to consider stability and performance as properties of a single
+quantity (as in the servo problem), they are treated separately
+before assembling a composite set of results. Measures of sta-
+bility and performance are established, and constrained opti-
+mization is used to search the controller parameter space for
+solutions that maximize performance while satisfying a stability
+constraint. The procedure may be repeated to explore changes to
+the controller structure. The results suggest nonobvious control
+implementations that can improve performance substantially, as
+shown in the examples.
+Like virtually all controller design and analysis approaches,
+this method requires a representation of the system to be con-
+trolled. It may be arbitrarily complex to satisfy the requirements
+of a particular problem or application but, at a minimum, it must
+include the primary source of instability. In the examples below,
+coupled stability problems originate from attempts to change
+the robot’s apparent port impedance using force feedback. To
+represent this problem, a model must include at least one res-
+onance between the actuator and the sensor;2 a simple iner-
+tial model as used in [22] is inadequate. In addition to repre-
+senting the physical system, a form must be assumed for the
+controller. This must include at least one variable parameter
+(and possibly many). It may be helpful for at least one param-
+eter to vary monotonically with performance (e.g., an error-cor-
+rection gain), but this is not essential. Because the frequency
+response of the robot port impedance is used for the examples,
+the robot model and controller are assumed to be linear. Non-
+linear models could be used in principle, assuming stability and
+performance can be adequately quantified, but as yet have not
+been tested. The computational loop-shaping framework per-
+mits various measures of stability. For interaction, stability must
+be guaranteed when coupled to any expected environment(s).
+Measures should be selected based on the application, but the
+stability constraint should not be so conservative as to hinder
+performance. In Example 1, passivity is used, while Section IV
+describes a new measure that reduces conservatism.
+Performance can be quantified by a desired port function; per-
+formance error is the deviation from this target function. High
+admittance has been used as a performance objective for inter-
+acting systems, derived from a desire for low contact forces [22].
+Here the deviation from the magnitude of the desired impedance
+(the inverse of admittance) is used; there is no compelling reason
+to use the phase, and several factors complicate its inclusion
+[24]. Fig. 4 shows the magnitude and phase of the endpoint
+impedance for two mechanical systems. The solid trace shows
+2Colgate showed that passivity is lost at the same gain level regardless of the
+complexity of the structural dynamics [21].
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+236 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+Fig. 4. Port impedance magnitude and phase for a lightly damped mass (target
+behavior) and a single-resonance system with large mass and damping. The
+shaded region represents the error.
+the impedance of a two-mass, single-resonance system (as in
+Fig. 6) with large inertia (6 kg total) and damping (24 Ns/m
+total). The dashed trace shows the impedance of a single, lightly
+damped mass (1 kg with 1 Ns/m damping), representing a target
+impedance. On the magnitude plot, the region between the two
+is shaded to show the error. Below approximately 2 r/s, the dif-
+ference between the two curves results primarily from the differ-
+ence in damping. At frequencies between 10 and 200 r/s, inertia
+dominates, and the difference in offset is due to the difference
+in apparent inertia. At higher frequencies, the resonance of the
+two-mass system is apparent. Beyond resonance, a controller
+can have little or no effect on the endpoint because its action is
+attenuated by the intermediate dynamics. The phase plot shows
+the difference in the break frequencies of the systems at low
+frequencies, and the resonance of the two-mass system around
+600 r/s. If the system is controlled to reduce apparent inertia and
+becomes nonpassive, the phase exceeds close to resonance
+(e.g., see Example 2), and the phase error increases, even as the
+apparent friction and inertia are reduced. This is one reason that
+phase is not generally useful as a performance measure.
+An optimal controller would minimize the deviation from
+the desired impedance over the relevant frequencies, the shaded
+area in Fig. 4. A cost function that reflects this for a discrete
+vector of frequencies between and is
+(4)
+Practice dictates that a log-log scale provides the most useful
+balance between high- and low-frequency magnitude com-
+ponents, so the frequency vector is logspaced. and
+reflect the actual and target port impedance, respec-
+tively, and are normalized by 1 Ns/m to render them unitless.
+is a scalar weighting function of frequency valued
+between zero and unity, and is selected by the designer. The
+weighting function provides a means to emphasize certain
+frequencies to customize a solution, for example, to reject a
+resonance. Frequency bounds can also be selected to tailor a
+solution; here they are chosen to span from several decades
+below all resonances to the highest frequencies where control
+can impact impedance. When , is proportional
+to a discrete approximation of the shaded area in Fig. 4. The
+proposed performance measure appears to be adequate for the
+applications we have investigated. However, it could easily
+be adapted or augmented to suit alternative applications and
+systems without compromising the proposed design method.
+Indeed, any measure that can be modeled and changes with
+performance is sufficient, though the interpretation of results is
+facilitated if the cost measure is intuitively (e.g., monotonically)
+related to a physically meaningful quantity.
+The computational design procedure takes the following
+steps.
+1) A parameterized robot model is assumed.
+2) A measure of stability is established, including a model of
+the environment, if necessary.
+3) A performance measure is defined, including a vector of
+relevant frequencies.
+4) A form for the controller is assumed, with variable param-
+eters . For each parameter, a range of values is chosen.
+5) For every possible combination of control parameter
+values, stability is evaluated.
+6) If a parameter set is unstable, it is eliminated from further
+consideration.
+7) If a parameter set is stable, performance is evaluated and
+stored.
+8) The stable combination of parameters that yields the lowest
+cost is selected as the best controller.
+9) If necessary, the resolution or range of controller parame-
+ters is adjusted and the process is repeated.
+Depending on the number of parameters varied, the results
+can be displayed in various ways to view trends due to changing
+parameter values. If a single parameter (e.g., a gain) is mono-
+tonically related to both stability and performance in the range
+of interest, a stability boundary can be located in the space of
+for each combination of the remaining parameters. This en-
+ables output in the form of one or more “design surfaces” that
+illustrate the effects of shaping controller dynamics on perfor-
+mance, and affords a definition of a gain-based stability margin.
+A practical example follows.
+Example 1: Loop Shaping for Passive Robot Control: In
+this example, force feedback is used to reduce the apparent
+impedance of a single-DOF robot while maintaining passivity
+of its interaction port. The controller is for a robot module
+(Fig. 5) used as a portion of a physical therapy robot [26].
+The module is backdrivable, but has substantially higher po-
+sition-dependent Coulomb friction (up to 20 N; target is 2 N)
+and inertia (6 kg; target is 1 kg) than desired. Force measured
+by a transducer at the handle of the robot is fed back such that
+the motor is used to reduce the apparent endpoint impedance.
+Previous work used proportional force feedback on this robot
+[26]; this example demonstrates the insights gained by the new
+method and the performance improvement that results from
+shaping the controller dynamics.
+A linear robot model, depicted in Fig. 6, is used to facili-
+tate the use of the necessary computational tools. A first struc-
+tural resonant mode and linear damping are modeled; the sig-
+nificant nonlinear Coulomb friction is left unmodeled. The port
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+BUERGER AND HOGAN: COMPLEMENTARY STABILITY AND LOOP SHAPING FOR IMPROVED HUMAN–ROBOT INTERACTION 237
+Fig. 5. Screw-driven linear robot module.
+Fig. 6. Single structural resonance robot model with force transducer dy-
+namics. The actuator provides the force F . The spring k and damper b
+represent the first structural resonant mode, while the mass is split between m
+and m , whose positions are measured by x and x , respectively. b and b
+represent damping to ground. F is the applied force due to interaction with the
+environment, while k and b represent the dynamics of the force transducer.
+impedance is determined by the dynamic ratio of the endpoint
+force to velocity at the port
+(5)
+Once the control law is applied to determine , the port
+impedance can be derived from equations of motion; the com-
+plete port impedance as well as the numerical parameter values
+used for the example are provided in the Appendix.
+For this example, the target impedance is zero at all
+frequencies; this is equivalent to “pure” force control. This sim-
+plifies the controller, as only force feedback is needed; the ex-
+ample is extended to nonzero impedance in [24]. Because the
+log of zero cannot be computed, (4) must be adjusted for this
+special case and the alternative measure below is used
+(6)
+Performance is not weighted with frequency, so . A
+logarithmically spaced vector of frequencies ranging from 10
+to 10 r/s is used. Theoretically, this cost may be less than zero;
+however, smaller costs are always preferred. This measure is
+most useful for ranking candidates rather than as an intrinsically
+meaningful absolute measure. Impedance plots can be examined
+Fig. 7. Normalized cost at stability boundary versus pole and zero location.
+to improve understanding of the effects of specific controllers,
+as illustrated below.
+A controller with a single pole and a single zero is used
+(7)
+This controller has three adjustable parameters : the zero
+frequency , the pole frequency , and the DC gain .
+In the region of interest, is monotonically (though not
+linearly) related to performance and stability; for fixed and
+, as increases, performance improves while the system
+becomes “less passive.” This controller form admits lead, lag,
+and proportional control, depending on the relative values of
+and , permitting the exploration of a range of different con-
+trollers with relatively few parameters. Root frequencies were
+tested from 0.1 r/s, which is well below any significant robot
+dynamics, to 10 r/s, which is above the dominant frequency of
+the structural dynamics; selection of parameter ranges required
+no assumptions about the system other than knowledge of
+the resonant dynamics. To locate the stability boundary for
+each combination of the values of and , the range of
+was chosen to include both stable and unstable solutions. By
+exploring controllers of various shapes and parameters, this
+approach approximates loop-shaping design.
+For each set of parameters, the port impedance is com-
+puted, with , and evaluated along a vector of frequen-
+cies encompassing all relevant dynamics to determine passivity
+of the interaction port. If the real part of the port impedance is
+greater than zero at all frequencies
+(8)
+then the port impedance is “positive real” and strictly passive
+(see [20]). If the real part of the port impedance is less than zero
+at any frequency, the particular controller renders the system
+nonpassive, and therefore, this stability measure is not satis-
+fied; that is, there exist passive objects which will destabilize
+the robot upon contact.
+The computational loop-shaping algorithm was used to
+search a range of values for , , and . The results are
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+238 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+Fig. 8. Lag compensator’s effect on robot port impedance.
+plotted on the design surface in Fig. 7, which shows the cost
+with the maximum stable gain for each combination of
+values for and . The cost is normalized such that any cost
+less than one reduces apparent impedance; where the cost is
+lower, performance is better. On the diagonal , the pole
+and zero cancel out, yielding proportional control. Performance
+is best when low-frequency lag compensation is used, with
+a very low-frequency pole and a higher frequency zero. The
+placement of the zero has a strong effect on performance. The
+algorithm dictates that a zero around 6 r/s is optimal (with a
+normalized cost of 0.72), a far-from-obvious result. The plot in
+Fig. 7 shows that performance continues to improve as the pole
+is moved to the lowest tested frequency. Indeed, further testing
+confirmed that the best performance was obtained when the
+pole was moved all the way to zero [ in (7)], turning the
+lag compensator into a PI controller; at this extreme, the cost
+was 0.63 [24]. Because performance is best with a zero at 6 r/s,
+PI control is superior to pure I control. In this case, the lead
+region, where , shows little promise.
+Fig. 8 shows the port impedance magnitude and phase under
+the lag controller specified by the loop-shaping algorithm, along
+with the uncontrolled impedance. Also plotted is a proportional
+controller with a loop gain of one, which provides a 50% reduc-
+tion in apparent inertia, the limiting value for passivity. The lag
+controller is particularly effective at reducing the low-frequency
+impedance, where friction dominates. The phase stays between
+and , confirming that the interaction port behavior is
+passive. The apparent inertia at the stability boundary is approx-
+imately 3 kg (half the physical value, as expected at the limit for
+passivity).
+The controller boosts the compensation where possible
+without compromising passivity, while limiting feedback in the
+frequency range where it is most destabilizing. The algorithm
+provides a nonobvious frequency-domain “shape” for the
+controller (through the placement of the control zero) in spite
+of the nonlinear relationship between the controller dynamics
+and port impedance. Note that the effect of the controller on
+the impedance magnitude and phase are not obvious by inspec-
+tion or by applying classical tools, so the numerical method
+facilitates the design process.
+IV. COMPLEMENTARY STABILITY
+To further improve performance, it is necessary to relax pas-
+sivity and replace it with an alternative measure of interaction
+stability. While human-interactive robots must accommodate an
+uncertain environment, the dynamic behavior of that environ-
+ment (e.g., a human limb) is known to reside within specific
+limits. The dynamic properties of human arms, for instance,
+vary considerably between subjects and with muscle activation,
+but the variation is bounded. The apparent inertia at the hand
+varies from that of a small child to that of a large adult, but
+it is never zero and never exceeds a maximum (of several kg).
+Stiffness is similarly bounded and, perhaps most importantly,
+an arm can never exhibit certain challenging behaviors such as
+total physical constraint or extreme static friction. A substantial
+literature documents dynamic properties of human limbs (e.g.,
+see [27] and [28]).
+When passivity is used as a stability objective, the only as-
+sumption made about the environment is that it, too, is passive.
+This is likely sufficient to guarantee coupled stability with hu-
+mans (though, to date, it has not been conclusively proven that
+human limbs are passive; see [29] for an argument for treating
+them as such). However, given the properties of human arms
+described above, passivity is unnecessarily restrictive. Our ex-
+perience has shown that some controllers that are known to be
+nonpassive are adequately stable in clinical rehabilitation tasks
+[26]. The better defined the conditions for stability, the less con-
+servative controllers can be made, providing latitude to design
+for better performance. We introduce a new way to define cou-
+pled stability, and use it with the loop-shaping method to im-
+prove performance.
+A controlled robot should be complementary to the environ-
+ments with which it is designed to interact; that is, it must in-
+teract stably with these environments. A controller should pro-
+vide for this while maximizing performance. We propose the
+term complementary stability to describe the stability target for
+interacting machines, where the details of stability are deter-
+mined by the expected environment(s). Because the dynamics of
+a particular human limb are almost impossible to know exactly
+at a given time, an exact model cannot be used for human-in-
+teractive robots. However, because all human arms are dynam-
+ically similar, the environment can be represented in terms of a
+nominal port function and some bounded deviation from
+this nominal
+(9)
+defines the possible deviation from the nominal, and is
+subject to a bound on its magnitude, e.g., in the infinity norm
+(10)
+is a weighting function that shapes the range of possible
+deviation with frequency. Equation (9) defines a set of dynamic
+behaviors that includes all expected environments. and
+are chosen based on data or models. The additive pertur-
+bation is presented as a representative example, but multiplica-
+tive or feedback structures could also be used.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+BUERGER AND HOGAN: COMPLEMENTARY STABILITY AND LOOP SHAPING FOR IMPROVED HUMAN–ROBOT INTERACTION 239
+Fig. 9. Block diagram of a robot interacting with an uncertain environment.
+Fig. 10. Second-order environment model.
+If the environment is defined by (9), the coupled system can
+be represented by the block diagram in Fig. 9, which provides
+the means to evaluate complementary stability for this system.
+Definition: A robot with port impedance function sat-
+isfies the complementary stability condition with a set of
+environments defined by (9) if the model in Fig. 9 is ro-
+bustly stable for any satisfying (10).
+This definition translates coupled stability into a robust stability
+problem, which can be solved by application of the small gain
+theorem [30]. Robust stability is equivalent to stability of the
+robot when coupled to all environments that it is expected to en-
+counter; exactly the stability condition needed. If this condition
+allows it, nonpassive controllers are permitted; this can improve
+performance, as shown below.
+Example 2: Using Limited Knowledge of Human Dynamics:
+Example 1 is repeated with complementary stability replacing
+passivity as the stability measure. The robot model remains as
+in Fig. 6, and the control law (7) is used along with the perfor-
+mance cost (6). This enables direct comparison of the passive
+and nonpassive designs.
+Complementary stability requires a representation of the en-
+vironment. Here, a second-order model (shown in Fig. 10) is
+chosen, capturing inertial , stiffness , and dissipative
+characteristics, all of which are important parts of human
+arm dynamics. Recent work suggests that actual arm endpoint
+characteristics are close to second-order [27], [28], [31]. Each
+parameter is defined by a nominal value and a
+maximum deviation from that value , such that
+(11)
+is a real number between 1 and 1; when stability is
+achieved for all values in this range, then it is guaranteed for all
+permitted values of , and . The values of the parame-
+ters in (11) were determined from the literature [27], [28], [31],
+are given in the Appendix, and include behaviors ranging from
+primarily inertial to primarily elastic and primarily dissipative,
+as well as combinations of these behaviors. While parametric
+Fig. 11. Block diagram of robot system interacting with perturbed environ-
+ment. Expression for M is provided in the Appendix.
+uncertainties are used here for their intuitive relationship to
+physical quantities, the use of the small gain theorem permits a
+wide range of alternative expressions of uncertainty, including
+unmodeled dynamics and representations derived from exper-
+imental data.
+The environment model characterized by Fig. 10 and (11) is
+most easily represented as an impedance with three perturbation
+terms. Because the robot impedance is linear and nonzero, it can
+be inverted and represented as an admittance. A block diagram
+of the perturbed system is shown in the left panel of Fig. 11,
+and is equivalent to the system shown in the right panel ( is
+given in the Appendix). In the latter representation, the robust
+stability of the system can be determined by the application of
+the small gain theorem with the structured singular value [30].
+In this case, the perturbation matrix is diagonal and real-valued;
+the structured singular value for this case has no closed-form
+solution and can be computationally burdensome, but it yields a
+necessary and sufficient condition for coupled stability with all
+environments in the set described by (11). For each combination
+of controller values, the algorithm tests stability by computing
+the appropriate structured singular value for over a set
+of frequencies where the robot impedance is nonpassive (and
+therefore coupled stability is at risk); when , contact with
+some environment in the set drives the interface unstable, and
+the controller is disallowed. For stable solutions, (6) is evaluated
+to compare performance.
+Fig. 12 shows the results of the loop-shaping algorithm using
+complementary stability. This plot shows the cost (normalized
+as in Fig. 7) with the maximum gain that meets the com-
+plementary stability requirement for each combination of values
+for and . As in Example 1, performance is best when low-fre-
+quency lag compensation is used (marked in Fig. 12); the
+normalized cost is 0.50 for the limiting plotted value (again, the
+extreme case of PI control offers a small additional improve-
+ment [24]). A lead controller at high frequencies (labeled in
+Fig. 12) is almost as effective at lowering cost. The best per-
+formance in this region has a normalized cost of 0.59, when
+and 730 r/s. The design algorithm identifies two
+distinct (and nonintuitive) control forms that each substantially
+improve performance; both offer significant improvement over
+passive control.
+The impedance plots in Fig. 13 contrast the controllers.
+The best proportional, lag, and lead controllers selected by
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+240 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+Fig. 12. Normalized cost at stability boundary versus pole and zero frequency.
+Fig. 13. Port impedance magnitude and phase under no control, proportional,
+lag, and lead control.
+the method are shown along with the uncontrolled system
+impedance.
+All three controllers are nonpassive, as evidenced by the
+phase exceeding in the frequency range of the structural
+dynamic behavior (around 10 r/s), but they ensure coupled
+stability specifically because knowledge of the environment has
+been used for design. The magnitude plot shows that the lag
+and lead controllers provide very different benefits compared
+with proportional control: the former primarily boosts the gain
+at low frequencies to offset friction, while the latter reduces
+the impedance (inertia as well as friction) more equally at all
+frequencies. The difference can be understood by considering
+the phase plot. The lag compensator takes effect at low frequen-
+cies, but the zero and gain are placed such that the phase stays
+below until close to the structural resonance, where it then
+tracks the phase of the system with proportional control. The
+lead compensator creates a substantial dip in phase just below
+resonance, reducing the destabilizing phase and permitting
+Fig. 14. Examples of stable and unstable trajectories from impact tests.
+a higher gain value across all frequencies. The nonintuitive
+nature of this controller’s effect underscores the need for a
+method like the one described here. The lag and lead controllers
+are separated by almost two decades in frequency, and can be
+combined into a lag-lead controller to reap the benefits of both
+[24].
+Compared with Example 1, the new stability measure reduces
+the minimum cost from 0.72 to 0.50. Loop shaping improves
+performance, and complementary stability parlays knowledge
+of the environment into further performance gains. The latter
+result is robust to realistic environmental uncertainty; an exact
+model is not required to reap benefits. Though not demonstrated
+here, this approach also provides a means of controller design
+when the environment may be nonpassive.
+V. IMPLEMENTATION AND COMPARISON WITH ALTERNATIVES
+The controller from Example 2 was tested on the robot
+module in Fig. 5 using a PC-based control system (QNX O/S,
+1000 samples/s). Because of bandwidth limitations in the force
+measurement, high-frequency lead compensation could not
+be implemented as designed. A lag compensator with a break
+frequency of 6 r/s (selected by the design method) was tested.
+The coupled stability properties of the system were tested by
+contact with springs, a hard plastic block, and human arms. Stiff
+springs are usually the most destabilizing environment for sys-
+tems that use force feedback [20]. A “contact test” and an “im-
+pact test” were performed with six different springs with stiff-
+ness ranging from 260 to 57 000 N/m, and with the plastic block,
+with stiffness of approximately 10 N/m. In the contact test, the
+robot handle was brought by hand into resting contact with the
+spring and released. If oscillations grew, this test was judged un-
+stable. The more challenging impact test required that the robot
+fall a short distance (1–2 cm) to contact the environment and
+withstand the impact. If oscillations abated and the system set-
+tled to rest, this test was judged stable, while if oscillations grew,
+it was judged unstable. Fig. 14 shows examples of stable and
+unstable impact tests. Finally, each controller was tested by vig-
+orous grasp with a human arm: a handle on the robot module
+was gripped tightly and the arm and hand muscles co-contracted
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+BUERGER AND HOGAN: COMPLEMENTARY STABILITY AND LOOP SHAPING FOR IMPROVED HUMAN–ROBOT INTERACTION 241
+TABLE I
+COUPLED STABILITY PREDICTIONS AND TEST RESULTS, LAG CONTROL
+Fig. 15. Virtual spring implemented with controller with no force feedback, lag
+controller, and natural admittance controller. The direction of travel is shown by
+the arrows on the uncompensated system curve.
+maximally. The subject varied arm geometry and effort level to
+test as wide a range of stiffness, damping, and inertia as possible.
+If any vibration or oscillation could be induced, the controller
+was marked as failing this test.
+Table I shows composite results from coupled stability
+testing, for the lag compensator with several different DC gain
+parameter values. The columns marked with stiffness values
+only show the maximum stable spring stiffness for each gain
+level tested (separated by rows), as well as the maximum stable
+stiffness predicted by the design model. The next two columns
+show the results of testing with the plastic block and the human
+arm; “ ” indicates a stable coupling and “ ” indicates insta-
+bility. In the “block” column, the left mark is for the contact
+test and the right for the impact test. The design set, which
+includes only the lowest spring stiffness, is also highlighted.
+The controller proves quite robustly stable under these test
+conditions; in fact, only the highest gain level tested produced
+any problem interacting with human arms. The system has
+even better stability properties than predicted, enabling better
+performance through a higher DC gain.
+As predicted, the lag controller is particularly effective at
+rejecting friction, thanks to its high gain at low frequencies.
+This can be seen in Fig. 15, which shows the force versus
+displacement curve for a virtual spring implemented on the
+robot module. These curves were produced by slowly moving
+the robot by hand against the controllers. The uncompensated
+(dash-dot) curve shows the virtual stiffness implemented with
+proportional position feedback alone, and thus reflects all
+position-dependent friction intrinsic to the hardware. Coulomb
+friction appears as the vertical segments of the curve, which
+occur when starting, stopping, or when direction is reversed.
+With the new compensator (dashed line), the low-frequency
+behavior tracks the desired curve very closely. The Coulomb
+friction is reduced from 10–20 N to less than 0.5 N, a reduction
+of at least 95%. Inertia, tested by initial condition response
+against a virtual spring of known stiffness, is just 1.2 kg when
+, representing a reduction of approximately 80%
+from the physical value (6 kg) and 60% from the theoretically
+best passive controller (3 kg). This impedance reduction is
+impressive in its own right, but even more so when considered
+in light of the robust stability properties of this system. With
+apparent friction reduced by 95% and inertia by 80%, the
+system reliably remains stable despite a substantial impact with
+the plastic block; a difficult task for any stiff robot, particularly
+one using force feedback.
+In all cases, the model is more conservative than the test; that
+is, the model predicts instability for cases where the test system
+remains stable. This may result from the fact that the system’s
+Coulomb friction, potentially a large energy sink, is unmodeled.
+This suggests that progress can in some cases be made using
+simplified, linear models, even when robot behavior is signifi-
+cantly nonlinear, and serves as an encouraging endorsement of
+this approach. While an exact model may be preferred, a sim-
+plified linear model permits the use of a vastly greater suite of
+analytical tools and is often more realistically attainable on real
+hardware.
+The controller described above was compared with NAC, the
+current “best practice” for interaction control [22]. The NAC
+structure uses both motion and force feedback; target dynamic
+properties are specified, the interaction force is measured, and
+the motion feedback controller is used to servo the system to the
+response specified by a target admittance. To design a NAC, the
+module in Fig. 5 is modeled as a damped mass. The controller
+uses both motion and endpoint force feedback
+(12)
+is the velocity of the mass, and and are again the actuator
+and interaction force, respectively. and are controller
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+242 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+TABLE II
+COUPLED STABILITY PREDICTIONS AND TEST RESULTS, NAC
+transfer functions. To derive the controller, the port admittance
+of the system, with (12) applied as the control law, is derived and
+set equal to a desired admittance function with stiffness ,
+damping , and mass
+(13)
+Proportional velocity feedback is used so that , and
+the compensator for force feedback can be derived from (13).
+For passivity, [22] recommends selecting at no less than
+. While NAC was introduced as a means of providing
+passivity, it can be used to make nonpassive controllers with
+better performance if the target mass is further reduced [32].
+NAC was implemented with a range of target parameters,
+and stability and performance experiments were repeated. A
+sample of the results is shown for 2 kg and variable
+in Table II, which uses the same form as Table I. In gen-
+eral, the stability properties of nonpassive controllers designed
+with the NAC method were inferior to those that employed lag
+force-feedback control. Only when the target inertia was
+set at 6 kg (i.e., no reduction of apparent inertia) and the target
+damping at 50 Ns/m was the NAC-controlled module as stable
+in contacting all three types of environments (springs, block,
+and arm) as the lag controller with . In this case,
+however, the extremely high viscous friction and inertia make
+performance far inferior. Complete results are in [24].
+NAC is relatively effective in making the system exhibit
+a linear dynamic response, because servoing along an actual
+linear system trajectory is a specific objective. However, be-
+cause velocity is fed back rather than position, it is subject to
+accumulated errors in implementing desired stiffness, causing
+a drift phenomenon. A hand-actuated force-position curve is
+shown in Fig. 15 for comparison with the other controllers.
+The lag controller’s use of low-frequency gain (approximating
+integral action) makes endpoint behavior more noticeably
+nonlinear than with NAC, but it effectively suppresses friction
+nonetheless, and creates a very accurate virtual spring. Both
+controllers have performance strengths, but in this case, the
+lag controller proved to be more robust to interaction with the
+target environment.
+VI. CONCLUSIONS
+Despite decades of effort, interaction control remains a chal-
+lenging problem, and the design of interaction controllers lacks
+the unified, effective approach enjoyed in servo design. We be-
+lieve that this results, at least in part, from the underappreci-
+ated structural differences between the two problems, and the
+continued attempts to apply servo design techniques to inter-
+acting systems. The approach described here seeks to bridge the
+gap between the two control problems; the design “surfaces” of
+Figs. 7 and 12 are the output of this method, and provide an
+approximate equivalent to the insight available intuitively from
+servo loop shaping. The examples show that, not surprisingly,
+there are significant benefits to be gained from shaping the dy-
+namics of feedback controllers, and also that greater benefits can
+be achieved by relaxing passivity.
+The examples presented here used a primitive optimization
+technique. Advanced tools could almost certainly improve ef-
+ficiency. Nevertheless, displaying the entire parameter space to
+see trends (as in Figs. 7 and 12) rather than finding only one
+best-performing solution provides valuable insight.
+To date, the method has been applied to single-DOF systems,
+where it has paid immediate dividends for actuator control. Ex-
+tension to multiple-DOF robots would be useful; however, it is
+importantnottounderstatethevalue ofthe single-DOF case.The
+most significant limitation in the development of more advanced
+interactive robots comes from the drive system; achieving both
+high force density and low mechanical impedance is a persistent,
+vexing problem [24]. Single-DOF control methods that can sig-
+nificantly improve actuators will enable a significant technolog-
+ical advance and facilitate increased implementation of interac-
+tiverobots.Applicationtomulti-DOFrobotsrepresentsanimpor-
+tant area for continued study. Although extension is nontrivial, at
+least two different approaches show promise. One option is to
+place force sensors on each actuator and design controllers with
+an adapted version of the method presented here. The principal
+challenge is that the “environment” with which each actuator in-
+teracts could vary with robot configuration. For this reason, this
+approach may be particularly fruitful for robots that typically op-
+erate in only a small fraction of their total configuration space
+(e.g., MIT-MANUS [1]), such that changes in dynamics with
+configuration are minimal. A second approach would use end-
+point force feedback and shape force compensation directly at
+the robot level. This approach should be feasible, but will require
+addressing several issues, including modeling the primary robot
+resonances (which are likely to depend on configuration) and
+definingperformanceatamulti-DOFinteractionport[33].Either
+approachmightbenefitfromagain-schedulingcontrollerthatad-
+justs the dynamics of force compensation with configuration.
+APPENDIX
+If the generic control law
+(A-1)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+BUERGER AND HOGAN: COMPLEMENTARY STABILITY AND LOOP SHAPING FOR IMPROVED HUMAN–ROBOT INTERACTION 243
+TABLE III
+PARAMETER VALUES FOR ROBOT AND ENVIRONMENT MODELS
+where , , and are controller transfer func-
+tions, is applied to the model in Fig. 6, the impedance of the
+system upstream of the force sensor dynamics is the fol-
+lowing:
+(A-2)
+When the force transducer dynamics are included, the robot port
+impedance becomes
+(A-3)
+The port impedance with a particular controller such as (7) can
+be determined by substituting into these equations. If the envi-
+ronment is as shown in Fig. 10 and described by (11), then the
+expression for in Fig. 11 is
+(A-4)
+Parameter values for both examples are provided in Table III.
+REFERENCES
+[1] H. I. Krebs, N. Hogan, M. L. Aisen, and B. T. Volpe, “Robot-aided
+neurorehabilitation,” IEEE Trans. Rehab. Eng., vol. 6, no. 1, pp. 75–87,
+Jan. 1998.
+[2] S. D. Fasoli, H. I. Krebs, J. Stein, W. R. Frontera, and N. Hogan, “Ef-
+fects of robotic therapy on motor impairment and recovery in chronic
+stroke,” Arch. Phys. Med. Rehab., vol. 84, pp. 477–482, 2003.
+[3] R. B. Gillespie, “Haptic interface to virtual environments,” in Robotics
+and Automation Handbook, T. Kurfess, Ed. Boca Raton, FL: CRC,
+2005.
+[4] D. A. Lawrence, “Stability and transparency in bilateral teleoperation,”
+IEEE Trans. Robot. Autom., vol. 9, no. 5, pp. 624–637, Oct. 1993.
+[5] W. T. Townsend and J. A. Guertin, “Teleoperator slave—WAM design
+methodology,” Ind. Robot., vol. 26, p. 167, 1999.
+[6] M. Roberts, “A robot for gait rehabilitation,” SM thesis, Dept. Mech.
+Eng., MIT, Cambridge, MA, 2004.
+[7] J. Wheeler, “An ankle robot for a modular gait rehabilitation system,”
+SM thesis, Dept. Mech. Eng., MIT, Cambridge, MA, 2004.
+[8] J. S. Wilson, Ed., Sensor Technology Handbook. Boston, MA:
+Newnes, 2005.
+[9] G. E. Moore, “Cramming more components onto integrated circuits,”
+Electronics, vol. 38, pp. 114–117, 1965.
+[10] N. Hogan and S. P. Buerger, “Impedance and interaction control,” in
+Robotics and Automation Handbook, T. Kurfess, Ed. Boca Raton,
+FL: CRC, 2005.
+[11] D. Whitney, “Force feedback control of manipulator fine motions,”
+ASME J. Dyn. Syst. Meas. Control, vol. 99, pp. 91–97, 1977.
+[12] S. D. Eppinger and W. P. Seering, “Three dynamic problems in robot
+force control,” IEEE Trans. Robot. Autom., vol. 8, no. 6, pp. 751–758,
+Dec. 1992.
+[13] R. Volpe and P. Khosla, “A theoretical and experimental investiga-
+tion of explicit force control strategies for manipulators,” IEEE Trans.
+Autom. Control, vol. 38, no. 11, pp. 1634–1650, Nov. 1993.
+[14] J. T. Wen and S. Murphy, “Stability analysis of position and force con-
+trol for robot arms,” IEEE Trans Autom. Control, vol. 36, no. 3, pp.
+365–369, Mar. 1991.
+[15] B. Siciliano and L. Villani, Robot Force Control. Norwell, MA:
+Kluwer, 1999.
+[16] H. P. Qian and J. DeSchutter, “Introducing active linear and nonlinear
+damping to enable stable high gain force control in case of stiff
+contact,” in Proc. IEEE Int. Conf. Robot. Autom., 1992, vol. 2, pp.
+1374–1379.
+[17] J. DeSchutter, H. Bruyninckx, W. Zhu, and M. W. Spong, “Force con-
+trol: A bird’s eye view,” in Control Problems in Robotics and Automa-
+tion: Future Directions. San Diego, CA: Springer-Verlag, 1997, pp.
+1–17.
+[18] N. Hogan, “Impedance control: An approach to manipulation,” ASME
+J. Dyn. Syst. Meas. Control, vol. 107, pp. 1–24, 1985.
+[19] ——, “On the stability of manipulators performing contact tasks,”
+IEEE J. Robot. Autom., vol. 4, no. 6, pp. 677–686, Dec. 1988.
+[20] J. E. Colgate and N. Hogan, “Robust control of dynamically interacting
+systems,” Int. J. Control, vol. 48, pp. 65–88, 1988.
+[21] ——, “An analysis of contact instability in terms of passive physical
+equivalents,” in Proc. IEEE Int. Conf. Robot. Autom., 1989, pp.
+404–409.
+[22] W. S. Newman, “Stability and performance limits of interaction con-
+trollers,” ASME J. Dyn. Syst. Meas. Control, vol. 114, pp. 563–570,
+1992.
+[23] G. F. Franklin, J. D. Powell, and A. Emami-Naeini, Feedback Control
+of Dynamic Systems. New York: Addison-Wesley, 1994.
+[24] S. P. Buerger, “Stable, high-force, low-impedance robotic actuators
+for human-interactive machines,” Ph.D. dissertation, Dept. Mech. Eng.,
+MIT, Cambridge, MA, 2005.
+[25] F. T. Brown, Engineering System Dynamics. New York: Marcel
+Dekker, 2001.
+[26] S. P. Buerger, H. I. Krebs, and N. Hogan, “Characterization and control
+of a screw-driven robot for neurorehabilitation,” in Proc. IEEE CCA/
+ISIC, 2001, pp. 388–394.
+[27] J. M. Dolan, M. B. Friedman, and M. L. Nagurka, “Dynamic and loaded
+impedance components in the maintenance of human arm posture,”
+IEEE Trans. Syst., Man, Cybern., vol. 23, no. 3, pp. 698–709, May/Jun.
+1993.
+[28] T. Tsuji, P. G. Morasso, K. Goto, and K. Ito, “Human hand impedance
+characteristics during maintained posture,” Biol. Cybern., vol. 72, pp.
+475–485, 1995.
+[29] N. Hogan, “Controlling impedance at the man/machine interface,” in
+Proc. IEEE Int. Conf. Robot. Autom., 1989, pp. 1626–1631.
+[30] R. S. Sanchez-Pena and M. Sznaier, Robust Systems Theory and Ap-
+plications. New York: Wiley, 1998.
+[31] J. Palazzolo, “Robotic technology to aid and assess recovery and
+learning in stroke patients,” Ph.D. dissertation, Dept. Mech. Eng.,
+MIT, Cambridge, MA, 2005.
+[32] M. Dohring and W. S. Newman, “Admittance enhancement in force
+feedback of dynamic systems,” in Proc. IEEE Int. Conf. Robot. Autom.,
+2002, pp. 638–643.
+[33] E. D. Fasse and J. F. Broenink, “A spatial impedance controller for
+robotic manipulation,” IEEE Trans. Robot. Autom., vol. 13, no. 4, pp.
+546–556, Aug. 1997.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 13 ===
+244 IEEE TRANSACTIONS ON ROBOTICS, VOL. 23, NO. 2, APRIL 2007
+Stephen P. Buerger was born in Columbus, OH. He
+received the Bachelor of Mechanical Engineering de-
+gree from the University of Dayton, Dayton, OH, in
+1999, and the S.M. and Ph.D. degrees in 2001 and
+2005, respectively, from the Massachusetts Institute
+of Technology (MIT), Cambridge.
+Following a term as a Postdoctoral Associate
+at the Newman Laboratory for Biomechanics and
+Human Rehabilitation, MIT, he joined the Intelligent
+Systems, Robotics and Cybernetics Group, Sandia
+National Laboratories, Albuquerque, NM, where he
+is currently a Senior Member of the Technical Staff. His research interests
+include human–machine interaction, actuator design, and the application of
+these fields to robotics and medical technology.
+Neville Hogan was born in Dublin, Ireland. He re-
+ceived the Dip. Eng. (with distinction) from Dublin
+College of Technology, Dublin, Ireland, and the M.S.,
+M.E., and Ph.D. degrees from the Massachusetts In-
+stitute of Technology (MIT), Cambridge.
+Currently, he is a Professor of Mechanical Engi-
+neering, Professor of Brain and Cognitive Sciences,
+and Director of the Newman Laboratory for Biome-
+chanics and Human Rehabilitation at MIT. Following
+industrial experience in engineering design, he joined
+MIT’s School of Engineering faculty in 1979 and has
+served as Head and Associate Head of the Mechanical Engineering Depart-
+ment’s System Dynamics and Control division.
+Dr. Hogan’s awards include an Honorary Doctorate from the Delft University
+of Technology; the Silver Medal of the Royal Academy of Medicine in Ireland;
+and an Honorary Doctorate from the Dublin Institute of Technology.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:09:59 UTC from IEEE Xplore. Restrictions apply.

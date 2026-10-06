@@ -1,0 +1,1292 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 6, JUNE 2017 1019
+Adaptive Neural Network Control of AUVs
+With Control Input Nonlinearities Using
+Reinforcement Learning
+Rongxin Cui, Member, IEEE, Chenguang Yang, Senior Member, IEEE,
+Yang Li, and Sanjay Sharma
+Abstract—In this paper, we investigate the trajectory tracking
+problem for a fully actuated autonomous underwater vehi-
+cle (AUV) that moves in the horizontal plane. External distur-
+bances, control input nonlinearities and model uncertainties are
+considered in our control design. Based on the dynamics model
+derived in the discrete-time domain, two neural networks (NNs),
+including a critic and an action NN, are integrated into our
+adaptive control design. The critic NN is introduced to evaluate
+the long-time performance of the designed control in the cur-
+rent time step, and the action NN is used to compensate for the
+unknown dynamics. To eliminate the AUV’s control input non-
+linearities, a compensation item is also designed in the adaptive
+control. Rigorous theoretical analysis is performed to prove the
+stability and performance of the proposed control law. Moreover,
+the robustness and effectiveness of the proposed control method
+are tested and validated through extensive numerical simulation
+results.
+Index Terms—Adaptive control, autonomous underwater vehi-
+cle (AUV), neural network (NN), trajectory tracking.
+I. INTRODUCTION
+CURRENTLY, underwater vehicles, including auto-
+nomous underwater vehicles (AUVs), remote operated
+vehicles (ROVs), and underwater gliders, have been widely
+employed in various underwater tasks [1]–[5]. In civil appli-
+cations, they have been widely used in seafloor mapping, for
+pipeline checking for the oil and gas industry and to find
+missing airplane wreckage in air rescue operations. In military
+applications, they have been extensively applied to surveillance
+and reconnaissance missions, mine countermeasures, oceanog-
+raphy, payload delivery, and other time-critical tasks. AUVs
+Manuscript received October 20, 2016; accepted December 21, 2016. Date
+of publication January 10, 2017; date of current version May 15, 2017. This
+work was supported in part by the National Natural Science Foundation
+of China under Grant 61472325, and in part by the Natural Science Basic
+Research Plan in Shaanxi Province of China under Grant 2015JM5254. This
+paper was recommended by Associate Editor W. He. (Corresponding author:
+Rongxin Cui.)
+R. Cui and Y. Li are with the School of Marine Science and
+Technology, Northwestern Polytechnical University, Xi’an 710072, China
+(e-mail: r.cui@nwpu.edu.cn).
+C. Yang is with the Zienkiewicz Centre for Computational Engineering,
+Swansea University, Swansea, SA1 8EN, U.K. (e-mail: cyang@theiet.org).
+S. Sharma is with the School of Marine Science and
+Engineering, Plymouth University, Plymouth, PL4 8AA, U.K. (e-mail:
+sanjay.sharma@plymouth.ac.uk).
+Color versions of one or more of the figures in this paper are available
+online at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TSMC.2016.2645699
+have also been involved in scientific investigations of the
+ocean, the ocean floor, and the lakes. Precise motion con-
+trol of an AUV is crucial when performing underwater tasks.
+However, it is a challenging because of the model nonlinear-
+ity, coupling, and time-varying hydrodynamic coefficients of
+the dynamics, which need to be further studied.
+AUVs usually move in 3-D space with 6 degree of free-
+dom (DOF) and it involves coupled dynamics between its
+planar and diving motions. In most studies, AUV models are
+always decoupled, enabling possible application of various
+control methods [3], [6], [7]. There are several approaches that
+have been proposed for AUV trajectory tracking in 3-D space,
+specifically for planner motion or diving. The nonlinear AUV
+model is usually linearized first, and then, the controller can be
+designed based on this linear model [8], [9]. With the decou-
+pled model, the diving control of AUVs was analyzed in [6],
+and a differentiator was employed to enhance the noise attenu-
+ation performance so that active disturbance rejection could be
+achieved. By decoupling the depth and course motions, a fuzzy
+depth PD controller was designed in [10]. Moreover, an out-
+put feedback control was proposed in [8] for AUVs that move
+in the vertical plane by transforming the path-following errors
+into a Serret–Frenet frame and linearizing the error dynamics.
+For the planner motion control of AUVs, a nonlinear con-
+trol for both fully actuated and underactuated configurations
+was proposed in [7]. They analyzed the effectiveness of the
+side-slip angle of AUVs in detail. Moreover, a tilting thruster
+configuration was proposed in [3], and a selective switching
+control was designed separately for two decoupled 3-DOF sub-
+systems. In [11], both a current-induced vessel model and
+a general vehicle model were considered, where the former
+model accounted for the main current loads. Cascaded sys-
+tem theory and observer backstepping were then employed to
+design a nonlinear Luenberger observer and a controller for
+AUVs. Moreover, these results showed that the model-based
+controller performed better than the conventional PD control.
+In this case, the model dynamics in the controller should be
+revised in the case of divergences.
+Optimal control was also studied in [12]–[14] based on
+an AUV dynamical model. In [12], an optimal control was
+designed to control the AUV trajectory at the kinematics
+level, and the cost function was described as the kinetic
+energy cost. An appropriate Hamiltonian was then designed
+based on the maximum principle, and an optimal solution was
+2168-2216 c
+ 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+1020 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 6, JUNE 2017
+finally obtained. A nonlinear suboptimal control was presented
+for a nonaffine AUV model, and the state-dependent Riccati
+equation controller was applied to the point-to-point track-
+ing of the NPS II AUV [13]. Treating uncertainty bounds
+as one item in the cost function, an optimal control prob-
+lem was then obtained by transforming the original robust
+control problem; then, an indirect robust depth control was
+presented [14].
+The hydrodynamic parameters of AUVs are always obtained
+by computational fluid dynamics methods or towed experiment
+identification. However, due to time-varying environmental
+and state changes that occur during underwater tasks, the
+obtained hydrodynamic parameters are not invariant [15].
+Thus, both external disturbance and model parameter uncer-
+tainties should be considered in designing an appropriate
+controller [16]–[23]. To resolve the model parameter uncer-
+tainties, Mamdani fuzzy rule-based PID parameter adjustment
+has been employed in [24], and then, the control design was
+decoupled into two channels of heading and depth. A discrete
+time-delay control was presented in [25], in which the dynam-
+ics of an AUV was estimated directly and model uncertainties
+were compensated for by the time-delay estimation.
+The velocity of an AUV can be measured by a Doppler
+velocity log (DVL), which usually has a slow update rate
+of new data. To enhance the robustness of the unmodeled
+dynamics and external disturbances for an AUV that uses a
+DVL, an integral sliding-mode control was introduced in [26].
+In [27], a novel method to compensate for bounded exter-
+nal disturbances and model uncertainties was given, where
+the integral of the error sign control structure was presented,
+and the semiglobal asymptotic tracking performance could be
+established through Lyapunov stability analysis. Sliding mode
+control and backstepping were combined in [28] to design
+a trajectory tracking controller for an AUV with parameter
+uncertainties and external disturbances.
+To address external disturbances, a disturbance force
+measurement method was introduced to measure the
+forces/moments acting on AUVs in [2]; then, a feed-forward
+control was employed in the vehicle based on the predicted
+response of the dynamic models. A disturbance observer
+is another main method that has been used to compensate
+for unknown external disturbances [11], [20], [29]–[32]. The
+low-frequency motion and wave frequency motion of AUVs
+were estimated by nonlinear observers in [20], and nonlin-
+ear tracking control was designed for AUV motion subject
+to shallow wave disturbances. For the purpose of control-
+ling vehicles in the near space, a type of sliding mode
+tracking control was applied in [32] based on a disturbance
+observer. In addition, an adaptive tracking control for fully
+actuated surface vessels employing a disturbance observer was
+designed in [33].
+Due to the function approximation ability of neural net-
+works (NNs), fuzzy approximators, NNs and fuzzy-control-
+based algorithms have been widely studied to compensate
+for the environmental disturbances and model uncertainties
+of AUVs [34]–[41]. NN approximation was employed to
+compensate for unknown model parameters and external dis-
+turbances, which were induced by ocean currents and waves,
+in [35], and the uniform ultimate boundedness of the track-
+ing errors was achieved. NNs were used to address the model
+uncertainties of AUVs, and dynamic surface control was also
+applied in the control design in [36]. The nonlinear uncertain-
+ties of the AUV dynamics were approximated by a two-layer
+NN in [38]. To control the diving of AUVs, an adaptive con-
+trol based on a stable NN was proposed in [42]. NN adaptive
+control was presented for multiple unmanned surface vessels
+in [43], and the unmeasured states were estimated by a local
+observer. A radial basis function (RBF) NN was presented
+to derive the adaptive controller for systems subject to exter-
+nal disturbances and unknown hysteresis in [44]. In a recent
+work [45], a nonaffine pure-feedback discrete-time nonlinear
+system subject to input dead-zone was considered. To com-
+pensate for the dead-zone, an adaptive compensative term and
+an n-step-ahead predictor was constructed by transforming the
+original system.
+Practical control systems for AUVs are usually implemented
+on an embedded computer in a digital manner with samplers.
+Thus, the continues-time controller needs to be transformed
+into a discrete-time version [46]. By using the discrete-time
+model directly, we develop a trajectory tracking control in
+the presence of external disturbances, model parameter uncer-
+tainties, and control input nonlinearities. It should be noted
+that there already exists a number of methods to address
+input nonlinearity problems such as input dead-zone and sat-
+uration [47]–[52]. Based on the back-stepping method and
+Lyapunov analysis, an adaptive trajectory tracking controller
+was designed to overcome the model parameter uncertainties
+in [51], where a saturation function was utilized to resolve the
+actuator saturation problem. To prevent velocity constraint vio-
+lations, a robust adaptive controller was proposed in [48] for
+an ROV, and the barrier Lyapunov function was used in the
+Lyapunov syntheses. In [52], a novel dynamic surface con-
+trol (DSC) was proposed for a pure-feedback system with
+unknown input dead-zone. The complexity was clearly reduced
+due to the DSC. A novel NN-based adaptive control was
+presented for an MIMO nonlinear system, therein considering
+the unknown dead-zone and control directions. In addition,
+reinforcement learning has been studied and utilized in many
+fields such as machine learning and artificial intelligence
+[53]–[55]. Reinforcement learning was first surveyed from a
+computer science perspective in [53]. In [54], the “keepers”
+of one soccer team were trained to learn when to hold or pass
+the ball. In addition, deep Q-learning was presented to solve
+more than 20 simulated tasks successfully with a continuous
+control space in [55]. In this paper, motivated by the work
+in [45], [56], and [57], we propose a reinforcement learning
+technique to achieve optimal trajectory tracking for AUVs by
+employing two NNs. The unknown nonlinearities and distur-
+bances are approximated by the action NN; simultaneously, the
+tracing evaluation of the tracking performance is approximated
+by the critic NN. In addition, an adaptive compensation for
+the control input nonlinearities is considered. The preliminary
+results of this paper were presented in [58], and extensions
+have been made by considering not only actuator dead-zone
+and saturation but also the nonlinear relationship between the
+nominal and actual force/moment. Moreover, a compensation
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+CUI et al.: ADAPTIVE NN CONTROL OF AUVs WITH CONTROL INPUT NONLINEARITIES USING REINFORCEMENT LEARNING 1021
+Fig. 1. AUV movement in the horizontal plane.
+policy for this nonlinearity is proposed, as will be
+discussed later.
+The remainder of this paper is organized as follows. We
+present the nonlinear model of AUVs in Section II. The two
+adaptive NNs are designed in Section III. Simulation stud-
+ies and conclusions are presented in Sections IV and V,
+respectively.
+II. PROBLEM FORMULATION
+A. Motion Equations of AUV
+As described in Section I, an AUV usually moves in a 3-D
+space with 6 DOFs, leading to coupled dynamics in its planner
+and diving motions. To facilitate control design, the model is
+usually decoupled, whereas the designed control will be vali-
+dated using the coupled nonlinear dynamics. We consider the
+planar motion of an AUV with 3 DOFs, as shown in Fig. 1.
+Let us denote the position coordinate of an AUV as (x, y),
+the yaw as (ψ) in the inertial frame, the velocity as (u) in
+surge, v in sway and r in yaw in the AUV body coordinates.
+Furthermore, let us denote the matrix of the inertia of the
+AUV as M and the matrices for the Coriolis and centripetal
+acceleration and damping as C(ν) and D(ν), respectively. In
+addition, we denote the forces and moments generated by grav-
+ity and buoyancy as g(η). Consider that unknown external
+disturbances and model parameter uncertainties exist; then, the
+AUV dynamics can be given as follows:
+η̇ = R(ψ)ν (1)
+Mν̇ + C(ν)ν + D(ν)ν + g(η) + (η, ν) = τ (2)
+where (η, ν) is the model uncertainty vector, which is
+induced by the unmodeled dynamics and external disturbances
+(η, ν), and R(ψ) describes the rotation from the AUV body
+coordinates to the earth coordinates with 3 DOFs. The control
+inputs of the AUV are defined by τ ∈ R3.
+The elements in M, mij, i, j = 1, 2, 3; the functions in D(ν),
+dij(ν), i, j = 1, 2, 3; and the element of the disturbance vector
+i(η, ν), i = 1, 2, 3 are all unavailable for control design. To
+facilitate the control design, we assume that their is a nominal
+value of the unknown mass matrix M, which is defined by
+M0. In addition, M0 is known a priori. This assumption is
+feasible because the mass and added mass of an AUV are
+mainly determined by its physical shape. Control design in
+this paper is focused on the 3-DOF model. We can extend
+the control policy to 6 DOFs conveniently due to the fully
+actuated model of AUVs used in this paper. In other words,
+the controller designed in this paper can also be applied to the
+vertical plane.
+B. Dynamics Model in Discrete-Time Domain
+In this section, we transform the continuous-time
+model into discrete time for subsequent control design.
+Equations (1) and (2) can be rewritten as the following
+equations:
+ν̇ = −M−1
+
+(C(ν) + D(ν))ν + g(η) + (η, ν)
+
++ M−1
+τ
+η̇ = R(ψ)ν. (3)
+If the sampling time of the embedded computer for the AUV
+control is selected as Ts, through the first-order Taylor expan-
+sion, we can obtain an approximative discrete-time model
+calculated from (3) as
+ν(k + 1) = ν(k) + f2(η(k), ν(k)) + M−1
+τ(k)
+η(k + 1) = η(k) + f1(η(k))ν(k) (4)
+where η(k), ν(k), and τ(k) are the sampled values of η, ν,
+and τ at the kth sampling time, respectively. The nonlinear
+functions
+f1(η) = TsR(ψ) ∈ R3×3
+f2(η, ν) = −TsM−1
+
+(C(ν) + D(ν))ν + g(η) + (η, ν)
+
+∈ R3
+.
+(5)
+The following definitions are introduced for convenience of
+future design:
+f11(x̄(k))  f1(η(k) + f1(η(k))ν(k))
+= f1(η(k + 1)) ∈ R3
+(6)
+where x̄(k)  [η(k), ν(k)].
+By using the procedure presented in [59], we can derive the
+following equations from (4):
+η(k + 2) = η(k + 1) + f1(η(k + 1))ν(k + 1)
+= η(k) + f1(η(k))ν(k) + f11(x̄(k))ν(k)
++ f11(x̄(k))f2(x̄(k)) + f11(x̄(k))M−1
+τ. (7)
+It is easy to check that (1/T2
+s )f
+11(x̄(k))f11(x̄(k)) = R(ψ(k +
+1))R(η(k + 1)) = I. Now, we define
+f(x̄(k))  f11(x̄(k))f2(x̄(k)) ∈ R3
+h(x̄(k))  x1(k) + f1(η(k))ν(k) + f11(x̄(k))ν(k) ∈ R3
+Mf (x̄(k)) = f11(x̄(k))M−1
+f
+11(x̄(k)) ∈ R3×3
+τf =
+1
+T2
+s
+f11(x̄(k))τ ∈ R3
+.
+Then, (7) can be written as
+η(k + 2) = h(x̄(k)) + f(x̄(k)) + Mf (x̄(k))τf . (8)
+It is noted that f11(x̄(k)) = f1(η(k)+f1(η(k))ν(k)) is known,
+and then, at each time instant k, R(ψ(k + 1)) = f11(x̄(k))
+can be calculated so that h(x̄(k)) is also known. The function
+f(x̄(k)) is not available; thus, it has to be well considered in
+our design. Furthermore, the property of the M matrix results
+in a positive-definite matrix Mf (x̄(k)), which is also unknown.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+1022 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 6, JUNE 2017
+Fig. 2. Illustration of actuator nonlinearity.
+Actuator dead-zone and saturation inevitable exist in any
+physical system. In this paper, we consider that the actuator
+has nonlinearities, including both saturation and dead-zone, as
+shown in Fig. 2. Let us define τideal(k) as the ideal control
+input generated by the proposed controller, and the nominal
+force/moment acting on the vehicle can be described as
+−
+→
+D (τideal(k)) = −
+→
+m (τideal(k))τideal(k) +
+−
+→
+b (k) (9)
+where
+−
+→
+D (τideal(k)) is a continuous first-order differentiable
+function. This formulation (9) has been widely used to
+describe actuator nonlinearities with both saturation and dead-
+zone [45], [60].
+The objective of this paper, based on the discrete-time
+model (8) and the control input nonlinearities (9), is to
+develop a torque control input τ that makes the trajectory of
+an AUV, η = [x, y, ψ], follow the user-defined trajectory:
+ηd = [xd, yd, ψd] asymptotically, i.e., limk→∞(η − ηd) = 0.
+C. NN Function Approximation
+NNs and fuzzy systems are typical function approximators
+widely used in the control community. We choose the RBF
+NN to compensate for the unknown items in the dynamics for
+our control design, and the following RBF NNs are introduced.
+An unknown function h(z) : Rm → R can be approximated by
+φ(W, z) = W
+S(z) (10)
+where the weight of the NN is denoted as W =
+[w1, w2, . . . , wl] ∈ Rl, the input vector is denoted as z ∈
+z ⊂ Rm, and the node number of the NN is denoted as l.
+In this paper, the basis function of an NN is defined as
+S(z) = [s1(z), . . . , sl(z)], and its element si(z), i = 1, . . . , l
+are selected as a Gaussian function.
+Let us define μi = [μi1, . . . , μim] as the centers of the
+receptive domain of the NN, and let us define σi as the width
+of the Gaussian function. Then, the elements can be written as
+si(z) = exp
+
+−(z − μi)
+(z − μi)
+σ2
+i
+
+, i = 1, 2, . . . , l. (11)
+Conventionally, W∗ denotes the ideal constant weights of an
+NN. In [61], it was established that any continuous function
+can be approximated by an RBF NN (10) over a compact set
+z ⊂ Rm as
+φ(z) = W∗
+S(z) + z, ∀z ∈ z (12)
+where z is the approximation error.
+The ideal weight W∗ is required for stability analysis, and
+it minimizes | z| for all z ∈ z, that is
+W∗ def
+= arg min
+W ∈Rl
+
+sup
+
+
+h(z) − W 
+S(z)
+
+
+
+
+, z ∈ z.
+In this paper, the user-defined trajectories for an AUV, ηd
+and vd, are assumed to be suitably defined such that if zd =
+[η
+d , ν
+d ] is presented as the input to an RBF NN, then S(zd)
+will satisfy the persistent excitation condition [62], that is
+αminIl×l ≤
+k0+kf
+k0
+S(π)S
+(π)dπ ≤ αmaxIl×l, ∀k0 (13)
+where αmin, αmax, and kf are positive constants and I is the
+identity matrix.
+III. ADAPTIVE NN CONTROL DESIGN
+We derived the discrete-time model of an AUV in Section II,
+and we noted that there are some unknown functions in the
+dynamics model. Thus, the technical challenges in the control
+design of an AUV include the external disturbances, the par-
+tial unknown dynamics, and the input nonlinearities. In this
+section, we propose the trajectory control for an AUV using
+an NN. Two NNs are employed. The first critic NN is used
+to evaluate the long-time performance of the control in the
+current time step. Note that only f(x̄(k)) and Mf are unknown
+and thus are not unavailable. Therefore, an action NN is used
+to approximate f(x̄(k)) and Mf . In other words, the action
+NN could compensate for the effect caused by the unknown
+dynamics. We will design the control τ to adjust η(k) to track
+the desired trajectory ηd(k). Define
+e(k)  η(k) − ηd(k) ∈ R3
+(14)
+and eν(k) = ν(k) − νd(k) as the position tracking error and
+the velocity tracking error, respectively.
+Define
+(k) 
+3
+i=1
+wi
+
+λiei(k) + eν,i(k)
+
+ (15)
+as a new weighted tracking error, where the superscript i
+denotes the ith element of the vector, λi is a constant weight-
+ing the position tracking error and velocity error, and wi is a
+constant weight associated with the error in each channel. wi
+can also be viewed as the weights of the impacts of ei and
+ev,i. Generally, it is chosen to achieve the normalization of ei
+and ev,i.
+The definition in (15) is motivated by the results
+in [56] and [57], and both position and velocity errors are
+considered in this paper. The control objective can then be
+described as limk→∞ (k) = 0. Thus, (k) can be viewed as
+a strategic utility function used to observe the instant tracking
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+CUI et al.: ADAPTIVE NN CONTROL OF AUVs WITH CONTROL INPUT NONLINEARITIES USING REINFORCEMENT LEARNING 1023
+performance. Then, the long-term performance measure with
+a future time horizon N can be defined as [56]
+Q(k) =
+N−k
+i=1
+αN+1−i
+(k + i) (16)
+where the scaling factor α is defined by the user and satisfies
+0 < α < 1.
+The long-term performance Q(k) was first introduced in [56]
+to denote the tracking performance including all history infor-
+mation. It utilized the binary system performance index pi(k) ∈
+R. In addition, (k) = 0 when the tracking error is within the
+limits of a given boundary; otherwise, (k) = 1. In this paper,
+however, we use the weighted error to denote the performance
+rather than the binary utility function. Moreover, this measure
+is also similar to the standard Bellman equation [63], [64].
+In the following, we design the tracking controller using two
+NNs. The utility function Q(k) (16) is approximated by one
+critic NN, and the unknown item f(x̄(k)) in (8) is approximated
+by the other NN.
+A. Critic NN Design
+As mentioned, two NNs are employed in our control design.
+In this section, we use a critic NN to approximate the unknown
+strategic utility function Q(k). Following the techniques used
+in [65], we calculate its estimation. Rewriting Q(k) using the
+NN, it can then be formulated as follows:
+Q(k) = W∗
+c Sc(k) + μQ(k) (17)
+where W∗
+c ∈ Rl is the optimal neural weight, μQ(k) denotes
+the NN approximation error, and Sc(z(k)) ∈ Rl denotes the
+activation vector. Then, the estimation of Q(k) can be given by
+Q̂(k) = Ŵ
+c (k)Sc(k) (18)
+where Ŵc(k) is the neural weight.
+The input vector z(k) is given by
+z(k) = x̄
+(k), η
+d (k), . . . ,
+η
+d (k + N), ν
+d (k), . . . , ν
+d (k + N)
+
+. (19)
+Now, we can obtain the prediction error
+ec(k) = −αQ̂(k − 1) + Q̂(k) + αN+1
+(k). (20)
+Then, a critic NN is designed to minimize the objective
+function
+Ec(k) =
+1
+2
+e2
+c(k). (21)
+A simple method to update the critic NN is to use the
+conventional gradient-based adaption as follows:
+Ŵc(k + 1) = Ŵc(k) + Ŵc(k). (22)
+In (22), the recurrence of Ŵc(k) is given by
+Ŵc(k + 1) = Ŵc(k) − αcSc(k)
+× Ŵ
+c (k)Sc(k) − αŴ
+c (k − 1)Sc(k − 1) + αN+1
+p(k)
+(23)
+where αc ∈ R denotes the parameter gain of the NN.
+Equation (23) shows that the weights are adjusted in accor-
+dance with the reinforcement learning signal and past critic
+NN output values with a discount.
+B. Action NN Design
+A critic NN has been used to approximate the perfor-
+mance evaluation function. In this section, an action-NN-based
+adaptive control considering the above-mentioned technical
+challenges is presented for the AUV as follows:
+τideal(k) = τf (k) + ξ̂(k) + β(k)e(k) (24)
+where β is a user-defined scaling factor satisfying |β(k)| ≤
+β̄ < 1 and τf is the ideal control input defined as
+τf = Ŵ
+a (k) · Sa(z̄(k)) − Mi(x̄(k))
+
+h(x̄(k)) + yd(k + 2)
+
+(25)
+in which ξ(k) is an input compensation signal that will be
+introduced later. ξ̂, ξ∗, and ξ̃ are the real compensation, the
+optimal compensation and the error of ξ, i.e., ξ̃ = ξ∗ −
+ξ̂. Ŵ
+a (k) · Sa(z̄(k)) is the NN-based approximation of the
+unknown item fn(x̄(k)) ∈ R3
+fn(x̄(k)) = − M−1
+f (x̄(k)) − Mi(x̄(k)) h(x̄(k))
+− M−1
+f (x̄(k))f(x̄(k)) (26)
+where Mi(x̄(k)) is an estimation of M−1
+f (x̄(k)) and
+Mi(x̄(k)) = f11(x̄(k))M0f
+11(x̄(k)). (27)
+If the nominal value of M0 equals M exactly, then
+Mi(x̄(k))Mf (x̄(k)) = I and the first item of fn(x̄(k)) in (26)
+equals zero. In practice, M0 is obtained according to the
+designer’s experience. Although M0 could never be precisely
+equivalent to M, the distance between M and M0 will be com-
+pensated by the action NNs. In addition, the closer M0 is to
+M, the less convergence time is needed.
+According to universal approximation theory, there are
+S(x̄(k)) ∈ R and ideal weights W∗
+a satisfying
+f(x̄(k)) = μ(x̄(k)) + W∗
+a · S(x̄(k)) (28)
+Sa(x̄(k)) ∈ Rl×3
+, ∀x̄(k) ∈ x̄ (29)
+where μ(x̄(k)) denotes the approximation error by the
+designed NN.
+The update law of the compensation item ξ(k) is designed as
+ξ̂(k + 2) = ξ̂(k) − γξ ξ̂(k) + αξ e(k + 2) (30)
+where αξ and γξ are parameters to be specified by the designer.
+Substituting the designed control (24) into the dynamics (7)
+results in
+ea(k + 2) = Mf (x̄(k)) D̃(v(k)) + W̃
+a (k)Sa(k) + d∗
+s (k)
+(31)
+where d∗
+s (k) = Mf μ(k), and the augmented error of D̃(v(k))
+is defined as D̃(v(k)) = D∗(v(k)) − D(v(k)), with the super-
+script “∗” denoting the ideal value. Equation (8) is a two-step
+predictor form based on the n-step formation in [66], which
+only involves current states and input.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+1024 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 6, JUNE 2017
+Now, we need to minimize the following objective function:
+Ea(k) =
+1
+2
+e
+a (k)ea(k) +
+1
+2
+Q̂2
+(k) (32)
+where e
+a (k)ea(k) describes the performance of the approxi-
+mation between the action NN and fn(x̄(k)). In addition, Q̂2(k)
+describes the tracking performance, including all history infor-
+mation. Defining k1 = k − n, we can now design the update
+law for the action NN
+Ŵa(k + 1) = Ŵa(k1) + Ŵa(k1) (33)
+where Ŵa can be calculated using the gradient descent
+method, which results in
+Ŵa(k + 1) = Ŵa(k1)
+− αaSa(k1) −sign(e(k))Q̂(k)αN+1
++ e(k) (34)
+where αa ∈ R is the adaption gain of the NN.
+Lemma 1 [45]: Let V(k) = n
+i=1 Vi(k) and Vi(k) ≥ 0, k ∈
+Z+. If V(k+1) ≤ n
+i=1 p(k−n+1)Vi(k−n+1)+q(k−n+1),
+|p(k − n + 1)| ≤ p̄ < 1 and |q(k − n + 1)| ≤ q̄. Then, we have
+V(k) ≤ V̄(0) +
+q̄
+1 − p̄
+. (35)
+Moreover, we have
+lim
+k←∞
+sup V(k) ≤
+q̄
+1 − p̄
+(36)
+where V̄(0) = max0≤i≤n−1{V( j)}.
+Now, we can arrive at the following theorem, which sum-
+marizes the stability result of the developed control.
+Theorem 1: If the dynamics of the vehicle can be described
+by (7), using the adaptive control (24), compensation param-
+eter adaptation law (30), and NN weight update laws (22)
+and (33), the AUVs are able to follow the desired trajec-
+tory with bounded error when the design parameters of the
+control satisfy αcSc(k)2 < 1, αaSa(k)2 < 1, γξ < 1/2,
+0 < α < (
+√
+2/2), and β̄ + 3αξ < (2/Mm(x̄(k))).
+Proof: Using similar techniques as employed
+in [45] and [56]–[58], we choose a positive definite
+V(k) =
+4
+i=1
+Vi(k) (37)
+where
+V1(k) =
+1
+αc
+tr W̃
+c (k)W̃c(k)
+V2(k) =
+1
+γc
+ζc(k − 1)2
+, and
+V3(k) =
+1
+γaαa
+n
+j=0
+tr W̃
+a (k − n + j)W̃a(k − n + j) (38)
+where ζc(k) = W̃
+c (k)Sc(k) and the parameters γc, γa > 0. The
+important item V4(k) defined in (38) is introduced to handle
+the control input nonlinearity items and is selected as
+V4(k) =
+1
+αξ
+ξ̃
+(k)ξ̃(k). (39)
+According to the results in [58], we can obtain
+Vi(k + 1) = Vi(k + 1) − Vi(k) < 0, i = 1, 2, 3. (40)
+The details of the proof can be found in [58]. Based on (38),
+we obtain
+V4(k + 2) =
+ξ̃(k + 2)ξ̃(k + 2)
+αξ
+=
+ξ̃(k)ξ̃(k)
+αξ
+− 2ξ̃(k)
+e(k + 2) −
+2γξ ξ̃(k)ξ̂(k)
+αξ
++ 2γξ e(k + 2)
+ξ̂(k) +
+γ 2
+ξ ξ̂(k)
+αξ
++ αξ e
+(k + 2)e(k + 2). (41)
+Because
+Mf (x̄(k))D(v(k))
+= Mf (x̄(k))
+
+−b(k) + m(k) τf (k) + ξ̂(k) + βe(k)
+
+= −Mf (x̄(k))b(k) + Mf (x̄(k))m(k)τf (k)ξ̂(k)
++ Mf (x̄(k))m(k) + Mf (x̄(k))m(k)βe(k)
+= −Mf (x̄(k))b(k) + Mf (x̄(k))m(k)τf (k)
+− Mf (x̄(k))m(k)ξ̃(k) + Mf (x̄(k))m(k)ξ∗
++ Mf (x̄(k))m(k)βe(k).
+Now, we can rewrite (31) as
+e(k + 2) = Mf (x̄(k))(m(k) − 1)τf (k) + Mf (x̄(k))W̃
+a (k)Sa(k)
+− Mm(x̄(k))ξ̃(k) + Mm(x̄(k))βe(k) + Mm(x̄(k))ξ∗
+− Mf (x̄(k))b(k) + d∗
+s (k)
+= Mm(x̄(k)) ξ̃(k) + βe(k) + H(k) (42)
+where
+H(k) = Mf (x̄(k))(m(k) − 1)τf (k) + Mm(x̄(k))ξ∗
+− Mf (x̄(k))b(k) + Mf (x̄(k))W̃
+a (k)Sa(k) + d∗
+s (k).
+(43)
+Let us multiply by e(k + 2) on both sides of (42) to obtain
+e(k+2)e(k+2) = e(k+2)H(k)+Mm(x̄(k))[e(k+2)ξ̃(k)+
+e(k + 2)βe(k)]. Thus, we have
+−2e
+(k + 2)ξ̃(k) = −
+2e(k + 2)e(k + 2)
+Mm(x̄(k))
++
+2e(k + 2)H(k)
+Mm(x̄(k))
++ 2βe
+(k + 2)e(k). (44)
+It is easy to obtain the following equations or inequalities:
+2ξ̃
+(k)ξ̂(k) = −ξ∗
+ξ∗
++ ξ̂
+(k)ξ̂(k) + ξ̃
+(k)ξ̃(k)
+2γξ e
+(k + 2)ξ̂(k) ≤ αξ e
+(k + 2)e(k + 2) +
+γ 2
+ξ ξ̂(k)ξ̂(k)
+αξ
+2H(k)e(k + 2)
+Mm(x̄(k))
+≤ αξ e
+(k + 2)e(k + 2) +
+H̄(k)H̄(k)
+αξ
+2βe
+(k + 2)e(k) ≤ β̄ e
+(k + 2)e(k + 2) + e
+(k)e(k)
+(45)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+CUI et al.: ADAPTIVE NN CONTROL OF AUVs WITH CONTROL INPUT NONLINEARITIES USING REINFORCEMENT LEARNING 1025
+where H̄(k) is the upper bound of H(k). It is noted that the
+first equation is a direct conclusion of 2ab < aa + bb.
+Substituting (45) into (41), we obtain
+V4(k + 2) ≤
+1
+αξ
+ξ̃
+(k)ξ̃(k) −
+2
+Mm(x̄(k))
+e
+(k + 2)e(k + 2)
++ αξ e
+(k + 2)e(k + 2) +
+1
+αξ
+H̄
+(k)H̄(k)
++ β̄e
+(k)e(k) + β̄e
+(k + 2)e(k + 2)
+−
+γξ
+αξ
+ξ̃
+(k)ξ̃(k) −
+γξ
+αξ
+ξ̂
+(k)ξ̂(k)
++
+γξ
+αξ
+ξ∗
+ξ∗
++ 2αξ e
+(k + 2)e(k + 2)
++
+2γ 2
+ξ ξ̂(k)ξ̂(k)
+αξ
+=
+
+1 − γξ
+ξ̃(k)ξ̃(k)
+αξ
++ γξ
+
+2γξ − 1
+ξ̂(k)ξ̂(k)
+αξ
++
+
+β̄ + 3αξ −
+2
+Mm(x̄(k))
+
+e
+(k + 2)e(k + 2)
++ β̄e
+(k)e(k) +
+H̄(k)H̄(k)
+αξ
++
+γξ
+αξ
+ξ∗
+ξ∗
+≤
+
+1 − γξ
+
+V4(k) + γξ
+
+2γξ − 1
+ξ̂(k)ξ̂(k)
+αξ
++
+
+β̄ + 3αξ −
+2
+Mm(x̄(k))
+
+e
+(k + 2)e(k + 2) + q̄
+(46)
+where q̄ = (H̄(k)H̄(k)/αξ ) + (γξ /αξ )ξ∗ξ∗ + β̄e(k)e(k). If
+the parameters are selected to satisfy γξ < 1/2, and β̄+3αξ <
+2/Mm(x̄(k)), then we can obtain
+V4(k + 2) ≤
+
+1 − γξ
+
+V4(k) + β̄e
+(k)e(k) + q̄. (47)
+In addition, because γξ > 0, β̄ < 1, and Vi(k) < 0, i =
+1, 2, 3, we obtain V(k+2) ≤ βv1V1(k)+βv2V2(k)+βv3V3(k)+
+(1 − γξ )V4(k) + β̄e(k)e(k) + q̄. Thus, we can conclude that
+V(k) ≤ V(0) + (q̄/1 − p̄) according to Lemma 1, where the
+constant p̄ = max{1 − γξ , βv1, βv2, βv3β̄}. This completes the
+proof.
+IV. SIMULATION STUDIES
+To evaluate the performance of the proposed control, we
+perform a numerical simulation based on the model of a fully
+actuated AUV in this section, as has been used in [67] with
+success. The parameters of the model are adapted from [67] as
+M =
+⎡
+⎢
+⎣
+25.8 0 0
+0 24.6612 0
+0 0 2.76
+⎤
+⎥
+⎦ (48)
+Fig. 3. Trajectory of an AUV in the simulation.
+d11 = (0.7225 + 1.3274|u| + 5.8664v2)kg/s, d22 = (0.8612 +
+36.2823|v| + 8.05|r|)kg/s, d23 = (−0.1079 + 0.845|v| +
+3.45|r|)kg/s, d32 = (−0.1052 − 5.0437|v| − 0.13|r|)kg/s, and
+d33 = (1.9 − 0.08|v| + 0.75|r|)kg/s. The desired trajectory is
+given by
+xd(k) = k
+yd(k) = 4 sin(k/7). (49)
+Thus, the desired yaw of the vehicle can be calculated as
+ψd(k) = arctan((4/7) cos(k/7)) to achieve a smooth trajec-
+tory tracking. For convenience, we set the initial condition
+as η(0) = [−2, 10, −(π/8)] and ν(0) = 03×1 for the
+AUV in the simulation. We introduce the time-varying and
+state-dependent disturbance in the earth coordinates as
+fc(k) =
+⎡
+⎣
+0.1 sin(ν(3))
+0.0ν(1)η(1) + 0.5
+−0.1ν(2) cos(η(3)) + 0.1 sin(v(2))
+⎤
+⎦.
+Accordingly, the disturbance acting on the AUV in the body-
+fixed frame can be written as
+w(k) = R
+(ψ)fc(k).
+The constant parameters in the controller are selected as α =
+0.6, α0 = 0.5, αα = 0.2, αη = 0.25, αc = 0.8, γη = 0.25, and
+Ts = 0.01, which are chosen empirically. The sampling time
+Ts is chosen to satisfy Shannon’s law. The basis functions of
+the NN are defined as
+Si(Z) :=
+μi(Z)
+38
+j=1 μj(Z)
+, μi :=
+8
+
+j=1
+νj, j = 1, . . . , 38
+(50)
+where the function νj can be selected from the jth sets of
+1/(1+e(−a3j(Zj−b3j))), 1/(1+ea1j(Zj+b1j)), and e−a2j|Zj−b2j|2
+. The
+maximum control signal in each channel is set as |τ1| ≤ 35N,
+|τ2| ≤ 35N, and |τ3| ≤ 7Nm.
+The primary simulation results are provided in Figs. 3–9
+and demonstrate that the performance with our proposed con-
+trol is reasonably good. It can be observed that the reference
+trajectory is tracked in 20 sec in Fig. 3. The tracking error
+is shown in Fig. 4 with a small boundary. It is clear that the
+norms of the NN weights as well as the control inputs are
+bounded in Figs. 6 and 7. In addition, Fig. 9 provides the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+1026 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 6, JUNE 2017
+Fig. 4. Tracking error along the trajectory.
+Fig. 5. Control inputs of the AUV.
+Fig. 6. Compensation control inputs ξ.
+reinforcement learning signal. It can be observed that Q is
+bounded near zero, which means that the weighted tracking
+error is also bounded to zero. From the figures, we can find that
+the performance of the AUV trajectory tracking is satisfactory,
+despite the unknown dynamics, control input nonlinearities
+and time-varying disturbance.
+A. Compared With General NN Control
+To validate our proposed adaptive control with reinforce-
+ment learning, we also present a comparison between the
+general NN control and PD control. The results are shown
+in Figs. 10–13. In Fig. 10, we see that the AUVs track
+the desired trajectory in a more effective manner with our
+Fig. 7. Norm of action neural weights Ŵa.
+Fig. 8. Norm of critic neural weights Ŵc.
+Fig. 9. Reinforcement learning signal.
+proposed adaptive reinforcement learning control, i.e., the ref-
+erence trajectory is tracked well enough when x = 15 by
+our control; however, x = 25 under the general NN control.
+Fig. 11 shows the comparison of the error, from which we see
+that our control achieves faster convergence. This means that
+the learning time needed by the NNs can be reduced by our
+control.
+B. Compared With PD Control
+We choose two different PD control parameters in the sim-
+ulation, Kp1 = [2, 2, 0.1] Kd1 = [10, 10, 5] and Kp2 =
+[10, 10, 0.5] Kd2 = [1, 1, 0.5]. The results obtained with
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+CUI et al.: ADAPTIVE NN CONTROL OF AUVs WITH CONTROL INPUT NONLINEARITIES USING REINFORCEMENT LEARNING 1027
+Fig. 10. Trajectory of an AUV compared with general NNs.
+Fig. 11. Tracking error compared with general NNs.
+Fig. 12. Trajectory of an AUV compared with PD controller.
+PD control are presented in Figs. 12 and 13. We see that
+η has achieves a steady-state error because of the absence
+of the integrating in the PD control. The parameters in the
+PD control are chosen empirically and are generally diffi-
+cult to choose in real applications. On the other hand, the
+parameters of the PD control strongly influence the effective-
+ness of the AUV tracking control system. The main differ-
+ence is that the steady-state error is smaller when the latter
+Fig. 13. Tracking error compared with PD controller. Kp = [2, 2, 0.1] Kd =
+[10, 10, 5] and Kp = [10, 10, 0.5] Kd = [1, 1, 0.5].
+parameters are selected. However, both parameters exhibit
+poorer performance compared with our adaptive control.
+V. CONCLUSION
+In this paper, an adaptive trajectory tracking control law
+using NN approximation for a fully actuated AUV has
+been developed in the discrete-time domain. An NN-based
+reinforcement learning algorithm has been used to address
+unknown disturbances, parameter uncertainties and control
+input nonlinearities. Two NNs are embedded in the proposed
+controller: the first critic NN is used to evaluate the long-
+time performance of the control in the current time step, and
+the second action NN is used to compensate for the unknown
+dynamics. Rigorous theoretical analysis and extensive simula-
+tion studies have been performed to demonstrate the robustness
+and effectiveness of the proposed approach. A future research
+direction is to apply the proposed control to practical systems.
+REFERENCES
+[1] R. Kobayashi and S. Okada, “Development of hovering control system
+for an underwater vehicle to perform core internal inspections,” J. Nucl.
+Sci. Technol., vol. 53, no. 4, pp. 566–573, Apr. 2016.
+[2] J. M. Selvakumar and T. Asokan, “Station keeping control of underwater
+robots using disturbance force measurements,” J. Mar. Sci. Technol.,
+vol. 21, no. 1, pp. 70–85, 2016.
+[3] S. Jin, J. Kim, J. Kim, and T. Seo, “Six-degree-of-freedom hovering
+control of an underwater robotic platform with four tilting thrusters via
+selective switching control,” IEEE/ASME Trans. Mechatronics, vol. 20,
+no. 5, pp. 2370–2378, Oct. 2015.
+[4] Z. Peng, J. Wang, and D. Wang, “Containment maneuvering of
+marine surface vehicles with multiple parameterized paths via spatial-
+temporal decoupling,” IEEE/ASME Trans. Mechatronics, vol. 22, no. 2,
+pp. 1026–1036, Apr. 2017.
+[5] C. S. Chin, M. W. S. Lau, and E. Low, “Supervisory cascaded controller
+design: Experiment test on a remotely operated vehicle,” Proc. Inst.
+Mech. Eng. C J. Mech. Eng. Sci., vol. 225, no. C3, pp. 584–603, 2011.
+[6] Y. Shen, K. Shao, W. Ren, and Y. Liu, “Diving control of autonomous
+underwater vehicle based on improved active disturbance rejection
+control approach,” Neurocomputing, vol. 173, pp. 1377–1385, Jan. 2016.
+[7] X. Xiang, C. Yu, Q. Zhang, and G. Xu, “Path-following control of an
+AUV: Fully actuated versus under-actuated configuration,” Mar. Technol.
+Soc. J., vol. 50, no. 1, pp. 34–47, 2016.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+1028 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 47, NO. 6, JUNE 2017
+[8] B. Subudhi, K. Mukherjee, and S. Ghosh, “A static output feedback
+control design for path following of autonomous underwater vehicle in
+vertical plane,” Ocean Eng., vol. 63, pp. 72–76, May 2013.
+[9] W. He and S. S. Ge, “Vibration control of a flexible beam with output
+constraint,” IEEE Trans. Ind. Electron., vol. 62, no. 8, pp. 5023–5030,
+Aug. 2015.
+[10] I. S. Akkizidis, G. N. Roberts, P. Ridao, and J. Batlle, “Designing a
+fuzzy-like PD controller for an underwater robot,” Control Eng. Pract.,
+vol. 11, no. 4, pp. 471–480, 2003.
+[11] J. E. Refsnes, A. J. Sørensen, and K. Y. Pettersen, “Model-based
+output feedback control of slender-body underactuated AUVs: Theory
+and experiments,” IEEE Trans. Control Syst. Technol., vol. 16, no. 5,
+pp. 930–946, Sep. 2008.
+[12] J. Biggs and W. Holderbaum, “Optimal kinematic control of an
+autonomous underwater vehicle,” IEEE Trans. Autom. Control, vol. 54,
+no. 7, pp. 1623–1626, Jul. 2009.
+[13] B. Geranmehr and S. R. Nekoo, “Nonlinear suboptimal control of fully
+coupled non-affine six-DOF autonomous underwater vehicle using the
+state-dependent Riccati equation,” Ocean Eng., vol. 96, pp. 248–257,
+Mar. 2015.
+[14] H. Pan and M. Xin, “Depth control of autonomous underwater vehicles
+using indirect robust control method,” Int. J. Control, vol. 85, no. 1,
+pp. 98–113, 2012.
+[15] Y.-H. Eng, C.-S. Chin, and M. W.-S. Lau, “Added mass computation for
+control of an open-frame remotely-operated vehicle: Application using
+WAMIT and MATLAB,” J. Mar. Sci. Technol. Taiwan, vol. 22, no. 4,
+pp. 405–416, Aug. 2014.
+[16] C. S. Chin and S. H. Lum, “Rapid modeling and control systems pro-
+totyping of a marine robotic vehicle with model uncertainties using
+xPC target system,” Ocean Eng., vol. 38, nos. 17–18, pp. 2128–2141,
+Dec. 2011.
+[17] W. He and S. Zhang, “Control design for nonlinear flexible wings of
+a robotic aircraft,” IEEE Trans. Control Syst. Technol., vol. 25, no. 1,
+pp. 351–357, Jan. 2017.
+[18] T. Zhang and X. Xia, “Adaptive output feedback tracking control of
+stochastic nonlinear systems with dynamic uncertainties,” Int. J. Robust
+Nonlin. Control, vol. 25, no. 9, pp. 1282–1300, 2015.
+[19] J.-H. Li and P.-M. Lee, “Design of an adaptive nonlinear controller
+for depth control of an autonomous underwater vehicle,” Ocean Eng.,
+vol. 32, nos. 17–18, pp. 2165–2181, 2005.
+[20] S. Liu, D. Wang, and E. Pho, “Non-linear output feedback tracking
+control for AUVs in shallow wave disturbance condition,” Int. J. Control,
+vol. 81, no. 11, pp. 1806–1823, 2008.
+[21] W. He, Y. Ouyang, and J. Hong, “Vibration control of a flexible robotic
+manipulator in the presence of input deadzone,” IEEE Trans. Ind.
+Informat., vol. 13, no. 1, pp. 48–59, Feb. 2017.
+[22] S.-L. Dai, M. Wang, C. Wang, and L. Li, “Learning from adaptive neu-
+ral network output feedback control of uncertain ocean surface ship
+dynamics,” Int. J. Adaptive Control Signal Process., vol. 28, nos. 3–5,
+pp. 341–365, 2014.
+[23] J. Na, Q. Chen, X. Ren, and Y. Guo, “Adaptive prescribed performance
+motion control of servo mechanisms with friction compensation,” IEEE
+Trans. Ind. Electron., vol. 61, no. 1, pp. 486–494, Jan. 2014.
+[24] M. H. Khodayari and S. Balochian, “Modeling and control of
+autonomous underwater vehicle (AUV) in heading and depth attitude
+via self-adaptive fuzzy PID controller,” J. Mar. Sci. Technol., vol. 20,
+no. 3, pp. 559–578, 2015.
+[25] R. P. Kumar, C. S. Kumar, D. Sen, and A. Dasgupta, “Discrete
+time-delay control of an autonomous underwater vehicle: Theory and
+experimental results,” Ocean Eng., vol. 36, no. 1, pp. 74–81, 2009.
+[26] J. Kim, H. Joe, S.-C. Yu, J. S. Lee, and M. Kim, “Time-delay controller
+design for position control of autonomous underwater vehicle under dis-
+turbances,” IEEE Trans. Ind. Electron., vol. 63, no. 2, pp. 1052–1061,
+Feb. 2016.
+[27] N. Fischer, D. Hughes, P. Walters, E. M. Schwartz, and W. E. Dixon,
+“Nonlinear RISE-based control of an autonomous underwater vehicle,”
+IEEE Trans. Robot., vol. 30, no. 4, pp. 845–852, Aug. 2014.
+[28] J. Xu, M. Wang, and L. Qiao, “Dynamical sliding mode control for
+the trajectory tracking of underactuated unmanned underwater vehicles,”
+Ocean Eng., vol. 105, pp. 54–63, Sep. 2015.
+[29] C. L. P. Chen, G. X. Wen, Y.-J. Liu, and Z. Liu, “Observer-based adap-
+tive backstepping consensus tracking control for high-order nonlinear
+semi-strict-feedback multiagent systems,” IEEE Trans. Cybern., vol. 46,
+no. 7, pp. 1591–1601, Jul. 2016.
+[30] M. Chen, P. Shi, and C.-C. Lim, “Robust constrained control for MIMO
+nonlinear systems based on disturbance observer,” IEEE Trans. Autom.
+Control, vol. 60, no. 12, pp. 3281–3286, Dec. 2015.
+[31] J. Na, X. Ren, and D. Zheng, “Adaptive control for nonlinear pure-
+feedback systems with high-order sliding mode observer,” IEEE Trans.
+Neural Netw. Learn. Syst., vol. 24, no. 3, pp. 370–382, Mar. 2013.
+[32] M. Chen and J. Yu, “Disturbance observer-based adaptive sliding
+mode control for near-space vehicles,” Nonlin. Dyn., vol. 82, no. 4,
+pp. 1671–1682, 2015.
+[33] N. Wang, C. Qian, J.-C. Sun, and Y.-C. Liu, “Adaptive robust finite-time
+trajectory tracking control of fully actuated marine surface vehicles,”
+IEEE Trans. Control Syst. Technol., vol. 24, no. 4, pp. 1454–1462,
+Jul. 2016.
+[34] W. He, Y. Chen, and Z. Yin, “Adaptive neural network control of an
+uncertain robot with full-state constraints,” IEEE Trans. Cybern., vol. 46,
+no. 3, pp. 620–629, Mar. 2016.
+[35] K. Shojaei and M. M. Arefi, “On the neuro-adaptive feedback lin-
+earising control of underactuated autonomous underwater vehicles in
+three-dimensional space,” IET Control Theory Appl., vol. 9, no. 8,
+pp. 1264–1273, May 2015.
+[36] B. S. Park, “Neural network-based tracking control of underactuated
+autonomous underwater vehicles with model uncertainties,” J. Dyn. Syst.
+Meas. Control Trans. ASME, vol. 137, no. 2, Feb. 2015, Art. no. 021004.
+[37] Z. Peng, D. Wang, H. Zhang, and G. Sun, “Distributed neural network
+control for adaptive synchronization of uncertain dynamical multia-
+gent systems,” IEEE Trans. Neural Netw. Learn. Syst., vol. 25, no. 8,
+pp. 1508–1519, Aug. 2014.
+[38] J.-H. Li, P.-M. Lee, and S.-J. Lee, “Motion control of an AUV using
+a neural network adaptive controller,” in Proc. Int. Symp. Underwater
+Technol., Tokyo, Japan, 2002, pp. 217–221.
+[39] Y.-J. Liu, L. Tang, S. Tong, C. L. P. Chen, and D.-J. Li, “Reinforcement
+learning design-based adaptive tracking control with less learning param-
+eters for nonlinear discrete-time MIMO systems,” IEEE Trans. Neural
+Netw. Learn. Syst., vol. 26, no. 1, pp. 165–176, Jan. 2015.
+[40] W. He, A. O. David, Z. Yin, and C. Sun, “Neural network control of a
+robotic manipulator with input deadzone and output constraint,” IEEE
+Trans. Syst., Man, Cybern., Syst., vol. 46, no. 6, pp. 759–770, Jun. 2016.
+[41] Z. Peng, D. Wang, Y. Shi, H. Wang, and W. Wang, “Containment control
+of networked autonomous underwater vehicles with model uncertainty
+and ocean disturbances guided by multiple leaders,” Inf. Sci., vol. 316,
+pp. 163–179, Sep. 2015.
+[42] J. H. Li, P. M. Lee, and B. H. Jun, “Application of a robust adaptive
+controller to autonomous diving control of an AUV,” in Proc. 30th IEEE
+Annu. Conf. Ind. Electron. Soc. (IECON), vol. 1. Busan, South Korea,
+Nov. 2004, pp. 419–424.
+[43] Z. Peng, D. Wang, Z. Chen, X. Hu, and W. Lan, “Adaptive dynamic
+surface control for formations of autonomous surface vehicles with
+uncertain dynamics,” IEEE Trans. Control Syst. Technol., vol. 21, no. 2,
+pp. 513–520, Mar. 2013.
+[44] M. Chen and S. S. Ge, “Adaptive neural output feedback control of
+uncertain nonlinear systems with unknown hysteresis using disturbance
+observer,” IEEE Trans. Ind. Electron., vol. 62, no. 12, pp. 7706–7716,
+Dec. 2015.
+[45] Y.-J. Liu and S. Tong, “Adaptive NN tracking control of uncertain
+nonlinear discrete-time systems with nonaffine dead-zone input,” IEEE
+Trans. Cybern., vol. 45, no. 3, pp. 497–505, Mar. 2015.
+[46] Y.-J. Liu, C. L. P. Chen, G.-X. Wen, and S. Tong, “Adaptive neural output
+feedback tracking control for a class of uncertain discrete-time nonlinear
+systems,” IEEE Trans. Neural Netw., vol. 22, no. 7, pp. 1162–1167,
+Jul. 2011.
+[47] W. He, Y. Dong, and C. Sun, “Adaptive neural impedance control of
+a robotic manipulator with input saturation,” IEEE Trans. Syst., Man,
+Cybern., Syst., vol. 46, no. 3, pp. 334–344, Mar. 2016.
+[48] Z. Li, C. Yang, N. Ding, S. Bogdan, and T. Ge, “Robust adaptive
+motion control for underwater remotely operated vehicles with velocity
+constraints,” Int. J. Control Autom. Syst., vol. 10, no. 2, pp. 421–429,
+2012.
+[49] W. He and S. S. Ge, “Cooperative control of a nonuniform gantry crane
+with constrained tension,” Automatica, vol. 66, pp. 146–154, Apr. 2016.
+[50] Y.-J. Liu and S. C. Tong, “Barrier Lyapunov functions for Nussbaum
+gain adaptive control of full state constrained nonlinear systems,”
+Automatica, vol. 76, pp. 143–152, Feb. 2017.
+[51] F. Rezazadegan, K. Shojaei, F. Sheikholeslam, and A. Chatraei, “A novel
+approach to 6-DOF adaptive trajectory tracking control of an AUV
+in the presence of parameter uncertainties,” Ocean Eng., vol. 107,
+pp. 246–258, Oct. 2015.
+[52] T. P. Zhang and S. S. Ge, “Adaptive dynamic surface control of nonlinear
+systems with unknown dead zone in pure feedback form,” Automatica,
+vol. 44, no. 7, pp. 1895–1903, 2008.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+CUI et al.: ADAPTIVE NN CONTROL OF AUVs WITH CONTROL INPUT NONLINEARITIES USING REINFORCEMENT LEARNING 1029
+[53] L. P. Kaelbling, M. L. Littman, and A. W. Moore, “Reinforcement
+learning: A survey,” J. Artif. Intell. Res., vol. 4, no. 1, pp. 237–285,
+1996.
+[54] P. Stone and R. S. Sutton, “Scaling reinforcement learning toward
+robocup soccer,” in Proc. 18th Int. Conf. Mach. Learn., San Francisco,
+CA, USA, 2001, pp. 537–544.
+[55] T. P. Lillicrap et al., “Continuous control with deep reinforcement
+learning,” Comput. Sci., vol. 8, no. 6, p. A187, 2015.
+[56] P. He and S. Jagannathan, “Reinforcement learning neural-network-
+based controller for nonlinear discrete-time systems with input con-
+straints,” IEEE Trans. Syst., Man, Cybern. B, Cybern., vol. 37, no. 2,
+pp. 425–436, Apr. 2007.
+[57] B. Xu, C. Yang, and Z. Shi, “Reinforcement learning output feedback
+NN control using deterministic learning technique,” IEEE Trans. Neural
+Netw. Learn. Syst., vol. 25, no. 3, pp. 635–641, Mar. 2014.
+[58] R. Cui, C. Yang, Y. Li, and S. Sharma, “Neural network based reinforce-
+ment learning control of autonomous underwater vehicles with control
+input saturation,” in Proc. Int. Conf. Control (UKACC), Loughborough,
+U.K., 2014, pp. 50–55.
+[59] C. Yang, S. S. Ge, C. Xiang, T. Y. Chai, and T. H. Lee, “Output feed-
+back NN control for two classes of discrete-time systems with unknown
+control directions in a unified approach,” IEEE Trans. Neural Netw.,
+vol. 19, no. 11, pp. 1873–1886, Nov. 2008.
+[60] S. Ibrir, W. F. Xie, and C.-Y. Su, “Adaptive tracking of nonlinear sys-
+tems with non-symmetric dead-zone input,” Automatica, vol. 43, no. 3,
+pp. 522–530, 2007.
+[61] S. S. Ge, T. H. Lee, and C. J. Harris, Adaptive Neural Network Control
+of Robotic Manipulators. London, U.K.: World Sci., 1998.
+[62] K. S. Narendra and A. M. Annaswamy, Stable Adaptive Systems.
+Englewood Cliffs, NJ, USA: Prentice-Hall, 1989.
+[63] D. V. Prokhorov and D. C. Wunsch, “Adaptive critic designs,” IEEE
+Trans. Neural Netw., vol. 8, no. 5, pp. 997–1007, Sep. 1997.
+[64] J. Si and Y.-T. Wang, “Online learning control by association and rein-
+forcement,” IEEE Trans. Neural Netw., vol. 12, no. 2, pp. 264–276,
+Mar. 2001.
+[65] P. He and S. Jagannathan, “Discrete-time neural network control of non-
+linear systems in non-strict feedback form,” in Proc. 42nd IEEE Conf.
+Decis. Control, vol. 6. 2003, pp. 5703–5708.
+[66] S. S. Ge, C. Yang, and T. H. Lee, “Adaptive predictive control using
+neural network for a class of pure-feedback systems in discrete time,”
+IEEE Trans. Neural Netw., vol. 19, no. 9, pp. 1599–1614, Sep. 2008.
+[67] R. Cui, S. S. Ge, B. V. E. How, and Y. S. Choo, “Leader–follower
+formation control of underactuated autonomous underwater vehicles,”
+Ocean Eng., vol. 37, nos. 17–18, pp. 1491–1502, 2010.
+Rongxin Cui (M’09) received the B.Eng. and
+Ph.D. degrees from Northwestern Polytechnical
+University, Xi’an, China, in 2003 and 2008,
+respectively.
+From 2008 to 2010, he was a Research
+Fellow with the Centre for Offshore Research
+and Engineering, National University of Singapore,
+Singapore. He is currently a Professor with
+the School of Marine Science and Technology,
+Northwestern Polytechnical University. His current
+research interests include control of nonlinear sys-
+tems, cooperative path planning and control for multiple robots, control and
+navigation for underwater vehicles, and system development.
+Dr. Cui servers as an Editor for the Journal of Intelligent and Robotic
+Systems.
+Chenguang Yang (M’10–SM’16) received the
+B.Eng. degree in measurement and control from
+Northwestern Polytechnical University, Xi’an,
+China, in 2005, and the Ph.D. degree in control
+engineering from the National University of
+Singapore, Singapore, in 2010.
+He received Post-Doctoral Training with
+Imperial College London, London, U.K. He is a
+Senior Lecturer with the Zienkiewicz Centre for
+Computational Engineering, Swansea University,
+Swansea, U.K. His current research interests include
+robotics, automation, and computational intelligence.
+Yang Li received the B.Eng. degree from
+Northwestern Polytechnical University, Xi’an,
+China, in 2011, where he is currently pursuing the
+Ph.D. degree with the School of Marine Science
+and Technology.
+His current research interests include cooperative
+path planning and control of multiple robots.
+Sanjay Sharma received the B.Tech. (Hons.) degree
+in electrical engineering from the Indian Institute
+of Technology Kharagpur, Kharagpur, India, the
+M.Tech. (Hons.) degree in control systems from
+the Indian Institute of Technology (BHU) Varanasi,
+Varanasi, India, and the Ph.D. degree in control
+and systems engineering from the University of
+Sheffield, Sheffield, U.K.
+He is a Reader with the School of Marine Science
+and Engineering, University of Plymouth, Plymouth,
+U.K., and the Head of the Autonomous Marine
+Systems Research Group. He is a member of the IMechEs Marine, Informatics
+and Control Group and also the IFAC Technical Committee on Intelligent
+Autonomous Vehicles. He has authored over 70 book, journal, and refereed
+conference publications. His current research interests include design, devel-
+opment and application of artificial intelligence techniques and evolutionary
+algorithms in navigation, guidance, and control of marine robotics and
+unmanned marine craft.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on October 02,2026 at 11:34:40 UTC from IEEE Xplore. Restrictions apply.
