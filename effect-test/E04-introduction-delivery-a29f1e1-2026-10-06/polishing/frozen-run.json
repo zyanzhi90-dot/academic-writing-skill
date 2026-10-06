@@ -1,0 +1,1088 @@
+{
+  "candidate_commit": "a29f1e1045bc86093e2f74a4fe288ba1e5970d76",
+  "stage": "polishing",
+  "role": "nature-polishing",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "attempt": 1,
+  "new_paper_transfer_evidence": false,
+  "known_case_comparison": true,
+  "case": "E04",
+  "section": "Introduction",
+  "materials_sha256": {
+    "analysis/reading/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.txt": "6a9d599cc979bbee3602c965ccbeaaccb9055e8cfe6b659a3863e1fa94fa3fd1",
+    "analysis/reading/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.txt": "48e903611c57aa8da7ab42ce199d7e23ba3ab044851301d3417212dd80cd0628",
+    "analysis/reading/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.txt": "55e115a050623c5a6418d1a4a3882fe64d7252257a8a09c2bc31a5cacd1976bc",
+    "analysis/reading/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.txt": "695df1d9361b7d333ec9e2e928faca99f9f134e29e1f084b1eaa8ae1179c0451",
+    "analysis/reading/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.txt": "b65e1498aedfdc91c21e24c566c2cc010b3ed3d1dec530ce46d68a89ee444c6b",
+    "analysis/reading/P01.txt": "c5820c18820328906e31a4cd1f9c7f8780c39d82bc3b2901fe87ade2a11104d2",
+    "analysis/reading/P02.txt": "dc2a8e9cd8b8d8a2a6e0184f38b03985215dce03ef4afac4e728c3470811c2f3",
+    "analysis/reading/P03.txt": "c4a88466b3d52661a45ff881c3be25305252b8ad4f28a991ccef771458a74199",
+    "analysis/reading/P04.txt": "f5dd1c0977f30671596cce1c965ba7bc811f42251aee853bd168b4acf9ad852e",
+    "analysis/reading/P05.txt": "0645afde2c9128ec5a77548e96d69bcb0e54e047f993f7583cfcc9f05ec53636",
+    "analysis/reading/P06.txt": "e92feb699d35f5b450da3036a54a3612aed38748b163cda4aea183a52fb85d81",
+    "analysis/reading/P07.txt": "32ea91fef72edd63c4892a50bf6a2df9a81e1b460156085770969fe778d5ffa5",
+    "analysis/reading/P08.txt": "48610556f98365190f6012dd035f90bbc8269c26af775aa075cb88bc3307684c",
+    "analysis/reading/P09.txt": "537042e512b1d328461fbcd83c18bf3bf4b2d6c2958b630658ee1bd186c48bba",
+    "analysis/reading/P11.txt": "f760c33e910f776d250583662568ac78f14f9fde54a8c6782045198f39043746",
+    "analysis/reading/P12.txt": "982305827416bb3dd65335de9e42309f9ab8f09b20beb75d2ee37545c75b4590",
+    "analysis/reading/P13.txt": "1da5005247fd025fd1803e8a5466cbe0e57abfd753e765af1505d91dd2562294",
+    "analysis/reading/P14.txt": "995260906f966cf745efbc46c0303831c9f5b579a2520bedc0f2d053e5a4660f",
+    "analysis/reading/P15.txt": "4056812637c8a4138b6adf3f59338650ef5e67454d044751372de4992b1def1f",
+    "analysis/reading/P16.txt": "b953275811508598f7d974885a439c52137661094661b609f10ff1a7c3f6fdec",
+    "analysis/reading/P17.txt": "9be7ed4d6f53dacf9757d8902aec6e0b85dd299254b5697b84c3d16d5b4ddd98",
+    "analysis/reading/P18.txt": "32e90614c9e909ba9e91d33c4ef4094cfed78da0bd220dffb479de4a349c610e",
+    "analysis/reading/P19.txt": "baa7929dbb5ec9c5ef63eaa4580b1f51229deca3bcc8b78a209ed1d178e86adc",
+    "analysis/reading/RRL2019.txt": "327b48cc7ab8b86178d04ad01eba865824696cdd283661baa4777d355f3cf463",
+    "analysis/reading/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.txt": "861fcf50463da28cec93719b163867c41c60e7d374b225057058bf73a2da90c7",
+    "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+    "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+    "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+    "inputs/accepted-abstract.en.txt": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+    "inputs/background-facts.md": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+    "inputs/citation-facts.md": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+    "inputs/core-requirements.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+    "inputs/current-author-adjustment.txt": "f4ffe1f8d608d7a208119409cffb9e746b78a792d20232b2b09a868e9811516f",
+    "inputs/current-draft.md": "c3d77b52e4f0a2eae2ddbcccc4aa9c26b32773bc0910c68514434396d5b9e801",
+    "inputs/introduction-method.txt": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83",
+    "inputs/personal-experience.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "inputs/scientific-facts.md": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+    "inputs/task.md": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+    "skill-candidate/nature-polishing/agents/openai.yaml": "5cbdbff93809f5cf0487fdde2f0ff5a037afd300847a802f4f622f3586af18d3",
+    "skill-candidate/nature-polishing/manifest.yaml": "584c8a0926dd431fb057b96cb2a6ce185e9d111d454baf3690a76e69c4c9cf3c",
+    "skill-candidate/nature-polishing/README.md": "0e3069ce6693d5324470f7d198561196a4af9014192ffa559dcadc236a8fe903",
+    "skill-candidate/nature-polishing/README_EN.md": "8a6f8d07417b31a0efd5b0b7bd17be9bcb70f1c9f0e3da32664511f7d6db4ee6",
+    "skill-candidate/nature-polishing/references/latex-layout.md": "9cdb4a2f69e1314a5a401bd1e90d880287940211a48b07e4eb0c62c3c9dd28a9",
+    "skill-candidate/nature-polishing/references/nat-comms-2025-diction.md": "186580615cea217a2194818a58c902c064139bf55a414391619f0d3d55ea3155",
+    "skill-candidate/nature-polishing/references/phrasebank-playbook.md": "b05a472b19ac13c7e6c674229fc8dc6edee7cf0d26c84a3aa60d2d73f59a20bf",
+    "skill-candidate/nature-polishing/references/published-article-patterns.md": "9a715f506a347af3d8aa61b78c33d4a96ac00598299f3262a4c43273397f53be",
+    "skill-candidate/nature-polishing/references/section-moves.md": "017718c81c42eac2776ae7d612e31fa3e4a12965713827a0627696c760197655",
+    "skill-candidate/nature-polishing/references/style-guardrails.md": "e33c8b153a0ea922bd5f6f9840abb18994d3405fee9959fd57709c0164dfbfa9",
+    "skill-candidate/nature-polishing/references/writing-strategy.md": "61aed23835260560e43e54438c9cd2d4dd3dd69921d9ad2bada0494b4777d10d",
+    "skill-candidate/nature-polishing/SKILL.md": "b19a524af2265f0541cd644a60fe65ef3ff95a3a7febae4757c2c37f48c5fda8",
+    "skill-candidate/nature-polishing/static/core/failure-modes.md": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260",
+    "skill-candidate/nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
+    "skill-candidate/nature-polishing/static/core/stance.md": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649",
+    "skill-candidate/nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
+    "skill-candidate/nature-polishing/static/fragments/journal/nat-comms.md": "39cfe7f278b14e1b0c27506c73fb269d3dc994176f7abfeabe48ddd88bd95f7d",
+    "skill-candidate/nature-polishing/static/fragments/journal/nat-mach-intell.md": "e66bbdf9ca61a74cbd28a412f8678f0e688646f2134d36a74f4f6b7daf170883",
+    "skill-candidate/nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
+    "skill-candidate/nature-polishing/static/fragments/language/en.md": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c",
+    "skill-candidate/nature-polishing/static/fragments/language/zh-to-en.md": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/hypothesis.md": "2927fdefd79958ac8280a0a1d870d066136bfdfe277372f2389928c3ba8f332c",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/methods.md": "3b00b801a733694772c78db1f8d2df19f12ab49b7cd395183d1b1075a0a4ea2e",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/review.md": "639c478596ba59434f94a7436021ae0ef208c4118a491be1a7779960f984acc6",
+    "skill-candidate/nature-polishing/static/fragments/section/abstract.md": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc",
+    "skill-candidate/nature-polishing/static/fragments/section/conclusion.md": "d8676e4871b7b58fd8f72ffec22bc83a7fce7df0220b86e41a38a2989d68da34",
+    "skill-candidate/nature-polishing/static/fragments/section/discussion.md": "f89b008d75dd62b7a2165211206f6468863141855c6e86d4f1aa0bc343a61c73",
+    "skill-candidate/nature-polishing/static/fragments/section/intro-general.md": "f0afb7cbaba2a360d8ac77f85689fade399c6666843d2c639237bea71cc74fb0",
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md": "fbd7e077ba459f7b9ebe54707f5d1e8648a53b6f1e68a51b7f2d0e9a8c22bbb6",
+    "skill-candidate/nature-polishing/static/fragments/section/methods.md": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f",
+    "skill-candidate/nature-polishing/static/fragments/section/related-work.md": "bdf429a0528e99ca477ebc28bf9da2734b75320eb1760f6a4ef867a668a49f99",
+    "skill-candidate/nature-polishing/static/fragments/section/results.md": "9cc9ab9c9cb5a18355ddae33506fb22d1035368318e60941db8cf793896cd3f4",
+    "skill-candidate/nature-polishing/static/fragments/section/title.md": "699e514c4e88ce05d7577d358b76d31dfe337a25e2a8169e99d778c7e7636911",
+    "skill-candidate/nature-shared/agents/openai.yaml": "4bbf2e58b350269cf231f73ca12af1d097b9d64637023b037e238083151fbd67",
+    "skill-candidate/nature-shared/core/abstract-delivery.md": "e151edf22321755383a854c982abbfa5eba3d7a63ea9239bef31982aaca97219",
+    "skill-candidate/nature-shared/core/consistency-sweep.md": "42b4f5337af441709951ecd9e60c7adc644b0a02a349fc41f64247d669adfe82",
+    "skill-candidate/nature-shared/core/discussion-argument-language.md": "a3b0ddcadc47efc029e923ae8133ba0bd99e6a6eb27fdbc791d0e1096d98c169",
+    "skill-candidate/nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+    "skill-candidate/nature-shared/core/main-text-discipline.md": "d43190c4d617096c1088bb5452cec5b0ae13f5d4947c2b21c28315181f051b8e",
+    "skill-candidate/nature-shared/core/nature-abstract.md": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
+    "skill-candidate/nature-shared/core/nature-introduction.md": "a59b2e44ba137dc6759f310ee7dae7ac6843e9d6631a057aa197cee99c6b1dcd",
+    "skill-candidate/nature-shared/core/nature-results-discussion.md": "16f1ce1ed6d2aad7853eabf304cdbd661530931747bce4cf3f10b3dfb655adc1",
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+    "skill-candidate/nature-shared/core/reader-workflow.md": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+    "skill-candidate/nature-shared/core/research-compliance.md": "0ac172d2af0c2089acd7280712a89b23a5f232d4e436e9ae78dd501ff30cd855",
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md": "9e2c593517e176e6cff3ceb9f406c206a54587fc1b3e4b21ab6917aeac8e983f",
+    "skill-candidate/nature-shared/core/robotics-introduction-expression.md": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+    "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+    "skill-candidate/nature-shared/core/robotics-introduction-section.md": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+    "skill-candidate/nature-shared/core/robotics-main-text.md": "e9ac6ad35a5697effeee5a9a44f2b8a07f7aa31a27aec906253175b8553e5916",
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md": "1d0b2045e8b0cc0ffd5543129a95b461252b1e2a85079728f31e6ee6a1a91a7c",
+    "skill-candidate/nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
+    "skill-candidate/nature-shared/core/terminology-ledger.md": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+    "skill-candidate/nature-shared/journal-formats/nat-comms.md": "5a9eef685502e35d2289478d0b3815d5dbfbb6b2ed7d758accedfc7fd930e975",
+    "skill-candidate/nature-shared/journal-formats/nature-machine-intelligence.md": "d62a418fbd67841e745f553b98a267b5a01c9445457a07a0121095ce76fad0af",
+    "skill-candidate/nature-shared/journal-formats/nature.md": "2c4d007f69b64a2e083f9511748c3726b349a4dce4bfccbdac3bf97d1c1afc10",
+    "skill-candidate/nature-shared/manifest.yaml": "9a257ab47d58d1b68d4a165d50ffe0e8b8dce25724e19d1fce5f372ab572ba8a",
+    "skill-candidate/nature-shared/README.md": "2e42d487b9aa4985933dfb230ac57c88e8dfeba97644bb30d2c222de9a65e61e",
+    "skill-candidate/nature-shared/README_EN.md": "1d2fd257264aa512f52dfc131d9adfd67c7dcf2b6f1e3c059c693360b027b245",
+    "skill-candidate/nature-shared/scripts/check_consistency.py": "670ccc43aad4639fe3525d8dce7443d85f462f99958b560a539cc5b6b0b072a6",
+    "skill-candidate/nature-shared/SKILL.md": "77ec9d708f1638acac9b92f938dd1717c682ec139691ce8aecbc3628113f4323",
+    "skill-candidate/nature-shared/tests/test_check_consistency.py": "c70abcc137513cf947e44e0c35f99dd4438fbe4477faf89a6aa671ffa8fac1de",
+    "文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029",
+    "文献资料/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf": "f5cffa8442a945002bb52bfd4c251232f3545f1c929c3ad45c39034d208ea7ba",
+    "文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc",
+    "文献资料/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf": "f9942cc7d22ee1fae39e589531f984f398d9f6cda1cc45f61955a617cd69ee71",
+    "文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf": "580f84729b9798dea73df545842e26a11c016e8951e4c80bfaa2d7a90b03f9d1",
+    "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+    "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+    "文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf": "8563538806c3fbd7f0473bfca7a6b7f9b6b32cad6121cc264364a2359c405a08",
+    "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+    "文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba",
+    "文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1",
+    "文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2",
+    "文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d",
+    "文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf": "1cfc9c55441a561894cd0805f9c96f1955ed4584e84d322c626bb2d545763a5c",
+    "文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf": "ed87e10164c937acc3169eaa39e07706b9d9308c5647891a2b6ecf08c6795660",
+    "文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86",
+    "文献资料/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf": "06f5965943da4191a6109446d916e3c8917fa4380717dac2993804b737afe420",
+    "文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf": "feaf9611e71898f066f4a889a09d08659a6296bf104a9a59ef8a86db658334ce",
+    "文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf": "885f62e07ee4bd37fb0e08bdaa6068fd5e4e473d11e0be239ba8bdd2d8c393db",
+    "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+    "文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1",
+    "文献资料/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf": "a78470558a68d6fbbf15374d3961f8c0b78a5c8adc15807258aa1e0d2863dd28"
+  },
+  "candidate_sha256": {
+    "skill-candidate/nature-polishing/README.md": "0e3069ce6693d5324470f7d198561196a4af9014192ffa559dcadc236a8fe903",
+    "skill-candidate/nature-polishing/README_EN.md": "8a6f8d07417b31a0efd5b0b7bd17be9bcb70f1c9f0e3da32664511f7d6db4ee6",
+    "skill-candidate/nature-polishing/SKILL.md": "b19a524af2265f0541cd644a60fe65ef3ff95a3a7febae4757c2c37f48c5fda8",
+    "skill-candidate/nature-polishing/agents/openai.yaml": "5cbdbff93809f5cf0487fdde2f0ff5a037afd300847a802f4f622f3586af18d3",
+    "skill-candidate/nature-polishing/manifest.yaml": "584c8a0926dd431fb057b96cb2a6ce185e9d111d454baf3690a76e69c4c9cf3c",
+    "skill-candidate/nature-polishing/references/latex-layout.md": "9cdb4a2f69e1314a5a401bd1e90d880287940211a48b07e4eb0c62c3c9dd28a9",
+    "skill-candidate/nature-polishing/references/nat-comms-2025-diction.md": "186580615cea217a2194818a58c902c064139bf55a414391619f0d3d55ea3155",
+    "skill-candidate/nature-polishing/references/phrasebank-playbook.md": "b05a472b19ac13c7e6c674229fc8dc6edee7cf0d26c84a3aa60d2d73f59a20bf",
+    "skill-candidate/nature-polishing/references/published-article-patterns.md": "9a715f506a347af3d8aa61b78c33d4a96ac00598299f3262a4c43273397f53be",
+    "skill-candidate/nature-polishing/references/section-moves.md": "017718c81c42eac2776ae7d612e31fa3e4a12965713827a0627696c760197655",
+    "skill-candidate/nature-polishing/references/style-guardrails.md": "e33c8b153a0ea922bd5f6f9840abb18994d3405fee9959fd57709c0164dfbfa9",
+    "skill-candidate/nature-polishing/references/writing-strategy.md": "61aed23835260560e43e54438c9cd2d4dd3dd69921d9ad2bada0494b4777d10d",
+    "skill-candidate/nature-polishing/static/core/failure-modes.md": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260",
+    "skill-candidate/nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
+    "skill-candidate/nature-polishing/static/core/stance.md": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649",
+    "skill-candidate/nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
+    "skill-candidate/nature-polishing/static/fragments/journal/nat-comms.md": "39cfe7f278b14e1b0c27506c73fb269d3dc994176f7abfeabe48ddd88bd95f7d",
+    "skill-candidate/nature-polishing/static/fragments/journal/nat-mach-intell.md": "e66bbdf9ca61a74cbd28a412f8678f0e688646f2134d36a74f4f6b7daf170883",
+    "skill-candidate/nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
+    "skill-candidate/nature-polishing/static/fragments/language/en.md": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c",
+    "skill-candidate/nature-polishing/static/fragments/language/zh-to-en.md": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/hypothesis.md": "2927fdefd79958ac8280a0a1d870d066136bfdfe277372f2389928c3ba8f332c",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/methods.md": "3b00b801a733694772c78db1f8d2df19f12ab49b7cd395183d1b1075a0a4ea2e",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
+    "skill-candidate/nature-polishing/static/fragments/paper_type/review.md": "639c478596ba59434f94a7436021ae0ef208c4118a491be1a7779960f984acc6",
+    "skill-candidate/nature-polishing/static/fragments/section/abstract.md": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc",
+    "skill-candidate/nature-polishing/static/fragments/section/conclusion.md": "d8676e4871b7b58fd8f72ffec22bc83a7fce7df0220b86e41a38a2989d68da34",
+    "skill-candidate/nature-polishing/static/fragments/section/discussion.md": "f89b008d75dd62b7a2165211206f6468863141855c6e86d4f1aa0bc343a61c73",
+    "skill-candidate/nature-polishing/static/fragments/section/intro-general.md": "f0afb7cbaba2a360d8ac77f85689fade399c6666843d2c639237bea71cc74fb0",
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md": "fbd7e077ba459f7b9ebe54707f5d1e8648a53b6f1e68a51b7f2d0e9a8c22bbb6",
+    "skill-candidate/nature-polishing/static/fragments/section/methods.md": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f",
+    "skill-candidate/nature-polishing/static/fragments/section/related-work.md": "bdf429a0528e99ca477ebc28bf9da2734b75320eb1760f6a4ef867a668a49f99",
+    "skill-candidate/nature-polishing/static/fragments/section/results.md": "9cc9ab9c9cb5a18355ddae33506fb22d1035368318e60941db8cf793896cd3f4",
+    "skill-candidate/nature-polishing/static/fragments/section/title.md": "699e514c4e88ce05d7577d358b76d31dfe337a25e2a8169e99d778c7e7636911",
+    "skill-candidate/nature-shared/README.md": "2e42d487b9aa4985933dfb230ac57c88e8dfeba97644bb30d2c222de9a65e61e",
+    "skill-candidate/nature-shared/README_EN.md": "1d2fd257264aa512f52dfc131d9adfd67c7dcf2b6f1e3c059c693360b027b245",
+    "skill-candidate/nature-shared/SKILL.md": "77ec9d708f1638acac9b92f938dd1717c682ec139691ce8aecbc3628113f4323",
+    "skill-candidate/nature-shared/agents/openai.yaml": "4bbf2e58b350269cf231f73ca12af1d097b9d64637023b037e238083151fbd67",
+    "skill-candidate/nature-shared/core/abstract-delivery.md": "e151edf22321755383a854c982abbfa5eba3d7a63ea9239bef31982aaca97219",
+    "skill-candidate/nature-shared/core/consistency-sweep.md": "42b4f5337af441709951ecd9e60c7adc644b0a02a349fc41f64247d669adfe82",
+    "skill-candidate/nature-shared/core/discussion-argument-language.md": "a3b0ddcadc47efc029e923ae8133ba0bd99e6a6eb27fdbc791d0e1096d98c169",
+    "skill-candidate/nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+    "skill-candidate/nature-shared/core/main-text-discipline.md": "d43190c4d617096c1088bb5452cec5b0ae13f5d4947c2b21c28315181f051b8e",
+    "skill-candidate/nature-shared/core/nature-abstract.md": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
+    "skill-candidate/nature-shared/core/nature-introduction.md": "a59b2e44ba137dc6759f310ee7dae7ac6843e9d6631a057aa197cee99c6b1dcd",
+    "skill-candidate/nature-shared/core/nature-results-discussion.md": "16f1ce1ed6d2aad7853eabf304cdbd661530931747bce4cf3f10b3dfb655adc1",
+    "skill-candidate/nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+    "skill-candidate/nature-shared/core/reader-workflow.md": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+    "skill-candidate/nature-shared/core/research-compliance.md": "0ac172d2af0c2089acd7280712a89b23a5f232d4e436e9ae78dd501ff30cd855",
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md": "9e2c593517e176e6cff3ceb9f406c206a54587fc1b3e4b21ab6917aeac8e983f",
+    "skill-candidate/nature-shared/core/robotics-introduction-expression.md": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+    "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+    "skill-candidate/nature-shared/core/robotics-introduction-section.md": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+    "skill-candidate/nature-shared/core/robotics-main-text.md": "e9ac6ad35a5697effeee5a9a44f2b8a07f7aa31a27aec906253175b8553e5916",
+    "skill-candidate/nature-shared/core/robotics-writing-examples.md": "1d0b2045e8b0cc0ffd5543129a95b461252b1e2a85079728f31e6ee6a1a91a7c",
+    "skill-candidate/nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
+    "skill-candidate/nature-shared/core/terminology-ledger.md": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+    "skill-candidate/nature-shared/journal-formats/nat-comms.md": "5a9eef685502e35d2289478d0b3815d5dbfbb6b2ed7d758accedfc7fd930e975",
+    "skill-candidate/nature-shared/journal-formats/nature-machine-intelligence.md": "d62a418fbd67841e745f553b98a267b5a01c9445457a07a0121095ce76fad0af",
+    "skill-candidate/nature-shared/journal-formats/nature.md": "2c4d007f69b64a2e083f9511748c3726b349a4dce4bfccbdac3bf97d1c1afc10",
+    "skill-candidate/nature-shared/manifest.yaml": "9a257ab47d58d1b68d4a165d50ffe0e8b8dce25724e19d1fce5f372ab572ba8a",
+    "skill-candidate/nature-shared/scripts/check_consistency.py": "670ccc43aad4639fe3525d8dce7443d85f462f99958b560a539cc5b6b0b072a6",
+    "skill-candidate/nature-shared/tests/test_check_consistency.py": "c70abcc137513cf947e44e0c35f99dd4438fbe4477faf89a6aa671ffa8fac1de"
+  },
+  "reused_sources": {
+    "analysis/reading/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.txt",
+      "sha256": "6a9d599cc979bbee3602c965ccbeaaccb9055e8cfe6b659a3863e1fa94fa3fd1"
+    },
+    "analysis/reading/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.txt",
+      "sha256": "48e903611c57aa8da7ab42ce199d7e23ba3ab044851301d3417212dd80cd0628"
+    },
+    "analysis/reading/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.txt",
+      "sha256": "55e115a050623c5a6418d1a4a3882fe64d7252257a8a09c2bc31a5cacd1976bc"
+    },
+    "analysis/reading/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.txt",
+      "sha256": "695df1d9361b7d333ec9e2e928faca99f9f134e29e1f084b1eaa8ae1179c0451"
+    },
+    "analysis/reading/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.txt",
+      "sha256": "b65e1498aedfdc91c21e24c566c2cc010b3ed3d1dec530ce46d68a89ee444c6b"
+    },
+    "analysis/reading/P01.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P01.txt",
+      "sha256": "c5820c18820328906e31a4cd1f9c7f8780c39d82bc3b2901fe87ade2a11104d2"
+    },
+    "analysis/reading/P02.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P02.txt",
+      "sha256": "dc2a8e9cd8b8d8a2a6e0184f38b03985215dce03ef4afac4e728c3470811c2f3"
+    },
+    "analysis/reading/P03.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P03.txt",
+      "sha256": "c4a88466b3d52661a45ff881c3be25305252b8ad4f28a991ccef771458a74199"
+    },
+    "analysis/reading/P04.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P04.txt",
+      "sha256": "f5dd1c0977f30671596cce1c965ba7bc811f42251aee853bd168b4acf9ad852e"
+    },
+    "analysis/reading/P05.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P05.txt",
+      "sha256": "0645afde2c9128ec5a77548e96d69bcb0e54e047f993f7583cfcc9f05ec53636"
+    },
+    "analysis/reading/P06.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P06.txt",
+      "sha256": "e92feb699d35f5b450da3036a54a3612aed38748b163cda4aea183a52fb85d81"
+    },
+    "analysis/reading/P07.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P07.txt",
+      "sha256": "32ea91fef72edd63c4892a50bf6a2df9a81e1b460156085770969fe778d5ffa5"
+    },
+    "analysis/reading/P08.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P08.txt",
+      "sha256": "48610556f98365190f6012dd035f90bbc8269c26af775aa075cb88bc3307684c"
+    },
+    "analysis/reading/P09.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P09.txt",
+      "sha256": "537042e512b1d328461fbcd83c18bf3bf4b2d6c2958b630658ee1bd186c48bba"
+    },
+    "analysis/reading/P11.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P11.txt",
+      "sha256": "f760c33e910f776d250583662568ac78f14f9fde54a8c6782045198f39043746"
+    },
+    "analysis/reading/P12.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P12.txt",
+      "sha256": "982305827416bb3dd65335de9e42309f9ab8f09b20beb75d2ee37545c75b4590"
+    },
+    "analysis/reading/P13.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P13.txt",
+      "sha256": "1da5005247fd025fd1803e8a5466cbe0e57abfd753e765af1505d91dd2562294"
+    },
+    "analysis/reading/P14.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P14.txt",
+      "sha256": "995260906f966cf745efbc46c0303831c9f5b579a2520bedc0f2d053e5a4660f"
+    },
+    "analysis/reading/P15.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P15.txt",
+      "sha256": "4056812637c8a4138b6adf3f59338650ef5e67454d044751372de4992b1def1f"
+    },
+    "analysis/reading/P16.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P16.txt",
+      "sha256": "b953275811508598f7d974885a439c52137661094661b609f10ff1a7c3f6fdec"
+    },
+    "analysis/reading/P17.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P17.txt",
+      "sha256": "9be7ed4d6f53dacf9757d8902aec6e0b85dd299254b5697b84c3d16d5b4ddd98"
+    },
+    "analysis/reading/P18.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P18.txt",
+      "sha256": "32e90614c9e909ba9e91d33c4ef4094cfed78da0bd220dffb479de4a349c610e"
+    },
+    "analysis/reading/P19.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/P19.txt",
+      "sha256": "baa7929dbb5ec9c5ef63eaa4580b1f51229deca3bcc8b78a209ed1d178e86adc"
+    },
+    "analysis/reading/RRL2019.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/RRL2019.txt",
+      "sha256": "327b48cc7ab8b86178d04ad01eba865824696cdd283661baa4777d355f3cf463"
+    },
+    "analysis/reading/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.txt": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/analysis/reading/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.txt",
+      "sha256": "861fcf50463da28cec93719b163867c41c60e7d374b225057058bf73a2da90c7"
+    },
+    "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf",
+      "sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826"
+    },
+    "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf",
+      "sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958"
+    },
+    "effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf",
+      "sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c"
+    },
+    "文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf",
+      "sha256": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029"
+    },
+    "文献资料/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf",
+      "sha256": "f5cffa8442a945002bb52bfd4c251232f3545f1c929c3ad45c39034d208ea7ba"
+    },
+    "文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf",
+      "sha256": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc"
+    },
+    "文献资料/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf",
+      "sha256": "f9942cc7d22ee1fae39e589531f984f398d9f6cda1cc45f61955a617cd69ee71"
+    },
+    "文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf",
+      "sha256": "580f84729b9798dea73df545842e26a11c016e8951e4c80bfaa2d7a90b03f9d1"
+    },
+    "文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e"
+    },
+    "文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec"
+    },
+    "文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf",
+      "sha256": "8563538806c3fbd7f0473bfca7a6b7f9b6b32cad6121cc264364a2359c405a08"
+    },
+    "文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe"
+    },
+    "文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf",
+      "sha256": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba"
+    },
+    "文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+      "sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1"
+    },
+    "文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf",
+      "sha256": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2"
+    },
+    "文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf",
+      "sha256": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d"
+    },
+    "文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf",
+      "sha256": "1cfc9c55441a561894cd0805f9c96f1955ed4584e84d322c626bb2d545763a5c"
+    },
+    "文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf",
+      "sha256": "ed87e10164c937acc3169eaa39e07706b9d9308c5647891a2b6ecf08c6795660"
+    },
+    "文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf",
+      "sha256": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86"
+    },
+    "文献资料/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf",
+      "sha256": "06f5965943da4191a6109446d916e3c8917fa4380717dac2993804b737afe420"
+    },
+    "文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf",
+      "sha256": "feaf9611e71898f066f4a889a09d08659a6296bf104a9a59ef8a86db658334ce"
+    },
+    "文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf",
+      "sha256": "885f62e07ee4bd37fb0e08bdaa6068fd5e4e473d11e0be239ba8bdd2d8c393db"
+    },
+    "文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef"
+    },
+    "文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf",
+      "sha256": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1"
+    },
+    "文献资料/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf": {
+      "source": "effect-test/E04-introduction-delivery-253dae3-2026-10-05/drafting/materials/文献资料/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf",
+      "sha256": "a78470558a68d6fbbf15374d3961f8c0b78a5c8adc15807258aa1e0d2863dd28"
+    },
+    "inputs/scientific-facts.md": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/scientific-facts.md",
+      "sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825"
+    },
+    "inputs/task.md": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/polishing-task.md",
+      "sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655"
+    },
+    "inputs/background-facts.md": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/background-facts.md",
+      "sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e"
+    },
+    "inputs/citation-facts.md": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/citation-facts.md",
+      "sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206"
+    },
+    "inputs/accepted-abstract.en.txt": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/accepted-abstract.en.txt",
+      "sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1"
+    },
+    "inputs/personal-experience.txt": {
+      "source": "我自己的经验和做法.txt",
+      "sha256": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2"
+    },
+    "inputs/core-requirements.txt": {
+      "source": "核心要求.txt",
+      "sha256": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e"
+    },
+    "inputs/introduction-method.txt": {
+      "source": "引言写作方法.txt",
+      "sha256": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83"
+    },
+    "inputs/current-author-adjustment.txt": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/current-author-adjustment.txt",
+      "sha256": "f4ffe1f8d608d7a208119409cffb9e746b78a792d20232b2b09a868e9811516f"
+    },
+    "inputs/current-draft.md": {
+      "source": "effect-test/E04-introduction-delivery-a29f1e1-2026-10-06/drafting/raw-introduction-and-references.md",
+      "sha256": "c3d77b52e4f0a2eae2ddbcccc4aa9c26b32773bc0910c68514434396d5b9e801"
+    }
+  },
+  "required_input_actual_returns": {
+    "phase": "before-invocation",
+    "array_wrapped_get_content": true,
+    "actual_returned_content_checked": true,
+    "inputs": [
+      {
+        "path": "inputs/task.md",
+        "source_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+        "line_count": 3,
+        "actual_returned_lines": [
+          "请使用提供的冻结 nature-polishing 候选及其声明依赖，接收原样完整英文 Introduction 首稿与其参考文献，依据同一原始中文科学材料、已有研究与引用事实、作者要求和已验收的本稿摘要，自主完成整节英文交付，并附逐段准确中文译文及正文实际使用的参考文献。可按研究需要调整内容取舍、整节组织、段落分工和英文表达；不得虚构文献缺陷。材料中的编号不规定引言或段落顺序。",
+          "",
+          "按《核心要求.txt》《我自己的经验和做法.txt》《引言写作方法.txt》，从认可论文适用的真实章节组织、段落展开、连续句逻辑、句型句式和具体用词出发，直接模仿／抄，科学内容始终换成作者自己的。每段承担明确任务，每个词、每句话都要斟酌；准确、清晰、简洁、朴素、专业地推进研究问题、已有工作与本文设计，不套固定引言模板或堆文献。参考论文的科学内容不能成为本稿事实。必要的作者说明置于正文之外。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/scientific-facts.md",
+        "source_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+        "line_count": 47,
+        "actual_returned_lines": [
+          "# 中文科学材料",
+          "",
+          "以下按事实类别存放，条目编号仅用于核对，不规定摘要选材或展开顺序。技术缩写保留规范身份，其余为中文科学事实。",
+          "",
+          "## 研究内容",
+          "",
+          "F01：研究从示范学习机器人操作策略。动作分布可能具有多个有效模式，动作之间有时间关联，精细操作还需要较高预测精度。逐步单动作预测可能在不同模式之间跳换；固定模式数量的表示和高维动作采样也会限制表达。",
+          "",
+          "F02：提出的方法称为扩散策略。它把机器人动作生成建模为观测条件下的去噪扩散过程，学习动作分布的得分梯度；推理从高斯噪声出发，经多次去噪生成一段未来动作，而非仅预测一个动作。训练向示范动作加入噪声，由网络在观测条件下预测噪声。示范是行为克隆的监督来源，不是在线强化学习。",
+          "",
+          "F03：扩散表示能够表达多模态动作分布，能够处理高维输出，因此可联合预测时间相关的动作序列。研究中的推物案例表现为：策略能表示绕物体左侧或右侧的动作模式，并在一次执行中保持一个模式。这里不是保证每种任务都能恢复所有模式。",
+          "",
+          "F04：动作序列与滚动时域执行结合：每次依据最近一段观测预测较长动作序列，只执行其中较短一段，然后取得新观测重新预测。该设计在时间一致性与对新观测的及时响应之间折中；不是把整段预测开环执行到底，也不是每步都重新推理。",
+          "",
+          "F05：视觉策略将图像编码后的特征作为动作去噪的条件，不把图像观测和动作一起作为联合去噪输出，也不为生成动作去推断未来视觉状态。同一轮动作推理只需一次视觉编码，特征用于多次去噪，减少计算量，有助于实时推理。视觉编码器可与策略端到端训练。",
+          "",
+          "F06：研究比较时间卷积网络与时间序列扩散 Transformer 两种去噪网络。时间卷积存在偏向低频信号、过度平滑动作变化的倾向；Transformer 设计用于减轻该问题，在动作快速变化或速度控制等部分任务上有优势。CNN 在多数任务上易用，Transformer 对超参数更敏感；二者是替代架构，不是串联组件，不能宣称 Transformer 在所有任务上优于 CNN。",
+          "",
+          "F07：相较于用能量函数直接表示条件动作分布的隐式策略，扩散训练通过学习梯度绕开估计难处理的归一化常数所需的负采样。研究把这点与更稳定的训练联系起来，并给出训练／评价曲线与跨任务超参数使用的经验支持。它不构成优化全局收敛的定理。",
+          "",
+          "## 支持材料",
+          "",
+          "S01：整体研究包含四个仿真基准中的八类任务，以及四项真实机器人任务，共十二类任务；含状态和视觉观测、不同维度的动作、单任务与多阶段操作。",
+          "",
+          "S02：仿真比较包含循环网络高斯混合策略、行为 Transformer 和隐式行为克隆等基线。报告的平均相对性能提升为 46.9%。计算在仿真比较表的任务／指标列上，分别取扩散策略两种架构中的最高性能和各基线中的最高性能，逐列计算相对提升后求平均，排除混合熟练度多示范者结果。该值不是成功率提升 46.9 个百分点，不是每个单一架构的平均提升，也不含真实机器人实验的成功率。",
+          "",
+          "S03：大多数仿真指标为任务成功率；推 T 形物体的仿真指标是目标区域覆盖；多阶段任务另有完成不同数量子目标的频率。46.9% 因而是所列性能指标的平均相对提升，不能把所有指标都称为成功率。",
+          "",
+          "S04：仿真滚动时域消融表明，动作执行窗口过短不利于时间一致性，过长不利于及时响应；多数已测任务以八步窗口表现较好。另有模拟延迟实验表明，采用位置控制的扩散策略在最多四步延迟时保持峰值表现。这些是测试结果，不是任意延迟下的鲁棒性保证。",
+          "",
+          "S05：真实机器人使用 UR5 和 Franka，两类硬件上测试推 T 形物体、翻转杯子、浇酱和周期性抹酱。最佳真实机器人模型采用 CNN 与端到端视觉编码。推 T 形物体需先将物体对准目标，再把末端移到结束区域，最终状态用于评价；二十次试验中成功率 95%，对比最佳隐式行为克隆为 0%、循环网络高斯混合策略为 20%。成功阈值由示范中最低最终交并比确定，动作空间等变体按各方法最佳结果比较。",
+          "",
+          "S06：推 T 形物体的另一次独立扰动演示中，遮挡前方摄像头三秒造成轻微抖动，但操作继续完成；在推动阶段或末端已朝结束区域运动时移动物体，策略重新规划、纠正物体位置并继续完成任务。这与 S05 的二十次定量比较是不同实验；不能把 95% 解释成扰动条件下的成功率，也不能据此宣布对所有视觉／物理扰动具有保证。",
+          "",
+          "S07：翻杯二十次试验成功率 90%，训练示范有不同抓取和推杯动作模式。浇酱与抹酱也完成了实机验证，评价为浇酱区域交并比和抹酱覆盖；这些提供操作类型的扩展证据，不是稳定性证明。",
+          "",
+          "S08：实时实现用隐式扩散采样减少推理去噪次数；正文报告每轮训练一百次去噪、推理十次，在 NVIDIA 3080 上约 0.1 秒推理延迟。该测量依赖具体配置，不保证所有网络、硬件或任务均为该速度。",
+          "",
+          "## 必要条件与范围",
+          "",
+          "C01：本文的方法贡献和性能由示范学习、去噪策略及操作实验支持，不提供机器人闭环全局稳定、碰撞安全或普遍成功的数学保证。",
+          "",
+          "C02：性能依赖数据、观测、控制动作表示、网络架构和推理设置。基准比较使用各方法表现最佳的动作空间，扩散策略多数用位置控制、基线多数用速度控制；不是所有实现设置完全相同的控制变量试验。",
+          "",
+          "C03：Transformer 的优势有任务范围和调参代价；真实机器人最佳结果不应归到 Transformer。扩散表达能力、联合动作序列与滚动时域执行各有不同作用，不应把一个实验结果当成对所有单项设计的独立因果证明。",
+          "",
+          "C04：目标任务范围是本研究所测机器人操作任务；本文不研究阻抗调节、接触力估计、未知动力学补偿或力矩控制器设计。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/personal-experience.txt",
+        "source_sha256": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+        "line_count": 17,
+        "actual_returned_lines": [
+          "",
+          "先把自己真正要表达的科学内容确定下来，再注重写作中的顶刊逻辑与表达。比较好的做法是，通过大量阅读积累丰富的例子，并在具体写作时灵活调用这些积累。",
+          "",
+          "以某几篇论文为主要模仿对象，吸收它们组织内容、推进论述和实现英文表达的方式，逐渐形成自己的主要风格。同时，不断从其他文献中补充经验：遇到某一部分更好的逻辑、句式或用词，就吸收进来，使下次表达相关内容时有更好的写法可以参考。",
+          "",
+          "具体写作时，逐部分写作。每个部分先确定自己真正要表达的科学内容，然后因为脑中已有大量相关文献的相关例子，所以能够根据当前要表达的内容选择、组合和调整合适的写法。**从段落逻辑、句与句的逻辑到句型句式和具体用词，都可以模仿，做到信手拈来。**需要更仔细的推敲时，也可以回查模仿对象原文，直接参照对应的段落和句子。",
+          "",
+          "**最终，每句话都承载自己的科学含义。**借鉴范例的逻辑与表达时，让逻辑关系、事实、条件和结论准确对应自己的工作。",
+          "",
+          "简言之，找到大量好的论文并积累大量例子，然后直接模仿/抄就行了，只是要把其中的内容换成自己想表达的意思，在表达上不要搞创新",
+          "",
+          "",
+          "---------------------------------------------------------------------",
+          "",
+          "实际学习范例时，应分析到真正可以直接模仿的颗粒度。对于整节，要看科学主线怎样展开、每段承担什么任务、各段怎样前后推进；对于典型段落，要看每句话承担什么作用、接住上一句什么内容、又为下一句增加什么；对于具体表达，要看真实英文中的主语、动作、对象、句式、搭配和具体用词。",
+          "分析时应保留必要的真实原文和上下文，使总结出的写法能够直接用于后续模仿。",
+          "少数高质量、与当前科学内容和写作风格匹配的主范例用于维持整体组织和英文风格，其他优秀论文用于补充某个 section、某类段落、连续句或具体表达的更好实现。学习时选择多篇论文中稳定出现的符合我偏好的共性写法"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/core-requirements.txt",
+        "source_sha256": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+        "line_count": 9,
+        "actual_returned_lines": [
+          "",
+          "以成熟skill为基座，结合我的写作经验《我自己的经验和做法.txt》，系统学习我提供的大量优秀论文，对基座skill做“sft”，具体而言分为两个方面：1）学习大量好论文的逻辑组织方式；2）关于表达，直接抄顶刊成熟且专业的表达，把其中优秀的逻辑组织、句间推进、句型句式和具体用词落实到 Skill，简言之就是直接抄就行了（详见《我自己的经验和做法.txt》），只是要将内容和逻辑替换成自己想表达的即可，让它用顶会顶刊的成熟表达写出你自己的科学内容。",
+          "",
+          "----------------------------------------------------------",
+          "",
+          "这里的核心始终只有两方面：逻辑组织和具体表达。逻辑组织要学习范例怎样选择和安排科学内容，以及整节、段落和连续句怎样推进；具体表达要学习这些关系怎样通过真实的主语、动作、对象、句式、搭配和用词实现。",
+          "学习范例时，先确定自己真正要表达的科学内容，再选择适用范例进行模仿。范例中的科学事实、逻辑关系、条件和结论不能直接搬用，最终每句话都必须准确表达自己的科学含义。",
+          "不同 section 的具体写法可以不同，因此 Abstract、Introduction、Method、Experiments、Discussion 等应分别从适用范例中学习，不能把某一个 section 或某一篇论文的结构固化成通用模板。跨 section 不变的是：先确定科学内容，再学习范例的逻辑和表达。",
+          "Skill 的效果必须由实际写作结果判断。规则存在、范例已加载或某次人工反馈后能够改好，都不能单独证明自主写作能力已经达到要求。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/introduction-method.txt",
+        "source_sha256": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83",
+        "line_count": 10,
+        "actual_returned_lines": [
+          "每一段都服务于下一段，把所有核心设计按“为什么需要它”自然推出来。",
+          "先确定整节 Introduction 的科学主线和各段任务，再沿同一主线逐段完成整节。整体上让读者自然理解：",
+          "研究为什么重要 → 已有方法能做什么 → 当前任务还存在什么具体问题或条件 → 为什么需要本文各项设计 → 各设计分别起什么作用 → 最终形成什么贡献。",
+          "第一段通常先说明大领域的重要性、应用价值或研究必要性，再逐步收窄到具体科学问题。后续各段段首直接亮出本段的科学对象、问题、路线或责任。",
+          "文献先写真实能力。具体说明已有工作采用了什么方法、处理了什么问题、具有什么与当前论证相关的能力，再根据当前任务需要说明相应条件、限制或未解决关系。优先学习范例中的成熟写法，如 In [xx], ... was proposed/developed/employed to ...，以及同一文献后续句对机制和作用的继续说明。",
+          "本文设计在其需要已经建立后自然出现。直接说明提出什么设计、为什么采用、解决什么问题、承担什么作用或形成什么优势。多个设计之间存在依赖、分工或接口时，把这种关系说明清楚。",
+          "Introduction 中的方法只展开到足以解释设计理由和贡献。算法步骤、公式推导、控制律细节和实现参数留给 Method。当前默认不展开本研究实验任务、设置、baseline 和结果；只有这些信息确实承担 Introduction 的科学论证任务时才保留必要部分。",
+          "分段由科学论证任务决定，不固定段数，不按“一模块一段”，也不要求每段都设置 gap。相邻段之间要保持对象和问题的自然交接，使后一段是前一段科学推进的结果。",
+          "具体英文直接学习优秀范例的真实写法。重点模仿完整段落推进、连续句关系、段首、文献句、比较/限制句、设计句、作用句，以及真实主语、动词、句式、搭配和具体用词，再把其中的科学内容全部换成自己的。",
+          "主要参考以 Robot Learning System Based on Adaptive Neural Control and Dynamic Movement Primitives 为默认表达锚点，并结合 Composite-Learning-Based Adaptive Neural Control for Dual-Arm Robots With Relative Motion、Fixed-Time Fuzzy Control of Uncertain Robots With Guaranteed Transient Performance 和 Extended State Observer-Based Integral Sliding Mode Control for an Underwater Robot With Unknown Disturbances and Uncertain Nonlinearities 中适合当前科学关系的真实写法。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/current-author-adjustment.txt",
+        "source_sha256": "f4ffe1f8d608d7a208119409cffb9e746b78a792d20232b2b09a868e9811516f",
+        "line_count": 4,
+        "actual_returned_lines": [
+          "本轮作者最新调整，优先于原样作者材料中的旧表述：",
+          "本指令明确的范围和最新调整优先于历史任务与旧结论。ee74b27 删除的是新增实验排除规则，ESO 范例及其他引言要求保留；不得恢复该规则或新增替代规则。",
+          "Introduction 内容由正向范例和正常科学论证决定，而不是额外增加禁止性默认规则。",
+          "候选内正向学习资源用于模仿；audit 中出版原文、未采用表达和历史诊断用于审计，不进入写作会话作为模仿库。历史报告仅供协调端追溯，不作为写作材料。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/background-facts.md",
+        "source_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+        "line_count": 33,
+        "actual_returned_lines": [
+          "# 引言补充科学材料",
+          "",
+          "条目按事实类别存放，编号用于来源核对，不规定整节组织、段落分工、选材或展开顺序。本文事实沿用 scientific-facts.md；以下补充既有研究事实与条件。",
+          "",
+          "## 已有行为克隆研究",
+          "",
+          "B01：行为克隆把从示范学习策略视为监督学习。已有研究已在真实机器人操作中获得有效策略，不存在“此前行为克隆无法做真实视觉操作”的结论。R1 系统研究离线人类示范中的数据质量、数量、观测与算法选择；带历史信息的模型对其人类示范任务有效。循环高斯混合策略可使用历史观测，并通过多个高斯分量表达多模态动作。混合分量数量是模型的设定，不表示它只能输出一个动作模式。",
+          "",
+          "B02：R2 的行为 Transformer 用历史观测序列预测动作。它将连续动作经 k 均值聚类离散为若干动作类别，并预测连续偏移以修正离散动作；因此同时支持多模态连续动作与时间上下文。类别数量需要设定，离散化与连续偏移各承担不同作用，不能说该方法不考虑时间关联或只能输出离散动作。",
+          "",
+          "B03：R3 的隐式行为克隆用观测与动作的能量函数表示策略，在推理时经采样或梯度方法寻找低能量动作。多个低能量动作可表达多模态和多值映射。原研究包含高维动作、视觉输入、闭环和长时域操作，并在真实接触任务展示毫米级精度；不能说隐式策略没有这些能力。其训练使用示范正样本及负例的对比损失，用负例近似条件分布的归一化项。",
+          "",
+          "## 本研究的观察",
+          "",
+          "B04：E04 的受控推物示例包含绕物体两侧的有效模式。该示例中所比较的显式策略存在模式偏置或逐步切换模式的现象，而扩散策略可表达两个模式并在执行中保持一种选择。该观察属于所测策略和任务，不构成所有高斯混合或行为 Transformer 都必然失败的结论。联合预测一段动作与仅逐步预测单个动作是不同策略设计；使用历史观测并不等于联合生成未来动作序列。",
+          "",
+          "B05：E04 的训练与评价曲线显示，所用隐式行为克隆基线训练有波动；论文将该问题与能量模型训练所需的负采样联系起来。扩散策略通过直接学习分布梯度，避免上述归一化估计与负采样，并在本研究的任务中显示较稳定训练。不能据此把 R3 的全部方法、所有能量模型或所有任务都认定为不稳定，也不能把训练稳定解释为机器人闭环稳定。",
+          "",
+          "## 扩散方法的研究基础与既有应用",
+          "",
+          "B06：R4 的去噪扩散概率模型以逐步向数据加噪和学习反向去噪构建生成模型；训练可使用噪声预测目标，从随机噪声迭代采样。R5 学习不同噪声尺度下数据分布对输入的对数密度梯度，并用退火朗之万动力学生成样本。多模态分布、高维生成与得分学习属于已有生成建模基础，不能把这些数学基础写成 E04 首创。",
+          "",
+          "B07：R6 的 Diffuser 在轨迹层面联合建模状态与动作，以去噪生成计划，结合奖励引导或约束进行轨迹规划；规划条件可在测试时调整。其问题设置和状态—动作联合生成与 E04 从示范直接学习观测条件动作策略不同。不能声称 R6 没有长时域规划或没有闭环使用的可能。",
+          "",
+          "B08：R7 将条件扩散模型作为离线强化学习的动作策略，结合 Q 值目标改善策略，使用状态观测并在 D4RL 任务评估。扩散模型此前已用于策略表示，因此 E04 不是首次把扩散模型用于动作策略；其监督行为克隆、视觉条件与物理机器人系统设计是本研究的设置。",
+          "",
+          "B09：R8 是与 E04 同期的目标条件扩散模仿学习工作，利用未精细筛选的交互示范、无分类器引导和采样过程设计，研究多模态行为与少步采样，并以仿真机器人任务验证。R9 同期研究用扩散模型模仿多模态人类行为，讨论网络结构、采样与引导，在仿真机器人和三维游戏环境中验证。它们的研究贡献不能概括成“未考虑多模态”“没有策略扩散”或“没有目标条件”；这些验证范围本身也不证明方法无法用于实机。",
+          "",
+          "## 方法及验证的条件",
+          "",
+          "B10：E04 不把未来状态与动作作为联合去噪输出；图像编码特征作为条件，一轮动作生成中复用。动作序列只执行较短窗口，再利用新观测预测。时间卷积与 Transformer 是替代去噪架构，细节及相应证据见 F04–F06、S04、S08。",
+          "",
+          "B11：E04 仍依赖示范覆盖与质量；示范不足时性能可能较差。它比循环高斯混合策略等较简单模型需要更多推理计算和延迟，动作序列执行能部分缓解，但不保证满足高频控制需要。仿真平均相对提升与实机成功率的定义、控制动作空间条件和扰动实验范围均沿用 S01–S08、C01–C04。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/citation-facts.md",
+        "source_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+        "line_count": 111,
+        "actual_returned_lines": [
+          "# 引用身份与支持事实",
+          "",
+          "R 编号只标识文献，不规定引言顺序或要求全部引用。英文仅为文献题名与作者身份，不是目标论文原文或表达范例。引用的科学事实见 background-facts.md；按正文实际采用的事实选择引用。",
+          "",
+          "## R1",
+          "",
+          "题名：What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
+          "",
+          "作者：Ajay Mandlekar; Danfei Xu; Josiah Wong; Soroush Nasiriany; Chen Wang; Rohun Kulkarni; Li Fei-Fei; Silvio Savarese; Yuke Zhu; Roberto Martín-Martín",
+          "",
+          "出版身份：CoRL 2021; PMLR 164:1678–1690，2022 年出版。",
+          "",
+          "来源：https://proceedings.mlr.press/v164/mandlekar22a.html",
+          "",
+          "支持：B01：离线人类示范、历史模型与机器人操作；循环高斯混合基线的本文比较另见 S02。",
+          "",
+          "## R2",
+          "",
+          "题名：Behavior Transformers: Cloning $k$ modes with one stone",
+          "",
+          "作者：Shafiullah, Nur Muhammad Mahi; Cui, Zichen Jeff; Altanzaya, Ariuntuya; Pinto, Lerrel",
+          "",
+          "出版身份：NeurIPS 2022；arXiv:2206.11251。",
+          "",
+          "来源：https://arxiv.org/abs/2206.11251",
+          "",
+          "支持：B02：动作聚类、连续偏移、多模态及时间上下文。",
+          "",
+          "## R3",
+          "",
+          "题名：Implicit Behavioral Cloning",
+          "",
+          "作者：Pete Florence; Corey Lynch; Andy Zeng; Oscar A Ramirez; Ayzaan Wahid; Laura Downs; Adrian Wong; Johnny Lee; Igor Mordatch; Jonathan Tompson",
+          "",
+          "出版身份：CoRL 2021; PMLR 164:158–168，2022 年出版。",
+          "",
+          "来源：https://proceedings.mlr.press/v164/florence22a.html",
+          "",
+          "支持：B03：能量策略、负例对比训练、视觉高维和精密实机能力；B05 的波动是 E04 观察。",
+          "",
+          "## R4",
+          "",
+          "题名：Denoising Diffusion Probabilistic Models",
+          "",
+          "作者：Ho, Jonathan; Jain, Ajay; Abbeel, Pieter",
+          "",
+          "出版身份：NeurIPS 2020；arXiv:2006.11239。",
+          "",
+          "来源：https://arxiv.org/abs/2006.11239",
+          "",
+          "支持：B06：去噪扩散生成基础。",
+          "",
+          "## R5",
+          "",
+          "题名：Generative Modeling by Estimating Gradients of the Data Distribution",
+          "",
+          "作者：Song, Yang; Ermon, Stefano",
+          "",
+          "出版身份：NeurIPS 2019；arXiv:1907.05600。",
+          "",
+          "来源：https://arxiv.org/abs/1907.05600",
+          "",
+          "支持：B06：多噪声尺度得分学习与采样基础。",
+          "",
+          "## R6",
+          "",
+          "题名：Planning with Diffusion for Flexible Behavior Synthesis",
+          "",
+          "作者：Michael Janner; Yilun Du; Joshua Tenenbaum; Sergey Levine",
+          "",
+          "出版身份：ICML 2022; PMLR 162:9902–9915。",
+          "",
+          "来源：https://proceedings.mlr.press/v162/janner22a.html",
+          "",
+          "支持：B07：状态—动作轨迹扩散规划。",
+          "",
+          "## R7",
+          "",
+          "题名：Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning",
+          "",
+          "作者：Wang, Zhendong; Hunt, Jonathan J; Zhou, Mingyuan",
+          "",
+          "出版身份：arXiv:2208.06193；2022 年首次公开，RSS 2023 之前版本为 v2（2022-10-03）。",
+          "",
+          "来源：https://arxiv.org/abs/2208.06193",
+          "",
+          "支持：B08：离线强化学习的条件扩散动作策略。",
+          "",
+          "## R8",
+          "",
+          "题名：Goal-Conditioned Imitation Learning using Score-based Diffusion Policies",
+          "",
+          "作者：Reuss, Moritz; Li, Maximilian; Jia, Xiaogang; Lioutikov, Rudolf",
+          "",
+          "出版身份：RSS 2023；arXiv:2304.02532，首次公开于 2023-04-05。",
+          "",
+          "来源：https://arxiv.org/abs/2304.02532",
+          "",
+          "支持：B09：目标条件扩散模仿学习、采样及仿真验证。",
+          "",
+          "## R9",
+          "",
+          "题名：Imitating Human Behaviour with Diffusion Models",
+          "",
+          "作者：Pearce, Tim; Rashid, Tabish; Kanervisto, Anssi; Bignell, Dave; Sun, Mingfei; Georgescu, Raluca; Macua, Sergio Valcarcel; Tan, Shan Zheng; Momennejad, Ida; Hofmann, Katja; Devlin, Sam",
+          "",
+          "出版身份：ICLR 2023；arXiv:2301.10677，2023 年首次公开。",
+          "",
+          "来源：https://arxiv.org/abs/2301.10677",
+          "",
+          "支持：B09：多模态人类行为扩散模仿与仿真／游戏验证。"
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/accepted-abstract.en.txt",
+        "source_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+        "line_count": 1,
+        "actual_returned_lines": [
+          "Robot manipulation policies learned from demonstrations need to represent multiple valid action modes while generating precise, temporally consistent actions. Stepwise prediction of individual actions can switch between these modes. This paper proposes Diffusion Policy, which learns the score gradient of an observation-conditioned action distribution from demonstrations. The diffusion representation accommodates multimodal, high-dimensional action distributions, allowing temporally correlated actions to be generated jointly by iterative denoising from Gaussian noise. A receding-horizon execution scheme applies a short segment of each predicted sequence before replanning from new observations to balance temporal consistency with responsiveness. The visual policy encodes image observations once per prediction cycle and uses the resulting features to condition all denoising steps, reducing inference computation. Numerical simulation results demonstrate a 46.9% average relative performance improvement across the reported metrics for eight tasks, using the best diffusion architecture and baseline for each metric and each method’s best-performing action space. Real-robot experiments demonstrate 95% success in 20 trials of precise T-shaped object pushing, compared with 20% for a recurrent Gaussian mixture policy and 0% for implicit behavior cloning."
+        ],
+        "all_lines_returned_verbatim": true
+      },
+      {
+        "path": "inputs/current-draft.md",
+        "source_sha256": "c3d77b52e4f0a2eae2ddbcccc4aa9c26b32773bc0910c68514434396d5b9e801",
+        "line_count": 27,
+        "actual_returned_lines": [
+          "Robot manipulation is important for extending automation to tasks that require physical interaction with objects. Adaptable manipulation policies are needed to perform these tasks under the variations encountered during execution. Learning from demonstration provides an effective route to acquiring manipulation skills. Behavior cloning treats policy learning as supervised learning and has produced effective policies for real-robot manipulation [1]. Demonstrations may contain several valid actions for the same observation, and successive actions must remain temporally consistent. Precise manipulation therefore requires a policy that represents multiple valid action modes while preserving the temporal relationships within a motion.",
+          "",
+          "Explicit multimodal policies can represent variability in demonstrations and use past observations to predict actions. In [1], recurrent policies with Gaussian mixture outputs were studied for learning from offline human demonstrations. The recurrent model uses observation history, while multiple Gaussian components represent alternative actions. In [2], Behavior Transformer was proposed to learn multimodal continuous actions from observation sequences. The method clusters actions into discrete categories and predicts continuous offsets to refine the action estimates. Both approaches require the number of mixture components or action categories to be specified. Observation history provides temporal context, but it does not itself ensure joint generation of future actions. Stepwise prediction of individual actions can switch between valid modes. These requirements motivate a policy representation that models alternative action sequences and their temporal dependencies.",
+          "",
+          "Implicit policies offer another way to represent multimodal action distributions. In [3], implicit behavior cloning was proposed to learn an energy function of observations and actions. Actions are obtained through sampling or gradient-based search for low-energy solutions. This representation supports multimodal mappings, high-dimensional actions and visual manipulation, including real contact tasks with millimeter-level precision. Its contrastive training uses demonstration actions as positive samples and negative actions to approximate the normalization term of the conditional distribution. Our comparisons show fluctuations in the training of this implicit baseline, which we relate to the negative sampling used in its energy-based formulation. Diffusion and score-based generative models offer an alternative formulation [4,5]. These models support multimodal, high-dimensional generation through learned denoising processes or gradients of the log density.",
+          "",
+          "Diffusion models have already been employed in planning and policy learning. In [6], Diffuser was developed to jointly generate state–action trajectories for planning, with rewards or constraints used to guide trajectory generation. In [7], a conditional diffusion action policy was trained with a Q-value objective for offline reinforcement learning. Concurrent work has also studied goal-conditioned diffusion imitation learning with sampling-process design [8] and multimodal human-behavior imitation in simulated robot and game environments [9]. These studies establish diffusion as an expressive representation for behavior generation. A visual manipulation policy learned directly from demonstrations must also connect action-sequence generation with timely observation updates and precise execution.",
+          "",
+          "This paper proposes Diffusion Policy, which models action generation as an observation-conditioned denoising diffusion process. The policy learns the score gradient of the conditional action distribution from demonstrations by predicting the noise added to demonstration actions. This training avoids the negative sampling used to estimate the normalization term in implicit behavior cloning, and our comparisons show more stable training in the tested tasks. The diffusion representation does not require a prescribed number of action modes and accommodates high-dimensional outputs. It therefore allows temporally correlated future actions to be generated jointly by iterative denoising from Gaussian noise. Joint prediction supports consistent action choices, but the robot must also respond to changes in its observations. We therefore combine action-sequence prediction with receding-horizon execution. The policy predicts a longer sequence from recent observations, executes a shorter segment and then predicts again from new observations. This execution scheme balances temporal consistency with responsiveness.",
+          "",
+          "Visual action generation also requires efficient use of image observations during iterative denoising. We use an image encoder to extract features from the observations and condition the action denoising network on these features. The image encoder is evaluated once per prediction cycle, and the resulting features are reused throughout the denoising steps. This reduces inference computation and supports real-time operation in the tested configuration. The visual encoder can be trained jointly with the policy. Image observations remain conditioning inputs throughout action generation, so the policy does not need to jointly denoise images and actions or predict future visual states.",
+          "",
+          "The denoising network must also preserve the action changes required for precise manipulation. We study a temporal convolutional network and a time-series diffusion Transformer as alternative architectures. The convolutional network provides a practical choice for most tested tasks, but its bias toward low-frequency signals can oversmooth rapid action changes. The Transformer is designed to reduce this effect and offers advantages on some tasks with rapid action changes or velocity control. These advantages depend on the task, and the Transformer is more sensitive to hyperparameter choices. The two architectures provide alternative choices within the same observation-conditioned action-generation framework.",
+          "",
+          "Diffusion Policy brings multimodal action representation, joint sequence prediction and responsive execution into a policy learned from demonstrations. We evaluate the method on eight simulation tasks across four benchmarks and four real-robot tasks, covering state and visual observations and a range of manipulation behaviors. The simulations show a 46.9% average relative improvement across the reported performance metrics, using the best-performing diffusion architecture and baseline for each metric and each method’s best-performing action space. On real robots, the convolutional policy with end-to-end visual training achieves 95% success in 20 trials of precise T-shaped object pushing, compared with 20% for a recurrent Gaussian mixture policy and 0% for implicit behavior cloning.",
+          "",
+          "**正文使用的参考文献**",
+          "",
+          "1. Mandlekar, A. et al. *What Matters in Learning from Offline Human Demonstrations for Robot Manipulation*. CoRL 2021, **PMLR 164**, 1678–1690 (2022).",
+          "2. Shafiullah, N. M. M., Cui, Z. J., Altanzaya, A. & Pinto, L. *Behavior Transformers: Cloning k modes with one stone*. NeurIPS (2022). arXiv:2206.11251.",
+          "3. Florence, P. et al. *Implicit Behavioral Cloning*. CoRL 2021, **PMLR 164**, 158–168 (2022).",
+          "4. Ho, J., Jain, A. & Abbeel, P. *Denoising Diffusion Probabilistic Models*. NeurIPS (2020). arXiv:2006.11239.",
+          "5. Song, Y. & Ermon, S. *Generative Modeling by Estimating Gradients of the Data Distribution*. NeurIPS (2019). arXiv:1907.05600.",
+          "6. Janner, M., Du, Y., Tenenbaum, J. & Levine, S. *Planning with Diffusion for Flexible Behavior Synthesis*. ICML, **PMLR 162**, 9902–9915 (2022).",
+          "7. Wang, Z., Hunt, J. J. & Zhou, M. *Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning*. arXiv:2208.06193 (2022), version 2, 3 October 2022.",
+          "8. Reuss, M., Li, M., Jia, X. & Lioutikov, R. *Goal-Conditioned Imitation Learning using Score-based Diffusion Policies*. RSS (2023). arXiv:2304.02532.",
+          "9. Pearce, T. et al. *Imitating Human Behaviour with Diffusion Models*. ICLR (2023). arXiv:2301.10677."
+        ],
+        "all_lines_returned_verbatim": true
+      }
+    ]
+  },
+  "input_identity": {
+    "case": "E04",
+    "paper": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+    "version": "RSS 2023 proceedings; not the IJRR extension",
+    "primary_url": "https://roboticsproceedings.org/rss19/p026.pdf",
+    "additional_project_pdf_url": "https://diffusion-policy.cs.columbia.edu/diffusion_policy_2023.pdf",
+    "target_pdf_sha256": "723a030b809be1958d03b06472ac79934fd64e5a890cdfeffd9508a353101a25",
+    "target_pages": 16,
+    "pages": [
+      {
+        "page": 1,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-01.txt",
+        "sha256": "f468a37a79dbc184fa0c732bec61c4c52596ce0eac70bb7e62a048af416afdd6"
+      },
+      {
+        "page": 2,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-02.txt",
+        "sha256": "7efd03d089dbb272bf373865bb98fcc0295d83d2de81cedb2406c07c1b5cb645"
+      },
+      {
+        "page": 3,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-03.txt",
+        "sha256": "676e694e63ed27bb9bef1f5d86c745d70c08c79687562f88ddd0c956df282390"
+      },
+      {
+        "page": 4,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-04.txt",
+        "sha256": "4d57740dd9d7ff19daca010e1e62be27b5686536c7c676f930e67bd07e73c300"
+      },
+      {
+        "page": 5,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-05.txt",
+        "sha256": "2926614dc418f32416c82bcde9523cab1f86b22edc67834ad1399e302fb05196"
+      },
+      {
+        "page": 6,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-06.txt",
+        "sha256": "a475dcf6358a796d0adbd97f4c8aa1eba7e17fa71e958bdb75e9be7c02681499"
+      },
+      {
+        "page": 7,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-07.txt",
+        "sha256": "a87f8bfb53116077dbaa97b12cd72d9e83afaf689cd40161d1466eba9d19a209"
+      },
+      {
+        "page": 8,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-08.txt",
+        "sha256": "36f127fc0e0f823170fdc1febf06a0dc65cc0aabcb0e46282878905925803171"
+      },
+      {
+        "page": 9,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-09.txt",
+        "sha256": "a8d8b510e6bc5fc2ba232b83bd3589ed123d4877cb85b1877dc50e2a6ffb88ee"
+      },
+      {
+        "page": 10,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-10.txt",
+        "sha256": "51ce0a39f5f593118f9081109592eaf6baafd42a8d694c855586178997791cd6"
+      },
+      {
+        "page": 11,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-11.txt",
+        "sha256": "8d9752ecfda3ae01b33b78c0166f096488783d11ef9b10926c39169bce4a1c65"
+      },
+      {
+        "page": 12,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-12.txt",
+        "sha256": "efacfec6d877f0eeab9b48e32fca77ac4ed1c6c4f01761faad1f71e7d9aaf15d"
+      },
+      {
+        "page": 13,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-13.txt",
+        "sha256": "a18e157d514cedd5ca5f602e21392fd48b899f8881a7b8cb63ca541609853535"
+      },
+      {
+        "page": 14,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-14.txt",
+        "sha256": "bfac1b025ea208447023bcb2a36db4ff84c7f4b430b0858b3e2a18e3986eb0c8"
+      },
+      {
+        "page": 15,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-15.txt",
+        "sha256": "7563b9332ab59f6a076ef1529aff1b774b7fd4f4aec2963519b99c36409af82a"
+      },
+      {
+        "page": 16,
+        "path": "effect-test/E04-independent-delivery-1be5954-2026-10-04/coordinator/source/page-16.txt",
+        "sha256": "1fc8a30b7851f19cd5eb36dbc9d1edd8b1d4e4cd86101500d6cbcf67c873a686"
+      }
+    ],
+    "facts_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+    "task_sha256": {
+      "drafting": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "polishing": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655"
+    },
+    "author_inputs": {
+      "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+      "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+      "引言写作方法.txt": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83"
+    },
+    "candidate_commit": "a29f1e1045bc86093e2f74a4fe288ba1e5970d76",
+    "candidate_git_bytes_sha256": {
+      "skill-candidate/nature-polishing/README.md": "0e3069ce6693d5324470f7d198561196a4af9014192ffa559dcadc236a8fe903",
+      "skill-candidate/nature-polishing/README_EN.md": "8a6f8d07417b31a0efd5b0b7bd17be9bcb70f1c9f0e3da32664511f7d6db4ee6",
+      "skill-candidate/nature-polishing/SKILL.md": "b19a524af2265f0541cd644a60fe65ef3ff95a3a7febae4757c2c37f48c5fda8",
+      "skill-candidate/nature-polishing/agents/openai.yaml": "5cbdbff93809f5cf0487fdde2f0ff5a037afd300847a802f4f622f3586af18d3",
+      "skill-candidate/nature-polishing/manifest.yaml": "584c8a0926dd431fb057b96cb2a6ce185e9d111d454baf3690a76e69c4c9cf3c",
+      "skill-candidate/nature-polishing/references/latex-layout.md": "9cdb4a2f69e1314a5a401bd1e90d880287940211a48b07e4eb0c62c3c9dd28a9",
+      "skill-candidate/nature-polishing/references/nat-comms-2025-diction.md": "186580615cea217a2194818a58c902c064139bf55a414391619f0d3d55ea3155",
+      "skill-candidate/nature-polishing/references/phrasebank-playbook.md": "b05a472b19ac13c7e6c674229fc8dc6edee7cf0d26c84a3aa60d2d73f59a20bf",
+      "skill-candidate/nature-polishing/references/published-article-patterns.md": "9a715f506a347af3d8aa61b78c33d4a96ac00598299f3262a4c43273397f53be",
+      "skill-candidate/nature-polishing/references/section-moves.md": "017718c81c42eac2776ae7d612e31fa3e4a12965713827a0627696c760197655",
+      "skill-candidate/nature-polishing/references/style-guardrails.md": "e33c8b153a0ea922bd5f6f9840abb18994d3405fee9959fd57709c0164dfbfa9",
+      "skill-candidate/nature-polishing/references/writing-strategy.md": "61aed23835260560e43e54438c9cd2d4dd3dd69921d9ad2bada0494b4777d10d",
+      "skill-candidate/nature-polishing/static/core/failure-modes.md": "e46f0336129963908be31f32e13934cb49502e55990a481f2fef20780abe5260",
+      "skill-candidate/nature-polishing/static/core/output-format.md": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
+      "skill-candidate/nature-polishing/static/core/stance.md": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649",
+      "skill-candidate/nature-polishing/static/fragments/journal/generic.md": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
+      "skill-candidate/nature-polishing/static/fragments/journal/nat-comms.md": "39cfe7f278b14e1b0c27506c73fb269d3dc994176f7abfeabe48ddd88bd95f7d",
+      "skill-candidate/nature-polishing/static/fragments/journal/nat-mach-intell.md": "e66bbdf9ca61a74cbd28a412f8678f0e688646f2134d36a74f4f6b7daf170883",
+      "skill-candidate/nature-polishing/static/fragments/journal/nature.md": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
+      "skill-candidate/nature-polishing/static/fragments/language/en.md": "ef14125eb0318be4c19ed407b017c647ceaab70ae964c6f4e439d2945dee645c",
+      "skill-candidate/nature-polishing/static/fragments/language/zh-to-en.md": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
+      "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
+      "skill-candidate/nature-polishing/static/fragments/paper_type/hypothesis.md": "2927fdefd79958ac8280a0a1d870d066136bfdfe277372f2389928c3ba8f332c",
+      "skill-candidate/nature-polishing/static/fragments/paper_type/methods.md": "3b00b801a733694772c78db1f8d2df19f12ab49b7cd395183d1b1075a0a4ea2e",
+      "skill-candidate/nature-polishing/static/fragments/paper_type/research.md": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
+      "skill-candidate/nature-polishing/static/fragments/paper_type/review.md": "639c478596ba59434f94a7436021ae0ef208c4118a491be1a7779960f984acc6",
+      "skill-candidate/nature-polishing/static/fragments/section/abstract.md": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc",
+      "skill-candidate/nature-polishing/static/fragments/section/conclusion.md": "d8676e4871b7b58fd8f72ffec22bc83a7fce7df0220b86e41a38a2989d68da34",
+      "skill-candidate/nature-polishing/static/fragments/section/discussion.md": "f89b008d75dd62b7a2165211206f6468863141855c6e86d4f1aa0bc343a61c73",
+      "skill-candidate/nature-polishing/static/fragments/section/intro-general.md": "f0afb7cbaba2a360d8ac77f85689fade399c6666843d2c639237bea71cc74fb0",
+      "skill-candidate/nature-polishing/static/fragments/section/intro.md": "fbd7e077ba459f7b9ebe54707f5d1e8648a53b6f1e68a51b7f2d0e9a8c22bbb6",
+      "skill-candidate/nature-polishing/static/fragments/section/methods.md": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f",
+      "skill-candidate/nature-polishing/static/fragments/section/related-work.md": "bdf429a0528e99ca477ebc28bf9da2734b75320eb1760f6a4ef867a668a49f99",
+      "skill-candidate/nature-polishing/static/fragments/section/results.md": "9cc9ab9c9cb5a18355ddae33506fb22d1035368318e60941db8cf793896cd3f4",
+      "skill-candidate/nature-polishing/static/fragments/section/title.md": "699e514c4e88ce05d7577d358b76d31dfe337a25e2a8169e99d778c7e7636911",
+      "skill-candidate/nature-shared/README.md": "2e42d487b9aa4985933dfb230ac57c88e8dfeba97644bb30d2c222de9a65e61e",
+      "skill-candidate/nature-shared/README_EN.md": "1d2fd257264aa512f52dfc131d9adfd67c7dcf2b6f1e3c059c693360b027b245",
+      "skill-candidate/nature-shared/SKILL.md": "77ec9d708f1638acac9b92f938dd1717c682ec139691ce8aecbc3628113f4323",
+      "skill-candidate/nature-shared/agents/openai.yaml": "4bbf2e58b350269cf231f73ca12af1d097b9d64637023b037e238083151fbd67",
+      "skill-candidate/nature-shared/core/abstract-delivery.md": "e151edf22321755383a854c982abbfa5eba3d7a63ea9239bef31982aaca97219",
+      "skill-candidate/nature-shared/core/consistency-sweep.md": "42b4f5337af441709951ecd9e60c7adc644b0a02a349fc41f64247d669adfe82",
+      "skill-candidate/nature-shared/core/discussion-argument-language.md": "a3b0ddcadc47efc029e923ae8133ba0bd99e6a6eb27fdbc791d0e1096d98c169",
+      "skill-candidate/nature-shared/core/ethics.md": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "skill-candidate/nature-shared/core/main-text-discipline.md": "d43190c4d617096c1088bb5452cec5b0ae13f5d4947c2b21c28315181f051b8e",
+      "skill-candidate/nature-shared/core/nature-abstract.md": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
+      "skill-candidate/nature-shared/core/nature-introduction.md": "a59b2e44ba137dc6759f310ee7dae7ac6843e9d6631a057aa197cee99c6b1dcd",
+      "skill-candidate/nature-shared/core/nature-results-discussion.md": "16f1ce1ed6d2aad7853eabf304cdbd661530931747bce4cf3f10b3dfb655adc1",
+      "skill-candidate/nature-shared/core/paper-type-taxonomy.md": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "skill-candidate/nature-shared/core/reader-workflow.md": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "skill-candidate/nature-shared/core/research-compliance.md": "0ac172d2af0c2089acd7280712a89b23a5f232d4e436e9ae78dd501ff30cd855",
+      "skill-candidate/nature-shared/core/robotics-introduction-examples.md": "9e2c593517e176e6cff3ceb9f406c206a54587fc1b3e4b21ab6917aeac8e983f",
+      "skill-candidate/nature-shared/core/robotics-introduction-expression.md": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+      "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+      "skill-candidate/nature-shared/core/robotics-introduction-section.md": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+      "skill-candidate/nature-shared/core/robotics-main-text.md": "e9ac6ad35a5697effeee5a9a44f2b8a07f7aa31a27aec906253175b8553e5916",
+      "skill-candidate/nature-shared/core/robotics-writing-examples.md": "1d0b2045e8b0cc0ffd5543129a95b461252b1e2a85079728f31e6ee6a1a91a7c",
+      "skill-candidate/nature-shared/core/scientific-expression.md": "e32e71aa98ac738283e22c4648d45a55baf2cba1ebf96173e3ebd14aac22bf8e",
+      "skill-candidate/nature-shared/core/terminology-ledger.md": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "skill-candidate/nature-shared/journal-formats/nat-comms.md": "5a9eef685502e35d2289478d0b3815d5dbfbb6b2ed7d758accedfc7fd930e975",
+      "skill-candidate/nature-shared/journal-formats/nature-machine-intelligence.md": "d62a418fbd67841e745f553b98a267b5a01c9445457a07a0121095ce76fad0af",
+      "skill-candidate/nature-shared/journal-formats/nature.md": "2c4d007f69b64a2e083f9511748c3726b349a4dce4bfccbdac3bf97d1c1afc10",
+      "skill-candidate/nature-shared/manifest.yaml": "9a257ab47d58d1b68d4a165d50ffe0e8b8dce25724e19d1fce5f372ab572ba8a",
+      "skill-candidate/nature-shared/scripts/check_consistency.py": "670ccc43aad4639fe3525d8dce7443d85f462f99958b560a539cc5b6b0b072a6",
+      "skill-candidate/nature-shared/tests/test_check_consistency.py": "c70abcc137513cf947e44e0c35f99dd4438fbe4477faf89a6aa671ffa8fac1de",
+      "skill-candidate/nature-writing/README.md": "8e2b300189ba2fb33e849ac2c9299a903ffb4da3b2629e55736904925671e813",
+      "skill-candidate/nature-writing/README_EN.md": "f491a275177ef2560c1a17b24085d568ec05cecb9766824e3f4c5813a96ad44d",
+      "skill-candidate/nature-writing/SKILL.md": "9806a045eb9032bdbebd660e494bbeabe9c3d8a884e1e05a0c4e826eefffb1da",
+      "skill-candidate/nature-writing/agents/openai.yaml": "35275439e4108cea510a750d1368b017fe1b3e88cc8f341475f1478e3090f79c",
+      "skill-candidate/nature-writing/manifest.yaml": "a60f4eba00d41e572f6a9e8126f37b812195528da9383293753b8892eef0b07a",
+      "skill-candidate/nature-writing/references/abstract.md": "90e463ff2cc34cf39b04c25f19e37b92696ec16f5a702d4964d1e94493dd3b6a",
+      "skill-candidate/nature-writing/references/article-architecture.md": "ef675d458ee0fe75680ea1915aba4ea709f0f5c985579b1d56b1650e77149f2c",
+      "skill-candidate/nature-writing/references/chinese-author-workflow.md": "42fc1cb975d94d1ecdb8901fb6f6e727ca321379b0faa3745d4814c0b1268bf1",
+      "skill-candidate/nature-writing/references/conclusion.md": "64de66f24ceb42ff5cefb4498a8bd16f595661bbaa604d9cde6e743b39dab9c6",
+      "skill-candidate/nature-writing/references/examples/abstract-examples.md": "8228ce8ec4a35b8339bcb439c4292bb2d678e5be17af2ef1d7631d03ebf40010",
+      "skill-candidate/nature-writing/references/examples/abstract/template-a.md": "c4cec6346be6d76350bfacea36c1abad5bce669e810f7facc2c884b664a8d83e",
+      "skill-candidate/nature-writing/references/examples/abstract/template-b.md": "dc41e8d5206fca72dd41b2cd188ec447b7735b54c164b6da1785bd88c2e0b78d",
+      "skill-candidate/nature-writing/references/examples/abstract/template-c.md": "4f6269a1b1ad47055eb4287cdd0410ea1d1d1198dbf02d74671f50d3fa0d1447",
+      "skill-candidate/nature-writing/references/examples/index.md": "4ee6f4db40f39f3ac2978a35c44ea40054c77350323fd5f561f848fb3c96a9ac",
+      "skill-candidate/nature-writing/references/examples/introduction-examples.md": "0fb5b62e4353f71e586f8873881d2a60a86ad756e02bd0e7ef626dcafa0e5d71",
+      "skill-candidate/nature-writing/references/examples/introduction/novel-task-challenge-decomposition.md": "5613ddd24911efde77aaf35a7ff883a9ef886b99b9863782aeec426282cd286c",
+      "skill-candidate/nature-writing/references/examples/introduction/pipeline-not-recommended-abstract-only.md": "33ab449b0eadc7cc968c0ff4cddcc4538811d2abc2a0497ebca15c629da80cd2",
+      "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md": "a39b95c76a19f7fd214048dd2e8861d825495662b9144529326abc4ab94c7f23",
+      "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-2-two-contributions.md": "fc6d13cfdd6e69b9bf7238e86f400e7d120d35c053718a56ae9faf442f0e86f1",
+      "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md": "71fe9465e12602517ca47a693572bd7db0c08b7cd046ae1c55ec88ba679e1d49",
+      "skill-candidate/nature-writing/references/examples/introduction/pipeline-version-4-observation-driven.md": "f5e59e8c578cd3996870c3863ac1f2ce503fe74ec76c909a66a9cb9100020e70",
+      "skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-1-existing-task.md": "470195180f159d7f240409c0685a927fea21c82ed7d7c766a03b76ed3765e276",
+      "skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md": "b90e9edf376f9dc2cac1fcbe9174b8878a090763dac08302a301c8b743301b1f",
+      "skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-3-novel-task.md": "3b3b58cc0cffe2e1ae1e192b2344223924f9dfb880eeae3c955e09cd923269ef",
+      "skill-candidate/nature-writing/references/examples/introduction/version-1-task-then-application.md": "d9296f2f23e8589e068a06fd063d2b9291b30b630ffeac19f0cf0290fde52284",
+      "skill-candidate/nature-writing/references/examples/introduction/version-2-application-first.md": "3f57603bd5fd56bc185a3d78f12edc43bd202e2593b01d1bda943f3745af7ea5",
+      "skill-candidate/nature-writing/references/examples/introduction/version-3-general-to-specific-setting.md": "0afbf79dd9c47e65ec0d9debf08c701838b5398327a0864b8f8a0421ea786a2a",
+      "skill-candidate/nature-writing/references/examples/introduction/version-4-open-with-challenge.md": "974379058c3d5448bbb95ad989b68564ede2dc7e262f4b9bb82820058ad098b1",
+      "skill-candidate/nature-writing/references/examples/method-examples.md": "8a8499c32096fbdf9baac6d00d71df750fba2909d29a0bc37e559ebd02d10210",
+      "skill-candidate/nature-writing/references/examples/method/example-of-the-three-elements.md": "a08a1201e6b4a9629262e16827b8d95e62eeee97f6117a1d97659a37200a4dea",
+      "skill-candidate/nature-writing/references/examples/method/method-writing-common-issues-note.md": "265ca143a785401c29d754d022e761aca41cce7f17db316a3a12cf2e35b5bfa9",
+      "skill-candidate/nature-writing/references/examples/method/module-design-instant-ngp.md": "a7c72221545e83d05b3becc4209b9fec71188a9a758434aa1ae3c4bc673e1dad",
+      "skill-candidate/nature-writing/references/examples/method/module-motivation-patterns.md": "0d1476b9e31662ecd135eec0ec70bc959f91235622e874e2a1e12a5234d195ce",
+      "skill-candidate/nature-writing/references/examples/method/module-triad-neural-body.md": "eabc41af8b001bcab30bc8373bb44b798ab0a21d32045d01d6b672d49c1ed76f",
+      "skill-candidate/nature-writing/references/examples/method/neural-body-annotated-figure-text.md": "f671d284186011497291fcec22dadd1dabe835f60fb97dc607cfa0246d08b6be",
+      "skill-candidate/nature-writing/references/examples/method/overview-template.md": "3328ea5b1100e8068bfd94455486a5934d55a888bf0095df727eef9ec7eadf93",
+      "skill-candidate/nature-writing/references/examples/method/pre-writing-questions.md": "b6466d5d6fbe8785a45a0b67134c9c08a0d8b3e14f2e17db2f2fe3a2053b3c69",
+      "skill-candidate/nature-writing/references/examples/method/section-skeleton.md": "e437a48be1e608bed3200844e1033b8b9da900aa1e4512dccb80f778e6fe0590",
+      "skill-candidate/nature-writing/references/experiments.md": "0c988e9ec996b8bae0447a7338d1ca1c982a7616173a79aba3d1c6d2bc38ba5d",
+      "skill-candidate/nature-writing/references/introduction.md": "9c5fd29dd0180c9e8b922f66c81c3507bc27501d7656b9dc1d80f9d137a70c86",
+      "skill-candidate/nature-writing/references/method.md": "98b95733f303c43ec138e252a6c2dd7c2009ec6d6306f80ba8eb737167d78b6a",
+      "skill-candidate/nature-writing/references/nat-comms-2025-corpus.md": "0235d5c6302b135fd19d6535eb38efd49b55758d1003677ef46bd0120dbb56d0",
+      "skill-candidate/nature-writing/references/nature-summary-paragraph.md": "a9a36267eb7a322325fbab4b6ba763d28d7209c8d43792604de77609b9c238c8",
+      "skill-candidate/nature-writing/references/paper-review.md": "7a46e0805a7048e66f9f2f91cbc13134eff1864bf0152d699c987df078051f20",
+      "skill-candidate/nature-writing/references/paragraph-flow.md": "87921fd04558a35a3ad2c1ac640eae41ff9cf7cb2b852e4aa5bad7daea1d07d5",
+      "skill-candidate/nature-writing/references/related-work.md": "18329390413c35ee954348971c7d64af69a469c42c16739b5a53c6bca6c52b6f",
+      "skill-candidate/nature-writing/references/submission-package.md": "9a0e6195e368fb922a321403c399e0f581b64be11a3ce350538aabec248fb940",
+      "skill-candidate/nature-writing/static/core/output-format.md": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
+      "skill-candidate/nature-writing/static/core/stance.md": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
+      "skill-candidate/nature-writing/static/core/workflow.md": "e4cd6870f0e94646caef8b9f5bff2cdba14edb0f2cb559982e317ae65724b9ef",
+      "skill-candidate/nature-writing/static/fragments/journal/generic.md": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
+      "skill-candidate/nature-writing/static/fragments/journal/nat-comms.md": "2e9d35231341aa101c0ab3b17e593f00f3e2c0cf6bf30584c871a0461ca919b4",
+      "skill-candidate/nature-writing/static/fragments/journal/nat-mach-intell.md": "af514347009f38c61351ea37be275cd1087a22cf3698e7aa80f656957d2768f5",
+      "skill-candidate/nature-writing/static/fragments/journal/nature-family.md": "9e22df651528853851c274b28d780d9e7207ea8da55a752752263fb3af23753f",
+      "skill-candidate/nature-writing/static/fragments/journal/nature.md": "cf5ac985df8cdcf0e6d3ec32c1499c4db861c8780bda0d1d67a9a0a168da81cb",
+      "skill-candidate/nature-writing/static/fragments/language/en.md": "0b25d017a2b63371f4931ccc64ea124df81b7b6cbf92d17cb05bc733709efd6a",
+      "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
+      "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7",
+      "skill-candidate/nature-writing/static/fragments/paper_type/hypothesis.md": "c2ef6457304001a14fba41c615e62d47a852a9b0137ae13def6117669143da23",
+      "skill-candidate/nature-writing/static/fragments/paper_type/methods.md": "9c76af7ae150f551deb60c65797fe671c30471da53c0bbd6b4abfbd26e839248",
+      "skill-candidate/nature-writing/static/fragments/paper_type/research.md": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27",
+      "skill-candidate/nature-writing/static/fragments/paper_type/review.md": "f26f847b44761faf44aee024bc05d079490ead7bd5ffa975b277add7795f2b21",
+      "skill-candidate/nature-writing/static/fragments/section/abstract.md": "99f935dae9ce29da0848eca1f0d2b4fbc9eee07d0f58e0c35abfed4a85fdc572",
+      "skill-candidate/nature-writing/static/fragments/section/conclusion.md": "5287996cba0ef8f41a540abc4e50aae8e830a056a5de7188f6bc2b701ac78bd6",
+      "skill-candidate/nature-writing/static/fragments/section/discussion.md": "d1f996edfa7b3a4cc217dc98014df546af4e7328e749c51ccad9ed865d9ea5a0",
+      "skill-candidate/nature-writing/static/fragments/section/experiments.md": "ed15d304bb6a38d7f921e726dfea2f8ebe37d7f7ef6e3cf331f60067792774fe",
+      "skill-candidate/nature-writing/static/fragments/section/intro-general.md": "ad89e46fd91857b02dd4782fb964e24a4c0ac7a782165e67806e1bd8152cc3de",
+      "skill-candidate/nature-writing/static/fragments/section/intro.md": "baf7c0983130897a8e79880bf02c437d94ec66e36d484f99efd13292fb3e8859",
+      "skill-candidate/nature-writing/static/fragments/section/method.md": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04",
+      "skill-candidate/nature-writing/static/fragments/section/related-work.md": "6cd44a0a9b57146baac08cecdaf4a91c7849a8ae37c9c8dbb2d802564ae799b7",
+      "skill-candidate/nature-writing/static/fragments/section/title.md": "667fafc45b0a38c439998d6d8ed18fb98ffea1b196fc9343bc3a4629fcdc110a",
+      "skill-candidate/nature-writing/static/fragments/task/manuscript.md": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
+      "skill-candidate/nature-writing/static/fragments/task/submission-package.md": "69410d283d738e82a35f2d8da1bcfb48385e924b68c1deef84cb2a5be8dceb9d",
+      "skill-candidate/nature-writing/templates/submission/declarations-and-reviewers.tex": "7fe9d93bcde4ba7f20dcf5a9194728e3cd156d99b0fe8567279bd9c399f2eba9",
+      "skill-candidate/nature-writing/templates/submission/highlights-and-summary.tex": "d1ea1f6ccf6d91f6e1727a9e9d2befff1f6c90ef43030d1bbaf9fe583ff6dfb5",
+      "skill-candidate/nature-writing/templates/submission/initial-cover-letter.tex": "4b040e28937d6dd467c7575bb3b043b7ce5a69f881635f8af544e5a031a024be",
+      "skill-candidate/nature-writing/templates/submission/title-page.tex": "e25038ba6b300a2a567e6c8e45a1babf310f64eae14f902f89a6c9b881ecb6e4"
+    },
+    "coordinator_start_commit": "a29f1e1045bc86093e2f74a4fe288ba1e5970d76",
+    "origin_main_at_start": "a29f1e1045bc86093e2f74a4fe288ba1e5970d76",
+    "current_library_pdf_names": [
+      "Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf",
+      "Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf",
+      "An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf",
+      "Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf",
+      "A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf",
+      "Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf",
+      "Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf",
+      "Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf",
+      "Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf",
+      "Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf",
+      "Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf",
+      "Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf",
+      "Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf",
+      "Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf",
+      "Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf",
+      "Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf",
+      "Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf",
+      "Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf",
+      "Residual_Reinforcement_Learning_for_Robot_Control.pdf",
+      "Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf",
+      "Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf",
+      "Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf"
+    ],
+    "selection_basis": "Known E04 case; byte-identical 253dae3 scientific, background, citation and accepted Abstract inputs.",
+    "source_material_excluded_from_writers": true,
+    "facts_categories_only": true,
+    "no_target_english_mainline_order_or_expression_guidance_in_facts": true,
+    "section": "Introduction",
+    "accepted_abstract_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+    "background_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+    "citations_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+    "source_identity_record": "effect-test/E04-introduction-delivery-ee74b27-2026-10-06/coordinator/input-identity.json",
+    "source_identity_record_sha256": "fb82e58220c209ecaa5a5c0506b4f5464d93d69917b76b97590d11a11191c085",
+    "validation_scope": "Known-case E04 Introduction only; no migration, reliable omission detection or stability evidence",
+    "current_author_adjustment_sha256": "f4ffe1f8d608d7a208119409cffb9e746b78a792d20232b2b09a868e9811516f",
+    "author_input_conflict": "Original introduction-method.txt retains a withdrawn experiment-default sentence. The latest explicit author adjustment takes priority; original file bytes remain unchanged.",
+    "diagnosis_start_commit": "50d77287873375de04c851a6840f3fb06588ef84"
+  },
+  "runtime": "C:\\Users\\user2\\AppData\\Local\\Temp\\polishing-7uj2qart\\materials",
+  "prompt_sha256": "e41b7223625fd6a2acec2e339b7f9b033b4d01356b8f56cd8bbb68fd879d1ad0",
+  "runner_sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+  "cli_sha256": "fdda5fa3cf3fb3d000b876720742857676293e4315e4b045fae6f8bd7e866d1d",
+  "cli_version": "codex-cli 0.160.0",
+  "historical_cli_path": "C:\\Users\\user2\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\node_modules\\@openai\\codex-win32-x64\\vendor\\x86_64-pc-windows-msvc\\bin\\codex.exe",
+  "cli_location_adjustment": "Same installed Codex CLI, current npm vendor location; no install or executor logic change.",
+  "isolation": "Material-only external directory and disabled automatic context; explicit read audit, no OS read sandbox claimed."
+}

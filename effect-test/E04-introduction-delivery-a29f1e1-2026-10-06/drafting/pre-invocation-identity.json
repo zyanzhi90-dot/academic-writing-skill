@@ -1,0 +1,23 @@
+{
+  "stage": "drafting",
+  "case": "E04",
+  "section": "Introduction",
+  "identity_verified": true,
+  "all_normal_input_hashes_verified": {
+    "scientific-facts.md": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+    "background-facts.md": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+    "citation-facts.md": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+    "accepted-abstract.en.txt": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+    "core-requirements.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+    "personal-experience.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "introduction-method.txt": "9069250b0281f6b71249f38491ce3c8829d26f22880f009d836a2ce49386ad83",
+    "current-author-adjustment.txt": "f4ffe1f8d608d7a208119409cffb9e746b78a792d20232b2b09a868e9811516f",
+    "task.md": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159"
+  },
+  "candidate_git_bytes_verified": true,
+  "actual_complete_returns_verified": true,
+  "target_original_excluded": true,
+  "accepted_abstract_supplied_unchanged": true,
+  "attempt": 1,
+  "no_coordinator_evaluation_supplied": true
+}
