@@ -81,15 +81,18 @@ needs already developed. Deliver the requested complete Introduction in the
 requesting skill's format.
 
 Adapt a continuous expression unit from its English and analysis together.
-Bind the source's scientific noun and finite action to the author's corresponding
-object and operation before forming the sentence. P17 I01 names the learning
-route before its value and motion-modeling role; E19 names the integrated motion
-model before its feature-extraction and motion-generation effects; E23 carries
-the generated trajectories into the named tracking component. Use the matching
-object-to-action-to-effect relationship for the author's science, keeping that
-object's technical noun in the effect sentence or a shorter name that retains
-its role. Select another mature construction if the source noun does not fit
-the intended object; a function label alone is not an English realization.
+Map the source's scientific object, action and relation to the author's content.
+P17 I01 connects a learning route to its value and motion-modeling role; E19
+connects an integrated model to its feature-extraction and motion-generation
+effects; E23 carries generated trajectories into the tracking component.
+In E19, the publication's `its estimate` refers to the DMP nonlinear function
+and `This modification` carries the established DMP/GMM/GMR combination into
+its effect. The named-model adaptation makes the same responsibility explicit.
+Choose between such mature realizations according to the author's relation and
+the surrounding sentences: repeat a name when it distinguishes objects, and
+use a clear shorter reference when the same action and role remain identifiable.
+Choose the opening construction that expresses the current scientific task;
+a function label alone is not an English realization.
 For literature clauses, E05–E13 bind the citation to a named method, model or
 study and continue its mechanism or output through the same scientific identity.
 
@@ -115,18 +118,20 @@ Apply `scientific-expression.md` to the resulting phrases, sentences and adjacen
 paragraphs before delivery. The same organization and expression material serves
 both generation and review.
 
-For retained sentences, resolve the subject and action against the selected
-unit's object-to-action-to-effect relationship, even when the surrounding
-science is accurate. For a proposed replacement, compare the old and new
-scientific subjects and the responsibility each carries in the adjacent
-sentences. Shortening modifiers or repeated claims can preserve a technical
-head noun; removing that noun can remove the design, condition or output that
-owns the next action. Choose the shorter realization only when its technical
-identity, finite action and handoff still express the same author relationship.
-Keep an already suitable realization when the replacement loses that identity.
-Use P17 I01 and E19/E23's actual English and noun/action analysis to repair an
-affected unit, then compare the resulting continuous sentences again. This is
-the requesting workflow's existing expression check, not a separate output audit.
+For retained and replacement sentences, compare the actual continuous prose
+with the selected example's scientific relationship and concrete English.
+Resolve who performs the action, what is affected and how the next sentence
+continues the same relation. A scientific or responsibility error changes that
+meaning. An expression mismatch needs evidence that the selected construction,
+collocation or sentence link does not fit the author's intended relation or
+obscures it. Judge names, pronouns, summary references and openings in context,
+as in E19's publication wording and its named-model adaptation; grammatical
+validity alone does not establish the corresponding mature realization.
+Preserve clear, source-compatible variants. Treat an optional increase in
+explicitness or concision as a suggestion when the relationship is already clear.
+After a replacement, compare the old and new actions, referents, conditions and
+handoffs, then reread the affected continuous unit. This is the requesting
+workflow's existing expression check, not a separate output audit.
 
 ## Conceptual scope and information selection
 

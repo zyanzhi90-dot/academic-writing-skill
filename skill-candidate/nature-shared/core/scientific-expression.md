@@ -23,9 +23,14 @@ pass cannot replace reading and adapting the concrete English.
   controller, analysis, data, or result does to which object.
 - Directly name scientific objects, repeating technical names when
   needed to keep actions, relations, and guarantees clear. Repeated names are
-  useful object handoffs, not redundant claims. An available antecedent alone
-  does not justify a pronoun or broad label: the wording must identify the
-  object's technical category and role without requiring the reader to infer
+  useful object handoffs, not redundant claims. In robotics-centred Introduction,
+  assess names, pronouns and summary references through the selected example's
+  context and the author's continuous scientific relationship: the reader must
+  be able to identify the referent, its action and role in that context. Use the
+  shared Introduction material to choose a clear realization. For other prose,
+  an available antecedent alone does not justify a pronoun or broad label:
+  the wording must identify the object's technical category and role without
+  requiring the reader to infer
   them. Use a shorter reference only when it preserves that clarity. Modifiers
   describing a process or state do not identify a model or quantity by themselves.
   Remove modifiers that add no scientific information.
@@ -33,7 +38,10 @@ pass cannot replace reading and adapting the concrete English.
   sentence. Split overloaded clauses while keeping each condition with the
   guarantee it limits. Length diagnoses information load; there is no fixed
   sentence-length or voice ratio.
-- Omit Here-style signposting and participial or gerund sentence openings.
+- Omit Here-style signposting. In robotics-centred Introduction, choose sentence
+  openings by their scientific task, applicable source construction and actual
+  clarity; a gerund or participial opening can carry a clear scientific relation.
+  For other prose, omit participial or gerund sentence openings.
   Use an explicit subject and finite verb; express meaningful conditions or
   manner in ordinary clauses without losing their relation. Use sentences,
   not colons or semicolons, to state and connect prose claims. Preserve
@@ -63,8 +71,8 @@ sentence meaning alone does not establish completion. Check:
   estimated, learned, commanded, applied, or theoretically guaranteed.
 - Subject–action–object relations, including passive agents, omitted subjects,
   coordinated clauses, infinitives, and participles.
-- Explicit object identity and technical role, including when an antecedent
-  exists. Replace underspecified references or collective labels with the
+- Object identity and technical role under the current task's expression
+  criteria. Replace underspecified references or collective labels with the
   appropriate scientific names. Check modifier attachment and the scope of
   negation, degree, only, and quantifiers.
 - The exact object, type, strength, and assumptions of each guarantee; distinguish

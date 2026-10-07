@@ -4,7 +4,7 @@
 
 材料按科学关系组织，覆盖领域价值、段首对象、文献能力及续句、条件与比较、设计及作用、设计接口和贡献收束。每组保留真实连续句和必要上下文，逐句拆出主语、谓语、对象，以及实现关系的句式、介词和具体用词。来源标识中的 S 编号对应出版原文句位，分析表中的 A 编号对应当前完整单元的示例句位。英文按块标为“原文选取”或“基于原文的适配”；页码与 I／C 编号定位来源。引文数字沿用各篇论文的文献编号。
 
-“可模仿表达”中的 `〈…〉` 标记分析所得的作者内容位置，不是出版原句。方法、模型、控制器、观察器和量的占位填写准确的科学名称，必要时重复名称；较短指代保留对象的技术身份与作用。使用时按数、时态、条件和证据强度调整，用具有明确主语和限定动词的完整句子连接条件、作用及输入输出。句式是一组可以直接参照的成熟实现，调用顺序与组合方式由当前科学关系决定。
+“可模仿表达”中的 `〈…〉` 标记分析所得的作者内容位置，不是出版原句。方法、模型、控制器、观察器和量对应作者准确的科学对象，名称与较短指代按连续语境选择，使对象、动作及作用清楚。使用时按数、时态、条件和证据强度调整，把范例的句式和搭配用于同一科学关系；主语可以是对象、研究活动或已经明确的设计。句式是一组可以直接参照的成熟实现，调用顺序与组合方式由当前科学关系决定。
 
 ## 1. 领域价值怎样写成首句，并接入研究需要
 
@@ -425,7 +425,7 @@ P17 I05 前两句已给当前多示教组合设计及作用，见 E19；以下�
 
 ## 5. 设计怎样出现，并紧接具体作用
 
-理由已经建立后，用 `we integrate/develop/present ...` 或设计作主语的 `is designed/proposed/employed ...` 明确作者采取了什么。紧接它处理的对象、发挥的作用或保证的性质。组合设计沿用 P17 的作者动作与作用关系，作用句以整合后的具体运动模型名称作主语，明确哪项设计使什么成为可能。
+理由已经建立后，用 `we integrate/develop/present ...` 或设计作主语的 `is designed/proposed/employed ...` 明确作者采取了什么。紧接它处理的对象、发挥的作用或保证的性质。组合设计沿用 P17 的作者动作与作用关系，通过具体名称或在连续语境中明确的设计指代，说明哪项设计使什么成为可能。
 
 <a id="e19"></a>
 
@@ -445,6 +445,12 @@ P17 I05 前两句已给当前多示教组合设计及作用，见 E19；以下�
 | I05-A4 | `The DMP motion model integrating GMM and GMR`—`enables`—多示教特征提取与合成运动生成。 | 组合后的具体运动模型作主语，`enables A to B and to C` 写两项相接作用。`extract ... from` 给输入来源，`motions that synthesize these features` 保持输出与同一特征的关系。 |
 
 **可模仿表达及作者对应。** `To take advantage of 〈前文已说明的能力〉, we integrate 〈方法A的准确名称〉 and 〈方法B的准确名称〉 into 〈作者系统的准确名称〉. The 〈待建模非线性函数的准确名称〉 is modeled with 〈建模工具的准确名称〉. The estimate of the 〈同一非线性函数名称〉 is retrieved through 〈回归工具的准确名称〉. The 〈整合后的运动模型的准确名称〉 enables 〈研究对象〉 to 〈作用A〉 and to 〈接续作用B〉.` 作者对应“为什么组合、各自处理什么、组合使什么成为可能”，持续说明同一函数及其估计、输入信息和生成产物。
+
+**同一关系的连续英文（原文选取，P17 I05-S1-S2；PDF p.2／刊页778，左栏）。**
+
+> To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our proposed system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR. This modification enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features.
+
+`its estimate` 接同句已经明确的 DMP 非线性函数；`This modification` 接刚说明的 DMP、GMM、GMR 组合及各自职责，再写组合产生的作用。作者可以参照这种连续承接，也可以选择上面的具名模型实现。选择取决于当前语境能否清楚区分函数、估计、设计与输出，以及相应作用是否确属作者设计；用作者内容替换后仍保持“组合理由—组成职责—组合作用”的关系。
 
 <a id="e21"></a>
 
@@ -620,4 +626,4 @@ Fuzzy 的前文已经建立瞬态约束和收敛时间两项需要，这组贡�
 
 主语选择跟随当前科学重点：方法作主语写采用与能力，信息或问题作主语写处理对象，输出作主语写生成结果，性能作主语写作用或保证，`we` 作主语写作者设计动作。动作与对象一起选择，例如 `extract features from demonstrations`、`approximate nonlinear functions`、`compensate for uncertain dynamics`、`relax a requirement` 都在相应连续句中给出了具体搭配与适用关系。
 
-承接句优先重复准确的科学名称：同一观察器名称接其估计职责，两个具体方法名称接共同能力，整合后的运动模型名称接其作用，运动生成模块与轨迹跟踪模块名称接各自职责和同一轨迹。较短表达在保留技术身份与作用清晰时使用，例如同句中的 `its computing efficiency` 与 `that of GMR` 已明确比较的是计算效率。作者填入自己的科学内容后，继续保持对象、方法、信息、条件、输入输出和作用之间的准确对应，使成熟英文直接承载作者的研究。
+承接句让同一对象继续承担对应职责：观察器接其估计职责，相关方法接共同能力，整合后的模型接组合作用，生成与跟踪部分接同一轨迹。E19 的 `its estimate`、`This modification` 以及 E20 的 `its computing efficiency`、`that of GMR` 示范了语境明确时的承接；需要区分多个对象或作用时，采用相应具名实现。结合完整段落和连续句选择主语、动作与搭配，使对象、方法、信息、条件、输入输出和作用准确对应作者研究，保持范例的成熟推进方式与实际清晰度。
