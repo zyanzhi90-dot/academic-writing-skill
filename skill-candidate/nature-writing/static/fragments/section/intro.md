@@ -8,8 +8,12 @@ its Selection and Use during Drafting, and task-matched section, paragraph and
 expression material.
 
 In workflow steps 1–3, determine the author's scientific line and paragraph
-tasks from author material. Use the index to select organization and connect
-each current task to a complete example paragraph or continuous sentence unit,
+tasks from author material under the index's information selection. Bring the
+related literature's capabilities, conditions and current research needs
+together so that the core design follows from an established need. Determine
+the actual contributions and the earlier needs each resolves, then choose the
+paragraph tasks required to develop that argument. Use the index to select
+organization and connect each task to a complete example or continuous unit,
 with its context, progression analysis and concrete English realization. Before
 wording that paragraph, resolve which author object performs each action, what
 it acts on, and which author-supported conditions and effects connect the
@@ -22,13 +26,20 @@ syntax, collocations and wording directly; replace the example's facts,
 objects, conditions, comparisons, conclusions and citation identities with the
 author's own. Select, combine or adjust continuous units where the author's
 relationships differ, keeping design reasons, responsibilities, interfaces and
-contributions connected within and between paragraphs.
+contributions connected within and between paragraphs. Retain method content
+for these argument roles and consolidate descriptions that only extend a
+component overview. Select the ending's contribution lead and numbered
+realization through E25 and applicable E26, with P17 I08/E24 supplying the
+responsibility-to-effect continuity inside each substantive item.
 
 In steps 7–8, compare the actual continuous prose with original author material
 and the selected English together. Check the realized scientific relationship
 and its concrete expression, including sentences retained from an existing
-draft. Repair affected units from the applicable examples, preserve already
-suitable wording, and reread their adjacent links with
+draft. Assess the full research-state-to-design transition, the purpose of later
+method content and each numbered contribution's link to earlier needs. Apply
+the index's information selection throughout, including retained sentences.
+Repair affected units from the applicable examples, preserve suitable wording
+and sound literature capabilities, and reread their adjacent links with
 `scientific-expression.md` before delivery in the existing output format.
 
 ## Select the applicable Introduction material

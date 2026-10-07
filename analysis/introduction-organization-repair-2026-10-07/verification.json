@@ -1,0 +1,109 @@
+{
+  "kind": "Static preservation and integration check; no model call or effect test",
+  "baseline": "712c86a5dcbb6e7f2ec1df8f1e7a40bffff47c20",
+  "candidate_changed_files": [
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-expression.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-section.md",
+    "skill-candidate/nature-shared/core/robotics-main-text.md",
+    "skill-candidate/nature-writing/static/fragments/section/intro.md"
+  ],
+  "checks": {
+    "candidate_scope_exactly_seven_intro_files": true,
+    "tracked_changes_exactly_declared_scope": true,
+    "new_files_declared_scope": [
+      "analysis/introduction-organization-repair-2026-10-07/review.md",
+      "analysis/introduction-organization-repair-2026-10-07/verification.json",
+      "current-author-adjustment.txt"
+    ],
+    "three_level_source_preservation": {
+      "section": {
+        "all_english_evidence_lines_unchanged": true,
+        "english_evidence_line_count": 24,
+        "all_analysis_table_lines_unchanged": true,
+        "analysis_table_line_count": 0
+      },
+      "paragraphs": {
+        "all_english_evidence_lines_unchanged": true,
+        "english_evidence_line_count": 9,
+        "all_analysis_table_lines_unchanged": true,
+        "analysis_table_line_count": 82
+      },
+      "expression": {
+        "all_english_evidence_lines_unchanged": true,
+        "english_evidence_line_count": 33,
+        "all_analysis_table_lines_unchanged": true,
+        "analysis_table_line_count": 148
+      }
+    },
+    "other_subject_intro_tail_unchanged": {
+      "writing": true,
+      "polishing": true
+    },
+    "protected_paths_unmodified": [
+      "effect-test",
+      "skill-baseline",
+      "skill-candidate/nature-shared/core/scientific-expression.md",
+      "skill-candidate/nature-writing/static/core",
+      "skill-candidate/nature-polishing/static/core",
+      "skill-candidate/nature-writing/SKILL.md",
+      "skill-candidate/nature-polishing/SKILL.md",
+      "skill-candidate/nature-writing/manifest.yaml",
+      "skill-candidate/nature-polishing/manifest.yaml",
+      "核心要求.txt",
+      "我自己的经验和做法.txt",
+      "摘要写作方法.txt"
+    ],
+    "hub_local_file_and_anchor_links_resolve": [
+      "robotics-introduction-section.md#field-value",
+      "robotics-introduction-paragraphs.md#p17-i01",
+      "robotics-introduction-paragraphs.md#eso-i01",
+      "robotics-introduction-expression.md#e01",
+      "robotics-introduction-expression.md#e03",
+      "robotics-introduction-section.md#paragraph-tasks",
+      "robotics-introduction-paragraphs.md#p17-i04",
+      "robotics-introduction-expression.md#e04",
+      "robotics-introduction-expression.md#e06",
+      "robotics-introduction-expression.md#e17",
+      "robotics-introduction-section.md#prior-capability",
+      "robotics-introduction-paragraphs.md#p05-i02",
+      "robotics-introduction-paragraphs.md#p17-i04",
+      "robotics-introduction-expression.md#e05",
+      "robotics-introduction-expression.md#e13",
+      "robotics-introduction-expression.md#e18",
+      "robotics-introduction-section.md#prior-capability",
+      "robotics-introduction-paragraphs.md#p05-i02",
+      "robotics-introduction-paragraphs.md#fuzzy-i03",
+      "robotics-introduction-expression.md#e14",
+      "robotics-introduction-expression.md#e18",
+      "robotics-introduction-expression.md#e20",
+      "robotics-introduction-section.md#design-role",
+      "robotics-introduction-paragraphs.md#fuzzy-i02",
+      "robotics-introduction-paragraphs.md#p17-i05",
+      "robotics-introduction-expression.md#e13",
+      "robotics-introduction-expression.md#e19",
+      "robotics-introduction-expression.md#e21",
+      "robotics-introduction-expression.md#e22",
+      "robotics-introduction-section.md#design-connection",
+      "robotics-introduction-paragraphs.md#p17-i07",
+      "robotics-introduction-expression.md#e17",
+      "robotics-introduction-expression.md#e23",
+      "robotics-introduction-section.md#contributions",
+      "robotics-introduction-paragraphs.md#p17-i08",
+      "robotics-introduction-expression.md#e25",
+      "robotics-introduction-expression.md#e26",
+      "robotics-introduction-expression.md#e24"
+    ],
+    "current_author_input_carries_latest_scope": true,
+    "current_author_input_paths_sha256": {
+      "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+      "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+      "引言写作方法.txt": "2cb1795a8dece2abdcb2e773218a197a4d7d2801e25b1c845248697e9843bc9b",
+      "current-author-adjustment.txt": "1e91e62c04650a99c962aada26bc9e282a7e3eb888e5108a1e1dbed46a151d85"
+    },
+    "git_diff_check_passed": true
+  },
+  "effect_status": "Not tested. Static connection and preservation do not prove autonomous delivery."
+}

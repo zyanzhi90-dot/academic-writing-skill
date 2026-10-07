@@ -585,7 +585,7 @@ P05 已建立相对运动任务、未知动力学、权值学习信息与激励�
 | C2-A1–A2 | `A novel composite learning algorithm`—`is designed`—用于 NN 权值自适应；同一算法—`allows`—估计误差信息进入权值自适应律以改善估计。 | 设计句给用途，续句重复复合学习算法名称，`allows ... to be integrated into ... to improve` 保留信息、去向和估计作用。 |
 | C3-A1 | `A partial persistent excitation condition`—`is introduced`—用于 NN 权值自适应；传统 PE 要求—`can be greatly relaxed`。 | `introduced for` 给作用环节，`such that` 接条件改善；`partial persistent excitation` 使用与前文 PPE 一致的完整技术名称。 |
 
-**可模仿表达及作者对应。** `The objective of this paper is to develop 〈设计〉 for 〈研究任务〉 under 〈相关条件〉. The main contributions of this paper can be summarized as follows.` 贡献句可直接参照 `A 〈设计〉 is developed for 〈系统〉 to perform 〈任务〉 with 〈信息条件〉.`；`A 〈算法〉 is designed for 〈环节〉 such that 〈信息〉 can be integrated into 〈信息去向〉 to improve 〈对应性能〉.`；`A 〈条件〉 is introduced for 〈环节〉 such that the requirement of 〈已有条件〉 can be relaxed.` 内容、修饰强度及列项数量来自作者实际贡献。
+**可模仿表达及作者对应。** 当前结尾采用贡献引导句及 `1)`、`2)`… 列项。引导可直接参照 `The objective of this paper is to develop 〈设计〉 for 〈研究任务〉 under 〈相关条件〉. The main contributions of this paper can be summarized as follows.` 各项内部可参照 `A 〈设计〉 is developed for 〈系统〉 to perform 〈任务〉 with 〈信息条件〉.`；`A 〈算法〉 is designed for 〈环节〉 such that 〈信息〉 can be integrated into 〈信息去向〉 to improve 〈对应性能〉.`；`A 〈条件〉 is introduced for 〈环节〉 such that the requirement of 〈已有条件〉 can be relaxed.` 每项的科学贡献、需要、职责和作用接回前文；内容、修饰强度及列项数量来自作者实际贡献。
 
 <a id="e26"></a>
 
@@ -622,7 +622,7 @@ Fuzzy 的前文已经建立瞬态约束和收敛时间两项需要，这组贡�
 
 ## 按作者科学内容选择、组合和调整
 
-先从作者已经确定的科学主线和段落任务明确当前句要完成什么，再选择同一关系的英文实现。领域价值参照 E01–E03；后续段首参照 E04、E06、E17；具体文献优先参照 E05–E09、E13、E18 的 `In [xx], ...`；同一文献续句参照 E06、E10–E12、E14；条件与比较参照 E14–E16、E18、E20；设计紧接作用参照 E13、E19、E22；组成和接口参照 E23；贡献收束参照 E24–E26。每组按需要读取其连续示例和分析。
+先从作者已经确定的科学主线和段落任务明确当前句要完成什么，再选择同一关系的英文实现。领域价值参照 E01–E03；后续段首参照 E04、E06、E17；具体文献优先参照 E05–E09、E13、E18 的 `In [xx], ...`；同一文献续句参照 E06、E10–E12、E14；条件与比较参照 E14–E16、E18、E20；设计紧接作用参照 E13、E19、E22；组成和接口参照 E23；贡献引导与编号列项读取 E25 及适用的 E26，项内职责与作用参照 E24。每组读取其连续示例和分析，按作者科学关系选择和调整。
 
 主语选择跟随当前科学重点：方法作主语写采用与能力，信息或问题作主语写处理对象，输出作主语写生成结果，性能作主语写作用或保证，`we` 作主语写作者设计动作。动作与对象一起选择，例如 `extract features from demonstrations`、`approximate nonlinear functions`、`compensate for uncertain dynamics`、`relax a requirement` 都在相应连续句中给出了具体搭配与适用关系。
 

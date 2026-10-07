@@ -12,6 +12,11 @@ author evidence, Terminology Ledger and `scientific-expression.md` throughout.
 Establish the author's scientific line and paragraph responsibilities first.
 Identify the field value, current research need, relevant prior capabilities and
 conditions, reasons for each core design, its role and supported contribution.
+Apply the information selection below while building that line. Bring the
+relevant capabilities and conditions together into the current research need
+before selecting the core design's English. Plan contributions by the needs
+and responsibilities they resolve, then select the paragraph tasks needed to
+establish them.
 Use **B15 / P17 as the default organization and expression anchor**. Select
 B16 / P05, B17 / Fuzzy2023 and B18 / ESO2017 where their scientific relationships
 fit the current paragraph. Replace example facts, objects, comparisons,
@@ -35,7 +40,7 @@ relationship. Load the needed parts as the argument develops.
 | Task or information conditions establish a design need | [Prior capability and conditions](robotics-introduction-section.md#prior-capability) | [P05 I02](robotics-introduction-paragraphs.md#p05-i02), [Fuzzy I03](robotics-introduction-paragraphs.md#fuzzy-i03) | [E14](robotics-introduction-expression.md#e14)–[E18](robotics-introduction-expression.md#e18), [E20](robotics-introduction-expression.md#e20) |
 | Established reasons lead to a design and its effect | [Design and role](robotics-introduction-section.md#design-role) | [Fuzzy I02](robotics-introduction-paragraphs.md#fuzzy-i02), [P17 I05](robotics-introduction-paragraphs.md#p17-i05) | [E13](robotics-introduction-expression.md#e13), [E19](robotics-introduction-expression.md#e19), [E21](robotics-introduction-expression.md#e21), [E22](robotics-introduction-expression.md#e22) |
 | Multiple designs connect through responsibility and the same output | [Design connection](robotics-introduction-section.md#design-connection) | [P17 I07](robotics-introduction-paragraphs.md#p17-i07) | [E17](robotics-introduction-expression.md#e17), [E23](robotics-introduction-expression.md#e23) |
-| Contributions recover the earlier needs and supported roles | [Contributions](robotics-introduction-section.md#contributions) | [P17 I08](robotics-introduction-paragraphs.md#p17-i08) | [E24](robotics-introduction-expression.md#e24)–[E26](robotics-introduction-expression.md#e26) |
+| A contribution lead and numbered items recover the earlier needs and supported roles | [Contributions](robotics-introduction-section.md#contributions), including P05 and Fuzzy numbered examples | [P17 I08](robotics-introduction-paragraphs.md#p17-i08) for responsibility and effect | [E25](robotics-introduction-expression.md#e25)–[E26](robotics-introduction-expression.md#e26) for the lead and items; [E24](robotics-introduction-expression.md#e24) for their scientific content |
 
 The section resource supplies six organization tasks with complete paragraph
 groups. The paragraph resource supplies nine complete examples and a task,
@@ -53,9 +58,14 @@ example paper; author prose uses its own verified citation identities.
 
 In the existing argument and paragraph planning steps, determine how the
 author's field value leads to the research problem, which capabilities and
-conditions need explanation, and why each design follows. Give each paragraph
-a concrete scientific task and an incoming and outgoing relationship. Paragraph
-count, design placement and sentence order follow those dependencies.
+conditions need explanation, and what their combination requires in the current
+task. Establish why the core design is needed at this point in the argument,
+including how its responsibilities address the needs already developed. Give
+each paragraph a scientific task and an incoming and outgoing relationship.
+Choose later content by the adoption reason, interface or contribution it still
+needs to explain; combine or shorten descriptions that only enumerate the
+method's components. Paragraph count, design placement and sentence order follow
+scientific dependencies, with no method-paragraph quota or length ratio.
 
 Match the selected example's scientific level as well as its topic. In P17 I01,
 the application of robots establishes field value, the need for adaptability
@@ -76,8 +86,13 @@ proposed/developed/employed to ...` realizations in E05–E09 and E13. Follow th
 same reference with its relevant mechanism, output, estimate or effect when
 needed. Use the supported method names, task conditions and abilities to establish
 the reason for a design. State the design directly and continue with its specific
-role, effect or guarantee, as in E19, E22 and E23. Let contributions recover the
-needs already developed. Deliver the requested complete Introduction in the
+role, effect or guarantee, as in E19, E22 and E23. Close with a contribution lead
+and `1)`, `2)` numbered items, reading the complete E25 and applicable E26
+examples and analysis for this realization. Each item identifies an actual
+contribution, the earlier need it addresses and its supported role or effect.
+Choose item count and grouping from those scientific relationships. Use P17 I08
+and E24 for responsibility and effect within the items, and P05/Fuzzy for the
+lead and numbered realization. Deliver the complete Introduction in the
 requesting skill's format.
 
 Adapt a continuous expression unit from its English and analysis together.
@@ -102,8 +117,20 @@ Use the same resources and original author material to assess the draft's
 scientific line, paragraph responsibilities and sentence links before local
 wording. Check whether the opening establishes field value, literature states
 specific capabilities under the relevant conditions, core designs have adequate
-adoption reasons, and their roles connect to the contribution. Reconstruct or
-adjust the affected relationships from author evidence where needed.
+adoption reasons, and their roles connect to the contribution. Assess the
+research-state-to-design transition as a whole: the relevant capabilities and
+conditions must establish the current need, not leave the reader to assemble
+it from subsequent method descriptions. Preserve sound literature capabilities
+and needs while restructuring the affected transition or later descriptions
+from author evidence.
+
+Apply the information selection below to the full draft, including material
+retained from Writing and proposed additions. Recover the actual contributions
+from earlier needs and design responsibilities, and realize the ending through
+E25 and applicable E26 as a contribution lead plus numbered items. Inspect
+whether each item has a substantive role or effect established in the argument;
+numbering a framework summary does not establish those relationships. Use P17
+I08 and E24 to sustain scientific continuity within the items.
 
 Judge the draft's paragraph openings against the scientific responsibilities
 of the selected examples, including openings retained verbatim. Use P17 I01
@@ -139,12 +166,19 @@ Keep method information at the level needed to understand adoption reasons,
 design roles, interfaces and supported contributions. Place algorithm steps,
 formula derivations, control-law details and implementation parameters in Method.
 An Introduction can explain a model's role or a component's output when that
-relation establishes why the design is needed.
+relation establishes why the design is needed. Once a responsibility is clear,
+continue the research argument or recover its contribution; do not extend the
+later Introduction into a consecutive overview of the author's method.
 
 Organize the default Introduction around research needs, relevant literature
 abilities and conditions, current designs and contributions.
-Select author information by its contribution to the
-Introduction's scientific argument.
+For the current author Introduction, retain research needs, scientific
+conditions, design reasons, responsibilities, interfaces and contributions.
+Exclude this study's experimental tasks, benchmarks, comparison settings,
+validation observations and results throughout the section, including
+observations used to motivate a design or tested architecture advantages.
+Preserve relevant capabilities of cited prior work with their true conditions.
+This author scope also governs Polishing additions and the contribution items.
 
 ## B15
 

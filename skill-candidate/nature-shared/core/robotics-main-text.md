@@ -85,7 +85,9 @@ PDF page numbers count from the first PDF page, not the printed journal page.
   condition and say what design addresses it and what supported role or guarantee
   follows. For independent Related Work, retain the connection to what design
   and evaluation address the unresolved condition. A continuous closing paragraph
-  and a contribution list are both possible; choose by the paper and venue. Do not
+  and a contribution list are both possible for independent Related Work; choose
+  by the paper and venue. Introduction uses the dedicated index's contribution
+  lead, numbered items and information selection. Do not
   turn an author's missing method into the gap or dismiss prior methods without
   their actual scope. A separate Related Work section is optional: P19 §II
   uses one, whereas P11 places two literature lines inside §I.

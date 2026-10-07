@@ -206,7 +206,7 @@
 
 ## 6. 结尾贡献回收前文已经建立的需要
 
-结尾把本文设计与贡献对应到前文的研究需要，使读者看清这一工作完成了哪些职责，以及这些职责怎样共同支持总体目标。贡献既可由连贯段落说明，也可按内容列项；其内容和组合方式由作者研究决定。
+结尾用贡献引导句及 `1)`、`2)`… 列项，把本文设计与贡献逐项对应到前文的研究需要。每项说明实际贡献、它回应的需要以及支持该贡献的职责或作用；数量和组合方式由作者科学内容决定。
 
 贡献中的比较继续使用前文有关的能力与条件，明确比较对象及适用范围。总体框架的贡献应体现各部分共同完成研究目标的关系。
 
@@ -220,7 +220,7 @@
 
 > We present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived by the Lyapunov theory. The Lyapunov-derived stability constraints of SEDS increase the complexity of learning the SEDS motion model. In contrast to [3] and [25] which considered only motion modeling, our robot learning system is enhanced by an NN-based controller. The effect of dynamic environments on the robot can be compensated by neural learning. The robot learning framework integrating motion generation and NN-based trajectory tracking enables the robot to perform the learned motions steadily and more robustly in the real world.
 
-具体借鉴关系：前文已分别建立运动建模、多示教信息利用与未知动力学下执行的需要；本段回收运动生成和轨迹跟踪两项责任，与指定的运动建模工作比较，再说明控制补偿怎样支持真实环境中的运动执行。总体贡献从已论证的设计职责中形成。
+具体借鉴关系：前文已分别建立运动建模、多示教信息利用与未知动力学下执行的需要；本段回收运动生成和轨迹跟踪两项责任，与指定的运动建模工作比较，再说明控制补偿怎样支持真实环境中的运动执行。借鉴这些需要、职责和作用的对应，为当前各项贡献提供内容；贡献引导及列项采用下面 P05／Fuzzy 的适用实现。
 
 **P05 的目标与贡献段落组：任务框架、学习信息与激励条件回收对应需要。**
 
