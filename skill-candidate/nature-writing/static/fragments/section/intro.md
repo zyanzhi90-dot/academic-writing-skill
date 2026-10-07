@@ -4,13 +4,32 @@
 
 Read the dedicated shared Introduction index directly:
 `../nature-shared/core/robotics-introduction-examples.md` from the skill root,
-its Selection, and task-matched section, paragraph and expression material.
-Determine the author's scientific line and paragraph tasks before drafting, then
-draft along that line using the selected complete English and analysis. This
-shared domain guidance governs architecture, field-value opening, literature
-capabilities and continuations, design reasons and effects, and the necessity of
-method information. Apply it during generation and final
-review, with the existing workflow and `scientific-expression.md`.
+its Selection and Use during Drafting, and task-matched section, paragraph and
+expression material.
+
+In workflow steps 1–3, determine the author's scientific line and paragraph
+tasks from author material. Use the index to select organization and connect
+each current task to a complete example paragraph or continuous sentence unit,
+with its context, progression analysis and concrete English realization. Before
+wording that paragraph, resolve which author object performs each action, what
+it acts on, and which author-supported conditions and effects connect the
+sentences. Carry the selected realization and this scientific correspondence
+into step 4.
+
+Draft along the author's line, paragraph by paragraph, starting from that
+selected English. Retain suitable progression, subject–action constructions,
+syntax, collocations and wording directly; replace the example's facts,
+objects, conditions, comparisons, conclusions and citation identities with the
+author's own. Select, combine or adjust continuous units where the author's
+relationships differ, keeping design reasons, responsibilities, interfaces and
+contributions connected within and between paragraphs.
+
+In steps 7–8, compare the actual continuous prose with original author material
+and the selected English together. Check the realized scientific relationship
+and its concrete expression, including sentences retained from an existing
+draft. Repair affected units from the applicable examples, preserve already
+suitable wording, and reread their adjacent links with
+`scientific-expression.md` before delivery in the existing output format.
 
 ## Select the applicable Introduction material
 
