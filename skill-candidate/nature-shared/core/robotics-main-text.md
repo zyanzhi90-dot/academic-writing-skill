@@ -12,9 +12,10 @@ workflow or a journal policy. Author-provided facts and evidence, current venue
 requirements, the shared non-invention and terminology rules, and the relevant
 paper-type and section jobs remain in force. The examples below show decisions
 under particular technical conditions; none is a required sentence pattern.
-For concrete English realization and the common expression check, use
-[robotics-writing-examples.md](robotics-writing-examples.md) as routed by the
-requesting skill. The [19-paper evidence report](../../../机器人论文正文写作证据分析.md)
+For concrete English realization and the common expression check, Introduction-only
+work uses [robotics-introduction-examples.md](robotics-introduction-examples.md)
+directly; other tasks use [robotics-writing-examples.md](robotics-writing-examples.md)
+as routed by the requesting skill. The [19-paper evidence report](../../../机器人论文正文写作证据分析.md)
 is an optional project lookup, not a runtime dependency.
 PDF page numbers count from the first PDF page, not the printed journal page.
 
@@ -61,8 +62,8 @@ PDF page numbers count from the first PDF page, not the printed journal page.
 
 ## Introduction and Related Work
 
-- For Introduction, use `robotics-introduction-examples.md` through the common
-  robotics index. Its section, paragraph and expression material realizes the
+- For Introduction, read the dedicated `robotics-introduction-examples.md`
+  index directly. Its section, paragraph and expression material realizes the
   author's scientific line, field-value opening, literature capabilities,
   design reasons and effects, and conceptual content selection. Drafting and
   Polishing use the same material within their existing workflows.

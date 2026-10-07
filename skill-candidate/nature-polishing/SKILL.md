@@ -88,7 +88,13 @@ implications, calibrate modal and reporting verbs to evidence strength, and make
 limitations and future work resolve named claim boundaries. Treat it as general
 writing guidance, not journal policy.
 
-When robotics is the central scientific subject of manuscript polishing, read
+For robotics-centred Introduction-only work, read
+`../nature-shared/core/robotics-introduction-examples.md` directly. Its Selection
+and scientific-task table provide the common reference coordination and the
+same positive units used by Writing. Do not read the other-section
+`robotics-writing-examples.md` card collection for this task.
+
+For other requests, when robotics is the central scientific subject of manuscript polishing, read
 `../nature-shared/core/robotics-writing-examples.md`: common instructions and
 task index, then relevant English cards with their analysis and selection notes.
 Use A cards for abstracts and B cards for body work, whole-manuscript reasoning,

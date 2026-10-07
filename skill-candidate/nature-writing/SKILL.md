@@ -93,7 +93,13 @@ positioning from citation decoration, calibrate modal strength to evidence,
 and turn limitations and future work into claim-specific reasoning. This is
 general writing guidance rather than an official journal rule.
 
-For `task=manuscript`, when robotics is the central scientific subject, read
+For robotics-centred Introduction-only work, read
+`../nature-shared/core/robotics-introduction-examples.md` directly. Its Selection
+and scientific-task table provide the common reference coordination and entry
+to the positive section, paragraph and expression units. Do not read the
+other-section `robotics-writing-examples.md` card collection for this task.
+
+For other `task=manuscript` requests, when robotics is the central scientific subject, read
 `../nature-shared/core/robotics-writing-examples.md`: common instructions and
 task index, then relevant English cards with their analysis and selection notes.
 Use A cards for abstracts and B cards for body work, whole-manuscript reasoning,

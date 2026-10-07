@@ -75,7 +75,9 @@ references:
   on_demand:
     - condition: complete abstract polishing or autonomous delivery; execute source-to-prose comparison against original author material
       path: ../nature-shared/core/abstract-delivery.md
-    - condition: robotics is the central scientific subject of manuscript polishing or restructuring; abstract or body, overall reasoning, standalone paragraphs, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
+    - condition: robotics is central; Introduction-only polishing, restructuring, translation or feedback reads this dedicated task index directly, then matching positive English and analysis
+      path: ../nature-shared/core/robotics-introduction-examples.md
+    - condition: robotics is the central scientific subject of manuscript polishing or restructuring; abstract or other body, overall reasoning, standalone paragraphs, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude Introduction-only, incidental robotics, title-only, submission administration, and layout
       path: ../nature-shared/core/robotics-writing-examples.md
     - condition: the central subject of manuscript-body polishing or restructuring is a robot control, learning, manipulation, locomotion, or physical-interaction system, including paragraph groups, whole-manuscript reasoning, independent Related Work, and Chinese-to-English prose; exclude incidental examples, title/abstract-only, submission administration, and layout requests
       path: ../nature-shared/core/robotics-main-text.md

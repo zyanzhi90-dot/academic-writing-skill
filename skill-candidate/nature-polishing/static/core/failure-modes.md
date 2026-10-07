@@ -41,7 +41,7 @@ scientific objects, then check meaningful phrases, sentences, and context;
 repeated object names are not a reason for automatic pronoun replacement.
 
 For robotics abstracts and body work, follow the conditionally loaded
-`robotics-writing-examples.md`: diagnose the failure before selecting relevant
+robotics example index selected by the router: diagnose the failure before selecting relevant
 English cards, coordinate main and supplemental references with the current
 manuscript style, and adapt only the affected scope. Before delivery run its
 internal expression and reference-adaptation checks, including the loaded

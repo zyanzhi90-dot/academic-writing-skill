@@ -20,7 +20,7 @@ not useful object handoffs. Preserve necessary conditions when splitting.
 - Use thematic linking, not repetitive `This suggests ...` openings.
 
 For robotics abstracts and body work, use the loaded shared
-`robotics-writing-examples.md` to select concrete English realizations after
+task-routed robotics example index to select concrete English realizations after
 diagnosis. Before delivery, run its meaningful-phrase, sentence, and context
 checks; preserve accurate expressions and variants within the author's
 established style.

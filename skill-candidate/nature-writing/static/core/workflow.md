@@ -57,7 +57,7 @@ missing-input notes outside prose. Do not repeat questions already answered.
 
 For style feedback, calibrate from author-selected reference papers, the current
 draft, or stated preferences; ask for a sample only if needed. In robotics work,
-follow the loaded `robotics-writing-examples.md` instructions to coordinate main
+follow the task-routed robotics example index to coordinate main
 and supplemental references. Learn organization, subject focus, syntax,
 information order, and ordinary collocations; preserve author facts, terminology,
 and evidence strength rather than matching hedging, length, or voice ratios.
@@ -101,7 +101,7 @@ For full reverse-outlining, open `references/paragraph-flow.md`.
 Before delivery, perform the loaded `scientific-expression.md` internal
 phrase-to-sentence-to-context check. In robotics abstracts or body prose, also
 compare adapted units with the selected English as directed by
-`robotics-writing-examples.md`.
+the task-routed robotics example index.
 Correct errors and departures from the author's expression requirements,
 recheck affected relations, and retain variants within the established style.
 Output checked prose plus material assumptions, missing inputs, and evidence

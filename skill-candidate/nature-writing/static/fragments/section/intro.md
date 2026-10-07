@@ -2,7 +2,7 @@
 
 ## Robotics-centred Introduction
 
-Use the existing shared robotics example index to read
+Read the dedicated shared Introduction index directly:
 `../nature-shared/core/robotics-introduction-examples.md` from the skill root,
 its Selection, and task-matched section, paragraph and expression material.
 Determine the author's scientific line and paragraph tasks before drafting, then

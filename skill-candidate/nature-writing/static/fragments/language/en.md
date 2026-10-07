@@ -18,7 +18,7 @@ necessary conditions when splitting or shortening sentences.
   comparison, or qualification as needed. Start a new paragraph when the
   governing question changes or support becomes hard to locate.
 - For robotics abstracts and body work, use the loaded shared
-  `robotics-writing-examples.md` to adapt concrete English syntax and ordinary
+  task-routed robotics example index to adapt concrete English syntax and ordinary
   collocations to author content. Before delivery, run its meaningful-phrase,
   sentence, and context checks; do not turn examples into fixed fill-in templates.
 

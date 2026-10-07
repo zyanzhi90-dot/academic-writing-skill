@@ -1,8 +1,10 @@
 # Robotics Introduction examples — B15–B18
 
 Use this shared reference for robotics-centred Introduction drafting,
-restructuring, polishing, translation and feedback through the existing
-`robotics-writing-examples.md` index. Apply the requesting skill's workflow,
+restructuring, polishing, translation and feedback. This file is the dedicated
+Introduction task index and reference-coordination entry. Read it directly for
+Introduction-only work; the other-section card collection is not its input.
+Apply the requesting skill's workflow,
 author evidence, Terminology Ledger and `scientific-expression.md` throughout.
 
 ## Selection
@@ -10,10 +12,15 @@ author evidence, Terminology Ledger and `scientific-expression.md` throughout.
 Establish the author's scientific line and paragraph responsibilities first.
 Identify the field value, current research need, relevant prior capabilities and
 conditions, reasons for each core design, its role and supported contribution.
-Use **B15 / P17 / A06 as the default organization and expression anchor**. Select
+Use **B15 / P17 as the default organization and expression anchor**. Select
 B16 / P05, B17 / Fuzzy2023 and B18 / ESO2017 where their scientific relationships
 fit the current paragraph. Replace example facts, objects, comparisons,
 conditions and guarantees with the author's own science.
+
+Use the main reference to sustain organization and English style; select a
+supplemental realization for the current scientific relationship and reconcile
+its terminology, person, tense and information order with the same manuscript.
+The examples supply expression, not new author facts or evidence strength.
 
 Use the following resources within the existing planning, drafting and checking
 steps. Read the matching heading together with its complete English example,
@@ -73,11 +80,18 @@ role, effect or guarantee, as in E19, E22 and E23. Let contributions recover the
 needs already developed. Deliver the requested complete Introduction in the
 requesting skill's format.
 
-During sentence adaptation, assign the author's scientific subject, action and
-object to every clause, including coordinated literature clauses. A citation
-locates the evidence for a named method, model or study. Keep that scientific
-identity when combining references or continuing the same work, using the
-complete E05–E13 examples and their subject–action–object analysis.
+Adapt a continuous expression unit from its English and analysis together.
+Bind the source's scientific noun and finite action to the author's corresponding
+object and operation before forming the sentence. P17 I01 names the learning
+route before its value and motion-modeling role; E19 names the integrated motion
+model before its feature-extraction and motion-generation effects; E23 carries
+the generated trajectories into the named tracking component. Use the matching
+object-to-action-to-effect relationship for the author's science, keeping that
+object's technical noun in the effect sentence or a shorter name that retains
+its role. Select another mature construction if the source noun does not fit
+the intended object; a function label alone is not an English realization.
+For literature clauses, E05–E13 bind the citation to a named method, model or
+study and continue its mechanism or output through the same scientific identity.
 
 ## Use during Polishing
 
@@ -101,12 +115,18 @@ Apply `scientific-expression.md` to the resulting phrases, sentences and adjacen
 paragraphs before delivery. The same organization and expression material serves
 both generation and review.
 
-Assess retained wording and each replacement in its resulting continuous
-sentences. Select a suitable example construction with an explicit scientific
-subject and finite verb before rewriting, and preserve its action and object
-through shortening or clause combination. Review the realized wording under
-the author's expression requirements, including new paragraph openings and
-coordinated clauses, as part of the existing phrase-to-context check.
+For retained sentences, resolve the subject and action against the selected
+unit's object-to-action-to-effect relationship, even when the surrounding
+science is accurate. For a proposed replacement, compare the old and new
+scientific subjects and the responsibility each carries in the adjacent
+sentences. Shortening modifiers or repeated claims can preserve a technical
+head noun; removing that noun can remove the design, condition or output that
+owns the next action. Choose the shorter realization only when its technical
+identity, finite action and handoff still express the same author relationship.
+Keep an already suitable realization when the replacement loses that identity.
+Use P17 I01 and E19/E23's actual English and noun/action analysis to repair an
+affected unit, then compare the resulting continuous sentences again. This is
+the requesting workflow's existing expression check, not a separate output audit.
 
 ## Conceptual scope and information selection
 

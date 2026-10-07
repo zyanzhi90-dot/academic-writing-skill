@@ -15,9 +15,9 @@ core:
   on_demand:
     - condition: nature-writing or nature-polishing loads common English scientific generation and internal phrase-to-sentence-to-context checks, including translation and feedback
       path: core/scientific-expression.md
-    - condition: nature-writing or nature-polishing handles a robotics-centred abstract or body, overall reasoning, standalone paragraph, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude incidental robotics, title-only, submission administration, and layout
+    - condition: nature-writing or nature-polishing handles a robotics-centred abstract or other body, overall reasoning, standalone paragraph, or feedback, including Chinese-to-English; read common instructions and task index then selected A cards for abstract or B cards for body; exclude Introduction-only, incidental robotics, title-only, submission administration, and layout
       path: core/robotics-writing-examples.md
-    - condition: selected through the common robotics example index for Introduction drafting, restructuring, polishing, or feedback; read Selection and task-matched positive section, paragraph and expression learning, with P17 as the default anchor
+    - condition: direct entry for robotics Introduction-only drafting, restructuring, translation, polishing or feedback, or selected for the Introduction part of wider work; read Selection and task-matched positive section, paragraph and expression learning, with P17 as the default anchor
       path: core/robotics-introduction-examples.md
     - condition: selected by the robotics Introduction index to determine field-value-to-problem progression, paragraph tasks, prior abilities and conditions, design reasons and roles, interfaces or contribution closure
       path: core/robotics-introduction-section.md
