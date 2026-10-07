@@ -1,0 +1,14 @@
+{
+  "review": {
+    "generic_conflicting_paths_actually_read": [],
+    "generic_conflicting_directives_returned": [],
+    "generic_isolation_preserved": true,
+    "monolithic_other_section_index_actually_read": false,
+    "other_section_raw_English_cards_returned": [],
+    "other_section_raw_English_detected_in_command_content": [],
+    "Introduction_only_reading_boundary_respected": true,
+    "domain_fragment_full_actual_return": true,
+    "dedicated_index_full_actual_return": true,
+    "limit": "Actual numbered returns and explicit read paths; no inference about hidden checks or a causal link between old card co-loading and expression failures."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "scope": "Coordinator-only evidence created after review first-output saved; not supplied to runtime.",
+  "first_review_sha256": "c500164dd6799bf29be7217a70739deb809fbccc917da8c6d67b7b432736c13b",
+  "raw_draft_sha256": "db7160ff683ced09b9a7e8e23f91e923b013e845b658da4eed8204bb18ebab66",
+  "comparison": [
+    {
+      "Writing_position": "P01-S02",
+      "Writing_quote": "Learning from demonstrations provides a route to acquiring manipulation skills from human examples.",
+      "prior_Polishing_position": "P01-S02",
+      "prior_Polishing_quote": "Learning from demonstrations offers a route to acquiring manipulation skills from human examples.",
+      "independent_review_result": "Not reported; author-preference omission, not a grammar or factual error."
+    },
+    {
+      "Writing_position": "P05-S02-S03",
+      "Writing_quote": [
+        "The network is trained to predict noise added to demonstration actions, with observations supplied as conditions.",
+        "This objective learns the score gradient of the conditional action distribution."
+      ],
+      "prior_Polishing_position": "P05-S02",
+      "prior_Polishing_quote": "The action-denoising network learns the score gradient of the conditional action distribution by predicting noise added to demonstration actions.",
+      "independent_review_result": "Correctly reported as objective versus network action-ownership mismatch."
+    },
+    {
+      "Writing_position": "P05-S05-S06",
+      "Writing_quote": [
+        "The diffusion representation accommodates multimodal, high-dimensional action distributions without specifying a fixed number of action modes.",
+        "It therefore allows temporally correlated actions to be predicted jointly."
+      ],
+      "prior_Polishing_position": "P05-S04-S05",
+      "prior_Polishing_quote": [
+        "The diffusion representation accommodates multimodal, high-dimensional action distributions without specifying a fixed number of action modes.",
+        "It therefore allows temporally correlated actions to be generated jointly."
+      ],
+      "independent_review_result": "Not reported; availability of antecedent does not retain technical category/role under author preference."
+    },
+    {
+      "Writing_position": "P03-S06",
+      "Writing_quote": "The difficulty of estimating this term motivates an alternative that directly learns the distribution gradient without the corresponding negative sampling.",
+      "prior_Polishing_position": "P03-S06",
+      "prior_Polishing_quote": "Directly learning the distribution gradient offers an alternative that avoids this normalization estimate and the corresponding negative sampling.",
+      "independent_review_result": "Reported gradient-name precision signal; scientific misconception not established. New Polishing gerund was not review input and is not a review omission."
+    }
+  ],
+  "actual_return_resources": {
+    "robotics-introduction-examples.md": {
+      "full_file": true,
+      "complete_units": 8,
+      "complete_English_units": 0
+    },
+    "robotics-introduction-section.md": {
+      "full_file": true,
+      "complete_units": 6,
+      "complete_English_units": 6
+    },
+    "robotics-introduction-paragraphs.md": {
+      "full_file": true,
+      "complete_units": 9,
+      "complete_English_units": 9
+    },
+    "robotics-introduction-expression.md": {
+      "full_file": true,
+      "complete_units": 26,
+      "complete_English_units": 26
+    }
+  },
+  "scientific_expression_commands": [
+    "item_9"
+  ],
+  "expression_units_commands": [
+    "item_20",
+    "item_25",
+    "item_26",
+    "item_27",
+    "item_28"
+  ],
+  "historical_hidden_check_inference": false,
+  "read_boundary_is_not_expression_cause_proof": true
+}

@@ -1,0 +1,34 @@
+原稿的科学主线基本成立，未发现核心方法、主要性能数字或引用身份与所供材料直接冲突。可确认的问题集中在两处局部英文实现；它们影响科学对象和动作承担者的准确性，尚不足以判定方法描述整体错误。
+
+以下段号按 [current-draft.md](C:/Users/user2/AppData/Local/Temp/review-3x32y907/materials/inputs/current-draft.md) 的八个正文段落计。
+
+**1．第3段末句：梯度对象表述不够准确（第5行）**
+
+> “The difficulty of estimating this term motivates an alternative that directly learns the distribution gradient without the corresponding negative sampling.”
+
+“the distribution gradient” 没有明确区分概率密度的梯度与对数密度的梯度。F02、B06及已验收摘要所支持的是得分学习；第4段自身也准确使用了 “log-density gradients”。
+
+这个区别与本句的论证直接相关：对数密度梯度可以消去与动作无关的归一化常数，概率密度梯度则不是同一个量。因此，这里属于技术措辞精度问题，不能仅当作一般同义替换。后文能够帮助读者推断作者意图，所以目前没有依据认定作者实际学习了错误的梯度。
+
+**2．第5段第2—3句：学习动作的承担者发生错位（第9行）**
+
+> “The network is trained to predict noise added to demonstration actions, with observations supplied as conditions. This objective learns the score gradient of the conditional action distribution.”
+
+第一句明确由网络接受训练并预测噪声，第二句却让 “This objective” 承担 “learns” 这一动作。训练目标规定优化任务，网络或策略才是通过训练学习相应表示的对象。F02也明确区分了加噪、网络预测与策略学习。
+
+这是局部主语—动作搭配问题，并非训练机制缺乏材料支持。候选的 scientific-expression 核心及正向范例 E19、E23强调，连续句应准确保留模型、工具、输出与各自职责；此处的主语变化削弱了这种对应。
+
+**整节推进与合理变体**
+
+- **第1—5段的组织成立。** 首段从操作价值进入示范学习，再落到多模态、时间一致性与精度要求。第2段建立显式策略的能力及序列生成需要，第3段建立隐式策略的能力及训练问题，第4段提供扩散基础与已有应用，第5段汇合到本文策略。第2段提出的序列问题跨段得到回应，属于并列需要汇合的合理组织，不要求第3段立即解决它。
+- **第2段没有虚构既有方法缺陷。** “Both approaches support multimodal actions and temporal context” 保留了B01、B02支持的能力；“observation history does not itself imply joint prediction of future actions” 对应B04。“Stepwise prediction can switch” 表述的是可能性，没有宣称所有高斯混合策略或行为 Transformer 必然失败。
+- **第3—5段的文献与训练范围基本准确。** 第3段承认隐式行为克隆的视觉、高维和毫米级实机能力，符合B03。第4段明确扩散已有规划、离线强化学习及同期模仿学习应用，没有声称首次将扩散用于策略。“more stable training in our comparisons” 限定为本研究比较中的训练表现，符合F07、B05，没有升级为优化收敛或机器人闭环稳定保证。
+- **第6段包含执行与视觉计算两项责任，可以成立。** 两部分共同解释动作序列如何根据新观测持续执行。长预测、短执行、再预测符合F04；每轮编码一次、特征条件化各去噪步骤符合F05。合段不是确定的结构错误。“supports real-time inference” 表达设计的支持作用，也没有承诺任意硬件或高频控制配置均能实时运行。
+- **第7段保留了架构条件。** “alternative architectures”“some tested tasks”及超参数敏感性的说明符合F06、C03。没有把两种网络写成串联组件，也没有把Transformer写成普遍优于卷积网络。
+- **第8段的实验信息具有论证作用。** 它为总体策略提供验证范围和性能证据，符合最新作者调整，不能因其包含任务、基线和数字而判为不应出现在Introduction。46.9%被写成仿真所列指标的平均相对提升，并保留逐指标最佳架构、最佳基线及各方法最佳动作空间条件；95%明确属于20次实机推T任务，并归于卷积视觉策略。两者符合S01—S05及已验收摘要，没有混入扰动演示或变成单项设计的独立因果证明。
+
+**引用与需要作者澄清的事项**
+
+正文[1]—[9]与参考文献表对应，作者、题名、出版年份、卷页及所标预印本身份未发现与citation-facts.md冲突；实际采用的能力描述也有相应背景事实支持。参考文献[2]中普通字符 *k* 与材料中的数学排版差别属于格式变体。
+
+目前没有必须由作者澄清才能判断的科学冲突。第4段对同期[8]、[9]采用简短概括，属于可接受的信息取舍；现有材料不足以据此判定贡献定位错误，也不能据其仿真验证范围补造实机能力缺陷。
