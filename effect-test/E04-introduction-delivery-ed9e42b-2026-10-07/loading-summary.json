@@ -1,0 +1,4462 @@
+{
+  "drafting": {
+    "core_full_actual_returns": {
+      "skill-candidate/nature-shared/core/reader-workflow.md": true,
+      "skill-candidate/nature-shared/core/paper-type-taxonomy.md": true,
+      "skill-candidate/nature-shared/core/ethics.md": true,
+      "skill-candidate/nature-shared/core/terminology-ledger.md": true,
+      "skill-candidate/nature-shared/core/scientific-expression.md": true,
+      "skill-candidate/nature-writing/static/core/stance.md": true,
+      "skill-candidate/nature-writing/static/core/workflow.md": true,
+      "skill-candidate/nature-writing/static/core/output-format.md": true,
+      "skill-candidate/nature-writing/SKILL.md": true,
+      "skill-candidate/nature-writing/manifest.yaml": true,
+      "skill-candidate/nature-writing/static/fragments/section/intro.md": true,
+      "skill-candidate/nature-shared/core/robotics-main-text.md": true
+    },
+    "matching_fragments_actual_returns": {
+      "skill-candidate/nature-writing/static/fragments/language/en.md": true,
+      "skill-candidate/nature-writing/static/fragments/task/manuscript.md": true,
+      "skill-candidate/nature-writing/static/fragments/journal/generic.md": true,
+      "skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": true,
+      "skill-candidate/nature-writing/static/fragments/section/intro.md": true,
+      "skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": true
+    },
+    "positive_Introduction_resources": {
+      "robotics-introduction-examples.md": {
+        "available_sha256": "8142b8edfaacb25a88f4d54f95e3ff6f43273a8993d88e952eef5e0ff145a23c",
+        "frozen_git_sha256": "8142b8edfaacb25a88f4d54f95e3ff6f43273a8993d88e952eef5e0ff145a23c",
+        "file_line_count": 180,
+        "file_all_nonempty_lines_returned_exactly": true,
+        "units": {
+          "Selection": {
+            "title": "## Selection",
+            "range": [
+              10,
+              51
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "Use during Drafting": {
+            "title": "## Use during Drafting",
+            "range": [
+              52,
+              95
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "Use during Polishing": {
+            "title": "## Use during Polishing",
+            "range": [
+              96,
+              130
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "Conceptual scope and information selection": {
+            "title": "## Conceptual scope and information selection",
+            "range": [
+              131,
+              143
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B15": {
+            "title": "## B15",
+            "range": [
+              144,
+              152
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B16": {
+            "title": "## B16",
+            "range": [
+              153,
+              162
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B17": {
+            "title": "## B17",
+            "range": [
+              163,
+              171
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B18": {
+            "title": "## B18",
+            "range": [
+              172,
+              180
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          }
+        }
+      },
+      "robotics-introduction-section.md": {
+        "available_sha256": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+        "frozen_git_sha256": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+        "file_line_count": 297,
+        "file_all_nonempty_lines_returned_exactly": true,
+        "units": {
+          "field-value": {
+            "title": "## 1. 先说明领域价值，再落到具体研究问题",
+            "range": [
+              9,
+              38
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              23,
+              35
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "paragraph-tasks": {
+            "title": "## 2. 让每段承担清楚任务，并为相邻段落提供推进对象",
+            "range": [
+              39,
+              76
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              55,
+              63,
+              71
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "prior-capability": {
+            "title": "## 3. 用已有方法的能力、条件和限制推出设计需要",
+            "range": [
+              77,
+              134
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132,
+              133,
+              134
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              91,
+              99,
+              107,
+              121,
+              129
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "design-role": {
+            "title": "## 4. 理由充分后引出核心设计，并说明具体作用",
+            "range": [
+              135,
+              174
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              149,
+              161,
+              169
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "design-connection": {
+            "title": "## 5. 沿科学主线连接多个设计",
+            "range": [
+              175,
+              204
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              188,
+              189,
+              190,
+              191,
+              192,
+              193,
+              194,
+              195,
+              196,
+              197,
+              198,
+              199,
+              200,
+              201,
+              202,
+              203,
+              204
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              191,
+              199
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "contributions": {
+            "title": "## 6. 结尾贡献回收前文已经建立的需要",
+            "range": [
+              205,
+              297
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230,
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249,
+              250,
+              251,
+              252,
+              253,
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266,
+              267,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281,
+              282,
+              283,
+              284,
+              285,
+              286,
+              287,
+              288,
+              289,
+              290,
+              291,
+              292,
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              221,
+              233,
+              241,
+              249,
+              257,
+              269,
+              277,
+              285,
+              293
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          }
+        }
+      },
+      "robotics-introduction-paragraphs.md": {
+        "available_sha256": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+        "frozen_git_sha256": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+        "file_line_count": 288,
+        "file_all_nonempty_lines_returned_exactly": false,
+        "units": {
+          "p17-i01": {
+            "title": "### 1.1 P17 I01：制造应用 → 适应性 → 学习 → 运动建模",
+            "range": [
+              13,
+              39
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              25
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "eso-i01": {
+            "title": "### 1.2 ESO2017 I01：海洋探索价值 → 高精度控制责任",
+            "range": [
+              40,
+              62
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              40,
+              41,
+              42
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              52
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              54,
+              55,
+              56,
+              57
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "p05-i02": {
+            "title": "### 2.1 P05 I02：协作操作能力 → 共有抓持条件 → 相对运动需要",
+            "range": [
+              67,
+              95
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              79
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i04": {
+            "title": "### 2.2 P17 I04：多示教信息能力 → 文献机制与输出 → 两类方法的综合价值",
+            "range": [
+              96,
+              125
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              108
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "fuzzy-i02": {
+            "title": "### 3.1 Fuzzy2023 I02：瞬态性能的意义 → 约束能力 → 对称 BLF 的职责",
+            "range": [
+              130,
+              156
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              132
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              142
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "fuzzy-i03": {
+            "title": "### 3.2 Fuzzy2023 I03：快速收敛需要 → 有限时间能力 → 初始条件 → 固定时间方向",
+            "range": [
+              157,
+              187
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              169
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i05": {
+            "title": "### 3.3 P17 I05：已有两类能力 → 组合设计 → 多示教作用 → 相关比较",
+            "range": [
+              188,
+              216
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              188,
+              189,
+              190,
+              191,
+              192,
+              193,
+              194,
+              195,
+              196,
+              197,
+              198,
+              199,
+              200,
+              201,
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              200
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i07": {
+            "title": "### 4.1 P17 I07：跟踪控制职责 → 保证 → 两部分框架 → 生成与执行的接口",
+            "range": [
+              221,
+              249
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230,
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              233
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i08": {
+            "title": "### 5.1 P17 I08：完整框架范围 → 相关模型比较 → 执行补偿职责 → 研究目的",
+            "range": [
+              254,
+              281
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266,
+              267,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              266
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276
+            ],
+            "all_analysis_tables_returned_exactly": true
+          }
+        }
+      },
+      "robotics-introduction-expression.md": {
+        "available_sha256": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+        "frozen_git_sha256": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+        "file_line_count": 623,
+        "file_all_nonempty_lines_returned_exactly": false,
+        "units": {
+          "e01": {
+            "title": "### E01｜应用领域 → 所需能力 → 研究必要性",
+            "range": [
+              13,
+              32
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              23
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e02": {
+            "title": "### E02｜用具体能力解释研究价值",
+            "range": [
+              33,
+              51
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              43
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              45,
+              46,
+              47,
+              48
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e03": {
+            "title": "### E03｜领域能力 → 发挥价值所需的技术责任",
+            "range": [
+              52,
+              70
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              52,
+              53,
+              54
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              62
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              64,
+              65,
+              66,
+              67
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e04": {
+            "title": "### E04｜方法对象 → 相关能力 → 另一项能力",
+            "range": [
+              75,
+              94
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              85
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              87,
+              88,
+              89,
+              90,
+              91
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e17": {
+            "title": "### E17｜整体性能还依赖另一项责任 → 信息条件 → 相应方法",
+            "range": [
+              95,
+              117
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              105
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e05": {
+            "title": "### E05｜`In [xx]` → `Another study` → 相关工作对比 → 当前研究方向",
+            "range": [
+              124,
+              146
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              134
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e06": {
+            "title": "### E06｜方法和输入写在文献句中，生成输出由下一句承接",
+            "range": [
+              147,
+              168
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              157
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e07": {
+            "title": "### E07｜命名方法、交代内部职责，再综合共同能力",
+            "range": [
+              169,
+              188
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              188
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              179
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              181,
+              182,
+              183,
+              184,
+              185
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e08": {
+            "title": "### E08｜以控制结构、被约束的量或被处理的问题作主语",
+            "range": [
+              189,
+              208
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              189,
+              190,
+              191
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              199
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              201,
+              202,
+              203,
+              204,
+              205
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e09": {
+            "title": "### E09｜`In [xx], ... has been proposed for ... to ...` 与当前设计职责",
+            "range": [
+              209,
+              230
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              211,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              219
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e10": {
+            "title": "### E10｜同一文献：控制器组合 → 计算负担的改善",
+            "range": [
+              231,
+              249
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              241
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              243,
+              244,
+              245,
+              246
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e11": {
+            "title": "### E11｜同一文献：控制方法 → 观察器的两个具体职责",
+            "range": [
+              250,
+              268
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              250,
+              251,
+              252
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              260
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              262,
+              263,
+              264,
+              265
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e12": {
+            "title": "### E12｜同一文献：方法及问题 → 估计范围的扩充",
+            "range": [
+              269,
+              287
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              271
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              279
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              281,
+              282,
+              283,
+              284
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e13": {
+            "title": "### E13｜文献结论 → 信息利用的实现 → 当前设计",
+            "range": [
+              288,
+              308
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              290
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              298
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              300,
+              301,
+              302,
+              303,
+              304,
+              305
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e14": {
+            "title": "### E14｜已有方法 → 作用 → 数据条件 → 另一方法的相应能力",
+            "range": [
+              313,
+              334
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              315,
+              316,
+              317,
+              318,
+              319,
+              320,
+              321,
+              322,
+              323,
+              324,
+              325,
+              326,
+              327,
+              328,
+              329,
+              330,
+              331,
+              332,
+              333,
+              334
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              323
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              325,
+              326,
+              327,
+              328,
+              329,
+              330,
+              331
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e15": {
+            "title": "### E15｜共同假设 → 实际动作需要 → 下一段研究对象",
+            "range": [
+              335,
+              361
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              335,
+              337
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              345,
+              351
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              353,
+              354,
+              355,
+              356,
+              357,
+              358
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e16": {
+            "title": "### E16｜时间能力 → 初始条件依赖 → 新方向及其联合能力",
+            "range": [
+              362,
+              384
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              364,
+              365,
+              366,
+              367,
+              368,
+              369,
+              370,
+              371,
+              372,
+              373,
+              374,
+              375,
+              376,
+              377,
+              378,
+              379,
+              380,
+              381,
+              382,
+              383,
+              384
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              372
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              374,
+              375,
+              376,
+              377,
+              378,
+              379,
+              380,
+              381
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e18": {
+            "title": "### E18｜同一功能的文献对照 → 机制差别 → 采用理由",
+            "range": [
+              385,
+              405
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              385,
+              386,
+              387,
+              388,
+              389,
+              390,
+              391,
+              392,
+              393,
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              395
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              397,
+              398,
+              399,
+              400,
+              401,
+              402
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e20": {
+            "title": "### E20｜学习途径 → 所能利用的信息 → 效率维度",
+            "range": [
+              406,
+              425
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              406,
+              407,
+              408,
+              409,
+              410,
+              411,
+              412,
+              413,
+              414,
+              415,
+              416,
+              417,
+              418,
+              419,
+              420,
+              421,
+              422,
+              423,
+              424,
+              425
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              416
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              418,
+              419,
+              420,
+              421,
+              422
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e19": {
+            "title": "### E19｜理由 → 作者动作与组成职责 → 具体作用",
+            "range": [
+              430,
+              448
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              430,
+              431,
+              432,
+              433,
+              434,
+              435,
+              436,
+              437,
+              438,
+              439,
+              440,
+              441,
+              442,
+              443,
+              444,
+              445,
+              446,
+              447,
+              448
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              440
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              442,
+              443,
+              444,
+              445
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e21": {
+            "title": "### E21｜新增设计 → 放宽条件；所用信息 → 改善能力",
+            "range": [
+              449,
+              467
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              449,
+              451
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              459
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              461,
+              462,
+              463,
+              464
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e22": {
+            "title": "### E22｜设计基础与目的 → 估计对象 → 补充估计职责",
+            "range": [
+              468,
+              487
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              470
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              478
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              480,
+              481,
+              482,
+              483,
+              484
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e23": {
+            "title": "### E23｜控制职责 → 保证 → 系统组成 → 前一部分输出 → 后一部分接收",
+            "range": [
+              496,
+              517
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              496,
+              497,
+              498,
+              499,
+              500,
+              501,
+              502,
+              503,
+              504,
+              505,
+              506,
+              507,
+              508,
+              509,
+              510,
+              511,
+              512,
+              513,
+              514,
+              515,
+              516,
+              517
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              506
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              508,
+              509,
+              510,
+              511,
+              512,
+              513,
+              514
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e24": {
+            "title": "### E24｜总体框架 → 指定模型比较 → 增补职责 → 实际作用",
+            "range": [
+              522,
+              543
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              522,
+              523,
+              524,
+              525,
+              526,
+              527,
+              528,
+              529,
+              530,
+              531,
+              532,
+              533,
+              534,
+              535,
+              536,
+              537,
+              538,
+              539,
+              540,
+              541,
+              542,
+              543
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              532
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              534,
+              535,
+              536,
+              537,
+              538,
+              539,
+              540
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e25": {
+            "title": "### E25｜研究目标 → 贡献引导 → 各项设计及作用",
+            "range": [
+              544,
+              583
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              544,
+              545,
+              546
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              554,
+              560,
+              566,
+              572
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              574,
+              575,
+              576,
+              577,
+              578,
+              579,
+              580
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e26": {
+            "title": "### E26｜设计 → 可保证的性质 → 假设改善；最后保留性质范围",
+            "range": [
+              584,
+              616
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              586
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              594,
+              600,
+              606
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              608,
+              609,
+              610,
+              611,
+              612,
+              613
+            ],
+            "all_analysis_tables_returned_exactly": false
+          }
+        }
+      }
+    },
+    "other_robotics_cards": {},
+    "additional_source_text_actual_returns": {},
+    "execution_messages_file": "drafting/execution-agent-messages.json",
+    "limit": "Available, returned and adopted are distinct. Exact numbered matches prove returned lines only. Partial or non-numbered returns remain in raw events; manual prose evaluation is separate."
+  },
+  "polishing": {
+    "core_full_actual_returns": {
+      "skill-candidate/nature-shared/core/reader-workflow.md": true,
+      "skill-candidate/nature-shared/core/paper-type-taxonomy.md": true,
+      "skill-candidate/nature-shared/core/ethics.md": true,
+      "skill-candidate/nature-shared/core/terminology-ledger.md": true,
+      "skill-candidate/nature-shared/core/scientific-expression.md": true,
+      "skill-candidate/nature-polishing/static/core/stance.md": true,
+      "skill-candidate/nature-polishing/static/core/failure-modes.md": true,
+      "skill-candidate/nature-polishing/static/core/output-format.md": true,
+      "skill-candidate/nature-polishing/SKILL.md": true,
+      "skill-candidate/nature-polishing/manifest.yaml": true,
+      "skill-candidate/nature-polishing/static/fragments/section/intro.md": true,
+      "skill-candidate/nature-shared/core/robotics-main-text.md": true
+    },
+    "matching_fragments_actual_returns": {
+      "skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": true,
+      "skill-candidate/nature-polishing/static/fragments/journal/generic.md": true,
+      "skill-candidate/nature-polishing/static/fragments/section/intro.md": true,
+      "skill-candidate/nature-polishing/static/fragments/language/en.md": true
+    },
+    "positive_Introduction_resources": {
+      "robotics-introduction-examples.md": {
+        "available_sha256": "8142b8edfaacb25a88f4d54f95e3ff6f43273a8993d88e952eef5e0ff145a23c",
+        "frozen_git_sha256": "8142b8edfaacb25a88f4d54f95e3ff6f43273a8993d88e952eef5e0ff145a23c",
+        "file_line_count": 180,
+        "file_all_nonempty_lines_returned_exactly": true,
+        "units": {
+          "Selection": {
+            "title": "## Selection",
+            "range": [
+              10,
+              51
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "Use during Drafting": {
+            "title": "## Use during Drafting",
+            "range": [
+              52,
+              95
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "Use during Polishing": {
+            "title": "## Use during Polishing",
+            "range": [
+              96,
+              130
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "Conceptual scope and information selection": {
+            "title": "## Conceptual scope and information selection",
+            "range": [
+              131,
+              143
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B15": {
+            "title": "## B15",
+            "range": [
+              144,
+              152
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B16": {
+            "title": "## B16",
+            "range": [
+              153,
+              162
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B17": {
+            "title": "## B17",
+            "range": [
+              163,
+              171
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "B18": {
+            "title": "## B18",
+            "range": [
+              172,
+              180
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          }
+        }
+      },
+      "robotics-introduction-section.md": {
+        "available_sha256": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+        "frozen_git_sha256": "3aa6bb437ee43df317359504f2e7ea19cb25eb97af9452feebaba0844c9f3f09",
+        "file_line_count": 297,
+        "file_all_nonempty_lines_returned_exactly": true,
+        "units": {
+          "field-value": {
+            "title": "## 1. 先说明领域价值，再落到具体研究问题",
+            "range": [
+              9,
+              38
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              23,
+              35
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "paragraph-tasks": {
+            "title": "## 2. 让每段承担清楚任务，并为相邻段落提供推进对象",
+            "range": [
+              39,
+              76
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              55,
+              63,
+              71
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "prior-capability": {
+            "title": "## 3. 用已有方法的能力、条件和限制推出设计需要",
+            "range": [
+              77,
+              134
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132,
+              133,
+              134
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              91,
+              99,
+              107,
+              121,
+              129
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "design-role": {
+            "title": "## 4. 理由充分后引出核心设计，并说明具体作用",
+            "range": [
+              135,
+              174
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168,
+              169,
+              170,
+              171,
+              172,
+              173,
+              174
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              149,
+              161,
+              169
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "design-connection": {
+            "title": "## 5. 沿科学主线连接多个设计",
+            "range": [
+              175,
+              204
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              188,
+              189,
+              190,
+              191,
+              192,
+              193,
+              194,
+              195,
+              196,
+              197,
+              198,
+              199,
+              200,
+              201,
+              202,
+              203,
+              204
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              191,
+              199
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "contributions": {
+            "title": "## 6. 结尾贡献回收前文已经建立的需要",
+            "range": [
+              205,
+              297
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230,
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249,
+              250,
+              251,
+              252,
+              253,
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266,
+              267,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281,
+              282,
+              283,
+              284,
+              285,
+              286,
+              287,
+              288,
+              289,
+              290,
+              291,
+              292,
+              293,
+              294,
+              295,
+              296,
+              297
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              221,
+              233,
+              241,
+              249,
+              257,
+              269,
+              277,
+              285,
+              293
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [],
+            "all_analysis_tables_returned_exactly": false
+          }
+        }
+      },
+      "robotics-introduction-paragraphs.md": {
+        "available_sha256": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+        "frozen_git_sha256": "f461d6d160dd4282629223a675a5ba92769a9909c2e0c276d2e1c989bca7ac40",
+        "file_line_count": 288,
+        "file_all_nonempty_lines_returned_exactly": false,
+        "units": {
+          "p17-i01": {
+            "title": "### 1.1 P17 I01：制造应用 → 适应性 → 学习 → 运动建模",
+            "range": [
+              13,
+              39
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              25
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "eso-i01": {
+            "title": "### 1.2 ESO2017 I01：海洋探索价值 → 高精度控制责任",
+            "range": [
+              40,
+              62
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              52
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              54,
+              55,
+              56,
+              57
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p05-i02": {
+            "title": "### 2.1 P05 I02：协作操作能力 → 共有抓持条件 → 相对运动需要",
+            "range": [
+              67,
+              95
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              79
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i04": {
+            "title": "### 2.2 P17 I04：多示教信息能力 → 文献机制与输出 → 两类方法的综合价值",
+            "range": [
+              96,
+              125
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              108
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "fuzzy-i02": {
+            "title": "### 3.1 Fuzzy2023 I02：瞬态性能的意义 → 约束能力 → 对称 BLF 的职责",
+            "range": [
+              130,
+              156
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              130,
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              142
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "fuzzy-i03": {
+            "title": "### 3.2 Fuzzy2023 I03：快速收敛需要 → 有限时间能力 → 初始条件 → 固定时间方向",
+            "range": [
+              157,
+              187
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              157,
+              158
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              169
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "p17-i05": {
+            "title": "### 3.3 P17 I05：已有两类能力 → 组合设计 → 多示教作用 → 相关比较",
+            "range": [
+              188,
+              216
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              190,
+              191,
+              192,
+              193,
+              194,
+              195,
+              196,
+              197,
+              198,
+              199,
+              200,
+              201,
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              200
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i07": {
+            "title": "### 4.1 P17 I07：跟踪控制职责 → 保证 → 两部分框架 → 生成与执行的接口",
+            "range": [
+              221,
+              249
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230,
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              233
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "p17-i08": {
+            "title": "### 5.1 P17 I08：完整框架范围 → 相关模型比较 → 执行补偿职责 → 研究目的",
+            "range": [
+              254,
+              281
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266,
+              267,
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276,
+              277,
+              278,
+              279,
+              280,
+              281
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              266
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              268,
+              269,
+              270,
+              271,
+              272,
+              273,
+              274,
+              275,
+              276
+            ],
+            "all_analysis_tables_returned_exactly": true
+          }
+        }
+      },
+      "robotics-introduction-expression.md": {
+        "available_sha256": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+        "frozen_git_sha256": "86d8bb6b30e8e515411900aabad40e405694439eba719fd6caae069d2a319116",
+        "file_line_count": 623,
+        "file_all_nonempty_lines_returned_exactly": false,
+        "units": {
+          "e01": {
+            "title": "### E01｜应用领域 → 所需能力 → 研究必要性",
+            "range": [
+              13,
+              32
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              23
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              25,
+              26,
+              27,
+              28,
+              29
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e02": {
+            "title": "### E02｜用具体能力解释研究价值",
+            "range": [
+              33,
+              51
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              43
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              45,
+              46,
+              47,
+              48
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e03": {
+            "title": "### E03｜领域能力 → 发挥价值所需的技术责任",
+            "range": [
+              52,
+              70
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              62
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              64,
+              65,
+              66,
+              67
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e04": {
+            "title": "### E04｜方法对象 → 相关能力 → 另一项能力",
+            "range": [
+              75,
+              94
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              85
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              87,
+              88,
+              89,
+              90,
+              91
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e17": {
+            "title": "### E17｜整体性能还依赖另一项责任 → 信息条件 → 相应方法",
+            "range": [
+              95,
+              117
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              95,
+              96
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              105
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e05": {
+            "title": "### E05｜`In [xx]` → `Another study` → 相关工作对比 → 当前研究方向",
+            "range": [
+              124,
+              146
+            ],
+            "available": true,
+            "returned_numbered_lines": [],
+            "any_exact_numbered_return": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              134
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e06": {
+            "title": "### E06｜方法和输入写在文献句中，生成输出由下一句承接",
+            "range": [
+              147,
+              168
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165,
+              166,
+              167,
+              168
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              157
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              159,
+              160,
+              161,
+              162,
+              163,
+              164,
+              165
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e07": {
+            "title": "### E07｜命名方法、交代内部职责，再综合共同能力",
+            "range": [
+              169,
+              188
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              169,
+              170,
+              171,
+              172,
+              173,
+              174,
+              175,
+              176,
+              177,
+              178,
+              179,
+              180,
+              181,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              188
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              179
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              181,
+              182,
+              183,
+              184,
+              185
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e08": {
+            "title": "### E08｜以控制结构、被约束的量或被处理的问题作主语",
+            "range": [
+              189,
+              208
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              189,
+              190,
+              191,
+              192,
+              193,
+              194,
+              195,
+              196,
+              197,
+              198,
+              199,
+              200,
+              201,
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              199
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              201,
+              202,
+              203,
+              204,
+              205
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e09": {
+            "title": "### E09｜`In [xx], ... has been proposed for ... to ...` 与当前设计职责",
+            "range": [
+              209,
+              230
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              219
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e10": {
+            "title": "### E10｜同一文献：控制器组合 → 计算负担的改善",
+            "range": [
+              231,
+              249
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              241
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              243,
+              244,
+              245,
+              246
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e11": {
+            "title": "### E11｜同一文献：控制方法 → 观察器的两个具体职责",
+            "range": [
+              250,
+              268
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              250,
+              251,
+              252,
+              253,
+              254,
+              255,
+              256,
+              257,
+              258,
+              259,
+              260,
+              261,
+              262,
+              263,
+              264,
+              265,
+              266,
+              267,
+              268
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              260
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              262,
+              263,
+              264,
+              265
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e12": {
+            "title": "### E12｜同一文献：方法及问题 → 估计范围的扩充",
+            "range": [
+              269,
+              287
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              269,
+              270
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              279
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              281,
+              282,
+              283,
+              284
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e13": {
+            "title": "### E13｜文献结论 → 信息利用的实现 → 当前设计",
+            "range": [
+              288,
+              308
+            ],
+            "available": true,
+            "returned_numbered_lines": [],
+            "any_exact_numbered_return": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              298
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              300,
+              301,
+              302,
+              303,
+              304,
+              305
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e14": {
+            "title": "### E14｜已有方法 → 作用 → 数据条件 → 另一方法的相应能力",
+            "range": [
+              313,
+              334
+            ],
+            "available": true,
+            "returned_numbered_lines": [],
+            "any_exact_numbered_return": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              323
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              325,
+              326,
+              327,
+              328,
+              329,
+              330,
+              331
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e15": {
+            "title": "### E15｜共同假设 → 实际动作需要 → 下一段研究对象",
+            "range": [
+              335,
+              361
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              337,
+              338,
+              339,
+              340,
+              341,
+              342,
+              343,
+              344,
+              345,
+              346,
+              347,
+              348,
+              349,
+              350,
+              351,
+              352,
+              353,
+              354,
+              355,
+              356,
+              357,
+              358,
+              359,
+              360,
+              361
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              345,
+              351
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              353,
+              354,
+              355,
+              356,
+              357,
+              358
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e16": {
+            "title": "### E16｜时间能力 → 初始条件依赖 → 新方向及其联合能力",
+            "range": [
+              362,
+              384
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              362,
+              363
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              372
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              374,
+              375,
+              376,
+              377,
+              378,
+              379,
+              380,
+              381
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e18": {
+            "title": "### E18｜同一功能的文献对照 → 机制差别 → 采用理由",
+            "range": [
+              385,
+              405
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              387,
+              388,
+              389,
+              390,
+              391,
+              392,
+              393,
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              395
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              397,
+              398,
+              399,
+              400,
+              401,
+              402
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e20": {
+            "title": "### E20｜学习途径 → 所能利用的信息 → 效率维度",
+            "range": [
+              406,
+              425
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              406,
+              407
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              416
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              418,
+              419,
+              420,
+              421,
+              422
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e19": {
+            "title": "### E19｜理由 → 作者动作与组成职责 → 具体作用",
+            "range": [
+              430,
+              448
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              430,
+              431,
+              432,
+              433,
+              434,
+              435,
+              436,
+              437,
+              438,
+              439,
+              440,
+              441,
+              442,
+              443,
+              444,
+              445,
+              446,
+              447,
+              448
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              440
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              442,
+              443,
+              444,
+              445
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e21": {
+            "title": "### E21｜新增设计 → 放宽条件；所用信息 → 改善能力",
+            "range": [
+              449,
+              467
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              449,
+              450
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              459
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              461,
+              462,
+              463,
+              464
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e22": {
+            "title": "### E22｜设计基础与目的 → 估计对象 → 补充估计职责",
+            "range": [
+              468,
+              487
+            ],
+            "available": true,
+            "returned_numbered_lines": [],
+            "any_exact_numbered_return": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              478
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              480,
+              481,
+              482,
+              483,
+              484
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e23": {
+            "title": "### E23｜控制职责 → 保证 → 系统组成 → 前一部分输出 → 后一部分接收",
+            "range": [
+              496,
+              517
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              496,
+              497,
+              498,
+              499,
+              500,
+              501,
+              502,
+              503,
+              504,
+              505,
+              506,
+              507,
+              508,
+              509,
+              510,
+              511,
+              512,
+              513,
+              514,
+              515,
+              516,
+              517
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              506
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              508,
+              509,
+              510,
+              511,
+              512,
+              513,
+              514
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e24": {
+            "title": "### E24｜总体框架 → 指定模型比较 → 增补职责 → 实际作用",
+            "range": [
+              522,
+              543
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              522,
+              523,
+              524,
+              525,
+              526,
+              527,
+              528,
+              529,
+              530,
+              531,
+              532,
+              533,
+              534,
+              535,
+              536,
+              537,
+              538,
+              539,
+              540,
+              541,
+              542,
+              543
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": true,
+            "english_block_lines": [
+              532
+            ],
+            "all_english_blocks_returned_exactly": true,
+            "analysis_table_lines": [
+              534,
+              535,
+              536,
+              537,
+              538,
+              539,
+              540
+            ],
+            "all_analysis_tables_returned_exactly": true
+          },
+          "e25": {
+            "title": "### E25｜研究目标 → 贡献引导 → 各项设计及作用",
+            "range": [
+              544,
+              583
+            ],
+            "available": true,
+            "returned_numbered_lines": [
+              544,
+              545
+            ],
+            "any_exact_numbered_return": true,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              554,
+              560,
+              566,
+              572
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              574,
+              575,
+              576,
+              577,
+              578,
+              579,
+              580
+            ],
+            "all_analysis_tables_returned_exactly": false
+          },
+          "e26": {
+            "title": "### E26｜设计 → 可保证的性质 → 假设改善；最后保留性质范围",
+            "range": [
+              584,
+              616
+            ],
+            "available": true,
+            "returned_numbered_lines": [],
+            "any_exact_numbered_return": false,
+            "all_nonempty_lines_returned_exactly": false,
+            "english_block_lines": [
+              594,
+              600,
+              606
+            ],
+            "all_english_blocks_returned_exactly": false,
+            "analysis_table_lines": [
+              608,
+              609,
+              610,
+              611,
+              612,
+              613
+            ],
+            "all_analysis_tables_returned_exactly": false
+          }
+        }
+      }
+    },
+    "other_robotics_cards": {},
+    "additional_source_text_actual_returns": {},
+    "execution_messages_file": "polishing/execution-agent-messages.json",
+    "limit": "Available, returned and adopted are distinct. Exact numbered matches prove returned lines only. Partial or non-numbered returns remain in raw events; manual prose evaluation is separate."
+  }
+}

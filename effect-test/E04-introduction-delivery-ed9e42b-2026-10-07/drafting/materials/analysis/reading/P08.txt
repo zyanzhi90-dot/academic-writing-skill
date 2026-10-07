@@ -1,0 +1,1937 @@
+=== PDF PAGE 1 ===
+IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 1, JANUARY 2023 803
+Fixed-Time Neural Control of Robot Manipulator
+With Global Stability and Guaranteed
+Transient Performance
+Chengzhi Zhu, Yiming Jiang , and Chenguang Yang , Senior Member, IEEE
+Abstract—Nowadays, due to many limitations in reality,
+the optimization of tracking precision and convergence
+time has attracted the attention of researchers in robotics
+community. In this article, a fixed-time adaptive neural net-
+work (NN) controller is proposed for unknown robot ma-
+nipulators. A switching mechanism is integrated into the
+control design such that the semiglobal stability of the
+conventional NN control systems can be extended to global
+stability. The time-varying barrier Lyapunov function and
+the fixed-time control technique are incorporated into the
+controller design to guarantee the prescribed motion con-
+straints and the fixed-time convergence simultaneously.
+Compared with some existing fixed-time NN control algo-
+rithms, the assumption that NN weight should be upper
+bounded can be relaxed in our work. Finally, the simulation
+and experiment studies are respectively carried out based
+on an unknown 2-degree of freedom robot and a Baxter
+robot to demonstrate the effectiveness and superiority of
+the proposed control scheme.
+Index Terms—Barrier Lyapunov functions (BLFs), fixed-
+time convergence, global stability, neural network (NN) con-
+trol, robot manipulator.
+I. INTRODUCTION
+NOWADAYS, a variety of effective control schemes [1],
+[2] have been proposed by researchers in the automation
+community. In [3], a relatively comprehensive review has been
+shown to introduce the widely used robot control algorithms.
+Manuscript received 12 November 2021; revised 23 January 2022;
+accepted 14 February 2022. Date of publication 9 March 2022; date
+of current version 22 August 2022. This work was supported in part
+by National Natural Science Foundation of China (NSFC) under Grant
+U20A20200 and Grant 62003136, in part by Guangdong Basic and
+Applied Basic Research Foundation under Grant 2019B1515120076
+and Grant 2020B1515120054, and in part by Industrial Key Tech-
+nologies Research and Development Program of Foshan under Grant
+2020001006496 and Grant 2020001006308. (Corresponding author:
+Chenguang Yang.)
+Chengzhi Zhu and Chenguang Yang are with the Key Laboratory
+of Autonomous Systems and Networked Control, College of Automa-
+tion Science and Engineering, South China University of Technology,
+Guangzhou 510640, China (e-mail: auchengzhi@mail.scut.edu.cn;
+cyang@ieee.org).
+Yiming Jiang is with the National Engineering Research Center for
+Robot Visual Perception and Control, Hunan University, Changsha
+410082, China (e-mail: ymjiang@hnu.edu.cn).
+Color versions of one or more figures in this article are available at
+https://doi.org/10.1109/TIE.2022.3156037.
+Digital Object Identifier 10.1109/TIE.2022.3156037
+Most of the proposed control schemes focused on the steady-
+state tracking accuracy, but few of them involved the transient
+performance and convergence time.
+In practice, the undesirable transient performance may lead to
+the collision between robots and the surrounding environment,
+thus causing the system safety problems. Therefore, different
+controllers have been proposed for robots in the presence of vari-
+ous constraints to achieve desired transient performance [4]–[6].
+Recently, the barrier Lyapunov functions (BLFs) were originally
+proposed to indirectly achieve the state and output constraints
+in the nonlinear control community [7], [8]. In [7], an adaptive
+observer-based fuzzy control scheme using BLF has been pro-
+posed for a class of systems. In [8], a class of tracking control
+problems has been investigated for a class of nonlinear systems
+with deferred full-state constraints.
+Due to the complexity of the robot mechanism, the model
+information about the robots is not available in most practical
+cases.Tosolvethisproblem,thedesignedcontrollershouldcom-
+pensate the system uncertainty by the input–output data. Neural
+network (NN) and fuzzy logic technique have been widely
+employed in intelligent controller design for the unknown sys-
+tems [6], [9], [10]. However, the above-mentioned NN control
+schemes can only guarantee semiglobally uniformly ultimately
+boundedness (SGUUB) of the involved systems, for which the
+approximation ability of the NN has been greatly attenuated.
+So it is significant to extend the stability of the NN control
+schemes from semiglobal stability to global stability. In [11],
+an adaptive NN controller has been proposed for hypersonic
+flight vehicle systems to achieve global uniformly ultimately
+boundedness (GUUB).
+Some existing control schemes have been proposed and fo-
+cused on the convergence time of the systems. However, for
+the proposed finite-time control algorithms [12], [13], the con-
+vergence time is always related to the initial conditions, which
+are always unavailable in practice. Recently, various fixed-time
+control algorithms have caught the attention of researchers and
+been employed in the nonlinear control community [14]–[16].
+In [15], the distributed fixed-time algorithm has been proposed
+for unknown multiple Euler–Lagrange systems under directed
+graphs. In [16], a fixed-time fuzzy control scheme has been pro-
+posed for the tracking problem of a class of nonlinear systems.
+So far, there are few researches that combine NN technique
+and fixed-time control algorithm [17]–[23]. Motivated by [23],
+a global fixed-time NN controller is proposed for unknown robot
+0278-0046 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+804 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 1, JANUARY 2023
+manipulators with predefined output constraints in this article.
+A BLF has been employed in the controller design such that the
+tracking errors can be constrained within a predefined range.
+So the uncertainty of the convergence domain in [17] and [18]
+can be optimized. Compared with the fixed-time NN control
+schemes in [17]–[22], a switching mechanism is integrated into
+the controller design such that all the closed-loop signals can
+achieve GUUB rather than SGUUB, which can greatly relax the
+requirement of the NN inputs. Thus, the assumption that the NN
+weight estimation is bounded in [17]–[19] can be relaxed. So
+the superiority of the proposed control scheme can be shown.
+However, compared to our work, the radial basis function neural
+networks (RBFNNs) in [21]–[23] can achieve less computa-
+tional complexity because of the superior technique. In our
+previous work [24], a topology optimization method has been
+proposed to reduce the data amount for calculation and storage
+in wireless sensor networks. The above researches are exciting
+because they may enlighten optimizing the NN structure in our
+future work. The main contributions of our work are listed as
+follows.
+1) A proper BLF has been integrated into the NN controller
+design such that the prescribed transient performance can
+be guaranteed and the tracking errors will not violate the
+output constraints.
+2) The tracking performance of the controlled robot system
+can achieve fixed-time convergence regardless of the ini-
+tial conditions.
+3) A switching mechanism has been combined with the
+proposed control scheme to make all the closed-loop
+signals achieve GUUB such that the assumption that the
+NN weight estimation is bounded in [17]–[19] can be
+relaxed.
+The rest of this article is organized as follows. The problem
+formulation and preliminaries which are involved in the control
+design are introduced in Section II. The global fixed-time NN
+control design with the guaranteed transient performance and
+the system stability analysis are described in Section III. The
+simulation and the experimental studies of the proposed con-
+troller are, respectively, presented in Sections IV and V to show
+the superiority. Finally, Section VI concludes this article.
+II. PROBLEM FORMULATION AND PRELIMINARIES
+A. Problem Formulation
+Generally, the dynamic equation of an n-DOF (degree of
+freedom) robot is described as
+M(q)q̈ + C(q, q̇)q̇ + G(q) = τ (1)
+where q, q̇, q̈ ∈ Rn
+can be, respectively, expressed as the vec-
+tors of joint position, velocity, and acceleration. The terms
+M(q), C(q, q̇) ∈ Rn×n
+, and G(q) ∈ Rn
+, respectively, denote
+the inertia matrix, Coriolis and centripetal torque matrix, and
+gravity vector. τ ∈ Rn
+is the control torque applied to the joints.
+The objective of the controller design is to make the joint
+position q in (1) track the desired trajectory qd with fixed-time
+convergence regardless of the initial conditions. Meanwhile, the
+output constraints should not be violated during the control
+Fig. 1. Framework for the global fixed-time NN robot controller.
+operation. Moreover, when the system inputs are not within
+the NN’s approximation domain, the global stability of the
+closed-loop system should be guaranteed. The controller design
+strategy is demonstrated in Fig. 1.
+B. Preliminaries
+Property 1 ([25]): The term M(q) is a symmetric and pos-
+itive definite matrix. And the term Ṁ(q) − 2C(q, q̇) is a skew
+symmetric matrix which satisfies that ιT
+(Ṁ(q) − 2C(q, q̇))ι =
+0, ∀ι ∈ Rn
+.
+Assumption 1: The desired trajectory qd is bounded. The first-
+order derivative of qd exists and is continuous. Moreover, q̇d is
+also bounded.
+Lemma 1 ([26]): For a general Lyapunov function V (x),
+when the following inequality exists: V̇ (x) ≤ −η1 V ρ1
+(x) −
+β1 V ρ2
+(x) + a1, where a1 is a positive constant and the param-
+eters ρ1 ∈ (0, 1), ρ2 ∈ (1, ∞), the system ẋ(t) = f(x) can be
+seen as practical fixed-time stable. And the residual set of the
+system is
+Ω1 =
+
+x|V ≤ min
+
+[a1/(η1(1 − θ))]1/ρ1
+,
+[a1/(β1(1 − θ))]1/ρ2
+
+where θ represents a positive constant satisfying that θ ∈ (0, 1).
+The convergence time of the system is T ≤ Tmax = 1
+η1θ(1−ρ1) +
+1
+β1θ(ρ2−1) .
+Lemma 2 ([27]): The following inequalities hold for any ri ∈
+R and p ∈ R+
+:
+n
+
+i=1
+|ri|p
+≥
+ n
+
+i=1
+|ri|
+p
+, 0 < p ≤ 1 (2)
+n
+
+i=1
+|ri|p
+≥ n1−p
+ n
+
+i=1
+|ri|
+p
+, p > 1. (3)
+Lemma 3 ([28]): For any y ∈ R and  ∈ R+
+, the following
+inequality holds:
+0 ≤ |y| − ytanh
+ y
+
+
+≤ c (4)
+where c is a positive constant satisfying that c = e−(c+1)
+, i.e.,
+c = 0.2785.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+ZHU et al.: FIXED-TIME NEURAL CONTROL OF ROBOT MANIPULATOR 805
+Remark 1 ([29]): A novel function is defined as follows for
+any μ ∈ R:
+sigb
+(μ) = |μ|b
+sign(μ) (5)
+where b is a positive constant and sign(·) can be seen as the
+signum function.
+Radial Basis Function Neural Network ([30]): In our work,
+the RBFNN has been employed to compensate for unknown
+system function f(Z) : Ru
+→ R in the controller design
+ˆ
+f(Z) =
+N0
+
+i=1
+ŵisi(Z) = ŴT
+S(Z) (6)
+where Z ∈ ΩZ0
+⊂ Ru
+and u represent the NN input vector
+and its dimension, respectively. The term Ŵ ∈ RN0
+denotes
+the estimation of the optimal constant weight vector W∗
+. N0
+denotes the number of the selected NN nodes. The term S(Z) =
+[s1(Z), s2(Z), . . ., sN0
+(Z)]T
+∈ RN0
+represents the regression
+vector, with si(Z) being selected as a general radial basis
+function as follows:
+si(Z, υi) = exp
+−(Z − υi)T
+(Z − υi)
+σ2
+i
+(7)
+where υi ∈ Ru
+and σi ∈ R, respectively, denote the center
+vector and the positive width parameter of the ith NN node.
+The RBFNN in (6) can approximate the continuous function
+f(Z) : Ru
+→ R to arbitrary accuracy as long as the node num-
+ber is sufficiently large over the compact set ΩZ0
+f(Z) = W∗T
+S(Z) + ε(Z), ∀Z ∈ ΩZ0
+∈ Ru
+(8)
+where ε(Z) denotes the approximation error of the NN. And
+ε(Z) is bounded by a positive constant ε̄, i.e., |ε(Z)| ≤ ε̄ for all
+Z ∈ ΩZ0
+. The ideal weight vector W∗
+is the term that minimizes
+ε(Z) for all Z ∈ ΩZ0
+, i.e.,
+W∗
+= arg min
+W ∈RN0
+sup
+Z∈ΩZ0
+f(Z) − ŴT
+S(Z) . (9)
+III. CONTROL DESIGN
+Before the controller design, the tracking error signals of the
+robot manipulator can be defined as follows:
+e = q − qd z = q̇ − α (10)
+where e = [e1, e2, . . ., en]T
+∈ Rn
+and z = [z1, z2, . . ., zn]T
+∈
+Rn
+represent the position tracking error vector and the velocity
+tracking error vector of the robot manipulator, respectively.
+The vectors q ∈ Rn
+and qd ∈ Rn
+represent the actual trajec-
+tory and desired trajectory for the joints, respectively. And
+α = [α1, α2, . . ., αn]T
+∈ Rn
+is the virtual control vector which
+will be designed later.
+A. Requirement for Transient Performance
+The boundary functions ξ1i and ξ2i are constructed to con-
+strain the tracking error ei in different directions as follows:
+ξ1i = −
+
+(φ0,1i − φ∞,1i)e−l1it
++ φ∞,1i
+
+(11)
+ξ2i = (φ0,2i − φ∞,2i)e−l2it
++ φ∞,2i (12)
+where φ0,ji, φ∞,ji, lji (i = 1, 2, . . ., n, j = 1, 2) are proper pos-
+itive constants.
+Remark 2: The functions ξ2i and ξ1i are, respectively, defined
+as the upper and lower bounds of the error ei where ei = qi −
+qdi, i.e., the tracking error ei should be constrained in the range
+ξ1i < ei < ξ2i. From (11), (12), and the monotonicity of the
+exponential function, we can specify the transient and steady-
+state tracking performance by properly selecting the parameters
+φ0,ji, φ∞,ji, lji (i = 1, 2, . . ., n, j = 1, 2).
+B. Global NN Controller Design Involving BLF
+The following coordinate transformation is applied on the
+tracking error vector e:
+ϕa =
+e1
+ξ11
+,
+e2
+ξ12
+, . . .,
+en
+ξ1n
+T
+(13)
+ϕb =
+e1
+ξ21
+,
+e2
+ξ22
+, . . .,
+en
+ξ2n
+T
+. (14)
+Then a new vector ϕ is defined as ϕ = [ϕ1, ϕ2, , . . ., ϕn]T
+where
+ϕi = hi(ei)ϕbi + (1 − hi(ei))ϕai, i = 1, 2, . . ., n. (15)
+The terms ϕai and ϕbi in (15) are the ith elements of the
+vectors ϕa and ϕb, respectively. And hi(ei) is a function that
+can be defined as follows:
+hi(ei) =
+
+1 ei ≥ 0
+0 ei < 0
+. (16)
+Inspired by [31], an asymmetric candidate BLF can be con-
+structed as follows:
+V1 =
+n
+
+i=1
+
+hi
+2
+ln
+1
+1 − ϕ2
+bi
++
+1 − hi
+2
+ln
+1
+1 − ϕ2
+ai
+
+(17)
+where the initial value of ei satisfies that ξ1i(0) < ei(0) <
+ξ2i(0).
+Taking the derivative of (17), we can get
+V̇1 =
+n
+
+i=1
+hi
+1
+1 − ϕ2
+bi
+ϕbiϕ̇bi + (1 − hi)
+1
+1 − ϕ2
+ai
+ϕaiϕ̇ai .
+(18)
+From (13) and (14), we can get that
+ϕ̇ai =
+ėiξ1i − ei
+˙
+ξ1i
+ξ2
+1i
+ϕ̇bi =
+ėiξ2i − ei
+˙
+ξ2i
+ξ2
+2i
+. (19)
+Substituting (10) and (19) into (18), we have
+V̇1 =
+n
+
+i=1
+
+hiϕbi
+(1 − ϕ2
+bi)ξ2i
+
+zi + αi − q̇di − ei
+˙
+ξ2i
+ξ2i
+
++
+n
+
+i=1
+
+(1 − hi)ϕai
+(1 − ϕ2
+ai)ξ1i
+
+zi + αi − q̇di − ei
+˙
+ξ1i
+ξ1i
+
+.
+(20)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+806 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 1, JANUARY 2023
+Then the virtual controller αi can be designed as
+αi = q̇di − k1iei −
+hik2iϕ2
+biei
+1 − ϕ2
+bi
+−
+(1 − hi)k2iϕ2
+aiei
+1 − ϕ2
+ai
+− hik3i
+
+1
+2
+e2
+i +
+1
+2
+ξ2
+2i
+1
+2
+(1 − ϕ2
+bi)
+1
+4 − δiei
++ (1 − hi)k3i
+
+1
+2
+e2
+i +
+1
+2
+ξ2
+1i
+1
+2
+(1 − ϕ2
+ai)
+1
+4 (21)
+where
+δi =
+
+
+
+
+
+˙
+ξ1i
+ξ1i
+2
++
+
+˙
+ξ2i
+ξ2i
+2
++ kai (22)
+and k1i, k2i, k3i, and kai are all proper positive constants. The
+term kai is selected to ensure the boundedness of α̇i when ˙
+ξ1i =
+˙
+ξ2i = 0.
+Substituting (21) into (20), we have
+V̇1 =
+n
+
+i=1
+⎡
+⎣
+⎛
+⎝ hiei
+
+1 −
+e2
+i
+ξ2
+2i
+
+ξ2
+2i
++
+(1 − hi)ei
+
+1 −
+e2
+i
+ξ2
+1i
+
+ξ2
+1i
+⎞
+⎠ zi
+⎤
+⎦
+−
+n
+
+i=1
+⎡
+⎣ k1ihie2
+i
+
+1 −
+e2
+i
+ξ2
+2i
+
+ξ2
+2i
++
+(1 − hi)k1ie2
+i
+
+1 −
+e2
+i
+ξ2
+1i
+
+ξ2
+1i
+⎤
+⎦
+−
+n
+
+i=1
+
+k2ih2
+i ϕ4
+bi
+(1 − ϕ2
+bi)
+2 +
+(1 − hi)2
+k2iϕ4
+ai
+(1 − ϕ2
+ai)
+2
+
+−
+n
+
+i=1
+⎡
+⎣
+k3ih2
+i ϕbi
+1
+2 e2
+i + 1
+2 ξ2
+2i
+(1 − ϕ2
+bi)
+3
+4
+ξ2i
+⎤
+⎦
++
+n
+
+i=1
+⎡
+⎣
+k3i(1 − hi)2
+ϕai
+1
+2 e2
+i + 1
+2 ξ2
+1i
+(1 − ϕ2
+ai)
+3
+4
+ξ1i
+⎤
+⎦
+−
+n
+
+i=1
+
+hiϕ2
+bi
+(1 − ϕ2
+bi)
+
+δi +
+˙
+ξ2i
+ξ2i
+
++
+(1 − hi)ϕ2
+ai
+(1 − ϕ2
+ai)
+
+δi +
+˙
+ξ1i
+ξ1i
+
+(23)
+where hi(1 − hi) = 0 has been used for the above derivation.
+When ei ≥ 0, from (12) and (14), we have
+−
+n
+
+i=1
+k3ih2
+i ϕbi
+1
+2 e2
+i + 1
+2 ξ2
+2i
+(1 − ϕ2
+bi)
+3
+4
+ξ2i
+≤ −
+n
+
+i=1
+k3ih2
+i
+!
+ϕ2
+bi
+"3
+4
+(1 − ϕ2
+bi)
+3
+4
+. (24)
+When ei < 0, from (11) and (13), we have
+n
+
+i=1
+k3i(1 − hi)2
+ϕai
+1
+2 e2
+i + 1
+2 ξ2
+1i
+(1 − ϕ2
+ai)
+3
+4
+ξ1i
+≤ −
+n
+
+i=1
+k3i(1 − hi)2
+!
+ϕ2
+ai
+"3
+4
+(1 − ϕ2
+ai)
+3
+4
+. (25)
+By (22), we can obtain the following inequalities:
+δi +
+˙
+ξ2i
+ξ2i
+≥ 0 δi +
+˙
+ξ1i
+ξ1i
+≥ 0. (26)
+Substituting (15), (24), (25), and (26) into (23), we can get
+that
+V̇1 ≤
+n
+
+i=1
+
+−
+k1iϕ2
+i
+1 − ϕ2
+i
+−
+k2i(ϕ2
+i )2
+(1 − ϕ2
+i )2
+−
+k3i(ϕ2
+i )
+3
+4
+(1 − ϕ2
+i )
+3
+4
++ ςieizi
+
+(27)
+where
+ςi =
+hi
+ξ2
+2i − e2
+i
++
+1 − hi
+ξ2
+1i − e2
+i
+. (28)
+Then a candidate Lyapunov function can be constructed as
+follows:
+V2 = V1 +
+1
+2
+zT
+Mz. (29)
+Taking the derivative of (29) combined with (1), (10), and
+Property 1, we have
+V̇2 = V̇1 + zT
+(τ − Cα − G − Mα̇) (30)
+where M, C, and G represent the abbreviation of M(q), C(q, q̇),
+and G(q), respectively. The unknown vector which will be
+approximated by the RBFNNs is defined as
+F(Z) = −Mα̇ − Cα − G (31)
+where F(Z) = [f1(Z), f2(Z), . . ., fn(Z)]T
+. And the input vec-
+tor can be defined as Z = [qT
+, q̇T
+, αT
+, α̇T
+]T
+∈ R4n
+. It should
+be noted that the unknown function fi(Z) approximated by the
+NN is upper bounded by a known nonnegative smooth function
+¯
+fi(Z) such that |fi(Z)| ≤ ¯
+fi(Z) ∀Z ∈ R4n
+.
+Substituting (31) into (30), we can obtain that
+V̇2 = V̇1 + zT
+[τ + F(Z)] . (32)
+Then the RBFNNs can be applied to approximate the items
+fi(Z), i = 1, 2, . . ., n, respectively, as follows:
+ˆ
+fi(Z) = ŴT
+i Si(Z)
+fi(Z) = W∗T
+i Si(Z) + εi (33)
+where W∗T
+i ∈ RN0i
+and ŴT
+i ∈ RN0i
+are the optimal NN weight
+vector and the estimation of W∗T
+i , respectively. N0i represents
+the node number of the ith NN. Si(Z) ∈ RN0i
+represents the
+basis function vector. The term εi ∈ R represents the estimation
+error of the ith NN which is bounded by εi < ε̄i.
+To extend SGUUB of the traditional NNs to GUUB, the
+following function can be defined:
+γi(ei) =
+⎧
+⎪
+⎪
+⎪
+⎨
+⎪
+⎪
+⎪
+⎩
+1 |ei| < d1i
+d2
+2i−e2
+i
+d2
+2i−d2
+1i
+e
+
+e2
+i
+−d2
+1i
+κi(d2
+2i
+−d2
+1i)
+2
+d1i ≤ |ei| ≤ d2i
+0 |ei| > d2i
+(34)
+where d1i and d2i are all positive constants that satisfy d1i < d2i.
+The parameters κi are the positive constants with κi ≥ 1.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+ZHU et al.: FIXED-TIME NEURAL CONTROL OF ROBOT MANIPULATOR 807
+Fig. 2. Global NN tracking performance.
+Then the global NN controller can be designed as follows:
+τi = − k4izi − ςiei − γi(ei) ˆ
+fi − (1 − γi(ei)) ¯
+fitanh
+
+zi
+¯
+fi
+i
+
+− k5iz3
+i − k6isig0.5
+(zi)
+(35)
+where k4i, k5i, k6i, and i are all proper positive constants
+satisfying that k4i > 1
+2 , k5i > 1
+2 . The term sig0.5
+(zi) has the
+meaning shown in Remark 1.
+The adaptive law for the NN weight is designed as
+˙
+Ŵi = Qi
+
+γiziSi(Z) − miŴi
+
+(36)
+where Qi is a positive definitive diagonal matrix. The parameter
+mi is a positive constant.
+Remark 3: From Fig. 2 , we can know that when ei runs
+in the NN approximation domain Ω1i, the robust item (1 −
+γi(ei)) ¯
+fitanh(zi
+¯
+fi
+i
+) in (35) turns to 0 and only the item γi(ei) ˆ
+fi
+plays a role. When the state runs out of domain Ω2i, only the
+robust item plays a role and pulls the state back. When the state
+is between Ω1i and Ω2i, both the terms play a role and pull the
+state to the approximation domain Ω1i.
+Theorem 1: For the unknown robot manipulator in (1), when
+the initial conditions are within the output constraints in (11) and
+(12), the tracking error ei in (10) can be fixed-time convergent
+without violating the constraints when the NN controller in (35)
+and the adaptive law in (36) are employed. Moreover, all the
+closed-loop signals in the system are GUUB.
+Proof: The global Lyapunov function is constructed as fol-
+lows:
+V = V2 +
+1
+2
+n
+
+i=1
+W̃T
+i Q−1
+i W̃i (37)
+where W̃i = W∗
+i − Ŵi can be seen as the estimation error of
+the optimal NN weight W∗
+i .
+Taking the derivative of V combined with (32) and (36), we
+can get
+V̇ =V̇1 +zT
+[τ + F(Z)]−
+n
+
+i=1
+
+W̃T
+i ziγiSi(Z)−miW̃T
+i Ŵi
+
+.
+(38)
+Substituting (27), (33), and (35) into (38), we can get
+V̇ ≤
+n
+
+i=1
+
+−
+k1iϕ2
+i
+1 − ϕ2
+i
+−
+k2i(ϕ2
+i )2
+(1 − ϕ2
+i )2
+−
+k3i(ϕ2
+i )
+3
+4
+(1 − ϕ2
+i )
+3
+4
+
++
+n
+
+i=1
+'
+−k4iz2
+i − k5iz4
+i − k6i(z2
+i )
+3
+4
+(
++
+n
+
+i=1
+'
+ziγiεi + miW̃T
+i Ŵi
+(
++
+n
+
+i=1
+(1 − γi)
+
+fizi − ¯
+fizitanh
+
+zi
+¯
+fi
+i
+
+. (39)
+From Lemma 3, we can obtain that
+fizi − ¯
+fizitanh
+
+zi
+¯
+fi
+i
+
+≤ ¯
+fi |zi| − ¯
+fizitanh
+
+zi
+¯
+fi
+i
+
+≤ ci. (40)
+And for the terms γiziεi and miW̃T
+i Ŵi, we can obtain the
+following results:
+γiziεi ≤ γi |zi| |εi| ≤
+1
+2
+z2
+i +
+1
+2
+ε2
+i ≤
+1
+2
+z2
+i +
+1
+2
+ε̄2
+i (41)
+miW̃T
+i Ŵi = miW̃T
+i (W∗
+i − W̃i) = −mi
+)
+)
+)W̃i
+)
+)
+)
+2
++ miW̃T
+i W∗
+i
+≤ mi
+⎛
+⎜
+⎝
+W∗
+i
+2
+2
+−
+)
+)
+)W̃i
+)
+)
+)
+2
+2
+⎞
+⎟
+⎠
+(42)
+where 0 ≤ γi ≤ 1 has been used in (41).
+Substituting (40), (41), and (42) into (39), we have
+V̇ ≤
+n
+
+i=1
+
+−
+k1iϕ2
+i
+1 − ϕ2
+i
+−
+k2i(ϕ2
+i )2
+(1 − ϕ2
+i )2
+−
+k3i(ϕ2
+i )
+3
+4
+(1 − ϕ2
+i )
+3
+4
+
++
+n
+
+i=1
+'
+−k4iz2
+i − k5iz4
+i − k6i(z2
+i )
+3
+4
+(
++
+n
+
+i=1
+1
+2
+z2
+i +
+1
+2
+ε̄2
+i
++
+n
+
+i=1
+⎡
+⎢
+⎣mi
+⎛
+⎜
+⎝
+W∗
+i
+2
+2
+−
+)
+)
+)W̃i
+)
+)
+)
+2
+2
+⎞
+⎟
+⎠
+⎤
+⎥
+⎦ +
+n
+
+i=1
+[(1 − γi)ci] .
+(43)
+From (43), we have the following inequality:
+V̇ ≤
+n
+
+i=1
+−2k1i ·
+1
+2
+ln
+1
+1 − ϕ2
+i
+− min
+
+2k4i − 1
+λmax(M)
+
+1
+2
+zT
+Mz
+− min
+
+mi
+λmax
+!
+Q−1
+i
+"
+ n
+
+i=1
+
+1
+2
+W̃T
+i Q−1
+i W̃i
+
++ Λ1
+(44)
+where
+ϕ2
+i
+1−ϕ2
+i
+≥ ln 1
+1−ϕ2
+i
+, ∀|ϕi| < 1 has been used in the deriva-
+tion of (44). And Λ1 =
+.n
+i=1[1
+2 ε̄2
+i +
+mi W ∗
+i
+2
+2 + ci] can be
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+808 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 1, JANUARY 2023
+seen as a bounded positive constant, and λmax(·) is the largest
+eigenvalue of the term (·).
+Then we can obtain the result as follows:
+V̇ ≤ −ψ1V + Λ1 (45)
+where ψ1 = min
+
+2k1i, 2k4i−1
+λmax(M) , mi
+λmax(Q−1
+i )
+
+.
+Multiplying both sides by eψ1t
+in (45) and then integrating
+both sides over [0, t], we have
+V ≤ V (0) −
+Λ1
+ψ1
+e−ψ1t
++
+Λ1
+ψ1
+≤ V (0) +
+Λ1
+ψ1
+. (46)
+Remark 4: From the above inequality, the boundedness of
+the Lyapunov function V (t) can be inferred. Combined with the
+definition of V (t) in (17), (29), and (37), the boundedness of
+ln 1
+1−ϕ2
+i
+, zi, and W̃i can be concluded, respectively. So |ϕi| < 1
+can be guaranteed. Then the tracking constraints ξ1i < ei < ξ2i
+will not be violated during the operation from (13) and (14).
+From (10) combined with Assumption 1, we can conclude that
+q is bounded. Then from the boundedness of ϕi, ξ1i, ξ2i, ˙
+ξ1i, and
+˙
+ξ2i,wecanconcludetheboundednessofthevirtualcontrollerαi.
+Combined with the boundedness of Ŵi and the Gaussian basis
+function vector Si(Z), the controller in (35) can be concluded to
+be bounded. Therefore, all the closed-loop signals in the system
+have been proved to be GUUB.
+Similar to the derivation of (44), the following inequality can
+be obtained from (43):
+V̇ ≤
+n
+
+i=1
+
+−
+k2i(ϕ2
+i )2
+(1 − ϕ2
+i )2
+−
+k3i(ϕ2
+i )
+3
+4
+(1 − ϕ2
+i )
+3
+4
+− k5i
+!
+z2
+i
+"2
+− k6i(z2
+i )
+3
+4
+
++
+n
+
+i=1
+
+1
+2
+z2
+i +
+1
+2
+ε̄2
+i +
+mi W∗
+i
+2
+2
++ ci
+
+.
+(47)
+For the term 1
+2 z2
+i , we have
+1
+2
+z2
+i ≤
+1
+2
+z4
+i +
+1
+8
+. (48)
+From Remark 4, we can conclude that W̃i is upper bounded
+by W̃i ≤ ¯
+W̃i where ¯
+W̃i is defined as an unknown positive
+constant. Then substituting (48) into (47), we have
+V̇ ≤
+n
+
+i=1
+
+−
+k2i(ϕ2
+i )2
+(1 − ϕ2
+i )2
+−
+k3i(ϕ2
+i )
+3
+4
+(1 − ϕ2
+i )
+3
+4
+−
+
+k5i −
+1
+2
+
+z4
+i
+−k6i(z2
+i )
+3
+4 − k7i
+)
+)
+)W̃i
+)
+)
+)
+2
+2
+− k8i
+)
+)
+)W̃i
+)
+)
+)
+2
+3
+4
+
++ Λ2
+(49)
+where Λ2 is a bounded positive constant and Λ2 =
+.n
+i=1[k7i
+¯
+W̃4
+i + k8i
+¯
+W̃
+3
+2
+i + 1
+8 + 1
+2 ε̄2
+i +
+mi W ∗
+i
+2
+2 + ci].
+Remark 5: For the fixed-time stability analysis which is
+similar to (49) in [17]–[19], the assumption that W̃i is
+bounded by W̃i ≤ ¯
+W̃i was required to integrate the term
+k7i( W̃i
+2
+)2
++ k8i( W̃i
+2
+)
+3
+4 to the positive constant Λ2, which
+lacks theoretical basis. In our work, the Lyapunov function
+satisfies the inequality like (45). So the boundedness of W̃i
+can be proved instead of being assumed. Therefore, compared
+to [17]–[19], the superiority of our work can be reflected.
+From (49) and Lemma 2, we can conclude that
+V̇ ≤ −ψ2 V 2
+− ψ3 V
+3
+4 + Λ2 (50)
+where
+ϕ2
+i
+1−ϕ2
+i
+≥ ln 1
+1−ϕ2
+i
+, ∀|ϕi| < 1 has been used in the above
+derivation. The term ψ2 = 1
+3n min[4k2i, 4k5i−2
+λ2
+max(M) , 4k7i
+λ2
+max(Q−1
+i )
+],
+ψ3 = min[ k3i
+( 1
+2 )
+3
+4
+, k6i
+( 1
+2 )
+3
+4 λ
+3
+4
+max(M)
+, k8i
+( 1
+2 )
+3
+4 λ
+3
+4
+max(Q−1
+i )
+].
+So far, the inequality form such as that in Lemma 1 has been
+obtained. Then the system can be seen as fixed-time convergent
+independent of the initial conditions. And the system Lyapunov
+function V will converge to the following compact set in fixed-
+time:
+Ωg = x|V ≤ min
+
+Λ2
+ψ3(1 − θ1)
+4
+3
+,
+
+Λ2
+ψ2(1 − θ1)
+1
+2
+
+(51)
+where θ1 is a positive constant satisfying θ1 ∈ (0, 1). Moreover,
+the tracking error ei can be fixed-time convergent and accurately
+constrained by ξ1i < ei < ξ2i instead of the compact set in (51)
+because of the BLF in (17).
+Then the convergence time can be represented as
+Tgmax =
+4
+ψ3θ1
++
+1
+ψ2θ1
+. (52)
+So far, the proof has been completed.
+Remark 6: From (46) and (51), we can conclude that the
+relatively small Λ1 and Λ2 and the relatively large ψ1, ψ2, and
+ψ3 will lead to the smaller tracking error without violating the
+predefined output constraints. From (52), we can conclude that
+relatively large ψ2 and ψ3 will lead to shorter convergence time.
+From the definitions of the above terms in the article, we can
+see that the relatively small Λ1 and Λ2 can be obtained from
+the relatively small i and mi. The relatively large ψ1, ψ2,
+and ψ3 can be obtained from the relatively large mi, Qi, and
+kji(j = 1, 2, . . ., 6). The above theoretical analysis can guide
+the parameter adjustment combined with the operator’s experi-
+ence to obtain better control performance.
+IV. SIMULATION STUDY
+For the sake of simplicity, a 2-DOF robot will be employed
+to illustrate the effectiveness of the proposed controller.
+A. Simulation Setup
+When n = 2 in (1), the terms M(q), C(q, q̇), and G(q) can
+be, respectively, defined as follows:
+M(q) =
+
+M11 M12
+M21 M22
+
+C(q, q̇) =
+
+C11 C12
+C21 C22
+
+G(q) =
+
+G1
+G2
+
+(53)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+ZHU et al.: FIXED-TIME NEURAL CONTROL OF ROBOT MANIPULATOR 809
+Fig. 3. Schematic diagram of Baxter robot for experiment.
+where
+M11 = m1l2
+c1 + m2(l2
+1 + l2
+c2 + 2l1lc2cosq2) + I1 + I2
+M12 = M21 = m2(l2
+c2 + l1lc2cosq2) + I2
+M22 = m2l2
+c2 + I2
+C11 = −m2l1lc2q̇2sinq2
+C12 = −m2l1lc2(q̇1 + q̇2)sinq2
+C21 = m2l1lc2q̇1sinq2
+C22 = 0
+G1 = (m1lc2 + m2l1)gcosq1 + m2lc2gcos(q1 + q2)
+G2 = m2lc2gcos(q1 + q2) (54)
+with m1 = m2 = 2 kg and l1 = l2 = 0.5 m being the mass
+and the length of the ith (i = 1, 2) link, respectively. And lci
+(i = 1, 2) denotes the distance between the i − 1th joint and
+the ith link’s mass center. Then I1 = I2 = 0.125 kgm2
+can be
+calculated as the inertia of the ith link.
+The desired trajectory is set to qd = [π/2 + 0.7cos(2t) −
+0.7, π/4 + 0.8sin(2t)]T
+. In order to demonstrate the fixed-time
+convergence of the proposed controller, we set the initial errors
+of the two links as [0.1, −0.1]T
+, [0.2, −0.2]T
+, [0.4, −0.4]T
+, and
+[0.8, −0.8]T
+, respectively. The output constraints ξ1i and ξ2i are
+set as
+ξ11 = ξ12 = −
+
+(1 − 0.03)e−t
++ 0.03
+
+ξ21 = ξ22 = (1 − 0.05)e−t
++ 0.05. (55)
+For the controller design, the parameters can be set as:
+k1i = k2i = k3i = 2, ka1 = ka2 = 0.5, k4i = k5i = k6i = 2,
+and i = 0.01. The boundaries of the NN approximation term
+Fig. 4. Tracking errors of 2-DOF robot manipulator with the proposed
+controller.
+and the robust term are set as d1i = 0.1 and d2i = 1 and the
+parameter κi is set as κi = 1.2. The parameters for the adaptive
+law in (36) are set as Q1 = diag{0.18}, Q2 = diag{0.4} and
+m1 = 1.7, m2 = 0.5.
+In addition, to further verify the superiority of our work, an
+adaptive NN controller in [32] has been applied to the same
+2-DOF robot model in the article. To be fair, all the physical
+parameters, the predefined output constraints, and the desired
+trajectory of the robot system are set the same as that in the
+above simulation study. And the initial errors are set the same
+as [0.1, −0.1]T
+with the two different controllers. By the re-
+peated simulation to achieve better control performance, for the
+following controlled terms in [32]
+α1i = ẏdi − k1ie1i (56)
+ui = −k2ie2i −
+1
+2a2
+i
+e2iθ̂iφT
+φ (57)
+˙
+θ̂i =
+λi
+2a2
+i
+e2
+2iφT
+φ − γiθ̂i (58)
+the parameters are, respectively, designed as k1 = [30, 15]T
+,
+k2 = [19.6, 9.6]T
+, ai = 1.5, and γi = 1 for i = 1, 2.
+B. Simulation Results
+The simulation results have been shown as Figs. 4–6. From
+Figs. 4 and 5, we can see that both ei and Ŵi can achieve
+fixed-time convergence with different initial conditions, while
+ei can be convergent to [−0.02, 0.02] in less than 5 s without
+violating the output constraints. The comparison simulation
+results have been shown in Fig. 6. We can see that quite a good
+tracking performance can be obtained using the adaptive NN
+controller in [32]. In fact, better control performance can be
+obtained with more proper designed parameters in [32] during
+the process of our massive repeated simulation. However, the
+predefined output constraints may be violated with the controller
+in [32] while the suboptimal parameters are being selected, such
+as the results in Fig. 6. But the same constraints can always
+be handled in our work. So the superiority of the proposed
+control scheme has been shown in the aspect of the transient
+performance.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+810 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 1, JANUARY 2023
+Fig. 5. NN weight estimation of 2-DOF robot manipulator with
+proposed controller.
+Fig. 6. Tracking errors of 2-DOF robot manipulator with different
+controller.
+V. EXPERIMENT STUDY
+To verify the practicability of the proposed control scheme, a
+Baxter robot, as shown in Fig. 3, is employed in the experiment.
+It is a bimanual robot with advanced sensing technologies and
+control at every joint of its two 7-DOF arms. The detailed
+information of the kinematics and dynamics of the Baxter robot
+has been given in [33] and [34]. For simplicity and without loss
+of generality, we select two joints, i.e., left e1 and left w1 of the
+left arm to derive the motion for experiment.
+Remark 7: From (21), we can see when the value of the
+tracking errors are closer to the limits of the output constraints
+ξ1i and ξ2i, the values of the terms 1 − ϕai and 1 − ϕbi will
+be closer to zero, which will lead to very large αi because of
+their role of denominator. Then the large αi may lead to large
+torques in (35) that exceed the capacity of the machine. So we
+set the slightly larger values of φ∞,1i and φ∞,2i in (11) and (12).
+Similarly, we set the slightly smaller initial conditions in case
+the initial torques are too large to cause the safety problem.
+A. Experiment Setup
+The desired trajectory is set to qd = [π/2 + 0.7cos(2t) −
+0.7, π/4 + 0.8sin(2t)]T
+. In order to demonstrate the fixed-time
+convergence of the proposed controller, we set the initial errors
+of left e1 and left w1 as [0.001, −0.001]T
+, [0.01, −0.01]T
+,
+Fig. 7. Tracking errors of left e1 and w1 joints with the proposed
+controller.
+[0.1, −0.1]T
+, and [0.4, −0.4]T
+, respectively. The output con-
+straints ξ1i and ξ2i are set as
+ξ11 = ξ12 = −
+
+(0.8 − 0.12)e−t
++ 0.12
+
+ξ21 = ξ22 = (0.8 − 0.12)e−t
++ 0.12. (59)
+For the controller design, the parameters can be set as
+kj1 = 1.8, kj2 = 0.8 (j = 1, 2, . . ., 6), ka1 = 0.5, ka2 = 0.4,
+and i = 0.01. The boundaries of the NN approximation term
+and the robust term are set as d1i = 0.2 and d2i = 0.5 and the
+parameter κi = 1.2. The parameters for the adaptive law in
+(36) are set as Q1 = diag{0.03}, Q2 = diag{0.02} and m1 = 2,
+m2 = 15.
+To further verify the superiority of the proposed NN control
+scheme, the NN controller in [32] and a PD controller have been
+applied to the same Baxter robot in the article. To be fair, the
+predefined output constraints and the desired trajectory of the
+robot system are set the same as that in the above experiment
+study. And the initial errors are set the same as [0.1, −0.1]T
+with
+the three different controllers. By the repeated experiment study
+to achieve better control performance, we set the parameters in
+(56), (57), and (58) as k1 = [13, 4]T
+, k2 = [0.5, 0.5]T
+, ai = 1.5,
+and γi = 1 for i = 1, 2, respectively. And the PD controller is
+designed as τ = −Kpe − Kdė where Kp = diag(50, 40) and
+Kd = diag(
+√
+0.5, 0.5).
+B. Experimental Results
+The experimental results have been shown in Figs. 7– 9. From
+Figs. 7 and 8, we can see that both ei and Ŵi can achieve fixed-
+time convergence with different initial conditions, while ei can
+be, respectively, convergent to [−0.06, 0.06] and [−0.05, 0.05]
+in less than 3 s without violating the output constraints. The
+comparison experimental results have been shown in Fig. 9.
+We can see that quite a good tracking performance can be
+obtained using both the adaptive NN controller in [32] and
+the PD controller. In fact, better control performance can be
+obtained with more proper designed parameters in the two com-
+parative controllers during the process of our massive repeated
+experiment. However, the predefined output constraints may be
+violated in the comparison experiment while the suboptimal
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+ZHU et al.: FIXED-TIME NEURAL CONTROL OF ROBOT MANIPULATOR 811
+Fig. 8. NN weight estimation of W1 and W2 with the proposed
+controller.
+Fig. 9. Tracking errors of left e1 and w1 joints with different controllers.
+parameters are being selected, such as the results in Fig. 9. But
+the same constraints can always be handled in our work. So the
+superiority of the proposed control scheme has been shown in
+the aspect of the transient performance.
+Remark 8: Although the above superior control performance
+with the proposed controller is exciting, the defect that exists for
+the convergence time in (52) cannot be accurately calculated be-
+cause of the unknown parameter θ1, which has been the common
+problem of the practical fixed-time control schemes. But similar
+to the existing fixed-time control schemes, the convergence time
+is very nearly the same with different initial conditions, which
+has been shown in the simulation and experiment study. So the
+superiority of the proposed control scheme has been shown in
+the aspect of the convergence time.
+VI. CONCLUSION
+In this article, a global fixed-time NN controller was pro-
+posed for unknown robot manipulators with predefined output
+constraints. A switching mechanism was integrated into the
+controller design such that SGUUB in the traditional NN control
+schemes can be extended to GUUB. The system Lyapunov
+function satisfies two different forms of inequalities like (45)
+and (50) simultaneously such that the assumption that the NN
+weight estimation is bounded can be relaxed compared with the
+existing fixed-time NN control schemes [17]–[19]. A BLF was
+exploited such that the tracking errors can be constrained in the
+predefined range, rather than the uncertain convergence domain
+in most practical fixed-time algorithms [17], [18], [27]. On the
+whole, compared with the traditional NN control algorithms, the
+proposed NN controller in this article can guarantee the global
+stability and the fixed-time convergence simultaneously without
+violating the predefined output constraints, which showed the
+superiority of the control scheme.
+In the future work, the neural control problem of unknown
+bimanual robots with fixed-time convergence will be discussed.
+REFERENCES
+[1] S. Rubino, O. Dordevic, R. Bojoi, and E. Levi, “Modular vector control of
+multi-three-phase permanent magnet synchronous motors,” IEEE Trans.
+Ind. Electron., vol. 68, no. 10, pp. 9136–9147, Oct. 2021.
+[2] P. Garcia-Entrambasaguas, I. Zoric, I. Gonzalez-Prieto, M. J. Duran, and E.
+Levi, “Direct torque and predictive control strategies in nine-phase electric
+drives using virtual voltage vectors,” IEEE Trans. Power Electron., vol. 34,
+no. 12, pp. 12106–12119, Dec. 2019.
+[3] C. T. Kiang, A. Spowage, and C. K. Yoong, “Review of control and sensor
+system of flexible manipulator,” J. Intell. Robot. Syst., vol. 77, no. 1,
+pp. 187–213, 2015.
+[4] S.-L. Dai, K. Lu, and X. Jin, “Fixed-time formation control of unicycle-
+type mobile robots with visibility and performance constraints,” IEEE
+Trans. Ind. Electron., vol. 68, no. 12, pp. 12615–12625, Dec. 2021.
+[5] K. Lu, Z. Liu, G. Lai, C. P. Chen, and Y. Zhang, “Adaptive consensus
+tracking control of uncertain nonlinear multiagent systems with predefined
+accuracy,” IEEE Trans. Cybern., vol. 51, no. 1, pp. 405–415, Jan. 2021.
+[6] W. Li, C. Song, and Z. Li, “An accelerated recurrent neural network
+for visual servo control of a robotic flexible endoscope with joint limit
+constraint,” IEEE Trans. Ind. Electron., vol. 67, no. 12, pp. 10787–10797,
+Dec. 2020.
+[7] Y.-J. Liu, M. Gong, L. Liu, S. Tong, and C. P. Chen, “Fuzzy observer con-
+straint based on adaptive control for uncertain nonlinear MIMO systems
+with time-varying state constraints,” IEEE Trans. Cybern., vol. 51, no. 3,
+pp. 1380–1389, Mar. 2021.
+[8] J. Chen and C. Hua, “Adaptive full-state-constrained control of non-
+linear systems with deferred constraints based on nonbarrier Lya-
+punov function method,” IEEE Trans. Cybern., to be published,
+doi: 10.1109/TCYB.2020.3036646..
+[9] Z. Cui, W. Li, X. Zhang, P. W. Y. Chiu, and Z. Li, “Accelerated dual
+neural network controller for visual servoing of flexible endoscopic robot
+with tracking error, joint motion and RCM constraints,” IEEE Trans. Ind.
+Electron., to be published, doi: 10.1109/TIE.2021.3114674.
+[10] C. Chen, J. Huang, D. Wu, and X. Tu, “Interval type-2 fuzzy disturbance
+observer based T-S fuzzy control for a pneumatic flexible joint,” IEEE
+Trans. Ind. Electron., vol. 69, no. 6, pp. 5962–5972, Jun. 2021.
+[11] B. Xu, C. Yang, and Y. Pan, “Global neural dynamic surface track-
+ing control of strict-feedback systems with application to hypersonic
+flight vehicle,” IEEE Trans. Neural Netw. Learn. Syst., vol. 26, no. 10,
+pp. 2563–2575, Oct. 2015.
+[12] C. Fu, C. Zhang, G. Zhang, J. Song, C. Zhang, and B. Duan, “Disturbance
+observer-based finite-time control for three-phase AC/DC converter,”
+IEEE Trans. Ind. Electron., vol. 69, no. 6, pp. 5637–5647, Jun. 2022.
+[13] L. Zhao, S. Gu, J. Zhang, and S. Li, “Finite-time trajectory tracking control
+for rodless pneumatic cylinder systems with disturbances,” IEEE Trans.
+Ind. Electron., vol. 69, no. 4, pp. 4137–4147, Apr. 2022.
+[14] D. Ma, Y. Xia, G. Shen, H. Jiang, and C. Hao, “Practical fixed-time
+disturbance rejection control for quadrotor attitude tracking,” IEEE Trans.
+Ind. Electron., vol. 68, no. 8, pp. 7274–7283, Aug. 2021.
+[15] M. Hua, H. Ding, X.-Y. Yao, and X. Zhang, “Distributed fixed-time
+formation-containment control for multiple Euler-Lagrange systems with
+directedgraphs,”Int.J.Control,Automat.Syst.,vol.19,no.2,pp. 837–849,
+2021.
+[16] Y. Sun, F. Wang, Z. Liu, Y. Zhang, and C. P. Chen, “Fixed-time fuzzy
+control for a class of nonlinear systems,” IEEE Trans. Cybern., to be
+published, doi: 10.1109/TCYB.2020.3018695.
+[17] C. He, J. Wu, J. Dai, Z. Zhe, and T. Tong, “Fixed-time adaptive neural
+tracking control for a class of uncertain nonlinear pure-feedback systems,”
+IEEE Access, vol. 8, pp 28867–28879, 2020.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+812 IEEE TRANSACTIONS ON INDUSTRIAL ELECTRONICS, VOL. 70, NO. 1, JANUARY 2023
+[18] D. Ba, Y.-X. Li, and S. Tong, “Fixed-time adaptive neural tracking control
+for a class of uncertain nonstrict nonlinear systems,” Neurocomputing,
+vol. 363, pp. 273–280, 2019.
+[19] W. Yang, Y. Pan, and H. Liang, “Event-triggered adaptive fixed-time
+NN control for constrained nonstrict-feedback nonlinear systems with
+prescribed performance,” Neurocomputing, vol. 422, pp. 332–344, 2021.
+[20] J. Ni, C. K. Ahn, L. Liu, and C. Liu, “Prescribed performance fixed-
+time recurrent neural network control for uncertain nonlinear systems,”
+Neurocomputing, vol. 363, pp. 351–365, 2019.
+[21] J. Ni and P. Shi, “Adaptive neural network fixed-time leader-follower
+consensusfor multiagentsystemswith constraintsand disturbances,”IEEE
+Trans. Cybern., vol. 51, no. 4, pp. 1835–1848, Apr. 2021.
+[22] J. Ni, Z. Wu, L. Liu, and C. Liu, “Fixed-time adaptive neural network
+control for nonstrict-feedback nonlinear systems with deadzone and output
+constraint,” ISA Trans., vol. 97, pp. 458–473, 2020.
+[23] J. Ni and P. Shi, “Global predefined time and accuracy adaptive neural net-
+work control for uncertain strict-feedback systems with output constraint
+and dead zone,” IEEE Trans. Syst., Man, Cybern.: Syst., vol. 51, no. 12,
+pp. 7903–7918, Dec. 2020.
+[24] Z. Lu, N. Wang, and C. Yang, “A novel iterative identification based on
+the optimised topology for common state monitoring in wireless sensor
+networks,” Int. J. Syst. Sci., vol. 53, no. 1, pp. 25–39, 2021.
+[25] L. Cheng, Z.-G. Hou, M. Tan, and W.-J. Zhang, “Tracking control of a
+closed-chain five-bar robot with two degrees of freedom by integration of
+an approximation-based approach and mechanical design,” IEEE Trans.
+Syst., Man, Cybern., Part B., vol. 42, no. 5, pp. 1470–1479, Oct. 2012.
+[26] Y. Huang and Y. Jia, “Adaptive fixed-time six-DoF tracking control for
+noncooperative spacecraft fly-around mission,” IEEE Trans. Control Syst.
+Technol., vol. 27, no. 4, pp. 1796–1804, Jul. 2018.
+[27] Z. Zuo, “Nonsingular fixed-time consensus tracking for second-order
+multi-agent networks,” Automatica, vol. 54, pp. 305–309, 2015.
+[28] J.-T. Huang, “Global tracking control of strict-feedback systems using
+neural networks,” IEEE Trans. Neural Netw. Learn. Syst., vol. 23, no. 11,
+pp. 1714–1725, Nov. 2012.
+[29] L. Zhang, Y. Wang, Y. Hou, and H. Li, “Fixed-time sliding mode control for
+uncertain robot manipulators,” IEEE Access, vol. 7, pp. 149750–149763,
+2019.
+[30] S. S. Ge, C. C. Hang, T. H. Lee, and T. Zhang, Stable Adaptive Neural
+Network Control, vol. 13. Berlin, Germany: Springer, 2013.
+[31] K. P. Tee, B. Ren, and S. S. Ge, “Control of nonlinear systems with time-
+varying output constraints,” Automatica, vol. 47, no. 11, pp. 2511–2516,
+2011.
+[32] R. Prakash, K. V. Gupta, and L. Behera, “Adaptive backstepping neural
+tracking control of an uncertain robot manipulator with dynamic distur-
+bances,” in Proc. IEEE Symp. Ser. Comput. Intell., 2020, pp. 1936–1943.
+[33] Z. Ju, C. Yang, and H. Ma, “Kinematics modeling and experimental
+verification of Baxter robot,” in Proc. 33rd Chin. Control Conf., 2014,
+pp. 8518–8523.
+[34] A. Smith, C. Yang, C. Li, H. Ma, and L. Zhao, “Development of a dynamics
+model for the Baxter robot,” in Proc. IEEE Int. Conf. Mechatronics
+Automat., 2016, pp. 1244–1249.
+Chengzhi Zhu received the B.S. degree in au-
+tomation from Qinghai University, Xining, China,
+in 2018. He is currently working toward the
+Ph.D. degree majoring in control science and
+engineering with the South China University of
+Technology, Guangzhou, China.
+He was an exchange student with the East
+China University of Science and Technology,
+Shanghai, China, from 2015 to 2016. His current
+research interests include robotics, intelligent
+control, and human–robot interaction.
+Yiming Jiang received the B.S. degree in
+automation from Hunan University, Changsha,
+China, in 2011, the M.S. degree in control the-
+ory and engineering from the School of Au-
+tomation, Guangdong University of Technology,
+Guangzhou, China, in 2015, and the Ph.D. de-
+gree from the School of Control Science and
+Engineering, South China University of Technol-
+ogy, Guangzhou, in 2019.
+He was a Visiting Scholar with the Univer-
+sity of Portsmouth, Portsmouth, U.K., from 2017
+to 2018. He is currently an Associate Professor with the School of
+Robotics, Hunan University. His research interests include robotics, in-
+telligent control, and human–robot interaction.
+Chenguang Yang (Senior Member, IEEE) re-
+ceived the B.Eng. degree in measurement and
+control from Northwestern Polytechnical Univer-
+sity, Xi’ an, China, in 2005, the Ph.D. degree
+in control engineering from the National Uni-
+versity of Singapore, Singapore, in 2010, and
+completed the Postdoctoral Training in human
+robotics from the Imperial College London, Lon-
+don, U.K, in 2010.
+His research interests include robotics and
+automation.
+Dr. Yang was a recipient of the IEEE Transactions on Robotics Best
+Paper Award in 2012 and the IEEE Transactions on Neural Networks
+and Learning Systems Outstanding Paper Award in 2022 as the lead
+author.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on September 28,2026 at 09:50:50 UTC from IEEE Xplore. Restrictions apply.

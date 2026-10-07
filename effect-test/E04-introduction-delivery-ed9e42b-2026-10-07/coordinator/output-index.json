@@ -1,0 +1,560 @@
+{
+  "drafting": {
+    "source_sha256": "4227371dfc6246d37e838254ce670570876759a5b5409a8495f159434e416417",
+    "paragraphs": [
+      {
+        "id": "P01",
+        "text": "Robot manipulation is an important means of automating physical tasks that require precise handling of objects. Learning from demonstrations provides a route to acquiring manipulation skills from human examples. Behavior cloning formulates this learning problem as supervised prediction of actions from observations and has produced effective policies for real-robot manipulation [1]. However, demonstrations may contain several valid ways of performing the same task. A learned policy must represent these action modes while producing temporally consistent actions with sufficient precision for the task. It is therefore necessary to consider how action distributions are represented and how actions are generated over time.",
+        "sentences": [
+          {
+            "id": "P01-S01",
+            "text": "Robot manipulation is an important means of automating physical tasks that require precise handling of objects."
+          },
+          {
+            "id": "P01-S02",
+            "text": "Learning from demonstrations provides a route to acquiring manipulation skills from human examples."
+          },
+          {
+            "id": "P01-S03",
+            "text": "Behavior cloning formulates this learning problem as supervised prediction of actions from observations and has produced effective policies for real-robot manipulation [1]."
+          },
+          {
+            "id": "P01-S04",
+            "text": "However, demonstrations may contain several valid ways of performing the same task."
+          },
+          {
+            "id": "P01-S05",
+            "text": "A learned policy must represent these action modes while producing temporally consistent actions with sufficient precision for the task."
+          },
+          {
+            "id": "P01-S06",
+            "text": "It is therefore necessary to consider how action distributions are represented and how actions are generated over time."
+          }
+        ]
+      },
+      {
+        "id": "P02",
+        "text": "Explicit action distributions provide a useful approach to representing multimodal behavior. In [1], recurrent Gaussian mixture policies were used to learn manipulation skills from offline human demonstrations. These policies use observation history and represent multiple action modes through Gaussian mixture components. In [2], Behavior Transformer was proposed to learn multimodal continuous actions from observation sequences. Continuous actions are clustered into discrete categories, and predicted continuous offsets refine the actions within these categories. Both approaches support multimodal actions and temporal context, although the numbers of mixture components or action categories must be specified. Moreover, the use of observation history does not itself imply joint prediction of future actions. Stepwise prediction can switch between valid modes, motivating a policy that models the temporal relationships within a future action sequence.",
+        "sentences": [
+          {
+            "id": "P02-S01",
+            "text": "Explicit action distributions provide a useful approach to representing multimodal behavior."
+          },
+          {
+            "id": "P02-S02",
+            "text": "In [1], recurrent Gaussian mixture policies were used to learn manipulation skills from offline human demonstrations."
+          },
+          {
+            "id": "P02-S03",
+            "text": "These policies use observation history and represent multiple action modes through Gaussian mixture components."
+          },
+          {
+            "id": "P02-S04",
+            "text": "In [2], Behavior Transformer was proposed to learn multimodal continuous actions from observation sequences."
+          },
+          {
+            "id": "P02-S05",
+            "text": "Continuous actions are clustered into discrete categories, and predicted continuous offsets refine the actions within these categories."
+          },
+          {
+            "id": "P02-S06",
+            "text": "Both approaches support multimodal actions and temporal context, although the numbers of mixture components or action categories must be specified."
+          },
+          {
+            "id": "P02-S07",
+            "text": "Moreover, the use of observation history does not itself imply joint prediction of future actions."
+          },
+          {
+            "id": "P02-S08",
+            "text": "Stepwise prediction can switch between valid modes, motivating a policy that models the temporal relationships within a future action sequence."
+          }
+        ]
+      },
+      {
+        "id": "P03",
+        "text": "Implicit policies offer another approach to multimodal action representation. In [3], implicit behavior cloning was developed to represent a policy through an energy function of observations and actions. Multiple low-energy actions can represent multimodal and multivalued mappings, and actions are obtained through sampling or gradient-based optimization. The method supports visual observations and high-dimensional actions and has demonstrated millimetre-level precision in real-robot contact tasks. Its contrastive training uses demonstration actions as positive samples and sampled actions as negative samples to approximate the normalization term of the conditional action distribution. The difficulty of estimating this term motivates an alternative that directly learns the distribution gradient without the corresponding negative sampling.",
+        "sentences": [
+          {
+            "id": "P03-S01",
+            "text": "Implicit policies offer another approach to multimodal action representation."
+          },
+          {
+            "id": "P03-S02",
+            "text": "In [3], implicit behavior cloning was developed to represent a policy through an energy function of observations and actions."
+          },
+          {
+            "id": "P03-S03",
+            "text": "Multiple low-energy actions can represent multimodal and multivalued mappings, and actions are obtained through sampling or gradient-based optimization."
+          },
+          {
+            "id": "P03-S04",
+            "text": "The method supports visual observations and high-dimensional actions and has demonstrated millimetre-level precision in real-robot contact tasks."
+          },
+          {
+            "id": "P03-S05",
+            "text": "Its contrastive training uses demonstration actions as positive samples and sampled actions as negative samples to approximate the normalization term of the conditional action distribution."
+          },
+          {
+            "id": "P03-S06",
+            "text": "The difficulty of estimating this term motivates an alternative that directly learns the distribution gradient without the corresponding negative sampling."
+          }
+        ]
+      },
+      {
+        "id": "P04",
+        "text": "Diffusion models provide a generative foundation for this alternative. Denoising diffusion probabilistic models learn a reverse denoising process that generates samples from random noise [4], while score-based generative models learn log-density gradients at different noise scales [5]. Diffusion has also been applied to sequential decision-making. In [6], Diffuser was proposed to jointly model states and actions in trajectories and generate plans through denoising, with reward guidance or constraints determining the desired behavior. In [7], conditional diffusion models were employed as action policies for offline reinforcement learning and improved through a Q-value objective. Concurrent studies investigated goal-conditioned diffusion imitation learning [8] and diffusion models for multimodal human behavior [9]. These studies establish diffusion as a useful representation for planning and policy learning. Our study focuses on supervised learning of observation-conditioned action sequences from demonstrations and their execution in visual robot manipulation.",
+        "sentences": [
+          {
+            "id": "P04-S01",
+            "text": "Diffusion models provide a generative foundation for this alternative."
+          },
+          {
+            "id": "P04-S02",
+            "text": "Denoising diffusion probabilistic models learn a reverse denoising process that generates samples from random noise [4], while score-based generative models learn log-density gradients at different noise scales [5]."
+          },
+          {
+            "id": "P04-S03",
+            "text": "Diffusion has also been applied to sequential decision-making."
+          },
+          {
+            "id": "P04-S04",
+            "text": "In [6], Diffuser was proposed to jointly model states and actions in trajectories and generate plans through denoising, with reward guidance or constraints determining the desired behavior."
+          },
+          {
+            "id": "P04-S05",
+            "text": "In [7], conditional diffusion models were employed as action policies for offline reinforcement learning and improved through a Q-value objective."
+          },
+          {
+            "id": "P04-S06",
+            "text": "Concurrent studies investigated goal-conditioned diffusion imitation learning [8] and diffusion models for multimodal human behavior [9]."
+          },
+          {
+            "id": "P04-S07",
+            "text": "These studies establish diffusion as a useful representation for planning and policy learning."
+          },
+          {
+            "id": "P04-S08",
+            "text": "Our study focuses on supervised learning of observation-conditioned action sequences from demonstrations and their execution in visual robot manipulation."
+          }
+        ]
+      },
+      {
+        "id": "P05",
+        "text": "In this paper, we propose Diffusion Policy, which models action generation as an observation-conditioned denoising diffusion process. The network is trained to predict noise added to demonstration actions, with observations supplied as conditions. This objective learns the score gradient of the conditional action distribution. At inference, the policy generates a future action sequence through iterative denoising from Gaussian noise. The diffusion representation accommodates multimodal, high-dimensional action distributions without specifying a fixed number of action modes. It therefore allows temporally correlated actions to be predicted jointly. Direct score learning also avoids the normalization estimate and negative sampling used in implicit behavior cloning and is associated with more stable training in our comparisons.",
+        "sentences": [
+          {
+            "id": "P05-S01",
+            "text": "In this paper, we propose Diffusion Policy, which models action generation as an observation-conditioned denoising diffusion process."
+          },
+          {
+            "id": "P05-S02",
+            "text": "The network is trained to predict noise added to demonstration actions, with observations supplied as conditions."
+          },
+          {
+            "id": "P05-S03",
+            "text": "This objective learns the score gradient of the conditional action distribution."
+          },
+          {
+            "id": "P05-S04",
+            "text": "At inference, the policy generates a future action sequence through iterative denoising from Gaussian noise."
+          },
+          {
+            "id": "P05-S05",
+            "text": "The diffusion representation accommodates multimodal, high-dimensional action distributions without specifying a fixed number of action modes."
+          },
+          {
+            "id": "P05-S06",
+            "text": "It therefore allows temporally correlated actions to be predicted jointly."
+          },
+          {
+            "id": "P05-S07",
+            "text": "Direct score learning also avoids the normalization estimate and negative sampling used in implicit behavior cloning and is associated with more stable training in our comparisons."
+          }
+        ]
+      },
+      {
+        "id": "P06",
+        "text": "The execution of a predicted action sequence must preserve temporal consistency while allowing the policy to respond to new observations. We therefore combine action-sequence prediction with receding-horizon execution. The policy predicts a longer sequence from recent observations, executes a shorter segment, and then predicts again using updated observations. The execution window balances consistency within the predicted sequence with timely responses to changes in the scene. For visual manipulation, the repeated denoising process also makes visual encoding an important part of inference computation. The visual policy encodes image observations once per prediction cycle and uses the resulting features to condition all denoising steps. The denoising output contains the action sequence, while image features provide its observation condition. This design reduces repeated visual computation and supports real-time inference. The visual encoder can be trained jointly with the policy.",
+        "sentences": [
+          {
+            "id": "P06-S01",
+            "text": "The execution of a predicted action sequence must preserve temporal consistency while allowing the policy to respond to new observations."
+          },
+          {
+            "id": "P06-S02",
+            "text": "We therefore combine action-sequence prediction with receding-horizon execution."
+          },
+          {
+            "id": "P06-S03",
+            "text": "The policy predicts a longer sequence from recent observations, executes a shorter segment, and then predicts again using updated observations."
+          },
+          {
+            "id": "P06-S04",
+            "text": "The execution window balances consistency within the predicted sequence with timely responses to changes in the scene."
+          },
+          {
+            "id": "P06-S05",
+            "text": "For visual manipulation, the repeated denoising process also makes visual encoding an important part of inference computation."
+          },
+          {
+            "id": "P06-S06",
+            "text": "The visual policy encodes image observations once per prediction cycle and uses the resulting features to condition all denoising steps."
+          },
+          {
+            "id": "P06-S07",
+            "text": "The denoising output contains the action sequence, while image features provide its observation condition."
+          },
+          {
+            "id": "P06-S08",
+            "text": "This design reduces repeated visual computation and supports real-time inference."
+          },
+          {
+            "id": "P06-S09",
+            "text": "The visual encoder can be trained jointly with the policy."
+          }
+        ]
+      },
+      {
+        "id": "P07",
+        "text": "The choice of denoising network also affects the action sequences generated by the policy. We consider a temporal convolutional network and a time-series diffusion Transformer as alternative architectures. Temporal convolution can favor low-frequency signals and oversmooth rapid changes in actions. The Transformer is introduced to reduce this tendency and has advantages in some tested tasks involving rapid action changes or velocity control. The convolutional network is easier to use in most tested tasks, whereas the Transformer is more sensitive to hyperparameter choices. The two architectures thus provide different options for action-sequence generation according to the temporal demands of the task.",
+        "sentences": [
+          {
+            "id": "P07-S01",
+            "text": "The choice of denoising network also affects the action sequences generated by the policy."
+          },
+          {
+            "id": "P07-S02",
+            "text": "We consider a temporal convolutional network and a time-series diffusion Transformer as alternative architectures."
+          },
+          {
+            "id": "P07-S03",
+            "text": "Temporal convolution can favor low-frequency signals and oversmooth rapid changes in actions."
+          },
+          {
+            "id": "P07-S04",
+            "text": "The Transformer is introduced to reduce this tendency and has advantages in some tested tasks involving rapid action changes or velocity control."
+          },
+          {
+            "id": "P07-S05",
+            "text": "The convolutional network is easier to use in most tested tasks, whereas the Transformer is more sensitive to hyperparameter choices."
+          },
+          {
+            "id": "P07-S06",
+            "text": "The two architectures thus provide different options for action-sequence generation according to the temporal demands of the task."
+          }
+        ]
+      },
+      {
+        "id": "P08",
+        "text": "The proposed policy combines multimodal action-sequence learning, receding-horizon execution, and visual conditioning within a demonstration-learning framework. We evaluate the approach on eight tasks from four simulation benchmarks and four real-robot tasks. Simulation comparisons show a 46.9% average relative performance improvement across the reported metrics, using the best diffusion architecture and best baseline for each metric and each method’s best-performing action space. In real-robot T-shaped object pushing, the convolutional visual policy achieves 95% success in 20 trials, compared with 20% for a recurrent Gaussian mixture policy and 0% for implicit behavior cloning. These evaluations provide evidence for the approach across the tested manipulation tasks.",
+        "sentences": [
+          {
+            "id": "P08-S01",
+            "text": "The proposed policy combines multimodal action-sequence learning, receding-horizon execution, and visual conditioning within a demonstration-learning framework."
+          },
+          {
+            "id": "P08-S02",
+            "text": "We evaluate the approach on eight tasks from four simulation benchmarks and four real-robot tasks."
+          },
+          {
+            "id": "P08-S03",
+            "text": "Simulation comparisons show a 46.9% average relative performance improvement across the reported metrics, using the best diffusion architecture and best baseline for each metric and each method’s best-performing action space."
+          },
+          {
+            "id": "P08-S04",
+            "text": "In real-robot T-shaped object pushing, the convolutional visual policy achieves 95% success in 20 trials, compared with 20% for a recurrent Gaussian mixture policy and 0% for implicit behavior cloning."
+          },
+          {
+            "id": "P08-S05",
+            "text": "These evaluations provide evidence for the approach across the tested manipulation tasks."
+          }
+        ]
+      }
+    ],
+    "surface_observations": {
+      "In_numbered_reference_count": 5,
+      "prose_semicolons": 0,
+      "prose_colons": 0,
+      "Here_openings": 0,
+      "Learning_openings": [
+        "Learning from demonstrations provides a route to acquiring manipulation skills from human examples."
+      ]
+    },
+    "limit": "Locators preserve original sentence text. Surface counts are observations, not prose-quality or effect verdicts."
+  },
+  "polishing": {
+    "source_sha256": "13e67ed02ff6c98ea541a932a95efa0d8ab309bee15c998b591cb916668965e8",
+    "paragraphs": [
+      {
+        "id": "P01",
+        "text": "Robot manipulation provides an important means of automating physical tasks that require precise handling of objects. Learning from demonstrations offers a route to acquiring manipulation skills from human examples. Behavior cloning formulates this learning problem as supervised prediction of actions from observations and has produced effective policies for real-robot manipulation [1]. Demonstrations may contain several valid ways of performing the same task. A policy learned from these demonstrations needs to represent multiple action modes while generating precise, temporally consistent actions. It is therefore essential to consider how action distributions are represented and how actions are generated over time.",
+        "sentences": [
+          {
+            "id": "P01-S01",
+            "text": "Robot manipulation provides an important means of automating physical tasks that require precise handling of objects."
+          },
+          {
+            "id": "P01-S02",
+            "text": "Learning from demonstrations offers a route to acquiring manipulation skills from human examples."
+          },
+          {
+            "id": "P01-S03",
+            "text": "Behavior cloning formulates this learning problem as supervised prediction of actions from observations and has produced effective policies for real-robot manipulation [1]."
+          },
+          {
+            "id": "P01-S04",
+            "text": "Demonstrations may contain several valid ways of performing the same task."
+          },
+          {
+            "id": "P01-S05",
+            "text": "A policy learned from these demonstrations needs to represent multiple action modes while generating precise, temporally consistent actions."
+          },
+          {
+            "id": "P01-S06",
+            "text": "It is therefore essential to consider how action distributions are represented and how actions are generated over time."
+          }
+        ]
+      },
+      {
+        "id": "P02",
+        "text": "Explicit action distributions provide a useful approach to representing multimodal behavior. In [1], recurrent Gaussian mixture policies were employed to learn manipulation skills from offline human demonstrations. These policies use observation history for temporal context and Gaussian mixture components to represent multiple action modes. In [2], Behavior Transformer was proposed to learn multimodal continuous actions from observation sequences. Continuous actions are clustered into discrete categories, and predicted continuous offsets refine the actions within these categories. Both approaches support multimodal actions and temporal context, although the numbers of mixture components or action categories must be specified. Observation history does not itself imply joint prediction of future actions. Stepwise prediction of individual actions can switch between valid modes, motivating joint generation of temporally correlated actions.",
+        "sentences": [
+          {
+            "id": "P02-S01",
+            "text": "Explicit action distributions provide a useful approach to representing multimodal behavior."
+          },
+          {
+            "id": "P02-S02",
+            "text": "In [1], recurrent Gaussian mixture policies were employed to learn manipulation skills from offline human demonstrations."
+          },
+          {
+            "id": "P02-S03",
+            "text": "These policies use observation history for temporal context and Gaussian mixture components to represent multiple action modes."
+          },
+          {
+            "id": "P02-S04",
+            "text": "In [2], Behavior Transformer was proposed to learn multimodal continuous actions from observation sequences."
+          },
+          {
+            "id": "P02-S05",
+            "text": "Continuous actions are clustered into discrete categories, and predicted continuous offsets refine the actions within these categories."
+          },
+          {
+            "id": "P02-S06",
+            "text": "Both approaches support multimodal actions and temporal context, although the numbers of mixture components or action categories must be specified."
+          },
+          {
+            "id": "P02-S07",
+            "text": "Observation history does not itself imply joint prediction of future actions."
+          },
+          {
+            "id": "P02-S08",
+            "text": "Stepwise prediction of individual actions can switch between valid modes, motivating joint generation of temporally correlated actions."
+          }
+        ]
+      },
+      {
+        "id": "P03",
+        "text": "Implicit policies offer another approach to multimodal action representation. In [3], implicit behavior cloning was developed to represent a policy through an energy function of observations and actions. Multiple low-energy actions represent multimodal and multivalued mappings, and actions are obtained through sampling or gradient-based optimization. The method supports visual observations and high-dimensional actions and has demonstrated millimetre-level precision in real-robot contact tasks. Its contrastive training uses demonstration actions as positive samples and sampled actions as negative samples to approximate the normalization term of the conditional action distribution. Directly learning the distribution gradient offers an alternative that avoids this normalization estimate and the corresponding negative sampling.",
+        "sentences": [
+          {
+            "id": "P03-S01",
+            "text": "Implicit policies offer another approach to multimodal action representation."
+          },
+          {
+            "id": "P03-S02",
+            "text": "In [3], implicit behavior cloning was developed to represent a policy through an energy function of observations and actions."
+          },
+          {
+            "id": "P03-S03",
+            "text": "Multiple low-energy actions represent multimodal and multivalued mappings, and actions are obtained through sampling or gradient-based optimization."
+          },
+          {
+            "id": "P03-S04",
+            "text": "The method supports visual observations and high-dimensional actions and has demonstrated millimetre-level precision in real-robot contact tasks."
+          },
+          {
+            "id": "P03-S05",
+            "text": "Its contrastive training uses demonstration actions as positive samples and sampled actions as negative samples to approximate the normalization term of the conditional action distribution."
+          },
+          {
+            "id": "P03-S06",
+            "text": "Directly learning the distribution gradient offers an alternative that avoids this normalization estimate and the corresponding negative sampling."
+          }
+        ]
+      },
+      {
+        "id": "P04",
+        "text": "Diffusion models provide a generative foundation for this alternative. Denoising diffusion probabilistic models learn a reverse denoising process that generates samples from random noise [4], while score-based generative models learn log-density gradients at different noise scales [5]. Diffusion has also been applied to planning and policy learning. In [6], Diffuser was proposed to jointly model states and actions in trajectories and generate plans through denoising, with rewards or constraints guiding the desired behavior. In [7], conditional diffusion models were employed as action policies for offline reinforcement learning and improved through a Q-value objective. Concurrent studies investigated goal-conditioned diffusion imitation learning [8] and diffusion models for multimodal human behavior [9]. Our study focuses on supervised learning of observation-conditioned action sequences from demonstrations and their execution in visual robot manipulation.",
+        "sentences": [
+          {
+            "id": "P04-S01",
+            "text": "Diffusion models provide a generative foundation for this alternative."
+          },
+          {
+            "id": "P04-S02",
+            "text": "Denoising diffusion probabilistic models learn a reverse denoising process that generates samples from random noise [4], while score-based generative models learn log-density gradients at different noise scales [5]."
+          },
+          {
+            "id": "P04-S03",
+            "text": "Diffusion has also been applied to planning and policy learning."
+          },
+          {
+            "id": "P04-S04",
+            "text": "In [6], Diffuser was proposed to jointly model states and actions in trajectories and generate plans through denoising, with rewards or constraints guiding the desired behavior."
+          },
+          {
+            "id": "P04-S05",
+            "text": "In [7], conditional diffusion models were employed as action policies for offline reinforcement learning and improved through a Q-value objective."
+          },
+          {
+            "id": "P04-S06",
+            "text": "Concurrent studies investigated goal-conditioned diffusion imitation learning [8] and diffusion models for multimodal human behavior [9]."
+          },
+          {
+            "id": "P04-S07",
+            "text": "Our study focuses on supervised learning of observation-conditioned action sequences from demonstrations and their execution in visual robot manipulation."
+          }
+        ]
+      },
+      {
+        "id": "P05",
+        "text": "In this paper, we propose Diffusion Policy, which models action generation as an observation-conditioned denoising diffusion process. The action-denoising network learns the score gradient of the conditional action distribution by predicting noise added to demonstration actions. The policy generates a future action sequence through iterative denoising from Gaussian noise. The diffusion representation accommodates multimodal, high-dimensional action distributions without specifying a fixed number of action modes. It therefore allows temporally correlated actions to be generated jointly. Direct score learning also avoids the normalization estimate and negative sampling used in implicit behavior cloning. Our comparisons show more stable training than the implicit behavior cloning baseline.",
+        "sentences": [
+          {
+            "id": "P05-S01",
+            "text": "In this paper, we propose Diffusion Policy, which models action generation as an observation-conditioned denoising diffusion process."
+          },
+          {
+            "id": "P05-S02",
+            "text": "The action-denoising network learns the score gradient of the conditional action distribution by predicting noise added to demonstration actions."
+          },
+          {
+            "id": "P05-S03",
+            "text": "The policy generates a future action sequence through iterative denoising from Gaussian noise."
+          },
+          {
+            "id": "P05-S04",
+            "text": "The diffusion representation accommodates multimodal, high-dimensional action distributions without specifying a fixed number of action modes."
+          },
+          {
+            "id": "P05-S05",
+            "text": "It therefore allows temporally correlated actions to be generated jointly."
+          },
+          {
+            "id": "P05-S06",
+            "text": "Direct score learning also avoids the normalization estimate and negative sampling used in implicit behavior cloning."
+          },
+          {
+            "id": "P05-S07",
+            "text": "Our comparisons show more stable training than the implicit behavior cloning baseline."
+          }
+        ]
+      },
+      {
+        "id": "P06",
+        "text": "The action-denoising network must also preserve rapid changes in the demonstrated actions. We consider a temporal convolutional network and a time-series diffusion Transformer as alternative denoising architectures. Temporal convolution can favor low-frequency signals and oversmooth action changes. The Transformer is designed to reduce this tendency and has advantages in some tested tasks involving rapid action changes or velocity control. The convolutional network is easier to use in most tested tasks, whereas the Transformer is more sensitive to hyperparameter choices. Architecture selection thus depends on the temporal demands of the task and the tuning required.",
+        "sentences": [
+          {
+            "id": "P06-S01",
+            "text": "The action-denoising network must also preserve rapid changes in the demonstrated actions."
+          },
+          {
+            "id": "P06-S02",
+            "text": "We consider a temporal convolutional network and a time-series diffusion Transformer as alternative denoising architectures."
+          },
+          {
+            "id": "P06-S03",
+            "text": "Temporal convolution can favor low-frequency signals and oversmooth action changes."
+          },
+          {
+            "id": "P06-S04",
+            "text": "The Transformer is designed to reduce this tendency and has advantages in some tested tasks involving rapid action changes or velocity control."
+          },
+          {
+            "id": "P06-S05",
+            "text": "The convolutional network is easier to use in most tested tasks, whereas the Transformer is more sensitive to hyperparameter choices."
+          },
+          {
+            "id": "P06-S06",
+            "text": "Architecture selection thus depends on the temporal demands of the task and the tuning required."
+          }
+        ]
+      },
+      {
+        "id": "P07",
+        "text": "The execution of predicted action sequences must maintain temporal consistency while allowing responses to new observations. We therefore combine action-sequence prediction with receding-horizon execution. The policy predicts a longer sequence from recent observations, executes a shorter segment, and then predicts again using updated observations. The execution window balances temporal consistency with responsiveness. For visual manipulation, repeated denoising also makes visual encoding an important part of inference computation. The visual encoder computes image features once per prediction cycle, and the action-denoising network uses these features to condition all denoising steps. This design reduces repeated visual computation and supports real-time inference. The visual encoder can be trained jointly with the policy.",
+        "sentences": [
+          {
+            "id": "P07-S01",
+            "text": "The execution of predicted action sequences must maintain temporal consistency while allowing responses to new observations."
+          },
+          {
+            "id": "P07-S02",
+            "text": "We therefore combine action-sequence prediction with receding-horizon execution."
+          },
+          {
+            "id": "P07-S03",
+            "text": "The policy predicts a longer sequence from recent observations, executes a shorter segment, and then predicts again using updated observations."
+          },
+          {
+            "id": "P07-S04",
+            "text": "The execution window balances temporal consistency with responsiveness."
+          },
+          {
+            "id": "P07-S05",
+            "text": "For visual manipulation, repeated denoising also makes visual encoding an important part of inference computation."
+          },
+          {
+            "id": "P07-S06",
+            "text": "The visual encoder computes image features once per prediction cycle, and the action-denoising network uses these features to condition all denoising steps."
+          },
+          {
+            "id": "P07-S07",
+            "text": "This design reduces repeated visual computation and supports real-time inference."
+          },
+          {
+            "id": "P07-S08",
+            "text": "The visual encoder can be trained jointly with the policy."
+          }
+        ]
+      },
+      {
+        "id": "P08",
+        "text": "Diffusion Policy integrates multimodal action-sequence learning, receding-horizon execution and visual conditioning within a demonstration-learning framework. We evaluate the approach on eight tasks from four simulation benchmarks and four real-robot tasks. Simulation comparisons show a 46.9% average relative improvement across the reported performance metrics. For each metric, the comparison uses the best-performing diffusion architecture, the best-performing baseline and each method’s best-performing action space. In real-robot T-shaped object pushing, the convolutional visual policy achieves 95% success in 20 trials, compared with 20% for a recurrent Gaussian mixture policy and 0% for implicit behavior cloning.",
+        "sentences": [
+          {
+            "id": "P08-S01",
+            "text": "Diffusion Policy integrates multimodal action-sequence learning, receding-horizon execution and visual conditioning within a demonstration-learning framework."
+          },
+          {
+            "id": "P08-S02",
+            "text": "We evaluate the approach on eight tasks from four simulation benchmarks and four real-robot tasks."
+          },
+          {
+            "id": "P08-S03",
+            "text": "Simulation comparisons show a 46.9% average relative improvement across the reported performance metrics."
+          },
+          {
+            "id": "P08-S04",
+            "text": "For each metric, the comparison uses the best-performing diffusion architecture, the best-performing baseline and each method’s best-performing action space."
+          },
+          {
+            "id": "P08-S05",
+            "text": "In real-robot T-shaped object pushing, the convolutional visual policy achieves 95% success in 20 trials, compared with 20% for a recurrent Gaussian mixture policy and 0% for implicit behavior cloning."
+          }
+        ]
+      }
+    ],
+    "surface_observations": {
+      "In_numbered_reference_count": 5,
+      "prose_semicolons": 0,
+      "prose_colons": 0,
+      "Here_openings": 0,
+      "Learning_openings": [
+        "Learning from demonstrations offers a route to acquiring manipulation skills from human examples."
+      ]
+    },
+    "limit": "Locators preserve original sentence text. Surface counts are observations, not prose-quality or effect verdicts."
+  }
+}
