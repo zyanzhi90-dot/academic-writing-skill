@@ -1,0 +1,75 @@
+{
+  "candidate_commit": "447c0c4165afb7fdc08a0458d534042a8704dc94",
+  "source_record": "effect-test/E04-introduction-delivery-ed9e42b-2026-10-07",
+  "byte_identical_copies": {
+    "scientific-facts.md": {
+      "source_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "copy_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825"
+    },
+    "background-facts.md": {
+      "source_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "copy_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e"
+    },
+    "citation-facts.md": {
+      "source_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "copy_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206"
+    },
+    "accepted-abstract.en.txt": {
+      "source_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "copy_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1"
+    },
+    "drafting-task.md": {
+      "source_sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "copy_sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159"
+    },
+    "polishing-task.md": {
+      "source_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+      "copy_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655"
+    },
+    "execute_once.py": {
+      "source_sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+      "copy_sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68"
+    },
+    "retain_sections.py": {
+      "source_sha256": "08e528b8dc835f71d07db0fec43ca39f86623ab77ffae5b843a829f2b56904b7",
+      "copy_sha256": "08e528b8dc835f71d07db0fec43ca39f86623ab77ffae5b843a829f2b56904b7"
+    },
+    "verify_stage.py": {
+      "source_sha256": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868",
+      "copy_sha256": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868"
+    },
+    "save_delivery.py": {
+      "source_sha256": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844",
+      "copy_sha256": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844"
+    },
+    "summarize_loading.py": {
+      "source_sha256": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6",
+      "copy_sha256": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6"
+    },
+    "index_outputs.py": {
+      "source_sha256": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200",
+      "copy_sha256": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200"
+    },
+    "verify_git_bytes.py": {
+      "source_sha256": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2",
+      "copy_sha256": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2"
+    },
+    "check_context.py": {
+      "source_sha256": "be76444cce60a30e0ddcff1e5516cdc1149093c0eb492c2f3c9092363632127d",
+      "copy_sha256": "be76444cce60a30e0ddcff1e5516cdc1149093c0eb492c2f3c9092363632127d"
+    }
+  },
+  "executor_byte_identical": true,
+  "adaptations": "New record and candidate metadata bindings; latest explicit contextual author clarification appended to the normal author override. Execution, transport, task requests and isolation unchanged.",
+  "author_adjustment": {
+    "source_sha256": "f4ffe1f8d608d7a208119409cffb9e746b78a792d20232b2b09a868e9811516f",
+    "current_sha256": "fb09fd5453eee3b7eb0a7f8778e2bace386adffa92fd22ea01795e4fc5565431",
+    "appended_author_text": "当前有效作者澄清：目标是根据作者科学内容，模仿适用范例的逻辑组织、段落推进、连续句、句式和用词。表达应结合范例语境、科学关系及实际清晰度判断，不能仅凭动名词开句、代词或概括指代判错；也不能因语法成立就认定已对齐范例。"
+  },
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "one_invocation_per_stage": true,
+  "diagnosis_or_preset_argument_supplied": false,
+  "prior_outputs_supplied": false,
+  "scope": "Known-case E04; unchanged science and root author inputs; current explicit author requirements."
+}

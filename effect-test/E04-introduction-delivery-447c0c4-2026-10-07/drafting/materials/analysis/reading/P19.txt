@@ -1,0 +1,1351 @@
+=== PDF PAGE 1 ===
+850 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+Variable Impedance Control of Redundant
+Manipulators for Intuitive Human–Robot
+Physical Interaction
+Fanny Ficuciello, Member, IEEE, Luigi Villani, Senior Member, IEEE, and Bruno Siciliano, Fellow, IEEE
+Abstract—This paper presents an experimental study on
+human–robot comanipulation in the presence of kinematic redun-
+dancy. The objective of the work is to enhance the performance
+during human–robot physical interaction by combining Carte-
+sian impedance modulation and redundancy resolution. Cartesian
+impedance control is employed to achieve a compliant behavior of
+the robot’s end effector in response to forces exerted by the hu-
+man operator. Different impedance modulation strategies, which
+take into account the human’s behavior during the interaction,
+are selected with the support of a simulation study and then ex-
+perimentally tested on a 7-degree-of-freedom KUKA LWR4. A
+comparative study to establish the most effective redundancy res-
+olution strategy has been made by evaluating different solutions
+compatible with the considered task. The experiments have shown
+that the redundancy, when used to ensure a decoupled apparent
+inertia at the end effector, allows enlarging the stability region in
+the impedance parameters space and improving the performance.
+On the other hand, the variable impedance with a suitable mod-
+ulation strategy for parameters’ tuning outperforms the constant
+impedance, in the sense that it enhances the comfort perceived by
+humans during manual guidance and allows reaching a favorable
+compromise between accuracy and execution time.
+Index Terms—Force control, physical human–robot interaction,
+redundant robots.
+I. INTRODUCTION
+IN the face of the unpredictability of human behaviors, the
+adoption of suitable impedance strategies [1], [2] to control
+robots in the presence of humans is an essential paradigm to en-
+sure reliability and safety. For advanced robots, which operate
+in anthropic environments by cooperating with humans and sub-
+stituting them in some tasks, the quality of performance is not
+just about accuracy and repeatability. Indeed, it rather depends
+on the ability of the robots to adapt their behaviors dynamically
+and according to the task and human intentions. In the case of
+Manuscript received December 31, 2014; revised March 8, 2015; accepted
+April 30, 2015. Date of publication May 20, 2015; date of current version August
+4, 2015. This paper was recommended for publication by Associate Editor V.
+Kyrki and Editor A. Kheddar upon evaluation of the reviewers’ comments. This
+work was supported in part by the EC Seventh Framework Programme (FP7)
+within SAPHARI project 287513 and RoDyMan project 320992.
+The authors are with the Dipartimento di Ingegneria Elettrica e Tec-
+nologie dell’Informazione, Università degli Studi di Napoli Federico II,
+80125 Napoli, Italy (e-mail: fanny.ficuciello@unina.it; luigi.villani@unina.it;
+bruno.siciliano@unina.it).
+This paper has supplementary downloadable material available at http://
+ieeexplore.ieee.org.
+Color versions of one or more of the figures in this paper are available online
+at http://ieeexplore.ieee.org.
+Digital Object Identifier 10.1109/TRO.2015.2430053
+redundant robots, also the redundant degrees of freedom (DOFs)
+may play an important role both in the stability of the coupled
+system and in the quality of performance.
+This paper presents an experimental study on a variable
+impedance control of a redundant manipulator not specifically
+designed for human–robot cooperation, used for the execution
+of a task under human guidance. In particular, a cooperative
+writing task is used as case study, and a Cartesian impedance
+control law is adopted to achieve a compliant behavior of the
+end effector with respect to the forces exerted by the human
+operator.
+The main idea of the paper is that of using in a synergic
+way the robot’s redundancy and the modulation of the Carte-
+sian impedance parameters to enhance the performance during
+human–robot physical interaction. In particular, an experimen-
+tal evaluation of different impedance modulation laws within a
+stability region is carried out, while it is shown that the over-
+all performance can be improved when the redundancy is used
+to enlarge the stability region in the space of the impedance
+parameters.
+Considering that instability is likely to occur during inter-
+action when the controller attempts to impose to the robot an
+impedance behavior, which is significantly different from the
+intrinsic hardware dynamics, in a recent paper [3], we have
+proposed to exploit redundancy to make the robot equivalent
+inertia at the end effector as close as possible to the desired iner-
+tia. In particular, since comanipulation tasks typically require a
+decoupled impedance along the Cartesian directions, the redun-
+dant DOFs are used to reduce as much as possible the dynamic
+coupling of the end effector equivalent inertia.
+The preliminary results presented in [3] are extended here
+through an extensive experimental study to establish the most
+advantageous solution for the use of redundancy. In detail, it is
+shown that robot’s redundancy, when used to ensure a decoupled
+apparent inertia at the end effector, allows enlarging the stability
+region in the impedance parameters space and improves the
+performance.
+On the other side, different modulation strategies for the
+impedance parameters are proposed and tested. The parame-
+ters are modulated online during the interaction according to
+the human’s behavior, which is inferred through the measure-
+ments of the end effector velocities. The solution adopted for
+our robotic platform consists on linking the parameters varia-
+tion directly to the Cartesian velocity. This approach has been
+validated by means of a preliminary simulation study and tested
+experimentally.
+1552-3098 © 2015 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See http://www.ieee.org/publications standards/publications/rights/index.html for more information.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 2 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 851
+The experimental results show that the variable impedance
+control performs better than the impedance control with con-
+stant parameters, in the sense that it preserves accuracy while
+reducing the execution time, in comparison with high constant
+impedance, and it guarantees a good execution speed with in-
+creased accuracy, in comparison with low constant impedance.
+Finally, the use of the variable impedance strategy together with
+Cartesian inertia decoupling through redundancy resolution is
+the combination that allows the best performance and effectively
+enhances the comfort level perceived by the human operators
+during manual guidance. In our knowledge, this is the first paper
+where variable impedance and redundancy resolution are used
+in a combined way to improve stability and performance during
+human guidance.
+This paper is organized as follows. Section II describes re-
+search work related to impedance modulation strategies and
+stability issues in human–robot interaction. In Section III, the
+Cartesian impedance control of redundant robots is briefly sum-
+marized, while the possible criteria for redundancy resolution
+are presented in Section IV. Section V presents the experimental
+study that has been performed to estimate the stability region
+in the impedance parameter space. In Section VI, the rules for
+the selection of the impedance parameters are discussed. The
+experimental evaluation of the different options for redundancy
+resolution as well as for the selection of the impedance modu-
+lation laws is presented in Section VII. Finally, a discussion of
+the results and the conclusion is drawn in Sections VIII and IX,
+respectively.
+II. RELATED WORKS
+In recent years, the research effort on finding appropriate
+impedance control strategies for human–robot physical inter-
+action is going toward learning and imitation of impedance
+modulation strategies of living beings.
+A possible solution is represented by variable impedance ac-
+tuators (VIAs) using different technologies to create a new gen-
+eration of robots that can regulate their impedance behavior in
+a controlled way [4].
+For robot manipulators not using VIAs, a number of adap-
+tive impedance/admittance strategies have been proposed for
+human–robot collaborative tasks, where the control gains are
+tuned on the basis of the inferred human intentions. Several
+studies propose modulation strategies based on the estimation
+of the human impedance computed using the forces and the
+positions measured during the task execution. In [5] and [6],
+the variation of the impedance parameters is determined on the
+basis of the data collected from experiments where a robot and
+a human execute the cooperative task. In [5], a simple switch-
+ing strategy between preselected values is implemented, while
+in [6], an optimal value for the damping, which minimizes a
+suitable cost function, is computed online.
+The estimation of the human operator’s arm impedance is not
+easy, and some simplifications may occur. For example, at low
+velocities, the stiffness is usually computed assuming that it is
+the dominant impedance feature [7], [8]. More accurate mea-
+surements methods of human impedance have been adopted by
+neuroscientists to analyze human movement control [9] and,
+in particular, the strategy used by the human central nervous
+system to deal with instability [10]. Inspired to these studies, a
+learning control technique is proposed in [11] to optimally adapt
+robot’s impedance during the interaction with dynamic environ-
+ments and humans. Learning techniques have been adopted also
+to extract and transfer impedance modulation strategies from
+humans to variable impedance robots [12] or, complementary,
+to teach variable stiffness tasks to robots through physical inter-
+action with a human operator [13].
+A further method to transfer human skills in impedance regu-
+lation to robots interacting with uncertain environments is based
+on the concept of teleimpedance [14]. In this case, a suitable
+human–machine interface allows us to provide the slave robot
+with a position reference and an end-point stiffness reference;
+this latter is estimated in real time from the measured elec-
+tromyogram signals of eight muscles of the arm of the human
+master.
+In the applications where the robot must be free to move un-
+der the forces applied by humans, the desired stiffness is usually
+set to zero, as well as the desired position, while the damping
+and mass parameters can be tuned, for example, depending on
+the velocity and acceleration of the human operator [15]. On
+the other hand, in surgical and rehabilitation scenarios, stiff-
+ness regulation plays an important role to ensure accuracy and
+safety in the presence of both preplanned target and interac-
+tion with unpredictable dynamic environments. An interesting
+method that allows us to reproduce a specific time-varying stiff-
+ness profile during needle insertion by preserving passivity is
+proposed in [16], while the implementation of safe constraints
+along a specific task or to limit the user to stay within a safe
+region is considered in [17]. These topics are also of inter-
+est in the applications where collaborative robots (Cobots) are
+employed [18].
+For variable impedance control, a crucial issue is that stability
+must be guaranteed for all the possible range of variation of the
+parameters. The stability depends on how impedance control
+is implemented (e.g., with or without force measurements, or
+whether an impedance or an admittance law is used), but also
+on the robot’s hardware; namely, the robot kinematics and dy-
+namics, the kind of transmission, the presence of friction and
+of structural compliance, the kind of sensors and actuators [15],
+[19]. Moreover, the overall coupled dynamics of the robot and
+human must be considered [20].
+Stability of impedance control has been investigated in the
+seminal works of Hogan [1] and later on in [21], using the
+concept of passivity, and in [22], where the natural admittance
+control is introduced. Admittance and impedance are defined
+in a reciprocal way: Impedance control produces forces/torques
+in response to velocities, while admittance control produces
+velocities in response to forces and torques.
+When the robot is driven by the human, a low robot impedance
+is typically required. In particular, the stiffness should be low and
+often null, while damping should be decreased when fast move-
+ments without particular accuracy are required and increased to
+perform fine motions. On the other hand, the apparent inertia of
+the robot cannot be arbitrarily decreased because the stability
+can be lost.
+Often, the structural impedance of common robots, includ-
+ing lightweight robots like the KUKA LWR4 arm considered
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 3 ===
+852 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+in this paper, is higher than the ideal impedance required for
+an effective cooperation with humans. In particular, the equiva-
+lent inertia of the robot at the contact point (which hereafter is
+assumed to be the end effector) may be too high and must be
+reduced. This can be done by using feedback of the exchanged
+force.
+In this respect, using a simple 1-DOF model, it has been
+theoretically proven that, by reducing the inertia more than a
+given threshold below its physical value, the system loses pas-
+sivity [21], due to the presence of unavoidable structural com-
+pliance between the actuators and the interaction force. The
+passivity property is a sufficient condition that guarantees cou-
+pled stability in the presence of interaction with a generic pas-
+sive environment. This threshold holds also for natural admit-
+tance control [22] which, with respect to impedance control,
+allows reducing the effects of friction and unmodeled distur-
+bances, independently of inertia. On the other hand, theoretical
+and experimental studies have shown that passivity may be too
+conservative and can be relaxed to improve performance [20],
+[23], [24].
+III. CARTESIAN IMPEDANCE CONTROL
+The KUKA LWR4 arm is a 7-DOF robot that can be torque or
+velocity controlled; therefore, both impedance and admittance
+control can be used. The two control approaches have comple-
+mentary pros and cons, which have been well documented in
+the literature (see, e.g., [25]). In this study, impedance control
+is considered.
+The dynamic model of the robot has the form
+M(q)q̈ + C(q, q̇)q̇ + g(q) + τf = τc + JT
+(q)F ext (1)
+where q ∈ IRn
+, with n = 7, is the vector of joint variables,
+M(q) is the inertia matrix, C(q, q̇)q̇ is the vector of Cori-
+olis/centrifugal torques, g(q) is the vector of gravitational
+torques, τf is the vector of the friction torques, τc is the con-
+trol torque, J(q) is the robot Jacobian, and τext = JT
+F ext is
+the joint torque resulting from external force and torque F ext
+applied to the end effector.
+The control strategy is designed to perform tasks in coop-
+eration with humans. The operator interacts with the robot by
+moving the end effector along arbitrary trajectories. It is as-
+sumed that only forces can be applied. Hence, in (1), F ext is the
+(3 × 1) vector of external forces and J(q) is the (3 × 7) Jaco-
+bian relating the joint velocities to the end effector translational
+velocity.
+To design the impedance control, it is useful to derive the end
+effector dynamics in the operational space [26], considering
+only the translational motion
+Λ(q)ẍ + μ(q, q̇)ẋ + F g (q) + F f (q) = F c + F ext (2)
+where x ∈ IR3
+is the Cartesian position vector of the end ef-
+fector, Λ = (JM−1
+JT
+)−1
+is the (3 × 3) end effector iner-
+tia matrix, hereafter denoted as apparent inertia, while μẋ =
+Λ(JM−1
+C − J̇)q̇, F g = J†T
+g, F f = J†T
+τf and F c =
+J†T
+τc are the forces, reflected at the end effector, corresponding
+to the noninertial joint torques in (1).
+Equation (2) describes only the end effector dynamics and
+does not include the so-called null space dynamics. Matrix J†
+is the dynamically consistent generalized inverse of matrix J,
+defined as [26]
+J†
+= M−1
+JT
+[JM−1
+JT
+]−1
+. (3)
+It can be proven that, only with this choice of generalized in-
+verse, the null-space dynamics does not affect the end effector
+behavior. Moreover, when the Jacobian is close to a singularity,
+the generalized inverse can be robustly approximated using the
+damped least squares pseudoinverse [27].
+In order to make the end effector able to follow and adapt
+to the force exerted by the operator at the tip, the end effector
+dynamics can be set as a mass–damper system of
+Λdẍ + Ddẋ = F ext (4)
+where Λd and Dd are suitable inertia and damping matrices,
+which are positive definite and are usually set as constant diag-
+onal matrices.
+The above dynamics can be imposed to the closed loop con-
+trolled system by choosing F c in (2) as
+F c = η(q, q̇) − Λ(q)Λ−1
+d Ddẋ + (Λ(q)Λ−1
+d − I)F ext (5)
+with η(q, q̇) = μ(q, q̇)ẋ + F g (q) + F f (q).
+This equation is a Cartesian impedance control law with null
+stiffness and null virtual position. If the apparent inertia of the
+end effector is left unchanged, i.e., Λd = Λ(q), the control law
+(5) does not depend on the external force F ext. Conversely,
+force feedback is required if inertia reshaping is desired. This is
+the price to pay to achieve the ideal behavior described by (4),
+which is linear, decoupled, and independent of the robot con-
+figuration. On the other hand, if the natural inertia is preserved,
+a configuration-dependent damping matrix should be adopted
+to guarantee stability (see, e.g., [28]) leading to a nonlinear,
+coupled, and configuration-dependent dynamics, which would
+make more difficult for the user to lead the end effector.
+The external force can be measured by using a force/torque
+sensor mounted at the end effector. Alternatively, force estima-
+tion techniques can be adopted. An effective method, introduced
+in [29], is based on the generalized momentum p(t) = M(q)q̇
+and the n-dimensional residual vector r defined as
+r(t) = KI
+ t
+0
+(τc − g(q) + r(σ))dσ − p(t)
+
+(6)
+with r(0) = 0 and KI a diagonal positive matrix. These quan-
+tities can be computed using measured signals q, q̇ and the
+control torque τc. It can be shown that
+r ≈ τext − τδ (7)
+with τδ = C(q, q̇)q̇ + τf . Hence, left multiplying both sides
+of the above equation by J†T
+yields
+J†T
+r ≈ J†T
+τext − J†T
+τδ ≈ F ext
+where the contribution of friction torques and Coriolis and cen-
+trifugal effects reflected at the end effector has been considered
+negligible with respect to the external force. Therefore, vector
+
+F ext = J†T
+r (8)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 4 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 853
+is an estimate of the external force.
+In view of the above approximations, the control law that
+imposes the impedance dynamics (4) can be implemented in the
+joint space in the form
+τimp = −JT
+Λ[J̇q̇ + Λ−1
+d (Ddẋ − 
+F ext)] + g(q) − r. (9)
+IV. REDUNDANCY RESOLUTION
+In the presence of redundant DOFs, which is the case con-
+sidered here, it is possible to assign a secondary task in the null
+space of the end effector task, by using the control law [26]
+τc = τimp + (I − JT
+J†T
+)(u − kD q̇) (10)
+where −kD q̇, with kD > 0, is a suitable damping torque, and
+u is a torque control input to be designed, corresponding to a
+secondary task, which is projected in the null space of the main
+task through the matrix I − JT
+J†T
+.
+As observed in [30], control law (10) is able to ensure stability
+in practice both for the end effector task and in the null space. A
+rigorous stability proof would require a more complex formula-
+tion of the null space terms, as those presented in [31] and [32]
+and generalized in [33] to the case of an arbitrary hierarchy of
+null space tasks.
+In our application, the human guidance of the end effector
+involves only the position, which is made compliant by the
+Cartesian impedance control under the action of the external
+forces. Thus, there are four of the seven DOFs of the robot at
+disposal for the secondary task.
+Moreover, in the task considered in this paper, i.e., writing on
+a planar surface, the pen should point always toward the surface.
+For this reason, among the possible redundancy resolution cri-
+teria, we have selected those that are less influenced by the end
+effector orientation, at least in region of the workspace where the
+main task is executed. This feature was also verified experimen-
+tally. Another possibility would have been that of controlling
+also the orientation to a desired value, or to make the end ef-
+fector compliant under the action of the external torques. In this
+case, however, a robot with a large number of DOFs (larger than
+7) would be required to usefully exploit the redundancy.
+Different criteria can be pursued in order to choose the sec-
+ondary task.
+One simple criterion can be that of keeping the robot as far as
+possible from kinematic singularities. This can be achieved,
+e.g., by maximizing the kinematic manipulability index,
+defined as
+m(q) =
+
+det(JJT
+) (11)
+i.e., by choosing u in (10) as
+u = km
+
+∂m(q)
+∂q
+T
+(12)
+where the elements of the gradient of the manipulability index
+can be computed as [34]
+∂m(q)
+∂qi
+= m(q)trace
+
+∂J
+∂qi
+J†
+
+. (13)
+Notice that the manipulability index is proportional to the area
+of the velocity manipulability ellipsoid, which represents the
+capability of the robot to move the end effector along the Carte-
+sian directions, with a given set of unit norm joints velocities.
+Hence, in a joint configuration where this index is (locally)
+maximized, it is possible to produce end effector velocities in
+all possible directions with (locally) minimal joint velocities.
+In theory, instead of trying to make the ellipsoid as similar
+as possible to a sphere, it could be useful to shape it so that
+the principal axis are always suitably aligned to the significant
+directions of the task. However, the continuous changes of di-
+rection imposed by the human to the end effector may produce
+continuous internal motions of the robot that can have undesired
+effects (e.g., collisions or fast reconfigurations that are unsafe
+for the human operator). Therefore, this solution, after some
+tests, was discarded.
+Another possibility of exploiting redundancy is that of try-
+ing to optimize in some way the mapping between the forces
+applied to the end effector and the corresponding velocities
+or accelerations. As a matter of fact, in ideal conditions, the
+Cartesian impedance control law (5) allows cancelling out the
+robot dynamics as well as making the end effector dynamics
+completely independent of the joint configuration. On the other
+hand, it has been proven both theoretically and experimentally
+that, during interaction, instability is likely to occur when the
+controller attempts to impose to the robot a dynamic behavior
+that differs significantly from the intrinsic hardware dynamics
+(in particular, lower than the natural robot impedance). Hence,
+the idea pursued here is that of using redundancy to make the
+robot apparent dynamics at the end effector, described by (2),
+as close as possible to the desired dynamics (4).
+The most critical element in (2) is the equivalent inertia, which
+is configuration dependent. This means that, at any given end
+effector position, the internal motion allowed by redundancy
+could be exploited to achieve robot’s configurations with de-
+sired inertial properties. Of course, this can be done only within
+certain limits, depending on the robot kinematic structure and
+on the mass distribution. What it is reasonable, for example, is to
+choose joint configurations with maximally decoupled inertia.
+As in [3], this is achieved by using a secondary task function
+inspired to the dynamic conditioning index (DCI) introduced in
+[35] to measure the dynamic isotropy of robot manipulators in
+joint space.
+In the Cartesian space, the DC index (DCI) can be defined
+as the least-squares difference between the generalized inertia
+matrix and a diagonal matrix as
+ω(q) =
+1
+2
+ET
+(q)W E(q) (14)
+where W is a diagonal weighting matrix, and the error vector
+E(q) is defined as
+E(q) =
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+λ11(q) − σ(q)
+λ22(q) − σ(q)
+λ33(q) − σ(q)
+λ12(q)
+λ13(q)
+λ23(q)
+⎤
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎥
+⎦
+(15)
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 5 ===
+854 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+with being λij the generic element of the inertia matrix Λ and
+σ defined as
+σ(q) =
+1
+3
+trace(Λ(q)). (16)
+The minimization of ω(q) results in a minimization of the el-
+ements’ norm of E, which corresponds to (a local) maximally
+diagonal inertia.
+The weighting matrix W has been chosen in order to give
+priority to the minimization of the norm of the off-diagonal
+elements of Λ(q), e.g.,
+W = diag{I3, μI3} (17)
+with μ > 1 and I3 denoting the (3 × 3) identity matrix.
+Finally, the control input u in (14) is chosen as
+u = −kc
+
+∂ω(q)
+∂q
+T
+(18)
+with kc > 0.
+V. STABILITY REGION
+A suitable procedure has been set up to find the allowed range
+of variation of the impedance parameters of (4) so that stability
+is preserved.
+The stability region in the impedance parameters space could
+be estimated analytically (see, e.g., [24]). However, many au-
+thors have observed that the actual bounds of the stability region
+are dependent on the robot’s hardware and, in the case of in-
+teraction with a human operator, also on the impedance of the
+human arm, which cannot be accurately modeled and evaluated
+[19], [20]. A further complication here is represented by the
+null-space stability for the presence of redundant DOFs [30].
+Therefore, in this study, the stability region has been found
+experimentally.
+In the scalar case, (4) can be rewritten in the Laplace
+domain as
+V (s) =
+1
+D
+1
+1 + sT
+F(s) (19)
+where V and F are the Laplace transforms of the velocity and
+force, respectively, and T = λ/D is the time constant of the
+system, where λ and D represent the inertia and damping along
+a generic Cartesian direction, respectively. Hence, it can be
+argued that the lower the damping, the higher the steady-state
+velocity for a given constant input force; moreover, for a given
+damping, the lower the inertia, the higher the bandwidth of the
+system or, equivalently, the lower the time constant T.
+For the stability test, the joint vector
+q0 = [0 0 0 −90 0 −45 0]T
+corresponding to the robot configuration represented in Fig. 1,
+has been selected. One reason for this choice is that, in this
+configuration, the end effector inertia matrix is almost diagonal.
+Another reason is that, in this configuration, one of the eigenval-
+ues of the inertia matrix (that corresponding to the vertical axis)
+assumes a value λ̄ close to the maximum one, in the portion of
+the robot workspace where the task is executed. Hence, q0 is a
+Fig. 1. Robot KUKA LWR4 in the configuration chosen for stability
+evaluation.
+worst-case configuration for scaling (reducing) the end effector
+inertia.
+Indeed, if a desired isotropic Cartesian inertia is imposed,
+the dynamics along the vertical direction is the most critical for
+stability, being the direction where the ratio between the desired
+and actual mass is the lowest, also in a neighborhood of the joint
+configuration q0. This means that the stability bounds for the
+parameters along the vertical direction are the most conservative
+and ensure stability also along the other directions, as well as in
+the surrounding configurations.
+The value of the inertia matrix in q0 and the corresponding
+vector of eigenvalues are
+Λ(q0) =
+⎡
+⎣
+0.1187 0.0006 0.0226
+0.0006 0.3069 −0.1395
+0.0226 −0.1395 4.2405
+⎤
+⎦
+λ(q0) = [0.1186 0.3020 4.2456 ]T
+.
+To reduce the number of parameters, the same damping and
+the same mass has been set along all the directions of the Carte-
+sian space, i.e., Dd = DI and Λd = λI, with λ = αλ̄, being
+λ̄ = 4.2456 kg the maximum eigenvalue and 0 < α ≤ 1 a scal-
+ing factor. This way, the desired impedance behavior will be
+made isotropic by decreasing the mass along the vertical direc-
+tion and increasing those along the other two Cartesian direc-
+tions, which, therefore, are not critical for stability.
+The stability region has been evaluated experimentally by
+setting a value of damping D in the interval [5, 60] Ns/m and
+reducing the value of α, starting from α = 1, until vibrations
+can be felt by an operator shaking the end effector in a neighbor-
+hood of the initial configuration. In order to have results inde-
+pendent of the stiffness of the specific subject, the end effector
+is shaken so as to produce large variations of the stiffness of the
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 6 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 855
+Fig. 2. Range of minimum and maximum allowed damping D for a given
+scaling factor α of the inertia matrix.
+Fig. 3. Stability region: time constant T versus damping D.
+human arm. The amplitude of the interval for the damping coef-
+ficient has been set on the basis of experiments where the natural
+robot’s inertia was not modified.
+The results of the experimental procedure are reported in
+Fig. 2, where the stability region for the parameters D and α
+is that included between the continuous and the dotted line. It
+can be observed that any value of damping in the interval [5, 60]
+can be chosen provided that α > 0.25, while, for α < 0.25 the
+lower and upper bounds of the allowed damping come closer.
+For α < 0.1, the robot starts vibrating for any value of damping.
+An alternative representation is reported in Fig. 3, where
+the stability region is parameterized with respect to the time
+constant T of the impedance (19) and to the damping D. In this
+figure, also the geometric locus with minimum constant mass
+(λ = 0.764 kg) contained in the stability region is represented.
+This curve can be taken as a rough analytic expression of the
+frontier of the stability region, i.e., stability is preserved for any
+choice of the impedance parameters in the region on the right
+of this curve.
+It is worth observing that, since the end effector dynamics is
+not homogenous along the three Cartesian directions, it would
+be significant to choose different impedance parameters along
+these directions. Therefore, a different stability region in the
+parameters space could be defined for each Cartesian direction.
+Actually, the three stability regions have been found experimen-
+tally (see Fig. 9), using the same procedure described above, and
+will be used in Section VII.
+VI. VARIABLE IMPEDANCE
+The goal of a variable impedance strategy for a comanipula-
+tion task is to vary the damping and mass properties of the robot
+in order to accommodate the human movement during physical
+interaction. According to the related results available in the lit-
+erature [6], [15], [19], high impedance parameters are desired
+when the operator performs fine movements at low velocity,
+while lower values of the parameters should be used for large
+movements at high velocity. The human perception is mainly in-
+fluenced by the damping parameter, while, for a given damping,
+the desired (virtual) mass is crucial for stability.
+Therefore, our idea is that of varying the damping according
+to the absolute value of the end effector Cartesian velocity in
+order to improve the performance in terms of execution time
+and accuracy. Namely, when the velocity is high, the damping
+force is reduced so that the operator can move the end effector
+with minimum effort and the execution time can be reduced;
+vice versa, at low velocity, the damping force is increased to
+improve accuracy. On the other hand, the virtual mass is set so
+as the parameters of the system remain in the stability region.
+To this purpose, the stability region in the parameter space has
+been evaluated experimentally (see Section V) for any damping
+in the interval [5, 60] N · s/m.
+The relationships used to vary the damping for each of the
+Cartesian principal directions is
+D(ẋ) = min{a e−b|ẋ|
+, 5} (20)
+where a = 60 and b = 4. These parameters have been chosen
+in order to have a variation of the damping within the interval
+[5, 60] N · s/m for the possible range of velocities in the con-
+sidered task. A saturation to the minimum value of 5 N · s/m is
+introduced in case of high velocity.
+For the mass (or, equivalently, for the time constant T), dif-
+ferent choices have been considered and tested, namely:
+L1: constant mass, with low value (close to the minimum
+value within the stability region), i.e. λ = 1.1 kg.
+L2: constant mass, with high value, i.e. λ = 5.6 kg.
+L3: constant T, set as the minimum value within the stability
+region for any damping D.
+L4: minimum (variable) T within the stability region for any
+damping D.
+In the latter case, the time constant T is computed as
+T =
+λf
+Df
+(a + b arctan(c(D − d)))
+where the default damping value Df = 30 N · s/m has
+been chosen as an intermediate value between the minimum
+(5 N · s/m) and the maximum (60 N · s/m) values used in the
+experiments. The default mass value λf = 3 kg and the constant
+values a = 1.1820, b = 0.60, c = 0.4, d = 20 have been set in
+order to have the minimum allowed T preserving stability.
+The geometric loci in the parameters space corresponding to
+the above choices are represented in Fig. 4. Notice that the dot-
+dashed line (minimum T curve) can be also taken as the frontier
+of the stability region in the parameter space, which, for values
+of the damping D lower than 10 N · s/m, is less conservative than
+the geometric locus of Fig. 3 (minimum constant mass curve).
+A rigorous theoretical justification of the above choices is not
+easy, but some hints can be derived by considering the posi-
+tion control scheme of Fig. 5 modeling the physical interaction
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 7 ===
+856 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+Fig. 4. Representation of the four variation laws of time constant T with
+respect to damping D.
+Fig. 5. Block diagram representing the human–robot physical interaction.
+between the human arm and the robot’s tip along a single Carte-
+sian direction. In that scheme, the human arm driving the end
+effector through the force f is modeled as a pure stiffness k, con-
+sidering that the stiffness is the dominant effect of the impedance
+of the human arm (see, e.g., [7] and [8]), namely:
+f = k(xd − x).
+The value k = 200 N/m, corresponding to an intermediate value
+of the arm stiffness during a writing task, has been considered
+in the simulations.
+In view of (4), the dynamics of the end effector, in case
+of variable damping and mass, is represented by the nonlinear
+equation
+λ(ẋ)ẍ + D(ẋ)ẋ = f
+where the damping D is defined in (20) and the mass λ is set
+constant in the cases L1 and L2 or as
+λ(ẋ) = D(ẋ)T
+in the cases L3 and L4.
+The position reference xd(t) is chosen according to a raised
+cosine time law with a duration of 4 s and a total displacement
+of 0.2 m.
+A comparison of the performance obtained with the different
+choices of the parameters can be made by comparing the forces
+f applied by the human to the robot’s tip and the resulting
+velocities.
+In Fig. 6, the scheme with variable damping is compared
+with the case of constant damping set to the minimum (D =
+5 N · s/m) and maximum (D = 60 N · s/m) values, respectively.
+It can be observed that the force required to move the end
+effector in the case of variable damping reaches intermediate
+values with respect to those required in the case of minimum
+and maximum constant damping. On the other hand, when the
+velocity is higher, the velocity profile in the case of variable
+Fig. 6. Time history of the force (top) and velocity (bottom) in the case of
+low mass (λ = 1.1 kg) and variable damping, compared with the case of low
+(D = 5 N · s/m) and high (D = 60 N · s/m) constant damping.
+damping is quite close to that obtained in the case of minimum
+damping. For low velocity, the profile is closer to that in the case
+of maximum damping.
+It is worth noticing that, when constant minimum damping is
+used, the velocity almost matches the desired one (not reported
+in the figure); however, when the velocity decreases to zero,
+both the force and the velocity are oscillating and change sign.
+This undesirable behavior is emphasized when the mass is set
+to the maximum value, as shown in Fig. 7, but is not present in
+the other cases where, although the force is higher than in the
+case of minimum damping, both force and velocity go to zero
+smoothly and without oscillations.
+In can be argued that, with respect to the velocity and force
+profiles, the use of variable damping allows to reach a good
+compromise with respect to the cases of constant low and high
+damping.
+On the other hand, when variable mass is used in addition
+to variable damping, the simulation results show that the per-
+formance do not change significantly with respect to the case
+of constant mass. Slightly better results are obtained when the
+virtual mass is lower, i.e., in the case L4 better than in the
+case L3.
+The suggestions deriving from the above analysis are based
+on simplified assumptions, one for all, the hypothesis that the
+stiffness of the human arm remains constant during the task
+execution. For this reason, the experimental validation reported
+in the next section is of crucial importance.
+VII. EXPERIMENTS
+In the experiments, two fundamental aspects have been con-
+sidered, namely, the use of redundancy and the choice of the
+variable impedance strategy.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 8 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 857
+Fig. 7. Time history of the force (top) and velocity (bottom) in the case of
+high mass (λ = 5.6 kg) and variable damping, compared with the case of low
+(D = 5 N · s/m) and high (D = 60 N · s/m) constant damping.
+A case study has been selected, consisting in the execution of
+a writing task on a horizontal plane operated by a human: the
+operator guides a paint marker mounted on the robot’s tip along
+a path drawn on a paper sheet.
+The orientation was not considered in our case study; other-
+wise, we will not have significant redundant DOFs that can be
+used for the secondary task. Moreover, the aim of our work is
+to check the value of the proposed approach for a generic task
+of comanipulation requiring only Cartesian position control.
+The path has been designed with the aim of inducing trajecto-
+ries with variable velocity and is composed of long straight-line
+segments, sharp corners, and smooth circular arcs (see Fig. 10,
+dot-dashed lines).
+The initial configuration of the robot has been chosen to facil-
+itate the execution of the writing task planned on the horizontal
+plane, namely
+qi = [2.35 22.8 −1.54 −53.2 −3.1 101.15 0]T
+with inertia matrix
+Λ(qi) =
+⎡
+⎣
+0.1265 −0.0042 0.1470
+−0.0042 0.2002 −0.0661
+0.1470 −0.0661 2.9396
+⎤
+⎦
+and eigenvalues
+λ(qi) = (0.1188 0.1986 2.9489 )T
+where the joint angles are in degrees.
+Fig. 8. Snapshot of the comanipulation task.
+A. Redundancy Versus Stability
+Two different secondary tasks have been tested for redun-
+dancy resolution: the maximization of the kinematic manipula-
+bility index (11) and the minimization of the DCI (14).
+Here, the comparison is carried out by checking the stabil-
+ity of the Cartesian impedance control law, i.e., verifying that
+the system remains stable during task execution, when variable
+impedance control is applied. A snapshot of the comanipulation
+task is reported in Fig. 8; the complete video sequence can be
+found in the accompany video.
+In Section V, a conservative stability region in the param-
+eter space has been found, assuming that the same damping
+and mass parameters are set along all the Cartesian direc-
+tions. A more accurate estimation of the stability region can be
+found, by using the same experimental procedure described in
+Section V, but allowing the choice of different values of the
+parameters along the three Cartesian directions.
+The stability regions for the three Cartesian directions of the
+end effector, referred to the base frame, are shown in Fig. 9. In the
+same figure, two sets of curves are represented, corresponding
+to constant mass (or inertia) loci. The continuous curves, with
+constant virtual inertia Λd = diag{0.0328, 0.0548, 0.8138} kg,
+are close to the instability frontiers and can be assumed
+as minimal inertia curves. The dashed curves, with Λd =
+diag{0.0492, 0.0822, 1.2207} kg, are safely within the stability
+regions. The experiments have been performed using a vari-
+able damping impedance control law, with parameters varying
+on the above curves, namely, constant inertia and damping set
+according to (20).
+When the DCI is used for redundancy resolution, the task
+has been completed in both cases, as it is shown in Fig. 10,
+where the paths of the paint marker are represented, together
+with the reference path, when low and high values of virtual
+inertia are used, respectively. On the other hand, in the case of
+low inertia (Fig. 10, top), the task cannot be completed when the
+manipulability index (Man) is used for redundancy resolution,
+because the system tends to become unstable. The accuracy
+of the path and the time to complete the task have not been
+evaluated at this stage.
+The corresponding time histories of the DCI during the ex-
+ecution of the experiment are reported in Fig. 11. Notice that
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 9 ===
+858 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+Fig. 9. Stability regions and constant mass curves for the three Cartesian
+directions.
+the values of the DCI are always lower when the minimization
+of the DCI is used as secondary task, as expected, with some
+exceptions in correspondence of abrupt changes of directions.
+Moreover, in the case of low inertia, the system tends to become
+unstable when the value of the DCI is too high, i.e., when the
+inertia of the robot at the end effector deviates significantly from
+the desired diagonal inertia imposed by the control.
+B. Redundancy Versus Performance
+To evaluate the performance related to redundancy resolution,
+the methods have been compared using two different impedance
+laws, one with constant parameters (set as λ = 1.1 kg, D =
+60 N · s/m) and one with variable damping (low constant mass,
+λ = 1.1 kg, of Fig. 4).
+Since the objective is to compare the redundancy resolution
+strategies, a generic choice for the impedance parameters is
+made by setting them uniformly in all the directions. Moreover,
+as described in the previous Section VII-A, when redundancy is
+used to optimize the manipulability, a more conservative choice
+for the impedance parameters is needed, since the stability limits
+in the three Cartesian directions found experimentally in the
+neighborhood of the initial configuration (see Fig. 6) are not
+satisfied throughout the drawn path.
+Since the assigned task consists in pursuing a given path, a
+significant measure of performance is the error between the ref-
+erence and the actual path, which can be defined in different
+ways. A very simple measure is the absolute value of the differ-
+Fig. 10. Reference and actual paths for the writing task in the case of low
+(top) and high (bottom) virtual inertia.
+Fig. 11. Time histories of the values of DCI in the case of low (top) and
+high (bottom) virtual inertia. The continuous lines represent the DCI when
+redundancy is used to increase manipulability. The dashed lines represent the
+DCI when redundancy is used to minimize the DCI.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 10 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 859
+TABLE I
+t-TEST RESULTS ON THE DATA OF FIG. 15
+var vr hconst var vr lconst hconst vr lconst
+h =1 h = 0 h = 0
+time var<hconst − −
+(p = 0.0062) (p = 0.8888) (p = 0.4503)
+h = 0 h = 1 h = 1
+length − var<lconst hconst<lconst
+(p = 0.9739) (p = 0.0094) (p = 0.0313)
+ence between the length of the path drawn in cooperation with
+the robot, le, and the ideal path length, ld, namely the length
+error
+e = |ld − le|. (21)
+We have also tested more accurate measures, as the area of the
+region between the ideal and the actual path, or the difference
+between the centroid of the reference and actual figure. For the
+purpose of our experiments, however, the measure (21) provided
+satisfactory results.
+Another performance parameter is the execution time H of
+the trajectory, defined as the difference between the time when
+the entire path is completed and the time when the drawing tool
+touches the paper on the desk to start writing.
+In order to obtain quantities that overcome the skills of the
+singular operator, the above parameters are evaluated as the
+average on the performance of more subjects.
+The tests have been carried out on five different subjects
+that move the robot using their dominant hand. We found that
+the number of subjects used in the experiments is sufficient
+on the basis of the analysis of the results. Indeed, the results
+of the comparison between the variable and constant (low and
+high) impedance are statistically significant as shown in Table I
+reported at the end of this section.
+Each subject has been trained in advance, by executing the
+task with the different strategies to be tested, in order to become
+familiar with the task and the robot. At the end of the train-
+ing phase, all the subjects were able to complete the task in a
+reasonable time (under 30 s) with all the control strategies. In
+addition, during the training phase, each subject was asked to
+look for the configuration, which resulted the most comfortable,
+as well as for the best fitting starting point of the path, without
+any kind of conditioning.
+The subjects were told to perform the path taking into account
+the accuracy as a primary objective and the execution time as a
+secondary objective. In addition, during both the training phase
+and the actual testing phase, the subjects have not been informed
+on the features of each control law, nor even which one of the
+four strategies they were performing.
+The results of the tests are reported in Fig. 12, where the
+error on the length of the path e versus the execution time H is
+reported for all the subjects, as well as their mean values.
+It can be observed that, for the impedance control with con-
+stant parameters, the use of DCI ensures better performance
+than the use of manipulability index (Man) both in terms of
+execution time and error on the path. This is true also for vari-
+Fig. 12. Values of the length error e and execution time H in the experiments
+on five subjects using variable and low constant impedance; both manipulability
+index and DCI optimization are used as secondary tasks. The bigger markers
+are the mean values on the five different subjects.
+Fig. 13. Values of length error e and execution time H in the experiments on
+three subjects using DCI optimization and the four variable impedance laws of
+Fig. 4. The bigger markers are the mean values on the three different subjects.
+able impedance control even though the use of variable param-
+eters reduces the error on the path in spite of the strategy used
+to solve the redundancy.
+Last but not least, all the subjects involved in the experiments
+have confirmed that the “feeling” of the manual guidance (in
+terms of intuitiveness and response of the robot) improves when
+the DCI is adopted, i.e., when redundancy is used to decouple
+the natural end effector dynamics along the principal directions
+of the task.
+C. Evaluation of Variable Impedance Laws
+In this set of experiments, the DCI is adopted for redun-
+dancy resolution, and the performance of the different variable
+impedance laws, presented in Section VI, is evaluated. The same
+task described in the previous sections has been executed by
+three different subjects.
+The results, reported in Fig. 13, show that the lower error
+along the path with the smaller execution time is achieved when
+the virtual mass of the end effector is kept constant, to the
+minimum value compatible with stability, namely, the law L1
+(see also Fig. 4).
+D. Variable Versus Constant Impedance
+The variable impedance control L1 has been compared with
+two different sets of constant impedance gains (chosen along
+the curve), namely: high damping (λ = 1.1 kg, D = 60 N · s/m)
+and low damping (λ = 1.1 kg, D = 20 N · s/m). These values
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 11 ===
+860 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+Fig. 14. Time history of the variable damping D during the execution of the
+task with the variable impedance control L1 for one subject.
+Fig. 15. Values of length error e and execution time H in the experiments on
+five subjects using DCI optimization, with the variable impedance control L1
+and two different sets of constant parameters. The bigger markers are the mean
+values on the five different subjects.
+correspond to the average maximum and minimum damping
+recorded in the previous set of experiments with constant mass
+and variable damping.
+The time history of the damping variation along the three
+Cartesian directions for a single test is reported in Fig. 14. The
+aim of this test is that of evaluating what is resulted as the best
+variable impedance control law for the considered task, with two
+different choices of constant damping values: high damping (to
+privilege accuracy) and low damping (to privilege execution
+speed).
+The results, carried out on five different subjects, are shown
+in Fig. 15, where the execution time H and the error on the
+length of the path are reported. In order to assess whether the
+difference between the mean values on the set of data reported
+in Fig. 15 is statistically significant, a t-test has been performed
+[36]. The results, reported in Table I, can be interpreted as fol-
+lows. If the variable h is 1 (0), then the two compared means
+are (not) significantly different with confidence p ∈ [0, 1]; the
+lower the value of p, the more statistically significant the differ-
+ence between the mean values of the two sets of data. Moreover,
+Fig. 16 represents the norm of the linear forces exerted at the tip,
+for one subject, in the case of high, low and variable impedance.
+The horizontal dashed lines are the corresponding mean values
+computed during the execution of the task.
+Looking at Table I, the constant impedance with high damping
+(hconst) ensures higher accuracy with respect to the constant
+impedance with low damping (lconst), as expected. This result,
+however, comes at the expenses of the execution time and of
+Fig. 16. Norm and mean value of the contact forces for high, variable, and
+low damping, for one subject.
+the operator effort requested for the manual guidance. Indeed,
+from Fig. 16, it can be verified that higher damping requires
+higher forces to be exerted to the end effector. On the contrary,
+impedance with low damping allows the task to be performed
+more easily, with less effort and time, but with less accuracy.
+The most relevant result of Table I is that the variable
+impedance (var) guarantees the best performance for accuracy,
+execution time, and effort of the operator (see also Figs. 15
+and 16). Indeed, it can be seen that the improvement of vari-
+able impedance (var) with respect to high constant damping
+(hconst) in terms of execution time is statistically significant;
+on the contrary, it is not possible to detect an edge over the accu-
+racy. From the comparison between the low constant damping
+(lconst) and variable impedance parameters (var), it emerges
+that the advantage of the variable strategy is relevant and statis-
+tically significant in terms of accuracy, while the difference in
+terms of execution time is irrelevant.
+For the sake of completeness, the results of the comparison
+between high and low constant damping parameters have also
+been reported. By observing Fig. 15 and Table I, the advantage of
+using high damping parameters for accuracy appears clear and
+statistically significant. The execution time improves when low
+damping is adopted since the robot become lighter and easier
+to move (see Fig. 16). However, the result on the execution
+time is not statistically significant: This is probably because the
+subjects were instructed to prefer accuracy over speed during
+the execution of the task, which has led to a higher dispersion
+of the data related to execution time.
+VIII. DISCUSSION
+During physical human–robot interaction, the most natural
+way to control the robot is through an impedance strategy tuned
+to the task requirements. Redundancy can be exploited as well
+to improve stability and performance. The research presented
+in this study branches off along these two complementary lines,
+both pointing toward the improvement of the physical human–
+robot interaction in terms of intuitiveness and stability during
+the execution of comanipulation tasks.
+In the first instance, different strategies to solve redundancy
+are evaluated among the solutions that are compatible with the
+main task. The comparison has been made in terms of stability
+and performance (i.e., length error e and execution time H). The
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 12 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 861
+Fig. 17. Conceptual path followed for the experimental investigations. The
+solutions with the best results in terms of performance (i.e., length error e and
+execution time H) and stability are highlighted using different colours.
+Fig. 18. Results obtained with different combination of redundancy resolution
+and impedance strategies presented on the basis of the performance level in
+increasing order from left to right.
+experiments showed that the best way to solve redundancy in
+comanipulation tasks is that of keeping the end effector apparent
+inertia as close as possible to that imposed by the impedance
+control, i.e., at least diagonal. This allows a wider range of
+selection of the impedance parameters that preserve stability
+and improves the performance (see Sections VII-A and VII-B).
+In parallel, the experimental evaluation of different modula-
+tion strategies of the impedance parameters has been carried out.
+The best solution for a lightweight robot consists on linking the
+damping variation directly to the Cartesian velocity, as previ-
+ously discussed. The performance is improved when the virtual
+equivalent mass at the end effector is kept as low as possible,
+compatibly with the stability (see Fig. 13).
+In Fig. 17, a graphical representation of the conceptual path
+followed in our investigation is reported. It can be seen that
+the best solution in terms of stability and performance is that
+achieved using variable damping and constant virtual mass, set
+to the minimum value compatible with the stability. The compar-
+ison between variable and constant impedance using different
+redundancy resolution strategies is summarized in Fig. 18. It
+can be seen that the performance improves from left to right.
+A number of issues remain open. First of all, we have adopted
+a damping variation law (20) that is the result of an extensive
+experimental campaign. In the experiments, we have also tested
+the adaptation law presented in [15], where the damping is var-
+ied according to the acceleration, with worse results, because
+the system was too responsive. The modulation of the damp-
+ing based on acceleration can be interpreted as a nonlinear lead
+compensation based on the intention of the user to increase or de-
+crease the velocity, which enhances the reactivity of the system,
+resulting in a higher equivalent bandwidth. This may explain
+why this kind of modulation is effective on the robotic platform
+used in [15], based on a heavy industrial robot with moving
+masses ranging from 100 to 500 kg and low equivalent band-
+width, and not helpful in our platform, based on a lightweight
+KUKA robot with a larger equivalent bandwidth, where it causes
+an overreaction. In any case, a theoretical analysis supporting
+the choice of the modulation laws of the impedance parameters,
+which takes into account the nonlinear and coupled dynamics
+of robot and human arm, is still missing.
+Another important issue is that our study does not include a
+rigorous stability proof, for both fixed and variable impedance
+parameters. As a matter of fact, although the experimental re-
+sults provide significant and useful guidelines, these cannot be
+easily generalized to any kind of robot and task.
+IX. CONCLUSION
+In this paper, the problem of Cartesian impedance control of a
+redundant robot arm executing a cooperative task with a human
+has been addressed. In particular, redundancy has been used to
+keep robot’s natural behavior as close as possible to the desired
+impedance behavior, by decoupling the end effector equivalent
+inertia. This allows easily finding a region in the impedance
+parameter space where stability is preserved. Extensive exper-
+imental tests confirmed that this solution leads to improving
+performance in the execution of a cooperative writing task with
+respect to the use of other options for redundancy resolution,
+e.g., the maximization of the manipulability index.
+Moreover, different variable impedance strategies, where the
+parameters are modified on the basis of the interpretation of
+human intentions, have been evaluated in a simulation study
+and tested on the experimental setup. The variable impedance
+strategy ensuring the best performance has been selected and
+compared with two different sets of constant impedance gains,
+i.e., high damping (to privilege accuracy) and low damping (to
+privilege execution speed).
+The experimental results show that the combination of vari-
+able impedance and redundancy resolution with inertia decou-
+pling ensures the best tradeoff between accuracy and execution
+time.
+REFERENCES
+[1] N. Hogan, “Impedance control: An approach to manipulation: Part I the-
+ory; Part II implementation; Part III applications,” J. Dyn. Sys., Meas.,
+Control, vol. 107, no. 12, pp. 1–24, 1985.
+[2] H. Sadeghian, L. Villani, M. Keshmiri, and B. Siciliano, “Task-space
+control of robot manipulators with null-space compliance,” IEEE Trans.
+Robot., vol. 30, no. 2, pp. 493–506, Apr. 2014.
+[3] F. Ficuciello, A. Romano, L. Villani, and B. Siciliano, “Cartesian
+impedance control of redundant manipulators for human-robot co-
+manipulation,” in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., Chicago,
+IL, USA, 2014, pp. 2120–2125.
+[4] B. Vanderborght, A. Albu-Schaeffer, A. Bicchi, E. Burdet, D. Caldwell,
+R. Carloni, M. Catalano, O. Eiberger, W. Friedl, G. Ganesh, M. Gara-
+bini, M. Grebenstein, G. Grioli, S. Haddadin, H. Hoppner, A. Jafari, M.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 13 ===
+862 IEEE TRANSACTIONS ON ROBOTICS, VOL. 31, NO. 4, AUGUST 2015
+Laffranchi, D. Lefeber, F. Petit, S. Stramigioli, N. Tsagarakis, M. V.
+Damme, R. V. Ham, L. Visser, and S. Wolf, “Variable impedance ac-
+tuators: A review,” Robot. Auton. Syst., vol. 61, no. 12, pp. 1601–1614,
+2013.
+[5] R. Ikeura and H. Inooka, “Variable impedance control of a robot for coop-
+eration with a human,” in Proc. IEEE Int. Conf. Robot. Autom., Nagoya,
+Aichi, Japan, 1995, pp. 3097–3102.
+[6] R. Ikeura, T. Moriguchi, and K. Mizutani, “Optimal variable impedance
+control for a robot and its application to lifting an object with a human,”
+in Proc. IEEE Int. Workshop Robot Human Interactive Commun., Berlin,
+Germany, 2002, pp. 500–505.
+[7] T. Tsumugiwa, R. Yokogawa, and K. Hara, “Variable impedance control
+based on estimation of human arm stiffness for human-robot cooperative
+calligraphic task,” in Proc. IEEE Int. Conf. Robot. Autom., Washington,
+DC, USA, 2002, pp. 644–650.
+[8] C. Mitsantisuk, K. Ohishi, and S. Katsura, “Variable mechanical stiffness
+control based on human stiffness estimation,” in Proc. IEEE Int. Conf.
+Mechatronics, Istanbul, Turkey, 2011, pp. 731–736.
+[9] K. P. Tee, D. W. Franklin, M. Kawato, T. T. Milner, and E. Burdet,
+“Concurrent adaptation of force and impedance in the redundant muscle
+system,” Biol. Cybern., vol. 102, no. 1, pp. 31–44, 2010.
+[10] E. Burdet, R. Osu, D. Franklin, T. E. Milner, and M. Kawato,
+“The central nervous system stabilizes unstable dynamics by learn-
+ing optimal impedance,” Nature, vol. 414, no. 6862, pp. 446–449,
+2001.
+[11] C. Yang, G. Ganesh, S. Haddadin, S. Parusel, A. Albu-Schaeffer, and
+E. Burdet, “Human-like adaptation of force and impedance in stable and
+unstable interactions,” IEEE Trans. Robot., vol. 27, no. 5, pp. 918–930,
+Apr. 2011.
+[12] M. Howard, D. Braun, and S. Vijayakumar, “Transferring hu-
+man impedance behavior to heterogeneous variable impedance ac-
+tuators,” IEEE Trans. Robot., vol. 29, no. 4, pp. 847–862, Aug.
+2013.
+[13] K. Kronander and A. Billard, “Online learning of varying stiffness through
+physical human-robot interaction,” in Proc. IEEE Int. Conf. Robot. Autom.,
+St. Paul, MN, USA, 2012, pp. 1842–1849.
+[14] A. Ajoudani, N. Tsagarakis, and A. Bicchi, “Tele-impedance: Teleoper-
+ation with impedance regulation using a body-machine interface,” Int. J.
+Robot. Res., vol. 31, no. 13, pp. 1642–1656, 2012.
+[15] A. Lecours, B. Mayer-St-Onge, and C. Gosselin, “Variable admittance
+control of a four-degree-of-freedom intelligent assist device,” in Proc.
+IEEE Int. Conf. Robot. Autom., Saint Paul, MN, USA, 2012, pp. 3903–
+3908.
+[16] F. Ferraguti, C. Secchi, and C. Fantuzzi, “A tank-based approach to
+impedance control with variable stiffness,” in Proc. IEEE Int. Conf. Robot.
+Autom., Karlsruhe, Germany, 2014, pp. 4933–4938.
+[17] S. Bowyer, B. Davies, and F. R. y Baena, “Active constraints/virtual
+fixtures: A survey,” IEEE Trans. Robot., vol. 30, no. 1, pp. 138–157, Feb.
+2014.
+[18] C. A. Moore, M. A. Peshkin, and J. E. Colgate, “Cobot implementation
+of virtual paths and 3-d virtual surfaces,” IEEE Trans. Robot., vol. 19,
+no. 2, pp. 347–351, Apr. 2003.
+[19] V. Duchaine, B. Mayer-St-Onge, D. Gao, and C. Gosselin, “Stable and
+intuitive control of an intelligent assist device,” IEEE Trans. Haptics, vol.
+5, no. 2, pp. 1939–1412, Apr–Jun. 2012.
+[20] S. Buerger and N. Hogan, “Complementary stability and loop shaping for
+improved human-robot interaction,” IEEE Trans. Robot., vol. 23, no. 2,
+pp. 232–244, Apr. 2007.
+[21] J. Colgate and H. Hogan, “Robust control of dynamically interacting
+systems,” Int. J. Control, vol. 48, no. 1, pp. 65–88, 1988.
+[22] W. Newman, “Stability and performance limits of interaction controllers,”
+ASME J. Dyn. Syst., Meas. Control, vol. 114, no. 4, pp. 563–570,
+1992.
+[23] S. Buerger and N. Hogan, “Relaxing passivity for human-robot interac-
+tion,” in Proc. IEEE/RSJ Int. Conf. Intelli. Robots Syst., Beijing, China,
+2006, pp. 4570–4575.
+[24] V. Duchaine and C. Gosselin, “Investigation of human-robot interaction
+stability using Lyapunov theory,” in Proc. IEEE Int. Conf. Robot. Autom.,
+Pasadena, CA, USA, 2008, pp. 2189–2194.
+[25] C. Ott, R. Mukherjee, and Y. Nakamura, “Unified impedance and admit-
+tance control,” in Proc. IEEE Int. Conf. Robot. Autom., Anchorage, AK,
+USA, 2010, pp. 554–561.
+[26] O. Khatib, “A unified approach for motion and force control of robot
+manipulators: The operational space formulation,” IEEE J. Robot. Autom.,
+vol. 3, no. 1, pp. 1115–1120, Feb. 1987.
+[27] Y. Nakamura and H. Hanafusa, “Inverse kinematic solution with singular-
+ity robustness for robot manipulator control,” ASME J. Dyn. Syst., Meas.
+Control, vol. 108, pp. 163–171, 1986.
+[28] C. Ott, Cartesian Impedance Control of Redundant and Flexible Joint
+Robots (Springer Tracts in Advanced Robotics), vol. 49. New York, NY,
+USA: Springer, 2008.
+[29] A. D. Luca, A. Albu-Schäffer, S. Haddadin, and G. Hirzinger, “Colli-
+sion detection and safe reaction with the DLR-III lightweight robot arm,”
+in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., Beijing, China, 2006,
+pp. 1623–1630.
+[30] J. Nakanishi, R. Cory, M. J. Peters, and S. Schaal, “Operational space
+control: A theoretical and empirical comparison,” Int. J. Robot. Res.,
+vol. 27, no. 6, pp. 737–757, 2008.
+[31] C. Natale, B. Siciliano, and L. Villani, “Spatial impedance control of
+redundant manipulators,” in Proc. IEEE Int. Conf. Robot. Autom., Detroit,
+MI, USA, 1999, pp. 1788–1793.
+[32] H. Sadeghian, L. Villani, M. Keshmiri, and B. Siciliano, “Dynamic multi-
+priority control in redundant robotic systems,” Robotica, vol. 31, no. 7,
+pp. 1155–1167, 2013.
+[33] C. Dietrich, C. Ott, and A. Albu-Schäffer, “Multi-objective compliance
+control of redundant manipulators: Hierarchy, control, and stability,”
+in Proc. IEEE/RSJ Int. Conf. Intell. Robots Syst., Tokyo, Japan, 2013,
+pp. 3043–3050.
+[34] J. Park, W. Chung, and Y. Youm, “Computation of gradient of manipu-
+lability for kinematically redundant manipulators including dual manipu-
+lators system,” Trans. Control Autom. Syst. Eng., vol. 1, no. 1, pp. 8–15,
+1999.
+[35] O. Ma and J. Angeles, “The concept of dynamic isotropy and its appli-
+cations to inverse kinematics and trajectory planning,” in Proc. IEEE Int.
+Conf. Robot. Autom., San Francisco, CA, USA, 1990, pp. 10–15.
+[36] M. Hazewinkel, Ed.,Encyclopedia of Mathematics. New York, USA:
+Springer-Verlag, 2001.
+Fanny Ficuciello (M’11) was born in Nocera Infe-
+riore, Italy, on October 20, 1974. She received the
+Laurea degree (magna cum laude) in mechanical
+engineering in 2007 and the Ph.D. degree in com-
+puter and automation engineering from University of
+Naples Federico II, Napoli, Italy, in November 2010.
+From September to March 2010 she was a Vis-
+iting Scholar with the Control Engineering Group,
+University of Twente, Enschede, The Netherlands,
+under the supervision of Prof. S. Stramigioli. She is
+a Member of PRISMA (Projects of Industrial and
+Service Robotics, Mechatronics and Automation) Research Group. She is cur-
+rently a Postdoctoral Researcher with University of Naples Fedeerico II. Her
+research interest is focused on robotics, in particular on safe physical human–
+robot interaction, force/impedance control, grasping, and manipulation control
+of anthropomorphic hand-arm systems. She has published more than 20 journal
+and conference papers and book chapters.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.
+
+=== PDF PAGE 14 ===
+FICUCIELLO et al.: VARIABLE IMPEDANCE CONTROL OF REDUNDANT MANIPULATORS 863
+Luigi Villani (S’94–M’97–SM’03) was born in Avel-
+lino, Italy, on December 5, 1966. He received the
+Laurea degree in electronic engineering and the Re-
+search Doctorate degree in electronic engineering and
+computer science from University of Naples, Naples,
+Italy, in 1992 and 1996, respectively.
+He is an Associate Professor of automatic control
+with the Department of Electrical Engineering and
+Information Technology, University of Naples. He
+has coauthored six books and more than 50 journal
+papers and 100 conference papers and book chapters.
+His book Robotics: Modelling, Planning and Control is one of the most widely
+adopted textbooks worldwide. His research interests include force/motion con-
+trol of manipulators, safe physical human–robot interaction, cooperative robot
+manipulation, lightweight flexible arms, adaptive and nonlinear control of me-
+chanical systems, visual servoing, fault diagnosis, and fault tolerance for dy-
+namical systems.
+Dr. Villani was an Associate Editor of IEEE TRANSACTIONS ON ROBOTICS
+from 2007 to 2011 and Associate Editor of IEEE TRANSACTIONS ON CONTROL
+SYSTEMS TECHNOLOGY from 2005 to 2012.
+Bruno Siciliano (M’91–SM’94–F’00) was born in
+Naples, Italy, on October 27, 1959. He received the
+Laurea degree and the Research Doctorate degree
+in electronic engineering from University of Naples,
+Naples, in 1982 and 1987, respectively.
+He is currently a Professor of control and robotics
+and the Director of the PRISMA (Projects of Indus-
+trial and Service Robotics, Mechatronics and Au-
+tomation) Laboratory, Department of Electrical En-
+gineering and Information Technology, University of
+Naples. He has coauthored seven books, 80 journal
+papers, and 230 international conference papers and book chapters. His book
+Robotics: Modelling, Planning and Control is one of the most widely adopted
+textbooks worldwide. He has delivered 140 invited lectures and seminars at
+institutions worldwide. His research interests include identification and adap-
+tive control, impedance and force control, visual tracking and servoing, redun-
+dant and cooperative manipulators, lightweight flexible arms, aerial robots, and
+human-centered and service robotics.
+Dr. Siciliano is a Fellow of the American Society of Mechanical Engi-
+neers and the International Federation of Automatic Control. He is Co-Editor
+of Springer Tracts in Advanced Robotics series, and has served on the Editorial
+Boards of several journals as well as Chair or Co-Chair for numerous inter-
+national conferences. He co-edited the Springer Handbook of Robotics, which
+received the AAP PROSE Award for Excellence in Physical Sciences and Math-
+ematics and was also the winner in the category Engineering and Technology.
+His group has been granted 14 European projects, including an Advanced Grant
+from the European Research Council. He has served the IEEE Robotics and
+Automation Society as President, as Vice President for Technical Activities and
+Vice President for Publications, as a member of the AdCom, and as a Distin-
+guished Lecturer. He has received several awards, including the 2015 IEEE RAS
+George Saridis Leadership Award in Robotics and Automation.
+Authorized licensed use limited to: Nanjing University of Information Science and Technology. Downloaded on August 13,2026 at 07:03:57 UTC from IEEE Xplore. Restrictions apply.

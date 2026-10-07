@@ -1,0 +1,108 @@
+{
+  "case": "E04",
+  "section": "Introduction",
+  "stages": {
+    "drafting": {
+      "thread_id": "01a11587-4949-7b83-bdd5-d2e92c1d6c15",
+      "candidate_commit": "447c0c4165afb7fdc08a0458d534042a8704dc94",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "first_output_sha256": "30398c68c0d47a1ea74b8aa93dbe551715202ddf6944363287db9d5b3d8a1dd3",
+      "English_sha256": "323fbdb9ebfee5757a0b3afd4fa940a8dfe09278cc07dfe3afc0ce80ba83fc20",
+      "Chinese_sha256": "3be2214c444ed7cba34534513853198623fa39ce9978697574c972d0f9c989a5",
+      "word_count": 917,
+      "paragraph_count": 8,
+      "run_meta": {
+        "exit_code": 0,
+        "duration_seconds": 346.77,
+        "attempt": 1,
+        "first_output_exists": true,
+        "first_output_sha256": "30398c68c0d47a1ea74b8aa93dbe551715202ddf6944363287db9d5b3d8a1dd3"
+      },
+      "usage": [
+        {
+          "input_tokens": 606448,
+          "cached_input_tokens": 522112,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 9920,
+          "reasoning_output_tokens": 3917
+        }
+      ],
+      "core_return_checks": {
+        "skill-candidate/nature-shared/core/reader-workflow.md": true,
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md": true,
+        "skill-candidate/nature-shared/core/ethics.md": true,
+        "skill-candidate/nature-shared/core/terminology-ledger.md": true,
+        "skill-candidate/nature-shared/core/scientific-expression.md": true,
+        "skill-candidate/nature-writing/static/core/stance.md": true,
+        "skill-candidate/nature-writing/static/core/workflow.md": true,
+        "skill-candidate/nature-writing/static/core/output-format.md": true,
+        "skill-candidate/nature-writing/SKILL.md": true,
+        "skill-candidate/nature-writing/manifest.yaml": true,
+        "skill-candidate/nature-writing/static/fragments/section/intro.md": true,
+        "skill-candidate/nature-shared/core/robotics-main-text.md": true
+      }
+    },
+    "polishing": {
+      "thread_id": "01a1158d-6835-7060-a24c-7e7d84efb335",
+      "candidate_commit": "447c0c4165afb7fdc08a0458d534042a8704dc94",
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "high",
+      "first_output_sha256": "fc5f9919013493d44074d7e5f7f471bb21f1c61b833c82fcd2eafdcf27ad864a",
+      "English_sha256": "658204e202a6486bf544a7f682244d3998cab05872c451242a6c9b2e95762b2e",
+      "Chinese_sha256": "558928bf173cd26de0147e76bf2d6e5de5c679c8c998b6481f0342b1ea365337",
+      "word_count": 828,
+      "paragraph_count": 8,
+      "run_meta": {
+        "exit_code": 0,
+        "duration_seconds": 343.1,
+        "attempt": 1,
+        "first_output_exists": true,
+        "first_output_sha256": "fc5f9919013493d44074d7e5f7f471bb21f1c61b833c82fcd2eafdcf27ad864a"
+      },
+      "usage": [
+        {
+          "input_tokens": 513234,
+          "cached_input_tokens": 433024,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 10414,
+          "reasoning_output_tokens": 4872
+        }
+      ],
+      "core_return_checks": {
+        "skill-candidate/nature-shared/core/reader-workflow.md": true,
+        "skill-candidate/nature-shared/core/paper-type-taxonomy.md": true,
+        "skill-candidate/nature-shared/core/ethics.md": true,
+        "skill-candidate/nature-shared/core/terminology-ledger.md": true,
+        "skill-candidate/nature-shared/core/scientific-expression.md": true,
+        "skill-candidate/nature-polishing/static/core/stance.md": true,
+        "skill-candidate/nature-polishing/static/core/failure-modes.md": true,
+        "skill-candidate/nature-polishing/static/core/output-format.md": true,
+        "skill-candidate/nature-polishing/SKILL.md": true,
+        "skill-candidate/nature-polishing/manifest.yaml": true,
+        "skill-candidate/nature-polishing/static/fragments/section/intro.md": true,
+        "skill-candidate/nature-shared/core/robotics-main-text.md": true
+      }
+    }
+  },
+  "combined_delivery_source": "polishing/first-output.md",
+  "delivery_file_hashes": {
+    "English-stage-diff.patch": "22e13c2a0baa220c0fe8ea562dec587f527a66fc664e9c82de414c5281a50138",
+    "first-delivery.md": "fc5f9919013493d44074d7e5f7f471bb21f1c61b833c82fcd2eafdcf27ad864a",
+    "introduction.en.txt": "658204e202a6486bf544a7f682244d3998cab05872c451242a6c9b2e95762b2e",
+    "introduction.zh.txt": "558928bf173cd26de0147e76bf2d6e5de5c679c8c998b6481f0342b1ea365337",
+    "references.md": "7a6736df6f8c0b351f03f5d13fd6afa6fe4356818e969adcf01380085ac0543b"
+  },
+  "writer_invocations": 2,
+  "startup_process_creation_failures": 0,
+  "startup_model_sessions": 0,
+  "feedback_reruns": 0,
+  "English_manual_edits": 0,
+  "Chinese_manual_edits": 0,
+  "manual_content_or_order_feedback": 0,
+  "coordinator_operation": "Exact section separation and copy; no prose revision",
+  "separate_statuses_required": true,
+  "stability_pass_not_inferred": true,
+  "evaluation_timing": "Both complete first outputs saved before coordinator prose evaluation",
+  "validation_scope": "Known-case comparison; no migration, reliable omission detection or stability pass"
+}

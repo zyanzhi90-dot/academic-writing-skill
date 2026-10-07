@@ -1,0 +1,15 @@
+{
+  "local_head_and_origin_main_at_start": "447c0c4165afb7fdc08a0458d534042a8704dc94",
+  "frozen_candidate": "447c0c4165afb7fdc08a0458d534042a8704dc94",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "stages": [
+    "drafting",
+    "polishing"
+  ],
+  "one_invocation_per_stage": true,
+  "first_outputs_only": true,
+  "feedback_reruns_allowed": false,
+  "coordinator_prose_edits_allowed": false,
+  "Skill_changes_or_installation_allowed": false
+}
