@@ -1,0 +1,1857 @@
+{
+  "all_staged_record_blobs_byte_exact": true,
+  "checked_files": {
+    ".gitattributes": {
+      "git_blob": "fa1385d99a319b43c06f5309d1aae9fdd3adea46",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "byte_exact": true
+    },
+    "accepted-abstract.en.txt": {
+      "git_blob": "dac6c3d77d3153ef3ed59dec394fdd48f11d523b",
+      "sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "byte_exact": true
+    },
+    "background-facts.md": {
+      "git_blob": "1d8d7f9ab4dd63584b19a3b8fd9408474a1c61cb",
+      "sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "byte_exact": true
+    },
+    "check_context.py": {
+      "git_blob": "c6300cc1b49e4e7a4b4d2ab1230b5f1af8bc4899",
+      "sha256": "be76444cce60a30e0ddcff1e5516cdc1149093c0eb492c2f3c9092363632127d",
+      "byte_exact": true
+    },
+    "citation-facts.md": {
+      "git_blob": "0c229c168c8b8316e58a7543f3c350a853791ec2",
+      "sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "byte_exact": true
+    },
+    "context-evidence.json": {
+      "git_blob": "267d81c36a9a9adc994b263ada166e431dfd8220",
+      "sha256": "3cc1236adae65c834a9b7b038664536ac739da918bfda985cb7ede646fb99e66",
+      "byte_exact": true
+    },
+    "coordinator/current-author-input-verification.json": {
+      "git_blob": "7dba04cb2f6dcfc26fa92713028029325e138a83",
+      "sha256": "25244c0dbac8273fbee3d3565a2c0c64e63ecf9625288118e9c4a81a51b34407",
+      "byte_exact": true
+    },
+    "coordinator/experiment-state.json": {
+      "git_blob": "4f8954fbce533425dd020c478465bfcf4a5b5f30",
+      "sha256": "7fbcfa4356b7cf77784aa8b981a2bb1bc14d6ab9ef583698324da576d2fe1141",
+      "byte_exact": true
+    },
+    "coordinator/input-identity.json": {
+      "git_blob": "673ae7905dc6c8f64044ac042ad76c9641223277",
+      "sha256": "ec4ad0805ebfe947794ffbb832fa90f9cd67fbe1a1336983e87fd3fb89c9e614",
+      "byte_exact": true
+    },
+    "coordinator/output-index.json": {
+      "git_blob": "a987dded74ce7bc2eea529bc2b19b18d26040a8b",
+      "sha256": "76aec69aa4cb938ab80fb23139ee798198e004a84367dd43d05b8ec0e13bf399",
+      "byte_exact": true
+    },
+    "current-author-adjustment.txt": {
+      "git_blob": "008a68ab1ba139588bfbf70d6b2d14975d0ef6ba",
+      "sha256": "1e91e62c04650a99c962aada26bc9e282a7e3eb888e5108a1e1dbed46a151d85",
+      "byte_exact": true
+    },
+    "delivery/English-stage-diff.patch": {
+      "git_blob": "9c20b832cf5cb8a2b12b868629b06a03dd677e9c",
+      "sha256": "095d231372882ef8eae4aa75f6111c8811a3797d32054596986c39fd63619f4e",
+      "byte_exact": true
+    },
+    "delivery/first-delivery.md": {
+      "git_blob": "d3fd483b0748df8d2db4762a2bb84c49c6fe737c",
+      "sha256": "0b8678ae1a77fef44ccea8c1e9c3775248c38fce3fdc38e6debff1ff6dff50df",
+      "byte_exact": true
+    },
+    "delivery/introduction.en.txt": {
+      "git_blob": "46d8292c4cb02caf20d6ddccb2e311c641064d6a",
+      "sha256": "5d9944dbf2a8486de659cbe478c479971360954be73b43a0e10a2c599a656b04",
+      "byte_exact": true
+    },
+    "delivery/introduction.zh.txt": {
+      "git_blob": "c44e0b0c4b81bc59a91fd22ae21204454cd8582a",
+      "sha256": "455600e6a02b6e640e46b2d66fc025116ef5879f1ef49daf35e9e5844146e255",
+      "byte_exact": true
+    },
+    "delivery/provenance.json": {
+      "git_blob": "b16baada41e54f93de3c7a357fe84194faa125c1",
+      "sha256": "d11b9e4998acc21a3b247dfe66ca9282db7d0a9ffe4349a33da755f2881dff9c",
+      "byte_exact": true
+    },
+    "delivery/references.md": {
+      "git_blob": "1c8e0d93e5e23c4f4508856a1904c1dd2cdb6d04",
+      "sha256": "f05906605897f02c1ecce29c4622d7868187cb813f794f4bb8257829e946c090",
+      "byte_exact": true
+    },
+    "drafting-task.md": {
+      "git_blob": "022a62077754e006dc1c0e0c30b43c69e67f66cc",
+      "sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "byte_exact": true
+    },
+    "drafting/audit.json": {
+      "git_blob": "b1ea89bb274c7b45ce3cdf13dd8bda53ce57542d",
+      "sha256": "fb1dd5ce41f8571c98e846e2eea9472aaffc82a2b4986a7b66ffb0f322c96c0e",
+      "byte_exact": true
+    },
+    "drafting/events.jsonl": {
+      "git_blob": "30562b475ef522b0a4d398092fccdae435597382",
+      "sha256": "35fd0358f6a2ecd4244712ed853f53b2a799cbfa53edded869580a56f9de2ee2",
+      "byte_exact": true
+    },
+    "drafting/execution-agent-messages.json": {
+      "git_blob": "82ea6140bf767b4feff8c859e5306d5c0b58ce19",
+      "sha256": "ea51ed612b0888f57f201fc3622fe39cd2de8778e5803178fdf34f4f316dfeea",
+      "byte_exact": true
+    },
+    "drafting/execution-command.json": {
+      "git_blob": "eea41ded794b8de524970335d08bd49a4016fe10",
+      "sha256": "a6f6c4d9c0e5c6525f4caef49c7a479c79885df1e5887079fb501fd4607654a6",
+      "byte_exact": true
+    },
+    "drafting/execution-prompt.txt": {
+      "git_blob": "dcab3cf8d4a2c0d8f5c199f0f517eae67b2afdd8",
+      "sha256": "11a7c43782ca270d5365892554dad64871736c175d795a1005634c20e23ee355",
+      "byte_exact": true
+    },
+    "drafting/execution-read-before-invocation.json": {
+      "git_blob": "5893788cf3198c4d03526626b4ab2a5c02ae13c0",
+      "sha256": "73f52ef3bff83cabecfc022f5436a0a6d61ec046da810edb9ee463fe709c746f",
+      "byte_exact": true
+    },
+    "drafting/execution-read-before-invocation.ps1": {
+      "git_blob": "6797310315570f469bc7b9491d9e501978a8dd9f",
+      "sha256": "76a3a71f5bdf3c583b2a95912ff32a525e41d04b7eae322441aee0a5b58c2ecc",
+      "byte_exact": true
+    },
+    "drafting/execution-read-before-invocation.stderr.txt": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_exact": true
+    },
+    "drafting/execution-read-before-invocation.stdout.json": {
+      "git_blob": "4cceaf822b2796952e390c9eaac0f2784cc7c545",
+      "sha256": "06ea9d03d2f4d3338bdf4023ac93ca3ccc07e752610023f3540a919fc6204604",
+      "byte_exact": true
+    },
+    "drafting/first-introduction.en.txt": {
+      "git_blob": "8f4f31a50f3b31cde48f9cb4a8f10c5020988d09",
+      "sha256": "1fdd611ded873708a9cc34e1366c03baf3be475ee6ce5ee78536dcc8f7f4c914",
+      "byte_exact": true
+    },
+    "drafting/first-introduction.zh.txt": {
+      "git_blob": "dcfd1a28e8d3fd4e2aa7d70fe1709c58c2f9e6fd",
+      "sha256": "5603ce4f479575cf846019702d8f49682264eb6cb845689f5abeda6edb618603",
+      "byte_exact": true
+    },
+    "drafting/first-output.md": {
+      "git_blob": "575b0d852cf9e9211c33dee7b11d0a15c4feca21",
+      "sha256": "83e39d4d98fc27218b4578f25a7b1e46717ae590dbc9617b7341f653e6767340",
+      "byte_exact": true
+    },
+    "drafting/first-references.md": {
+      "git_blob": "1c8e0d93e5e23c4f4508856a1904c1dd2cdb6d04",
+      "sha256": "f05906605897f02c1ecce29c4622d7868187cb813f794f4bb8257829e946c090",
+      "byte_exact": true
+    },
+    "drafting/frozen-run.json": {
+      "git_blob": "2933b486a5e7bf9e761654ebb1a9e8fc4f5e062d",
+      "sha256": "f1c7790598cc3ce06016ef9f42abb91a272d88772cc0f6dbe4e22ccb647065ac",
+      "byte_exact": true
+    },
+    "drafting/loading-and-retention.json": {
+      "git_blob": "a7000ea5fbaec4ae4a9c70c708ae178b5d35f39f",
+      "sha256": "49335a33f796b71e53255b9d054d2c1864f3202f0a1be2c15f667f64de43cc1f",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.txt": {
+      "git_blob": "a42e6f42b6e1d3ac49767820bd22cd8c1263d078",
+      "sha256": "6a9d599cc979bbee3602c965ccbeaaccb9055e8cfe6b659a3863e1fa94fa3fd1",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.txt": {
+      "git_blob": "1691d291d6838e1ee88be841adf3117980c15ea4",
+      "sha256": "48e903611c57aa8da7ab42ce199d7e23ba3ab044851301d3417212dd80cd0628",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.txt": {
+      "git_blob": "52baea77a5adb42d90de90de6b7e7f1cf0a6689e",
+      "sha256": "55e115a050623c5a6418d1a4a3882fe64d7252257a8a09c2bc31a5cacd1976bc",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.txt": {
+      "git_blob": "3740a6f0e62bab5081f9569eea41f3693da994af",
+      "sha256": "695df1d9361b7d333ec9e2e928faca99f9f134e29e1f084b1eaa8ae1179c0451",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.txt": {
+      "git_blob": "5b125c4ecbc0ab1256bfe330b1ec62a5768934ad",
+      "sha256": "b65e1498aedfdc91c21e24c566c2cc010b3ed3d1dec530ce46d68a89ee444c6b",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P01.txt": {
+      "git_blob": "649e1515ea42789ecb6afb98cdddc78eff20dbb8",
+      "sha256": "c5820c18820328906e31a4cd1f9c7f8780c39d82bc3b2901fe87ade2a11104d2",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P02.txt": {
+      "git_blob": "7514645445befed1ba57aff7cc4b6c2a1e462581",
+      "sha256": "dc2a8e9cd8b8d8a2a6e0184f38b03985215dce03ef4afac4e728c3470811c2f3",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P03.txt": {
+      "git_blob": "c0a5873f2b8ce2dc19aa5b41529d939bbbb7065c",
+      "sha256": "c4a88466b3d52661a45ff881c3be25305252b8ad4f28a991ccef771458a74199",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P04.txt": {
+      "git_blob": "e415c9938cc5d03f0753e06566d83227aef66762",
+      "sha256": "f5dd1c0977f30671596cce1c965ba7bc811f42251aee853bd168b4acf9ad852e",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P05.txt": {
+      "git_blob": "d7d12fc92a6e472ab3cb8afa6b5ad1011c7bc76d",
+      "sha256": "0645afde2c9128ec5a77548e96d69bcb0e54e047f993f7583cfcc9f05ec53636",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P06.txt": {
+      "git_blob": "ca4350b3bc2702ac3c4f0e6a9f5738d5126913e4",
+      "sha256": "e92feb699d35f5b450da3036a54a3612aed38748b163cda4aea183a52fb85d81",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P07.txt": {
+      "git_blob": "0e01abf05727792f9f239a8713fd3600c8ffdfbd",
+      "sha256": "32ea91fef72edd63c4892a50bf6a2df9a81e1b460156085770969fe778d5ffa5",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P08.txt": {
+      "git_blob": "7fab8eb81c5b96e80049454b2a8f9c66db313017",
+      "sha256": "48610556f98365190f6012dd035f90bbc8269c26af775aa075cb88bc3307684c",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P09.txt": {
+      "git_blob": "15d99d4388a05c808959fce22a0261df40d73d51",
+      "sha256": "537042e512b1d328461fbcd83c18bf3bf4b2d6c2958b630658ee1bd186c48bba",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P11.txt": {
+      "git_blob": "df1450ca3c52dd459ceab0785e15a81be783e5e4",
+      "sha256": "f760c33e910f776d250583662568ac78f14f9fde54a8c6782045198f39043746",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P12.txt": {
+      "git_blob": "36c436b002f44f6f81cba95701fb99472b5aae37",
+      "sha256": "982305827416bb3dd65335de9e42309f9ab8f09b20beb75d2ee37545c75b4590",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P13.txt": {
+      "git_blob": "40d33089203bd70f7a0fce85b1e7b1054757bd8a",
+      "sha256": "1da5005247fd025fd1803e8a5466cbe0e57abfd753e765af1505d91dd2562294",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P14.txt": {
+      "git_blob": "9c8bc87306c9df78bd4e2c26ef7127c68416a879",
+      "sha256": "995260906f966cf745efbc46c0303831c9f5b579a2520bedc0f2d053e5a4660f",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P15.txt": {
+      "git_blob": "3573f65158c2d60fa51efd3554523b6d307190be",
+      "sha256": "4056812637c8a4138b6adf3f59338650ef5e67454d044751372de4992b1def1f",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P16.txt": {
+      "git_blob": "baf2f4ca250b87258b80a80019713420bf9b16f7",
+      "sha256": "b953275811508598f7d974885a439c52137661094661b609f10ff1a7c3f6fdec",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P17.txt": {
+      "git_blob": "2ece82829935c70e1222a36d56da5f40bb55291c",
+      "sha256": "9be7ed4d6f53dacf9757d8902aec6e0b85dd299254b5697b84c3d16d5b4ddd98",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P18.txt": {
+      "git_blob": "46a56f196ff83fb8d54b967ba96d2e979eb98289",
+      "sha256": "32e90614c9e909ba9e91d33c4ef4094cfed78da0bd220dffb479de4a349c610e",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/P19.txt": {
+      "git_blob": "b7607f1b598f8571487819b4bed72a879111931c",
+      "sha256": "baa7929dbb5ec9c5ef63eaa4580b1f51229deca3bcc8b78a209ed1d178e86adc",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/RRL2019.txt": {
+      "git_blob": "67dac3416e5910f7b9be3d7b495c6aa32e0c2927",
+      "sha256": "327b48cc7ab8b86178d04ad01eba865824696cdd283661baa4777d355f3cf463",
+      "byte_exact": true
+    },
+    "drafting/materials/analysis/reading/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.txt": {
+      "git_blob": "a6056986eb684a43dd4f63537f46d5b826aa538a",
+      "sha256": "861fcf50463da28cec93719b163867c41c60e7d374b225057058bf73a2da90c7",
+      "byte_exact": true
+    },
+    "drafting/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf": {
+      "git_blob": "6d411c9c66d35cb3fede22c22e225a011fa2f78a",
+      "sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+      "byte_exact": true
+    },
+    "drafting/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf": {
+      "git_blob": "d37fd8447a9b36cdba0750b48ab07f689318d4d7",
+      "sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+      "byte_exact": true
+    },
+    "drafting/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf": {
+      "git_blob": "eca1b0b05c6fda142d811c5f00b3f8cf9f90b38e",
+      "sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/accepted-abstract.en.txt": {
+      "git_blob": "dac6c3d77d3153ef3ed59dec394fdd48f11d523b",
+      "sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/background-facts.md": {
+      "git_blob": "1d8d7f9ab4dd63584b19a3b8fd9408474a1c61cb",
+      "sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/citation-facts.md": {
+      "git_blob": "0c229c168c8b8316e58a7543f3c350a853791ec2",
+      "sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/core-requirements.txt": {
+      "git_blob": "6504d2a5c1315564bb972a89e7851e7a26ab1c27",
+      "sha256": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/current-author-adjustment.txt": {
+      "git_blob": "008a68ab1ba139588bfbf70d6b2d14975d0ef6ba",
+      "sha256": "1e91e62c04650a99c962aada26bc9e282a7e3eb888e5108a1e1dbed46a151d85",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/introduction-method.txt": {
+      "git_blob": "f4b4310cd2e5ffd688d670c80b7050c4c44a6bb8",
+      "sha256": "2cb1795a8dece2abdcb2e773218a197a4d7d2801e25b1c845248697e9843bc9b",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/personal-experience.txt": {
+      "git_blob": "47e55f05408a9542e3243e0625384ff7227c2df7",
+      "sha256": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/scientific-facts.md": {
+      "git_blob": "8e907018358750cb974b086fa138dbb6deefc1ed",
+      "sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "byte_exact": true
+    },
+    "drafting/materials/inputs/task.md": {
+      "git_blob": "022a62077754e006dc1c0e0c30b43c69e67f66cc",
+      "sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/README.md": {
+      "git_blob": "901e98721e66ccaf22197450fb6d84bde79a8fe2",
+      "sha256": "2e42d487b9aa4985933dfb230ac57c88e8dfeba97644bb30d2c222de9a65e61e",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/README_EN.md": {
+      "git_blob": "46b8430db0bf58621666624aefa47fae5fe328fe",
+      "sha256": "1d2fd257264aa512f52dfc131d9adfd67c7dcf2b6f1e3c059c693360b027b245",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/SKILL.md": {
+      "git_blob": "27e718ad0c51fc1c24b5238a0ffafeebecfb8ea8",
+      "sha256": "77ec9d708f1638acac9b92f938dd1717c682ec139691ce8aecbc3628113f4323",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/agents/openai.yaml": {
+      "git_blob": "95dfdafa4b289c6816d27671319c9736690bba73",
+      "sha256": "4bbf2e58b350269cf231f73ca12af1d097b9d64637023b037e238083151fbd67",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/abstract-delivery.md": {
+      "git_blob": "bc44de951eb548c9bc675b884b956cee3f8ed563",
+      "sha256": "e151edf22321755383a854c982abbfa5eba3d7a63ea9239bef31982aaca97219",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/consistency-sweep.md": {
+      "git_blob": "cb6625a53a4e379574b5139bc48d32a58f555dcb",
+      "sha256": "42b4f5337af441709951ecd9e60c7adc644b0a02a349fc41f64247d669adfe82",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/discussion-argument-language.md": {
+      "git_blob": "1f0bb0dfe6873d1a2d8d9f87bb9c4e0bf31939af",
+      "sha256": "a3b0ddcadc47efc029e923ae8133ba0bd99e6a6eb27fdbc791d0e1096d98c169",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/ethics.md": {
+      "git_blob": "c9e477095f7c259aa0b601a711086c7fbdafc427",
+      "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/main-text-discipline.md": {
+      "git_blob": "ec34c0648aedf42c7c18b5445ea4af6b5208aeb2",
+      "sha256": "d43190c4d617096c1088bb5452cec5b0ae13f5d4947c2b21c28315181f051b8e",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/nature-abstract.md": {
+      "git_blob": "24dba8cea280a733a3b3c33e2fe993dc03efb913",
+      "sha256": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/nature-introduction.md": {
+      "git_blob": "f28776ddb0221a96f78e5e6af4ae6d72d60624b6",
+      "sha256": "a59b2e44ba137dc6759f310ee7dae7ac6843e9d6631a057aa197cee99c6b1dcd",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/nature-results-discussion.md": {
+      "git_blob": "11631fb861f557f9253ed07557f5aa2b2dcaccf9",
+      "sha256": "16f1ce1ed6d2aad7853eabf304cdbd661530931747bce4cf3f10b3dfb655adc1",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/paper-type-taxonomy.md": {
+      "git_blob": "7f5c84f0a8e5f37e13604b473c0b8c6262ef8403",
+      "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/reader-workflow.md": {
+      "git_blob": "d34e9374b7989c75bf86db0df04af8ab5bb90a02",
+      "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/research-compliance.md": {
+      "git_blob": "ff555158b2109463f16c266c347d2ab459bbdd02",
+      "sha256": "0ac172d2af0c2089acd7280712a89b23a5f232d4e436e9ae78dd501ff30cd855",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/robotics-introduction-examples.md": {
+      "git_blob": "0eae995249ce66ae1b9e62ee235832c94de6d778",
+      "sha256": "85ce86394b23a66028fda939ff6ab4803c22d16fbcfaf7fadac678efada798cd",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/robotics-introduction-expression.md": {
+      "git_blob": "50b47b8c3f59e70a765d29ecb25e82b93747ab50",
+      "sha256": "24fb7d65ed0efdac88146e1c6a1629838ca776d411cee4c89cb172a5e5028d3a",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md": {
+      "git_blob": "21cfa4cd5973963d0d9adbafc2fc6108c9549106",
+      "sha256": "c637fdc4f42bdd9fde5efd2108ccec15ff89a79f20b0ead7bfc6b5efe466b335",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/robotics-introduction-section.md": {
+      "git_blob": "a7354a1e559ea0db28d9f4a255bf749e06751dd7",
+      "sha256": "a0756dbfba19f834aadbc94083af25f6f4716ca4073fe50a6bafa684ec7aba64",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/robotics-main-text.md": {
+      "git_blob": "8655dfb2b5c40b2915d3746bd4c8be6cfe73125d",
+      "sha256": "c52f9ad3d3bbe92599ab230a61927b68a3b514396278f2230f1c80f0ece71d1c",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+      "git_blob": "0fd01760dd506cafc2b9b457940fe8afb02f44e9",
+      "sha256": "1d0b2045e8b0cc0ffd5543129a95b461252b1e2a85079728f31e6ee6a1a91a7c",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/scientific-expression.md": {
+      "git_blob": "5f282a24be77a0fd58294fb85461b54b7138d74d",
+      "sha256": "c8e217dd72d91eeaa773f7e6f3819efbaecc088407de37cde76fa241f8892f41",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/core/terminology-ledger.md": {
+      "git_blob": "a39a8eeec052c4f1bec83518e5c980c0c46cee28",
+      "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/journal-formats/nat-comms.md": {
+      "git_blob": "4f3e423c647071c7520022ed5073286377427352",
+      "sha256": "5a9eef685502e35d2289478d0b3815d5dbfbb6b2ed7d758accedfc7fd930e975",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/journal-formats/nature-machine-intelligence.md": {
+      "git_blob": "b6273a58d89f6f9032201ef15b11eec665bea084",
+      "sha256": "d62a418fbd67841e745f553b98a267b5a01c9445457a07a0121095ce76fad0af",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/journal-formats/nature.md": {
+      "git_blob": "8cb43edb055c1f247c4b5bb8c0ca843564001802",
+      "sha256": "2c4d007f69b64a2e083f9511748c3726b349a4dce4bfccbdac3bf97d1c1afc10",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/manifest.yaml": {
+      "git_blob": "a3d43df3dc30b515b4a536c2254305cd7af9ea05",
+      "sha256": "76362790aedf55b6f00fb1b7ec3d69c4d2d201753188396ec84b443af563aeb1",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/scripts/check_consistency.py": {
+      "git_blob": "f841872244edb0674f27f738cae763ad7115e7b9",
+      "sha256": "670ccc43aad4639fe3525d8dce7443d85f462f99958b560a539cc5b6b0b072a6",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-shared/tests/test_check_consistency.py": {
+      "git_blob": "776cf00f6bdfea68d54b2e6f8befcdbc058e3d45",
+      "sha256": "c70abcc137513cf947e44e0c35f99dd4438fbe4477faf89a6aa671ffa8fac1de",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/README.md": {
+      "git_blob": "eb1d15849de7c5854db95616f1156d9161c22e8a",
+      "sha256": "8e2b300189ba2fb33e849ac2c9299a903ffb4da3b2629e55736904925671e813",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/README_EN.md": {
+      "git_blob": "e86b9d6cac06fd43d2d304586a8024aee2c751c0",
+      "sha256": "f491a275177ef2560c1a17b24085d568ec05cecb9766824e3f4c5813a96ad44d",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/SKILL.md": {
+      "git_blob": "6f0cef025ab21d9ca47db26b572b586af44f8128",
+      "sha256": "49e5439a12d6c1e1ecd920c690ac273c2b93fffbfe3f726b14880db2f30ade01",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/agents/openai.yaml": {
+      "git_blob": "6b02b85c5774361728f284da4ee82f6e34323053",
+      "sha256": "35275439e4108cea510a750d1368b017fe1b3e88cc8f341475f1478e3090f79c",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/manifest.yaml": {
+      "git_blob": "e7b287d66f1a30bad01e48bab79d98d3416bc2ab",
+      "sha256": "657aa3832b36fbc394ee0137dac49c1bbc6b9e74ce233d390d419ef4db37ae0f",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/abstract.md": {
+      "git_blob": "06dc2eb3b7d84424edb45db7fe16775177057b87",
+      "sha256": "90e463ff2cc34cf39b04c25f19e37b92696ec16f5a702d4964d1e94493dd3b6a",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/article-architecture.md": {
+      "git_blob": "072a8ce3148d1eda1be7f254fc073393e5b8ead8",
+      "sha256": "ef675d458ee0fe75680ea1915aba4ea709f0f5c985579b1d56b1650e77149f2c",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/chinese-author-workflow.md": {
+      "git_blob": "7800b420dd8b19166a9f10698b88473f0f22d956",
+      "sha256": "42fc1cb975d94d1ecdb8901fb6f6e727ca321379b0faa3745d4814c0b1268bf1",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/conclusion.md": {
+      "git_blob": "60209f9f1442847724efa36c9465888fa148048f",
+      "sha256": "64de66f24ceb42ff5cefb4498a8bd16f595661bbaa604d9cde6e743b39dab9c6",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/abstract-examples.md": {
+      "git_blob": "ccc112aecc03c7127fdc56b25911bded4832db17",
+      "sha256": "8228ce8ec4a35b8339bcb439c4292bb2d678e5be17af2ef1d7631d03ebf40010",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/abstract/template-a.md": {
+      "git_blob": "8b58534065506402530f60e3d923f0bc85512110",
+      "sha256": "c4cec6346be6d76350bfacea36c1abad5bce669e810f7facc2c884b664a8d83e",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/abstract/template-b.md": {
+      "git_blob": "ae7ee9de59729d42e58c2de1abf857fa813771e1",
+      "sha256": "dc41e8d5206fca72dd41b2cd188ec447b7735b54c164b6da1785bd88c2e0b78d",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/abstract/template-c.md": {
+      "git_blob": "3865325c919788b1168a7007e12f732d1efe42a2",
+      "sha256": "4f6269a1b1ad47055eb4287cdd0410ea1d1d1198dbf02d74671f50d3fa0d1447",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/index.md": {
+      "git_blob": "21a57ca0b76b2a873e9352e003c9d3662404e210",
+      "sha256": "4ee6f4db40f39f3ac2978a35c44ea40054c77350323fd5f561f848fb3c96a9ac",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction-examples.md": {
+      "git_blob": "d3aed2ee3fe291b7fa29fc864b85ab8c6584d830",
+      "sha256": "0fb5b62e4353f71e586f8873881d2a60a86ad756e02bd0e7ef626dcafa0e5d71",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/novel-task-challenge-decomposition.md": {
+      "git_blob": "de159627ddec1f744b2d4343432f328800e9950f",
+      "sha256": "5613ddd24911efde77aaf35a7ff883a9ef886b99b9863782aeec426282cd286c",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/pipeline-not-recommended-abstract-only.md": {
+      "git_blob": "e508e53b2fec103d8c66cd203f9d67d5c59d9b7e",
+      "sha256": "33ab449b0eadc7cc968c0ff4cddcc4538811d2abc2a0497ebca15c629da80cd2",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md": {
+      "git_blob": "a5ce72d8bfeb032717467552637e10f65e95e842",
+      "sha256": "a39b95c76a19f7fd214048dd2e8861d825495662b9144529326abc4ab94c7f23",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/pipeline-version-2-two-contributions.md": {
+      "git_blob": "aeff8fc7c41ca690cbf9878b7bb0428db3473554",
+      "sha256": "fc6d13cfdd6e69b9bf7238e86f400e7d120d35c053718a56ae9faf442f0e86f1",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md": {
+      "git_blob": "becdcd05a8d1f0eb90a664e2e39343ea39a02f81",
+      "sha256": "71fe9465e12602517ca47a693572bd7db0c08b7cd046ae1c55ec88ba679e1d49",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/pipeline-version-4-observation-driven.md": {
+      "git_blob": "254a5b1e826794cdf18797a4a2c3ba39933b192e",
+      "sha256": "f5e59e8c578cd3996870c3863ac1f2ce503fe74ec76c909a66a9cb9100020e70",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-1-existing-task.md": {
+      "git_blob": "831dedb49b2d1c40ec5b86ae8722ac55165e9081",
+      "sha256": "470195180f159d7f240409c0685a927fea21c82ed7d7c766a03b76ed3765e276",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md": {
+      "git_blob": "3eb078e44a7bb27c1f8cf2e0681d1d9e1d610995",
+      "sha256": "b90e9edf376f9dc2cac1fcbe9174b8878a090763dac08302a301c8b743301b1f",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/technical-challenge-version-3-novel-task.md": {
+      "git_blob": "fde702ad3f8649fb6c7af4b4bde9c93760c56027",
+      "sha256": "3b3b58cc0cffe2e1ae1e192b2344223924f9dfb880eeae3c955e09cd923269ef",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/version-1-task-then-application.md": {
+      "git_blob": "75e91bfa9a154c42aa4b6119141e3e091b064364",
+      "sha256": "d9296f2f23e8589e068a06fd063d2b9291b30b630ffeac19f0cf0290fde52284",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/version-2-application-first.md": {
+      "git_blob": "9550e3a36ea910d490cd443cea4ac906919c99b4",
+      "sha256": "3f57603bd5fd56bc185a3d78f12edc43bd202e2593b01d1bda943f3745af7ea5",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/version-3-general-to-specific-setting.md": {
+      "git_blob": "b56dcb610ad763eb3092294b6c70c0fd7b3f6e80",
+      "sha256": "0afbf79dd9c47e65ec0d9debf08c701838b5398327a0864b8f8a0421ea786a2a",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/introduction/version-4-open-with-challenge.md": {
+      "git_blob": "f310a238beb734daffebfb3a55ab6c283961bb4d",
+      "sha256": "974379058c3d5448bbb95ad989b68564ede2dc7e262f4b9bb82820058ad098b1",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method-examples.md": {
+      "git_blob": "948e69d1bc6ef06f6013d54b19d4820b83f0f046",
+      "sha256": "8a8499c32096fbdf9baac6d00d71df750fba2909d29a0bc37e559ebd02d10210",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/example-of-the-three-elements.md": {
+      "git_blob": "df9d8ec6a60abdc55fae032d971f444ce978b967",
+      "sha256": "a08a1201e6b4a9629262e16827b8d95e62eeee97f6117a1d97659a37200a4dea",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/method-writing-common-issues-note.md": {
+      "git_blob": "f701c6c4b6f02e2ed4f7a57e3aa8e5f049dd19e8",
+      "sha256": "265ca143a785401c29d754d022e761aca41cce7f17db316a3a12cf2e35b5bfa9",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/module-design-instant-ngp.md": {
+      "git_blob": "255ac212bd1f8a087a9743f0eb079fd6874d2eb4",
+      "sha256": "a7c72221545e83d05b3becc4209b9fec71188a9a758434aa1ae3c4bc673e1dad",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/module-motivation-patterns.md": {
+      "git_blob": "d85d88fbe8dac360a98f0e655c52cff4719ace29",
+      "sha256": "0d1476b9e31662ecd135eec0ec70bc959f91235622e874e2a1e12a5234d195ce",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/module-triad-neural-body.md": {
+      "git_blob": "91b5dee3db8752fd7ba197ceddd28fc5f4b0ffcb",
+      "sha256": "eabc41af8b001bcab30bc8373bb44b798ab0a21d32045d01d6b672d49c1ed76f",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/neural-body-annotated-figure-text.md": {
+      "git_blob": "249ed0b6e74a505c10d915d71841af717d3baeac",
+      "sha256": "f671d284186011497291fcec22dadd1dabe835f60fb97dc607cfa0246d08b6be",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/overview-template.md": {
+      "git_blob": "ca9cbfe750568994a2ab9c5242818802586b2022",
+      "sha256": "3328ea5b1100e8068bfd94455486a5934d55a888bf0095df727eef9ec7eadf93",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/pre-writing-questions.md": {
+      "git_blob": "8a971c06de255bed689f9ee36b0ce38e500239af",
+      "sha256": "b6466d5d6fbe8785a45a0b67134c9c08a0d8b3e14f2e17db2f2fe3a2053b3c69",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/examples/method/section-skeleton.md": {
+      "git_blob": "07eee76e9a1e182afb1ccfc121fa1864aaff9ffc",
+      "sha256": "e437a48be1e608bed3200844e1033b8b9da900aa1e4512dccb80f778e6fe0590",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/experiments.md": {
+      "git_blob": "2e642abda2e3ea45a66f561b38c88924446768b4",
+      "sha256": "0c988e9ec996b8bae0447a7338d1ca1c982a7616173a79aba3d1c6d2bc38ba5d",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/introduction.md": {
+      "git_blob": "565050ead08f448f6522c3215bee9fa0e447c497",
+      "sha256": "9c5fd29dd0180c9e8b922f66c81c3507bc27501d7656b9dc1d80f9d137a70c86",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/method.md": {
+      "git_blob": "9cf2e2dfa28ab036b112b72c664258cf89e8baf9",
+      "sha256": "98b95733f303c43ec138e252a6c2dd7c2009ec6d6306f80ba8eb737167d78b6a",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/nat-comms-2025-corpus.md": {
+      "git_blob": "c25d8c4a4b3abed1a8f8500655c10e8d418b2537",
+      "sha256": "0235d5c6302b135fd19d6535eb38efd49b55758d1003677ef46bd0120dbb56d0",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/nature-summary-paragraph.md": {
+      "git_blob": "9c9f97b813bf2b02928a253df69280d596061ef3",
+      "sha256": "a9a36267eb7a322325fbab4b6ba763d28d7209c8d43792604de77609b9c238c8",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/paper-review.md": {
+      "git_blob": "1b83e216c89c9b64ed48fbf767d26ff0b3cb4183",
+      "sha256": "7a46e0805a7048e66f9f2f91cbc13134eff1864bf0152d699c987df078051f20",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/paragraph-flow.md": {
+      "git_blob": "5f7649312db3f08d26bd86fdbdc56743b44aea4a",
+      "sha256": "87921fd04558a35a3ad2c1ac640eae41ff9cf7cb2b852e4aa5bad7daea1d07d5",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/related-work.md": {
+      "git_blob": "c9f2198540e018041b3de1b042a48adcfc1690de",
+      "sha256": "18329390413c35ee954348971c7d64af69a469c42c16739b5a53c6bca6c52b6f",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/references/submission-package.md": {
+      "git_blob": "c05ec86abe4426325cd8b5fdac26ef73c5b04c96",
+      "sha256": "9a0e6195e368fb922a321403c399e0f581b64be11a3ce350538aabec248fb940",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/core/output-format.md": {
+      "git_blob": "4c42040b857b4b552e80551ccd74c8a4c1029bb3",
+      "sha256": "dffc72fd4c6a3be8561e15a983d9a921449d7bd4de8654e9bbb56c9bfcb99dfe",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/core/stance.md": {
+      "git_blob": "d1e7fc8374186a59112dca3f1e4adfe4637bca11",
+      "sha256": "ae231419ce30bd958c618ba6b4afafec0e9b99e202f68bfebfae421fe50baa6e",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/core/workflow.md": {
+      "git_blob": "fb3d542ea6275df87d13b6844295cc106317d82f",
+      "sha256": "1ece2e074c0f0cefb65629285b0d9bfa0641b6f7a7e6ba6e1cad1ee7610a08be",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/journal/generic.md": {
+      "git_blob": "17caaddbd8a5940adc2dae9f8793dd6a2dc8672d",
+      "sha256": "a479f37851c3034e988eb293f17fd1e07f2650ed55600d9c6e046b9b0f6d39fe",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/journal/nat-comms.md": {
+      "git_blob": "cf0a85e0f7e848e71947b770b5090b3c5b458b68",
+      "sha256": "2e9d35231341aa101c0ab3b17e593f00f3e2c0cf6bf30584c871a0461ca919b4",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/journal/nat-mach-intell.md": {
+      "git_blob": "22995b94c64d03d2be3b0556c90b971da97599f7",
+      "sha256": "af514347009f38c61351ea37be275cd1087a22cf3698e7aa80f656957d2768f5",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/journal/nature-family.md": {
+      "git_blob": "0b87fcf3b77deaab7073c082988f17824fafdde0",
+      "sha256": "9e22df651528853851c274b28d780d9e7207ea8da55a752752263fb3af23753f",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/journal/nature.md": {
+      "git_blob": "73f10c5ff29b7f0e36f971efb6765ea5f94ccdc0",
+      "sha256": "cf5ac985df8cdcf0e6d3ec32c1499c4db861c8780bda0d1d67a9a0a168da81cb",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/language/en.md": {
+      "git_blob": "4d13d2e501d5223cb65978e29a297511095984d9",
+      "sha256": "c197905a438cb05409032e22269da65016a8b252ae238c036bad350bb77aaa5e",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/language/zh-to-en.md": {
+      "git_blob": "cc5d2e02c3e54ee92d4609c630aecc32e74b49dd",
+      "sha256": "e56eee34074610819bc3d085254a90018b32fab68756b61fdf82484aa3dc6b89",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/paper_type/algorithmic.md": {
+      "git_blob": "664befff37e9d184a9e3ec9786e2722dcaea056e",
+      "sha256": "47d4f07d483ac01f2966e08018302a51af54e5c52c4147174aec8978644145c7",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/paper_type/hypothesis.md": {
+      "git_blob": "067b5d84206c040e423877e16d5a1e81b92d1959",
+      "sha256": "c2ef6457304001a14fba41c615e62d47a852a9b0137ae13def6117669143da23",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/paper_type/methods.md": {
+      "git_blob": "128128e3ecdb7f267614e8653d06bd206703282d",
+      "sha256": "9c76af7ae150f551deb60c65797fe671c30471da53c0bbd6b4abfbd26e839248",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/paper_type/research.md": {
+      "git_blob": "a124184f47cc2567b5fd34154626d0179a8170f3",
+      "sha256": "f42626d3d28cd104a99cabd69f100f517741f18a49dd1b5b8e0235927c3a7f27",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/paper_type/review.md": {
+      "git_blob": "c15e138e0119bfac4bf3f17614ca6c4c799ff07b",
+      "sha256": "f26f847b44761faf44aee024bc05d079490ead7bd5ffa975b277add7795f2b21",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/abstract.md": {
+      "git_blob": "dd9ef2696a1ebfb7c40d73aee2c33ca4b0473e2a",
+      "sha256": "99f935dae9ce29da0848eca1f0d2b4fbc9eee07d0f58e0c35abfed4a85fdc572",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/conclusion.md": {
+      "git_blob": "38ce0b35432d96276e3edb26de38f2876b0e5ae9",
+      "sha256": "5287996cba0ef8f41a540abc4e50aae8e830a056a5de7188f6bc2b701ac78bd6",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/discussion.md": {
+      "git_blob": "05ff6b8f07ea4e351f6990743d883d57568c8cf0",
+      "sha256": "d1f996edfa7b3a4cc217dc98014df546af4e7328e749c51ccad9ed865d9ea5a0",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/experiments.md": {
+      "git_blob": "d3e304f3e0b297290e0e69ef43256f7415073230",
+      "sha256": "ed15d304bb6a38d7f921e726dfea2f8ebe37d7f7ef6e3cf331f60067792774fe",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/intro-general.md": {
+      "git_blob": "d727911d3a36bf9f9f56afb688d255a1cc802859",
+      "sha256": "ad89e46fd91857b02dd4782fb964e24a4c0ac7a782165e67806e1bd8152cc3de",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/intro.md": {
+      "git_blob": "84bcdd57c4df92667cf3e929f6984a19900a5acd",
+      "sha256": "46fdb530556a54be6b80c2b52ca271ce29beed90f984cadc47c7a1c6c9b784e2",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/method.md": {
+      "git_blob": "47ddb103ca1f67dbe0ffda7d5be6ffbabb5af0f5",
+      "sha256": "5d7d1a572190014bedd69db6272043fd1ed696c4506c9b82ef06e4735b69fe04",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/related-work.md": {
+      "git_blob": "ef4d4e6e7d34d6e6f99f9f6220e2260d702342ad",
+      "sha256": "6cd44a0a9b57146baac08cecdaf4a91c7849a8ae37c9c8dbb2d802564ae799b7",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/section/title.md": {
+      "git_blob": "724e94ccfd6e4c1e97e6a7313fb9cce8ca67a80e",
+      "sha256": "667fafc45b0a38c439998d6d8ed18fb98ffea1b196fc9343bc3a4629fcdc110a",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/task/manuscript.md": {
+      "git_blob": "3170feda61bc6a13812bd086a6b8460c96e206ec",
+      "sha256": "bdba4c444138a6679e02f3a2901758b8f3bb58162674a1b4a30d768b01028edf",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/static/fragments/task/submission-package.md": {
+      "git_blob": "e01a4a2f973621549559717febd4f407b90e377e",
+      "sha256": "69410d283d738e82a35f2d8da1bcfb48385e924b68c1deef84cb2a5be8dceb9d",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/templates/submission/declarations-and-reviewers.tex": {
+      "git_blob": "e5a97fd4af6463b11948e015369bf3cce2c966b4",
+      "sha256": "7fe9d93bcde4ba7f20dcf5a9194728e3cd156d99b0fe8567279bd9c399f2eba9",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/templates/submission/highlights-and-summary.tex": {
+      "git_blob": "ee77f24dc9bcf993f52755fb819aa87089c4288d",
+      "sha256": "d1ea1f6ccf6d91f6e1727a9e9d2befff1f6c90ef43030d1bbaf9fe583ff6dfb5",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/templates/submission/initial-cover-letter.tex": {
+      "git_blob": "ff9a429e52faa31a30d3ea087a1dd177962b9b2a",
+      "sha256": "4b040e28937d6dd467c7575bb3b043b7ce5a69f881635f8af544e5a031a024be",
+      "byte_exact": true
+    },
+    "drafting/materials/skill-candidate/nature-writing/templates/submission/title-page.tex": {
+      "git_blob": "968037d2a576340f2f3320f267e988d91f5cf500",
+      "sha256": "e25038ba6b300a2a567e6c8e45a1babf310f64eae14f902f89a6c9b881ecb6e4",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf": {
+      "git_blob": "d92a2b93450caecc034b79478c3a8bd9ed2788a8",
+      "sha256": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf": {
+      "git_blob": "d14abf3df6730c5bfb5fe33395009ae4b6dd90dd",
+      "sha256": "f5cffa8442a945002bb52bfd4c251232f3545f1c929c3ad45c39034d208ea7ba",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf": {
+      "git_blob": "cfcf9559249c99437d3a1f820473d5a37280a675",
+      "sha256": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf": {
+      "git_blob": "48aa206b25ada0138f69993b63a7d414f0a8a3e2",
+      "sha256": "f9942cc7d22ee1fae39e589531f984f398d9f6cda1cc45f61955a617cd69ee71",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf": {
+      "git_blob": "38ccad15915aca391b5981f12deeabb684b17025",
+      "sha256": "580f84729b9798dea73df545842e26a11c016e8951e4c80bfaa2d7a90b03f9d1",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf": {
+      "git_blob": "ff1e476ba8cbfbd28c49a700a0c4f1389d147f05",
+      "sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf": {
+      "git_blob": "d7965ba8b109c99bffaa3ec9549235fb6b145fa2",
+      "sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf": {
+      "git_blob": "644181f52ce1064db19bbace4fc400a7c2801e0c",
+      "sha256": "8563538806c3fbd7f0473bfca7a6b7f9b6b32cad6121cc264364a2359c405a08",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf": {
+      "git_blob": "13fd9678c6b65a40e40af7ae5692e3ef4125a873",
+      "sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf": {
+      "git_blob": "4bc12d7d46035f9ecd3d9e58f1c65e0c44195fb1",
+      "sha256": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf": {
+      "git_blob": "84a377fcb25a3215aa6263d8c1ef5ac83daac874",
+      "sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf": {
+      "git_blob": "4dfd467f4db870ab967c759adfa30c7ca658d9d4",
+      "sha256": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf": {
+      "git_blob": "23bd0fafadc223e162bf8efb288b9c7a747f0e35",
+      "sha256": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf": {
+      "git_blob": "58496b9abb2902626feb2307b2df9d3262a65d09",
+      "sha256": "1cfc9c55441a561894cd0805f9c96f1955ed4584e84d322c626bb2d545763a5c",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf": {
+      "git_blob": "d418a510f57b44b12de35502a2ce89e5168624c6",
+      "sha256": "ed87e10164c937acc3169eaa39e07706b9d9308c5647891a2b6ecf08c6795660",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf": {
+      "git_blob": "05d75209f3104997fdc28c19d9fe459f733ecd4e",
+      "sha256": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf": {
+      "git_blob": "b44082521a151cc0d0517d12273f3ec74ff9c042",
+      "sha256": "06f5965943da4191a6109446d916e3c8917fa4380717dac2993804b737afe420",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf": {
+      "git_blob": "38477eabeaab484fd78c2e19c615fb4f2ce404b7",
+      "sha256": "feaf9611e71898f066f4a889a09d08659a6296bf104a9a59ef8a86db658334ce",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf": {
+      "git_blob": "a2defd594509015039e6951debdb51f4533ac6e9",
+      "sha256": "885f62e07ee4bd37fb0e08bdaa6068fd5e4e473d11e0be239ba8bdd2d8c393db",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf": {
+      "git_blob": "170c295bc01809362ee3f60f980dc9c2ad1e7a48",
+      "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf": {
+      "git_blob": "e6ab544afa28ebdc1940745329b3e4e5760af1f5",
+      "sha256": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1",
+      "byte_exact": true
+    },
+    "drafting/materials/文献资料/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf": {
+      "git_blob": "4478daf0a284a1b7f610d37432b73b066702ce1e",
+      "sha256": "a78470558a68d6fbbf15374d3961f8c0b78a5c8adc15807258aa1e0d2863dd28",
+      "byte_exact": true
+    },
+    "drafting/pre-invocation-identity.json": {
+      "git_blob": "6cca4bc20cb6384a0fd1963f5d0bf290add4edaa",
+      "sha256": "310fca4189a43c84e4f046e85c58299433a07835aec882196f84b39f4426dd9f",
+      "byte_exact": true
+    },
+    "drafting/raw-introduction-and-references.md": {
+      "git_blob": "8cb4f6d59ead697801feee5c47ca9020b7e512de",
+      "sha256": "2b7c48b8591b0f02282ae9d864fde36100c61c1f9962ff5724d3b95e03ae24a2",
+      "byte_exact": true
+    },
+    "drafting/run-meta.json": {
+      "git_blob": "6ed6681490424cb45250a44ecc101bcecd7dbeb9",
+      "sha256": "37060162af76f80f9a33eeb856df537f93efef5c648d572d4ffccb10e21fc53a",
+      "byte_exact": true
+    },
+    "drafting/runner-snapshot.py": {
+      "git_blob": "556bcf1d126edbcb191ac085a321c74f24bd04b1",
+      "sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+      "byte_exact": true
+    },
+    "drafting/section-retention.json": {
+      "git_blob": "b797e2d67dd21e96957ef73f647268b55c99ba78",
+      "sha256": "643eed369d22153d37ae9eddec6f2665389c4d6334e65d248062f326a1086806",
+      "byte_exact": true
+    },
+    "drafting/stderr.txt": {
+      "git_blob": "c97e290b4a36182a24afa9ba56413fa7253c9536",
+      "sha256": "d6f9158804b625f43f31afb8a08a7ba1f31d04b1a1b5754ff50f4a4778a26bdb",
+      "byte_exact": true
+    },
+    "execute_once.py": {
+      "git_blob": "556bcf1d126edbcb191ac085a321c74f24bd04b1",
+      "sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+      "byte_exact": true
+    },
+    "index_outputs.py": {
+      "git_blob": "7a33700debdb4e2cc2e9d9236333b31703db444d",
+      "sha256": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200",
+      "byte_exact": true
+    },
+    "loading-summary.json": {
+      "git_blob": "48fdd662566577a5fad9fbc81c58666d258ef234",
+      "sha256": "b7dba677cbc625e44a80a063c720f9e5de2d3a6cf912c0add36eb0d21f8d5d1e",
+      "byte_exact": true
+    },
+    "polishing-task.md": {
+      "git_blob": "b1fff46ea16f211033d938e78dcfb4642b7b6cc6",
+      "sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+      "byte_exact": true
+    },
+    "polishing/audit.json": {
+      "git_blob": "42ccc1acd9d9b4ffaa2ead7d39fe6874a8bccb5f",
+      "sha256": "0d6d4afdda260b4d4a29e11451fdd9e011577bb4a5feb2d4b43ab21c0e507c25",
+      "byte_exact": true
+    },
+    "polishing/events.jsonl": {
+      "git_blob": "b0747b03d8dd9f28f95489376552a424d7026afb",
+      "sha256": "0c50a840b964ddce051b6d4c5f058998cd16f071a84262bd306698cafe77b894",
+      "byte_exact": true
+    },
+    "polishing/execution-agent-messages.json": {
+      "git_blob": "16be88eb3a9b4acfe6fad94f113e65f2f94f7d00",
+      "sha256": "8c586f4f25efca7e204c63addb364321d22af11dfae4713d55fa0bc81f0b9ecd",
+      "byte_exact": true
+    },
+    "polishing/execution-command.json": {
+      "git_blob": "339e12901e5d5cf05b9dd837433d387e2bd94a72",
+      "sha256": "226d726515d98226ad553c96ae1303ab53273dc244e265d35f89a18083692a76",
+      "byte_exact": true
+    },
+    "polishing/execution-prompt.txt": {
+      "git_blob": "9d66e4795c9e216f9979d07d499d2e8decad625b",
+      "sha256": "4d266a7832e736ffc78d62280909b539e20088f953ad9438d3b3a37375c1dfde",
+      "byte_exact": true
+    },
+    "polishing/execution-read-before-invocation.json": {
+      "git_blob": "2f1253575b73e0244a89842cf74014f29d03ce12",
+      "sha256": "7273b9ac6815cafa12c0218bffed83ceaf3bcd15362b908a94dfae3cb3f3c529",
+      "byte_exact": true
+    },
+    "polishing/execution-read-before-invocation.ps1": {
+      "git_blob": "d2ff684c14d2ee0cbb7bdb7367b2932711b1f2d7",
+      "sha256": "fd7c65a65c970e8a17ed0c7de0e77390cf0ff497f32953a538f411252a334376",
+      "byte_exact": true
+    },
+    "polishing/execution-read-before-invocation.stderr.txt": {
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_exact": true
+    },
+    "polishing/execution-read-before-invocation.stdout.json": {
+      "git_blob": "0fff9e3d8c50172811b5136fe01193592f57afb1",
+      "sha256": "b5d7d2a7c0df94208a90ab58f2b1b7b22dff5a8b69328bc2c2d1e47b387181a7",
+      "byte_exact": true
+    },
+    "polishing/first-introduction.en.txt": {
+      "git_blob": "46d8292c4cb02caf20d6ddccb2e311c641064d6a",
+      "sha256": "5d9944dbf2a8486de659cbe478c479971360954be73b43a0e10a2c599a656b04",
+      "byte_exact": true
+    },
+    "polishing/first-introduction.zh.txt": {
+      "git_blob": "c44e0b0c4b81bc59a91fd22ae21204454cd8582a",
+      "sha256": "455600e6a02b6e640e46b2d66fc025116ef5879f1ef49daf35e9e5844146e255",
+      "byte_exact": true
+    },
+    "polishing/first-output.md": {
+      "git_blob": "d3fd483b0748df8d2db4762a2bb84c49c6fe737c",
+      "sha256": "0b8678ae1a77fef44ccea8c1e9c3775248c38fce3fdc38e6debff1ff6dff50df",
+      "byte_exact": true
+    },
+    "polishing/first-references.md": {
+      "git_blob": "1c8e0d93e5e23c4f4508856a1904c1dd2cdb6d04",
+      "sha256": "f05906605897f02c1ecce29c4622d7868187cb813f794f4bb8257829e946c090",
+      "byte_exact": true
+    },
+    "polishing/frozen-run.json": {
+      "git_blob": "a38ccee368fb142fbb4606c4bc7f17c0b36c1fd0",
+      "sha256": "472e41e158ee8d4dad80ec65837248644f35921ceeb4cb2345a24325308f55a4",
+      "byte_exact": true
+    },
+    "polishing/loading-and-retention.json": {
+      "git_blob": "01862877fc120c76ba7e82620fb2e97187169988",
+      "sha256": "90148c98e4ff509e942aab2647cbe2dba3b13ffbe30d319f08e2c5966fe89e6d",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.txt": {
+      "git_blob": "a42e6f42b6e1d3ac49767820bd22cd8c1263d078",
+      "sha256": "6a9d599cc979bbee3602c965ccbeaaccb9055e8cfe6b659a3863e1fa94fa3fd1",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.txt": {
+      "git_blob": "1691d291d6838e1ee88be841adf3117980c15ea4",
+      "sha256": "48e903611c57aa8da7ab42ce199d7e23ba3ab044851301d3417212dd80cd0628",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.txt": {
+      "git_blob": "52baea77a5adb42d90de90de6b7e7f1cf0a6689e",
+      "sha256": "55e115a050623c5a6418d1a4a3882fe64d7252257a8a09c2bc31a5cacd1976bc",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.txt": {
+      "git_blob": "3740a6f0e62bab5081f9569eea41f3693da994af",
+      "sha256": "695df1d9361b7d333ec9e2e928faca99f9f134e29e1f084b1eaa8ae1179c0451",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.txt": {
+      "git_blob": "5b125c4ecbc0ab1256bfe330b1ec62a5768934ad",
+      "sha256": "b65e1498aedfdc91c21e24c566c2cc010b3ed3d1dec530ce46d68a89ee444c6b",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P01.txt": {
+      "git_blob": "649e1515ea42789ecb6afb98cdddc78eff20dbb8",
+      "sha256": "c5820c18820328906e31a4cd1f9c7f8780c39d82bc3b2901fe87ade2a11104d2",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P02.txt": {
+      "git_blob": "7514645445befed1ba57aff7cc4b6c2a1e462581",
+      "sha256": "dc2a8e9cd8b8d8a2a6e0184f38b03985215dce03ef4afac4e728c3470811c2f3",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P03.txt": {
+      "git_blob": "c0a5873f2b8ce2dc19aa5b41529d939bbbb7065c",
+      "sha256": "c4a88466b3d52661a45ff881c3be25305252b8ad4f28a991ccef771458a74199",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P04.txt": {
+      "git_blob": "e415c9938cc5d03f0753e06566d83227aef66762",
+      "sha256": "f5dd1c0977f30671596cce1c965ba7bc811f42251aee853bd168b4acf9ad852e",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P05.txt": {
+      "git_blob": "d7d12fc92a6e472ab3cb8afa6b5ad1011c7bc76d",
+      "sha256": "0645afde2c9128ec5a77548e96d69bcb0e54e047f993f7583cfcc9f05ec53636",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P06.txt": {
+      "git_blob": "ca4350b3bc2702ac3c4f0e6a9f5738d5126913e4",
+      "sha256": "e92feb699d35f5b450da3036a54a3612aed38748b163cda4aea183a52fb85d81",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P07.txt": {
+      "git_blob": "0e01abf05727792f9f239a8713fd3600c8ffdfbd",
+      "sha256": "32ea91fef72edd63c4892a50bf6a2df9a81e1b460156085770969fe778d5ffa5",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P08.txt": {
+      "git_blob": "7fab8eb81c5b96e80049454b2a8f9c66db313017",
+      "sha256": "48610556f98365190f6012dd035f90bbc8269c26af775aa075cb88bc3307684c",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P09.txt": {
+      "git_blob": "15d99d4388a05c808959fce22a0261df40d73d51",
+      "sha256": "537042e512b1d328461fbcd83c18bf3bf4b2d6c2958b630658ee1bd186c48bba",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P11.txt": {
+      "git_blob": "df1450ca3c52dd459ceab0785e15a81be783e5e4",
+      "sha256": "f760c33e910f776d250583662568ac78f14f9fde54a8c6782045198f39043746",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P12.txt": {
+      "git_blob": "36c436b002f44f6f81cba95701fb99472b5aae37",
+      "sha256": "982305827416bb3dd65335de9e42309f9ab8f09b20beb75d2ee37545c75b4590",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P13.txt": {
+      "git_blob": "40d33089203bd70f7a0fce85b1e7b1054757bd8a",
+      "sha256": "1da5005247fd025fd1803e8a5466cbe0e57abfd753e765af1505d91dd2562294",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P14.txt": {
+      "git_blob": "9c8bc87306c9df78bd4e2c26ef7127c68416a879",
+      "sha256": "995260906f966cf745efbc46c0303831c9f5b579a2520bedc0f2d053e5a4660f",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P15.txt": {
+      "git_blob": "3573f65158c2d60fa51efd3554523b6d307190be",
+      "sha256": "4056812637c8a4138b6adf3f59338650ef5e67454d044751372de4992b1def1f",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P16.txt": {
+      "git_blob": "baf2f4ca250b87258b80a80019713420bf9b16f7",
+      "sha256": "b953275811508598f7d974885a439c52137661094661b609f10ff1a7c3f6fdec",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P17.txt": {
+      "git_blob": "2ece82829935c70e1222a36d56da5f40bb55291c",
+      "sha256": "9be7ed4d6f53dacf9757d8902aec6e0b85dd299254b5697b84c3d16d5b4ddd98",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P18.txt": {
+      "git_blob": "46a56f196ff83fb8d54b967ba96d2e979eb98289",
+      "sha256": "32e90614c9e909ba9e91d33c4ef4094cfed78da0bd220dffb479de4a349c610e",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/P19.txt": {
+      "git_blob": "b7607f1b598f8571487819b4bed72a879111931c",
+      "sha256": "baa7929dbb5ec9c5ef63eaa4580b1f51229deca3bcc8b78a209ed1d178e86adc",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/RRL2019.txt": {
+      "git_blob": "67dac3416e5910f7b9be3d7b495c6aa32e0c2927",
+      "sha256": "327b48cc7ab8b86178d04ad01eba865824696cdd283661baa4777d355f3cf463",
+      "byte_exact": true
+    },
+    "polishing/materials/analysis/reading/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.txt": {
+      "git_blob": "a6056986eb684a43dd4f63537f46d5b826aa538a",
+      "sha256": "861fcf50463da28cec93719b163867c41c60e7d374b225057058bf73a2da90c7",
+      "byte_exact": true
+    },
+    "polishing/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Complementary_Stability_and_Loop_Shaping_for_Improved_HumanRobot_Interaction.pdf": {
+      "git_blob": "6d411c9c66d35cb3fede22c22e225a011fa2f78a",
+      "sha256": "a08b5c73726ad1a38f2c4a541e0a263dd20e10a5a3e2529239d0ad8bdb12c826",
+      "byte_exact": true
+    },
+    "polishing/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Diffusion-Based Impedance Learning for Contact-Rich Manipulation Tasks.pdf": {
+      "git_blob": "d37fd8447a9b36cdba0750b48ab07f689318d4d7",
+      "sha256": "e3a6b2ab0dccf3b4e7f4ee251f3dae9ebe215fb13b2a422cde240f9d5bb04958",
+      "byte_exact": true
+    },
+    "polishing/materials/effect-test/E01-abstract-first-drafting-2026-10-02/materials/文献资料/Variable_Impedance_Control_of_Redundant_Manipulators_for_Intuitive_HumanRobot_Physical_Interaction.pdf": {
+      "git_blob": "eca1b0b05c6fda142d811c5f00b3f8cf9f90b38e",
+      "sha256": "abe1ee0a2111d1f9a3c6067e9fe3ff18f23333ce1104f05217fbf55d3e52ca2c",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/accepted-abstract.en.txt": {
+      "git_blob": "dac6c3d77d3153ef3ed59dec394fdd48f11d523b",
+      "sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/background-facts.md": {
+      "git_blob": "1d8d7f9ab4dd63584b19a3b8fd9408474a1c61cb",
+      "sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/citation-facts.md": {
+      "git_blob": "0c229c168c8b8316e58a7543f3c350a853791ec2",
+      "sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/core-requirements.txt": {
+      "git_blob": "6504d2a5c1315564bb972a89e7851e7a26ab1c27",
+      "sha256": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/current-author-adjustment.txt": {
+      "git_blob": "008a68ab1ba139588bfbf70d6b2d14975d0ef6ba",
+      "sha256": "1e91e62c04650a99c962aada26bc9e282a7e3eb888e5108a1e1dbed46a151d85",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/current-draft.md": {
+      "git_blob": "8cb4f6d59ead697801feee5c47ca9020b7e512de",
+      "sha256": "2b7c48b8591b0f02282ae9d864fde36100c61c1f9962ff5724d3b95e03ae24a2",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/introduction-method.txt": {
+      "git_blob": "f4b4310cd2e5ffd688d670c80b7050c4c44a6bb8",
+      "sha256": "2cb1795a8dece2abdcb2e773218a197a4d7d2801e25b1c845248697e9843bc9b",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/personal-experience.txt": {
+      "git_blob": "47e55f05408a9542e3243e0625384ff7227c2df7",
+      "sha256": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/scientific-facts.md": {
+      "git_blob": "8e907018358750cb974b086fa138dbb6deefc1ed",
+      "sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "byte_exact": true
+    },
+    "polishing/materials/inputs/task.md": {
+      "git_blob": "b1fff46ea16f211033d938e78dcfb4642b7b6cc6",
+      "sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/README.md": {
+      "git_blob": "1ba000d4b45142e0566abc4ac75a8dd470ece477",
+      "sha256": "0e3069ce6693d5324470f7d198561196a4af9014192ffa559dcadc236a8fe903",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/README_EN.md": {
+      "git_blob": "4e2bb91fad47b32a1ed179f93abcc86fdc115cf8",
+      "sha256": "8a6f8d07417b31a0efd5b0b7bd17be9bcb70f1c9f0e3da32664511f7d6db4ee6",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/SKILL.md": {
+      "git_blob": "434689add976db0084a8fd79ea87fc492f733915",
+      "sha256": "70ab2a55cea9f6d2e42a896915a9ffcd33b2446384faa452adfe0ccf6c5e50f6",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/agents/openai.yaml": {
+      "git_blob": "87a3727a0030dfb10dc98c4e2bc1e38557adb452",
+      "sha256": "5cbdbff93809f5cf0487fdde2f0ff5a037afd300847a802f4f622f3586af18d3",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/manifest.yaml": {
+      "git_blob": "7544b1223143e91685bbb32168144bdbc0da65f0",
+      "sha256": "96d83c298816b3083139fcd070cafb5cbe4e06cb6f392fb835b0a1b8e42253e0",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/latex-layout.md": {
+      "git_blob": "69f6a92442da91d695ce64fb840b3efe86dfa51e",
+      "sha256": "9cdb4a2f69e1314a5a401bd1e90d880287940211a48b07e4eb0c62c3c9dd28a9",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/nat-comms-2025-diction.md": {
+      "git_blob": "f2f7205de13ed4bf3c77c1d3092cb9443bd436bf",
+      "sha256": "186580615cea217a2194818a58c902c064139bf55a414391619f0d3d55ea3155",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/phrasebank-playbook.md": {
+      "git_blob": "c33a464332d97d3619577f2dfab4e7eec5ef65cd",
+      "sha256": "b05a472b19ac13c7e6c674229fc8dc6edee7cf0d26c84a3aa60d2d73f59a20bf",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/published-article-patterns.md": {
+      "git_blob": "e5834319210c2349651da017a96964365a52c25d",
+      "sha256": "9a715f506a347af3d8aa61b78c33d4a96ac00598299f3262a4c43273397f53be",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/section-moves.md": {
+      "git_blob": "96626739954a641d94c00024338e5bb812667fcb",
+      "sha256": "017718c81c42eac2776ae7d612e31fa3e4a12965713827a0627696c760197655",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/style-guardrails.md": {
+      "git_blob": "37ccda5ed4f8179f970cbd4766d0b4a946b1aa0a",
+      "sha256": "e33c8b153a0ea922bd5f6f9840abb18994d3405fee9959fd57709c0164dfbfa9",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/references/writing-strategy.md": {
+      "git_blob": "50b004318f6df24441d30a8460e6761b85bdf2ec",
+      "sha256": "61aed23835260560e43e54438c9cd2d4dd3dd69921d9ad2bada0494b4777d10d",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/core/failure-modes.md": {
+      "git_blob": "8128e8c6c6d071e02eea45aa5f63cf20d5ececd0",
+      "sha256": "12326b3469522e532c966c6f4e53c446e43c6c13808aee7dc23e9ed4d8701204",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/core/output-format.md": {
+      "git_blob": "5c92e2a01f3b7bfc9bca3cb4315190c0ded69fae",
+      "sha256": "03476a9fc55e8358a6ba1bade2bde266b528ec780866055669ac6373ac4cf6ca",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/core/stance.md": {
+      "git_blob": "e2bd9094697bd52bad72f5c5da19912bea5b2b40",
+      "sha256": "f3377b527e398a1d190628c460cc667e7ad74116ae0ee8792509d773ded96649",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/journal/generic.md": {
+      "git_blob": "8f0efe9fb72251a1358adf3e9d7bfd09c9b94494",
+      "sha256": "0d680fd62604db88d97099b3772956abd2a1c3640ee4055afe436c78dbd360a5",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/journal/nat-comms.md": {
+      "git_blob": "962b24bd355d2c189978fcd2ae3640ab6e5146c3",
+      "sha256": "39cfe7f278b14e1b0c27506c73fb269d3dc994176f7abfeabe48ddd88bd95f7d",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/journal/nat-mach-intell.md": {
+      "git_blob": "ff07580730f0a16abd39b98878cd46a055b6ca58",
+      "sha256": "e66bbdf9ca61a74cbd28a412f8678f0e688646f2134d36a74f4f6b7daf170883",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/journal/nature.md": {
+      "git_blob": "513a2d971c2a6447c97f17628d96e70c68f7434a",
+      "sha256": "0539aa665ee56a443ba8f2a1378ea5b9c4c2cbf05848d94d7fef9c7ba77ac944",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/language/en.md": {
+      "git_blob": "fc716f14abffa1eb9a902ee3fda6bf9eb120c1c8",
+      "sha256": "3736fb7205291bd58d02325e825b99e0337925756ca003afba48b47bc8d12e02",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/language/zh-to-en.md": {
+      "git_blob": "c280378232395d168da5cca67a1198e74aac7afc",
+      "sha256": "a8ff6a61867ace160f4abac0475ca4fa47856b629d2132c80910a30c4466e5fe",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/paper_type/algorithmic.md": {
+      "git_blob": "0315e19046eb2103bff8989807e3747eb0929802",
+      "sha256": "b42480092251b445ac332d528fc92890f30b166e54706d4a7d51567a6d8b301d",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/paper_type/hypothesis.md": {
+      "git_blob": "adf72fcd3a38bbe8dc03271a85a78db7d59826a9",
+      "sha256": "2927fdefd79958ac8280a0a1d870d066136bfdfe277372f2389928c3ba8f332c",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/paper_type/methods.md": {
+      "git_blob": "f91c9e444628c7451acb6be62f77aae3518bd681",
+      "sha256": "3b00b801a733694772c78db1f8d2df19f12ab49b7cd395183d1b1075a0a4ea2e",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/paper_type/research.md": {
+      "git_blob": "ece76cef64524d14ace639999ea8650fe4d76527",
+      "sha256": "6e68b7c6b305d9a520c8f9816bc725b02c44551162fa299aead3278e932d13db",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/paper_type/review.md": {
+      "git_blob": "28134848bd7e0d3104c9aa5e2b293bc894e3163e",
+      "sha256": "639c478596ba59434f94a7436021ae0ef208c4118a491be1a7779960f984acc6",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/abstract.md": {
+      "git_blob": "8ae9decd71c433b46e4c75f49cf8e9142e6f40e1",
+      "sha256": "874fa63b254779204db626f4101c889bfd1ec7dab1d4e7b0d469fa41db83dbfc",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/conclusion.md": {
+      "git_blob": "08ba6496ca6dda9f485a043b4a176236e41c32e3",
+      "sha256": "d8676e4871b7b58fd8f72ffec22bc83a7fce7df0220b86e41a38a2989d68da34",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/discussion.md": {
+      "git_blob": "431023d065b1ecddb7d45709d4366a67e69e1fed",
+      "sha256": "f89b008d75dd62b7a2165211206f6468863141855c6e86d4f1aa0bc343a61c73",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/intro-general.md": {
+      "git_blob": "8569d63e3c8997fe0834ee5081964e2c7289a8ec",
+      "sha256": "f0afb7cbaba2a360d8ac77f85689fade399c6666843d2c639237bea71cc74fb0",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/intro.md": {
+      "git_blob": "c9cc15e59c75471f6faaf66fbbd7ce9765957535",
+      "sha256": "779bbb4e277f75a248d928ba26a510c9d1f710dc80da1ca78623fbc84de5b829",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/methods.md": {
+      "git_blob": "0a2f8e5c8f9995e23ffbd63b33441e9ae80d0b6b",
+      "sha256": "11a1c538ec6cdee76111fa3fc236c91762ce1b12063d217778d7f82fc20fcf3f",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/related-work.md": {
+      "git_blob": "456d8aee853b4a94299fee0158f31b487a45ad2e",
+      "sha256": "bdf429a0528e99ca477ebc28bf9da2734b75320eb1760f6a4ef867a668a49f99",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/results.md": {
+      "git_blob": "bea4f35afaaa75aaf87a7eb44c34084c0f36425b",
+      "sha256": "9cc9ab9c9cb5a18355ddae33506fb22d1035368318e60941db8cf793896cd3f4",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-polishing/static/fragments/section/title.md": {
+      "git_blob": "32418affa64a55623add2c49bc8f02f3a368047a",
+      "sha256": "699e514c4e88ce05d7577d358b76d31dfe337a25e2a8169e99d778c7e7636911",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/README.md": {
+      "git_blob": "901e98721e66ccaf22197450fb6d84bde79a8fe2",
+      "sha256": "2e42d487b9aa4985933dfb230ac57c88e8dfeba97644bb30d2c222de9a65e61e",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/README_EN.md": {
+      "git_blob": "46b8430db0bf58621666624aefa47fae5fe328fe",
+      "sha256": "1d2fd257264aa512f52dfc131d9adfd67c7dcf2b6f1e3c059c693360b027b245",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/SKILL.md": {
+      "git_blob": "27e718ad0c51fc1c24b5238a0ffafeebecfb8ea8",
+      "sha256": "77ec9d708f1638acac9b92f938dd1717c682ec139691ce8aecbc3628113f4323",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/agents/openai.yaml": {
+      "git_blob": "95dfdafa4b289c6816d27671319c9736690bba73",
+      "sha256": "4bbf2e58b350269cf231f73ca12af1d097b9d64637023b037e238083151fbd67",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/abstract-delivery.md": {
+      "git_blob": "bc44de951eb548c9bc675b884b956cee3f8ed563",
+      "sha256": "e151edf22321755383a854c982abbfa5eba3d7a63ea9239bef31982aaca97219",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/consistency-sweep.md": {
+      "git_blob": "cb6625a53a4e379574b5139bc48d32a58f555dcb",
+      "sha256": "42b4f5337af441709951ecd9e60c7adc644b0a02a349fc41f64247d669adfe82",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/discussion-argument-language.md": {
+      "git_blob": "1f0bb0dfe6873d1a2d8d9f87bb9c4e0bf31939af",
+      "sha256": "a3b0ddcadc47efc029e923ae8133ba0bd99e6a6eb27fdbc791d0e1096d98c169",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/ethics.md": {
+      "git_blob": "c9e477095f7c259aa0b601a711086c7fbdafc427",
+      "sha256": "198c87e51a5c67dd051411c689756bccfe1720da287ebc8e0ecf5c4c7fda80d7",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/main-text-discipline.md": {
+      "git_blob": "ec34c0648aedf42c7c18b5445ea4af6b5208aeb2",
+      "sha256": "d43190c4d617096c1088bb5452cec5b0ae13f5d4947c2b21c28315181f051b8e",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/nature-abstract.md": {
+      "git_blob": "24dba8cea280a733a3b3c33e2fe993dc03efb913",
+      "sha256": "852a063978c6366084e6214b1728bbe2b1c63aac51a58d1934903044525a52d8",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/nature-introduction.md": {
+      "git_blob": "f28776ddb0221a96f78e5e6af4ae6d72d60624b6",
+      "sha256": "a59b2e44ba137dc6759f310ee7dae7ac6843e9d6631a057aa197cee99c6b1dcd",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/nature-results-discussion.md": {
+      "git_blob": "11631fb861f557f9253ed07557f5aa2b2dcaccf9",
+      "sha256": "16f1ce1ed6d2aad7853eabf304cdbd661530931747bce4cf3f10b3dfb655adc1",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/paper-type-taxonomy.md": {
+      "git_blob": "7f5c84f0a8e5f37e13604b473c0b8c6262ef8403",
+      "sha256": "84878907fd0416f628c8e3969e583569b9930f0129e6553167112435d93a3ad1",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/reader-workflow.md": {
+      "git_blob": "d34e9374b7989c75bf86db0df04af8ab5bb90a02",
+      "sha256": "acf54e59da3cd29d9179748895c7b5ed0da2d948704e97bee83771698ecbe10d",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/research-compliance.md": {
+      "git_blob": "ff555158b2109463f16c266c347d2ab459bbdd02",
+      "sha256": "0ac172d2af0c2089acd7280712a89b23a5f232d4e436e9ae78dd501ff30cd855",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/robotics-introduction-examples.md": {
+      "git_blob": "0eae995249ce66ae1b9e62ee235832c94de6d778",
+      "sha256": "85ce86394b23a66028fda939ff6ab4803c22d16fbcfaf7fadac678efada798cd",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/robotics-introduction-expression.md": {
+      "git_blob": "50b47b8c3f59e70a765d29ecb25e82b93747ab50",
+      "sha256": "24fb7d65ed0efdac88146e1c6a1629838ca776d411cee4c89cb172a5e5028d3a",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md": {
+      "git_blob": "21cfa4cd5973963d0d9adbafc2fc6108c9549106",
+      "sha256": "c637fdc4f42bdd9fde5efd2108ccec15ff89a79f20b0ead7bfc6b5efe466b335",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/robotics-introduction-section.md": {
+      "git_blob": "a7354a1e559ea0db28d9f4a255bf749e06751dd7",
+      "sha256": "a0756dbfba19f834aadbc94083af25f6f4716ca4073fe50a6bafa684ec7aba64",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/robotics-main-text.md": {
+      "git_blob": "8655dfb2b5c40b2915d3746bd4c8be6cfe73125d",
+      "sha256": "c52f9ad3d3bbe92599ab230a61927b68a3b514396278f2230f1c80f0ece71d1c",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/robotics-writing-examples.md": {
+      "git_blob": "0fd01760dd506cafc2b9b457940fe8afb02f44e9",
+      "sha256": "1d0b2045e8b0cc0ffd5543129a95b461252b1e2a85079728f31e6ee6a1a91a7c",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/scientific-expression.md": {
+      "git_blob": "5f282a24be77a0fd58294fb85461b54b7138d74d",
+      "sha256": "c8e217dd72d91eeaa773f7e6f3819efbaecc088407de37cde76fa241f8892f41",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/core/terminology-ledger.md": {
+      "git_blob": "a39a8eeec052c4f1bec83518e5c980c0c46cee28",
+      "sha256": "6808c18b490727352d1acf278c15e7b719f35b3d5e04929d21f231ffbf796232",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/journal-formats/nat-comms.md": {
+      "git_blob": "4f3e423c647071c7520022ed5073286377427352",
+      "sha256": "5a9eef685502e35d2289478d0b3815d5dbfbb6b2ed7d758accedfc7fd930e975",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/journal-formats/nature-machine-intelligence.md": {
+      "git_blob": "b6273a58d89f6f9032201ef15b11eec665bea084",
+      "sha256": "d62a418fbd67841e745f553b98a267b5a01c9445457a07a0121095ce76fad0af",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/journal-formats/nature.md": {
+      "git_blob": "8cb43edb055c1f247c4b5bb8c0ca843564001802",
+      "sha256": "2c4d007f69b64a2e083f9511748c3726b349a4dce4bfccbdac3bf97d1c1afc10",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/manifest.yaml": {
+      "git_blob": "a3d43df3dc30b515b4a536c2254305cd7af9ea05",
+      "sha256": "76362790aedf55b6f00fb1b7ec3d69c4d2d201753188396ec84b443af563aeb1",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/scripts/check_consistency.py": {
+      "git_blob": "f841872244edb0674f27f738cae763ad7115e7b9",
+      "sha256": "670ccc43aad4639fe3525d8dce7443d85f462f99958b560a539cc5b6b0b072a6",
+      "byte_exact": true
+    },
+    "polishing/materials/skill-candidate/nature-shared/tests/test_check_consistency.py": {
+      "git_blob": "776cf00f6bdfea68d54b2e6f8befcdbc058e3d45",
+      "sha256": "c70abcc137513cf947e44e0c35f99dd4438fbe4477faf89a6aa671ffa8fac1de",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/A_DMPs-Based_Framework_for_Robot_Learning_and_Generalization_of_Humanlike_Variable_Impedance_Skills.pdf": {
+      "git_blob": "d92a2b93450caecc034b79478c3a8bd9ed2788a8",
+      "sha256": "657f295d978b8705360aa7e224483606a19308a29f68afffa8c6b0573c105029",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Adaptive_Neural_Network_Control_of_AUVs_With_Control_Input_Nonlinearities_Using_Reinforcement_Learning.pdf": {
+      "git_blob": "d14abf3df6730c5bfb5fe33395009ae4b6dd90dd",
+      "sha256": "f5cffa8442a945002bb52bfd4c251232f3545f1c929c3ad45c39034d208ea7ba",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Adaptive_Parameter_Estimation_and_Control_Design_for_Robot_Manipulators_With_Finite-Time_Convergence.pdf": {
+      "git_blob": "cfcf9559249c99437d3a1f820473d5a37280a675",
+      "sha256": "4e12d2dc38d92d07c60829819bf4fc11d967b35b2fb3b69312b1cfe74175c8bc",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/An_HQP-Based_Obstacle_Avoidance_Control_Scheme_for_Redundant_Mobile_Manipulators_Under_Multiple_Constraints.pdf": {
+      "git_blob": "48aa206b25ada0138f69993b63a7d414f0a8a3e2",
+      "sha256": "f9942cc7d22ee1fae39e589531f984f398d9f6cda1cc45f61955a617cd69ee71",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Asymmetric_Bimanual_Control_of_Dual-Arm_Exoskeletons_for_Human-Cooperative_Manipulations.pdf": {
+      "git_blob": "38ccad15915aca391b5981f12deeabb684b17025",
+      "sha256": "580f84729b9798dea73df545842e26a11c016e8951e4c80bfaa2d7a90b03f9d1",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Composite-Learning-Based_Adaptive_Neural_Control_for_Dual-Arm_Robots_With_Relative_Motion.pdf": {
+      "git_blob": "ff1e476ba8cbfbd28c49a700a0c4f1389d147f05",
+      "sha256": "94f70eb8943a3100963207e2fb5d2343352bf4fc9ce951672716bdea80261c9e",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Extended_State_Observer-Based_Integral_Sliding_Mode_Control_for_an_Underwater_Robot_With_Unknown_Disturbances_and_Uncertain_Nonlinearities.pdf": {
+      "git_blob": "d7965ba8b109c99bffaa3ec9549235fb6b145fa2",
+      "sha256": "cadf07c235cf390626b7c0167e8fbae88e10512001fa76ec0e3960b9d0727dec",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Finite-Time_Convergence_Adaptive_Fuzzy_Control_for_Dual-Arm_Robot_With_Unknown_Kinematics_and_Dynamics.pdf": {
+      "git_blob": "644181f52ce1064db19bbace4fc400a7c2801e0c",
+      "sha256": "8563538806c3fbd7f0473bfca7a6b7f9b6b32cad6121cc264364a2359c405a08",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Fixed-Time_Fuzzy_Control_of_Uncertain_Robots_With_Guaranteed_Transient_Performance.pdf": {
+      "git_blob": "13fd9678c6b65a40e40af7ae5692e3ef4125a873",
+      "sha256": "06c3c5357819e6fa301b9afd29e63a05c47175d3288a373bd8f1d0c6fb8babfe",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Fixed-Time_Neural_Control_of_Robot_Manipulator_With_Global_Stability_and_Guaranteed_Transient_Performance.pdf": {
+      "git_blob": "4bc12d7d46035f9ecd3d9e58f1c65e0c44195fb1",
+      "sha256": "3b173c666edca9decf7ee7c586f6cc178950c7a92e1a440e7e9de8e4cfa713ba",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Human-Like_Adaptation_of_Force_and_Impedance_in_Stable_and_Unstable_Interactions.pdf": {
+      "git_blob": "84a377fcb25a3215aa6263d8c1ef5ac83daac874",
+      "sha256": "edca9c4ed521d2ee2bc6ec68ccae936922dfad631d83110dfb174805e50c13e1",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Impedance_Learning_for_Human-Guided_Robots_in_Contact_With_Unknown_Environments.pdf": {
+      "git_blob": "4dfd467f4db870ab967c759adfa30c7ca658d9d4",
+      "sha256": "b60e2359e42455c0f3f22fd7cca3624e8e7ad62eb68f3f0bd2384cac757f69f2",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Learning_a_Flexible_Neural_Energy_Function_With_a_Unique_Minimum_for_Globally_Stable_and_Accurate_Demonstration_Learning.pdf": {
+      "git_blob": "23bd0fafadc223e162bf8efb288b9c7a747f0e35",
+      "sha256": "be4bf80d1c04ffb11b77e970ab48e8dab2d1c45626bebc16393a2ce6a26e772d",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Learning_compliant_grasping_and_manipulation_by_teleoperation_with_adaptive_force_control.pdf": {
+      "git_blob": "58496b9abb2902626feb2307b2df9d3262a65d09",
+      "sha256": "1cfc9c55441a561894cd0805f9c96f1955ed4584e84d322c626bb2d545763a5c",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Multi-hierarchy interaction control of a redundant robot using impedance learning.pdf": {
+      "git_blob": "d418a510f57b44b12de35502a2ce89e5168624c6",
+      "sha256": "ed87e10164c937acc3169eaa39e07706b9d9308c5647891a2b6ecf08c6795660",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Neural_Control_of_Bimanual_Robots_With_Guaranteed_Global_Stability_and_Motion_Precision.pdf": {
+      "git_blob": "05d75209f3104997fdc28c19d9fe459f733ecd4e",
+      "sha256": "1b2241bae2cc9137ed7cf9952f76343339cbfc2eb522186c591fb042ad65fb86",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Neural_Control_of_Robot_Manipulators_With_Trajectory_Tracking_Constraints_and_Input_Saturation.pdf": {
+      "git_blob": "b44082521a151cc0d0517d12273f3ec74ff9c042",
+      "sha256": "06f5965943da4191a6109446d916e3c8917fa4380717dac2993804b737afe420",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Physical_HumanRobot_Interaction_of_a_Robotic_Exoskeleton_By_Admittance_Control.pdf": {
+      "git_blob": "38477eabeaab484fd78c2e19c615fb4f2ce404b7",
+      "sha256": "feaf9611e71898f066f4a889a09d08659a6296bf104a9a59ef8a86db658334ce",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Residual_Reinforcement_Learning_for_Robot_Control.pdf": {
+      "git_blob": "a2defd594509015039e6951debdb51f4533ac6e9",
+      "sha256": "885f62e07ee4bd37fb0e08bdaa6068fd5e4e473d11e0be239ba8bdd2d8c393db",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Robot_Learning_System_Based_on_Adaptive_Neural_Control_and_Dynamic_Movement_Primitives.pdf": {
+      "git_blob": "170c295bc01809362ee3f60f980dc9c2ad1e7a48",
+      "sha256": "7273b1391fe1c1878e666f7073beea113a2093a37406c447788ab0e9ec74b2ef",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Stability_Criterion_and_Stability_Enhancement_for_a_Thruster-Assisted_Underwater_Hexapod_Robot.pdf": {
+      "git_blob": "e6ab544afa28ebdc1940745329b3e4e5760af1f5",
+      "sha256": "86fdc0c9becea0b6cec335b1086bbf7b2be36e5be7fc42eaa2430c6e3f8126f1",
+      "byte_exact": true
+    },
+    "polishing/materials/文献资料/Teleoperation_Control_Based_on_Combination_of_Wave_Variable_and_Neural_Networks.pdf": {
+      "git_blob": "4478daf0a284a1b7f610d37432b73b066702ce1e",
+      "sha256": "a78470558a68d6fbbf15374d3961f8c0b78a5c8adc15807258aa1e0d2863dd28",
+      "byte_exact": true
+    },
+    "polishing/pre-invocation-identity.json": {
+      "git_blob": "3c5ba6cec496a5d389e631f8ecde351c4b1ce2f9",
+      "sha256": "1300dabb9bc62866617a729a0109fbf927cbc720eb4377855ed2931391f41719",
+      "byte_exact": true
+    },
+    "polishing/raw-introduction-and-references.md": {
+      "git_blob": "f5a633e00a980fdd55728019084f75a4bb95085e",
+      "sha256": "eedd805a444210bbdfe164efed34fdec073c228c77b85735f72a01039050e15a",
+      "byte_exact": true
+    },
+    "polishing/run-meta.json": {
+      "git_blob": "747037c69eff50953ed6517df33944623cdb5f60",
+      "sha256": "11fa1d10b6aa22317d42e16f45dfb2bfe097e45b44628881f4c32298014ae93a",
+      "byte_exact": true
+    },
+    "polishing/runner-snapshot.py": {
+      "git_blob": "556bcf1d126edbcb191ac085a321c74f24bd04b1",
+      "sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+      "byte_exact": true
+    },
+    "polishing/section-retention.json": {
+      "git_blob": "c97f333de510c69451ffc23efdf95298c6bcc3ba",
+      "sha256": "a38615fe731b9dd888e7ab85a54dcb1ee25a896d4e8dbe770f33c009d823f2e1",
+      "byte_exact": true
+    },
+    "polishing/stderr.txt": {
+      "git_blob": "8c7baf51b32b75b40cb0a013b2f31a2cbc20452d",
+      "sha256": "5f71a26c1fb5e8bf9b44e27f44fa0df202b9b7ab71c4d6fe96effce2ecfcf720",
+      "byte_exact": true
+    },
+    "preflight.py": {
+      "git_blob": "860efef4a2bc3491ea105e2cad96e07d6307b8cb",
+      "sha256": "b88be9cd70351b5e88c14df94ca62330b75272d6bc03c3f0fae40391e1b8788b",
+      "byte_exact": true
+    },
+    "prepare_runner.py": {
+      "git_blob": "c94e6ab949ec5703b9284fba74adfd1ce441c376",
+      "sha256": "aad2289057d4fd1675bbb59020a36fe6fe6c9b377b828261c5d9a5ee058a0119",
+      "byte_exact": true
+    },
+    "retain_sections.py": {
+      "git_blob": "05fc54033005282d1e3c2c769254258c522c726e",
+      "sha256": "08e528b8dc835f71d07db0fec43ca39f86623ab77ffae5b843a829f2b56904b7",
+      "byte_exact": true
+    },
+    "run-record.md": {
+      "git_blob": "773807c9848c58525aa32d14e99c485ba76c14a2",
+      "sha256": "d6ad515bef7754772f532c964cd133625b5619f4939b6e1515c6795c858b2e11",
+      "byte_exact": true
+    },
+    "runner-provenance.json": {
+      "git_blob": "4d8140c7acd76149138caf33eaf3d98d90fb1804",
+      "sha256": "df57e6373b008ea22ab10a9a534b4c03dd1c2044d0d036047a5a8d222672b999",
+      "byte_exact": true
+    },
+    "save_delivery.py": {
+      "git_blob": "ec242102a40486d8c14dda9543705ecfa2660c9a",
+      "sha256": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844",
+      "byte_exact": true
+    },
+    "scientific-facts.md": {
+      "git_blob": "8e907018358750cb974b086fa138dbb6deefc1ed",
+      "sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "byte_exact": true
+    },
+    "summarize_loading.py": {
+      "git_blob": "d0198dce0be7dab61fe51b41f11cbb235ca15660",
+      "sha256": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6",
+      "byte_exact": true
+    },
+    "verification.json": {
+      "git_blob": "11ae75e0783b5366b33b1d13b666e8939ee81eb8",
+      "sha256": "0487fb2b999c92a523807331d17c0127e27ad4f8aae82a3d4e88c29f26b1e8dd",
+      "byte_exact": true
+    },
+    "verify_current_author_inputs.py": {
+      "git_blob": "f51b50221c8853ff639242b025e5940dc6a3bfde",
+      "sha256": "06951dd13facb3352f644d4bdc650ca4614dd83e5f408a4f5717820c7a4f0481",
+      "byte_exact": true
+    },
+    "verify_git_bytes.py": {
+      "git_blob": "83724675cdda59dee28ff1daf7c18c21c7a80de8",
+      "sha256": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2",
+      "byte_exact": true
+    },
+    "verify_records.py": {
+      "git_blob": "9ade0aaeb92779fee01f50568d17a82150eb9907",
+      "sha256": "39a1517a12be4eb28fb9b7fce4b55ab8789a9199aea43d0d195f0e368978ba09",
+      "byte_exact": true
+    },
+    "verify_stage.py": {
+      "git_blob": "3379b8d22a66e909aad08fbd0b689f4a74044eb7",
+      "sha256": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868",
+      "byte_exact": true
+    },
+    "引言写作方法.txt": {
+      "git_blob": "f4b4310cd2e5ffd688d670c80b7050c4c44a6bb8",
+      "sha256": "2cb1795a8dece2abdcb2e773218a197a4d7d2801e25b1c845248697e9843bc9b",
+      "byte_exact": true
+    },
+    "我自己的经验和做法.txt": {
+      "git_blob": "47e55f05408a9542e3243e0625384ff7227c2df7",
+      "sha256": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+      "byte_exact": true
+    },
+    "报告.md": {
+      "git_blob": "20c1cca043c096238740ba414fcabe131ce46f8c",
+      "sha256": "ad94ae3665e64835b3e4b7d0c2b7535f89c650614c87f1a2f346f7fbd1e2a606",
+      "byte_exact": true
+    },
+    "核心要求.txt": {
+      "git_blob": "6504d2a5c1315564bb972a89e7851e7a26ab1c27",
+      "sha256": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+      "byte_exact": true
+    }
+  },
+  "scope": "E04 records only; record-level -text prevents inherited line-ending conversions; PDFs are binary",
+  "exclusions": "This derived audit file is updated after the inspected staging snapshot; final post-commit byte comparison covers all files"
+}

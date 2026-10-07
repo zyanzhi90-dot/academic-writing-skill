@@ -1,0 +1,108 @@
+{
+  "candidate_commit": "22cc2ca4a7329e2a905a71e151ce589b114416e5",
+  "source_record": "effect-test/E04-introduction-delivery-447c0c4-2026-10-07",
+  "byte_identical_copies": {
+    "scientific-facts.md": {
+      "source_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825",
+      "copy_sha256": "3952bdea15666246ab3f02d6688f124e733ec396ab591edd7ce836b829893825"
+    },
+    "background-facts.md": {
+      "source_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e",
+      "copy_sha256": "d10c0f5f8e93119085ef9ae3ec345dbc8856165677de531ee0ec44d0b30db15e"
+    },
+    "citation-facts.md": {
+      "source_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206",
+      "copy_sha256": "97045f31c9038d9ef68a3b47cb7037253c3bb8bd6f0a2d0c45d97f4ce431d206"
+    },
+    "accepted-abstract.en.txt": {
+      "source_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1",
+      "copy_sha256": "e546e195464d56ebf479a55464dc30638a38b837c1fa365113768abbcd7ed0f1"
+    },
+    "drafting-task.md": {
+      "source_sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159",
+      "copy_sha256": "06e43a72429abd939ab9a56c3a054b5dfa52b37f4b998e066d24f24ff6243159"
+    },
+    "polishing-task.md": {
+      "source_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655",
+      "copy_sha256": "01a235507ed810af7a977d9011bf9e29d215662bb32778c19e383fc4f64f8655"
+    },
+    "execute_once.py": {
+      "source_sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68",
+      "copy_sha256": "250c079bf99942df119ca8e656e79c2b7f1410591fd03f620c5d89d44c911a68"
+    },
+    "retain_sections.py": {
+      "source_sha256": "08e528b8dc835f71d07db0fec43ca39f86623ab77ffae5b843a829f2b56904b7",
+      "copy_sha256": "08e528b8dc835f71d07db0fec43ca39f86623ab77ffae5b843a829f2b56904b7"
+    },
+    "verify_stage.py": {
+      "source_sha256": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868",
+      "copy_sha256": "52b757b466e48938b6068fbbaed9ce0a2ab815c2efcd7b11268bd1efa9cad868"
+    },
+    "save_delivery.py": {
+      "source_sha256": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844",
+      "copy_sha256": "6d4d16375e30e24ad3d2c6993c9614e07ff1a9559e024c131b5feccbd82c2844"
+    },
+    "summarize_loading.py": {
+      "source_sha256": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6",
+      "copy_sha256": "20752e509453fd61fe3ddde75dd2aa3698b5006f96d78607ae211e2f504123e6"
+    },
+    "index_outputs.py": {
+      "source_sha256": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200",
+      "copy_sha256": "e141bedb93c0c2649ee1cd8663e79e7eb7145fbf49be258f8d0718e7b889f200"
+    },
+    "verify_git_bytes.py": {
+      "source_sha256": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2",
+      "copy_sha256": "b7bb09581055124c6dd2dc095bfb05f88a7b877778c93c16c058701a6ecd96e2"
+    },
+    "check_context.py": {
+      "source_sha256": "be76444cce60a30e0ddcff1e5516cdc1149093c0eb492c2f3c9092363632127d",
+      "copy_sha256": "be76444cce60a30e0ddcff1e5516cdc1149093c0eb492c2f3c9092363632127d"
+    }
+  },
+  "executor_byte_identical": true,
+  "adaptations": "Preparation and audit commit bindings only; fresh current root author identity. Execution, transport, task requests and isolation unchanged.",
+  "author_inputs": {
+    "核心要求.txt": {
+      "source": "核心要求.txt",
+      "sha256": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+      "frozen_record_copy": "核心要求.txt",
+      "git_blob_at_frozen_commit": "f27b40313e76258868095b8c5e2cfc211f8a2a90",
+      "last_change_commit": "cd83edb40f45ca3f50312d4331a51dcd64e38336",
+      "git_bytes_match_root": false
+    },
+    "我自己的经验和做法.txt": {
+      "source": "我自己的经验和做法.txt",
+      "sha256": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+      "frozen_record_copy": "我自己的经验和做法.txt",
+      "git_blob_at_frozen_commit": "fbb5b8823239f8b3a62cf934c3fb52be6855cf29",
+      "last_change_commit": "cd83edb40f45ca3f50312d4331a51dcd64e38336",
+      "git_bytes_match_root": false
+    },
+    "引言写作方法.txt": {
+      "source": "引言写作方法.txt",
+      "sha256": "2cb1795a8dece2abdcb2e773218a197a4d7d2801e25b1c845248697e9843bc9b",
+      "frozen_record_copy": "引言写作方法.txt",
+      "git_blob_at_frozen_commit": "cdfc4c4f550033fd659ed147ed419a51da35efdb",
+      "last_change_commit": "22cc2ca4a7329e2a905a71e151ce589b114416e5",
+      "git_bytes_match_root": false
+    },
+    "current-author-adjustment.txt": {
+      "source": "current-author-adjustment.txt",
+      "sha256": "1e91e62c04650a99c962aada26bc9e282a7e3eb888e5108a1e1dbed46a151d85",
+      "frozen_record_copy": "current-author-adjustment.txt",
+      "git_blob_at_frozen_commit": "008a68ab1ba139588bfbf70d6b2d14975d0ef6ba",
+      "last_change_commit": "22cc2ca4a7329e2a905a71e151ce589b114416e5",
+      "git_bytes_match_root": true
+    }
+  },
+  "historical_author_override_inherited": false,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "one_invocation_per_stage": true,
+  "diagnosis_or_preset_argument_supplied": false,
+  "prior_outputs_supplied": false,
+  "remote_check": {
+    "live_main": "22cc2ca4a7329e2a905a71e151ce589b114416e5",
+    "transport": "Per-command empty Git proxy; default local proxy unavailable"
+  }
+}
