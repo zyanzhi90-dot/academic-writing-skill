@@ -1,0 +1,242 @@
+{
+  "base_commit": "025528f5c5621e14631f9abd61fa9b5021624b72",
+  "candidate_files_changed": [
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md",
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md"
+  ],
+  "candidate_sha256_after": {
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md": "97132322fb7220fb8d982c3b92896069eaccfc6005a7c924d25e4d318722a02b",
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md": "fb785a274701c71134b52918b319924ad21977b89ec0498d88e04b03e961eb34"
+  },
+  "protected_existing_tracked_files": 9492,
+  "protected_hashes_unchanged": true,
+  "current_author_inputs_match_fresh_copies": true,
+  "routes": [
+    {
+      "location": "project",
+      "skill": "nature-writing",
+      "read_files": [
+        "nature-writing/SKILL.md",
+        "nature-writing/manifest.yaml",
+        "nature-writing/static/fragments/section/intro.md",
+        "nature-shared/core/robotics-introduction-examples.md",
+        "nature-writing/static/fragments/paper_type/algorithmic.md",
+        "nature-writing/static/fragments/language/en.md",
+        "nature-writing/static/fragments/journal/generic.md",
+        "nature-writing/static/fragments/task/manuscript.md",
+        "nature-shared/core/reader-workflow.md",
+        "nature-shared/core/paper-type-taxonomy.md",
+        "nature-shared/core/ethics.md",
+        "nature-shared/core/terminology-ledger.md",
+        "nature-shared/core/scientific-expression.md",
+        "nature-writing/static/core/stance.md",
+        "nature-writing/static/core/workflow.md",
+        "nature-writing/static/core/output-format.md"
+      ],
+      "index_link_count": 39,
+      "selected_units_read": [
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i04",
+          "sha256": "32137257c12b812508b7a207fd92cebfe9291cbe8106fb2cb80c707ee347e2c6"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i05",
+          "sha256": "76483733c8cd93c89c97c15f80abf6bde6d5c92b518f756890113921991d0f10"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i02",
+          "sha256": "5e5e0bf2d762aa599cabfe3cc0a6f194642d9b6ec2cd6190bc55ec560d87f2ee"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i03",
+          "sha256": "d7141568671f34d93241246f07becc021a08d4e33cf4497f52ccc69c111b873e"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e19",
+          "sha256": "46e6b220c4a940a3451ebe127f7dd8c4b1da35dc72f118fccae353883a523ccb"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e22",
+          "sha256": "fa384cb1b7b8043c010afe483624937fed7f1e4b5cd260483aad13e1c6114b10"
+        }
+      ]
+    },
+    {
+      "location": "project",
+      "skill": "nature-polishing",
+      "read_files": [
+        "nature-polishing/SKILL.md",
+        "nature-polishing/manifest.yaml",
+        "nature-polishing/static/fragments/section/intro.md",
+        "nature-shared/core/robotics-introduction-examples.md",
+        "nature-polishing/static/fragments/paper_type/algorithmic.md",
+        "nature-polishing/static/fragments/language/en.md",
+        "nature-polishing/static/fragments/journal/generic.md",
+        "nature-shared/core/reader-workflow.md",
+        "nature-shared/core/paper-type-taxonomy.md",
+        "nature-shared/core/ethics.md",
+        "nature-shared/core/terminology-ledger.md",
+        "nature-shared/core/scientific-expression.md",
+        "nature-polishing/static/core/stance.md",
+        "nature-polishing/static/core/failure-modes.md",
+        "nature-polishing/static/core/output-format.md"
+      ],
+      "index_link_count": 39,
+      "selected_units_read": [
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i04",
+          "sha256": "32137257c12b812508b7a207fd92cebfe9291cbe8106fb2cb80c707ee347e2c6"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i05",
+          "sha256": "76483733c8cd93c89c97c15f80abf6bde6d5c92b518f756890113921991d0f10"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i02",
+          "sha256": "5e5e0bf2d762aa599cabfe3cc0a6f194642d9b6ec2cd6190bc55ec560d87f2ee"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i03",
+          "sha256": "d7141568671f34d93241246f07becc021a08d4e33cf4497f52ccc69c111b873e"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e19",
+          "sha256": "46e6b220c4a940a3451ebe127f7dd8c4b1da35dc72f118fccae353883a523ccb"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e22",
+          "sha256": "fa384cb1b7b8043c010afe483624937fed7f1e4b5cd260483aad13e1c6114b10"
+        }
+      ]
+    },
+    {
+      "location": "detached candidate only",
+      "skill": "nature-writing",
+      "read_files": [
+        "nature-writing/SKILL.md",
+        "nature-writing/manifest.yaml",
+        "nature-writing/static/fragments/section/intro.md",
+        "nature-shared/core/robotics-introduction-examples.md",
+        "nature-writing/static/fragments/paper_type/algorithmic.md",
+        "nature-writing/static/fragments/language/en.md",
+        "nature-writing/static/fragments/journal/generic.md",
+        "nature-writing/static/fragments/task/manuscript.md",
+        "nature-shared/core/reader-workflow.md",
+        "nature-shared/core/paper-type-taxonomy.md",
+        "nature-shared/core/ethics.md",
+        "nature-shared/core/terminology-ledger.md",
+        "nature-shared/core/scientific-expression.md",
+        "nature-writing/static/core/stance.md",
+        "nature-writing/static/core/workflow.md",
+        "nature-writing/static/core/output-format.md"
+      ],
+      "index_link_count": 39,
+      "selected_units_read": [
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i04",
+          "sha256": "32137257c12b812508b7a207fd92cebfe9291cbe8106fb2cb80c707ee347e2c6"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i05",
+          "sha256": "76483733c8cd93c89c97c15f80abf6bde6d5c92b518f756890113921991d0f10"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i02",
+          "sha256": "5e5e0bf2d762aa599cabfe3cc0a6f194642d9b6ec2cd6190bc55ec560d87f2ee"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i03",
+          "sha256": "d7141568671f34d93241246f07becc021a08d4e33cf4497f52ccc69c111b873e"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e19",
+          "sha256": "46e6b220c4a940a3451ebe127f7dd8c4b1da35dc72f118fccae353883a523ccb"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e22",
+          "sha256": "fa384cb1b7b8043c010afe483624937fed7f1e4b5cd260483aad13e1c6114b10"
+        }
+      ]
+    },
+    {
+      "location": "detached candidate only",
+      "skill": "nature-polishing",
+      "read_files": [
+        "nature-polishing/SKILL.md",
+        "nature-polishing/manifest.yaml",
+        "nature-polishing/static/fragments/section/intro.md",
+        "nature-shared/core/robotics-introduction-examples.md",
+        "nature-polishing/static/fragments/paper_type/algorithmic.md",
+        "nature-polishing/static/fragments/language/en.md",
+        "nature-polishing/static/fragments/journal/generic.md",
+        "nature-shared/core/reader-workflow.md",
+        "nature-shared/core/paper-type-taxonomy.md",
+        "nature-shared/core/ethics.md",
+        "nature-shared/core/terminology-ledger.md",
+        "nature-shared/core/scientific-expression.md",
+        "nature-polishing/static/core/stance.md",
+        "nature-polishing/static/core/failure-modes.md",
+        "nature-polishing/static/core/output-format.md"
+      ],
+      "index_link_count": 39,
+      "selected_units_read": [
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i04",
+          "sha256": "32137257c12b812508b7a207fd92cebfe9291cbe8106fb2cb80c707ee347e2c6"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "p17-i05",
+          "sha256": "76483733c8cd93c89c97c15f80abf6bde6d5c92b518f756890113921991d0f10"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i02",
+          "sha256": "5e5e0bf2d762aa599cabfe3cc0a6f194642d9b6ec2cd6190bc55ec560d87f2ee"
+        },
+        {
+          "file": "robotics-introduction-paragraphs.md",
+          "anchor": "fuzzy-i03",
+          "sha256": "d7141568671f34d93241246f07becc021a08d4e33cf4497f52ccc69c111b873e"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e19",
+          "sha256": "46e6b220c4a940a3451ebe127f7dd8c4b1da35dc72f118fccae353883a523ccb"
+        },
+        {
+          "file": "robotics-introduction-expression.md",
+          "anchor": "e22",
+          "sha256": "fa384cb1b7b8043c010afe483624937fed7f1e4b5cd260483aad13e1c6114b10"
+        }
+      ]
+    }
+  ],
+  "quick_validate": {
+    "nature-writing": "Skill is valid!",
+    "nature-polishing": "Skill is valid!",
+    "nature-shared": "Skill is valid!"
+  },
+  "effect_test_run": false,
+  "installation_run": false,
+  "effect_verdict": "not assessed; static loading and implementation do not establish effect or stability"
+}

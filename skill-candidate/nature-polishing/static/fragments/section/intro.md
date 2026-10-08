@@ -34,14 +34,15 @@ wording and replacing reference-paper facts and citation identities with the
 author's own. Let the shared contextual criteria govern openings and shorter
 references as well as named objects.
 
-Before delivery, compare retained and replacement prose against the same
-material. Reread affected adjacent sentences and paragraphs to verify that the
-edit preserves or repairs action ownership, conditions, design reasons, effects
-and input/output handoffs through to each contribution. Reassess the complete
-transition and later method scope, and apply the index's information selection
-to retained prose, replacements and additions across the whole section. Apply
-`scientific-expression.md` to the resulting continuous prose and deliver in the
-existing output format.
+Before delivery, use the index's source comparison for compressed, regrouped or
+reordered units: return to the relevant original author passage and compare
+the scientific actions and their assigned objects and purposes with the revised
+continuous English. Use its transition comparison to check that the actual
+adoption reasons lead to the corresponding design responsibilities and effects.
+Then reassess adjacent handoffs, later method scope and contribution continuity,
+applying the index's information selection across retained prose, replacements
+and additions. Apply `scientific-expression.md` to the resulting continuous prose
+and deliver in the existing output format.
 
 ## Select the applicable Introduction material
 

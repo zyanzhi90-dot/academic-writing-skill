@@ -38,7 +38,7 @@ relationship. Load the needed parts as the argument develops.
 | A paragraph develops one task and prepares the next | [Paragraph tasks](robotics-introduction-section.md#paragraph-tasks) | [P17 I04](robotics-introduction-paragraphs.md#p17-i04) | [E04](robotics-introduction-expression.md#e04), [E06](robotics-introduction-expression.md#e06), [E17](robotics-introduction-expression.md#e17) |
 | Literature establishes capabilities and continues the same work's mechanism or effect | [Prior capability](robotics-introduction-section.md#prior-capability) | [P05 I02](robotics-introduction-paragraphs.md#p05-i02), [P17 I04](robotics-introduction-paragraphs.md#p17-i04) | [E05](robotics-introduction-expression.md#e05)–[E13](robotics-introduction-expression.md#e13), [E18](robotics-introduction-expression.md#e18) |
 | Task or information conditions establish a design need | [Prior capability and conditions](robotics-introduction-section.md#prior-capability) | [P05 I02](robotics-introduction-paragraphs.md#p05-i02), [Fuzzy I03](robotics-introduction-paragraphs.md#fuzzy-i03) | [E14](robotics-introduction-expression.md#e14)–[E18](robotics-introduction-expression.md#e18), [E20](robotics-introduction-expression.md#e20) |
-| Established reasons lead to a design and its effect | [Design and role](robotics-introduction-section.md#design-role) | [Fuzzy I02](robotics-introduction-paragraphs.md#fuzzy-i02), [P17 I05](robotics-introduction-paragraphs.md#p17-i05) | [E13](robotics-introduction-expression.md#e13), [E19](robotics-introduction-expression.md#e19), [E21](robotics-introduction-expression.md#e21), [E22](robotics-introduction-expression.md#e22) |
+| Established reasons lead to a design and its effect | [Design and role](robotics-introduction-section.md#design-role) | [P17 I04](robotics-introduction-paragraphs.md#p17-i04) → [P17 I05](robotics-introduction-paragraphs.md#p17-i05), [Fuzzy I02](robotics-introduction-paragraphs.md#fuzzy-i02) | [E13](robotics-introduction-expression.md#e13), [E19](robotics-introduction-expression.md#e19), [E21](robotics-introduction-expression.md#e21), [E22](robotics-introduction-expression.md#e22) |
 | Multiple designs connect through responsibility and the same output | [Design connection](robotics-introduction-section.md#design-connection) | [P17 I07](robotics-introduction-paragraphs.md#p17-i07) | [E17](robotics-introduction-expression.md#e17), [E23](robotics-introduction-expression.md#e23) |
 | A contribution lead and numbered items recover the earlier needs and supported roles | [Contributions](robotics-introduction-section.md#contributions), including P05 and Fuzzy numbered examples | [P17 I08](robotics-introduction-paragraphs.md#p17-i08) for responsibility and effect | [E25](robotics-introduction-expression.md#e25)–[E26](robotics-introduction-expression.md#e26) for the lead and items; [E24](robotics-introduction-expression.md#e24) for their scientific content |
 
@@ -84,9 +84,18 @@ the current scientific object, problem, route or responsibility directly.
 For concrete literature, prefer the mature `In [xx], ... was
 proposed/developed/employed to ...` realizations in E05–E09 and E13. Follow the
 same reference with its relevant mechanism, output, estimate or effect when
-needed. Use the supported method names, task conditions and abilities to establish
-the reason for a design. State the design directly and continue with its specific
-role, effect or guarantee, as in E19, E22 and E23. Close with a contribution lead
+needed. For the transition into a design, read the end of P17 I04 together with
+I05/E19: the capabilities just established supply the reason for the combination,
+and the next clauses assign its modeling and regression roles before stating
+the combined effect. Compare the author's actual transition sentences with this
+continuous English. Determine which cited capability or task condition supports
+which design responsibility; express that correspondence in the adoption reason
+and continue with the action and effect on the same scientific object. For
+parallel needs, use Fuzzy I02–I03 to keep each need connected to its corresponding
+design rather than treating a general purpose statement as the reason for every
+component. Select and order these relationships by the author's science.
+
+Close with a contribution lead
 and `1)`, `2)` numbered items, reading the complete E25 and applicable E26
 examples and analysis for this realization. Each item identifies an actual
 contribution, the earlier need it addresses and its supported role or effect.
@@ -117,11 +126,11 @@ Use the same resources and original author material to assess the draft's
 scientific line, paragraph responsibilities and sentence links before local
 wording. Check whether the opening establishes field value, literature states
 specific capabilities under the relevant conditions, core designs have adequate
-adoption reasons, and their roles connect to the contribution. Assess the
-research-state-to-design transition as a whole: the relevant capabilities and
-conditions must establish the current need, not leave the reader to assemble
-it from subsequent method descriptions. Preserve sound literature capabilities
-and needs while restructuring the affected transition or later descriptions
+adoption reasons, and their roles connect to the contribution. Use the transition
+comparison in Use during Drafting on the actual research-state-to-design prose:
+trace each adoption reason back to the cited capability or task condition and
+forward to the corresponding design action and effect. Preserve sound literature
+capabilities and needs while restructuring the affected transition or later descriptions
 from author evidence.
 
 Apply the information selection below to the full draft, including material
@@ -156,9 +165,19 @@ as in E19's publication wording and its named-model adaptation; grammatical
 validity alone does not establish the corresponding mature realization.
 Preserve clear, source-compatible variants. Treat an optional increase in
 explicitness or concision as a suggestion when the relationship is already clear.
-After a replacement, compare the old and new actions, referents, conditions and
-handoffs, then reread the affected continuous unit. This is the requesting
-workflow's existing expression check, not a separate output audit.
+After compressing, regrouping or reordering a unit, return to the relevant
+original author passage and compare its scientific relations with the old and
+new prose, action by action. Check which inputs or objects belong to each action
+and purpose, including the scope of coordinated nouns and shared clauses.
+Use P17 I05/E19's distinct modeling and regression roles or E22's separate
+estimation responsibilities when that relationship fits. Preserve the author's
+division of work while borrowing the continuous English; a fluent combined
+clause must still assign each purpose to the objects supported by the source.
+Repair a source-resolvable mismatch before delivery; flag an unresolved author
+meaning rather than choosing a convenient interpretation. Reread the revised
+unit and adjacent transition against the same author passage and selected
+English. Use this comparison within the requesting workflow's existing
+expression check; it does not require a separate audit output.
 
 ## Conceptual scope and information selection
 
