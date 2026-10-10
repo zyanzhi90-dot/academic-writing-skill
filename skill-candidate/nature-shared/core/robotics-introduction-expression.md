@@ -6,6 +6,8 @@
 
 “可模仿表达”中的 `〈…〉` 标记分析所得的作者内容位置，不是出版原句。方法、模型、控制器、观察器和量对应作者准确的科学对象，名称与较短指代按连续语境选择，使对象、动作及作用清楚。使用时按数、时态、条件和证据强度调整，把范例的句式和搭配用于同一科学关系；主语可以是对象、研究活动或已经明确的设计。句式是一组可以直接参照的成熟实现，调用顺序与组合方式由当前科学关系决定。
 
+调用时同时参照整节的[详略与分量](robotics-introduction-section.md#detail-allocation)及所选段落的密度分析。紧密的机制、条件与作用可以在 where、which、协调谓语或并列分句中清楚相连；信息过载或需要区分责任时保留独立续句。不要因分析表逐项列出职责就把每项另写一句，也不要为压缩而删掉条件或混合对象。以下适配已整合若干重复命名与不必要拆句；其他分句实现按科学关系、语境与实际清晰度选择。
+
 ## 1. 领域价值怎样写成首句，并接入研究需要
 
 默认先让领域对象作主语，直接写其应用价值或提供的能力。接着让“所需能力”或“实现价值所需的研究环节”进入主语位置，明确为什么需要继续研究。优先参照 P17 的简明领域入口，再按作者内容选择具体价值及需要的表达。
@@ -102,7 +104,7 @@ P17 已说明运动生成设计；I06 段首用模仿性能对跟踪精度的依
 
 **英文学习示例（基于原文的适配）。**
 
-> The imitation performance of robots also depends on the accuracy of the trajectory tracking controller that involves the robot dynamics. Generally, model-based control performs better if the robot dynamic model is accurate enough [19]. However, an accurate dynamic model of a manipulator cannot be obtained in advance due to some uncertainties, e.g., unknown payload. Approximation-based controllers have been designed to overcome uncertainties in the robot dynamics. Approximation-based controllers utilize function approximation tools to learn the nonlinear characteristics of the robot dynamics. NNs have been widely used in controller design because of their approximation ability [20]–[22].
+> The imitation performance of robots also depends on the accuracy of the trajectory tracking controller that involves the robot dynamics. Generally, model-based control performs better if the robot dynamic model is accurate enough [19]. However, an accurate dynamic model of a manipulator cannot be obtained in advance due to some uncertainties, e.g., unknown payload. Approximation-based controllers have been designed to overcome uncertainties in the robot dynamics. They utilize function approximation tools to learn the nonlinear characteristics of the robot dynamics. NNs have been widely used in controller design because of their approximation ability [20]–[22].
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
@@ -110,10 +112,10 @@ P17 已说明运动生成设计；I06 段首用模仿性能对跟踪精度的依
 | I06-A2 | `model-based control`—`performs better`—在机器人动力学模型足够准确时。 | `Generally` 给概括语境；`if the robot dynamic model is accurate enough` 明确模型身份，保留性能改善所需的精度条件。 |
 | I06-A3 | `an accurate dynamic model of a manipulator`—`cannot be obtained`—`in advance`，原因是不确定性。 | `However` 接真实条件差别；`obtained in advance` 写信息可得性，`due to` 接原因，`e.g.` 给未知负载这一具体例子。 |
 | I06-A4 | `Approximation-based controllers`—`have been designed`—`to overcome uncertainties in the robot dynamics`。 | 逼近控制器直接接机器人动力学不确定性，`designed to overcome` 使控制职责与前句的信息条件连续。 |
-| I06-A5 | `Approximation-based controllers`—`utilize`—函数逼近工具，`to learn` 机器人动力学非线性特征。 | 重复逼近控制器名称；`utilize A to B` 交代工具及职责，`characteristics of the robot dynamics` 保持被学习对象的技术身份。 |
+| I06-A5 | `They`（逼近控制器）—`utilize`—函数逼近工具，`to learn` 机器人动力学非线性特征。 | `They` 接已明确的逼近控制器；`utilize A to B` 交代工具及职责，`characteristics of the robot dynamics` 保持被学习对象的技术身份。 |
 | I06-A6 | `NNs`—`have been widely used`—`in controller design`，因为逼近能力。 | 从方法类进入具体工具；`used in` 接使用环节，`because of` 接选择理由，`approximation ability` 与 A5 的函数逼近对象对应。 |
 
-**可模仿表达及作者对应。** `〈整体性能的准确名称〉 also depends on 〈具体轨迹跟踪控制器及其精度〉.`；`〈模型控制方法的准确名称〉 performs better if the 〈动力学模型的准确名称〉 is accurate enough.`；`The 〈所需动力学模型的准确名称〉 cannot be obtained in advance due to 〈不确定性的具体名称〉.`；`The 〈逼近控制器的准确名称〉 has been designed to overcome 〈同一动力学不确定性的具体名称〉. The 〈同一逼近控制器名称〉 utilizes 〈函数逼近工具的准确名称〉 to learn 〈动力学非线性特征的具体名称〉.` 作者明确性能依赖哪项控制精度、哪个动力学模型在何种条件下可用，以及具体控制器怎样处理同一不确定性。
+**可模仿表达及作者对应。** `〈整体性能的准确名称〉 also depends on 〈具体轨迹跟踪控制器及其精度〉.`；`〈模型控制方法的准确名称〉 performs better if the 〈动力学模型的准确名称〉 is accurate enough.`；`The 〈所需动力学模型的准确名称〉 cannot be obtained in advance due to 〈不确定性的具体名称〉.`；`The 〈逼近控制器的准确名称〉 has been designed to overcome 〈同一动力学不确定性的具体名称〉. It utilizes 〈函数逼近工具的准确名称〉 to learn 〈动力学非线性特征的具体名称〉.` 作者明确性能依赖哪项控制精度、哪个动力学模型在何种条件下可用，以及具体控制器怎样处理同一不确定性。
 
 ## 3. 文献句与同一文献续句怎样写出真实能力
 
@@ -176,15 +178,15 @@ P17 I03 已提出多示教信息整合需要；I04 先给概率编码能力，�
 
 **英文学习示例（基于原文的适配）。**
 
-> In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling. The unknown function in SEDS was modeled using GMR. DS-GMR is another method that combines the DS with the statistical learning approach [15]. Both SEDS and DS-GMR exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods.
+> In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling, where the unknown function was modeled using GMR. DS-GMR is another method that combines the DS with the statistical learning approach [15]. Both SEDS and DS-GMR exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I04-A6–A7 | `a learning approach named SEDS`—`was proposed`—`for motion modeling`；`The unknown function in SEDS`—`was modeled`—`using GMR`。 | `In [3], ... named ... was proposed for` 命名方法和任务；续句以 SEDS 中的未知函数作主语，`modeled using` 给 GMR 的建模职责。 |
-| I04-A8 | `DS-GMR`—`is another method`—`that combines the DS with the statistical learning approach`。 | `another method that ...` 引入同类工作；`combine A with B` 写组合双方，文献 [15] 紧随该方法能力。 |
-| I04-A9 | `Both SEDS and DS-GMR`—`exploit`—DS 的鲁棒／泛化能力及概率方法的学习性能。 | 两个具体方法名称共同作主语；`exploit` 接可利用的能力，`as well as` 连接另一类能力，为组合设计提供依据。 |
+| I04-A6 | `a learning approach named SEDS`—`was proposed`—`for motion modeling`；`The unknown function in SEDS`—`was modeled`—`using GMR`。 | `In [3], ... named ... was proposed for` 命名方法和任务；`where` 分句以 SEDS 中的未知函数作主语，`modeled using` 给 GMR 的建模职责。 |
+| I04-A7 | `DS-GMR`—`is another method`—`that combines the DS with the statistical learning approach`。 | `another method that ...` 引入同类工作；`combine A with B` 写组合双方，文献 [15] 紧随该方法能力。 |
+| I04-A8 | `Both SEDS and DS-GMR`—`exploit`—DS 的鲁棒／泛化能力及概率方法的学习性能。 | 两个具体方法名称共同作主语；`exploit` 接可利用的能力，`as well as` 连接另一类能力，为组合设计提供依据。 |
 
-**可模仿表达及作者对应。** `In [xx], a 〈方法类别〉 named 〈方法名〉 was proposed for 〈任务〉. The 〈该方法中待建模函数的准确名称〉 was modeled using 〈工具的准确名称〉.`；`〈方法B〉 is another method that combines 〈A〉 with 〈B〉 [xx]. Both 〈方法A的准确名称〉 and 〈方法B的准确名称〉 exploit 〈能力A〉 as well as 〈能力B〉.` 作者的两个相关工作确实共享这些能力时，用这组表达把采用组合设计的依据说具体。
+**可模仿表达及作者对应。** `In [xx], a 〈方法类别〉 named 〈方法名〉 was proposed for 〈任务〉, where the 〈该方法中待建模函数的准确名称〉 was modeled using 〈工具的准确名称〉.`；`〈方法B〉 is another method that combines 〈A〉 with 〈B〉 [xx]. Both 〈方法A的准确名称〉 and 〈方法B的准确名称〉 exploit 〈能力A〉 as well as 〈能力B〉.` 作者的两个相关工作确实共享这些能力时，用这组表达把采用组合设计的依据说具体。
 
 <a id="e08"></a>
 
@@ -196,15 +198,15 @@ P05 I02 在双臂协调问题下连续给出物体操作、内力控制与负载
 
 **英文学习示例（基于原文的适配）。**
 
-> In [9], an adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot. An implicit force control scheme was employed to simultaneously regulate the force and position. In [10], a decentralized control structure for multiple mobile manipulators was developed. The internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage. In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot.
+> In [9], an adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot, where an implicit force control scheme was employed to simultaneously regulate the force and position. In [10], a decentralized control structure for multiple mobile manipulators was developed, where the internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage. In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I02-A1–A2 | `an adaptive decentralized control scheme`—`was proposed`—处理协作机器人物体操作；`An implicit force control scheme`—`was employed`—同时调节力与位置。 | `In [9], ... was proposed to address` 定位方法与问题。续句 `employed to simultaneously regulate A and B` 补充同一文献的控制机制和两个量。 |
-| I02-A3–A4 | `a decentralized control structure`—`was developed`—用于多移动机械臂；`The internal forces`—`were constrained`—通过含虚拟连杆的增广物体模型。 | `In [10]` 后给结构及适用系统。续句让内力作主语，`constrained by employing` 给约束手段，`with a virtual linkage` 保持模型组成。 |
-| I02-A5 | `the loading problem for multiple manipulators`—`was addressed`—`by analyzing the grasp space`。 | `In [11],` 后让问题作主语；`was addressed by + -ing` 直接交代解决途径，`grasp space of` 明确分析对象。 |
+| I02-A1 | `an adaptive decentralized control scheme`—`was proposed`—处理协作机器人物体操作；`An implicit force control scheme`—`was employed`—同时调节力与位置。 | `In [9], ... was proposed to address` 定位方法与问题。`where` 分句 `employed to simultaneously regulate A and B` 补充同一文献的控制机制和两个量。 |
+| I02-A2 | `a decentralized control structure`—`was developed`—用于多移动机械臂；`The internal forces`—`were constrained`—通过含虚拟连杆的增广物体模型。 | `In [10]` 后给结构及适用系统。`where` 分句让内力作主语，`constrained by employing` 给约束手段，`with a virtual linkage` 保持模型组成。 |
+| I02-A3 | `the loading problem for multiple manipulators`—`was addressed`—`by analyzing the grasp space`。 | `In [11],` 后让问题作主语；`was addressed by + -ing` 直接交代解决途径，`grasp space of` 明确分析对象。 |
 
-**可模仿表达及作者对应。** `In [xx], a 〈控制结构的准确名称〉 was developed for 〈系统〉. The 〈同一系统中受控量的准确名称〉 was constrained by employing 〈手段〉.`；`In [xx], the 〈具体问题〉 was addressed by 〈分析或处理动作，-ing〉.`；`In [xx], a 〈方法的准确名称〉 was proposed to address 〈问题〉. A 〈同一工作中控制机制的准确名称〉 was employed to simultaneously regulate 〈量A〉 and 〈量B〉.` 按本段最需要强调的对象选择主语，`proposed`、`developed`、`employed` 分别对应提出、构建和使用。
+**可模仿表达及作者对应。** `In [xx], a 〈控制结构的准确名称〉 was developed for 〈系统〉, where the 〈同一系统中受控量的准确名称〉 was constrained by employing 〈手段〉.`；`In [xx], the 〈具体问题〉 was addressed by 〈分析或处理动作，-ing〉.`；`In [xx], a 〈方法的准确名称〉 was proposed to address 〈问题〉, where a 〈同一工作中控制机制的准确名称〉 was employed to simultaneously regulate 〈量A〉 and 〈量B〉.` 按本段最需要强调的对象选择主语，`proposed`、`developed`、`employed` 分别对应提出、构建和使用。
 
 <a id="e09"></a>
 
@@ -342,7 +344,7 @@ E08 已写出三项协作控制能力；接续句给牢固抓持条件及表面�
 
 **英文学习示例（基于原文的适配）。**
 
-> The adaptive decentralized controller in [9], the decentralized control structure in [10], and the grasp-space analysis method in [11] were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurs between the arms and the object. However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface. Sliding movements usually occur between the robotic arm and the object in these surface operations [12]–[14].
+> The adaptive decentralized controller in [9], the decentralized control structure in [10], and the grasp-space analysis method in [11] were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurs between the arms and the object. However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface, where sliding movements usually occur between the robotic arm and the object [12]–[14].
 
 **P05 I03-S1-S2**；原段跨度：PDF p.1 / 刊页 1010 / 右栏。
 
@@ -352,8 +354,8 @@ E08 已写出三项协作控制能力；接续句给牢固抓持条件及表面�
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I02-A6 | [9] 自适应分散控制器、[10] 分散结构与 [11] 抓持空间负载方法—`were developed`—在牢固抓持和无相对运动假设下。 | 以具体控制类型及引文共同作主语，`under the assumption that` 保留条件，`such that` 连接牢固抓持与臂／物体之间无相对运动。 |
-| I02-A7–A8 | `the robot end-effectors`—`need to operate`—沿物体表面；`Sliding movements`—`usually occur`—在这些表面操作的机械臂与物体之间。 | `However` 对接任务条件，`such as` 给应用。两句分别写末端运动需要和相应滑动，`along`、`between` 保持空间关系，[12]–[14] 定位这组应用。 |
+| I02-A4 | [9] 自适应分散控制器、[10] 分散结构与 [11] 抓持空间负载方法—`were developed`—在牢固抓持和无相对运动假设下。 | 以具体控制类型及引文共同作主语，`under the assumption that` 保留条件，`such that` 连接牢固抓持与臂／物体之间无相对运动。 |
+| I02-A5 | `the robot end-effectors`—`need to operate`—沿物体表面；`Sliding movements`—`usually occur`—在这些表面操作的机械臂与物体之间。 | `However` 对接任务条件，`such as` 给应用。主句写末端运动需要，`where` 分句接相应滑动，`along`、`between` 保持空间关系，[12]–[14] 定位这组应用。 |
 | I03-A1 | `the coordination control of dual-arm robots with relative motion`—`deserves`—`further investigation`。 | `In this respect` 承接刚建立的滑动需要；主语中 `with relative motion` 精确限定研究问题，`deserves further investigation` 直接建立研究需要。 |
 | I03-A2 | `The relative motion`—`is also known as`—`the asymmetric bimanual task`。 | 重复上一句对象并给领域命名，`known as` 对应术语身份，使后续文献讨论有明确称谓。 |
 
@@ -369,18 +371,18 @@ Fuzzy I03 已提出快速收敛需要；以下连续句从有限时间方法进�
 
 **英文学习示例（基于原文的适配）。**
 
-> In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence. In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties. Nevertheless, for existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions. The initial conditions are sometimes unavailable. To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22]. In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems. In [21], an adaptive event-based fixed-time control scheme has been proposed for active vehicle suspension systems. The predefined constraints on the active vehicle suspension systems can be guaranteed.
+> In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence. In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties. Nevertheless, for existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions, which are sometimes unavailable. To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22]. In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems. In [21], an adaptive event-based fixed-time control scheme has been proposed for active vehicle suspension systems, and the predefined constraints can be guaranteed.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I03-A3 | `an adaptive observer-based fuzzy controller`—`has been proposed`—用于严格反馈系统，实现有限时间收敛。 | `In [17], ... for a class of ... to achieve ...` 给系统类别和能力，`observer-based` 限定方法基础。 |
 | I03-A4 | `an adaptive finite-time sliding-mode control scheme`—`has been proposed`—用于含匹配不确定性的非线性系统。 | `In [18], ... for ... with ...` 补同一时间能力的另一方法与系统条件；`matched uncertainties` 是具体技术术语。 |
-| I03-A5–A6 | 有限时间方案的 `convergence time`—`is always related to`—初始条件；`The initial conditions`—`are sometimes unavailable`。 | `Nevertheless, for existing finite-time control schemes` 保留方法范围。两句分别写依赖和可得性，重复初始条件名称，限定强度仍是 `always` 与 `sometimes`。 |
-| I03-A7 | `the fixed-time control schemes`—`have been proposed and applied`—非线性控制领域。 | `To improve the control performance` 承接所需作用；`proposed and applied` 同时给提出与使用，`in` 限定研究领域。 |
-| I03-A8 | `a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique`—`has been proposed`—用于不确定非严格反馈系统。 | `In [20],` 精确定位；`combined with` 修饰方法组合，`for` 保留系统范围，将本段时间需要与前段约束技术相连。 |
-| I03-A9–A10 | `an adaptive event-based fixed-time control scheme`—`has been proposed`—用于主动悬架；主动悬架的预设约束—`can be guaranteed`。 | `In [21]` 定位方法，续句以同一系统的约束作主语，`predefined` 保留约束性质，`can be guaranteed` 给相应保证。 |
+| I03-A5 | 有限时间方案的 `convergence time`—`is always related to`—初始条件；`The initial conditions`—`are sometimes unavailable`。 | `Nevertheless, for existing finite-time control schemes` 保留方法范围。主句写时间依赖，`which` 分句接初始条件的可得性，限定强度仍是 `always` 与 `sometimes`。 |
+| I03-A6 | `the fixed-time control schemes`—`have been proposed and applied`—非线性控制领域。 | `To improve the control performance` 承接所需作用；`proposed and applied` 同时给提出与使用，`in` 限定研究领域。 |
+| I03-A7 | `a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique`—`has been proposed`—用于不确定非严格反馈系统。 | `In [20],` 精确定位；`combined with` 修饰方法组合，`for` 保留系统范围，将本段时间需要与前段约束技术相连。 |
+| I03-A8 | `an adaptive event-based fixed-time control scheme`—`has been proposed`—用于主动悬架；主动悬架的预设约束—`can be guaranteed`。 | `In [21]` 定位方法，并列分句以同一系统的约束作主语，`predefined` 保留约束性质，`can be guaranteed` 给相应保证。 |
 
-**可模仿表达及作者对应。** `Nevertheless, for existing 〈方法类〉, 〈具体性能的准确名称〉 is related to 〈条件的准确名称〉. The 〈同一条件名称〉 〈可得性或性质的谓语〉.`；`To improve 〈同一性能目标〉, 〈适用方向〉 have been proposed and applied in 〈领域〉 [xx].` 再用 `In [xx], ... combined with ... has been proposed for ...` 或续句 `The 〈同一系统的具体约束名称〉 can be guaranteed.` 说明所需联合能力。作者给出自己文献范围内的依赖强度、信息条件及保证范围。
+**可模仿表达及作者对应。** `Nevertheless, for existing 〈方法类〉, 〈具体性能的准确名称〉 is related to 〈条件的准确名称〉, which 〈可得性或性质的谓语〉.`；`To improve 〈同一性能目标〉, 〈适用方向〉 have been proposed and applied in 〈领域〉 [xx].` 再用 `In [xx], ... combined with ... has been proposed for ...` 或续句 `The 〈同一系统的具体约束名称〉 can be guaranteed.` 说明所需联合能力。作者给出自己文献范围内的依赖强度、信息条件及保证范围。
 
 <a id="e18"></a>
 
@@ -392,16 +394,16 @@ E17 已从逼近控制进入 NN；这组用两项文献及 RBFNN 的相关能力
 
 **英文学习示例（基于原文的适配）。**
 
-> In [23], the backpropagation NN (BPNN) was utilized to approximate the unknown nonlinear function in the model of the vibration suppression device. In [24], the radial basis function NN (RBFNN) was utilized to approximate the unknown nonlinearity of the telerobot system. In comparison to BPNN, the learning procedure of RBFNN is based on local approximation. Thus, RBFNN can avoid getting stuck in the local optimum and has a faster convergence rate. Besides, the number of hidden layer units of RBFNN can be adaptively adjusted during the training phase. The adaptive adjustment of the number of hidden layer units makes RBFNN more flexible and adaptive. Therefore, RBFNN is more appropriate for the design of real-time control.
+> In [23], the backpropagation NN (BPNN) was utilized to approximate the unknown nonlinear function in the model of the vibration suppression device. In [24], the radial basis function NN (RBFNN) was utilized to approximate the unknown nonlinearity of the telerobot system. In comparison to BPNN, the learning procedure of RBFNN is based on local approximation. Thus, RBFNN can avoid getting stuck in the local optimum and has a faster convergence rate. Besides, the number of hidden layer units of RBFNN can be adaptively adjusted during the training phase, making RBFNN more flexible and adaptive. Therefore, RBFNN is more appropriate for the design of real-time control.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I06-A7–A8 | `the BPNN` 和 `the RBFNN`—分别 `was utilized`—逼近振动抑制装置与遥操作机器人中的未知非线性。 | 两句分别用 `In [23]` 与 `In [24]` 定位同一功能的文献；`utilized to approximate` 保持方法、系统及各自逼近对象的对应。 |
 | I06-A9–A10 | `the learning procedure of RBFNN`—`is based on`—局部逼近；`RBFNN`—`can avoid ... and has ...`—局部最优及收敛速率。 | `In comparison to BPNN` 明确参照。下一句用 `Thus` 和 RBFNN 名称连接局部逼近基础与作用，`local approximation`、`local optimum`、`convergence rate` 保留不同科学身份。 |
-| I06-A11–A12 | `the number of hidden layer units of RBFNN`—`can be adaptively adjusted`；该数量的自适应调节—`makes`—RBFNN 更灵活、更具适应性。 | `Besides` 补充能力，`during the training phase` 限定调节阶段。下一句明确以该数量的自适应调节作主语，接相应属性变化。 |
-| I06-A13 | `RBFNN`—`is more appropriate`—`for the design of real-time control`。 | `Therefore` 综合刚才的能力；`appropriate for` 写相对当前任务的适用性，把比较收束到工具采用理由。 |
+| I06-A11 | `the number of hidden layer units of RBFNN`—`can be adaptively adjusted`；`making` 接该调节使 RBFNN 更灵活、更具适应性的作用。 | `Besides` 补充能力，`during the training phase` 限定调节阶段。`making RBFNN ...` 接刚说明的数量调节及其属性作用。 |
+| I06-A12 | `RBFNN`—`is more appropriate`—`for the design of real-time control`。 | `Therefore` 综合刚才的能力；`appropriate for` 写相对当前任务的适用性，把比较收束到工具采用理由。 |
 
-**可模仿表达及作者对应。** `In [xx], 〈工具A〉 was utilized to 〈任务A〉, while in [yy], 〈工具B〉 was utilized to 〈任务B〉.`；`In comparison to 〈参照方法的准确名称〉, the learning procedure of 〈方法的准确名称〉 is based on 〈具体科学基础〉. Thus, 〈同一方法的准确名称〉 〈有依据的作用谓语及对象〉.`；`Besides, the 〈可调量的准确名称〉 in the 〈方法的准确名称〉 can be adaptively adjusted during 〈相关阶段〉. The adaptive adjustment of the 〈同一可调量名称〉 makes the 〈同一方法名称〉 〈对应属性〉.`；`Therefore, 〈方法〉 is more appropriate for 〈当前任务〉.` 作者据自己的证据确定机制、作用和适用条件，保留比较对象及机制与能力、调节与作用的连接。
+**可模仿表达及作者对应。** `In [xx], 〈工具A〉 was utilized to 〈任务A〉, while in [yy], 〈工具B〉 was utilized to 〈任务B〉.`；`In comparison to 〈参照方法的准确名称〉, the learning procedure of 〈方法的准确名称〉 is based on 〈具体科学基础〉. Thus, 〈同一方法的准确名称〉 〈有依据的作用谓语及对象〉.`；`Besides, the 〈可调量的准确名称〉 in the 〈方法的准确名称〉 can be adaptively adjusted during 〈相关阶段〉, making the 〈同一方法名称〉 〈对应属性〉.`；`Therefore, 〈方法〉 is more appropriate for 〈当前任务〉.` 作者据自己的证据确定机制、作用和适用条件，保留比较对象及机制与能力、调节与作用的连接。
 
 <a id="e20"></a>
 
@@ -413,13 +415,13 @@ P17 I05 前两句已给当前多示教组合设计及作用，见 E19；以下�
 
 **英文学习示例（基于原文的适配）。**
 
-> In [16], the original DMP was learned using locally weighted regression (LWR). In [17], locally weighted projection regression (LWPR) was employed to optimize the bandwidth of each kernel of LWR. Despite the added complexity of the learning procedure, LWR and LWPR enable the DMP to learn from only one demonstration. Reservoir computing [18] is another method used to approximate the nonlinear function of DMP, but its computing efficiency is less than that of GMR.
+> In [16], the original DMP was learned using locally weighted regression (LWR), and in [17], locally weighted projection regression (LWPR) was employed to optimize the bandwidth of each kernel of LWR. Despite the added complexity of the learning procedure, LWR and LWPR enable the DMP to learn from only one demonstration. Reservoir computing [18] is another method used to approximate the nonlinear function of DMP, but its computing efficiency is less than that of GMR.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I05-A5–A6 | `the original DMP`—`was learned`—使用 LWR；`LWPR`—`was employed`—优化 LWR 的核带宽。 | `In [16]` 和 `In [17]` 分别定位学习与带宽优化工作；`learned using`、`employed to optimize` 区分两个工具的责任，`bandwidth of each kernel` 明确被优化量。 |
-| I05-A7 | `LWR and LWPR`—`enable`—DMP 从一次示教学得。 | `Despite` 保留学习复杂性这一代价；两个学习工具具名作主语，`enable ... to learn from only one demonstration` 保留能力范围及示教量。 |
-| I05-A8 | `Reservoir computing`—`is another method used to approximate`—DMP 的非线性函数；`its computing efficiency`—`is less than`—GMR 的计算效率。 | 函数名称接住同一 DMP 学习对象；`but` 引入效率比较，`its computing efficiency` 与 `that of GMR` 保持明确的技术指标及比较双方。 |
+| I05-A3 | `the original DMP`—`was learned`—使用 LWR；`LWPR`—`was employed`—优化 LWR 的核带宽。 | `In [16]` 和 `In [17]` 分别定位学习与带宽优化工作；`learned using`、`employed to optimize` 区分两个工具的责任，`bandwidth of each kernel` 明确被优化量。 |
+| I05-A4 | `LWR and LWPR`—`enable`—DMP 从一次示教学得。 | `Despite` 保留学习复杂性这一代价；两个学习工具具名作主语，`enable ... to learn from only one demonstration` 保留能力范围及示教量。 |
+| I05-A5 | `Reservoir computing`—`is another method used to approximate`—DMP 的非线性函数；`its computing efficiency`—`is less than`—GMR 的计算效率。 | 函数名称接住同一 DMP 学习对象；`but` 引入效率比较，`its computing efficiency` 与 `that of GMR` 保持明确的技术指标及比较双方。 |
 
 **可模仿表达及作者对应。** `In [xx], the 〈模型的准确名称〉 was learned using 〈工具的准确名称〉. In [yy], 〈另一工具的准确名称〉 was employed to optimize 〈前一工具中被优化量的准确名称〉.`；`Despite 〈已付出的代价〉, 〈学习方法A的准确名称〉 and 〈学习方法B的准确名称〉 enable 〈运动模型的准确名称〉 to 〈能力范围〉.`；`〈方法〉 is another method used to 〈同一任务〉, but its 〈具体指标名称〉 is less than that of 〈参照方法〉.` 作者的比较维度由研究需要与实际文献共同确定。
 
@@ -437,20 +439,20 @@ P17 I05 前两句已给当前多示教组合设计及作用，见 E19；以下�
 
 **英文学习示例（基于原文的适配）。**
 
-> To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our robot learning system. The nonlinear function of DMP is modeled with GMM. The estimate of the nonlinear function of DMP is retrieved through GMR. The DMP motion model integrating GMM and GMR enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features.
+> To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our robot learning system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR. The DMP motion model integrating GMM and GMR enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I05-A1–A3 | `we`—`integrate`—DMP 与 GMM 进入机器人学习系统；`The nonlinear function of DMP`—`is modeled`—用 GMM；同一函数的估计—`is retrieved`—通过 GMR。 | `To take advantage of` 接前文能力，`integrate A and B into C` 写组合。两句接续命名 DMP 非线性函数及其估计，`modeled with` 和 `retrieved through` 分别给建模与回归职责。 |
-| I05-A4 | `The DMP motion model integrating GMM and GMR`—`enables`—多示教特征提取与合成运动生成。 | 组合后的具体运动模型作主语，`enables A to B and to C` 写两项相接作用。`extract ... from` 给输入来源，`motions that synthesize these features` 保持输出与同一特征的关系。 |
+| I05-A1 | `we`—`integrate`—DMP 与 GMM 进入机器人学习系统；`The nonlinear function of DMP`—`is modeled`—用 GMM；同一函数的估计—`is retrieved`—通过 GMR。 | `To take advantage of` 接前文能力，`integrate A and B into C` 写组合。`where` 分句在同一句内区分 DMP 非线性函数及其估计，`modeled with` 和 `retrieved through` 分别给建模与回归职责。 |
+| I05-A2 | `The DMP motion model integrating GMM and GMR`—`enables`—多示教特征提取与合成运动生成。 | 组合后的具体运动模型作主语，`enables A to B and to C` 写两项相接作用。`extract ... from` 给输入来源，`motions that synthesize these features` 保持输出与同一特征的关系。 |
 
-**可模仿表达及作者对应。** `To take advantage of 〈前文已说明的能力〉, we integrate 〈方法A的准确名称〉 and 〈方法B的准确名称〉 into 〈作者系统的准确名称〉. The 〈待建模非线性函数的准确名称〉 is modeled with 〈建模工具的准确名称〉. The estimate of the 〈同一非线性函数名称〉 is retrieved through 〈回归工具的准确名称〉. The 〈整合后的运动模型的准确名称〉 enables 〈研究对象〉 to 〈作用A〉 and to 〈接续作用B〉.` 作者对应“为什么组合、各自处理什么、组合使什么成为可能”，持续说明同一函数及其估计、输入信息和生成产物。
+**可模仿表达及作者对应。** `To take advantage of 〈前文已说明的能力〉, we integrate 〈方法A的准确名称〉 and 〈方法B的准确名称〉 into 〈作者系统的准确名称〉, where the 〈待建模非线性函数的准确名称〉 is modeled with 〈建模工具的准确名称〉 and its estimate is retrieved through 〈回归工具的准确名称〉. The 〈整合后的运动模型的准确名称〉 enables 〈研究对象〉 to 〈作用A〉 and to 〈接续作用B〉.` 作者对应“为什么组合、各自处理什么、组合使什么成为可能”，持续说明同一函数及其估计、输入信息和生成产物。
 
 **同一关系的连续英文（原文选取，P17 I05-S1-S2；PDF p.2／刊页778，左栏）。**
 
 > To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our proposed system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR. This modification enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features.
 
-`its estimate` 接同句已经明确的 DMP 非线性函数；`This modification` 接刚说明的 DMP、GMM、GMR 组合及各自职责，再写组合产生的作用。作者可以参照这种连续承接，也可以选择上面的具名模型实现。选择取决于当前语境能否清楚区分函数、估计、设计与输出，以及相应作用是否确属作者设计；用作者内容替换后仍保持“组合理由—组成职责—组合作用”的关系。
+`its estimate` 接同句已经明确的 DMP 非线性函数；`This modification` 接刚说明的 DMP、GMM、GMR 组合及各自职责，再写组合产生的作用。上面的适配保留同样的 where 分工，并让具名运动模型接组合作用；也可以参照原文的较短设计指代。选择取决于当前语境能否清楚区分函数、估计、设计与输出，以及相应作用是否确属作者设计；用作者内容替换后仍保持“组合理由—组成职责—组合作用”的关系。
 
 <a id="e21"></a>
 
@@ -481,15 +483,15 @@ ESO 的前文已建立扰动补偿和未测状态估计需要；I08 开头给 MI
 
 **英文学习示例（基于原文的适配）。**
 
-> In this paper, a disturbance compensation approach based on a multiple-input multiple-output extended state observer (MIMO-ESO) with a simple structure is utilized to eliminate chattering. The ESO model [32] and the high-gain observer [39] motivate the design of the MIMO-ESO. The MIMO-ESO is proposed to estimate the unknown disturbances and the unmeasured states. The bounds of the uncertainties are also estimated using the adaptive control technique.
+> In this paper, a disturbance compensation approach based on a multiple-input multiple-output extended state observer (MIMO-ESO) with a simple structure is utilized to eliminate chattering. Motivated by the ESO model [32] and the high-gain observer [39], a MIMO-ESO is proposed to estimate the unknown disturbances and the unmeasured states. The bounds of the uncertainties are also estimated using the adaptive control technique.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I08-A1 | `a disturbance compensation approach based on ... MIMO-ESO`—`is utilized`—消除抖振。 | `In this paper` 进入当前工作，`based on` 将补偿方法与简单结构的 MIMO-ESO 直接连接，`utilized to eliminate` 给设计目的。 |
-| I08-A2–A3 | `The ESO model [32] and the high-gain observer [39]`—`motivate`—MIMO-ESO 设计；`The MIMO-ESO`—`is proposed`—估计未知扰动与未测状态。 | 两个已有方法具名作主语，`motivate the design of` 保留启发关系。续句重复当前观察器名称，`proposed to estimate A and B` 保持估计范围。 |
-| I08-A4 | `The bounds of the uncertainties`—`are also estimated`—`using the adaptive control technique`。 | 从观察器切换到补充估计量；`bounds of` 保留估计的是界，`also` 加另一职责，`using` 给采用的手段。 |
+| I08-A2 | `a MIMO-ESO`—`is proposed`—估计未知扰动与未测状态；ESO 模型与高增益观察器是设计依据。 | `Motivated by A and B` 保留依据，主句 `is proposed to estimate A and B` 紧接设计及范围；句首形式按科学关系与实际清晰度选择。 |
+| I08-A3 | `The bounds of the uncertainties`—`are also estimated`—`using the adaptive control technique`。 | 从观察器切换到补充估计量；`bounds of` 保留估计的是界，`also` 加另一职责，`using` 给采用的手段。 |
 
-**可模仿表达及作者对应。** `In this paper, a 〈设计的准确名称〉 based on 〈基础工具的准确名称〉 is utilized to 〈有依据的目的〉.`；`The 〈已有方法A的准确名称〉 [xx] and the 〈已有方法B的准确名称〉 [yy] motivate the design of the 〈作者观察器的准确名称〉. The 〈同一观察器名称〉 is proposed to estimate 〈对象A〉 and 〈对象B〉. The 〈补充量〉 are also estimated using 〈相应技术〉.` 作者按自己真正需要估计的状态、扰动或界填写，明确已有方法的启发关系及当前观察器的估计职责，并使目的动词与实际证据强度一致。
+**可模仿表达及作者对应。** `In this paper, a 〈设计的准确名称〉 based on 〈基础工具的准确名称〉 is utilized to 〈有依据的目的〉.`；`Motivated by the 〈已有方法A的准确名称〉 [xx] and the 〈已有方法B的准确名称〉 [yy], a 〈作者观察器的准确名称〉 is proposed to estimate 〈对象A〉 and 〈对象B〉. The 〈补充量〉 are also estimated using 〈相应技术〉.` 作者按自己真正需要估计的状态、扰动或界填写，明确已有方法的启发关系及当前观察器的估计职责，并使目的动词与实际证据强度一致。
 
 ### 设计句与作用句的直接调用
 
@@ -509,21 +511,21 @@ E17–E18 已建立轨迹执行与 NN 选择理由；I07 给当前控制器，�
 
 **英文学习示例（基于原文的适配）。**
 
-> In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space. RBFNN is employed in the NN-based controller to approximate the nonlinear functions of the robot dynamics. The stability of the NN-based controller is guaranteed by the Lyapunov stability theory. The robot learning system consists of the motion generation component and the trajectory tracking component (Fig. 1). The motion generation component utilizes the DMP-based motion model to learn and generalize motion skills. The motion skills learned and generalized using the DMP-based motion model are represented as a set of trajectories in joint space. The trajectory tracking component employs the adaptive controller to track the joint-space trajectories generated by the motion generation component. RBFNN is incorporated into the adaptive controller to compensate for the uncertain robot dynamics.
+> In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics. The stability of the NN-based controller is guaranteed by the Lyapunov stability theory. The robot learning system consists of the motion generation component and the trajectory tracking component (Fig. 1). The motion generation component utilizes the DMP-based motion model to learn and generalize motion skills, which are represented as a set of trajectories in joint space. The trajectory tracking component employs the adaptive controller to track the joint-space trajectories generated by the motion generation component, and RBFNN is incorporated into the controller to compensate for the uncertain robot dynamics.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
-| I07-A1–A2 | `an NN-based controller`—`is designed`—保证机械臂关节空间跟踪性能；`RBFNN`—`is employed`—逼近机器人动力学非线性函数。 | `In this paper` 进入当前设计，`designed to guarantee` 写职责，`in joint space` 给范围。续句明确 RBFNN 在同一控制器中的函数逼近职责。 |
-| I07-A3 | `The stability of the NN-based controller`—`is guaranteed`—`by the Lyapunov stability theory`。 | 性质主语保留 NN 控制器身份，`stability of` 接同一设计，`guaranteed by` 给理论依据。 |
-| I07-A4 | `The robot learning system`—`consists of`—运动生成与轨迹跟踪模块。 | 系统名称直接作主语，`consists of A and B` 写组成；框架图定位附在句末，后文继续用具体模块名称连接职责。 |
-| I07-A5–A6 | `The motion generation component`—`utilizes`—DMP 模型以学习和泛化技能；同一 DMP 模型学得并泛化的运动技能—`are represented`—为关节空间轨迹。 | 两句分别命名模块与运动技能，`utilizes ... to learn and generalize` 给职责，`represented as` 接技能表示和轨迹输出。 |
-| I07-A7–A8 | `The trajectory tracking component`—`employs`—自适应控制器以跟踪生成模块产生的关节空间轨迹；`RBFNN`—`is incorporated`—进入同一控制器以补偿不确定动力学。 | 跟踪模块接同一关节空间轨迹，`generated by` 命名来源。续句 `incorporated into ... to compensate for` 保持工具、控制器及补偿对象的连接。 |
+| I07-A1 | `an NN-based controller`—`is designed`—保证机械臂关节空间跟踪性能；`RBFNN`—`is employed`—逼近机器人动力学非线性函数。 | `In this paper` 进入当前设计，`designed to guarantee` 写职责，`in joint space` 给范围。`where` 分句明确 RBFNN 在同一控制器中的函数逼近职责。 |
+| I07-A2 | `The stability of the NN-based controller`—`is guaranteed`—`by the Lyapunov stability theory`。 | 性质主语保留 NN 控制器身份，`stability of` 接同一设计，`guaranteed by` 给理论依据。 |
+| I07-A3 | `The robot learning system`—`consists of`—运动生成与轨迹跟踪模块。 | 系统名称直接作主语，`consists of A and B` 写组成；框架图定位附在句末，后文继续用具体模块名称连接职责。 |
+| I07-A4 | `The motion generation component`—`utilizes`—DMP 模型以学习和泛化技能；同一 DMP 模型学得并泛化的运动技能—`are represented`—为关节空间轨迹。 | 主句命名生成模块，`which` 分句接同一运动技能，`utilizes ... to learn and generalize` 给职责，`represented as` 接技能表示和轨迹输出。 |
+| I07-A5 | `The trajectory tracking component`—`employs`—自适应控制器以跟踪生成模块产生的关节空间轨迹；`RBFNN`—`is incorporated`—进入同一控制器以补偿不确定动力学。 | 跟踪模块接同一关节空间轨迹，`generated by` 命名来源。并列分句 `incorporated into ... to compensate for` 保持工具、控制器及补偿对象的连接。 |
 
-**可模仿表达及作者对应。** `〈系统〉 consists of 〈运动生成模块的准确名称〉 and 〈轨迹跟踪模块的准确名称〉. The 〈同一运动生成模块名称〉 utilizes the 〈运动模型的准确名称〉 to learn and generalize 〈运动技能的具体名称〉. The 〈同一运动技能名称〉 are represented as 〈关节空间轨迹的具体名称〉. The 〈轨迹跟踪模块的同一名称〉 employs the 〈自适应控制器的准确名称〉 to track the 〈同一关节空间轨迹名称〉 generated by the 〈运动生成模块的同一名称〉. The 〈逼近工具的准确名称〉 is incorporated into the 〈同一自适应控制器名称〉 to compensate for 〈不确定动力学的具体名称〉.` 理论性质可接 `The 〈性质〉 of the 〈设计的准确名称〉 is guaranteed by 〈依据〉.` 作者保持模块、模型、技能、轨迹与控制器的身份明确，逐句连接学习、表示、生成、跟踪及补偿。
+**可模仿表达及作者对应。** `〈系统〉 consists of 〈运动生成模块的准确名称〉 and 〈轨迹跟踪模块的准确名称〉. The 〈同一运动生成模块名称〉 utilizes the 〈运动模型的准确名称〉 to learn and generalize 〈运动技能的具体名称〉, which are represented as 〈关节空间轨迹的具体名称〉. The 〈轨迹跟踪模块的同一名称〉 employs the 〈自适应控制器的准确名称〉 to track the 〈同一关节空间轨迹名称〉 generated by the 〈运动生成模块的同一名称〉, and 〈逼近工具的准确名称〉 is incorporated into the controller to compensate for 〈不确定动力学的具体名称〉.` 理论性质可接 `The 〈性质〉 of the 〈设计的准确名称〉 is guaranteed by 〈依据〉.` 作者保持模块、模型、技能、轨迹与控制器的身份明确，逐句连接学习、表示、生成、跟踪及补偿。
 
 ## 7. 过渡和贡献怎样用具体对象收束
 
-过渡表达承接已经明确的科学信息：E05 先用 `The work in [xx] indicates that ...` 写信息依据，再用 `Therefore` 接研究选择；E15 的 `In this respect` 接相对运动问题，E17 的 `also depends on` 接执行责任，E19 的 `To take advantage of` 接两类能力，E23 用具体运动技能和关节空间轨迹名称连接技能与表示。贡献段继续用这些已建立的对象与职责说清总体作用。
+过渡表达承接已经明确的科学信息：E05 先用 `The work in [xx] indicates that ...` 写信息依据，再用 `Therefore` 接研究选择；E15 的 `In this respect` 接相对运动问题，E17 的 `also depends on` 接执行责任，E19 的 `To take advantage of` 接两类能力，E23 用具名运动技能及 which 分句的关节空间轨迹连接技能与表示。贡献段继续用这些已建立的对象与职责说清总体作用。
 
 <a id="e24"></a>
 
@@ -535,17 +537,17 @@ P17 前文已把多示教运动生成和未知动力学下的执行连接起来�
 
 **英文学习示例（基于原文的适配）。**
 
-> We present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived by the Lyapunov theory. The Lyapunov-derived stability constraints of SEDS increase the complexity of learning the SEDS motion model. In contrast to [3] and [25] which considered only motion modeling, our robot learning system is enhanced by an NN-based controller. The effect of dynamic environments on the robot can be compensated by neural learning. The robot learning framework integrating motion generation and NN-based trajectory tracking enables the robot to perform the learned motions steadily and more robustly in the real world.
+> We present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived using Lyapunov theory and increase the complexity of learning the SEDS motion model. In contrast to [3] and [25] which considered only motion modeling, our robot learning system is enhanced by an NN-based controller, and the effect of dynamic environments on the robot can be compensated by neural learning. This design enables the robot to perform the learned motions steadily and more robustly in the real world.
 
 | 示例句位 | 真实主语—动作—对象或补语 | 句式、搭配与用词怎样实现关系 |
 | --- | --- | --- |
 | I08-A1 | `We`—`present`—同时考虑运动生成和跟踪性能的完整机器人学习框架。 | `We present` 直接给总体工作，`framework that considers the performance of both A and B` 明确两项责任范围。贡献强度按作者证据选择。 |
 | I08-A2 | `The SEDS presented in [3]`—`is similar`—`to our DMP-based model`。 | `presented in [xx]` 定位方法；`similar to` 明确所比对象，使后续条件讨论围绕同一模型。 |
-| I08-A3–A4 | SEDS 稳定性约束—`are derived`—通过 Lyapunov 理论；同一约束—`increase`—SEDS 运动模型的学习复杂性。 | `However` 进入 SEDS 条件，两句分别交代约束依据及学习代价。约束与运动模型均保留 SEDS 身份，使理论条件与作用对象连续。 |
-| I08-A5–A6 | `our robot learning system`—`is enhanced`—由 NN 控制器增补；动态环境对机器人的影响—`can be compensated`—通过神经学习。 | `In contrast to [3] and [25]` 保留仅考虑运动建模的指定范围。两句分别用 `enhanced by` 写控制增补、`compensated by` 写相应环境影响的补偿来源。 |
-| I08-A7 | 整合运动生成与 NN 轨迹跟踪的机器人学习框架—`enables`—机器人稳定、稳健地执行学得运动。 | 完整框架名称接 `enables ... to perform`，`steadily`、`more robustly` 修饰运动执行，`in the real world` 给作用场景，回收生成与跟踪两项责任。 |
+| I08-A3 | SEDS 稳定性约束—`are derived`—通过 Lyapunov 理论；同一约束—`increase`—SEDS 运动模型的学习复杂性。 | `However` 进入 SEDS 条件，协调谓语交代同一约束的依据及学习代价。约束与运动模型均保留 SEDS 身份，使理论条件与作用对象连续。 |
+| I08-A4 | `our robot learning system`—`is enhanced`—由 NN 控制器增补；动态环境对机器人的影响—`can be compensated`—通过神经学习。 | `In contrast to [3] and [25]` 保留仅考虑运动建模的指定范围。并列分句用 `enhanced by` 写控制增补、`compensated by` 写相应环境影响的补偿来源。 |
+| I08-A5 | `This design`（已建立的生成／跟踪框架）—`enables`—机器人稳定、稳健地执行学得运动。 | `This design` 接明确的框架设计，再以 `enables ... to perform`，`steadily`、`more robustly` 修饰运动执行，`in the real world` 给作用场景，回收生成与跟踪两项责任。 |
 
-**可模仿表达及作者对应。** `We present a 〈框架的准确名称〉 that considers the performance of both 〈责任A〉 and 〈责任B〉.`；`In contrast to [xx] and [yy] which considered 〈真实比较范围〉, the 〈系统的准确名称〉 is enhanced by the 〈增补控制器的准确名称〉. The 〈相应环境影响的具体名称〉 can be compensated by 〈学习或控制机制的准确名称〉. The 〈同一学习框架名称〉 enables 〈对象〉 to perform 〈原研究任务〉 〈有依据的执行方式〉.` 作者的贡献通过覆盖范围、设计职责和最终作用回收前文，保留指定工作的比较范围及补偿与运动执行之间的联系。
+**可模仿表达及作者对应。** `We present a 〈框架的准确名称〉 that considers the performance of both 〈责任A〉 and 〈责任B〉.`；`In contrast to [xx] and [yy] which considered 〈真实比较范围〉, the 〈系统的准确名称〉 is enhanced by the 〈增补控制器的准确名称〉, and the 〈相应环境影响的具体名称〉 can be compensated by 〈学习或控制机制的准确名称〉. The 〈同一学习框架名称〉 enables 〈对象〉 to perform 〈原研究任务〉 〈有依据的执行方式〉.` 作者的贡献通过覆盖范围、设计职责和最终作用回收前文，保留指定工作的比较范围及补偿与运动执行之间的联系。
 
 <a id="e25"></a>
 
@@ -569,7 +571,7 @@ P05 已建立相对运动任务、未知动力学、权值学习信息与激励�
 
 **英文学习示例（基于原文的适配）。**
 
-> 2) A novel composite learning algorithm is designed for NN weight adaptation. The composite learning algorithm allows information about the NN weight estimation errors to be appropriately integrated into the NN weight adaptation law to improve estimation performance.
+> 2) A novel composite learning algorithm is designed for NN weight adaptation such that information about the NN weight estimation errors can be appropriately integrated into the adaptation law to improve estimation performance.
 
 **P05 C3-S1**；原段跨度：PDF p.2 / 刊页 1011 / 右栏。
 
@@ -582,7 +584,7 @@ P05 已建立相对运动任务、未知动力学、权值学习信息与激励�
 | I08-A1 | `The objective of this article`—`is to develop`—双臂相对运动跟踪控制框架。 | `objective ... is to + 动词` 清楚给研究目标；`framework for` 指服务任务，`under relative motion` 保留任务条件。 |
 | I08-A2 | `The main contributions of this article`—`can be summarized`—`as follows`。 | 直接从目标进入贡献列项；`summarized as follows` 引导随后真实贡献。 |
 | C1-A1 | `A novel neural control framework`—`is developed`—用于双臂系统，完成非对称任务。 | `developed for ... to perform ... with ...` 依次说明系统、任务与信息条件；`no prior knowledge of the dynamics` 对应前文未知动力学需要。 |
-| C2-A1–A2 | `A novel composite learning algorithm`—`is designed`—用于 NN 权值自适应；同一算法—`allows`—估计误差信息进入权值自适应律以改善估计。 | 设计句给用途，续句重复复合学习算法名称，`allows ... to be integrated into ... to improve` 保留信息、去向和估计作用。 |
+| C2-A1 | `A novel composite learning algorithm`—`is designed`—用于 NN 权值自适应；估计误差信息—`can be ... integrated`—进入权值自适应律以改善估计。 | 主句给算法用途，`such that ... can be ... integrated into ... to improve` 保留信息、去向和估计作用。 |
 | C3-A1 | `A partial persistent excitation condition`—`is introduced`—用于 NN 权值自适应；传统 PE 要求—`can be greatly relaxed`。 | `introduced for` 给作用环节，`such that` 接条件改善；`partial persistent excitation` 使用与前文 PPE 一致的完整技术名称。 |
 
 **可模仿表达及作者对应。** 当前结尾采用贡献引导句及 `1)`、`2)`… 列项。引导可直接参照 `The objective of this paper is to develop 〈设计〉 for 〈研究任务〉 under 〈相关条件〉. The main contributions of this paper can be summarized as follows.` 各项内部可参照 `A 〈设计〉 is developed for 〈系统〉 to perform 〈任务〉 with 〈信息条件〉.`；`A 〈算法〉 is designed for 〈环节〉 such that 〈信息〉 can be integrated into 〈信息去向〉 to improve 〈对应性能〉.`；`A 〈条件〉 is introduced for 〈环节〉 such that the requirement of 〈已有条件〉 can be relaxed.` 每项的科学贡献、需要、职责和作用接回前文；内容、修饰强度及列项数量来自作者实际贡献。

@@ -6,6 +6,37 @@
 
 以下六项是整节组织任务。每项给出默认组织方法、它怎样推动科学主线，以及紧接的真实英文证据与具体借鉴关系。各项可按当前研究的依赖关系组合；段落可建立需要、提供能力、限定条件、提出设计或收束贡献，段末由相邻内容的科学关系决定。英文示例按块标为“原文选取”或“基于原文的适配”，I／C 编号用于定位来源。页码、I／C 编号和示例标记共同说明英文的来源与适配身份。本稿分析段落在整节中的安排与衔接。
 
+<a id="detail-allocation"></a>
+
+## 范例怎样分配详略、篇幅与信息密度
+
+先确定作者科学含义，再参照所选范例**对应部分**的展开程度：哪些关系需要已有能力、机制、条件和比较共同说明，哪些职责一旦清楚就转入下一项需要或贡献。以下篇幅来自已核验的完整出版引言，按英文词项粗计，连字符词计一项、引文数字不计；数字只描述范例，不能用作作者稿的字数目标、固定段数或比例。混合段落中的研究现状、设计和比较须按其实际任务区分。
+
+**P17 为主要锚点**；§I，PDF pp.1–2／刊页777–778。下表与后面的完整正向英文一起读取。
+
+| 原文位置与约略篇幅 | 本部分展开到什么程度 | 完成什么关系后收束 |
+| --- | --- | --- |
+| I01，约86词 | 应用价值、适应性、学习、LfD 与运动建模逐步收窄；每一步只解释下一步为什么必要。 | 有效建模成为具体问题后，I02 立即进入表示方法，不继续泛谈应用价值。 |
+| I02–I04，约408词 | DS／DMP 的表示能力与示教量；已有 DMP 用途与多示教需要；概率方法的信息能力及 DS／概率学习的结合依据。对关键关系给机制、具体工作和条件，研究现状承担较多论证篇幅。 | I04 最后综合两类能力；I05 直接利用这些能力提出组合，无须再重复一遍背景或笼统 gap。 |
+| I05，约130词 | 前两句把采用理由、DMP 函数的 GMM 建模／GMR 回归职责、特征提取与合成作用连起来；后面仍是同一学习对象的示教量与效率比较。 | 组合的作用与采用价值清楚后转入执行需要；本段没有继续展开算法步骤。 |
+| I06，约193词 | 生成运动的执行依赖、准确动力学条件、未知负载、逼近控制、BPNN／RBFNN 文献及局部逼近等选择依据形成完整链。第二项设计需要也获得充分研究现状支撑。 | 最后一句收束为 RBFNN 的实时控制适用性，I07 随即说明当前控制职责。 |
+| I07，约115词 | 给控制器职责、逼近对象、稳定性依据以及生成／跟踪接口；技能成为关节空间轨迹，跟踪部分接收这些轨迹并补偿动力学。 | 接口及保证的范围清楚后转入框架贡献，不再逐模块复述实现过程。 |
+| I08，约102词 | 回收两项责任，用指定模型的学习条件及运动建模范围作比较，再接控制补偿与学得运动的可靠执行。 | 总体贡献的科学作用已清楚即结束论证。当前作者结尾用 P05／Fuzzy 的引导句和编号列项实现这些实质内容。 |
+
+P17 的相对分量来自论证负担：较充分的研究现状把表示选择、多示教利用和未知动力学下执行说清；设计说明集中交代已建立需要所对应的职责、作用和接口；贡献较集中地回收它们。I05 中设计后的文献比较仍完成采用价值，I06 在另一项设计前重新建立需要。因此不能把全文机械切成连续的“现状块—方法块—贡献块”，也不能为各模块分配相同篇幅。
+
+**补充范例按相应科学关系选用。** 下表描述完整引言的分量；实际模仿读取本稿与段落／表达稿中的适用正向英文。
+
+| 范例及原文位置 | 详略与相对分量的依据 | 可直接借鉴的收束方式 |
+| --- | --- | --- |
+| P05，§I，PDF pp.1–2／刊页1010–1011；I01约84词，I02–I06约720词，I07约176词，I08与C01–C03约108词 | 研究现状连续区分牢固抓持／相对运动、动力学可得性、跟踪误差／权值收敛、PE／PPE 与回返轨迹。条件层次多，需充分说明；I07 仍以估计误差信息的已有能力支撑复合学习，再简洁交代 PPE 和误差信息的不同作用。 | I08 只给总体目标和贡献引导；各项用设计、任务／条件及作用回收已建立需要。C02 在一个 such that 句中连接算法、估计误差信息、自适应律及估计改善，不重讲学习背景。 |
+| Fuzzy2023，§I，PDF pp.1–2／刊页1041–1042；I01约291词，I02–I03约284词，I04与C01–C03约118词 | I02 充分建立瞬态约束能力，段末一句即给对称 BLF 职责；I03 展开快速收敛、有限时间能力、初始条件依赖及固定时间／约束联合能力。设计可随理由完成而出现，结尾无需再添连续设计概览。 | I04 汇合目标后直接列项；C01 给设计与瞬态保证，C02 用两句连接自适应律、有界性证明及假设改善，C03 用一句保留 practical fixed-time 和初始条件范围。原文 I01 的优化联想与未来工作不因其篇幅而成为当前必写内容。 |
+| ESO2017，§I，PDF pp.1–3／刊页6785–6787；I01–I02约190词，I03–I06约662词，I07约358词，I08约119词，C01–C02约40词 | 先解释真实扰动／不确定性来源，再分别建立逼近、ISMC、抖振补偿及观察器估计能力。I06 中同一文献用两句交代控制任务与估计职责；I07 另有未测速度的信息条件与已有状态估计能力，不能压成泛泛“存在不确定性”。 | E22 选取 I08 的补偿目的、观察器依据、状态／扰动估计和界估计职责；这些职责清楚即收束。原文 I07–I08 混有本研究实验、传感器布置与实施信息，C03 是实验贡献，均不纳入当前作者引言；相应原文篇幅也不转成作者稿配额。 |
+
+信息密度看每句增加的科学关系。P17 I05 的 where 分句把组合、建模对象与回归职责放在同一句，下一句接作用；I07 用技能的轨迹表示连接生成与跟踪。P05 I02 的 where 分句把文献方法与机制相连，Fuzzy I03 的 which 分句在同一句内保留初始条件的可得性。这些紧密关系可以直接模仿；同一文献的输出或另一项职责需要突出时，P17 I04、ESO I06 的独立续句同样合适。拆句、合句和较短指代均按作者科学关系与实际清晰度判断。
+
+规划时，为各部分确定尚需建立的关系，结合上表判断应充分展开还是及时收束。逐段写作时，读取下列对应段落组和具体英文，保留必要条件与机制，减少重复背景、已清楚的职责重述及只增加名称长度的展开。复核时比较所选范例对应部分的论证负担与作者稿：若采用理由还缺能力或条件，补足相关关系；若理由已充分而后部反复讲组成，整合或收束。作者科学内容需要更多解释时可以增加相应篇幅，也可以省去不适用的范例内容。
+
 <a id="field-value"></a>
 
 ## 1. 先说明领域价值，再落到具体研究问题
@@ -68,7 +99,7 @@
 
 **英文学习示例（基于原文的适配）。**
 
-> Probabilistic approaches have shown good performance in motion encoding [11]–[13]. The inherent variability of the demonstrations can be extracted, and thus, more features of the demonstrations can be preserved. In [14], an LfD framework using a Gaussian mixture model (GMM) and a Bernoulli mixture model was used to extract the features from multiple demonstrations. A new motion was generated through Gaussian mixture regression (GMR). In contrast with the DS-based and DMP-based motion-learning methods discussed above, GMM combined with GMR can provide additional motion information for robots when learning from multiple demonstrations. In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling. The unknown function in SEDS was modeled using GMR. DS-GMR is another method that combines the DS with the statistical learning approach [15]. Both SEDS and DS-GMR exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods.
+> Probabilistic approaches have shown good performance in motion encoding [11]–[13]. The inherent variability of the demonstrations can be extracted, and thus, more features of the demonstrations can be preserved. In [14], an LfD framework using a Gaussian mixture model (GMM) and a Bernoulli mixture model was used to extract the features from multiple demonstrations. A new motion was generated through Gaussian mixture regression (GMR). In contrast with the DS-based and DMP-based motion-learning methods discussed above, GMM combined with GMR can provide additional motion information for robots when learning from multiple demonstrations. In [3], a learning approach named stable estimator of dynamical systems (SEDS) was proposed for motion modeling, where the unknown function was modeled using GMR. DS-GMR is another method that combines the DS with the statistical learning approach [15]. Both SEDS and DS-GMR exploit the robustness and generalization capability of the DS as well as the excellent learning performance of the probabilistic methods.
 
 具体借鉴关系：I02 回应首段的运动建模问题，说明 DS／DMP 的稳定性、抗扰性与示教数据需求；I03 接着讨论 DMP 怎样用于机器人学习，由最优示教难得建立多次示教进入一个 DMP 的需要；I04 随即提供概率编码保存变异、提取多示教特征的能力。三段承担“选择表示对象、确立新增学习需要、提供适用方法能力”三项连贯任务，为下一段的组合设计提供理由。
 
@@ -84,11 +115,11 @@
 
 **P05 I02**; PDF p.1 / 刊页 1010 / 右栏.
 
-**示例段首。** `In [9], an adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot.`
+**示例段首。** `In [9], an adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot, where an implicit force control scheme was employed to simultaneously regulate the force and position.`
 
 **英文学习示例（基于原文的适配）。**
 
-> In [9], an adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot. An implicit force control scheme was employed to simultaneously regulate the force and position. In [10], a decentralized control structure for multiple mobile manipulators was developed. The internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage. In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot. The adaptive decentralized controller in [9], the decentralized control structure in [10], and the grasp-space analysis method in [11] were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurs between the arms and the object. However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface. Sliding movements usually occur between the robotic arm and the object in these surface operations [12]–[14].
+> In [9], an adaptive decentralized control scheme was proposed to address the object handling problem of a cooperative robot, where an implicit force control scheme was employed to simultaneously regulate the force and position. In [10], a decentralized control structure for multiple mobile manipulators was developed, where the internal forces were constrained by employing an augmented object model for the multiple systems with a virtual linkage. In [11], the loading problem for multiple manipulators was addressed by analyzing the grasp space of the robot. The adaptive decentralized controller in [9], the decentralized control structure in [10], and the grasp-space analysis method in [11] were developed under the assumption that the object is firmly held by the robotic arms such that no relative motion occurs between the arms and the object. However, in practical applications, such as polishing, grinding, and welding, the robot end-effectors need to operate along the object’s surface, where sliding movements usually occur between the robotic arm and the object [12]–[14].
 
 **P05 I03**; PDF p.1 / 刊页 1010 / 右栏.
 
@@ -126,7 +157,7 @@
 
 **英文学习示例（基于原文的适配）。**
 
-> In many industrial systems, fast convergence of the system states is required for better control performance. Previous studies have focused on the convergence time of the systems [17]–[19]. In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence. In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties. Nevertheless, for existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions. The initial conditions are sometimes unavailable. To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22]. In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems. In [21], an adaptive event-based fixed-time control scheme has been proposed for active vehicle suspension systems. The predefined constraints on the active vehicle suspension systems can be guaranteed.
+> In many industrial systems, fast convergence of the system states is required for better control performance. Previous studies have focused on the convergence time of the systems [17]–[19]. In [17], an adaptive observer-based fuzzy controller has been proposed for a class of strict-feedback nonlinear systems to achieve finite-time convergence. In [18], an adaptive finite-time sliding-mode control scheme has been proposed for a class of nonlinear systems with some matched uncertainties. Nevertheless, for existing finite-time control schemes, the convergence time of the systems is always related to the initial conditions, which are sometimes unavailable. To improve the control performance, the fixed-time control schemes have been proposed and applied in the nonlinear control community [20]–[22]. In [20], a novel fixed-time adaptive fuzzy control scheme combined with the BLF technique has been proposed for uncertain nonstrict-feedback nonlinear systems. In [21], an adaptive event-based fixed-time control scheme has been proposed for active vehicle suspension systems, and the predefined constraints can be guaranteed.
 
 具体借鉴关系：I02 从瞬态性能对稳定性与安全的意义进入 BLF 的约束能力，再引出本文对称 BLF 的职责；I03 处理另一项并列性能需要，从快速收敛进入有限时间控制的初始条件依赖，再引入固定时间控制及其与约束结合的相关能力。两段分别为瞬态约束与时间保证建立采用理由，随后可在同一控制目标中汇合。
 
@@ -142,11 +173,11 @@
 
 **P17 I05**; PDF p.2 / 刊页 778 / 左栏.
 
-**示例段首。** `To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our robot learning system.`
+**示例段首。** `To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our robot learning system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR.`
 
 **英文学习示例（基于原文的适配）。**
 
-> To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our robot learning system. The nonlinear function of DMP is modeled with GMM. The estimate of the nonlinear function of DMP is retrieved through GMR. The DMP motion model integrating GMM and GMR enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features. In [16], the original DMP was learned using locally weighted regression (LWR). In [17], locally weighted projection regression (LWPR) was employed to optimize the bandwidth of each kernel of LWR. Despite the added complexity of the learning procedure, LWR and LWPR enable the DMP to learn from only one demonstration. Reservoir computing [18] is another method used to approximate the nonlinear function of DMP, but its computing efficiency is less than that of GMR.
+> To take advantage of the performance of the DS and the probabilistic approach, we integrate DMP and GMM into our robot learning system, where the nonlinear function of DMP is modeled with GMM and its estimate is retrieved through GMR. The DMP motion model integrating GMM and GMR enables the robot to extract more features of the motions from multiple demonstrations and to generate motions that synthesize these features. In [16], the original DMP was learned using locally weighted regression (LWR), and in [17], locally weighted projection regression (LWPR) was employed to optimize the bandwidth of each kernel of LWR. Despite the added complexity of the learning procedure, LWR and LWPR enable the DMP to learn from only one demonstration. Reservoir computing [18] is another method used to approximate the nonlinear function of DMP, but its computing efficiency is less than that of GMR.
 
 具体借鉴关系：前面的 I02–I04 已建立稳定运动表示、多示教信息利用及概率编码能力，本段据此提出组合设计，明确 GMM 所建模的对象、GMR 的估计职责，以及多示教特征提取与运动合成的作用。与既有 DMP 学习方法的比较继续围绕同一学习需要。借鉴的是“相关需要与能力充分建立后，设计立即承担对应责任并说明作用”的安排。
 
@@ -188,15 +219,15 @@
 
 **英文学习示例（基于原文的适配）。**
 
-> The imitation performance of robots also depends on the accuracy of the trajectory tracking controller that involves the robot dynamics. Generally, model-based control performs better if the robot dynamic model is accurate enough [19]. However, an accurate dynamic model of a manipulator cannot be obtained in advance due to some uncertainties, e.g., unknown payload. Approximation-based controllers have been designed to overcome uncertainties in the robot dynamics. Approximation-based controllers utilize function approximation tools to learn the nonlinear characteristics of the robot dynamics. NNs have been widely used in controller design because of their approximation ability [20]–[22]. In [23], the backpropagation NN (BPNN) was utilized to approximate the unknown nonlinear function in the model of the vibration suppression device. In [24], the radial basis function NN (RBFNN) was utilized to approximate the unknown nonlinearity of the telerobot system. In comparison to BPNN, the learning procedure of RBFNN is based on local approximation. Thus, RBFNN can avoid getting stuck in the local optimum and has a faster convergence rate. Besides, the number of hidden layer units of RBFNN can be adaptively adjusted during the training phase. The adaptive adjustment of the number of hidden layer units makes RBFNN more flexible and adaptive. Therefore, RBFNN is more appropriate for the design of real-time control.
+> The imitation performance of robots also depends on the accuracy of the trajectory tracking controller that involves the robot dynamics. Generally, model-based control performs better if the robot dynamic model is accurate enough [19]. However, an accurate dynamic model of a manipulator cannot be obtained in advance due to some uncertainties, e.g., unknown payload. Approximation-based controllers have been designed to overcome uncertainties in the robot dynamics. They utilize function approximation tools to learn the nonlinear characteristics of the robot dynamics. NNs have been widely used in controller design because of their approximation ability [20]–[22]. In [23], the backpropagation NN (BPNN) was utilized to approximate the unknown nonlinear function in the model of the vibration suppression device. In [24], the radial basis function NN (RBFNN) was utilized to approximate the unknown nonlinearity of the telerobot system. In comparison to BPNN, the learning procedure of RBFNN is based on local approximation. Thus, RBFNN can avoid getting stuck in the local optimum and has a faster convergence rate. Besides, the number of hidden layer units of RBFNN can be adaptively adjusted during the training phase, making RBFNN more flexible and adaptive. Therefore, RBFNN is more appropriate for the design of real-time control.
 
 **P17 I07**; PDF p.2 / 刊页 778 / 右栏.
 
-**示例段首。** `In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space.`
+**示例段首。** `In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics.`
 
 **英文学习示例（基于原文的适配）。**
 
-> In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space. RBFNN is employed in the NN-based controller to approximate the nonlinear functions of the robot dynamics. The stability of the NN-based controller is guaranteed by the Lyapunov stability theory. The robot learning system consists of the motion generation component and the trajectory tracking component (Fig. 1). The motion generation component utilizes the DMP-based motion model to learn and generalize motion skills. The motion skills learned and generalized using the DMP-based motion model are represented as a set of trajectories in joint space. The trajectory tracking component employs the adaptive controller to track the joint-space trajectories generated by the motion generation component. RBFNN is incorporated into the adaptive controller to compensate for the uncertain robot dynamics.
+> In this paper, an NN-based controller is designed to guarantee the tracking performance of the manipulator in joint space, where RBFNN is employed to approximate the nonlinear functions of the robot dynamics. The stability of the NN-based controller is guaranteed by the Lyapunov stability theory. The robot learning system consists of the motion generation component and the trajectory tracking component (Fig. 1). The motion generation component utilizes the DMP-based motion model to learn and generalize motion skills, which are represented as a set of trajectories in joint space. The trajectory tracking component employs the adaptive controller to track the joint-space trajectories generated by the motion generation component, and RBFNN is incorporated into the controller to compensate for the uncertain robot dynamics.
 
 具体借鉴关系：I06 从机器人模仿性能还依赖轨迹跟踪进入动力学不确定性与逼近控制，完成控制设计的采用理由；I07 给出 RBFNN 控制职责与稳定性依据，再说明运动生成输出关节空间轨迹、跟踪控制接收这些轨迹并补偿不确定动力学。以“问题—职责—部件联系—保证”连接各部分，足以让读者理解为什么完整学习系统需要控制部分。
 
@@ -218,7 +249,7 @@
 
 **英文学习示例（基于原文的适配）。**
 
-> We present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived by the Lyapunov theory. The Lyapunov-derived stability constraints of SEDS increase the complexity of learning the SEDS motion model. In contrast to [3] and [25] which considered only motion modeling, our robot learning system is enhanced by an NN-based controller. The effect of dynamic environments on the robot can be compensated by neural learning. The robot learning framework integrating motion generation and NN-based trajectory tracking enables the robot to perform the learned motions steadily and more robustly in the real world.
+> We present a novel and complete robot learning framework that considers the performance of both motion generation and trajectory tracking. The SEDS presented in [3] is similar to our DMP-based model. However, the constraints that guarantee the stability of SEDS are derived using Lyapunov theory and increase the complexity of learning the SEDS motion model. In contrast to [3] and [25] which considered only motion modeling, our robot learning system is enhanced by an NN-based controller, and the effect of dynamic environments on the robot can be compensated by neural learning. This design enables the robot to perform the learned motions steadily and more robustly in the real world.
 
 具体借鉴关系：前文已分别建立运动建模、多示教信息利用与未知动力学下执行的需要；本段回收运动生成和轨迹跟踪两项责任，与指定的运动建模工作比较，再说明控制补偿怎样支持真实环境中的运动执行。借鉴这些需要、职责和作用的对应，为当前各项贡献提供内容；贡献引导及列项采用下面 P05／Fuzzy 的适用实现。
 
@@ -242,11 +273,11 @@
 
 **P05 C2**; PDF p.2 / 刊页 1011 / 右栏.
 
-**示例段首。** `2) A novel composite learning algorithm is designed for NN weight adaptation.`
+**示例段首。** `2) A novel composite learning algorithm is designed for NN weight adaptation such that information about the NN weight estimation errors can be appropriately integrated into the adaptation law to improve estimation performance.`
 
 **英文学习示例（基于原文的适配）。**
 
-> 2) A novel composite learning algorithm is designed for NN weight adaptation. The composite learning algorithm allows information about the NN weight estimation errors to be appropriately integrated into the NN weight adaptation law to improve estimation performance.
+> 2) A novel composite learning algorithm is designed for NN weight adaptation such that information about the NN weight estimation errors can be appropriately integrated into the adaptation law to improve estimation performance.
 
 **P05 C3**; PDF p.2 / 刊页 1011 / 右栏.
 

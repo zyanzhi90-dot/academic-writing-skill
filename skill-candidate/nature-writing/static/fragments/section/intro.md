@@ -19,6 +19,11 @@ wording that paragraph, resolve which author object performs each action, what
 it acts on, and which author-supported conditions and effects connect the
 sentences. Carry the selected realization and this scientific correspondence
 into step 4.
+Use the index's section allocation analysis in steps 1–3, then the selected
+paragraph's detail-and-density note in step 4. Match the corresponding example
+part's explanatory depth and information load to the author's scientific needs;
+fully establish necessary capabilities and conditions, then close clear roles
+and effects. Source lengths guide this comparison without setting quotas.
 
 Draft along the author's line, paragraph by paragraph, starting from that
 selected English. Retain suitable progression, subject–action constructions,
@@ -38,6 +43,10 @@ and its concrete expression, including sentences retained from an existing
 draft. Assess the full research-state-to-design transition, the purpose of later
 method content and each numbered contribution's link to earlier needs. Apply
 the index's information selection throughout, including retained sentences.
+Compare the resulting section and paragraphs with those same detail and density
+references. Check unnecessary splitting, repeated information and expansion
+after a task is complete, preserving author-required explanation and clear
+source-compatible variants.
 Repair affected units from the applicable examples, preserve suitable wording
 and sound literature capabilities, and reread their adjacent links with
 `scientific-expression.md` before delivery in the existing output format.

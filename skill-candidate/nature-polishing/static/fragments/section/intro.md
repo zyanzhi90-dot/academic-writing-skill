@@ -18,6 +18,13 @@ paragraph or continuous sentence unit with its context, progression analysis
 and concrete English. Resolve the correspondence between the author's objects,
 actions, conditions, effects and interfaces and the selected realization before
 deciding whether to retain or change the prose.
+Use the index's section allocation analysis and the matching paragraph's
+detail-and-density note to assess explanatory depth, relative space and
+information load in the corresponding draft parts. Restore missing capabilities
+or conditions that support adoption, and consolidate repeated roles, effects or
+unnecessary splitting once their relationship is clear. Preserve explanations
+required by author science and clear source-compatible variants; source lengths
+set no word targets, paragraph counts or ratios.
 
 Recover the contributions from the author's earlier needs and design roles,
 then read E25 and applicable E26 to realize the ending as a contribution lead

@@ -1,0 +1,126 @@
+{
+  "kind": "static-only",
+  "base": "0a59e81261d53bcd14be9d4044e52effe6c8eee6",
+  "current_author_inputs": {
+    "核心要求.txt": "81df9c6b40105b9c63ce142122506160bd675401a7906c43f7d8a8d3ebfe498e",
+    "我自己的经验和做法.txt": "22e9ed26bc6dd28a6b248e47d82ba1f35714617d312f5d06dfcc6b58e0b7d0f2",
+    "引言写作方法.txt": "9003bc0179ad33dad822071ed2ec41c84a4c0ede0e8fc8057b7e8f7737c8f328",
+    "current-author-adjustment.txt": "3691ceb94e2e2493510c537bff424d73295db5c4baf0582f0ac196e774fc6a4f"
+  },
+  "routes": {
+    "nature-writing": [
+      "skill-candidate/nature-writing/SKILL.md",
+      "skill-candidate/nature-writing/manifest.yaml",
+      "skill-candidate/nature-writing/static/fragments/section/intro.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-examples.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-section.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-expression.md"
+    ],
+    "nature-polishing": [
+      "skill-candidate/nature-polishing/SKILL.md",
+      "skill-candidate/nature-polishing/manifest.yaml",
+      "skill-candidate/nature-polishing/static/fragments/section/intro.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-examples.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-section.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md",
+      "skill-candidate/nature-shared/core/robotics-introduction-expression.md"
+    ]
+  },
+  "modified_candidate_files": [
+    "skill-candidate/nature-polishing/static/fragments/section/intro.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-examples.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-expression.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-paragraphs.md",
+    "skill-candidate/nature-shared/core/robotics-introduction-section.md",
+    "skill-candidate/nature-writing/static/fragments/section/intro.md"
+  ],
+  "local_links_checked": 46,
+  "paragraph_sentence_positions": {
+    "p17-i01": 6,
+    "eso-i01": 2,
+    "p05-i02": 5,
+    "p17-i04": 8,
+    "fuzzy-i02": 6,
+    "fuzzy-i03": 8,
+    "p17-i05": 5,
+    "p17-i07": 5,
+    "p17-i08": 5
+  },
+  "cross_level_english_checked": [
+    "e01",
+    "e03",
+    "e06",
+    "e07",
+    "e08",
+    "e09",
+    "e16",
+    "e19",
+    "e20",
+    "e23",
+    "e24"
+  ],
+  "source_word_observations": {
+    "P17": {
+      "sha256": "44e38875621ebd5deff607a3f55c5ea57a582e09cb0b7d5f492a6edb9d5ac24e",
+      "parts": {
+        "I01": 86,
+        "I02": 148,
+        "I03": 117,
+        "I04": 143,
+        "I05": 130,
+        "I06": 193,
+        "I07": 115,
+        "I08": 102,
+        "I09": 63
+      }
+    },
+    "P05": {
+      "sha256": "f1f34a2a272584f6d1d6f105d6cb7a4f8dab036bbe6bbd2ae46425bebd228229",
+      "parts": {
+        "I01": 84,
+        "I02": 144,
+        "I03": 121,
+        "I04": 108,
+        "I05": 165,
+        "I06": 181,
+        "I07": 176,
+        "I08": 30,
+        "C01": 23,
+        "C02": 31,
+        "C03": 24,
+        "I09": 63
+      }
+    },
+    "Fuzzy2023": {
+      "sha256": "b08bb26380c0f68c5b3d364c80d5411692d190383e9b90128d8c987176be9d7d",
+      "parts": {
+        "I01": 291,
+        "I02": 124,
+        "I03": 160,
+        "I04": 40,
+        "C01": 26,
+        "C02": 35,
+        "C03": 17
+      }
+    },
+    "ESO2017": {
+      "sha256": "c1794d46b7b3c67952a83c30ebde053f5e0c38d71dddc35b694e6cbae191c962",
+      "parts": {
+        "I01": 75,
+        "I02": 115,
+        "I03": 181,
+        "I04": 32,
+        "I05": 266,
+        "I06": 183,
+        "I07": 358,
+        "I08": 119,
+        "C01": 20,
+        "C02": 20,
+        "C03": 26,
+        "I09": 60
+      }
+    }
+  },
+  "static_result": "PASS"
+}

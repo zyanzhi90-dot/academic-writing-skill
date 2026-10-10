@@ -22,6 +22,15 @@ B16 / P05, B17 / Fuzzy2023 and B18 / ESO2017 where their scientific relationship
 fit the current paragraph. Replace example facts, objects, comparisons,
 conditions and guarantees with the author's own science.
 
+Read [detail, allocation and information density](robotics-introduction-section.md#detail-allocation)
+when planning the section, then use the corresponding part of the selected
+example during paragraph drafting and Polishing review. Compare how fully its
+capabilities, conditions and adoption reasons develop, how compactly it explains
+design roles and interfaces, and where it closes the contribution. The observed
+source lengths describe those argument tasks; they set no word target, paragraph
+count or ratio for author prose. Adjust the allocation to the author's scientific
+relationships and the explanation they need.
+
 Use the main reference to sustain organization and English style; select a
 supplemental realization for the current scientific relationship and reconcile
 its terminology, person, tense and information order with the same manuscript.
@@ -66,6 +75,8 @@ Choose later content by the adoption reason, interface or contribution it still
 needs to explain; combine or shorten descriptions that only enumerate the
 method's components. Paragraph count, design placement and sentence order follow
 scientific dependencies, with no method-paragraph quota or length ratio.
+Use the section allocation analysis to decide which relationships need full
+literature and condition support and which already support the next move.
 
 Match the selected example's scientific level as well as its topic. In P17 I01,
 the application of robots establishes field value, the need for adaptability
@@ -80,6 +91,12 @@ Select, combine and adjust their subject–verb constructions, clause relations
 and ordinary wording to express the author facts. The opening sentence states
 the value or importance of the broad research field. Subsequent openings name
 the current scientific object, problem, route or responsibility directly.
+Use the matching paragraph's detail-and-density note alongside its English:
+retain each necessary mechanism or condition, and close a role once its purpose,
+object and effect are clear. Keep linked roles in suitable source clauses; split
+when the author's information load or object distinction requires it. Remove
+repeated background or effects that add no relation. Technical name repetition
+and shorter references remain contextual choices under the criteria below.
 
 For concrete literature, prefer the mature `In [xx], ... was
 proposed/developed/employed to ...` realizations in E05–E09 and E13. Follow the
@@ -126,7 +143,14 @@ Use the same resources and original author material to assess the draft's
 scientific line, paragraph responsibilities and sentence links before local
 wording. Check whether the opening establishes field value, literature states
 specific capabilities under the relevant conditions, core designs have adequate
-adoption reasons, and their roles connect to the contribution. Use the transition
+adoption reasons, and their roles connect to the contribution. Use the allocation
+analysis to compare the draft with the selected example's
+corresponding part: adequate detail for reasons and conditions, compact role and
+interface explanation, and substantive contribution closure. Inspect retained
+prose and additions for unnecessary splitting, repeated roles or effects, and
+expansion after the scientific task is complete. Repair an actual omission or
+redundancy while preserving necessary author explanation and clear variants.
+Use the transition
 comparison in Use during Drafting on the actual research-state-to-design prose:
 trace each adoption reason back to the cited capability or task condition and
 forward to the corresponding design action and effect. Preserve sound literature
